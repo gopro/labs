@@ -1,4 +1,4 @@
-#GoPro Labs
+# GoPro Labs
 
 Learn more about the GoPro Labs [QR Control](control) feature.
 
