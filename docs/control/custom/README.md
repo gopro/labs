@@ -34,7 +34,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 
 <div id="settingsFPS">
 <b>FPS Video:</b>&nbsp;&nbsp;<input type="radio" id="p10" name="fps" value="" checked> <label for="p10">not set</label><br>
-  <input type="radio" id="p1" name="fps" value="p24" ><label for="p1">24 </label>&nbsp;NTSC:&nbsp;
+  NTSC:&nbsp;<input type="radio" id="p1" name="fps" value="p24" ><label for="p1">24 </label>&nbsp;
   <input type="radio" id="p2" name="fps" value="p30" ><label for="p2">30 </label>&nbsp;
   <input type="radio" id="p3" name="fps" value="p60" ><label for="p3">60 </label>&nbsp;
   <input type="radio" id="p4" name="fps" value="p120"><label for="p4">120 </label>&nbsp;
