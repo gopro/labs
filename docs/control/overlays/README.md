@@ -41,7 +41,7 @@ Note: All text box support **\n** for a new line.
  * mm - month (1-12)
  * dd - day (1-31)
   
-**Any end message here:** <input type="text" id="endmsg" value=""><br>
+**Any end message here:**https://gopro.github.io/labs/control <input type="text" id="endmsg" value=""><br>
 
 **Screen Placement** <br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp1" name="placement" value="TL"><label for="sp1">Top Left    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,6 +64,10 @@ Make the overlay permanently active: **Are you sure?** <input type="checkbox" id
 
 QR Command: <b id="qrtext">time</b><br>
         
+Known Issues:
+- not working correctly in 4K50 and 4K60 video modes and Timelapse 4K.
+- does not update the time when used with motion detection triggered captures.
+		
 ## ver 1.0
 [BACK](..)
 
