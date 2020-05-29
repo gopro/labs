@@ -41,14 +41,12 @@ Note: All text box support **\n** for a new line.
  * mm - month (1-12)
  * dd - day (1-31)
  
-**Display Metadata (experimental) **  <input type="text" id="addmeta" value="">
+**Display Metadata (experimental)**  <input type="text" id="addmeta" value="">
 
 Examples:
  * GPS Location - add ** GPS: 'GPS50%1.6f', 'GPS51%1.6f' **
  * Sensor ISO - add ** ISO: 'ISOE%d' **
  * Ground Speed - add ** speed: 'GPS53%1.2f'm/s **
- * a range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH.
- * technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) 
  
 **Any end message here:**  <input type="text" id="endmsg" value=""><br>
 
@@ -76,6 +74,7 @@ QR Command: <b id="qrtext">time</b><br>
 Cool Tips:
 - Metadata overlays work great with live-streaming.  This was its original intended function. 
 - Overlays can be changed mid capture, it is one of the few modes that QR Code reading is active while recording. Example use: When live streaming an endurance auto-race, you can change the driver name on the overlay during driver change pit-stops. 
+- A range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH. For more technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) and other metadata you can display.
 
 Known Issues:
 - not working correctly in 4K50 and 4K60 video modes and Timelapse 4K.
