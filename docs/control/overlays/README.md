@@ -44,9 +44,9 @@ Note: All text box support **\n** for a new line.
 **Display Metadata (experimental)**  <input type="text" id="addmeta" value="">
 
 Examples:
- * GPS Location - add ** GPS: 'GPS50%1.6f', 'GPS51%1.6f' **
- * Sensor ISO - add ** ISO: 'ISOE%d' **
- * Ground Speed - add ** speed: 'GPS53%1.2f'm/s **
+ * GPS Location - add **GPS: 'GPS50%1.6f', 'GPS51%1.6f'**
+ * Sensor ISO - add **ISO: 'ISOE%d'**
+ * Ground Speed - add **speed: 'GPS53%1.2f'm/s**
  
 **Any end message here:**  <input type="text" id="endmsg" value=""><br>
 
@@ -78,7 +78,7 @@ Cool Tips:
 
 Known Issues:
 - not working correctly in 4K50 and 4K60 video modes and Timelapse 4K.
-- does not update the time when used with motion detection triggered captures.
+- does not update the time and metadata when used with motion detection triggered captures.
 - Metadata can take a second before it updates after capture start.
 		
 ## ver 1.01
