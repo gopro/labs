@@ -50,7 +50,7 @@ Examples:
  * a range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH.
  * technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) 
  
-**Any end message here:**https://gopro.github.io/labs/control <input type="text" id="endmsg" value=""><br>
+**Any end message here:**  <input type="text" id="endmsg" value=""><br>
 
 **Screen Placement** <br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp1" name="placement" value="TL"><label for="sp1">Top Left    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
