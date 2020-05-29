@@ -32,4 +32,7 @@ All setting commands start with a lowercase character, followed by either upperc
 
 ## The Full List of [**Action Commands**](./actions)
 
-### ver 1.00
+## Join The [**GoPro Labs Community**](https://community.gopro.com/t5/GoPro-Labs/bd-p/GoProLabs)
+
+
+### ver 1.01
