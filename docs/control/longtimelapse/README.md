@@ -85,7 +85,7 @@ function timeLoop()
 	document.getElementById("captext").innerHTML = Math.round(((interval+15)*frms/360))/10;	
 	document.getElementById("intervaltext").innerHTML = Math.round((interval+15)/6)/10;	
 	
-	cmd = "mPNdP!" + interval + "SQ!1R";
+	cmd = "!" + interval + "NQmPN!S!1R";
   }
   
   qrcode.clear(); 
