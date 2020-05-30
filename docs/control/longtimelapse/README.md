@@ -37,7 +37,7 @@ Maximum estimated frames: <b id="framestext">0</b> for  <b id="playtext">0</b> s
 
 QR Command: <b id="qrtext">time</b><br>
         
-## ver 1.0
+## ver 1.01
 [BACK](..)
 
 <script>
