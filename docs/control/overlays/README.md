@@ -77,7 +77,7 @@ Cool Tips:
 - A range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH. For more technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) and other metadata you can display.
 
 Known Issues:
-- not working correctly in 4K50 and 4K60 video modes and Timelapse 4K.
+- not working correctly in 4K50, 4K60 and 1080p240 video modes and Timelapse 4K.
 - does not update the time and metadata when used with motion detection triggered captures.
 - Metadata can take a second before it updates after capture start.
 		
