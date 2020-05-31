@@ -46,7 +46,7 @@ After a couple of hours of repeated motion capture, you are still likely to have
 The file **MISC\GL013585.jpg** matches capture in **DCIM\100GOPRO\GH013585.MP4**. The cross-hatched boxes show where the motion was detected. 
 
         
-## ver 1.01
+## ver 1.02
 [BACK](..)
 
 <script>
