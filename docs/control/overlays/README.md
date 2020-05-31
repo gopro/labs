@@ -58,7 +58,7 @@ Examples:
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="sp5" name="placement" value="MR"><label for="sp5">Mid Right   </label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp6" name="placement" value="BL"><label for="sp6">Lower Left  </label>&nbsp;
-  <input type="radio" id="b7" name="placement" value="BC"><label for="sp7">Lower Center</label>&nbsp;
+  <input type="radio" id="sp7" name="placement" value="BC"><label for="sp7">Lower Center</label>&nbsp;
   <input type="radio" id="sp8" name="placement" value="BR" checked><label for="sp8">Lower Right </label>&nbsp;<br>
   
 <center>
