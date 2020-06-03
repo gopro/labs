@@ -12,7 +12,7 @@
 
 # Altered File Naming via QR Code
 
-You GoPro HERO8 will typically name your files something like GOPR3606.JPG and GH013607.MP4.  If you format your media, and factory reset your camera, you can change the file counter back to zero, but otherwise, you have no control over the file name, until this Labs hack. This intended for high volume multiple camera production, where simply naming the source media different will ease post productions. WARNING: The GoPro App on mobile will not support these renamed files.
+You GoPro HERO8 will typically name your files something like GOPR3606.JPG and GH013607.MP4.  If you format your media, and factory reset your camera, you can change the file counter back to zero, but otherwise, you have no control over the file name, until this Labs hack. This intended for high volume multiple camera production, where simply naming the source media different will ease post productions. **WARNING:** The GoPro App and GoPro Plus will not support these renamed files.
 
 Your base filename here: <input type="text" id="addname" value=""> (use only a-z, A-Z, 0-9, '-', "_" and '+' characters)<br> 
 Up to eight characters. e.g. "CAMERA06"<br> 

@@ -22,7 +22,7 @@ GoPro cameras normally split long recordings into 4GB segments, we call these ch
 </center>
 QR Command: <b id="qrtext">command</b><br>
 
-Warning: Larger chapters may not work everywhere in the ecosystem, even the camera will not playback files larger than 4GB in this current firmware. Yet the files are valid, and have been tested to work in many tools. So this one of the more experimental features, so please test before commiting to this new workflow.
+**Warning:** Larger chapters may not work everywhere in the ecosystem, even **the camera will not playback or USB transfer files larger than 4GB** in this current firmware. Yet the files are valid and accessible using a SD Card reader, and have been tested to work in many tools. So this one of the more experimental features, so please test before committing to this new workflow.
 
 <br> 
         
