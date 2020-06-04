@@ -24,9 +24,11 @@ QR Command: <b id="qrtext">command</b><br>
 
 **Warning:** Larger chapters may not work everywhere in the ecosystem, even **the camera will not playback or USB transfer files larger than 4GB** in this current firmware. Yet the files are valid and accessible using a SD Card reader, and have been tested to work in many tools. So this one of the more experimental features, so please test before committing to this new workflow.
 
+**Known Issue:** Larger chapters will not be enabled when using QuikCapture. QuikCapture starts recording before the Labs service starts, resulting in perfectly fine, but only 4GB chapters. 
+
 <br> 
         
-## ver 1.00
+## ver 1.01
 [BACK](..)
 
 <script>
