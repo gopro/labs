@@ -388,7 +388,7 @@ GoPro QR Command: <b id="txt"></b>
 
 [Learn more](..) on QR Control
 
-## version 1.03
+## version 1.04
 
 <script>
 var lastcmd = "";
@@ -500,12 +500,14 @@ function startTime() {
 		dset("settingsTimelapse", true);		
 		dset("settingsRESTLV", true);
 		dset("settingsTLVFOV", true);
+		dset("settingsPT", true);
 		break;
 		
 		case 3: //TimeWarp Video
 		dset("settingsTimewarp", true);		
 		dset("settingsRESTLV", true);
 		dset("settingsTLVFOV", true);
+		dset("settingsPT", true);
 		break;		
 	
 		case 4: //Photo
