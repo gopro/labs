@@ -388,7 +388,12 @@ GoPro QR Command: <b id="txt"></b>
 
 [Learn more](..) on QR Control
 
-## version 1.04
+## This Page as a Mobile App
+
+[![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
+[![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
+
+## version 1.05
 
 <script>
 var lastcmd = "";
