@@ -1,3 +1,4 @@
+<script src="../../register-service-worker.js"></script>
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>

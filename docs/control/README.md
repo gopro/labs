@@ -1,3 +1,5 @@
+<script src="../../register-service-worker.js"></script>
+
 # QR Control
 
 ## Example Pre-built Commands
