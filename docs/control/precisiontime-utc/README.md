@@ -10,9 +10,9 @@
         }
 </style>
 
-# Precision Date and Time
+# Precision Date and Time in UTC
 
-This QR set your Gopro to local time, to set your Gopro to UTC time, use [Precision Date and Time UTC](../precisiontime-utc).
+Similar to its sibling, [Precision Date and Time](../precisiontime), but this set your camera to UTC time, as current Gopro firmware does not support timezone nor DST, and setting your Gopro to UTC time [will fix](https://community.gopro.com/t5/Cameras/Time-zone-set-incorrectly/td-p/265136) time problem with any Photo/Video manager, including Google Photo.
 
 Simply point your Labs enabled camera at this animated QR Code, to set your date and time very accurately. This is particularly useful for multi-camera shoots, as it helps synchronize the timecode between cameras. As the camera's internal clock will drift slowly over time, use this QR Code just before your multi-camera shoot for the best synchronization. 
 
@@ -43,34 +43,29 @@ function makeQR() {
     once = false;
   }
 }
-function padTime(i) {
-  if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
-  return i;
+
+function padTrim2Digits(i) {
+  if (i < 10) {
+    return "0" + i;
+  }
+  return ("" + i).substr(-2);
 }
+
 function timeLoop()
 {
-  var today;
-  var yy,mm,dd,h,m,s;
-  var ms;
   
-  today = new Date();
-  yy = today.getFullYear() - 2000;
-  mm = today.getMonth() + 1;
-  dd = today.getDate();
-  h = today.getHours();
-  m = today.getMinutes();
-  s = today.getSeconds();
-  ms = today.getMilliseconds();
-  yy = padTime(yy);
-  mm = padTime(mm);
-  dd = padTime(dd);
-  h = padTime(h);
-  m = padTime(m);
-  s = padTime(s);
-  ms = Math.floor(ms / 10); // hundredths
-  ms = padTime(ms);
+  const today = new Date();
+  const year = today.getUTCFullYear();
+  const month = today.getUTCMonth() + 1;
+  const day = today.getUTCDate();
+  const hour = today.getUTCHours();
+  const minute = today.getUTCMinutes();
+  const second = today.getUTCSeconds();
+  const milliseconds = today.getUTCMilliseconds();
+  const centisecond = Math.floor(milliseconds / 10);
 
-  cmd = "oT" + yy + mm + dd + h + m + s + "." + ms;
+  cmd = "oT" + padTrim2Digits(year) + padTrim2Digits(month) + padTrim2Digits(day) + padTrim2Digits(hour) + padTrim2Digits(minute) + padTrim2Digits(second) + "." + padTrim2Digits(centisecond);
+
   qrcode.clear(); 
   qrcode.makeCode(cmd);
   document.getElementById("qrtext").innerHTML = cmd;

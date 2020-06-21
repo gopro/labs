@@ -12,7 +12,7 @@
 
 # Construction Time-lapses
 
-An extension of [Extra Long Time-lapses](../longtimelapse) feature, just performed during construction hours alone, to extend your battery life and reduce the number of images you will assemble into a time-lapse.  Remember to set your camera's [clock](../precisiontime) before using this QR Code.
+An extension of [Extra Long Time-lapses](../longtimelapse) feature, just performed during construction hours alone, to extend your battery life and reduce the number of images you will assemble into a time-lapse.  Remember to set your camera's clock to [local time](../precisiontime) or [UTC time](../precisiontime-utc) before using this QR Code.
 
 ## Daytime Time-lapse Calculator
 
