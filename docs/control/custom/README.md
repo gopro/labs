@@ -162,6 +162,11 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="ptc2" name="ptc" value="cF"> <label for="ptc2">Flat</label>&nbsp;&nbsp;
   <input type="radio" id="ptc3" name="ptc" value="" checked> <label for="ptc3">not set</label>
 </div>
+<div id="ptBITRATE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Bit rate:</b>&nbsp;&nbsp;
+  <input type="radio" id="br1" name="br" value="b0"> <label for="br1">Standard</label>&nbsp;&nbsp;
+  <input type="radio" id="br2" name="br" value="b1"> <label for="br2">High</label>&nbsp;&nbsp;
+  <input type="radio" id="br3" name="br" value="" checked> <label for="br3">not set</label>
+</div>
 <div id="ptWBAL">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>White Balance:</b>&nbsp;&nbsp;
   <input type="radio" id="wb1" name="wb" value="wA" checked> <label for="wb1">Auto </label>&nbsp;&nbsp;
   <input type="radio" id="wb2" name="wb" value="w23" > <label for="wb2">2300K </label>&nbsp;&nbsp;
@@ -392,7 +397,7 @@ GoPro QR Command: <b id="txt"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.06
+## version 1.07
 
 <script>
 var lastcmd = "";
@@ -448,6 +453,7 @@ function startTime() {
 	dset("settingsAUDT",false);
 	
 	dset("ptCOLOR", false);
+	dset("ptBITRATE", false);
 	dset("ptWBAL", false);
 	dset("ptISO",false);
 	dset("ptIMIN",false);
@@ -555,6 +561,7 @@ function startTime() {
 		if(document.getElementById("pt").checked === true)
 		{
 			dset("ptCOLOR", true);
+			dset("ptBITRATE", true);
 			dset("ptWBAL", true);
 			dset("ptISO",true);
 			dset("ptIMIN",true);
@@ -695,6 +702,7 @@ function startTime() {
 		if(document.getElementById("pt").checked === true)
 		{
 			cmd = dcmd(cmd,"ptc"); //color
+			cmd = dcmd(cmd,"br"); //bitrate
 			cmd = dcmd(cmd,"wb"); //wb
 
 			if(document.getElementById('iso8').checked === false || document.getElementById('isomin8').checked === false)
