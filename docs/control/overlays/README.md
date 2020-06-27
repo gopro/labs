@@ -45,7 +45,7 @@ Note: All text box support **\n** for a new line.
 
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am1" name="addmeta" value="'GPS53%1.2f'm/s"> <label for="am1">Add speed in m/s (requires GPS)</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS50%1.6f', 'GPS51%1.6f'"> <label for="am2">Add GPS Location</label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am3" name="addmeta" value="ISO: 'ISOE%d'"> <label for="am3">Sensor ISO</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am3" name="addmeta" value="ISO:'ISOE%d'"> <label for="am3">Sensor ISO</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am4" name="addmeta" value="" checked> <label for="am4">none</label><br>
  
 **Any end message here:**  <input type="text" id="endmsg" value=""><br>
@@ -72,7 +72,7 @@ Note: All text box support **\n** for a new line.
 </center>
 
 
-Make the overlay permanently active: **Are you sure? Practice without this option first**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label><br>
+Make the overlay permanently active: **Are you sure? (Risky)**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label><br>
 
 QR Command: <b id="qrtext">time</b><br>
 
