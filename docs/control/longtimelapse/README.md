@@ -23,9 +23,9 @@ As the camera is off between frames, it is also possible to periodically change 
 
 ## Time-lapse Calculator
 
-Number of days <input type="range" id="tldays" name="tldays" min="0" max="50" value="0"><label for="tldays"></label> <b id="daystext"></b>
+Number of days <input type="range" style="width: 300px;" id="tldays" name="tldays" min="0" max="50" value="0"><label for="tldays"></label> <b id="daystext"></b>
 
-Number of hours <input type="range" id="tlhours" name="tlhours" min="0" max="48" value="24"><label for="tlhours"></label> <b id="hourstext"></b>
+Number of hours <input type="range" style="width: 300px;" id="tlhours" name="tlhours" min="0" max="48" value="24"><label for="tlhours"></label> <b id="hourstext"></b>
 
 Maximum estimated frames: <b id="framestext">0</b> for  <b id="playtext">0</b> seconds of playback at 30fps. Capture time estimate <b id="captext">0</b> hours with an interval of <b id="intervaltext">0</b> minutes.
 
