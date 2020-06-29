@@ -47,7 +47,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 </div>
 
 <div id="settingsFOV">
-<b>FOV:</b>
+<b>Lens:</b>
   <input type="radio" id="f1" name="fov" value="fW"> <label for="f1">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="f2" name="fov" value="fM"> <label for="f2">Medium </label>&nbsp;&nbsp;
   <input type="radio" id="f3" name="fov" value="fN"> <label for="f3">Narrow </label>&nbsp;&nbsp;
@@ -58,7 +58,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
  
  
 <div id="settingsTLVFOV">
-<b>FOV:</b>
+<b>Lens:</b>
   <input type="radio" id="tlvf1" name="tlvfov" value="fW"> <label for="tlvf1">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="tlvf2" name="tlvfov" value="fL"> <label for="tlvf2">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="tlvf3" name="tlvfov" value="" checked> <label for="tlvf3">not set</label><br><br>
@@ -397,7 +397,7 @@ GoPro QR Command: <b id="txt"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.07
+## version 1.08
 
 <script>
 var lastcmd = "";
