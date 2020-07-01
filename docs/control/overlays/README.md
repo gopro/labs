@@ -87,7 +87,7 @@ Known Issues:
 - Metadata can take a second before it updates after capture start.
 - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.     
 		
-## ver 1.05
+## ver 1.06
 [BACK](..)
 
 <script>
@@ -158,16 +158,16 @@ function timeLoop()
     {
 		if(document.getElementById("permanent").checked === true)
 		{
-			cmd = "g1!MLFIN=\"0\"";
+			cmd = cmd + "g1!MLFIN=\"0\"";
 		}
 		else
 		{
-			cmd = "g1oMLFIN=0";
+			cmd = cmd + "g1oMLFIN=0";
 		}		
 	}
 	else
 	{
-		cmd = "g0";
+		cmd = cmd + "g0";
 	}
 	
     cmd = cmd + mtype + "MBRNO=" + document.getElementById("offset").value + mtype + "MBURN=\"(" + document.getElementById("hsize").value + "," + document.getElementById("vsize").value + ")" + document.getElementById("startmsg").value + openb + pos + document.getElementById("addtime").value + document.getElementById("adddate").value;
