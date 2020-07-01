@@ -85,8 +85,9 @@ Known Issues:
 - not working correctly in 4K50 and 4K60 video modes and Timelapse 4K.
 - does not update the time and metadata when used with motion detection triggered captures.
 - Metadata can take a second before it updates after capture start.
+- Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.     
 		
-## ver 1.04
+## ver 1.05
 [BACK](..)
 
 <script>
@@ -143,7 +144,7 @@ function timeLoop()
 	var pos = dcmd("","sp");
 	
     if(document.getElementById("permanent").checked === true)
-		mtype = "!";
+		mtype = "!RESET!";
 
 	cmd = "";
 	
