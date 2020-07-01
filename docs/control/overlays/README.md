@@ -143,10 +143,16 @@ function timeLoop()
 	var closeb = "\]";
 	var pos = dcmd("","sp");
 	
-    if(document.getElementById("permanent").checked === true)
-		mtype = "!RESET!";
+   
 
 	cmd = "";
+	
+	 if(document.getElementById("permanent").checked === true)
+	 {
+		cmd = "!RESET";
+		mtype = "!";
+     }
+
 	
     if(document.getElementById("gps").checked === true)
     {
