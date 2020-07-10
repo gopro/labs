@@ -58,7 +58,7 @@ Note: All text box support **\n** for a new line.
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="sp5" name="placement" value="MR"> <label for="sp5">Mid Right   </label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp6" name="placement" value="BL"> <label for="sp6">Lower Left  </label>&nbsp;
-  <input type="radio" id="b7" name="placement" value="BC"> <label for="sp7">Lower Center</label>&nbsp;
+  <input type="radio" id="sp7" name="placement" value="BC"> <label for="sp7">Lower Center</label>&nbsp;
   <input type="radio" id="sp8" name="placement" value="BR" checked> <label for="sp8">Lower Right </label>&nbsp;<br>
   
   
@@ -87,7 +87,7 @@ Known Issues:
 - Metadata can take a second before it updates after capture start.
 - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.     
 		
-## ver 1.08
+## ver 1.09
 [BACK](..)
 
 <script>
