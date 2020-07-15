@@ -72,7 +72,7 @@ Note: All text box support **\n** for a new line.
 </center>
 
 
-Make the overlay permanently active: **Are you sure? (Risky)**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label><br>
+<!-- Make the overlay permanently active: **Are you sure? (Risky)**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label><br> -->
 
 QR Command: <b id="qrtext">time</b><br>
 
@@ -85,9 +85,11 @@ Known Issues:
 - not working correctly in 4K50 and 4K60 video modes and Timelapse 4K.
 - does not update the time and metadata when used with motion detection triggered captures.
 - Metadata can take a second before it updates after capture start.
-- Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.     
+<!-- - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.   -->
+
 		
-## ver 1.09
+## ver 1.10
+
 [BACK](..)
 
 <script>
@@ -147,20 +149,20 @@ function timeLoop()
 
 	cmd = "";
 	
-	 if(document.getElementById("permanent").checked === true)
-	 {
-		cmd = "!RESET!30NQ";
-		mtype = "!";
-     }
+	//if(document.getElementById("permanent").checked === true)
+	//{
+	//	cmd = "!RESET!30NQ";
+	//	mtype = "!";
+    //}
 
 	
     if(document.getElementById("gps").checked === true)
     {
-		if(document.getElementById("permanent").checked === true)
-		{
-			cmd = cmd + "g1!MLFIN=\"0\"";
-		}
-		else
+		//if(document.getElementById("permanent").checked === true)
+		//{
+		//	cmd = cmd + "g1!MLFIN=\"0\"";
+		//}
+		//else
 		{
 			cmd = cmd + "g1oMLFIN=0";
 		}		
