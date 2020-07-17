@@ -22,6 +22,9 @@ End Time <input type="range" style="width: 300px;" id="tlend" name="tlend" min="
 
 Number of photos per day <input type="range" style="width: 300px;" id="tlday" name="tlday" min="10" max="300" value="60"><label for="tlday"></label> <b id="perdaytext"></b>
 
+<input type="checkbox" id="setdatetime" name="setdatetime" checked> 
+<label for="setdatetime">Automatically update the camera date and time</label><br>
+
 Estimated runtime per charged battery: <b id="daystext">0</b> days
 
 <center>
@@ -42,7 +45,7 @@ As stated above, most Lithium Ion USB power-banks will shut-off early, even when
 The second option is a USB keep alive device that prevents your USB power bank from shutting down.  Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
 	
-## ver 1.01
+## ver 1.02 
 
 [BACK](..)
 
@@ -50,6 +53,8 @@ The second option is a USB keep alive device that prevents your USB power bank f
 var once = true;
 var qrcode;
 var cmd = "mPdP!60SQ!1R";
+var lasttimecmd = "";
+var changed = false;
 
 function makeQR() 
 {	
@@ -66,6 +71,10 @@ function makeQR()
   }
 }
 
+function checkTime(i) {
+    if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
+    return i;
+}
 
 function pad(num, size) {
     var s = num+"";
@@ -111,11 +120,56 @@ function timeLoop()
 	if(interval < 30) interval = 30;
 	
 	cmd = "mPdP>" + stxt + "<" + etxt + "!" + interval + "SQ~" + "!" + stxt + "S!1R";
+	
+	
+	if(document.getElementById("setdatetime") !== null)
+    {
+		if(document.getElementById("setdatetime").checked === true)
+		{
+			var today;
+			var yy;
+			var mm;
+			var dd;
+			var h;
+			var m;
+			var s; 
+			today = new Date();
+					
+			yy = today.getFullYear() - 2000;
+			mm = today.getMonth() + 1;
+			dd = today.getDate();
+			h = today.getHours();
+			m = today.getMinutes();
+			s = today.getSeconds();
+				
+			yy = checkTime(yy);
+			mm = checkTime(mm);
+			dd = checkTime(dd);
+			h = checkTime(h);
+			m = checkTime(m);
+			s = checkTime(s);
+			
+			cmd = "oT" + yy + mm + dd + h + m + s + cmd;
+		}
+	}
   }
   
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
+  
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+  
   var t = setTimeout(timeLoop, 100);
 }
 

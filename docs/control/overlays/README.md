@@ -88,7 +88,7 @@ Known Issues:
 <!-- - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.   -->
 
 		
-## ver 1.10
+## ver 1.11
 
 [BACK](..)
 
@@ -96,6 +96,8 @@ Known Issues:
 var once = true;
 var qrcode;
 var cmd = "";
+var lasttimecmd = "";
+var changed = true;
 
 function dcmd(cmd, id) {
     var x;
@@ -194,7 +196,20 @@ function timeLoop()
   
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
+  
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+  
   var t = setTimeout(timeLoop, 50);
 }
 
