@@ -28,13 +28,15 @@ Can be restored by setting the basename to nothing.
 </center>
 QR Command: <b id="qrtext">time</b><br>
         
-## ver 1.0
+## ver 1.01
 [BACK](..)
 
 <script>
 var once = true;
 var qrcode;
 var cmd = "";
+var lasttimecmd = "";
+var changed = true;
 var number = 1;
 
 function makeQR() 
@@ -102,7 +104,19 @@ function timeLoop()
 
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+  
   var t = setTimeout(timeLoop, 250);
 }
 
