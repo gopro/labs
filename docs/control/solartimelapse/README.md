@@ -33,13 +33,15 @@ Note: you will have to manually set the interval and resolution for the night la
 
 QR Command: <b id="qrtext">time</b><br>
         
-## ver 1.01
+## ver 1.02
 [BACK](..)
 
 <script>
 var once = true;
 var qrcode;
 var cmd = "oC15mNLeA";
+var lasttimecmd = "";
+var changed = true;
 var today;
 var yy;
 var mm;
@@ -146,8 +148,20 @@ function timeLoop()
   
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
-  var t = setTimeout(timeLoop, 100);
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+	
+  var t = setTimeout(timeLoop, 50);
 }
 
 function myReloadFunction() {
