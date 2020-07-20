@@ -12,7 +12,7 @@
 
 # Personalize via QR Code
 
-You can choose to have your camera display your name, phone number or email, upon camera start-up. This could be helpful in the event the camera is lost. Or simply name your cameras. In addition to being displayed, it is written within a new file, “GoPro-owner.txt”, to the root of the SD card. This information is stored in the camera, not just the SD Card, so even if the camera is stolen, and the SD card replaced, the name will be displayed, and GoPro-owner.txt file is regenerated on each new SD card.
+You can choose to have your camera display your name, phone number or email, upon camera start-up. This could be helpful in the event the camera is lost. Or simply name your cameras. In addition to being displayed, it is written within each MP4 or JPG created. This information is stored in the camera, not the SD Card, so even if the camera is stolen, and the SD card replaced, the name will be displayed, and within each new media file regenerated.
  
 Your personalization info here: <input type="text" id="addname" value=""><br>
 <center>
@@ -22,14 +22,19 @@ Your personalization info here: <input type="text" id="addname" value=""><br>
 QR Command: <b id="qrtext">time</b><br>
 Note: Use \n for a new line. 
 e.g. Joe Bloggs\ncall (555)555-5555 
+
+Known Issues: 
+- It was to also create a new file, “GoPro-owner.txt”, to the root of the SD card.  That is currently not working.
         
-## ver 1.0
+## ver 1.02
 [BACK](..)
 
 <script>
 var once = true;
 var qrcode;
 var cmd = "";
+var lasttimecmd = "";
+var changed = true;
 
 function makeQR() 
 {	
@@ -59,7 +64,19 @@ function timeLoop()
 
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+  
   var t = setTimeout(timeLoop, 50);
 }
 

@@ -33,6 +33,10 @@ Note: you will have to manually set the mode in which you capture.  Motion detec
 
 QR Command: <b id="qrtext">time</b><br>
 
+## Limitations
+
+Due to processing loads on the camera, motion detection will not work correctly for 4K60, 2.7k120 and 1080p240.  The start trigger will work, but once the camera is recording, it can't detect the stop in motion. For full functionality for motion detection, use modes like 4Kp30, 2.7Kp60, or 1080p120 etc.
+
 ## After Capture - Finding Your Snow Leopard (or Backyard Dog)
 
 After a couple of hours of repeated motion capture, you are still likely to have many false positives, resulting in more MP4 files than you need. We have a solution to help you narrow down to the best shots. For each capture start, the camera will create a JPEG showing where the motion was detected. So if you are looking for a ground animal and a bird flies by, the detection would show a patch in the sky. The JPEG is stored in the MISC folder, with a matching file number to the MP4 created. Sometimes it is faster to scan these JPEGs to find the videos you want?
@@ -42,13 +46,15 @@ After a couple of hours of repeated motion capture, you are still likely to have
 The file **MISC\GL013585.jpg** matches capture in **DCIM\100GOPRO\GH013585.MP4**. The cross-hatched boxes show where the motion was detected. 
 
         
-## ver 1.0
+## ver 1.03
 [BACK](..)
 
 <script>
 var once = true;
 var qrcode;
 var cmd = "oC";
+var lasttimecmd = "";
+var changed = true;
 
 function dcmd(cmd, id) {
     var x;
@@ -121,7 +127,19 @@ function timeLoop()
   
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+  
   var t = setTimeout(timeLoop, 100);
 }
 

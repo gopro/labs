@@ -21,6 +21,9 @@ Start <input type="range" id="tlmin" name="tlmin" min="1" max="60" value="15"><l
 <input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat for tomorrow's sunrise/sunset</label><br>
 
+<input type="checkbox" id="setdatetime" name="setdatetime" checked> 
+<label for="setdatetime">Automatically update the camera date and time</label><br>
+
 Note: you will have to manually set the interval and resolution for the night lapse mode, unfortunately not everything got hooked up with a QR Code. 
  
 <center>
@@ -30,13 +33,22 @@ Note: you will have to manually set the interval and resolution for the night la
 
 QR Command: <b id="qrtext">time</b><br>
         
-## ver 1.0
+## ver 1.02
 [BACK](..)
 
 <script>
 var once = true;
 var qrcode;
-var cmd = "oC30mNLeA";
+var cmd = "oC15mNLeA";
+var lasttimecmd = "";
+var changed = true;
+var today;
+var yy;
+var mm;
+var dd;
+var h;
+var m;
+var s;
 
 function dcmd(cmd, id) {
     var x;
@@ -77,11 +89,40 @@ function makeQR()
   }
 }
 
+function checkTime(i) {
+    if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
+    return i;
+}
+
 function timeLoop()
 {
   if(document.getElementById("tlmin") !== null)
   {
-	cmd = "oC30mNLeA";
+	cmd = "oC15mNLeA";
+	
+	if(document.getElementById("setdatetime") != null)
+    {
+		if(document.getElementById("setdatetime").checked == true)
+		{
+			today = new Date();
+					
+			yy = today.getFullYear() - 2000;
+			mm = today.getMonth() + 1;
+			dd = today.getDate();
+			h = today.getHours();
+			m = today.getMinutes();
+			s = today.getSeconds();
+				
+			yy = checkTime(yy);
+			mm = checkTime(mm);
+			dd = checkTime(dd);
+			h = checkTime(h);
+			m = checkTime(m);
+			s = checkTime(s);
+			
+			cmd = "oT" + yy + mm + dd + h + m + s + cmd;
+		}
+	}
 			
 	var mins = parseInt(document.getElementById("tlmin").value);	
 	document.getElementById("minstext").innerHTML = mins;	
@@ -107,8 +148,20 @@ function timeLoop()
   
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
-  var t = setTimeout(timeLoop, 100);
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+	
+  var t = setTimeout(timeLoop, 50);
 }
 
 function myReloadFunction() {
