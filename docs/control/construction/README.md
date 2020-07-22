@@ -22,8 +22,9 @@ End Time <input type="range" style="width: 300px;" id="tlend" name="tlend" min="
 
 Number of photos per day <input type="range" style="width: 300px;" id="tlday" name="tlday" min="10" max="300" value="60"><label for="tlday"></label> <b id="perdaytext"></b>
 
-<input type="checkbox" id="setdatetime" name="setdatetime" checked> 
+<!-- <input type="checkbox" id="setdatetime" name="setdatetime" checked> 
 <label for="setdatetime">Automatically update the camera date and time</label><br>
+-->
 
 Estimated runtime per charged battery: <b id="daystext">0</b> days
 
@@ -45,7 +46,7 @@ As stated above, most Lithium Ion USB power-banks will shut-off early, even when
 The second option is a USB keep alive device that prevents your USB power bank from shutting down.  Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
 	
-## ver 1.02 
+## ver 1.03
 
 [BACK](..)
 
@@ -121,7 +122,7 @@ function timeLoop()
 	
 	cmd = "mPdP>" + stxt + "<" + etxt + "!" + interval + "SQ~" + "!" + stxt + "S!1R";
 	
-	
+	/*
 	if(document.getElementById("setdatetime") !== null)
     {
 		if(document.getElementById("setdatetime").checked === true)
@@ -151,7 +152,7 @@ function timeLoop()
 			
 			cmd = "oT" + yy + mm + dd + h + m + s + cmd;
 		}
-	}
+	}*/
   }
   
   qrcode.clear(); 
