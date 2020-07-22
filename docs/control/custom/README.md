@@ -401,7 +401,7 @@ GoPro QR Command: <b id="txt"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.10
+## version 1.11
 
 <script>
 var lastcmd = "";
@@ -1033,10 +1033,7 @@ function startTime() {
 	if(cmd != lasttimecmd)
 	{
 		changed = true;
-		lasttimecmd = cmd;
-	}
-
-	
+	}	
 	
 	var delay = 200;
 	
@@ -1053,7 +1050,11 @@ function startTime() {
 			qrcode.makeCode(cmd);
 		}
 		
-		document.getElementById('txt').innerHTML = cmd;		
+		if(cmd != lasttimecmd)
+		{
+			document.getElementById('txt').innerHTML = cmd;		
+			lasttimecmd = cmd;
+		}		
 		
 		lastms = today.getTime();
 		changed = false;
