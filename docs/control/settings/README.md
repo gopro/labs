@@ -18,8 +18,9 @@ Mode commands:
  * **mV** - mode Video
  * **mP** - mode Photo
  * **mT** - mode Timelapse video
+ * **mTP** - mode Timelapse Photo
  * **mTW** - mode TimeWarp
- * **mPB** - mode Burst Photo 
+ * **mPB** - mode Photo Burst 
  * **mPN** - mode Photo Night
  * **mNL** - mode Night-Lapse
  
@@ -136,7 +137,7 @@ Same further option (‘o’) commands
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.01
+## ver 1.02
 [BACK](..)
 
 
