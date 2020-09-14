@@ -14,19 +14,22 @@
 
 You can choose to have your camera display your name, phone number or email, upon camera start-up. This could be helpful in the event the camera is lost. Or simply name your cameras. In addition to being displayed, it is written within each MP4 or JPG created. This information is stored in the camera, not the SD Card, so even if the camera is stolen, and the SD card replaced, the name will be displayed, and within each new media file regenerated.
  
-Your personalization info here: <input type="text" id="addname" value=""><br>
+Your personalization info here: <br>
+  Line 1: <input type="text" id="addnam1" value=""><br>
+  Line 2: <input type="text" id="addnam2" value=""> (optional)<br>
+  Line 3: <input type="text" id="addnam3" value=""> (optional)<br>
 <center>
 <div id="qrcode"></div>
 <br>
 </center>
 QR Command: <b id="qrtext">time</b><br>
-Note: Use \n for a new line. 
+Note: For additional lines use \n within your text. 
 e.g. Joe Bloggs\ncall (555)555-5555 
 
 Known Issues: 
 - It was to also create a new file, “GoPro-owner.txt”, to the root of the SD card.  That is currently not working.
         
-## ver 1.02
+## ver 1.03
 [BACK](..)
 
 <script>
@@ -35,6 +38,40 @@ var qrcode;
 var cmd = "";
 var lasttimecmd = "";
 var changed = true;
+
+
+function UTF16ToASCII()
+{
+    var out, i;
+	
+	var text = document.getElementById("addnam1").value;
+	
+	if(document.getElementById("addnam2").value.length > 0)
+	{
+		text += "\\n";
+		text += document.getElementById("addnam2").value;
+	}
+	if(document.getElementById("addnam3").value.length > 0)
+	{
+		text += "\\n";
+		text += document.getElementById("addnam3").value;
+	}
+    out = "";
+	
+	for (i=0;i<text.length;i++)
+	{
+		var code = text.charCodeAt(i);
+		if(code<128)
+		{
+			out += text.charAt(i);
+		}
+		else if(code == 0x2019 || code == 0x2018 || code == 0x22 ) // all quotes to single quote
+		{
+			out += "'";
+		}
+	}
+	return out;
+}	
 
 function makeQR() 
 {	
@@ -53,9 +90,10 @@ function makeQR()
 
 function timeLoop()
 {
-  if(document.getElementById("addname") !== null)
+  if(document.getElementById("addnam1") !== null && document.getElementById("addnam2") !== null && document.getElementById("addnam3") !== null)
   {
-    cmd = "!MOWNR=\"" + document.getElementById("addname").value + "\"";
+	var simplename = UTF16ToASCII();
+    cmd = "!MOWNR=\"" + simplename + "\"";
   }
   else
   {
