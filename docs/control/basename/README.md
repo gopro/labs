@@ -12,12 +12,14 @@
 
 # Altered File Naming via QR Code
 
-You GoPro HERO8 will typically name your files something like GOPR3606.JPG and GH013607.MP4.  If you format your media, and factory reset your camera, you can change the file counter back to zero, but otherwise, you have no control over the file name, until this Labs hack. This intended for high volume multiple camera production, where simply naming the source media different will ease post productions. **WARNING:** The GoPro App and GoPro Plus will not support these renamed files.
+Your GoPro will typically name your files something like GOPR3606.JPG and GH013607.MP4. If you format your media, and factory reset your camera, you can change the file counter back to zero, but otherwise, you have no control over the file name, until this Labs hack. This is intended for high volume multiple camera production, where simply naming the source media differently will ease post production. 
+
+**WARNING:** The GoPro App and GoPro cloud services will not support these renamed files. In addition, the camera's automatic file repair will not know to repair these files (see Manual File Recovery below), so only use this feature if you aren't putting cameras in extreme danger (where power could be randomly disconnected.) 
 
 Your base filename here: <input type="text" id="addname" value=""> (use only a-z, A-Z, 0-9, '-', "_" and '+' characters)<br> 
 Up to eight characters. e.g. "CAMERA06"<br> 
 <br>
-Your filenames with be in the format: <b id="newnameMP4">nameGH013607.MP4</b> and <b id="newnameJPG">nameGOPR3607.JPEG</b><br>
+Your filenames will be in the format: <b id="newnameMP4">nameGH013607.MP4</b> and <b id="newnameJPG">nameGOPR3607.JPEG</b><br>
 
 <center>
 <div id="qrcode"></div>
@@ -27,8 +29,35 @@ Can be restored by setting the basename to nothing.
 
 </center>
 QR Command: <b id="qrtext">time</b><br>
-        
-## ver 1.01
+
+
+## Useful Tip - Manual File Recovery 
+ 
+So you have a corrupted/unclosed GoPro file. You crashed your drone, and the battery was disconnected before the file was closed, or you ran your car wheel over a recording GoPro, crushing it. If your SD Card survived, the file is likely recoverable using another GoPro. 
+
+1. You need any working GoPro camera, although the same model and firmware version is advised. If you're using Labs Firmware and are using Altered file naming (this page's Labs feature), reset the filenaming to the default. 
+
+2. Copy the file you want to repair to your PC
+
+3. With a working GoPro, record for 10+ seconds then pull the power or battery, while still recording. You want an intentionally unclosed file. The camera will remember it needs to repair only this file
+
+4. Add that SD Card to your PC directly (not via camera USB)
+
+5. Copy the filename of the last MP4 captured. e.g. "GX010358.MP4"
+
+6. Delete this dummy file from the SD Card
+
+7. Add your previous corrupted (unclosed) file to the SD card, and rename it to the copied name. e.g. If your filename was "Drone03_GX010201.MP4", or just "GH010330.MP4", rename it to "GX010358.MP4" (your last MP4 filename)
+
+8. Insert the SD Card with your corrupted file back into the working GoPro camera
+
+9. Power on the camera, and the "last" file will be repaired
+
+10. Once the camera completes the file repair process, you can eject the SD Card and backup and play the now repaired file
+
+
+ 
+## ver 1.02
 [BACK](..)
 
 <script>
