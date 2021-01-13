@@ -1,7 +1,7 @@
 # GoPro Labs
 
-Learn more about the GoPro Labs [QR Control](control) feature.
+Learn more about the GoPro Labs [QR Control](control) features.
 
-[GoPro Labs](https://community.gopro.com/t5/GoPro-Labs/ct-p/GoProLabs) community pages.
+[GoPro Labs](https://gopro.com/labs) information and links to the community pages.
 
-## ver 1.0
+## ver 1.01
