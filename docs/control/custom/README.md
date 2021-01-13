@@ -24,26 +24,28 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="m7" name="mode" value="mTP"> <label for="m7">Timelapse Photo</label><br>
 
 <div id="settingsRES">
-<b>Video Resolution:</b>&nbsp;&nbsp;<input type="radio" id="r7" name="res" value="" checked> <label for="r7">not set</label><br>
+<b>Video Resolution:</b>&nbsp;&nbsp;<input type="radio" id="r9" name="res" value="" checked> <label for="r9">not set</label><br>
   <input type="radio" id="r1" name="res" value="r1080"> <label for="r1">1080p </label>&nbsp;&nbsp;
-  <input type="radio" id="r2" name="res" value="r27"  > <label for="r2">2.7k  </label>&nbsp;&nbsp;
-  <input type="radio" id="r3" name="res" value="r4"   > <label for="r3">4k </label>&nbsp;&nbsp;
-  <input type="radio" id="r4" name="res" value="r1440"> <label for="r4">1440p </label>&nbsp;&nbsp;
-  <input type="radio" id="r5" name="res" value="r27T" > <label for="r5">2.7k 4x3 </label>&nbsp;&nbsp;
-  <input type="radio" id="r6" name="res" value="r4T"  > <label for="r6">4k 4x3 </label><br><br>
+  <input type="radio" id="r2" name="res" value="r1440"> <label for="r2">1440p </label>&nbsp;&nbsp;
+  <input type="radio" id="r3" name="res" value="r27"  > <label for="r3">2.7k  </label>&nbsp;&nbsp;
+  <input type="radio" id="r4" name="res" value="r27T" > <label for="r4">2.7k 4x3 </label>&nbsp;&nbsp;
+  <input type="radio" id="r5" name="res" value="r3"   > <label for="r5">3k 360°</label>&nbsp;&nbsp;
+  <input type="radio" id="r6" name="res" value="r4"   > <label for="r6">4k </label>&nbsp;&nbsp;
+  <input type="radio" id="r7" name="res" value="r4T"  > <label for="r7">4k 4x3 </label>&nbsp;&nbsp;
+  <input type="radio" id="r8" name="res" value="r5"   > <label for="r8">5k </label><br><br>
 </div>
 
 <div id="settingsFPS">
 <b>FPS Video:</b>&nbsp;&nbsp;<input type="radio" id="p10" name="fps" value="" checked> <label for="p10">not set</label><br>
-  <input type="radio" id="p1" name="fps" value="p24" > <label for="p1">24 </label>&nbsp;NTSC:&nbsp;&nbsp;
-  <input type="radio" id="p2" name="fps" value="p30" > <label for="p2">30 </label>&nbsp;&nbsp;
-  <input type="radio" id="p3" name="fps" value="p60" > <label for="p3">60 </label>&nbsp;&nbsp;
-  <input type="radio" id="p4" name="fps" value="p120"> <label for="p4">120 </label>&nbsp;&nbsp;
-  <input type="radio" id="p5" name="fps" value="p240"> <label for="p5">240 </label>&nbsp;PAL:&nbsp;&nbsp;
-  <input type="radio" id="p6" name="fps" value="p25"> <label for="p6">25 </label>&nbsp;&nbsp;
-  <input type="radio" id="p7" name="fps" value="p50"> <label for="p7">50 </label>&nbsp;&nbsp;
-  <input type="radio" id="p8" name="fps" value="p100"> <label for="p8">100 </label>&nbsp;&nbsp;
-  <input type="radio" id="p9" name="fps" value="p200"> <label for="p9">200 </label><br><br>
+  <input type="radio" id="p1" name="fps" value="p24">  <label for="p1">24 </label>&nbsp;&nbsp;
+  <input type="radio" id="p2" name="fps" value="p25">  <label for="p2">25 </label>&nbsp;&nbsp;
+  <input type="radio" id="p3" name="fps" value="p30">  <label for="p3">30 </label>&nbsp;&nbsp;
+  <input type="radio" id="p4" name="fps" value="p50">  <label for="p4">50 </label>&nbsp;&nbsp;
+  <input type="radio" id="p5" name="fps" value="p60">  <label for="p5">60 </label>&nbsp;&nbsp;
+  <input type="radio" id="p6" name="fps" value="p100"> <label for="p6">100 </label>&nbsp;&nbsp;
+  <input type="radio" id="p7" name="fps" value="p120"> <label for="p7">120 </label>&nbsp;&nbsp;
+  <input type="radio" id="p8" name="fps" value="p200"> <label for="p8">200 </label>&nbsp;&nbsp;
+  <input type="radio" id="p9" name="fps" value="p240"> <label for="p9">240 </label><br><br>
 </div>
 
 <div id="settingsFOV">
@@ -85,7 +87,8 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="fpswarp3"    name="fpswarp" value="p3"> <label for="fpswarp3">10X </label>&nbsp;&nbsp;
   <input type="radio" id="fpswarp4"    name="fpswarp" value="p2"> <label for="fpswarp4">15X </label>&nbsp;&nbsp;
   <input type="radio" id="fpswarp5"    name="fpswarp" value="p1"> <label for="fpswarp5">30X </label>&nbsp;&nbsp;
-  <input type="radio" id="fpswarp6"    name="fpswarp" value="" checked> <label for="fpswarp6">not set</label><br><br>
+  <input type="radio" id="fpswarp6"    name="fpswarp" value="pA"> <label for="fpswarp6">Auto </label>&nbsp;&nbsp;
+  <input type="radio" id="fpswarp7"    name="fpswarp" value="" checked> <label for="fpswarp7">not set</label><br><br>
 </div>
  
  
@@ -137,7 +140,35 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
  </div>
  
 <div id="settingsVideo">
-<b>Hypersmooth:</b>&nbsp;&nbsp;<input type="radio" id="eis1" name="eis" value="e0"> <label for="eis1">Off</label>&nbsp;&nbsp;&nbsp;<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">On</label>&nbsp;&nbsp;&nbsp;<input type="radio" id="eis3" name="eis" value="" checked> <label for="eis3">not set</label><br><br>
+<b>Hypersmooth:</b>&nbsp;&nbsp;
+	<input type="radio" id="eis1" name="eis" value="e0"> <label for="eis1">Off</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">On</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis3" name="eis" value="e2"> <label for="eis3">High</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis4" name="eis" value="e3"> <label for="eis4">Boost</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis5" name="eis" value="" checked> <label for="eis5">not set</label><br><br>
+</div>
+
+<div id="settingsHindsight">
+<b>Hindsight (HERO9):</b>&nbsp;&nbsp;
+	<input type="radio" id="hind1" name="hind" value="hS0"> <label for="hind1">Off</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="hind2" name="hind" value="hS1"> <label for="hind2">15s</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="hind3" name="hind" value="hS2"> <label for="hind3">30s</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="hind4" name="hind" value="" checked> <label for="hind4">not set</label><br><br>
+</div>
+					
+<div id="settingsDuration">
+<b>Duration (HERO9):</b>&nbsp;&nbsp;
+	<input type="radio" id="dur1" name="dur" value="dR0"> <label for="dur1">Off</label>&nbsp;&nbsp;
+	<input type="radio" id="dur2" name="dur" value="dR15"> <label for="dur2">15s</label>&nbsp;&nbsp;
+	<input type="radio" id="dur3" name="dur" value="dR30"> <label for="dur3">30s</label>&nbsp;&nbsp;
+	<input type="radio" id="dur4" name="dur" value="dR60"> <label for="dur4">1min</label>&nbsp;&nbsp;
+	<input type="radio" id="dur5" name="dur" value="dR300"> <label for="dur5">5min</label>&nbsp;&nbsp;
+	<input type="radio" id="dur6" name="dur" value="dR900"> <label for="dur6">15min</label>&nbsp;&nbsp;
+	<input type="radio" id="dur7" name="dur" value="dR1800"> <label for="dur7">30min</label><br>
+	<input type="radio" id="dur8" name="dur" value="dR3600"> <label for="dur8">1hour</label>&nbsp;&nbsp;
+	<input type="radio" id="dur9" name="dur" value="dR7200"> <label for="dur9">2hour</label>&nbsp;&nbsp;
+	<input type="radio" id="dur10" name="dur" value="dR9999"> <label for="dur10">3hour</label>&nbsp;&nbsp;
+	<input type="radio" id="dur11" name="dur" value="" checked> <label for="dur11">not set</label><br><br>
 </div>
 
 <div id="settingsPhotoRAW">
@@ -401,7 +432,7 @@ GoPro QR Command: <b id="txt"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.11
+## version 1.20
 
 <script>
 var lastcmd = "";
@@ -447,6 +478,8 @@ function startTime() {
 	dset("settingsTLVFOV", false);
 	dset("settingsRESTLV", false);
 	dset("settingsVideo", false);
+	dset("settingsHindsight", false);
+	dset("settingsDuration", false);
 	dset("settingsPhotoRAW", false);
 	dset("settingsPT", false);
 	dset("settingsBurst", false);
@@ -506,12 +539,15 @@ function startTime() {
 		dset("settingsFPS", true);
 		dset("settingsFOV", true);
 		dset("settingsVideo", true);
+		dset("settingsHindsight", true);
+		dset("settingsDuration", true);
 		dset("settingsPT", true);
 		dset("settingsAUDT",true);
 		break;
 		
 		case 2: //Timelapse Video
-		dset("settingsTimelapse", true);		
+		dset("settingsTimelapse", true);	
+		dset("settingsDuration", true);	
 		dset("settingsRESTLV", true);
 		dset("settingsTLVFOV", true);
 		dset("settingsPT", true);
@@ -519,6 +555,7 @@ function startTime() {
 		
 		case 3: //TimeWarp Video
 		dset("settingsTimewarp", true);		
+		dset("settingsDuration", true);
 		dset("settingsRESTLV", true);
 		dset("settingsTLVFOV", true);
 		dset("settingsPT", true);
@@ -664,6 +701,8 @@ function startTime() {
 	
 	cmd = dcmd(cmd,"pt"); //protune
 	cmd = dcmd(cmd,"eis"); //eis
+	cmd = dcmd(cmd,"hind"); //hindsight
+	cmd = dcmd(cmd,"dur"); //duration
 	cmd = dcmd(cmd,"all"); //auto low light	
 	cmd = dcmd(cmd,"audt"); //audio control
 	

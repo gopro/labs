@@ -1,22 +1,35 @@
 # QR Control
 
-## Example Pre-built Commands
-
+## Classic QR Commands for Labs Enabled Cameras
 * Set most camera modes with the [**Customizable QR Code Creator**](./custom)
 * Setup your cameras with [**Precision Date and Time**](./precisiontime)
+* Personalize your cameras with [**Owner Information**](./owner)
+* Capture only the interesting moments with [**Motion Detection**](./motion)
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
 * Use your GoPro to time-lapse [**Construction Projects**](./construction)
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* Capture only the interesting moments with [**Motion Detection**](./motion)
-* Personalize your cameras with [**Owner Information**](./owner)
-* Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
-* For teaching and security applications add [**Video 'Burn-in' Overlays**](./overlays)
-* Multi-camera Professionals, label you media with [**Altered File Naming**](./basename)
+* **HERO8/9 and MAX Only** Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
+* **HERO8/9 and MAX Only** For teaching and security applications add [**Video 'Burn-in' Overlays**](./overlays)
+* **HERO8/9 and MAX Only** Multi-camera users, label you media with [**Altered File Naming**](./basename)
 
-## Mobile App QR Generation
+## Latest Labs QR Commands (requires 2021 firmware) 
+* Start capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
+* Use the [**USB Power Trigger**](./usb) to start and stop the camera (dash-cam mode)
+* Set the [**Maximum Shutter Angle**](./maxshut) for greater control over stabilization in low light
+* Set the [**Exposure Lock**](./explock) via QR Code
+* Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras
+* Many more [**extensions**](./extensions) via QR Code
+* **HERO8/9 Only** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
+* **HERO9 Only** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
+
+## Mobile App for QR Generation
 
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
+
+## Forum Discussions 
+
+Please join the [**GoPro Labs Community**](https://community.gopro.com/t5/GoPro-Labs/bd-p/GoProLabs)
 
 ## The Commands Under The Hood 
 
@@ -37,7 +50,5 @@ All setting commands start with a lowercase character, followed by either upperc
 
 ## The Full List of [**Action Commands**](./actions)
 
-## Join The [**GoPro Labs Community**](https://community.gopro.com/t5/GoPro-Labs/bd-p/GoProLabs)
 
-
-### ver 1.02
+### ver 1.13
