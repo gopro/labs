@@ -50,9 +50,9 @@ QR Command: <b id="qrtext">command</b><br>
 
 ## Alternative Exposure Controls. 
 
-- EV adjustments. While you can just see an EV value you can now use x++ to increase from the current EV and x-- to decrease. This might be useful for dive application, as you can't change EV while under water 
+- EV adjustments. While you can just see an EV value you can now use x++ to increase from the current EV and x-&nbsp;- to decrease. This might be useful for dive application, as you can't change EV while under water 
 
-- White Balance adjustments, with w++ and w-- will increase or decrease white balance.
+- White Balance adjustments, with w++ and w-&nbsp;- will increase or decrease white balance.
  Again for dive users.
 
 <br> 
