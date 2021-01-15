@@ -2,7 +2,7 @@
 
 ## Classic QR Commands for Labs Enabled Cameras
 * Set most camera modes with the [**Customizable QR Code Creator**](./custom)
-* Setup your cameras with [**Precision Date and Time**](./precisiontime)
+* Precisely setup your cameras with [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc)
 * Personalize your cameras with [**Owner Information**](./owner)
 * Capture only the interesting moments with [**Motion Detection**](./motion)
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
@@ -51,4 +51,4 @@ All setting commands start with a lowercase character, followed by either upperc
 ## The Full List of [**Action Commands**](./actions)
 
 
-### ver 1.13
+### ver 1.14

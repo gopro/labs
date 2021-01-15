@@ -10,9 +10,9 @@
         }
 </style>
 
-# Precision Date and Time (Local)
+# Precision Date and Time (UTC)
 
-Simply point your Labs enabled camera at this animated QR Code, to set your date and time very accurately to local time. This is particularly useful for multi-camera shoots, as it helps synchronize the timecode between cameras. As the camera's internal clock will drift slowly over time, use this QR Code just before your multi-camera shoot for the best synchronization. 
+Simply point your Labs enabled camera at this animated QR Code, to set your date and time very accurately to UTC time. This is particularly useful for multi-camera shoots, as it helps synchronize the timecode between cameras. As the camera's internal clock will drift slowly over time, use this QR Code just before your multi-camera shoot for the best synchronization. 
 
 <center>
 <div id="qrcode"></div>
@@ -52,13 +52,13 @@ function timeLoop()
   var ms;
   
   today = new Date();
-  yy = today.getFullYear() - 2000;
-  mm = today.getMonth() + 1;
-  dd = today.getDate();
-  h = today.getHours();
-  m = today.getMinutes();
-  s = today.getSeconds();
-  ms = today.getMilliseconds();
+  yy = today.getUTCFullYear() - 2000;
+  mm = today.getUTCMonth() + 1;
+  dd = today.getUTCDate();
+  h = today.getUTCHours();
+  m = today.getUTCMinutes();
+  s = today.getUTCSeconds();
+  ms = today.getUTCMilliseconds();
   yy = padTime(yy);
   mm = padTime(mm);
   dd = padTime(dd);
