@@ -43,11 +43,39 @@ function makeQR()
   }
 }
 
+function timeLoop()
+{  
+  qrcode.clear(); 
+  qrcode.makeCode(cmd);
+  
+  if(document.getElementById("addcmd") !== null)
+  {
+	var addcmd = document.getElementById("addcmd").value;
+	if(addcmd.length > 0)
+		cmd = addcmd;
+  }	
+  
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	changed = false;
+  }
+	
+  var t = setTimeout(timeLoop, 100);
+}
+
 function myReloadFunction() {
   location.reload();
 }
 
 makeQR();
+timeLoop();
 
 </script>
 
