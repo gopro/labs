@@ -423,6 +423,8 @@ Additional Commands: <input type="text" id="addcmd" value="">
 
 GoPro QR Command: <b id="txt"></b>
 
+Share this QR Code as a URL: <b id="urltext"></b> 
+
 <button onclick="myReloadFunction()">Reset page</button>
 
 [Learn more](..) on QR Control
@@ -432,7 +434,7 @@ GoPro QR Command: <b id="txt"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.20
+## version 1.21
 
 <script>
 var lastcmd = "";
@@ -1091,7 +1093,8 @@ function startTime() {
 		
 		if(cmd != lasttimecmd)
 		{
-			document.getElementById('txt').innerHTML = cmd;		
+			document.getElementById('txt').innerHTML = cmd;	
+			document.getElementById("urltext").innerHTML = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;			
 			lasttimecmd = cmd;
 		}		
 		
