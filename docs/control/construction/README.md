@@ -46,7 +46,7 @@ As stated above, most Lithium Ion USB power-banks will shut-off early, even when
 The second option is a USB keep alive device that prevents your USB power bank from shutting down.  Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
 	
-## ver 1.03
+## ver 1.04
 
 [BACK](..)
 
@@ -94,19 +94,22 @@ function timeLoop()
 	var endmins = startmins + end*10;
 	var perday = parseInt(document.getElementById("tlday").value);
 	
-	var starthourstime = Math.trunc(startmins / 60);
-	var startminstime = startmins - starthourstime * 60;
+	var restarthourstime = Math.trunc(startmins / 60);
+	var restartminstime = startmins - restarthourstime * 60;
+	
+	var starthourstime = Math.trunc((startmins-1) / 60);
+	var startminstime = (startmins-1) - starthourstime * 60;	
 	
 	var endhourstime = Math.trunc(endmins / 60);
 	var endminstime = endmins - endhourstime * 60;
 	
-	
 	document.getElementById("perdaytext").innerHTML = perday;	
 	
+	var rtxt = pad(restarthourstime, 2) + ":" + pad(restartminstime, 2);
 	var stxt = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 	var etxt = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-	document.getElementById("starttext").innerHTML = stxt;
+	document.getElementById("starttext").innerHTML = rtxt;
 	document.getElementById("endtext").innerHTML = etxt;
 	
 	var d = 406 / perday;
@@ -120,39 +123,7 @@ function timeLoop()
 	var interval = Math.trunc(((endmins - startmins)*60 / perday) - 15);
 	if(interval < 30) interval = 30;
 	
-	cmd = "mPdP>" + stxt + "<" + etxt + "!" + interval + "SQ~" + "!" + stxt + "S!1R";
-	
-	/*
-	if(document.getElementById("setdatetime") !== null)
-    {
-		if(document.getElementById("setdatetime").checked === true)
-		{
-			var today;
-			var yy;
-			var mm;
-			var dd;
-			var h;
-			var m;
-			var s; 
-			today = new Date();
-					
-			yy = today.getFullYear() - 2000;
-			mm = today.getMonth() + 1;
-			dd = today.getDate();
-			h = today.getHours();
-			m = today.getMinutes();
-			s = today.getSeconds();
-				
-			yy = checkTime(yy);
-			mm = checkTime(mm);
-			dd = checkTime(dd);
-			h = checkTime(h);
-			m = checkTime(m);
-			s = checkTime(s);
-			
-			cmd = "oT" + yy + mm + dd + h + m + s + cmd;
-		}
-	}*/
+	cmd = "mPdP>" + stxt + "<" + etxt + "!" + interval + "SQ~" + "!" + rtxt + "S!1R";
   }
   
   qrcode.clear(); 
