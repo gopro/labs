@@ -263,10 +263,11 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="sharp4" name="sharp" value="" checked> <label for="sharp4">not set</label>
 </div>
 <div id="ptAUD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>RAW Audio:</b>&nbsp;&nbsp;
-  <input type="radio" id="aud1" name="aud" value="" checked> <label for="aud1">Off </label>&nbsp;&nbsp;
+  <input type="radio" id="aud1" name="aud" value="a"> <label for="aud1">Off </label>&nbsp;&nbsp;
   <input type="radio" id="aud2" name="aud" value="aL"> <label for="aud2">Low </label>&nbsp;&nbsp;
   <input type="radio" id="aud3" name="aud" value="aM"> <label for="aud3">Medium </label>&nbsp;&nbsp;
-  <input type="radio" id="aud4" name="aud" value="aH"> <label for="aud4">High</label><br>
+  <input type="radio" id="aud4" name="aud" value="aH"> <label for="aud4">High</label>&nbsp;&nbsp;
+  <input type="radio" id="aud5" name="aud" value="" checked> <label for="aud5">not set</label><br>
 </div>
 
 <div id="cameraOptions">
@@ -434,7 +435,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.21
+## version 1.22
 
 <script>
 var lastcmd = "";
