@@ -22,7 +22,7 @@
 * **HERO8/9 Only** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
 * **HERO9 Only** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
 
-## Mobile App for QR Generation
+## Mobile Apps for QR Generation
 
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)

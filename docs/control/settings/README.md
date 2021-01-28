@@ -34,24 +34,22 @@ Resolutions:
  * **r1440** - 1920x1440
  * **r27** - for 2.7K 16x9
  * **r27T** - for 2.7K Tall the 4x3 mode
+ * **r3** - 3K 360° for GoPro MAX
  * **r4** - for 4k 16x9
  * **r4T** - for 4k Tall the 4x3 mode
+ * **r5** - 5k for HERO5 and 5K 360° for GoPro MAX
 
 Frame rates: 
- * NTSC, 60Hz Anti-flicker
  * **p24** - 24 fps
- * **p30** - 30 fps
- * **p60** - 60 fps
- * **p120** - 120 fps
- * **p240** - 240 fps
- * PAL, 50Hz Anti-flicker
  * **p25** - 25 fps
+ * **p30** - 30 fps
  * **p50** - 50 fps
+ * **p60** - 60 fps
  * **p100** - 100 fps
+ * **p120** - 120 fps
  * **p200** - 200 fps
+ * **p240** - 240 fps
  * (only supports existing frame rates, so p65 or p1000 will be ignored.)
-
-Note: Switching between PAL (25,50) and NTSC (30,60) frame rates has to be done on camera.
 
 Time-lapse frame rates: 
  * **p2** (0.5s or 2Hz/2p capture)
@@ -100,6 +98,9 @@ EV Compensation:
  * **x1.5** - EV +1.5
  * **x-2** - EV -2.0 
  * **x2** - EV +2.0
+ on some cameras models you can extend this to larger amounts (beyond the UIs support).
+ * **x-5** - EV -5.0
+ * **x3** - EV +3.0
  
 Sharpness: 
  * **sL** - Low
@@ -112,9 +113,17 @@ Night Photo exposure time:
  * **…** 
  * **e30** - 30 second shutter
 
+GoPro Shooting Modes
+ * **mH** - mode Hero
+ * **mHF** - mode Hero Front
+ * **mHR** - mode Hero Rear
+ * **m3** - mode 360°
+ * **m3F** - mode 360° front on LCD
+ * **m3R** - mode 360° rear on LCD
+
 Feature with off and on commands:
 
-- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on
+- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost
 - GPS Active: **g0** - off, **g** or **g1** - on
 - Quick Capture: **q0** - off, **q** or **q1** - on
 - Voice Commands: **v0** - off, **v** or **v1** - on
@@ -137,7 +146,7 @@ Same further option (‘o’) commands
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.02
+## ver 1.03 - 2021 Jan 28 
 [BACK](..)
 
 
