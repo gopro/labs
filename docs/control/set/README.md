@@ -16,14 +16,14 @@
 	  
 QR Command: <b id="qrtext"></b><br>
 
-Manual Command: <input type="text" id="addcmd" value="">
+Manual Command: <input type="text" style="width: 500px;" id="addcmd" value="">
 
 Share this QR Code as: <b id="urltext"></b> 
 
 More [GoPro Labs QR Controls](..)
 
 
-## version 1.01
+## version 1.02
 
 <script>
        
