@@ -113,7 +113,7 @@ Night Photo exposure time:
  * **…** 
  * **e30** - 30 second shutter
 
-GoPro Shooting Modes
+GoPro MAX Shooting Modes
  * **mH** - mode Hero
  * **mHF** - mode Hero Front
  * **mHR** - mode Hero Rear
