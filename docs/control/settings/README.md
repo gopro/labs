@@ -120,6 +120,8 @@ GoPro MAX Shooting Modes
  * **m3** - mode 360°
  * **m3F** - mode 360° front on LCD
  * **m3R** - mode 360° rear on LCD
+ * **mF** - mode monitor Front lens
+ * **mR** - mode monitor Rear lens
 
 Feature with off and on commands:
 
@@ -146,7 +148,7 @@ Same further option (‘o’) commands
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.03 - 2021 Jan 28 
+## ver 1.04 - 2021 Jan 28 
 [BACK](..)
 
 
