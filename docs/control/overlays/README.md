@@ -72,23 +72,22 @@ Note: All text box support **\n** for a new line.
 </center>
 
 
-<!-- Make the overlay permanently active: **Are you sure? (Risky)**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label><br> -->
+Make the overlay permanently active: **Are you sure? (Risky)**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label> <input type="checkbox" id="erase" name="erase"> <label for="erase">Erase</label><br>
 
 QR Command: <b id="qrtext">time</b><br>
 
 Cool Tips:
 - Metadata overlays work great with live-streaming.  This was its original intended function. 
-- Overlays can be changed mid capture, it is one of the few modes that QR Code reading is active while recording. Example use: When live streaming an endurance auto-race, you can change the driver name on the overlay during driver change pit-stops. 
+- Overlays can be changed mid capture, it is one of the few modes that QR Code reading is defaulted to active while recording. Example use: When live streaming an endurance auto-race, you can change the driver name on the overlay during driver change pit-stops. 
 - A range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH. For more technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) and other metadata you can display.
 
 Known Issues:
-- not working correctly in 4K50, 4K60 and 1080p240 video modes and Timelapse 4K.
-- does not update the time and metadata when used with motion detection triggered captures.
+- The Permanent mode was **not safe on HERO8 Labs v1.70.75**, fixed in the 2021 release. Update to 2021 Labs firmware before using this feature.
 - Metadata can take a second before it updates after capture start.
 <!-- - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.   -->
 
 		
-## ver 1.11
+## ver 1.20
 
 [BACK](..)
 
@@ -148,26 +147,17 @@ function timeLoop()
 	var pos = dcmd("","sp");
 	
    
-
 	cmd = "";
 	
-	//if(document.getElementById("permanent").checked === true)
-	//{
+	if(document.getElementById("permanent").checked === true)
+	{
 	//	cmd = "!RESET!30NQ";
-	//	mtype = "!";
-    //}
-
+		mtype = "!";
+    }
 	
     if(document.getElementById("gps").checked === true)
     {
-		//if(document.getElementById("permanent").checked === true)
-		//{
-		//	cmd = cmd + "g1!MLFIN=\"0\"";
-		//}
-		//else
-		{
-			cmd = cmd + "g1oMLFIN=0";
-		}		
+		cmd = cmd + "g1";	
 	}
 	else
 	{
@@ -177,6 +167,11 @@ function timeLoop()
     cmd = cmd + mtype + "MBRNO=" + document.getElementById("offset").value + mtype + "MBURN=\"(" + document.getElementById("hsize").value + "," + document.getElementById("vsize").value + ")" + document.getElementById("startmsg").value + openb + pos + document.getElementById("addtime").value + document.getElementById("adddate").value;
 	cmd = dcmd(cmd, "am");
 	cmd = cmd + closeb + document.getElementById("endmsg").value + "\"";
+	
+	if(document.getElementById("erase").checked === true)
+	{
+		cmd = mtype + "MBURN=\"\"";
+	}
   }
   else
   {
