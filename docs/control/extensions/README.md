@@ -24,7 +24,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **HNDL=x**, where x is 1 to 31, setting the camera ID for a camera. This is for rare scenarios where multiple cameras see the same QR Code, and you only want particular cameras to respond. This combined with **hZ** command where Z is the bit mask for which cameras will follow the command.
 	- e.g.   h6mP!S  ← this command will only run on cameras with IDs 2 and 3.
     - e.g.   h1mVh2mPB ← set camera 1 to mode Video and camera 2 to Photo Burst.
-- **DSPL=time**, this will control the amount of time messages are displayed. For users who want there own information displayed longer. The default is 1 second.  DSPL=1 thru 9 is in seconds.  DSPL = 10 thru 9999 is in milliseconds.  So for much faster messages set DISP to 100. Set this before setting the owner information, as metadata commands are processed in the order they are stored. 
+- **DSPL=time**, this will control the amount of time messages are displayed. For users who want there own information displayed longer. The default is 1 second.  DSPL=1 thru 9 is in seconds.  DSPL = 10 thru 9999 is in milliseconds.  So for much faster messages set DSPL to 100. Set this before setting the owner information, as metadata commands are processed in the order they are stored. 
 - **DSPC=value**, this sets that contrast for which messages are displayed.  Contrast is from 0 - transparent text background, to 6 - opaque black background
 - **HIST=x** - Displays a histogram with contrast from 1 to 11. e.g. try setting HIST to 5. HIST=0 will disable it.
 - **LAPS=1** turns on the burn-in laptime, a hackathon designed for live-streaming auto races. LAPS=0 will disable it.
@@ -57,7 +57,7 @@ QR Command: <b id="qrtext">command</b><br>
 
 <br> 
 		
-## ver 1.00
+## ver 1.01
 [BACK](..)
 
 <script>
