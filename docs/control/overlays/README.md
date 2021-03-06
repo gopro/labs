@@ -87,7 +87,7 @@ Known Issues:
 <!-- - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.   -->
 
 		
-## ver 1.20
+## ver 1.21
 
 [BACK](..)
 
@@ -157,7 +157,7 @@ function timeLoop()
 	
     if(document.getElementById("gps").checked === true)
     {
-		cmd = cmd + "g1";	
+		cmd = cmd + "g1" + mtype + "MLFIN=0";	
 	}
 	else
 	{
