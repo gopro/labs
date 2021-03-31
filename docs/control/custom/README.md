@@ -100,8 +100,14 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="fpslapse4"   name="fpslapse" value="p.5"> <label for="fpslapse4">5s </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse5"  name="fpslapse" value="p.10"> <label for="fpslapse5">10s </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse6"  name="fpslapse" value="p.30"> <label for="fpslapse6">30s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse7" name="fpslapse" value="p.60"> <label for="fpslapse7">60s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse8" name="fpslapse" value="" checked> <label for="fpslapse8">not set</label><br><br>
+  <input type="radio" id="fpslapse7" name="fpslapse" value="p.60"> <label for="fpslapse7">60s </label>&nbsp;&nbsp;<br>
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;HERO 8/9&nbsp;&nbsp; <input type="radio" id="fpslapse8"  name="fpslapse" value="p.120" > <label for="fpsnight8">2min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse9"  name="fpslapse" value="p.300" > <label for="fpsnight9">5min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse10" name="fpslapse" value="p.1800"> <label for="fpsnight10">30min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse11" name="fpslapse" value="p.3600"> <label for="fpsnight11">60min </label>&nbsp;&nbsp;
+  
+  <input type="radio" id="fpslapse12" name="fpslapse" value="" checked> <label for="fpslapse12">not set</label><br><br>
 </div>
  
  
@@ -435,7 +441,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.22
+## version 1.23
 
 <script>
 var lastcmd = "";

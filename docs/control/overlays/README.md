@@ -43,11 +43,13 @@ Note: All text box support **\n** for a new line.
  
 **Display Metadata (experimental)** 
 
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am1" name="addmeta" value="'GPS53%1.2f'm/s"> <label for="am1">Add speed in m/s (requires GPS)</label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS50%1.6f', 'GPS51%1.6f'"> <label for="am2">Add GPS Location</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am1" name="addmeta" value="'GPS53%1.2f'm/s"> <label for="am1">Add speed in m/s *</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS50%1.6f', 'GPS51%1.6f'"> <label for="am2">Add GPS Location *</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am3" name="addmeta" value="ISO:'ISOE%d'"> <label for="am3">Sensor ISO</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am4" name="addmeta" value="" checked> <label for="am4">none</label><br>
- 
+  
+  Note: * These features require the GPS to be enabled. If combined with Livestreaming, you will need to record a local copy for these features to display correctly.
+  
 **Any end message here:**  <input type="text" id="endmsg" value=""><br>
 
 **Screen Placement** <br>
@@ -55,6 +57,7 @@ Note: All text box support **\n** for a new line.
   <input type="radio" id="sp2" name="placement" value="TC"> <label for="sp2">Top Center  </label>&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="sp3" name="placement" value="TR"> <label for="sp3">Top Right   </label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp4" name="placement" value="ML"> <label for="sp4">Mid Left    </label>&nbsp;
+  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="sp5" name="placement" value="MR"> <label for="sp5">Mid Right   </label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp6" name="placement" value="BL"> <label for="sp6">Lower Left  </label>&nbsp;
@@ -87,7 +90,7 @@ Known Issues:
 <!-- - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.   -->
 
 		
-## ver 1.21
+## ver 1.22
 
 [BACK](..)
 
