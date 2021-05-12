@@ -16,7 +16,9 @@ As the HERO5 Session can’t scan while capturing, and the camera defaults to a 
 
 ## Scanning Your Code
 
-![Scanning](scanning.jpg)Whether you scan a QR Code from a laptop screen or a mobile phone, the code should be a minimum 1.5"/40cm in size with the camera about 6"/15cm away. The larger the QR Code, the easier it is to scan. Point the camera at the center of the code, hold it still for about a second. Once scanned successfully it will display “Good Scan” and then double-beep. It will now be in the mode you have selected, and have exited the menu, ready for shooting. To power off, press the menu button (it will then shutdown in 30 seconds) or select “EXIT MENU” for an immediate shutdown.
+![Scanning](scanning.jpg)
+
+Whether you scan a QR Code from a laptop screen or a mobile phone, the code should be a minimum 1.5"/40cm in size with the camera about 6"/15cm away. The larger the QR Code, the easier it is to scan. Point the camera at the center of the code, hold it still for about a second. Once scanned successfully it will display “Good Scan” and then double-beep. It will now be in the mode you have selected, and have exited the menu, ready for shooting. To power off, press the menu button (it will then shutdown in 30 seconds) or select “EXIT MENU” for an immediate shutdown.
 
 
 
