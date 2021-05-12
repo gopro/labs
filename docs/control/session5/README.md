@@ -107,7 +107,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="wb6" name="wb" value="wN" > <label for="wb6">Native </label>&nbsp;&nbsp;
   <input type="radio" id="wb7" name="wb" value="" checked> <label for="wb7">not set</label>
  </div>
-<div id="ptISO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ISO Max:</b>&nbsp;&nbsp;
+<div id="ptISO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ISO Limit:</b>&nbsp;&nbsp;
   <input type="radio" id="iso1" name="iso" value="i1" > <label for="iso1">100 </label>&nbsp;&nbsp;
   <input type="radio" id="iso2" name="iso" value="i2" > <label for="iso2">200 </label>&nbsp;&nbsp;
   <input type="radio" id="iso3" name="iso" value="i4" > <label for="iso3">400 </label>&nbsp;&nbsp;
