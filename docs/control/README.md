@@ -2,6 +2,7 @@
 
 ## Classic QR Commands for Labs Enabled Cameras
 * Set most camera modes with the [**Customizable QR Code Creator**](./custom)
+* <span style="color:steelblue">**NEW**</span> - Subset of commands for the [**HERO 5 Session**](./session5). Hero 5 Session supports: QR codes for camera settings, setting date & time, scheduled captures, including some of the extended time-lapse feature and ownership information.
 * Precisely setup your cameras with [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc)
 * Personalize your cameras with [**Owner Information**](./owner)
 * Capture only the interesting moments with [**Motion Detection**](./motion)
@@ -51,4 +52,4 @@ All setting commands start with a lowercase character, followed by either upperc
 ## The Full List of [**Action Commands**](./actions)
 
 
-### ver 1.14
+### ver 1.15

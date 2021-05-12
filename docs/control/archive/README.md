@@ -1,3 +1,5 @@
+# Archive Mode
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# Archive Mode
 
 An ultra simplified camera mode for novices documenting critical events, from weddings to protest marches, where you don't want the camera mode modified. Ever loan a camera to a friend to shoot video, and they bumped the mode button or LCD so that it was only shooting photos? Archive mode is intended to stop that, but making the camera video QuikCapture only, with either button starting or stopping the default video mode capture. The camera will inform the operator that the mode is limited, nothing can disable this mode other than the reversing QR Code. It will turn your GoPro into one button operation, press to start, press to stop. The operator can play or delete captures, or connect the GoPro to a smartphone, all media operations require the removal of the SD Card.
 
@@ -30,9 +30,14 @@ QR Command: <b id="qrtext">command</b><br>
 
 Uncheck the above Archive mode checkbox, and scan the new code while the camera is recording.
 		
+Compatibility: Labs enabled HERO7, HERO8, HERO9 and MAX 
+        
+## Why is it Called Archive Mode?
+
+The request was from documentary filmmakers handing out cameras to capture protest marches. When this idea was originally pitched, it was for capturing potentially historic moments, as an archive to document the events. The full QR Code becomes **!MARCH**, which has a nice ring to it, as the preceeding **!M** is required to store the metadata that enables the mode.
 		
-## ver 1.00
-[BACK](..)
+## ver 1.01
+[Learn more](..) on QR Control
 
 <script>
 var once = true;
