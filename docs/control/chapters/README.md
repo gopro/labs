@@ -26,9 +26,7 @@ QR Command: <b id="qrtext">command</b><br>
 
 **Known Issue:** Larger chapters will not be enabled when using QuikCapture. QuikCapture starts recording before the Labs service starts, resulting in perfectly fine, but only 4GB chapters. 
 
-<br> 
-        
-Compatibility: Labs enabled HERO8, HERO9 and MAX 
+**Compatibility:** Labs enabled HERO8, HERO9 and MAX 
         
 ## ver 1.04
 [Learn more](..) on QR Control
