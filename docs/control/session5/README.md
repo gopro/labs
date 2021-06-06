@@ -24,11 +24,11 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 
 ## Customize Your QR Code
 
-<b>Camera Mode:</b>&nbsp;&nbsp;<input type="radio" id="m5" name="mode" value="" checked> <label for="m5">not set</label><br>
+<b>Camera Mode:</b>&nbsp;&nbsp;<input type="radio" id="m4" name="mode" value="" checked> <label for="m4">not set</label><br>
   <input type="radio" id="m1" name="mode" value="mV"> <label  for="m1">Video</label>&nbsp;&nbsp;
   <input type="radio" id="m2" name="mode" value="mP"> <label  for="m2">Photo</label>&nbsp;&nbsp;
-  <input type="radio" id="m3" name="mode" value="mT"> <label  for="m3">Timelapse Video</label>&nbsp;&nbsp;
-  <input type="radio" id="m4" name="mode" value="mTP"> <label for="m4">Timelapse Photo</label><br>
+  <input type="radio" id="m3" name="mode" value="mT"> <label  for="m3">Timelapse Video</label><br>
+  <!-- <input type="radio" id="m4" name="mode" value="mTP"> <label for="m4">Timelapse Photo</label><br> -->
 
 <div id="settingsRES">
 <b>Video Resolution:</b>&nbsp;&nbsp;<input type="radio" id="r8" name="res" value="" checked> <label for="r8">not set</label><br>
@@ -264,9 +264,9 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-Compatibility: Labs enabled HERO5 Session
+**Compatibility:** Labs enabled HERO5 Session
         
-## ver 1.31
+## ver 1.32
 [Learn more](..) on QR Control
 
 <script>
@@ -338,7 +338,7 @@ function startTime() {
 	var checkedmode = 0;
 	var x;
 	
-	for (i = 1; i < 5; i++) { 
+	for (i = 1; i < 4; i++) { 
 		var mode = "m"+i;
 		x = document.getElementById(mode).checked;
 		if( x === true)
@@ -368,11 +368,11 @@ function startTime() {
 		dset("settingsPT", true);
 		break;
 				
-		case 4: //TLP
-		dset("settingsTimelapse", true);	
-		dset("settingsPT", true);
-		dset("settingsTLVFOV", true);
-		break;
+		//case 4: //TLP
+		//dset("settingsTimelapse", true);	
+		//dset("settingsPT", true);
+		//dset("settingsTLVFOV", true);
+		//break;
 	}
 		
 	if(document.getElementById("pt") !== null)
@@ -430,7 +430,7 @@ function startTime() {
 	switch(checkedmode)
 	{
 		case 3: //TLV
-		case 4: //TLP
+		//case 4: //TLP
 			cmd = dcmd(cmd,"fpslapse");
 			break;
 	}
