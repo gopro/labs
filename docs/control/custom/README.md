@@ -1,3 +1,5 @@
+# QR Control Customizer
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# QR Control Customizer
 
 Create a custom camera mode, and even start a capture all through QR Codes. This is the fastest way to access many of the new GoPro Labs' firmware features.
 
@@ -435,6 +435,8 @@ Share this QR Code as a URL: <b id="urltext"></b>
 
 <button onclick="myReloadFunction()">Reset page</button>
 
+**Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9 and MAX 
+        
 [Learn more](..) on QR Control
 
 ## This Page as a Mobile App

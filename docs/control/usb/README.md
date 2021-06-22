@@ -1,3 +1,5 @@
+# USB Power Trigger
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# USB Power Trigger
 
 The camera can use the switching on of USB power to boot the camera, and perform an action of your choice.
 
@@ -31,9 +31,11 @@ and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlen
 
 QR Command: <b id="qrtext">time</b><br>
         
-## ver 1.00
+**Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9 and MAX 
+        
+## ver 1.01
 
-[BACK](..)
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

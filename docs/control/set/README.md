@@ -1,3 +1,5 @@
+# QR Control Quick Command
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# QR Control Quick Command
       
 <div id="qrcode"></div>
 	  

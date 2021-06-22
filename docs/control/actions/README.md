@@ -1,3 +1,5 @@
+# Full List the Action Commands
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -14,19 +16,28 @@
         }
 </style>     
 
-## Full List the Action Commands
-
 * **!**time**S** - Start at exactly **time** if in hh:mm form, or after n seconds. 
 * **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
 * **!**time**E** - End at **time** if in hh:mm form, or after n seconds.
 * **!**time**R** - Repeat the whole command.
 * **!**time**N** - No Action until exact **time**, useful if you just need a pause.
 * **!**time**NQ** - No Action until at approximately **time**.
-* **!**time**O** - Off - shutdown the camera.
+* **!**time**O** - Off, shutdown the camera.
+* **!**time**OR** - shutdown and restart the camera.
+* **!**time**U** - Attempt and network contention and Upload **HERO9 only**.
+* **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored **HERO8 & HERO9 only**.
+* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local fine, requires a previously successful **!W** command **HERO8 & HERO9 only**
+
+## Capture Triggers
+
 * **!**time**SMs-t** - Start Motion detection with start sensitivity 's' and stop sensitivity 't' -- 't' field is optional.
 * **!**time**SMsDdMmHh** - Start Motion detection with sensitivity 's', Delay of 'd', Mask of 'm' and Hold for 'h' seconds (D,M and H fields are all optional.)
 * **!**time**SKs-t** - Start Speed capture at threshold 's' km/h and stop at 't' km/h -- 't' field is optional.
 * **!**time**SKsHh** - Start Speed capture at threshold 's' km/h and Hold for 'h' seconds (H fields are all optional.)
+* **!**time**SAs-tDdHh** - Accelerometer Trigger
+* **!**time**SGs-tDdHh** - Gyro Trigger
+* **!**time**SIs-tDdHh** - IMU Trigger (both Accerometer and Gyro)
+* **!**time**SDs-tDdHh** - Speed Pressure Level Trigger, 's' and 't' values are in dB.
 
 ## examples:
 
@@ -39,6 +50,7 @@
 * **!nS** - start at true noon.
 * **!s1200E** - end 1200 seconds after sunset
 * **!r-600S** - start 600 seconds before sunrise
+* **!17:00W!GLC** - start Live-streaming 1080p at 5pm, saving a local copy
 
 ## Storing metadata (Permanent, survives power off)
 
@@ -78,8 +90,6 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 * **\>**timeA**\<**timeB**cmdTrue+cmdTrue~cmdFalse+cmdFalse** e.g. mP>06:00<20:00"wait 3m"+!180SQ~"wait tomorrow"+!06:00S!R - The '+' characters allow you to extend the conditional command, like changing mode before the action.
 * **"any text"** e.g. mV"Video\nMode"!S!5E!4NmP"Photo\nMode"!S!5R - this will display "Video Mode" and "Photo Mode" when switch to those modes.  
 
-Known Issue: The saved and load scripts can't support conditionals, as the '<' and '>' characters, nor are " characters supported in scripts. This oversight will hopefully be addressed in a future Labs build. So scripts are currently limited to a simple series of actions. The conditionals are functioning correction within QR Code reading. So commands/scripts that use conditionals will be limited to around 200 characters in a single QR Code.
-
 # Experiment Here
 
 ## Typing-in Your Custom Action:
@@ -89,7 +99,7 @@ Known Issue: The saved and load scripts can't support conditionals, as the '<' a
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.03 - 2021 Jan 28 
+## ver 1.05 - 2021 May  
 [BACK](..)
 
 

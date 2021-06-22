@@ -1,3 +1,5 @@
+# Personalize via QR Code
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -10,9 +12,7 @@
         }
 </style>
 
-# Personalize via QR Code
-
-You can choose to have your camera display your name, phone number or email, upon camera start-up. This could be helpful in the event the camera is lost. Or simply name your cameras. In addition to being displayed, it is written within each MP4 or JPG created. This information is stored in the camera, not the SD Card, so even if the camera is stolen, and the SD card replaced, the name will be displayed, and within each new media file regenerated.
+You can choose to have your camera display your name, phone number or email, upon camera start-up. This could be helpful in the event the camera is lost. Or simply name your cameras. In addition to being displayed, it is written within each MP4 or JPG created. This information is stored in the camera, not the SD Card, so even if the camera is stolen, and the SD card replaced, the name will be displayed, and within each new media file regenerated. It will to also create a new file, “GoPro-owner.txt”, within the MISC folder of the SD card.
  
 Your personalization info here: <br>
   Line 1: <input type="text" id="addnam1" value=""><br>
@@ -26,11 +26,11 @@ QR Command: <b id="qrtext">time</b><br>
 Note: For additional lines use \n within your text. 
 e.g. Joe Bloggs\ncall (555)555-5555 
 
-Known Issues: 
-- It was to also create a new file, “GoPro-owner.txt”, to the root of the SD card.  That is currently not working.
+**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9 and MAX 
         
-## ver 1.03
-[BACK](..)
+## ver 1.05
+
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

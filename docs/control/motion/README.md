@@ -1,3 +1,5 @@
+# Video Motion Detection to Start and Stop Captures
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -10,8 +12,6 @@
         }
 </style>
 
-# Video Motion Detection to Start and Stop Captures
-
 While your GoPro camera is not equipped with ultra sonic or another motion sensor, it does have a very high resolution image sensor that is active even when the camera is not recording. So simply using the main imaging engine, the experimental motion detection feature uses the differences between video frames to detect when to start and stop recording. This means your camera should be mounted so that it is not moving, so that only subject moves will trigger the capture. Motion detection can be use to capture video of a shy animal in the wild or simply reduce any video captures to only the moments with activity.
 
 ## Custom Motion Capture
@@ -19,7 +19,7 @@ While your GoPro camera is not equipped with ultra sonic or another motion senso
 **Sensitivity** <input type="range" id="snstvty" name="snstvty" min="1" max="9" value="3"><label for="snstvty"></label>&nbsp;&nbsp;<b id="snstvtytext"></b> (1-low to 9-very high)<br>
 **Start Delay** <input type="range" id="delay" name="delay" min="0" max="60" value="4"><label for="delay"></label>&nbsp;&nbsp;<b id="delaytext"></b> seconds to get yourself out of the way.<br>
 **Hold Time** <input type="range" id="hold" name="hold" min="0" max="60" value="5"><label for="hold"></label>&nbsp;&nbsp;<b id="holdtext"></b> seconds, to continue recording after motion has stopped.<br> 
-**Motion Mask**  <input type="range" id="mask" name="mask" min="0" max="20" value="0"><label for="mask"></label>&nbsp;&nbsp;<b id="masktext"></b> seconds, to avoid falsely detecting constantly moving objects like a ceiling fan, or winds blowing leaves. Anything moving during this motion mask time will be ignored as motion triggers. You can also use you fingers to "paint" out regions you want to ignore (e.g. sky to avoid birds triggering capture, when you are also interested in ground activity, or vise versa.)<br> 
+**Motion Mask**  <input type="range" id="mask" name="mask" min="0" max="20" value="0"><label for="mask"></label>&nbsp;&nbsp;<b id="masktext"></b> seconds, to avoid falsely detecting constantly moving objects like a ceiling fan, or winds blowing leaves. Anything moving during this motion mask time will be ignored as motion triggers. You can also use you fingers to "paint" out regions you want to ignore (e.g. sky to avoid birds triggering capture, when you are also interested in ground activity, or vise versa.) HERO9 only for the mask feature.<br> 
 
 <input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat motion capture.</label><br>
@@ -66,8 +66,10 @@ Now your camera is ready.
 
 The motion detection will now always use the mask.pgm, so using motion mask option doesn't do anything. To restore to normal motion detection you need to delete the mask.pgm file.
 	
-## ver 1.04
-[BACK](..)
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9 and MAX.  Masking fixed on HERO9.
+        
+## ver 1.05
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

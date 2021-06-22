@@ -1,3 +1,5 @@
+# Live-Stream Setup 
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# Live-Stream Setup 
 
 ## Prerequisites for Live-streaming (HERO8 & HERO9 only)
 
@@ -69,9 +69,10 @@ QR Command: <b id="qrtext">time</b><br>
 
 <b>Print or save this code to live-stream at any time.</b>
 
+**Compatibility:** Labs enabled HERO8 and HERO9
         
-## ver 1.00
-[BACK](..)
+## ver 1.01
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

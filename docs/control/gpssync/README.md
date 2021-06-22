@@ -1,3 +1,5 @@
+# GPS Time Synchronization
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# GPS Time Synchronization
 
 If you are shooting with multiple GoPro **HERO9** cameras, enable this feature. 
 
@@ -33,9 +33,11 @@ QR Command: <b id="qrtext">command</b><br>
 Note: it is correct for 23.976 and 29.97 Non-drop timecode to it be 0.1% behind 25.0 timecode.
 
 <br> 
+
+**Compatibility:** Labs enabled HERO9 only 
         
-## ver 1.00
-[BACK](..)
+## ver 1.01
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

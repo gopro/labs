@@ -1,3 +1,5 @@
+# Construction Time-lapses
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# Construction Time-lapses
 
 An extension of [Extra Long Time-lapses](../longtimelapse) feature, just performed during construction hours alone, to extend your battery life and reduce the number of images you will assemble into a time-lapse.  Remember to set your camera's [clock](../precisiontime) before using this QR Code.
 
@@ -45,10 +45,10 @@ As stated above, most Lithium Ion USB power-banks will shut-off early, even when
 
 The second option is a USB keep alive device that prevents your USB power bank from shutting down.  Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
-	
-## ver 1.11
-
-[BACK](..)
+**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9 and MAX 
+        
+## ver 1.12
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

@@ -1,3 +1,5 @@
+# Add an Overlay to Video
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -10,17 +12,14 @@
         }
 </style>
 
-# Add an Overlay to Video
-
 This is more for security applications like a dash cam setup, or education environments where student projects are pre-labeled, rather than for creative applications, as it will modify the video image with text that can't be removed.
 
 If either horizontal or vertical size is zero, the size will be computed automatically.
  
-Overlay vertical size <input type="range" style="width: 300px;" id="vsize" name="vsize" min="0" max="200" value="20"><label for="vsize"></label> <b id="vstext">40</b>
-
-Overlay horizontal size <input type="range" style="width: 300px;" id="hsize" name="hsize" min="0" max="200" value="0"><label for="hsize"></label> <b id="hstext">0</b>
-
-Offset from the edge <input type="range" style="width: 300px;" id="offset" name="offset" min="10" max="150" value="10"><label for="offset"></label> <b id="offtext">10</b>
+Overlay vertical size <input type="range" style="width: 300px;" id="vsize" name="vsize" min="0" max="200" value="20"><label for="vsize"></label> <b id="vstext">40</b><br>
+Overlay horizontal size <input type="range" style="width: 300px;" id="hsize" name="hsize" min="0" max="200" value="0"><label for="hsize"></label> <b id="hstext">0</b><br>
+Offset from the edge <input type="range" style="width: 300px;" id="offset" name="offset" min="10" max="150" value="10"><label for="offset"></label> <b id="offtext">10</b><br>
+Limit display time (HERO9 only) <input type="range" style="width: 200px;" id="brnt" name="brnt" min="0" max="149" value="0"><label for="brnt"></label> <b id="brnttxt">unlimited</b>
 
 Note: All text box support **\n** for a new line.
 
@@ -56,9 +55,7 @@ Note: All text box support **\n** for a new line.
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp1" name="placement" value="TL"> <label for="sp1">Top Left    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="sp2" name="placement" value="TC"> <label for="sp2">Top Center  </label>&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="sp3" name="placement" value="TR"> <label for="sp3">Top Right   </label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp4" name="placement" value="ML"> <label for="sp4">Mid Left    </label>&nbsp;
-  
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp4" name="placement" value="ML"> <label for="sp4">Mid Left    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="sp5" name="placement" value="MR"> <label for="sp5">Mid Right   </label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp6" name="placement" value="BL"> <label for="sp6">Lower Left  </label>&nbsp;
   <input type="radio" id="sp7" name="placement" value="BC"> <label for="sp7">Lower Center</label>&nbsp;
@@ -89,10 +86,10 @@ Known Issues:
 - Metadata can take a second before it updates after capture start.
 <!-- - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.   -->
 
-		
-## ver 1.22
-
-[BACK](..)
+**Compatibility:** Labs enabled HERO8, HERO9 and MAX 
+        
+## ver 1.30
+[Learn more](..) on QR Control
 
 <script>
 var once = true;
@@ -131,7 +128,7 @@ function makeQR()
   {
     qrcode = new QRCode(document.getElementById("qrcode"), 
     {
-      text : "!oMBURN=\"\"",
+      text : "oMBURN=\"\"",
       width : 360,
       height : 360,
       correctLevel : QRCode.CorrectLevel.M
@@ -165,6 +162,34 @@ function timeLoop()
 	else
 	{
 		cmd = cmd + "g0";
+	}
+	
+	{
+		var tm = document.getElementById("brnt").value; 
+		
+		if(tm == 0) 
+		{
+			s = 0;
+			document.getElementById("brnttxt").innerHTML = "unlimited";
+		}
+		else if (tm < 30)
+		{
+			s = Math.trunc(100*tm/30)/100;
+			document.getElementById("brnttxt").innerHTML = s + " secs";
+		}
+		else if (tm < 90)
+		{
+			s = tm-29;
+			document.getElementById("brnttxt").innerHTML = s + " secs";
+		}
+		else
+		{
+			s = (tm-89)*60;
+			document.getElementById("brnttxt").innerHTML = (tm-89) + " mins";
+		}
+		
+		if(s != 0)
+			cmd = cmd + mtype + "MBRNT=" + s;
 	}
 	
     cmd = cmd + mtype + "MBRNO=" + document.getElementById("offset").value + mtype + "MBURN=\"(" + document.getElementById("hsize").value + "," + document.getElementById("vsize").value + ")" + document.getElementById("startmsg").value + openb + pos + document.getElementById("addtime").value + document.getElementById("adddate").value;

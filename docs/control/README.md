@@ -1,32 +1,44 @@
 # QR Control
 
-## Classic QR Commands for Labs Enabled Cameras
+### Configuration Commands for All Labs Enabled Cameras
 * Set most camera modes with the [**Customizable QR Code Creator**](./custom)
-* <span style="color:steelblue">**NEW**</span> - Subset of commands for the [**HERO 5 Session**](./session5). Hero 5 Session supports: QR codes for camera settings, setting date & time, scheduled captures, including some of the extended time-lapse feature and ownership information.
+and as a mobile app:<br>
+[![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
+[![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 * Precisely setup your cameras with [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc)
 * Personalize your cameras with [**Owner Information**](./owner)
-* Capture only the interesting moments with [**Motion Detection**](./motion)
+* Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
+
+### Capture Triggers 
+* Use the image sensor for [**Motion Detection**](./motion), capturing only scenes with motion
+* Capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
+* Start capture only when traveling fast with [**GPS Speed Triggers**](./speedtrigger) 
+* Use the [**USB Power Trigger**](./usb) to start and stop the camera (pseudo dash-cam mode)
+* <span style="color:steelblue">**NEW**</span> **HERO9 only** - Start capture using [**Sound Pressure Level Trigger**](./spltrigger)
+
+### Extended Time-lapse Features
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
 * Use your GoPro to time-lapse [**Construction Projects**](./construction)
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* **HERO8/9 and MAX Only** Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
-* **HERO8/9 and MAX Only** For teaching and security applications add [**Video 'Burn-in' Overlays**](./overlays)
-* **HERO8/9 and MAX Only** Multi-camera users, label you media with [**Altered File Naming**](./basename)
+* <span style="color:steelblue">**NEW**</span> **HERO9 only** - Daily Time-lapse with [**auto upload**](./dailytl) (GoPro Subscription required)
 
-## Latest Labs QR Commands (requires 2021 firmware) 
-* Start capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
-* Use the [**USB Power Trigger**](./usb) to start and stop the camera (dash-cam mode)
+### Video Alteration Features
+* **HERO8/9 and MAX only** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
 * Set the [**Maximum Shutter Angle**](./maxshut) for greater control over stabilization in low light
 * Set the [**Exposure Lock**](./explock) via QR Code
-* Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras
-* Many more [**extensions**](./extensions) via QR Code
-* **HERO8/9 Only** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
-* **HERO9 Only** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
+* <span style="color:steelblue">**NEW**</span> **HERO9 only** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
-## Mobile Apps for QR Generation
+### Miscellaneous Features
+* Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
+* **HERO8/9 only** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
+* **HERO9 only** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
+* **HERO8/9 and MAX only** - Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
+* **HERO8/9 and MAX only** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
+* <span style="color:steelblue">**NEW**</span> **HERO9 only** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
+* <span style="color:steelblue">**NEW**</span> **HERO9 only** - Enable media [**encryption**](./encrypt) for increased security
+* <span style="color:steelblue">**NEW**</span> Many more [**extensions**](./extensions) via QR Code
 
-[![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
-[![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
+Note: <span style="color:steelblue">**NEW**</span> - Requires Labs Firmware released in June 2021.
 
 ## Forum Discussions 
 
@@ -52,4 +64,4 @@ All setting commands start with a lowercase character, followed by either upperc
 ## The Full List of [**Action Commands**](./actions)
 
 
-### ver 1.15
+### ver 1.14

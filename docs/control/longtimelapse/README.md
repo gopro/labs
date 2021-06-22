@@ -1,3 +1,5 @@
+# Very Long Time-lapses with Larger Intervals
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# Very Long Time-lapses with Larger Intervals
 
 The Labs' firmware allows for much longer time-lapses, on the internal battery alone, by powering off the camera between photos (sorry no video mode time-lapse.) It also supports intervals beyond 60 seconds. A fully charged HERO8 can take around 400 photos, which you can spread over several hours or several days for long form time-lapse.
 
@@ -46,9 +46,10 @@ As stated above, most Lithium Ion USB power-banks will shut-off early, even when
 
 The second option is a USB keep alive device that prevents your USB power bank from shutting down.  Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
+Compatibility: Labs enabled HERO5 Session, HERO7, HERO8, HERO9 and MAX 
         
-## ver 1.04
-[BACK](..)
+## ver 1.05
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

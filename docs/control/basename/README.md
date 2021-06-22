@@ -1,3 +1,5 @@
+# Altered File Naming via QR Code
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# Altered File Naming via QR Code
 
 Your GoPro will typically name your files something like GOPR3606.JPG and GH013607.MP4. If you format your media, and factory reset your camera, you can change the file counter back to zero, but otherwise, you have no control over the file name, until this Labs hack. This is intended for high volume multiple camera production, where simply naming the source media differently will ease post production. 
 
@@ -56,9 +56,10 @@ So you have a corrupted/unclosed GoPro file. You crashed your drone, and the bat
 10. Once the camera completes the file repair process, you can eject the SD Card and backup and play the now repaired file
 
 
- 
-## ver 1.02
-[BACK](..)
+**Compatibility:** Labs enabled HERO8, HERO9 and MAX 
+        
+## ver 1.03
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

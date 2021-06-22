@@ -1,3 +1,5 @@
+# Precision Date and Time (UTC)
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -10,8 +12,6 @@
         }
 </style>
 
-# Precision Date and Time (UTC)
-
 Simply point your Labs enabled camera at this animated QR Code, to set your date and time very accurately to UTC time. This is particularly useful for multi-camera shoots, as it helps synchronize the timecode between cameras. As the camera's internal clock will drift slowly over time, use this QR Code just before your multi-camera shoot for the best synchronization. 
 
 <center>
@@ -20,8 +20,10 @@ Simply point your Labs enabled camera at this animated QR Code, to set your date
 </center>
 QR Command: <b id="qrtext"></b>
 
-## ver 1.0
-[BACK](..)
+Compatibility: Labs enabled HERO5 Session, HERO7, HERO8, HERO9 and MAX 
+        
+## ver 1.01
+[Learn more](..) on QR Control
 
 <script>
 var once = true;

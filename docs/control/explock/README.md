@@ -1,3 +1,5 @@
+# Exposure Lock
+
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
 <style>
@@ -9,8 +11,6 @@
             display: inline-block;
         }
 </style>
-
-# Exposure Lock
 
 Lock exposure after <input type="range" style="width: 200px;" id="locktime" name="locktime" min="0" max="9" value="3"><label for="locktime"></label>&nbsp;&nbsp;<b id="locktimetext"></b> seconds.<br> 
 
@@ -28,9 +28,10 @@ or
 
 QR Command: <b id="qrtext">time</b><br>
         
-## ver 1.00
-
-[BACK](..)
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9 and MAX 
+        
+## ver 1.01
+[Learn more](..) on QR Control
 
 <script>
 var once = true;
