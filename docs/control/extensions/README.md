@@ -36,7 +36,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 	- **LRDR=”Rider Name”** - displays "Rider", with the name you provide
 	- **LRUN=”Runner Name”** - displays "Runner", with the name you provide
 	
-### <span style="color:steelblue">**NEW**</span> - **HERO9 only** - Extensions in May 2021 Labs 
+### <span style="color:steelblue">**NEW**</span> - **HERO9 only** - Extensions in June 2021 Labs (v1.60.70)
 
 - **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.bin file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
 - **MUTE=mask** - Mute one or more channels of audio (microphones). For HERO9 cameras, there are four channels, although three microphones. The mask is binary mask for channels 4321. e.g. oMMUTE=15 mute all channels (15 = 1111B), oMMUTE=8 mute the fourth channel (8 = 1000B), oMMUTE=7 mutes the first 3 channels (7 = 0111B).
