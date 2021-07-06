@@ -27,8 +27,26 @@ QR Command: <b id="qrtext">command</b><br>
 **Known Issue:** Larger chapters will not be enabled when using QuikCapture. QuikCapture starts recording before the Labs service starts, resulting in perfectly fine, but only 4GB chapters. 
 
 **Compatibility:** Labs enabled HERO8, HERO9 and MAX 
-        
-## ver 1.04
+
+# Joining Chapters After Capture
+ 
+Whether you are using the larger chapter feature or not, you may still end up with more than one file for very long video captures. Tools like ReelSteady Go can only operate one file at a time, so here is a solution for merging chapters so that they operate as a valid GoPro MP4 of any length, with all the needed metadata.
+
+Steps involved:
+- install ffmpeg: https://www.ffmpeg.org/ 
+- download [udtacopy.zip](https://github.com/gopro/labs/tree/master/docs/control/chapters/bin/udtacopy.zip) (source [code](https://github.com/gopro/labs/tree/master/docs/control/chapters/src))
+- Unzip and grab the version best for your computer (Mac, Win or Linux) and copy it a folder somewhere (within your executable path).
+- Create a text file with a list of GoPro files that need to be concatenated. E.g. [filelist.txt](https://github.com/gopro/labs/tree/master/docs/control/chapters/bin/filelist.txt)
+- Start a terminal and run the following commands:
+
+>ffmpeg -y -f concat -i **your_path_to/filelist.txt** -c copy -map 0:0 -map 0:1 -map 0:3 **your_output_path/final.mp4**
+>
+>udtacopy **your_path_to/the_first_GoPro_file.MP4** **your_output_path/final.mp4**
+
+The resulting final.mp4 will be a complete GoPro file will all required metadata.
+
+ 
+## ver 1.05
 [Learn more](..) on QR Control
 
 <script>
