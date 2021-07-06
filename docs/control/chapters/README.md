@@ -28,7 +28,7 @@ QR Command: <b id="qrtext">command</b><br>
 
 **Compatibility:** Labs enabled HERO8, HERO9 and MAX 
 
-# Joining Chapters After Capture
+## Optional: Joining Chapters After Capture
  
 Whether you are using the larger chapter feature or not, you may still end up with more than one file for very long video captures. Tools like ReelSteady Go can only operate one file at a time, so here is a solution for merging chapters so that they operate as a valid GoPro MP4 of any length, with all the needed metadata.
 
