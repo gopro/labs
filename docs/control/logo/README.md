@@ -49,7 +49,7 @@ QR Command: <b id="qrtext">time</b><br>
 		
 **Compatibility:** Labs enabled HERO9 only
         
-## ver 1.00
+## ver 1.01
 [Learn more](..) on QR Control
 
 <script>
@@ -149,7 +149,7 @@ function timeLoop()
 		cmd = cmd + mtype + "MBRNT=" + s;
 		cmd = cmd + mtype + "MLOGO=\"" + document.getElementById("pngname").value + "\"";
 		
-		if(filename.length > 4)
+		if(filename.length < 5)
 		{
 			cmd = "\"You need to add\na logo using the\nPNG file format\"";
 		}
