@@ -18,7 +18,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="m1" name="mode" value="mV"> <label  for="m1">Video</label>&nbsp;&nbsp;
   <input type="radio" id="m2" name="mode" value="mTW"> <label for="m2">TimeWarp</label>&nbsp;&nbsp;
   <input type="radio" id="m3" name="mode" value="mT"> <label  for="m3">Timelapse Video</label>&nbsp;&nbsp;
-  <input type="radio" id="m4" name="mode" value="mNP"> <label for="m4">Nightlapse Video</label><br>
+  <input type="radio" id="m4" name="mode" value="mNL"> <label for="m4">Nightlapse Video</label><br>
   <input type="radio" id="m5" name="mode" value="mP"> <label  for="m5">Photo</label>&nbsp;&nbsp;
   <input type="radio" id="m6" name="mode" value="mPB"> <label for="m6">Burst Photo</label>&nbsp;&nbsp;
   <input type="radio" id="m7" name="mode" value="mPN"> <label for="m7">Night Photo</label>&nbsp;&nbsp;
@@ -449,7 +449,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.25
+## version 1.26
 
 <script>
 var lastcmd = "";
