@@ -1993,13 +1993,21 @@ int decryptFile(char* path, char* name)
 					uint8_t* src = (uint8_t*)payload;
 					int size = payloadsize;
 					// skip NALU header
-					while (src[0] == 0 && src[1] == 0 && src[2] == 0)
+					if (src[0] == 0 && src[1] == 0 && src[2] == 0 && src[3] == 3) // HEVC
 					{
-						src += 2;
-						size -= 2;
+						src += 11;
+						size -= 11;
 					}
-					src += 8;
-					size -= 8;
+					else
+					{
+						while (src[0] == 0 && src[1] == 0 && src[2] == 0)
+						{
+							src += 2;
+							size -= 2;
+						}
+						src += 8;
+						size -= 8;
+					}
 
 					int bytes = decrypt_video(src, size);
 					if (bytes)

@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
-#define VER "1.02"
+#define VER "1.03"
 
 #ifdef _WINDOWS
 
