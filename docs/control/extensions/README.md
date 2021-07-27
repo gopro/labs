@@ -35,6 +35,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 	- **LDVR=”Driver Name”** - displays "Driver", with the name you provide
 	- **LRDR=”Rider Name”** - displays "Rider", with the name you provide
 	- **LRUN=”Runner Name”** - displays "Runner", with the name you provide
+- **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. !MBOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here". See an example in [IMU Triggers for Drones](../imutrigger)
 	
 ### <span style="color:steelblue">**NEW**</span> - **HERO9 only** - Extensions in June 2021 Labs (v1.60.70)
 
@@ -81,7 +82,7 @@ QR Command: <b id="qrtext">command</b><br>
 
 <br> 
 		
-## ver 1.03
+## ver 1.05
 [BACK](..)
 
 <script>

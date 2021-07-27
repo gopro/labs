@@ -11,7 +11,7 @@ and as a mobile app:<br>
 
 ### Capture Triggers 
 * Use the image sensor for [**Motion Detection**](./motion), capturing only scenes with motion
-* Capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
+* <span style="color:steelblue">**UPDATED**</span> Capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
 * Start capture only when traveling fast with [**GPS Speed Triggers**](./speedtrigger) 
 * Use the [**USB Power Trigger**](./usb) to start and stop the camera (pseudo dash-cam mode)
 * <span style="color:steelblue">**NEW**</span> **HERO9 only** - Start capture using [**Sound Pressure Level Trigger**](./spltrigger)
@@ -36,7 +36,7 @@ and as a mobile app:<br>
 * **HERO8/9 and MAX only** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * <span style="color:steelblue">**NEW**</span> **HERO9 only** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
 * <span style="color:steelblue">**NEW**</span> **HERO9 only** - Enable media [**encryption**](./encrypt) for increased security
-* <span style="color:steelblue">**NEW**</span> Many more [**extensions**](./extensions) via QR Code
+* <span style="color:steelblue">**UPDATED**</span> Many more [**extensions**](./extensions) via QR Code
 
 Note: <span style="color:steelblue">**NEW**</span> - Requires Labs Firmware released in June 2021.
 
@@ -64,4 +64,4 @@ All setting commands start with a lowercase character, followed by either upperc
 ## The Full List of [**Action Commands**](./actions)
 
 
-### ver 1.14
+### ver 1.15

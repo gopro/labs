@@ -1,4 +1,4 @@
-# IMU (Camera Motion) Detection to Start and Stop Captures
+# IMU Detection to Start and Stop Captures
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
@@ -17,28 +17,34 @@ While the motion detection feature looks for changes in the image, this is only 
 ## Customize IMU Detected Capture
 
 
-<div id="dtIMU">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Sensor selection:</b>&nbsp;&nbsp;
+<div id="dtIMU">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Sensor:</b>&nbsp;&nbsp;
   <input type="radio" id="imu1" name="imu" value="G" > <label for="GYRO">GYRO </label>&nbsp;&nbsp;
   <input type="radio" id="imu2" name="imu" value="A" > <label for="ACCL">ACCL </label>&nbsp;&nbsp;
-  <input type="radio" id="imu3" name="imu" value="I" checked> <label for="BOTH">BOTH (default)</label>
+  <input type="radio" id="imu3" name="imu" value="I" checked> <label for="BOTH">BOTH</label>
 </div>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Start Sensitivity** <input type="range" id="snstvty" name="snstvty" min="1" max="9" value="6"><label for="snstvty"></label>&nbsp;&nbsp;<b id="snstvtytext"></b> (1-low to 9-high)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**End Sensitivity** <input type="range" id="esnstvty" name="esnstvty" min="0" max="9" value="0"><label for="snstvty"></label>&nbsp;&nbsp;<b id="esnstvtytext"></b> (0 - off, 1-low to 9-high)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Start Delay** <input type="range" id="delay" name="delay" min="0" max="60" value="4"><label for="delay"></label>&nbsp;&nbsp;<b id="delaytext"></b> seconds before reading sensors.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Hold Time** <input type="range" id="hold" name="hold" min="0" max="60" value="5"><label for="hold"></label>&nbsp;&nbsp;<b id="holdtext"></b> seconds, to continue recording after motion has stopped.<br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Start Sensitivity** <input type="range" style="width: 180px;" id="snstvty" name="snstvty" min="1" max="9" value="6"><label for="snstvty"></label>&nbsp;&nbsp;<b id="snstvtytext"></b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**End Sensitivity** <input type="range" style="width: 180px;" id="esnstvty" name="esnstvty" min="0" max="9" value="0"><label for="snstvty"></label>&nbsp;&nbsp;<b id="esnstvtytext"></b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Start Delay** <input type="range" style="width: 180px;" id="delay" name="delay" min="0" max="9" value="1"><label for="delay"></label>&nbsp;&nbsp;<b id="delaytext"></b> seconds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Hold Time** <input type="range" style="width: 180px;" id="hold" name="hold" min="0" max="60" value="5"><label for="hold"></label>&nbsp;&nbsp;<b id="holdtext"></b> seconds<br> 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat IMU triggered capture.</label><br>
 
-Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9. 
+Notes: 
+- Sensitivity range: 1-low to 9-high - see table below
+- you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9. 
  
 <center>
-<div id="qrcode"></div>
-<br>
+<div id="qrcode1"></div><br>
+IMU Trigger QR Command: <b id="qrtext1">time</b><br>
+<div id="qrcode2"><br></div><br>
+Drone Boot Command: <b id="qrtext2">time</b><br>
 </center>
 
-QR Command: <b id="qrtext">time</b><br>
+## Using as a Boot Command - Drone Applications 
+
+Now that starting and stopping your GoPro's capture is solved, you also don't want to have to remember to run the script each flight. For a camera dedicated for drone usage (or similar) you can set QR commands that run automatically on boot. This command uses the IMU trigger settings, makes them a boot command (saved to the current SD card,) and enables QR detection while the IMU Trigger is running. Now power-up the drone and power on your GoPro (in some setups this is automatic,) the camera will be ready in seconds. If the drone is stationary, you can use QR Codes to change shooting modes before the flight, or set date and time for cameras that have been without a battery. Once the drone is moving, start and stop capture is automatic. For drone use try a start sensitivity of 4, and end sensitivity of 8, so that an average launch starts the capture, and only rotors off will stop the capture.
 
 ## Sensitivity
 
@@ -59,15 +65,19 @@ QR Command: <b id="qrtext">time</b><br>
 ![Feedback](feedback.jpg)
 
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9 and MAX 
-        
-## ver 1.01
+
+
+## ver 1.10
 [Learn more](..) on QR Control
 
 <script>
 var once = true;
-var qrcode;
-var cmd = "oC";
-var lasttimecmd = "";
+var qrcode1;
+var qrcode2;
+var cmd1 = "";
+var cmd2 = "";
+var lasttimecmd1 = "";
+var lasttimecmd2 = "";
 var changed = true;
 
 function dcmd(cmd, id) {
@@ -98,13 +108,23 @@ function makeQR()
 {	
   if(once === true)
   {
-    qrcode = new QRCode(document.getElementById("qrcode"), 
+    qrcode1 = new QRCode(document.getElementById("qrcode1"), 
     {
-      text : "!oMBURN=\"\"",
+      text : "\"Hello\"",
       width : 360,
       height : 360,
       correctLevel : QRCode.CorrectLevel.M
     });
+	
+	
+    qrcode2 = new QRCode(document.getElementById("qrcode2"), 
+    {
+      text : "\"World\"",
+      width : 360,
+      height : 360,
+      correctLevel : QRCode.CorrectLevel.M
+    });
+	
     once = false;
   }
 }
@@ -125,34 +145,54 @@ function timeLoop()
 	var hold = parseInt(document.getElementById("hold").value);	
 	document.getElementById("holdtext").innerHTML = hold;	
 		
-	cmd = dcmd("!S","imu"); //shutter angle
-	cmd = cmd + snstvty;
+	cmd1 = dcmd("!S","imu"); 
+	cmd1 = cmd1 + snstvty;
 	
-	if(esnstvty > 0) cmd = cmd + "-" + esnstvty;
-	if(delay > 0) cmd = cmd + 'D' + delay;
-	if(hold > 0) cmd = cmd + 'H' + hold;	
+	cmd2 = "!MQRDR=1!MBOOT=\"!Ldrone\"!SAVEdrone=\"";
+	cmd2 = cmd2 + dcmd("!S","imu"); 
+	cmd2 = cmd2 + snstvty;
+	
+	if(esnstvty > 0) cmd1 = cmd1 + "-" + esnstvty;
+	if(delay > 0) cmd1 = cmd1 + 'D' + delay;
+	if(hold > 0) cmd1 = cmd1 + 'H' + hold;	
+	
+	if(esnstvty > 0) cmd2 = cmd2 + "-" + esnstvty;
+	if(delay > 0) cmd2 = cmd2 + 'D' + delay;
+	if(hold > 0) cmd2 = cmd2 + 'H' + hold;	
 	
     if(document.getElementById("repeat") !== null)
     {
       if(document.getElementById("repeat").checked === true)
       {
-        cmd = cmd + "!R";
+        cmd1 = cmd1 + "!R";
+        cmd2 = cmd2 + "!R";
       }
     }
+	
+	cmd2 = cmd2 + "\"";
   }
   
-  qrcode.clear(); 
-  qrcode.makeCode(cmd);
+  qrcode1.clear(); 
+  qrcode1.makeCode(cmd1);
   
-  if(cmd != lasttimecmd)
+  qrcode2.clear(); 
+  qrcode2.makeCode(cmd2);
+  
+  if(cmd1 != lasttimecmd1)
   {
 	changed = true;
-	lasttimecmd = cmd;
+	lasttimecmd1 = cmd1;
+  }
+  if(cmd2 != lasttimecmd2)
+  {
+	changed = true;
+	lasttimecmd2 = cmd2;
   }
 	
   if(changed === true)
   {
-	document.getElementById("qrtext").innerHTML = cmd;
+	document.getElementById("qrtext1").innerHTML = cmd1;
+	document.getElementById("qrtext2").innerHTML = cmd2;
 	changed = false;
   }
   
