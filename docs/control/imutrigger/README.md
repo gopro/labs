@@ -67,7 +67,7 @@ Now that starting and stopping your GoPro's capture is solved, you also don't wa
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9 and MAX 
 
 
-## ver 1.10
+## ver 1.11
 [Learn more](..) on QR Control
 
 <script>
@@ -148,7 +148,7 @@ function timeLoop()
 	cmd1 = dcmd("!S","imu"); 
 	cmd1 = cmd1 + snstvty;
 	
-	cmd2 = "!MQRDR=1!MBOOT=\"!Ldrone\"!SAVEdrone=\"";
+	cmd2 = "!MQRDR=1!MBOOT=\"!Ldrone\"!SAVEdrone=";
 	cmd2 = cmd2 + dcmd("!S","imu"); 
 	cmd2 = cmd2 + snstvty;
 	
@@ -168,8 +168,6 @@ function timeLoop()
         cmd2 = cmd2 + "!R";
       }
     }
-	
-	cmd2 = cmd2 + "\"";
   }
   
   qrcode1.clear(); 
