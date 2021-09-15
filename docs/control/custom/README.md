@@ -185,9 +185,9 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 
 <div id="settingsPhotoRAW">
 <b>Photo Properties:</b><br>
-  <input type="radio" id="raw1" name="raw" value="rW"> <label for="raw1">Raw off </label>&nbsp;&nbsp;
-  <input type="radio" id="raw2" name="raw" value="r"> <label for="raw2">Raw on</label>&nbsp;&nbsp;
-  <input type="radio" id="raw3" name="raw" value="" checked> <label for="raw3"> none</label><br><br>
+  <input type="radio" id="raw1" name="raw" value="rW"> <label for="raw1">JPEG only</label>&nbsp;&nbsp;
+  <input type="radio" id="raw2" name="raw" value="r"> <label for="raw2">Raw + JPEG</label>&nbsp;&nbsp;
+  <input type="radio" id="raw3" name="raw" value="" checked> <label for="raw3"> not set</label><br><br>
 </div>
 
 <div id="settingsAUDT">
@@ -449,7 +449,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.26
+## version 1.27
 
 <script>
 var lastcmd = "";
