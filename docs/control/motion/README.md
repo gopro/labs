@@ -21,6 +21,8 @@ While your GoPro camera is not equipped with ultra sonic or another motion senso
 **Hold Time** <input type="range" id="hold" name="hold" min="0" max="60" value="5"><label for="hold"></label>&nbsp;&nbsp;<b id="holdtext"></b> seconds, to continue recording after motion has stopped.<br> 
 **Motion Mask**  <input type="range" id="mask" name="mask" min="0" max="20" value="0"><label for="mask"></label>&nbsp;&nbsp;<b id="masktext"></b> seconds, to avoid falsely detecting constantly moving objects like a ceiling fan, or winds blowing leaves. Anything moving during this motion mask time will be ignored as motion triggers. You can also use you fingers to "paint" out regions you want to ignore (e.g. sky to avoid birds triggering capture, when you are also interested in ground activity, or vise versa.) HERO9 and HERO10 only for the mask feature.<br> 
 
+**HERO10 Note:** For motion detection to work on HERO10, the LCD must remain on. For extended motion captures set the LCD brightest low.  
+
 <input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat motion capture.</label><br>
 
@@ -68,7 +70,7 @@ The motion detection will now always use the mask.pgm, so using motion mask opti
 	
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX.  Masking fixed on HERO9 & 10.
         
-## ver 1.06
+## ver 1.07
 [Learn more](..) on QR Control
 
 <script>
