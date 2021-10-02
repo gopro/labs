@@ -33,9 +33,9 @@ Note: you will have to manually set the interval and resolution for the night la
 
 QR Command: <b id="qrtext">time</b><br>
         
-**Compatibility:** Labs enabled HERO7, HERO8, HERO9 and MAX 
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.04
+## ver 1.05
 
 [Learn more](..) on QR Control
 

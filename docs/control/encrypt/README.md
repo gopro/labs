@@ -47,7 +47,7 @@ The MP4 file structure itself is not encrypted, it remains an indexable, trimmab
 </center>
 QR Command: <b id="qrtext">time</b><br>
 
-**Compatibility:** Labs enabled HERO9 only
+**Compatibility:** Labs enabled HERO9 and HERO10 only
         
 ## ver 1.01
 [Learn more](..) on QR Control

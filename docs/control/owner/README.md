@@ -26,9 +26,9 @@ QR Command: <b id="qrtext">time</b><br>
 Note: For additional lines use \n within your text. 
 e.g. Joe Bloggs\ncall (555)555-5555 
 
-**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9 and MAX 
+**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.05
+## ver 1.06
 
 [Learn more](..) on QR Control
 

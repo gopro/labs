@@ -20,7 +20,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 
 - **LLTZ=latt,long,timezone** for those want to use Sunset/Sunrise timelapse without waiting for GPS lock, or for when you are shooting a sunset timelapse from indoors. The metadata is used to store your GPS Location and timezone e.g. !MLLTZ=33.126,-117.327,-8.0  In this case you must used the !M command, permanent storage, as solar event timers will shutdown the camera.
 - **QRDR=1** - detect QR Codes while recording.  Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
-- **BIAS=ev_value** - This is a crude EV compensation for modes that don’t have Protune settings, like Live-stream. e.g. oMBIAS=2.0 (do not make this permanent as it can impact all video modes.) 
+- **BIAS=ev_value** - This is a crude EV compensation for modes that don’t have Protune settings, like Live-stream. e.g. oMBIAS=2.0 (do not make this permanent as it can impact all video modes.) Not supported on HERO10.
 - **HNDL=x**, where x is 1 to 31, setting the camera ID for a camera. This is for rare scenarios where multiple cameras see the same QR Code, and you only want particular cameras to respond. This combined with **hZ** command where Z is the bit mask for which cameras will follow the command.
 	- e.g.   h6mP!S  ← this command will only run on cameras with IDs 2 and 3.
     - e.g.   h1mVh2mPB ← set camera 1 to mode Video and camera 2 to Photo Burst.
@@ -28,7 +28,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **DSPC=value**, this sets that contrast for which messages are displayed.  Contrast is from 0 - transparent text background, to 6 - opaque black background
 - **HIST=x** - Displays a histogram with contrast from 1 to 11. e.g. try setting HIST to 5. HIST=0 will disable it.
 ![HIST.jpg](HIST.jpg)
-- **LAPS=1** turns on the burn-in laptime, a hackathon designed for live-streaming auto races. LAPS=0 will disable it.
+- **LAPS=1** turns on the burn-in laptime, a hackathon designed for live-streaming auto races. LAPS=0 will disable it. **HERO8/9 only**
 	- **BRNP=”xx”**  this the burnin position TL, TR, BL, BR (default) - T-Top L-Left B-Bottom R-Right, e.g. oMBRNP="TR"
 	- **LFIN=latt,long** GPS location for the Lap Line (finish line), used to compute the lap times. e.g. !MLFIN=36.586221,-121.756818 The finish line at Laguna Seca. You need a high degree of GPS precision for this to work correctly.
 	- **LSRT=”hh:mm”** - Lap times starting at time HH:MM, so you can put in the race start time.
@@ -37,7 +37,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 	- **LRUN=”Runner Name”** - displays "Runner", with the name you provide
 - **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. !MBOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here". See an example in [IMU Triggers for Drones](../imutrigger)
 	
-### <span style="color:steelblue">**NEW**</span> - **HERO9 only** - Extensions in June 2021 Labs (v1.60.70)
+### **HERO9/10 only** - Extensions latest Labs firmware
 
 - **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.bin file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
 - **MUTE=mask** - Mute one or more channels of audio (microphones). For HERO9 cameras, there are four channels, although three microphones. The mask is binary mask for channels 4321. e.g. oMMUTE=15 mute all channels (15 = 1111B), oMMUTE=8 mute the fourth channel (8 = 1000B), oMMUTE=7 mutes the first 3 channels (7 = 0111B).
@@ -50,7 +50,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **SPED=x** - SD Card Speed Test. 'x' is the number of runs, each run is around 10 seconds.  Data rates should have minimums above 120Mb/s is you want to reliably capture the high bitrate modes. 
 ![SPED.jpg](SPED.jpg)
 
-### <span style="color:steelblue">**NEW**</span> - **HERO9 only** - Overlay extensions May 2021 Labs
+### **HERO9 only** - Overlay extensions
 
 - **CBAR=1** - enable a small 75% saturated color bars for video tools evaluation
 - **LBAR=1** - enable a small luma sweep for video tools evaluation (can be combined with CBAR=1)
@@ -60,6 +60,11 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **BRNT=0.5** - The overlays or burn-in display time in seconds. e.g. BRNT=0.016 will display the logo or text overlays only on the first frame (1/60th of a second.) 
 - **BRNX=x,y** - This is an upgrade to BRNO (Burn-ins Offset), allowing you to offset the burn-ins with X,Y pixel coordinates. e.g. BRNX=120,40
 
+
+
+### <span style="color:steelblue">**NEW**</span> - **HERO10 only** - Frame rate extension - October 2021 Labs
+
+- **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
 
 <input type="checkbox" id="perm" name="perm"> 
 <label for="perm">Make metadata Premanent (are you sure?)</label><br>
@@ -82,7 +87,7 @@ QR Command: <b id="qrtext">command</b><br>
 
 <br> 
 		
-## ver 1.05
+## ver 1.06
 [BACK](..)
 
 <script>

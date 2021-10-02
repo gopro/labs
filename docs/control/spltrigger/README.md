@@ -24,7 +24,7 @@ This trigger uses the SPL of the audio detected start and stop captures.  Exampl
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat SPL triggered capture.</label><br>
 
-Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9. 
+Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9 or 10. 
  
 <center>
 <div id="qrcode"></div>
@@ -49,9 +49,9 @@ QR Command: <b id="qrtext">time</b><br>
 
 ![Feedback](feedback.jpg)
 
-**Compatibility:** Labs enabled HERO9 only
+**Compatibility:** Labs enabled HERO9 and HERO10 only
         
-## ver 1.00
+## ver 1.01
 
 [Learn more](..) on QR Control
 

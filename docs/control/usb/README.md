@@ -31,7 +31,7 @@ and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlen
 
 QR Command: <b id="qrtext">time</b><br>
         
-**Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9 and MAX 
+**Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10 and MAX 
         
 ## ver 1.01
 

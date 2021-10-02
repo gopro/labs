@@ -23,7 +23,7 @@ The GPS feature in your GoPro provides speed information in addition to location
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat speed triggered capture.</label><br>
 
-Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9. 
+Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9 or 10. 
  
 <center>
 <div id="qrcode"></div>
@@ -32,7 +32,7 @@ Note: you will have to manually set the mode in which you capture.  The detector
 
 QR Command: <b id="qrtext">time</b><br>
 
-**Compatibility:** Labs enabled HERO7, HERO8, HERO9 and MAX 
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
         
 ## ver 1.00
 [Learn more](..) on QR Control

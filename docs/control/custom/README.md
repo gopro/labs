@@ -161,7 +161,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 </div>
 
 <div id="settingsHindsight">
-<b>Hindsight (HERO9):</b>&nbsp;&nbsp;
+<b>Hindsight (HERO9/10):</b>&nbsp;&nbsp;
 	<input type="radio" id="hind1" name="hind" value="hS0"> <label for="hind1">Off</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind2" name="hind" value="hS1"> <label for="hind2">15s</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind3" name="hind" value="hS2"> <label for="hind3">30s</label>&nbsp;&nbsp;&nbsp;
@@ -169,7 +169,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 </div>
 					
 <div id="settingsDuration">
-<b>Duration (HERO9):</b>&nbsp;&nbsp;
+<b>Duration (HERO9/10):</b>&nbsp;&nbsp;
 	<input type="radio" id="dur1" name="dur" value="dR0"> <label for="dur1">Off</label>&nbsp;&nbsp;
 	<input type="radio" id="dur2" name="dur" value="dR15"> <label for="dur2">15s</label>&nbsp;&nbsp;
 	<input type="radio" id="dur3" name="dur" value="dR30"> <label for="dur3">30s</label>&nbsp;&nbsp;
@@ -440,7 +440,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 
 <button onclick="myReloadFunction()">Reset page</button>
 
-**Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9 and MAX 
+**Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9, HERO10 and MAX 
         
 [Learn more](..) on QR Control
 
@@ -449,7 +449,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.27
+## version 1.28
 
 <script>
 var lastcmd = "";

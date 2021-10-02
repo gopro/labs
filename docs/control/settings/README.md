@@ -134,7 +134,7 @@ GoPro MAX Shooting Modes
  * **mF** - mode monitor Front lens
  * **mR** - mode monitor Rear lens
 
-GoPro HERO9 Front Screen controls
+GoPro HERO9/10 Front Screen controls
  * **oF0 or oFO** - turn the front LCD off
  * **oFU** - UI interface mode info only
  * **oFF** - Full image (image is letterboxed)
@@ -146,7 +146,7 @@ GoPro HERO9 Front Screen controls
  * **oF3** - turn off after 3 minutes
  * **oF5** - turn off after 5 minutes
 					
-GoPro HERO9 Max Lens Mod Controls
+GoPro HERO9/10 Max Lens Mod Controls
  * **oX0** - Lens Mod is not attached
  * **oX1** - Lens Mod is attached
 
@@ -175,7 +175,7 @@ Same further option (‘o’) commands
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.10 - 2021 May, Third Labs release
+## ver 1.11 - 2021 Oct, Fourth Labs release
 
 [Learn more](..) on QR Control
 

@@ -24,9 +24,9 @@
 * **!**time**NQ** - No Action until at approximately **time**.
 * **!**time**O** - Off, shutdown the camera.
 * **!**time**OR** - shutdown and restart the camera.
-* **!**time**U** - Attempt and network contention and Upload **HERO9 only**.
-* **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored **HERO8 & HERO9 only**.
-* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local fine, requires a previously successful **!W** command **HERO8 & HERO9 only**
+* **!**time**U** - Attempt and network contention and Upload **HERO9/10 only**.
+* **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored **HERO8/9/10 only**.
+* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local fine, requires a previously successful **!W** command **HERO8/9/10 only**
 
 ## Capture Triggers
 
@@ -99,7 +99,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.05 - 2021 May  
+## ver 1.06 - 2021 Oct  
 [BACK](..)
 
 

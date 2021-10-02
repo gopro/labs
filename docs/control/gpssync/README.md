@@ -12,7 +12,7 @@
         }
 </style>
 
-If you are shooting with multiple GoPro **HERO9** cameras, enable this feature. 
+If you are shooting with multiple GoPro **HERO9** and/or **HERO10** cameras, enable this feature. 
 
 ## How it works
 
@@ -34,9 +34,9 @@ Note: it is correct for 23.976 and 29.97 Non-drop timecode to it be 0.1% behind 
 
 <br> 
 
-**Compatibility:** Labs enabled HERO9 only 
+**Compatibility:** Labs enabled HERO9 and HERO10 only 
         
-## ver 1.01
+## ver 1.02
 [Learn more](..) on QR Control
 
 <script>
