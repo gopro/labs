@@ -16,7 +16,7 @@ Your GoPro will typically name your files something like GOPR3606.JPG and GH0136
 
 **WARNING:** The GoPro App and GoPro cloud services will not support these renamed files. In addition, the camera's automatic file repair will not know to repair these files (see Manual File Recovery below), so only use this feature if you aren't putting cameras in extreme danger (where power could be randomly disconnected.) 
 
-Your base filename here: <input type="text" id="addname" value=""> (only a-z, A-Z, 0-9, and +-_()<>,.)<br> 
+Your base filename here: <input type="text" id="addname" value=""> (only a-z, A-Z, 0-9, and +-_(),.)<br> 
 Up to eight characters. e.g. "CAMERA06"<br> 
 <br>
 Your filenames will be in the format: <b id="newnameMP4">nameGH013607.MP4</b> and <b id="newnameJPG">nameGOPR3607.JPEG</b><br>
@@ -97,7 +97,7 @@ function filter(txt)
 	desired = desired.replace('}', '');
 	desired = desired.replace('\[', '{');
 	desired = desired.replace(']', '}');
-	desired = desired.replace(/[^a-zA-Z0-9-_+(){}<>,.]/gi, '');
+	desired = desired.replace(/[^a-zA-Z0-9-_+(){},.]/gi, '');
 	desired = desired.replace('{', '\[');
 	desired = desired.replace('}', ']');
 	return desired;
