@@ -58,7 +58,7 @@ So you have a corrupted/unclosed GoPro file. You crashed your drone, and the bat
 
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.03
+## ver 1.04
 [Learn more](..) on QR Control
 
 <script>
