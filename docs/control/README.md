@@ -17,8 +17,7 @@
 and as a mobile app:<br>
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
-* Precisely setup your cameras with [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc)
-<div id="qrcode">Set Local Time:</div>
+* <div id="qrcode">Precision [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc) or Set Local Time:</div>
 * Personalize your cameras with [**Owner Information**](./owner)
 
 ### Capture Triggers 
