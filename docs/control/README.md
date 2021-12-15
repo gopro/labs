@@ -18,9 +18,8 @@ and as a mobile app:<br>
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 * Precisely setup your cameras with [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc)
-<div id="qrcode">Local Time</div>
+<div id="qrcode">Set Local Time:</div>
 * Personalize your cameras with [**Owner Information**](./owner)
-* Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 ### Capture Triggers 
 * Use the image sensor for [**Motion Detection**](./motion), capturing only scenes with motion
@@ -36,8 +35,8 @@ and as a mobile app:<br>
 * **HERO9/10** - Daily Time-lapse with [**auto upload**](./dailytl) (GoPro Subscription required)
 
 ### Video Alteration Features
+* **HERO8/9/10/MAX** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
 * **HERO8/9/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
-* **HERO8/9/MAX** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
 * **HERO8/9** Set the [**Exposure Lock**](./explock) via QR Code
 * **HERO9** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
@@ -74,8 +73,10 @@ All setting commands start with a lowercase character, followed by either upperc
 
 ## The Full List of [**Action Commands**](./actions)
 
+Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
-### ver 1.17
+
+### ver 1.1
 
 
 <script>
