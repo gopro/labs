@@ -1,11 +1,24 @@
 # QR Control
 
+<script src="../jquery.min.js"></script>
+<script src="../qrcodeborder.js"></script>
+<style>
+        #qrcode{
+            width: 100%;
+        }
+        div{
+            width: 100%;
+            display: inline-block;
+        }
+</style>
+
 ### Configuration Commands for All Labs Enabled Cameras
 * Set most camera modes with the [**Customizable QR Code Creator**](./custom)
 and as a mobile app:<br>
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 * Precisely setup your cameras with [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc)
+<div id="qrcode"></div> 
 * Personalize your cameras with [**Owner Information**](./owner)
 * Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
@@ -62,4 +75,63 @@ All setting commands start with a lowercase character, followed by either upperc
 ## The Full List of [**Action Commands**](./actions)
 
 
-### ver 1.16
+### ver 1.17
+
+
+<script>
+var once = true;
+var qrcode;
+var cmd = "";
+
+function makeQR() {	
+  if(once === true)
+  {
+    qrcode = new QRCode(document.getElementById("qrcode"), 
+    {
+      text : "oT0",
+      width : 360,
+      height : 360,
+      correctLevel : QRCode.CorrectLevel.M
+    });
+    once = false;
+  }
+}
+function padTime(i) {
+  if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
+  return i;
+}
+function timeLoop()
+{
+  var today;
+  var yy,mm,dd,h,m,s;
+  
+  today = new Date();
+  yy = today.getFullYear() - 2000;
+  mm = today.getMonth() + 1;
+  dd = today.getDate();
+  h = today.getHours();
+  m = today.getMinutes();
+  s = today.getSeconds();
+  ms = today.getMilliseconds();
+  yy = padTime(yy);
+  mm = padTime(mm);
+  dd = padTime(dd);
+  h = padTime(h);
+  m = padTime(m);
+  s = padTime(s);;
+
+  cmd = "oT" + yy + mm + dd + h + m + s;
+  qrcode.clear(); 
+  qrcode.makeCode(cmd);
+ 
+  var t = setTimeout(timeLoop, 500);
+}
+
+function myReloadFunction() {
+  location.reload();
+}
+
+makeQR();
+timeLoop();
+
+</script>
