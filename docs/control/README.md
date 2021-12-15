@@ -18,7 +18,7 @@ and as a mobile app:<br>
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 * Precisely setup your cameras with [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc)
-<div id="qrcode"></div>Local Time 
+<div id="qrcode">Local Time</div>
 * Personalize your cameras with [**Owner Information**](./owner)
 * Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
@@ -118,7 +118,9 @@ function timeLoop()
   dd = padTime(dd);
   h = padTime(h);
   m = padTime(m);
-  s = padTime(s);;
+  s = padTime(s);
+  
+
 
   cmd = "oT" + yy + mm + dd + h + m + s;
   qrcode.clear(); 
