@@ -76,7 +76,7 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.1
+### ver 1.19
 
 
 <script>
