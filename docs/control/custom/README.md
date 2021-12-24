@@ -81,13 +81,25 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="f10" name="fov" value="" checked> <label for="f10">not set</label><br><br>
  </div>
  
- 
 <div id="settingsTLVFOV">
 <b>Lens:</b>
   <input type="radio" id="tlvf1" name="tlvfov" value="fW"> <label for="tlvf1">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="tlvf2" name="tlvfov" value="fL"> <label for="tlvf2">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="tlvf3" name="tlvfov" value="" checked> <label for="tlvf3">not set</label><br><br>
  </div>
+  
+<div id="settingsTWFOV">
+<b>Lens:</b>
+  <input type="radio" id="twf1" name="twfov" value="fW"> <label for="twf1">Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="twf2" name="twfov" value="fL"> <label for="twf2">Linear </label>&nbsp;&nbsp;
+  <input type="radio" id="twf3" name="twfov" value="fH"> <label for="twf3">Linear+HL </label>&nbsp;&nbsp;
+  <input type="radio" id="twf4" name="twfov" value="" checked> <label for="twf4">not set</label><br><br>
+ </div>
+ 
+ 
+<div id="settingsZoom">
+ <b>Zoom:</b> <input type="range" id="zoom" name="zoom" min="0" max="10" value="0"><label for="zoom"></label>&nbsp;&nbsp;<b id="zoomtext"></b><br><br>
+</div>
 
 <div id="settingsBurst">
 <b>Burst Style:</b>&nbsp;&nbsp;
@@ -225,7 +237,8 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 <input type="radio" id="sp7" name="placement" value="25,75"> <label for="sp7">Lower Left  </label>&nbsp;&nbsp;
 <input type="radio" id="sp8" name="placement" value="50,75"> <label for="sp8">Lower Center</label>&nbsp;
 <input type="radio" id="sp9" name="placement" value="75,75"> <label for="sp9">Lower Right </label>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" id="sp10" name="placement" value="0"> <label for="sp10">Disable </label><br>
+<input type="radio" id="sp10" name="placement" value="0"> <label for="sp10">Disable </label><br>&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="checkbox" id="sl" value="!2NoSL"> <label for="sm">Exposure Lock 3s after scan (to avoid locking on the QR Code)</label><br>
 </div>
 <div id="settingsPT">
 <input type="checkbox" id="pt" value="t"> <label for="pt">Protune Controls</label><br>
@@ -482,8 +495,8 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.33
-updated: Dec 22, 2021
+## version 1.34
+updated: Dec 24, 2021
 
 <script>
 var lastcmd = "";
@@ -528,6 +541,8 @@ function startTime() {
 	dset("settingsFPS", false);
 	dset("settingsFOV", false);
 	dset("settingsTLVFOV", false);
+	dset("settingsTWFOV", false);
+	dset("settingsZoom", false);
 	dset("settingsRESTLV", false);
 	dset("settingsVideo", false);
 	dset("settingsHindsight", false);
@@ -628,7 +643,7 @@ function startTime() {
 		dset("settingsTimewarp", true);		
 		dset("settingsDuration", true);
 		dset("settingsRESTLV", true);
-		dset("settingsTLVFOV", true);
+		dset("settingsTWFOV", true);
 		dset("settingsPT", true);
 		break;		
 		
@@ -799,17 +814,80 @@ function startTime() {
 		
 	cmd = dcmd(cmd,"p"); //fps
 	
-	if(checkedmode > 9) // not video		
-		cmd = dcmd(cmd,"tlvf"); //fov
+	if(checkedmode > 9) // not video	
+	{
+		if(checkedmode == 10) //TWarp
+		{
+			cmd = dcmd(cmd,"twf"); //fov		
+		
+			if(	(document.getElementById("twf1").checked === true) || //Wide
+				(document.getElementById("twf2").checked === true) || //Linear
+				(document.getElementById("twf3").checked === true) ) //Linear+HL
+			{
+				dset("settingsZoom", true);			
+					
+				var zoom = parseInt(document.getElementById("zoom").value);
+				zoom *= 10;
+				document.getElementById("zoomtext").innerHTML = zoom+"%";	
+				if(zoom == 100) zoom = 99;	
+				
+				cmd = cmd + zoom; //fov
+			}
+		}
+		else //Everything else
+		{
+			cmd = dcmd(cmd,"tlvf"); //fov		
+		
+			if(	(document.getElementById("tlvf1").checked === true) || //Wide
+				(document.getElementById("tlvf2").checked === true) ) //Linear
+			{
+				dset("settingsZoom", true);			
+					
+				var zoom = parseInt(document.getElementById("zoom").value);
+				zoom *= 10;
+				document.getElementById("zoomtext").innerHTML = zoom+"%";	
+				if(zoom == 100) zoom = 99;	
+				
+				cmd = cmd + zoom; //fov
+			}
+		}
+	}
 	else
+	{
 		cmd = dcmd(cmd,"f"); //fov
+		
+		if(	(document.getElementById("f1").checked === true) || //Wide
+			(document.getElementById("f4").checked === true) || //Linear
+			(document.getElementById("f6").checked === true) ) //Linear+HL
+		{
+			dset("settingsZoom", true);			
+			
+			var zoom = parseInt(document.getElementById("zoom").value);
+			zoom *= 10;
+			document.getElementById("zoomtext").innerHTML = zoom+"%";	
+			if(zoom == 100) zoom = 99;	
+			
+			cmd = cmd + zoom; //fov
+		}
+		else
+		{
+			dset("settingsZoom", false);
+		}
+	}
 	
 	if(document.getElementById("sm") !== null)
 	{
 		if(document.getElementById("sm").checked === true)
 		{
 			var pos = dcmd("","sp");	
-			cmd = dcmd(cmd,"sm") + pos; //spotMeter
+			if(document.getElementById("sl").checked === true)
+			{
+				cmd = dcmd(cmd,"sl") + pos; //spot Lock
+			}
+			else
+			{
+				cmd = dcmd(cmd,"sm") + pos; //spotMeter
+			}
 		}
 	}
 	
