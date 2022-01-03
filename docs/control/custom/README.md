@@ -70,22 +70,35 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 <div id="settingsFOV">
 <b>Lens:</b>
   <input type="radio" id="f1" name="fov" value="fW"> <label for="f1">Wide </label>&nbsp;&nbsp;
-  <input type="radio" id="f2" name="fov" value="fM"> <label for="f2">Medium </label>&nbsp;&nbsp;
-  <input type="radio" id="f3" name="fov" value="fN"> <label for="f3">Narrow </label>&nbsp;&nbsp;
-  <input type="radio" id="f4" name="fov" value="fL"> <label for="f4">Linear </label>&nbsp;&nbsp;
-  <input type="radio" id="f5" name="fov" value="fS"> <label for="f5">Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="f6" name="fov" value="fH"> <label for="f6">Linear+HL </label><br>
-  Max Lens Mod:  <input type="radio" id="f7" name="fov" value="oX1fW"> <label for="f7">Enable Wide </label>&nbsp;&nbsp;
-  <input type="radio" id="f8" name="fov" value="oX1fX"> <label for="f8">Enable Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="f9" name="fov" value="oX0"> <label for="f9">Disable MLM</label>&nbsp;&nbsp;
-  <input type="radio" id="f10" name="fov" value="" checked> <label for="f10">not set</label><br><br>
+ <!-- <input type="radio" id="f2" name="fov" value="fM"> <label for="f2">Medium </label>&nbsp;&nbsp; -->
+  <input type="radio" id="f2" name="fov" value="fN"> <label for="f2">Narrow </label>&nbsp;&nbsp;
+  <input type="radio" id="f3" name="fov" value="fL"> <label for="f3">Linear </label>&nbsp;&nbsp;
+  <input type="radio" id="f4" name="fov" value="fS"> <label for="f4">Superview </label>&nbsp;&nbsp;
+  <input type="radio" id="f5" name="fov" value="fH"> <label for="f5">Linear+HL </label><br>
+  Max Lens Mod:  <input type="radio" id="f6" name="fov" value="oX1fW"> <label for="f6">Enable Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="f7" name="fov" value="oX1fX"> <label for="f7">Enable Superview </label>&nbsp;&nbsp;
+  <input type="radio" id="f8" name="fov" value="oX0"> <label for="f8">Disable MLM</label>&nbsp;&nbsp;
+  <input type="radio" id="f9" name="fov" value="" checked> <label for="f9">not set</label><br><br>
  </div>
+ 
+<div id="settingsPFOV">
+<b>Lens:</b>
+  <input type="radio" id="pf1" name="pfov" value="fW"> <label for="pf1">Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="pf2" name="pfov" value="fL"> <label for="pf2">Linear </label>&nbsp;&nbsp;
+  <input type="radio" id="pf3" name="pfov" value="fN"> <label for="pf3">Narrow </label><br>
+  Max Lens Mod:  <input type="radio" id="pf4" name="pfov" value="oX1fW"> <label for="pf4">Enable Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="pf5" name="pfov" value="oX1fX"> <label for="pf5">Enable Superview </label>&nbsp;&nbsp;
+  <input type="radio" id="pf6" name="pfov" value="oX0"> <label for="pf6">Disable MLM</label>&nbsp;&nbsp;
+  <input type="radio" id="pf7" name="pfov" value="" checked> <label for="pf7">not set</label><br><br>
+ </div>
+  
  
 <div id="settingsTLVFOV">
 <b>Lens:</b>
   <input type="radio" id="tlvf1" name="tlvfov" value="fW"> <label for="tlvf1">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="tlvf2" name="tlvfov" value="fL"> <label for="tlvf2">Linear </label>&nbsp;&nbsp;
-  <input type="radio" id="tlvf3" name="tlvfov" value="" checked> <label for="tlvf3">not set</label><br><br>
+  <input type="radio" id="tlvf3" name="tlvfov" value="fN"> <label for="tlvf3">Narrow </label>&nbsp;&nbsp;  
+  <input type="radio" id="tlvf4" name="tlvfov" value="" checked> <label for="tlvf4">not set</label><br><br>
  </div>
   
 <div id="settingsTWFOV">
@@ -93,7 +106,11 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="twf1" name="twfov" value="fW"> <label for="twf1">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="twf2" name="twfov" value="fL"> <label for="twf2">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="twf3" name="twfov" value="fH"> <label for="twf3">Linear+HL </label>&nbsp;&nbsp;
-  <input type="radio" id="twf4" name="twfov" value="" checked> <label for="twf4">not set</label><br><br>
+  <input type="radio" id="twf4" name="twfov" value="fN"> <label for="twf4">Narrow </label>&nbsp;&nbsp;  <br>
+  Max Lens Mod:  <input type="radio" id="twf5" name="twfov" value="oX1fW"> <label for="twf5">Enable Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="twf6" name="twfov" value="oX1fX"> <label for="twf6">Enable Superview </label>&nbsp;&nbsp;
+  <input type="radio" id="twf7" name="twfov" value="oX0"> <label for="twf7">Disable MLM</label>&nbsp;&nbsp;
+  <input type="radio" id="twf8" name="twfov" value="" checked> <label for="twf8">not set</label><br><br>
  </div>
  
  
@@ -356,8 +373,9 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="bv2" name="bv" value="V1"> <label for="bv2">10% </label>&nbsp;&nbsp;
   <input type="radio" id="bv3" name="bv" value="V4"> <label for="bv3">40% </label>&nbsp;&nbsp;
   <input type="radio" id="bv4" name="bv" value="V7"> <label for="bv4">70% </label>&nbsp;&nbsp;
-  <input type="radio" id="bv5" name="bv" value="V9"> <label for="bv5">100% </label>&nbsp;&nbsp;
-  <input type="radio" id="bv6" name="bv" value="" checked> <label for="bv6">not set</label>
+  <input type="radio" id="bv5" name="bv" value="V8"> <label for="bv5">85% </label>&nbsp;&nbsp;
+  <input type="radio" id="bv6" name="bv" value="V9"> <label for="bv6">100% </label>&nbsp;&nbsp;
+  <input type="radio" id="bv7" name="bv" value="" checked> <label for="bv7">not set</label>
   </div>
   
 <div id="opDB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Display Brightness:</b>&nbsp;&nbsp;
@@ -495,8 +513,8 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.34
-updated: Dec 24, 2021
+## version 1.35
+updated: Jan 3, 2022
 
 <script>
 var lastcmd = "";
@@ -540,6 +558,7 @@ function startTime() {
 	dset("noteMODE", false);
 	dset("settingsFPS", false);
 	dset("settingsFOV", false);
+	dset("settingsPFOV", false);
 	dset("settingsTLVFOV", false);
 	dset("settingsTWFOV", false);
 	dset("settingsZoom", false);
@@ -668,7 +687,7 @@ function startTime() {
 	
 		case 13: //Photo
 		dset("settingsPT", true);
-		dset("settingsTLVFOV", true);
+		dset("settingsPFOV", true);
 		dset("settingsPhotoRAW", true);
 		break;
 		
@@ -834,6 +853,23 @@ function startTime() {
 				cmd = cmd + zoom; //fov
 			}
 		}
+		else if(checkedmode == 13) //Photo
+		{
+			cmd = dcmd(cmd,"pf"); //fov		
+		
+			if(	(document.getElementById("pf1").checked === true) || //Wide
+				(document.getElementById("pf2").checked === true) ) //Linear
+			{
+				dset("settingsZoom", true);			
+					
+				var zoom = parseInt(document.getElementById("zoom").value);
+				zoom *= 10;
+				document.getElementById("zoomtext").innerHTML = zoom+"%";	
+				if(zoom == 100) zoom = 99;	
+				
+				cmd = cmd + zoom; //fov
+			}
+		}
 		else //Everything else
 		{
 			cmd = dcmd(cmd,"tlvf"); //fov		
@@ -857,8 +893,8 @@ function startTime() {
 		cmd = dcmd(cmd,"f"); //fov
 		
 		if(	(document.getElementById("f1").checked === true) || //Wide
-			(document.getElementById("f4").checked === true) || //Linear
-			(document.getElementById("f6").checked === true) ) //Linear+HL
+			(document.getElementById("f3").checked === true) || //Linear
+			(document.getElementById("f5").checked === true) ) //Linear+HL
 		{
 			dset("settingsZoom", true);			
 			
