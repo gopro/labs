@@ -15,7 +15,7 @@
 Create a custom camera mode, and even start a capture all through QR Codes. This is the fastest way to access many of the new GoPro Labs' firmware features. 
 **†** indicates the control requires HERO10 Labs 1.20 or better. 
 
-<b>Camera Mode:</b>&nbsp;&nbsp;<input type="radio" id="m18" name="mode" value="" checked> <label for="m18">not set</label><br>
+<b>Camera Mode:</b>&nbsp;&nbsp;<input type="radio" id="m19" name="mode" value="" checked> <label for="m19">not set</label><br>
   <input type="radio" id="m1" name="mode" value="mV"> <label  for="m1">Video </label>&nbsp;&nbsp;
   <input type="radio" id="m2" name="mode" value="mVP"> <label for="m2">Performance†</label>&nbsp;&nbsp;
   <input type="radio" id="m3" name="mode" value="mVE"> <label for="m3">Endurance†</label>&nbsp;&nbsp;
@@ -31,11 +31,12 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="m11" name="mode" value="mT"> <label  for="m11">Timelapse</label>&nbsp;&nbsp;
   <input type="radio" id="m12" name="mode" value="mNL"> <label for="m12">Nightlapse</label><br>
   **Photo-Modes:** 
-  <input type="radio" id="m13" name="mode" value="mP"> <label  for="m13">Photo</label>&nbsp;&nbsp;
+  <input type="radio" id="m13" name="mode" value="mP">  <label for="m13">Photo</label>&nbsp;&nbsp;
   <input type="radio" id="m14" name="mode" value="mPB"> <label for="m14">Burst</label>&nbsp;&nbsp;
-  <input type="radio" id="m15" name="mode" value="mPN"> <label for="m15">Night</label>&nbsp;&nbsp;
-  <input type="radio" id="m16" name="mode" value="mTP"> <label for="m16">Timelapse</label>&nbsp;&nbsp;
-  <input type="radio" id="m17" name="mode" value="mNP"> <label for="m17">Nightlapse</label><br>
+  <input type="radio" id="m15" name="mode" value="mL">  <label for="m15">Live Burst</label>&nbsp;&nbsp;
+  <input type="radio" id="m16" name="mode" value="mPN"> <label for="m16">Night</label>&nbsp;&nbsp;
+  <input type="radio" id="m17" name="mode" value="mTP"> <label for="m17">Timelapse</label>&nbsp;&nbsp;
+  <input type="radio" id="m18" name="mode" value="mNP"> <label for="m18">Nightlapse</label><br>
 
 <div id="noteMODE" style="font-size:13px;">
 <b>Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.<br><br>
@@ -392,10 +393,12 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
   <input type="radio" id="lo4" name="lo" value="" checked> <label for="lo4">not set</label>
   </div>
 <div id="opOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Orientation Lock:</b>&nbsp;&nbsp; 
-  <input type="radio" id="or1" name="or" value="R1"> <label for="or1">Landscape Up </label>&nbsp;&nbsp;
-  <input type="radio" id="or2" name="or" value="R2"> <label for="or2">Landscape Down </label>&nbsp;&nbsp;
-  <input type="radio" id="or3" name="or" value="R0"> <label for="or3">Unlocked/Free </label>&nbsp;&nbsp;
-  <input type="radio" id="or4" name="or" value="" checked> <label for="or4">not set</label>
+  Landscape <input type="radio" id="or1" name="or" value="R1"> <label for="or1">↑</label>&nbsp;&nbsp;&nbsp;
+  <input type="radio" id="or2" name="or" value="R2"> <label for="or2">↓</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Portrait <input type="radio" id="or3" name="or" value="R3"> <label for="or3">←</label>&nbsp;&nbsp;&nbsp;
+  <input type="radio" id="or4" name="or" value="R4"> <label for="or4">→</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" id="or5" name="or" value="R0"> <label for="or5">Unlocked </label>&nbsp;&nbsp;
+  <input type="radio" id="or6" name="or" value="" checked> <label for="or6">not set</label>
   </div>
 <div id="opAO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Auto Off:</b>&nbsp;&nbsp; 
   <input type="radio" id="ao1" name="ao" value="C5"> <label for="ao1">5 mins </label>&nbsp;&nbsp;
@@ -513,7 +516,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.35
+## version 1.36
 updated: Jan 3, 2022
 
 <script>
@@ -611,7 +614,7 @@ function startTime() {
 	var checkedmode = 0;
 	var x;
 	
-	for (i = 1; i < 18; i++) { 
+	for (i = 1; i < 19; i++) { 
 		var mode = "m"+i;
 		x = document.getElementById(mode).checked;
 		if( x === true)
@@ -632,9 +635,10 @@ function startTime() {
 	//m12 mNL
 	//m13 mP 
 	//m14 mPB
-	//m15 mPN
-	//m16 mTP
-	//m17 mNP
+	//m15 mL
+	//m16 mPN
+	//m17 mTP
+	//m18 mNP
 	
 	switch(checkedmode)
 	{
@@ -698,14 +702,18 @@ function startTime() {
 		dset("settingsPhotoRAW", true);
 		break;
 		
-		case 15: //Night
+		case 15: //Burst Live
+		dset("settingsPT", true);
+		break;
+		
+		case 16: //Night
 		dset("settingsNightexposure", true);
 		dset("settingsPT", true);
 		dset("settingsTLVFOV", true);
 		dset("settingsPhotoRAW", true);
 		break;
 		
-		case 16: //TLP
+		case 17: //TLP
 		dset("settingsTimelapse", true);	
 		dset("settingsPT", true);
 		dset("settingsTLVFOV", true);
@@ -713,7 +721,7 @@ function startTime() {
 		dset("noteMODE", true);
 		break;
 		
-		case 17: //NLP
+		case 18: //NLP
 		dset("settingsNightlapse", true);	
 		dset("settingsNightexposure", true);	
 		dset("settingsPT", true);
@@ -795,9 +803,7 @@ function startTime() {
 		}
 	}
 	
-	
 	cmd = dcmd(cmd,"m");  // set mode
-	
 		
 	switch(checkedmode)
 	{
@@ -814,13 +820,15 @@ function startTime() {
 		case 14: //Burst 
 			cmd = dcmd(cmd,"b");
 			break;	
-		case 15: //Night
+		case 15: //Live Burst 
+			break;	
+		case 16: //Night
 			cmd = dcmd(cmd,"nightexp");
 			break;
-		case 16: //TLP
+		case 17: //TLP
 			cmd = dcmd(cmd,"fpslapse");
 			break;
-		case 17: //NLP	
+		case 18: //NLP	
 			cmd = dcmd(cmd,"fpsnight");
 			cmd = dcmd(cmd,"nightexp");
 			break;
@@ -869,6 +877,10 @@ function startTime() {
 				
 				cmd = cmd + zoom; //fov
 			}
+		}
+		else if(checkedmode == 15) //Live Burst
+		{
+			// do nothing custom
 		}
 		else //Everything else
 		{
@@ -1363,7 +1375,7 @@ function dcmd(cmd, id) {
 	}
 	else
 	{
-		for (i = 1; i < 15; i++) { 
+		for (i = 1; i < 19; i++) { 
 			var newid = id+i;
 			if(document.getElementById(newid) !== null)
 			{
