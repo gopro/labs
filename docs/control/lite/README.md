@@ -422,6 +422,15 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 <input type="checkbox" id="actions" value=""> <label for="actions">Camera Actions</label><br>
 </div>
 
+<div id="NakedTools">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Initization:</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap1" name="sap" value="!PA"> <label for="sap1">Start Quik App Pairing</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap2" name="sap" value="!PR"> <label for="sap2">Start Remote Pairing</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap3" name="sap" value="!FRESET"> <label for="sap3">Factory Reset</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap4" name="sap" value="" checked> <label for="sap4">not set</label><br> 
+&nbsp;&nbsp;or
+</div>
+
 <div id="aS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Start Capture:</b>
   <input type="radio" id="as1" name="as" value="!S"> <label for="as1">Now </label>&nbsp;&nbsp;
   <input type="radio" id="as2" name="as" value="!1S"> <label for="as2">in 2 sec </label>&nbsp;&nbsp;
@@ -618,6 +627,7 @@ function startTime() {
 	dset("opAO", false);
 	dset("opWC", false);
 	
+	dset("NakedTools", false);
 	dset("aS", false);
 	dset("aSM", false);
 	dset("aIT", false);
@@ -803,6 +813,7 @@ function startTime() {
 	{
 		if(document.getElementById("actions").checked === true)
 		{
+			dset("NakedTools", true);
 			dset("aS", true);
 			dset("aSM", true);
 			dset("aIT", true);
@@ -1119,6 +1130,8 @@ function startTime() {
 	{
 		var S_added = 0;
 		var SM_added = 0;
+		
+		cmd = dcmd(cmd,"sap"); //naked action
 		
 		if(document.getElementById("mstart") !== null)
 		{		
