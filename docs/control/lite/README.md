@@ -525,9 +525,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 </div>
 
 
-
-
-<div id="aR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" value=""> <b><label for="actions">Repeat Command</label></b><br></div>
+<div id="aR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" value=""> <b><label for="repeat">Repeat Command</label></b><br></div>
 
 Additional Commands: <input type="text" id="addcmd" value="">
 
@@ -548,8 +546,8 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.38
-updated: Jan 11, 2022
+## version 1.39
+updated: Jan 14, 2022
 
 <script>
 var lastcmd = "";
