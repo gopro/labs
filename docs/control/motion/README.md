@@ -21,7 +21,12 @@ While your GoPro camera is not equipped with ultra sonic or another motion senso
 **Hold Time** <input type="range" id="hold" name="hold" min="0" max="60" value="5"><label for="hold"></label>&nbsp;&nbsp;<b id="holdtext"></b> seconds, to continue recording after motion has stopped.<br> 
 **Motion Mask**  <input type="range" id="mask" name="mask" min="0" max="20" value="0"><label for="mask"></label>&nbsp;&nbsp;<b id="masktext"></b> seconds, to avoid falsely detecting constantly moving objects like a ceiling fan, or winds blowing leaves. Anything moving during this motion mask time will be ignored as motion triggers. You can also use you fingers to "paint" out regions you want to ignore (e.g. sky to avoid birds triggering capture, when you are also interested in ground activity, or vise versa.) HERO9 and HERO10 only for the mask feature.<br> 
 
-**HERO10 Note:** For motion detection to work on HERO10, the LCD must remain on. For extended motion captures set the LCD brightest low.  
+**HERO10 Note:** For motion detection to work on HERO10, the LCD must remain on. For extended motion captures set the LCD brightness to low.  
+
+
+<input type="checkbox" id="h10lcd" name="h10lcd"> 
+<label for="h10lcd">Set LCD brightness to low (10%)</label><br>
+<br>
 
 <input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat motion capture.</label><br>
@@ -79,6 +84,7 @@ var qrcode;
 var cmd = "oC";
 var lasttimecmd = "";
 var changed = true;
+var h10lcdlow = "oB1";
 
 function dcmd(cmd, id) {
     var x;
@@ -147,6 +153,13 @@ function timeLoop()
         cmd = cmd + "!R";
       }
     }
+
+    // Hero10 LCD set to low
+
+    if(document.getElementById("h10lcd") != null && document.getElementById("h10lcd").checked) {
+        cmd = cmd + h10lcdlow;
+    }
+    
   }
   
   qrcode.clear(); 
