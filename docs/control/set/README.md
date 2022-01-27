@@ -36,7 +36,44 @@ let urlParams = new URLSearchParams(document.location.search);
 cmdurl = urlParams.get('cmd')
 if(cmdurl !== null)
 	cmd = cmdurl;
+
+let position = cmd.search(/oT/);
+if(position >= 0)
+{
+	var src_cmd = cmd;
+	var today = new Date();
 	
+	var ms = today.getTime();
+	var	yy = today.getFullYear() - 2000;
+	var	mm = today.getMonth() + 1;
+	var	dd = today.getDate();
+	var	h = today.getHours();
+	var	m = today.getMinutes();
+	var	s = today.getSeconds();
+	var	ms = today.getMilliseconds();
+		
+	yy = checkTime(yy);
+	mm = checkTime(mm);
+	dd = checkTime(dd);
+	h = checkTime(h);
+	m = checkTime(m);
+	s = checkTime(s);
+	ms = Math.floor(ms / 10); // hundredths
+	ms = checkTime(ms);
+		
+	var newtimetxt = yy + mm + dd + h + m + s;        
+	let letter = src_cmd.charAt(position+14);
+    if(letter == '.')
+    {
+		newtimetxt = newtimetxt + "." + ms;
+		cmd = src_cmd.slice(0,position) + newtimetxt + src_cmd.slice(position+17);
+    }
+    else
+    {
+		cmd = src_cmd.slice(0,position) + newtimetxt + src_cmd.slice(position+14);
+    }    	
+}
+
 document.getElementById("qrtext").innerHTML = cmd;
 
 function makeQR() 

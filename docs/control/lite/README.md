@@ -1,4 +1,4 @@
-# QR Control Customizer
+# GoPro QR Code Creator
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
@@ -13,7 +13,9 @@
 </style>
 
 Create a custom camera mode, and even start a capture all through QR Codes. This is the fastest way to access many of the new GoPro Labs' firmware features. 
-**†** indicates the control requires HERO10 Labs or better. 
+**†** indicates the control requires HERO10 Labs or better. Many features of this page are also available as a mobile app.<br>
+Install from: [![google play](../google-play-small.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
+[![apple app store](../apple-store-small.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
 ## Scanning Your Code
 
@@ -535,23 +537,19 @@ Additional Commands: <input type="text" id="addcmd" value="">
 
 GoPro QR Command: <b id="txt"></b>
 
-Share this QR Code as a URL: <b id="urltext"></b> 
+Share this QR Code as a URL: <b id="urltext"></b>  <button id="copyBtn">Copy to Clipboard</button>
 
 <button onclick="myReloadFunction()">Reset page</button>
 
 **Compatibility:** Labs naked cameras HERO7, HERO8, HERO9, HERO10
 
-[Learn more](..) on QR Control
+[More features](..) for Labs enabled cameras
 
-## This Page as a Mobile App
-
-[![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
-[![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
-
-## version 1.40
-updated: Jan 26, 2022
+## version 1.41
+updated: Jan 27, 2022
 
 <script>
+var clipcopy = "";
 var lastcmd = "";
 var lasttimecmd = "xxxxxxxxx";
 var changed = false;
@@ -588,7 +586,7 @@ function startTime() {
 	var timecodefps = 30;
 	var cmd = "";
 	var timenotchecked;
-		
+	
 	dset("settingsRES", false);
 	dset("noteMODE", false);
 	dset("settingsFPS", false);
@@ -1293,7 +1291,8 @@ function startTime() {
 		if(cmd != lasttimecmd)
 		{
 			document.getElementById('txt').innerHTML = cmd;	
-			document.getElementById("urltext").innerHTML = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;			
+			clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;	
+			document.getElementById("urltext").innerHTML = clipcopy;			
 			lasttimecmd = cmd;
 		}		
 		
@@ -1353,8 +1352,22 @@ function myReloadFunction() {
     location.reload();
 }
 
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
 
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	}
+}
+	
 makeQR();
+setupButtons();
 startTime();
 
 </script>
