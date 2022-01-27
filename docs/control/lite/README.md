@@ -198,7 +198,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 </div>
 
 <div id="settingsNightexposure">
-<b>Night Exposure:</b>&nbsp;&nbsp;
+<b>Shutter:</b>&nbsp;&nbsp;
   <input type="radio" id="nightexp1" name="nightexp" value="eA" > <label for="nightexp1">auto </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp2" name="nightexp" value="e2" > <label for="nightexp2">2s </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp3" name="nightexp" value="e5" > <label for="nightexp3">5s </label>&nbsp;&nbsp;
@@ -546,8 +546,8 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.39
-updated: Jan 14, 2022
+## version 1.40
+updated: Jan 26, 2022
 
 <script>
 var lastcmd = "";
@@ -774,15 +774,16 @@ function startTime() {
 			dset("ptWBAL", true);
 			dset("ptISO",true);
 			dset("ptIMIN",true);
+			dset("ptSHUT",true);
 
 			if(document.getElementById('iso8').checked === true)
 			{
-				dset("ptSHUT",false);
+				//dset("ptSHUT",false);
 				dset("ptEV",true);
 			}
 			else
 			{
-				dset("ptSHUT",true);
+				//dset("ptSHUT",true);
 
 				if(document.getElementById('shut7').checked === true || document.getElementById('shut6').checked === true) 
 				{  // not shutter lock
@@ -1023,16 +1024,39 @@ function startTime() {
 			cmd = dcmd(cmd,"br"); //bitrate
 			cmd = dcmd(cmd,"wb"); //wb
 
-			if(document.getElementById('iso8').checked === false || document.getElementById('isomin8').checked === false)
+			if(document.getElementById('iso8').checked === false)
 			{
-				cmd = dcmd(cmd,"iso"); //iso
-				
-				if(document.getElementById('shut7').checked === false)
+				cmd = dcmd(cmd,"iso"); //iso max
+				if(document.getElementById('isomin8').checked === false)
+				{
+					cmd = dcmd(cmd,"isomin");//iso min
+					if(document.getElementById('shut7').checked === false)
+					{
+						cmd = dcmd(cmd,"iso"); //iso max
+						cmd = dcmd(cmd,"shut"); //shutter angle
+					}
+				}
+				else if(document.getElementById('shut7').checked === false)
+				{
 					cmd = dcmd(cmd,"shut"); //shutter angle
-				else
-					cmd = dcmd(cmd,"isomin");//
+				}
+			} 
+			else if(document.getElementById('isomin8').checked === false)
+			{
+				cmd = cmd + "i64"; //ADD fake ISO max
+				cmd = dcmd(cmd,"isomin");//iso min
+				if(document.getElementById('shut7').checked === false)
+				{
+					cmd = cmd + "i64"; //ADD fake max
+					cmd = dcmd(cmd,"shut"); //shutter angle
+				}
 			}
-				
+			else if(document.getElementById('shut7').checked === false)
+			{
+				cmd = cmd + "i64"; //ADD fake ISO max
+				cmd = dcmd(cmd,"shut"); //shutter angle				
+			}
+								
 			cmd = dcmd(cmd,"ev"); //ev
 			cmd = dcmd(cmd,"sharp"); //sharp
 			cmd = dcmd(cmd,"aud"); //audio control

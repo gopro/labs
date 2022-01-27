@@ -188,7 +188,7 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 </div>
 
 <div id="settingsNightexposure">
-<b>Night Exposure:</b>&nbsp;&nbsp;
+<b>Shutter:</b>&nbsp;&nbsp;
   <input type="radio" id="nightexp1" name="nightexp" value="eA" > <label for="nightexp1">auto </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp2" name="nightexp" value="e2" > <label for="nightexp2">2s </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp3" name="nightexp" value="e5" > <label for="nightexp3">5s </label>&nbsp;&nbsp;
@@ -260,6 +260,9 @@ Create a custom camera mode, and even start a capture all through QR Codes. This
 </div>
 <div id="settingsPT">
 <input type="checkbox" id="pt" value="t"> <label for="pt">Protune Controls</label><br>
+</div>
+<div id="settingsPTR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Reset:</b>&nbsp;&nbsp;
+<input type="checkbox" id="ptr" value="t0"> <label for="ptr"> </label><br>
 </div>
 <div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
   <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">GoPro</label>&nbsp;&nbsp;
@@ -516,8 +519,8 @@ Share this QR Code as a URL: <b id="urltext"></b>
 [![google play](../google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-## version 1.37
-updated: Jan 14, 2022
+## version 1.38
+updated: Jan 26, 2022
 
 <script>
 var lastcmd = "";
@@ -571,6 +574,7 @@ function startTime() {
 	dset("settingsDuration", false);
 	dset("settingsPhotoRAW", false);
 	dset("settingsPT", false);
+	dset("settingsPTR", false);
 	dset("spotMeter", false);
 	dset("settingsBurst", false);
 	dset("settingsTimewarp", false);
@@ -740,21 +744,25 @@ function startTime() {
 	if(document.getElementById("pt") !== null)
 	{
 		if(document.getElementById("pt").checked === true)
+			dset("settingsPTR", true);
+		
+		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
 		{
 			dset("ptCOLOR", true);
 			dset("ptBITRATE", true);
 			dset("ptWBAL", true);
 			dset("ptISO",true);
 			dset("ptIMIN",true);
+			dset("ptSHUT",true);
 
 			if(document.getElementById('iso8').checked === true)
 			{
-				dset("ptSHUT",false);
+				//dset("ptSHUT",false);
 				dset("ptEV",true);
 			}
 			else
 			{
-				dset("ptSHUT",true);
+				//dset("ptSHUT",true);
 
 				if(document.getElementById('shut7').checked === true || document.getElementById('shut6').checked === true) 
 				{  // not shutter lock
@@ -939,7 +947,17 @@ function startTime() {
 		}
 	}
 	
-	cmd = dcmd(cmd,"pt"); //protune
+	if(document.getElementById("pt").checked === true)
+	{
+		if(document.getElementById("ptr").checked === true)
+		{
+			cmd = cmd + "t0"; //protune reset
+		}
+		else
+		{
+			cmd = cmd + "t"; //protune
+		}
+	}
 	cmd = dcmd(cmd,"eis"); //eis
 	cmd = dcmd(cmd,"hind"); //hindsight
 	cmd = dcmd(cmd,"dur"); //duration
@@ -983,22 +1001,45 @@ function startTime() {
 		
 	if(document.getElementById("pt") !== null)
 	{
-		if(document.getElementById("pt").checked === true)
+		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
 		{
 			cmd = dcmd(cmd,"ptc"); //color
 			cmd = dcmd(cmd,"br"); //bitrate
 			cmd = dcmd(cmd,"wb"); //wb
 
-			if(document.getElementById('iso8').checked === false || document.getElementById('isomin8').checked === false)
+			if(document.getElementById('iso8').checked === false)
 			{
-				cmd = dcmd(cmd,"iso"); //iso
-				
-				if(document.getElementById('shut7').checked === false)
+				cmd = dcmd(cmd,"iso"); //iso max
+				if(document.getElementById('isomin8').checked === false)
+				{
+					cmd = dcmd(cmd,"isomin");//iso min
+					if(document.getElementById('shut7').checked === false)
+					{
+						cmd = dcmd(cmd,"iso"); //iso max
+						cmd = dcmd(cmd,"shut"); //shutter angle
+					}
+				}
+				else if(document.getElementById('shut7').checked === false)
+				{
 					cmd = dcmd(cmd,"shut"); //shutter angle
-				else
-					cmd = dcmd(cmd,"isomin");//
+				}
+			} 
+			else if(document.getElementById('isomin8').checked === false)
+			{
+				cmd = cmd + "i64"; //ADD fake ISO max
+				cmd = dcmd(cmd,"isomin");//iso min
+				if(document.getElementById('shut7').checked === false)
+				{
+					cmd = cmd + "i64"; //ADD fake max
+					cmd = dcmd(cmd,"shut"); //shutter angle
+				}
 			}
-				
+			else if(document.getElementById('shut7').checked === false)
+			{
+				cmd = cmd + "i64"; //ADD fake ISO max
+				cmd = dcmd(cmd,"shut"); //shutter angle				
+			}
+								
 			cmd = dcmd(cmd,"ev"); //ev
 			cmd = dcmd(cmd,"sharp"); //sharp
 			cmd = dcmd(cmd,"aud"); //audio control
