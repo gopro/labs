@@ -166,10 +166,10 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="fpslapse6"  name="fpslapse" value="p.30"> <label for="fpslapse6">30s </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse7" name="fpslapse" value="p.60"> <label for="fpslapse7">60s </label>&nbsp;&nbsp;<br>
   
-  &nbsp;&nbsp;&nbsp;&nbsp;HERO 8/9&nbsp;&nbsp; <input type="radio" id="fpslapse8"  name="fpslapse" value="p.120" > <label for="fpsnight8">2min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse9"  name="fpslapse" value="p.300" > <label for="fpsnight9">5min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse10" name="fpslapse" value="p.1800"> <label for="fpsnight10">30min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse11" name="fpslapse" value="p.3600"> <label for="fpsnight11">60min </label>&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;HERO 8/9&nbsp;&nbsp; <input type="radio" id="fpslapse8"  name="fpslapse" value="p.120" > <label for="fpslapse8">2min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse9"  name="fpslapse" value="p.300" > <label for="fpslapse9">5min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse10" name="fpslapse" value="p.1800"> <label for="fpslapse10">30min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse11" name="fpslapse" value="p.3600"> <label for="fpslapse11">60min </label>&nbsp;&nbsp;
   
   <input type="radio" id="fpslapse12" name="fpslapse" value="" checked> <label for="fpslapse12">not set</label><br><br>
 </div>
@@ -185,16 +185,18 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
  
 <div id="settingsNightlapse">
 <b>Nightlapse Interval:</b>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight1" name="fpsnight" value="p"     > <label for="fpsnight1">cont. </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight2" name="fpsnight" value="p.10"  > <label for="fpsnight2">10s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight3" name="fpsnight" value="p.15"  > <label for="fpsnight3">15s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight4" name="fpsnight" value="p.30"  > <label for="fpsnight4">30s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight5" name="fpsnight" value="p.60"  > <label for="fpsnight5">60s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight6" name="fpsnight" value="p.120" > <label for="fpsnight6">2min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight7" name="fpsnight" value="p.300" > <label for="fpsnight7">5min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight8" name="fpsnight" value="p.1800"> <label for="fpsnight8">30min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight9" name="fpsnight" value="p.3600"> <label for="fpsnight9">60min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight10" name="fpsnight" value="" checked> <label for="fpsnight10">not set</label><br><br>
+  <input type="radio" id="fpsnight1" name="fpsnight" value="p"     > <label for="fpsnight1">Auto </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight2" name="fpsnight" value="p.4"  >  <label for="fpsnight2">4s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight3" name="fpsnight" value="p.5"  >  <label for="fpsnight3">5s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight4" name="fpsnight" value="p.10"  > <label for="fpsnight4">10s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight5" name="fpsnight" value="p.15"  > <label for="fpsnight5">15s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight6" name="fpsnight" value="p.30"  > <label for="fpsnight6">30s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight7" name="fpsnight" value="p.60"  > <label for="fpsnight7">60s </label><br>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight8" name="fpsnight" value="p.120" > <label for="fpsnight8">2min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight9" name="fpsnight" value="p.300" > <label for="fpsnight9">5min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight10" name="fpsnight" value="p.1800"> <label for="fpsnight10">30min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight11" name="fpsnight" value="p.3600"> <label for="fpsnight11">60min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight12" name="fpsnight" value="" checked> <label for="fpsnight12">not set</label><br><br>
 </div>
 
 <div id="settingsNightexposure">
