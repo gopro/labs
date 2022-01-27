@@ -23,7 +23,7 @@ Share this QR Code as: <b id="urltext"></b>
 More [GoPro Labs QR Controls](..)
 
 
-## version 1.02
+## version 1.03
 
 <script>
        
