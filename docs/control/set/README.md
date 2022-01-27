@@ -33,7 +33,7 @@ var cmd = "\"Hello World\"";
 var cmdurl;
 var lasttimecmd = ""; 
 let urlParams = new URLSearchParams(document.location.search);
-cmdurl = urlParams.get('cmd')
+cmdurl = urlParams.get('cmd');
 if(cmdurl !== null)
 	cmd = cmdurl;
 
@@ -118,6 +118,11 @@ function timeLoop()
   }
 	
   var t = setTimeout(timeLoop, 100);
+}
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
+    return i;
 }
 
 function myReloadFunction() {
