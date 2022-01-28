@@ -514,7 +514,7 @@ Share this QR Code as a URL: <b id="urltext"></b>   <button id="copyBtn">Copy to
 
 **Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9, HERO10 and MAX 
 
-**HERO10 Note:** LCD most be on for the QR Code scanning to be active.<br>
+**HERO10 Note:** LCD must be on for the QR Code scanning to be active.<br>
         
 [More features](..) for Labs enabled cameras
 
