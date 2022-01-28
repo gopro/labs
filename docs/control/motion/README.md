@@ -2,6 +2,7 @@
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -24,9 +25,14 @@ While your GoPro camera is not equipped with ultra sonic or another motion senso
 **HERO10 Note:** For motion detection to work on HERO10, the LCD must remain on. For extended motion captures set the LCD brightness to low.  
 
 
+<input type="checkbox" id="camoff" name="camoff"> 
+<label for="camoff">Disable auto power off</label><br>
+
 <input type="checkbox" id="h10lcd" name="h10lcd"> 
 <label for="h10lcd">Set LCD brightness to low (10%)</label><br>
-<br>
+
+<input type="checkbox" id="h10lcdon" name="h10lcdon"> 
+<label for="h10lcdon">Leave LCD on</label> (Required on HERO10)<br>
 
 <input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat motion capture.</label><br>
@@ -34,11 +40,16 @@ While your GoPro camera is not equipped with ultra sonic or another motion senso
 Note: you will have to manually set the mode in which you capture.  Motion detection works is in video, TimeWarp and Timelapse Video modes. 
  
 <center>
-<div id="qrcode"></div>
-<br>
+<div id="qrcode_txt" style="width: 360px">
+ <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
+ </center>
+</div>
+<br><button id="copyImg">Copy Image to Clipboard</button>
 </center>
-
-QR Command: <b id="qrtext">time</b><br>
+<br>
+Share this QR Code as a URL: <b id="urltext"></b>   <button id="copyBtn">Copy to Clipboard</button>
 
 ## Limitations
 
@@ -75,16 +86,18 @@ The motion detection will now always use the mask.pgm, so using motion mask opti
 	
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX.  Masking fixed on HERO9 & 10.
         
-## ver 1.07
+## ver 1.08
 [Learn more](..) on QR Control
 
 <script>
 var once = true;
 var qrcode;
 var cmd = "oC";
+var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
 var h10lcdlow = "oB1";
+var h10lcdon = "oS";
 
 function dcmd(cmd, id) {
     var x;
@@ -141,7 +154,7 @@ function timeLoop()
 	var hold = parseInt(document.getElementById("hold").value);	
 	document.getElementById("holdtext").innerHTML = hold;	
 		
-	cmd = "oC" + "!SM" + snstvty;	
+	cmd = "!SM" + snstvty;	
 	if(delay > 0) cmd = cmd + 'D' + delay;
 	if(mask > 0) cmd = cmd + 'M' + mask;
 	if(hold > 0) cmd = cmd + 'H' + hold;	
@@ -154,12 +167,18 @@ function timeLoop()
       }
     }
 
-    // Hero10 LCD set to low
-
-    if(document.getElementById("h10lcd") != null && document.getElementById("h10lcd").checked) {
-        cmd = cmd + h10lcdlow;
+    // Auto off
+    if(document.getElementById("camoff") != null && document.getElementById("camoff").checked) {
+        cmd = "oC" + cmd;
     }
-    
+    // Hero10 LCD set to low
+    if(document.getElementById("h10lcd") != null && document.getElementById("h10lcd").checked) {
+        cmd = h10lcdlow + cmd;
+    }
+    // Hero10 LCD timeout to Never
+    if(document.getElementById("h10lcdon") != null && document.getElementById("h10lcdon").checked) {
+        cmd = h10lcdon + cmd;
+    }    
   }
   
   qrcode.clear(); 
@@ -174,6 +193,10 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
+	
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;	
+	document.getElementById("urltext").innerHTML = clipcopy;				
+			
 	changed = false;
   }
   
@@ -184,7 +207,29 @@ function myReloadFunction() {
   location.reload();
 }
 
+
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
+
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};
+}
+	
 makeQR();
+setupButtons();
 timeLoop();
 
 
