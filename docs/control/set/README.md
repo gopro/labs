@@ -1,7 +1,8 @@
-# QR Control Quick Command
+# GoPro QR Command
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -10,20 +11,26 @@
             width: 100%;
             display: inline-block;
         }
+		table{
+			border-collapse: collapse;
+		}
 </style>
-      
-<div id="qrcode"></div>
-	  
-QR Command: <b id="qrtext"></b><br>
 
-Manual Command: <input type="text" style="width: 500px;" id="addcmd" value="">
- 
-Share this QR Code as: <b id="urltext"></b>    <button id="copyBtn">Copy to Clipboard</button>
+<div id="qrcode_txt" style="width: 360px">
+ <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
+ </center>
+</div>
+<br><button id="copyImg">Copy Image to Clipboard</button>
+
+<!-- Manual Command: <input type="text" style="width: 500px;" id="addcmd" value="">
+Share this QR Code as: <b id="urltext"></b>  -->
 
 More [GoPro Labs QR Controls](..)
 
 
-## version 1.05
+## version 1.07
 
 <script>
 var changed = false;
@@ -31,6 +38,7 @@ var clipcopy = "";
 var once = true;
 var qrcode;
 var cmd = "\"Hello World\"";
+//var cmdnotime = "";
 var cmdurl;
 var lasttimecmd = ""; 
 let urlParams = new URLSearchParams(document.location.search);
@@ -41,12 +49,13 @@ if(cmdurl !== null)
 function updateTime()
 {
 	let position = cmd.search(/oT/);
+	
+	cmdnotime = cmd;
 	if(position >= 0)
 	{
 		var src_cmd = cmd;
 		var today = new Date();
 		
-		var ms = today.getTime();
 		var	yy = today.getFullYear() - 2000;
 		var	mm = today.getMonth() + 1;
 		var	dd = today.getDate();
@@ -70,15 +79,18 @@ function updateTime()
 		{
 			newtimetxt = newtimetxt + "." + ms;
 			cmd = src_cmd.slice(0,position+2) + newtimetxt + src_cmd.slice(position+17);
+			//cmdnotime = src_cmd.slice(0,position) + src_cmd.slice(position+17);
 		}
 		else
 		{
 			cmd = src_cmd.slice(0,position+2) + newtimetxt + src_cmd.slice(position+14);
+			//cmdnotime = src_cmd.slice(0,position) + src_cmd.slice(position+14);
 		}    	
 	}
 
 	document.getElementById("qrtext").innerHTML = cmd;
 }
+
 
 function makeQR() 
 {	
@@ -101,27 +113,26 @@ function timeLoop()
   qrcode.clear(); 
   qrcode.makeCode(cmd);
   
-  if(document.getElementById("addcmd") !== null)
-  {
-	var addcmd = document.getElementById("addcmd").value;
-	if(addcmd.length > 0)
-		cmd = addcmd;
-  }	
+//  if(document.getElementById("addcmd") !== null)
+//  {
+//	var addcmd = document.getElementById("addcmd").value;
+//	if(addcmd.length > 0)
+//		cmd = addcmd;
+//  }	
   
-  if(cmd != lasttimecmd)
-  {
-	changed = true;
-	lasttimecmd = cmd;
-  }
-	
-  if(changed === true)
-  {
-	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = window.location.href.split('?')[0] + "?cmd=" + cmd;
-	document.getElementById("urltext").innerHTML = clipcopy;
-
-	changed = false;
-  }
+//  if(cmd != lasttimecmd)
+//  {
+//	changed = true;
+//	lasttimecmd = cmd;
+//  }
+//	
+//  if(changed === true)
+//  {
+//	document.getElementById("qrtext").innerHTML = cmd;
+//	clipcopy = window.location.href.split('?')[0] + "?cmd=" + cmdnotime;
+//
+//	changed = false;
+//  }
 	
   var t = setTimeout(timeLoop, 100);
 }
@@ -144,10 +155,15 @@ async function copyTextToClipboard(text) {
 	}
 }
 
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
+
+
 function setupButtons() {	
-    document.getElementById("copyBtn").onclick = function() { 
-        copyTextToClipboard(clipcopy);
-	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};	
 }
 	
 makeQR();
