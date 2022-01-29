@@ -38,7 +38,7 @@ Note: you will have to manually set the mode in which you capture.  The detector
 <button id="copyImg">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b><br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
 
@@ -60,9 +60,9 @@ Share this QR Code as a URL: <b id="urltext"></b><br>
 
 **Compatibility:** Labs enabled HERO9 and HERO10 only
         
-## ver 1.02
+## ver 1.03
 
-[Learn more](..) on QR Control
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -154,7 +154,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Sound%20Pressure%20Trigger";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }

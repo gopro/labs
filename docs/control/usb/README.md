@@ -35,14 +35,13 @@ and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlen
 <button id="copyImg">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b><br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
 **Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.02
-
-[Learn more](..) on QR Control
+## ver 1.03
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -145,7 +144,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=USB%20Power%20Trigger";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }

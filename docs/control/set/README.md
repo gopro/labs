@@ -31,7 +31,7 @@
 <!-- Manual Command: <input type="text" style="width: 500px;" id="addcmd" value="">
 Share this QR Code as: <b id="urltext"></b>  -->
 
-More [GoPro Labs QR Controls](..)
+[More features](..) for Labs enabled cameras
 
 
 ## version 1.10

@@ -47,7 +47,7 @@ Notes:
 <button id="copyImg1">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext1"></b><br>
+Share this QR Code as a URL: <small id="urltext1"></small><br>
 <button id="copyBtn1">Copy URL to Clipboard</button>
 
 
@@ -61,7 +61,7 @@ Share this QR Code as a URL: <b id="urltext1"></b><br>
 <button id="copyImg2">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext2"></b><br>
+Share this QR Code as a URL: <small id="urltext2"></small><br>
 <button id="copyBtn2">Copy URL to Clipboard</button>
 
 
@@ -90,8 +90,8 @@ Now that starting and stopping your GoPro's capture is solved, you also don't wa
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
 
 
-## ver 1.13
-[Learn more](..) on QR Control
+## ver 1.14
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -215,11 +215,11 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext1").innerHTML = cmd1;
-	clipcopy1 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd1;
+	clipcopy1 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd1 + "&title=IMU%20Trigger";	
 	document.getElementById("urltext1").innerHTML = clipcopy1;
 	
 	document.getElementById("qrtext2").innerHTML = cmd2;
-	clipcopy2 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd2;
+	clipcopy2 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd2 + "&title=Drone%20Boot%20Command%20and%20Trigger";	
 	document.getElementById("urltext2").innerHTML = clipcopy2;
 	
 	changed = false;

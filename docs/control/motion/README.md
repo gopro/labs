@@ -49,7 +49,7 @@ Note: you will have to manually set the mode in which you capture.  Motion detec
 <button id="copyImg">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b><br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
 ## Limitations
@@ -87,8 +87,8 @@ The motion detection will now always use the mask.pgm, so using motion mask opti
 	
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX.  Masking fixed on HERO9 & 10.
         
-## ver 1.08
-[Learn more](..) on QR Control
+## ver 1.09
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -195,7 +195,7 @@ function timeLoop()
   {
 	document.getElementById("qrtext").innerHTML = cmd;
 	
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;	
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Motion%20Detection";	
 	document.getElementById("urltext").innerHTML = clipcopy;				
 			
 	changed = false;

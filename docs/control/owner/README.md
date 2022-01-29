@@ -39,8 +39,7 @@ e.g. Joe Bloggs\ncall (555)555-5555
 **Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10 and MAX 
         
 ## ver 1.08
-
-[Learn more](..) on QR Control
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;

@@ -30,8 +30,8 @@ Up to eight characters. e.g. "CAMERA06"<br>
  - **SS** - Second
  
 Formatting examples: 
- - "CamA-[yyyymmddHHMMSS]-" 
- - "[yy-mm-dd_HH.MM.SS]-HERO10-"
+ - CamA-[yyyymmddHHMMSS]-
+ - [yy-mm-dd_HH.MM.SS]-HERO10-
 
 Note: Unfortunately filenames can't contain common date/time delimiters, only +-_(),. allowed.
 
@@ -42,13 +42,13 @@ Your filenames will be in the format: <b id="newnameMP4">nameGH013607.MP4</b> an
   <center>
   <div id="qrcode"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
-  <b><font color="#005CAC">Base filename change</font></b>
+  <b><font color="#005CAC">Base Filename Change</font></b>
   </center>
 </div>
 <button id="copyImg">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b><br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
 <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Make this name change permanent</label><br>
@@ -82,8 +82,8 @@ So you have a corrupted/unclosed GoPro file. You crashed your drone, and the bat
 
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.11
-[Learn more](..) on QR Control
+## ver 1.13
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -176,7 +176,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Base%20Filename%20Change";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }

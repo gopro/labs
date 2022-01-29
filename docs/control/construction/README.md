@@ -39,7 +39,7 @@ Estimated runtime per charged battery: <b id="daystext">0</b> days
 <button id="copyImg">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b><br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
 ## Extending Time-lapse Duration
@@ -54,8 +54,8 @@ The second option is a USB keep alive device that prevents your USB power bank f
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.14
-[Learn more](..) on QR Control
+## ver 1.15
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -148,7 +148,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Construction%20Timelapse";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }

@@ -32,7 +32,7 @@ This improves the timecode track precision. While this works best outdoors with 
 <button id="copyImg">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b><br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
 ## Time-of-day Timecode for 24, 25 and 30p Modes
@@ -45,8 +45,8 @@ Note: it is correct for 23.976 and 29.97 Non-drop timecode to it be 0.1% behind 
 
 **Compatibility:** Labs enabled HERO9 and HERO10 only 
         
-## ver 1.03
-[Learn more](..) on QR Control
+## ver 1.04
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -95,7 +95,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=GPS%20Camera%20Sync";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }

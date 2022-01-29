@@ -28,7 +28,7 @@ GoPro cameras normally split long recordings into 4GB segments, we call these ch
 <button id="copyImg">Copy Image to Clipboard</button>
 <br>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b><br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
 **Warning:** Larger chapters may not work everywhere in the ecosystem, even **the HERO8 an HERO9 cameras will not playback or USB transfer files larger than 4GB** in this current firmware. Yet the files are valid and accessible using a SD Card reader, and have been tested to work in many tools. So this one of the more experimental features, so please test before committing to this new workflow.  Support for HERO8, HERO9 and MAX cameras.
@@ -56,7 +56,7 @@ The resulting final.mp4 will be a complete GoPro file will all required metadata
 
  
 ## ver 1.06
-[Learn more](..) on QR Control
+[More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
@@ -105,7 +105,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Large%20Chapter%20Control";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }
