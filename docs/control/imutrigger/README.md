@@ -233,8 +233,8 @@ function myReloadFunction() {
 }
 
 
-async function copyImageToClipboard() {
-    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+async function copyImageToClipboard(id) {
+    html2canvas(document.querySelector(id)).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
 }
 async function copyTextToClipboard(text) {
 	try {
@@ -249,13 +249,13 @@ function setupButtons() {
         copyTextToClipboard(clipcopy1);
 	};
     document.getElementById("copyImg1").onclick = function() { 
-        copyImageToClipboard();
+        copyImageToClipboard("#qrcode_txt1");
 	};
     document.getElementById("copyBtn2").onclick = function() { 
         copyTextToClipboard(clipcopy2);
 	};
     document.getElementById("copyImg2").onclick = function() { 
-        copyImageToClipboard();
+        copyImageToClipboard("#qrcode_txt2");
 	};
 }
 
