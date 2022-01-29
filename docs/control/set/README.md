@@ -20,9 +20,13 @@
  <center>
   <div id="qrcode"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
+  <div id="title_div"><font color="#005CAC"><b id="title_txt"></b></font></div>
  </center>
 </div>
-<br><button id="copyImg">Copy Image to Clipboard</button>
+<br>
+<div id="copyshow">
+<button id="copyImg">Copy Image to Clipboard</button>
+</div>
 
 <!-- Manual Command: <input type="text" style="width: 500px;" id="addcmd" value="">
 Share this QR Code as: <b id="urltext"></b>  -->
@@ -30,21 +34,42 @@ Share this QR Code as: <b id="urltext"></b>  -->
 More [GoPro Labs QR Controls](..)
 
 
-## version 1.07
+## version 1.10
 
 <script>
 var changed = false;
 var clipcopy = "";
+var title = "";
 var once = true;
 var qrcode;
 var cmd = "\"Hello World\"";
 //var cmdnotime = "";
-var cmdurl;
+var cmd_url;
+var title_url;
 var lasttimecmd = ""; 
+
 let urlParams = new URLSearchParams(document.location.search);
-cmdurl = urlParams.get('cmd');
-if(cmdurl !== null)
-	cmd = cmdurl;
+cmd_url = urlParams.get('cmd');
+if(cmd_url !== null)
+	cmd = cmd_url;
+	
+title_url = urlParams.get('title');
+if(title_url !== null)
+{
+	title = title_url;
+	document.getElementById("title_txt").innerHTML = title;
+	dset("title_div", true);
+}
+else
+{	
+	dset("title_div", false);
+}
+
+let hastime = cmd.search(/oT/);
+if(hastime >= 0)
+	dset("copyshow", false);   // don't what user printing or sharing code with wrong date and time
+else	
+	dset("copyshow", true);
 
 function updateTime()
 {
@@ -85,12 +110,25 @@ function updateTime()
 		{
 			cmd = src_cmd.slice(0,position+2) + newtimetxt + src_cmd.slice(position+14);
 			//cmdnotime = src_cmd.slice(0,position) + src_cmd.slice(position+14);
-		}    	
+		}
 	}
 
 	document.getElementById("qrtext").innerHTML = cmd;
 }
 
+
+function dset(label, on) {
+	var settings = document.getElementById(label);
+	if(on === true)
+	{
+		if (settings.style.display === 'none') 
+			settings.style.display = 'block';
+	}
+	else
+	{
+		settings.style.display = 'none';
+	}
+}
 
 function makeQR() 
 {	
@@ -113,26 +151,27 @@ function timeLoop()
   qrcode.clear(); 
   qrcode.makeCode(cmd);
   
-//  if(document.getElementById("addcmd") !== null)
-//  {
-//	var addcmd = document.getElementById("addcmd").value;
-//	if(addcmd.length > 0)
-//		cmd = addcmd;
-//  }	
-  
-//  if(cmd != lasttimecmd)
-//  {
-//	changed = true;
-//	lasttimecmd = cmd;
-//  }
-//	
-//  if(changed === true)
-//  {
-//	document.getElementById("qrtext").innerHTML = cmd;
-//	clipcopy = window.location.href.split('?')[0] + "?cmd=" + cmdnotime;
-//
-//	changed = false;
-//  }
+/* if(document.getElementById("addcmd") !== null)
+  {
+	var addcmd = document.getElementById("addcmd").value;
+	if(addcmd.length > 0)
+		cmd = addcmd;
+  }	
+
+  if(cmd != lasttimecmd)
+  {
+	changed = true;
+	lasttimecmd = cmd;
+  }
+	
+  if(changed === true)
+  {
+	document.getElementById("qrtext").innerHTML = cmd;
+	clipcopy = window.location.href.split('?')[0] + "?cmd=" + cmdnotime;
+
+	changed = false;
+  }
+*/
 	
   var t = setTimeout(timeLoop, 100);
 }
