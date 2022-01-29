@@ -36,12 +36,34 @@ Notes:
 - Sensitivity range: 1-low to 9-high - see table below
 - you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9. 
  
-<center>
-<div id="qrcode1"></div><br>
-IMU Trigger QR Command: <b id="qrtext1">time</b><br>
-<div id="qrcode2"><br></div><br>
-Drone Boot Command: <b id="qrtext2">time</b><br>
-</center>
+ 
+<div id="qrcode_txt1" style="width: 360px">
+  <center>
+  <div id="qrcode1"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext1"></em><br>
+  <b><font color="#005CAC">IMU Trigger</font></b>
+  </center>
+</div>
+<button id="copyImg1">Copy Image to Clipboard</button>
+<br>
+<br>
+Share this QR Code as a URL: <b id="urltext1"></b><br>
+<button id="copyBtn1">Copy URL to Clipboard</button>
+
+
+<div id="qrcode_txt2" style="width: 360px">
+  <center>
+  <div id="qrcode2"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext2"></em><br>
+  <b><font color="#005CAC">Drone Boot Command and Trigger</font></b>
+  </center>
+</div>
+<button id="copyImg2">Copy Image to Clipboard</button>
+<br>
+<br>
+Share this QR Code as a URL: <b id="urltext2"></b><br>
+<button id="copyBtn2">Copy URL to Clipboard</button>
+
 
 ## Using as a Boot Command - Drone Applications 
 
@@ -194,11 +216,11 @@ function timeLoop()
   {
 	document.getElementById("qrtext1").innerHTML = cmd1;
 	clipcopy1 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd1;
-	document.getElementById("qrtext1").innerHTML = clipcopy1;
+	document.getElementById("urltext1").innerHTML = clipcopy1;
 	
 	document.getElementById("qrtext2").innerHTML = cmd2;
 	clipcopy2 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd2;
-	document.getElementById("qrtext1").innerHTML = clipcopy2;
+	document.getElementById("urltext2").innerHTML = clipcopy2;
 	
 	changed = false;
   }
@@ -223,10 +245,16 @@ async function copyTextToClipboard(text) {
 }
 
 function setupButtons() {	
-    document.getElementById("copyBtn").onclick = function() { 
-        copyTextToClipboard(clipcopy);
+    document.getElementById("copyBtn1").onclick = function() { 
+        copyTextToClipboard(clipcopy1);
 	};
-    document.getElementById("copyImg").onclick = function() { 
+    document.getElementById("copyImg1").onclick = function() { 
+        copyImageToClipboard();
+	};
+    document.getElementById("copyBtn2").onclick = function() { 
+        copyTextToClipboard(clipcopy2);
+	};
+    document.getElementById("copyImg2").onclick = function() { 
         copyImageToClipboard();
 	};
 }
