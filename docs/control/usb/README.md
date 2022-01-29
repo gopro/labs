@@ -2,6 +2,7 @@
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -14,7 +15,7 @@
 
 The camera can use the switching on of USB power to boot the camera, and perform an action of your choice.
 
-The command to perform: <input type="text" id="addcmd" value="!S">  e.g. **!S** Will start capture in the camera's default mode. You can make you own command using many of the features within the [**QR Control Customizer**](../custom).
+The command to perform: <input type="text" id="addcmd" value="!S">  e.g. **!S** Will start capture in the camera's default mode. You can make you own command using many of the features within the [**GoPro QR Code Creator**](../custom).
 
 Start command <input type="range" style="width: 200px;" id="tlsec" name="tlsec" min="0" max="60" value="0"><label for="tlsec"></label>&nbsp;&nbsp;<b id="secstext"></b> seconds after USB power,<br> 
 and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlendsec" min="0" max="60" value="2"><label for="tlendsec"></label>&nbsp;&nbsp;<b id="secsendtext"></b> seconds after USB power is off.
@@ -24,16 +25,22 @@ and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlen
 <input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat for the next USB power on event</label><br>
 
-<center>
-<div id="qrcode"></div>
+<div id="qrcode_txt" style="width: 360px">
+ <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
+  <b><font color="#005CAC">USB Power Trigger</font></b>
+ </center>
+</div>
+<button id="copyImg">Copy Image to Clipboard</button>
 <br>
-</center>
-
-QR Command: <b id="qrtext">time</b><br>
+<br>
+Share this QR Code as a URL: <b id="urltext"></b><br>
+<button id="copyBtn">Copy URL to Clipboard</button>
         
 **Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.01
+## ver 1.02
 
 [Learn more](..) on QR Control
 
@@ -41,6 +48,7 @@ QR Command: <b id="qrtext">time</b><br>
 var once = true;
 var qrcode;
 var cmd = "oC15dTmNLeA";
+var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
 
@@ -137,6 +145,8 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }
 	
@@ -147,7 +157,29 @@ function myReloadFunction() {
   location.reload();
 }
 
+
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
+
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};
+}
+
 makeQR();
+setupButtons();
 timeLoop();
 
 

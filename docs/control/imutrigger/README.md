@@ -2,6 +2,7 @@
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -67,13 +68,15 @@ Now that starting and stopping your GoPro's capture is solved, you also don't wa
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
 
 
-## ver 1.12
+## ver 1.13
 [Learn more](..) on QR Control
 
 <script>
 var once = true;
 var qrcode1;
 var qrcode2;
+var clipcopy1 = "";
+var clipcopy2 = "";
 var cmd1 = "";
 var cmd2 = "";
 var lasttimecmd1 = "";
@@ -190,7 +193,13 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext1").innerHTML = cmd1;
+	clipcopy1 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd1;
+	document.getElementById("qrtext1").innerHTML = clipcopy1;
+	
 	document.getElementById("qrtext2").innerHTML = cmd2;
+	clipcopy2 = "https://gopro.github.io/labs/control/set/?cmd=" + cmd2;
+	document.getElementById("qrtext1").innerHTML = clipcopy2;
+	
 	changed = false;
   }
   
@@ -201,7 +210,29 @@ function myReloadFunction() {
   location.reload();
 }
 
+
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
+
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};
+}
+
 makeQR();
+setupButtons();
 timeLoop();
 
 

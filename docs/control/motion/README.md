@@ -39,17 +39,18 @@ While your GoPro camera is not equipped with ultra sonic or another motion senso
 
 Note: you will have to manually set the mode in which you capture.  Motion detection works is in video, TimeWarp and Timelapse Video modes. 
  
-<center>
 <div id="qrcode_txt" style="width: 360px">
  <center>
   <div id="qrcode"></div><br>
-  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
+  <b><font color="#005CAC">Motion Detection</font></b>
  </center>
 </div>
-<br><button id="copyImg">Copy Image to Clipboard</button>
-</center>
+<button id="copyImg">Copy Image to Clipboard</button>
 <br>
-Share this QR Code as a URL: <b id="urltext"></b>   <button id="copyBtn">Copy to Clipboard</button>
+<br>
+Share this QR Code as a URL: <b id="urltext"></b><br>
+<button id="copyBtn">Copy URL to Clipboard</button>
 
 ## Limitations
 

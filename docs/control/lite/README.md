@@ -2,6 +2,7 @@
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -192,13 +193,14 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="fpsnight3" name="fpsnight" value="p.5"  >  <label for="fpsnight3">5s </label>&nbsp;&nbsp;
   <input type="radio" id="fpsnight4" name="fpsnight" value="p.10"  > <label for="fpsnight4">10s </label>&nbsp;&nbsp;
   <input type="radio" id="fpsnight5" name="fpsnight" value="p.15"  > <label for="fpsnight5">15s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight6" name="fpsnight" value="p.30"  > <label for="fpsnight6">30s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight7" name="fpsnight" value="p.60"  > <label for="fpsnight7">60s </label><br>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight8" name="fpsnight" value="p.120" > <label for="fpsnight8">2min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight9" name="fpsnight" value="p.300" > <label for="fpsnight9">5min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight10" name="fpsnight" value="p.1800"> <label for="fpsnight10">30min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight11" name="fpsnight" value="p.3600"> <label for="fpsnight11">60min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpsnight12" name="fpsnight" value="" checked> <label for="fpsnight12">not set</label><br><br>
+  <input type="radio" id="fpsnight6" name="fpsnight" value="p.20"  > <label for="fpsnight6">20s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight7" name="fpsnight" value="p.30"  > <label for="fpsnight7">30s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight8" name="fpsnight" value="p.60"  > <label for="fpsnight8">60s </label><br>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight9" name="fpsnight" value="p.120" > <label for="fpsnight9">2min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight10" name="fpsnight" value="p.300" > <label for="fpsnight10">5min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight11" name="fpsnight" value="p.1800"> <label for="fpsnight11">30min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight12" name="fpsnight" value="p.3600"> <label for="fpsnight12">60min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpsnight13" name="fpsnight" value="" checked> <label for="fpsnight13">not set</label><br><br>
 </div>
 
 <div id="settingsNightexposure">
@@ -533,12 +535,19 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 
 Additional Commands: <input type="text" id="addcmd" value="">
 
-<div id="qrcode"></div>
-
-GoPro QR Command: <b id="txt"></b>
-
-Share this QR Code as a URL: <b id="urltext"></b>  <button id="copyBtn">Copy to Clipboard</button>
-
+<div id="qrcode_txt" style="width: 360px">
+  <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
+  </center>
+</div>
+<button id="copyImg">Copy Image to Clipboard</button>
+<br>
+<br>
+Share this QR Code as a URL: <b id="urltext"></b><br>
+<button id="copyBtn">Copy URL to Clipboard</button>
+<br>
+<br>
 <button onclick="myReloadFunction()">Reset page</button>
 
 **Compatibility:** Labs naked cameras HERO7, HERO8, HERO9, HERO10
@@ -1290,9 +1299,9 @@ function startTime() {
 		
 		if(cmd != lasttimecmd)
 		{
-			document.getElementById('txt').innerHTML = cmd;	
-			clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;	
-			document.getElementById("urltext").innerHTML = clipcopy;			
+			document.getElementById("qrtext").innerHTML = cmd;
+			clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+			document.getElementById("urltext").innerHTML = clipcopy;
 			lasttimecmd = cmd;
 		}		
 		
@@ -1352,6 +1361,9 @@ function myReloadFunction() {
     location.reload();
 }
 
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
 async function copyTextToClipboard(text) {
 	try {
 		await navigator.clipboard.writeText(text);
@@ -1363,9 +1375,12 @@ async function copyTextToClipboard(text) {
 function setupButtons() {	
     document.getElementById("copyBtn").onclick = function() { 
         copyTextToClipboard(clipcopy);
-	}
+	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};
 }
-	
+
 makeQR();
 setupButtons();
 startTime();

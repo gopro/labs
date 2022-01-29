@@ -2,6 +2,7 @@
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -36,12 +37,19 @@
 <input type="checkbox" id="permanent" name="permanent" checked> 
 <label for="permanent">Make this setting survive a power off</label><br>
 
-<center>
-<div id="qrcode"></div>
+<div id="qrcode_txt" style="width: 360px">
+ <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
+  <b><font color="#005CAC">Maximum Shutter Angle</font></b>
+ </center>
+</div>
+<button id="copyImg">Copy Image to Clipboard</button>
 <br>
-</center>
+<br>
+Share this QR Code as a URL: <b id="urltext"></b><br>
+<button id="copyBtn">Copy URL to Clipboard</button>
 
-QR Command: <b id="qrtext">time</b><br>
         
 ## Background
 Shutter Angle describes the amount of potential motion blur in the image, it is a nice way to describe shutter speed independent of the video frame rate. A maximum shutter angle of 360&deg; means the blur can capture all the motion from one video frame to the next, e.g. 24p with a 360&deg; will expose for 1/24th of a second,  at 120p with the same angle exposes for 1/120th of a second. In low light, the camera will typically expose longer, increasing the shutter angle, resulting in more motion blur. 
@@ -62,7 +70,7 @@ Auto exposure might result in these behaviors (shooting 24p) <br>
 
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.02
+## ver 1.03
 [Learn more](..) on QR Control
 
 [BACK](..)
@@ -71,6 +79,7 @@ Auto exposure might result in these behaviors (shooting 24p) <br>
 var once = true;
 var qrcode;
 var cmd = "oC15dTmNLeA";
+var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
 
@@ -145,6 +154,8 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }
 	
@@ -155,7 +166,29 @@ function myReloadFunction() {
   location.reload();
 }
 
+
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
+
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};
+}
+
 makeQR();
+setupButtons();
 timeLoop();
 
 
