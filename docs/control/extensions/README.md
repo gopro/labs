@@ -2,6 +2,7 @@
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -65,6 +66,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 ### <span style="color:steelblue">**NEW**</span> - **HERO10 only** - Advanced features: December 2021 Labs 1.20.70
 
 - **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
+- **BITR=120** - set the compression in Mb/s for the Protune High Bitrate setting. Normally this would be around 100Mb/s, however higher (or lower) rates may be achieved with newer SD Cards. No guaranteed capture reliability using this feature. Input range in Mb/s from 2 to 200. 
 - **DAMP=0.1 to 1000** - Control over the auto-exposure damping. When moving a camera through dramatically changing lighting, like biking through a forest, in and out of sunlight, or flying a drone through a short tunnel, the exposure will adjust automatically, correctly in most scenarios, but sometimes not optimal for some rapidly changing light levels. The camera's auto-exposure currently takes about one second to adjust from sunlight to indoor conditions, but if you are flying a drone through indoors for only a few seconds, the camera would over-expose on exit. In this scenario using an exposure lock might be preferable, maintaining an outdoor exposure throwout, but exposure lock is risky for shooting under variable lighting conditions. Changing the damping might be what you need. Setting the DAMP=1 is the default, so setting to 10 would slow the camera's exposure adjustments 10X. Now shooting into dark for moment will not cause much over-exposure (if any).  Setting DAMP=60 will take a minute for exposure changes. Setting DAMP lower than 1, like 0.2, would make it adjust faster. There is no perfect setting, this is just more control.
 - **TONE=0,1,2 or 3** - Tone-mapping controls. Tone-mapping is the in-camera contrast control, dynamically adjusting the video to look good under a range of lighting conditions. HERO10 adds LTM - Local Tone-Mapping, enabling you to see details in leaves and grass textures, way better than all previous GoPro's. HERO9 and earlier, used GTM, Global Tone-Mapping which adjusts the contrast curve for the image automatically. If you wanted to do these in post, you could use Protune Flat, where all in-camera tone-mapping is disabled and a log curve is applied. For a more developed Rec709 video, by shooting GoPro Color or Natural modes, but you wanted to do your own tone-mapping in post--you can now do that.
   - **TONE=0** - using the cameras default  
@@ -78,11 +80,17 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 Metadata Four CC: <input type="text" id="addcmd" value="">  e.g. BIAS, HIST etc.<br>
 Metadata Value(s): <input type="text" id="addvalue" value="">  e.g. 2.0 or "Joe Blogg", strings in quotes, numbers comma separated.
 
-<center>
-<div id="qrcode"></div>
+<div id="qrcode_txt" style="width: 360px">
+  <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
+  </center>
+</div>
+<button id="copyImg">Copy Image to Clipboard</button>
 <br>
-</center>
-QR Command: <b id="qrtext">command</b><br>
+<br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
+<button id="copyBtn">Copy URL to Clipboard</button>
 
 
 ## Alternative Exposure Controls. 
@@ -94,12 +102,13 @@ QR Command: <b id="qrtext">command</b><br>
 
 <br> 
 		
-## ver 1.10
+## ver 1.11
 [BACK](..)
 
 <script>
 var once = true;
 var qrcode;
+var clipcopy = "";
 var cmd = "";
 var lasttimecmd = "";
 var changed = true;
@@ -144,6 +153,9 @@ function timeLoop()
 
 	if(cmd != lasttimecmd)
 	{
+		document.getElementById("qrtext").innerHTML = cmd;
+		clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+		document.getElementById("urltext").innerHTML = clipcopy;
 		changed = true;
 		lasttimecmd = cmd;
 	}
@@ -161,7 +173,29 @@ function myReloadFunction() {
   location.reload();
 }
 
+
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
+
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};
+}
+
 makeQR();
+setupButtons();
 timeLoop();
 
 </script>
