@@ -418,6 +418,24 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="wc2" name="wc" value="W1"> <label for="wc2">On </label>&nbsp;&nbsp;
   <input type="radio" id="wc3" name="wc" value="" checked> <label for="wc3">not set</label>
   </div>
+<div id="opLN">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Voice Language:</b>&nbsp;&nbsp;
+  <input type="radio" id="ln1" name="ln" value="L0"> <label for="ln1">English US </label>&nbsp;&nbsp;
+  <input type="radio" id="ln2" name="ln" value="L01"> <label for="ln2">English UK </label>&nbsp;&nbsp;
+  <input type="radio" id="ln3" name="ln" value="L02"> <label for="ln3">English AUS </label>&nbsp;&nbsp;
+  <input type="radio" id="ln4" name="ln" value="L03"> <label for="ln4">English IND </label>&nbsp;&nbsp;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ln5" name="ln" value="L4"> <label for="ln5">Spanish EU </label>&nbsp;&nbsp;
+  <input type="radio" id="ln6" name="ln" value="L41"> <label for="ln6">Spanish NA </label>&nbsp;&nbsp;
+  <input type="radio" id="ln7" name="ln" value="L1"> <label for="ln7">German </label>&nbsp;&nbsp;
+  <input type="radio" id="ln8" name="ln" value="L3"> <label for="ln8">Italian </label>&nbsp;&nbsp;
+  <input type="radio" id="ln9" name="ln" value="L5"> <label for="ln9">Chinese </label>&nbsp;&nbsp;
+  <input type="radio" id="ln10" name="ln" value="L6"> <label for="ln10">Japanese </label>&nbsp;&nbsp;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="ln11" name="ln" value="L7"> <label for="ln11">Korean </label>&nbsp;&nbsp;
+  <input type="radio" id="ln12" name="ln" value="L2"> <label for="ln12">French </label>&nbsp;&nbsp;
+  <input type="radio" id="ln13" name="ln" value="L8"> <label for="ln13">Portuguese </label>&nbsp;&nbsp;
+  <input type="radio" id="ln14" name="ln" value="L9"> <label for="ln14">Russian </label>&nbsp;&nbsp;
+  <input type="radio" id="ln15" name="ln" value="L91"> <label for="ln15">Swedish </label>&nbsp;&nbsp;
+  <input type="radio" id="ln16" name="ln" value="" checked> <label for="ln16">not set</label><br>
+</div>
 
 <div id="opDT">
 <input type="checkbox" id="dt" value="oT"> <label for="dt">Set date + time automatically</label><br>
@@ -640,6 +658,7 @@ function startTime() {
 	dset("opOR", false);
 	dset("opAO", false);
 	dset("opWC", false);
+	dset("opLN", false);
 	
 	dset("NakedTools", false);
 	dset("aS", false);
@@ -824,6 +843,7 @@ function startTime() {
 			dset("opOR", true);
 			dset("opAO", true);
 			dset("opWC", true);
+			dset("opLN", true);
 		}
 	}
 	
