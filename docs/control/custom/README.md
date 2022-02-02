@@ -54,7 +54,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="r5" name="res" value="r3"   > <label for="r5">3k 360°</label>&nbsp;&nbsp;
   <input type="radio" id="r6" name="res" value="r4"   > <label for="r6">4k </label>&nbsp;&nbsp;
   <input type="radio" id="r7" name="res" value="r4T"  > <label for="r7">4k 4x3 </label>&nbsp;&nbsp;
-  <input type="radio" id="r8" name="res" value="r5"   > <label for="r8">5k </label>&nbsp;&nbsp;
+  <input type="radio" id="r8" name="res" value="r5"   > <label for="r8">5.3k </label>&nbsp;&nbsp;
   <input type="radio" id="r9" name="res" value="r5T"  > <label for="r9">5k 4x3† </label><br><br>
 </div>
 

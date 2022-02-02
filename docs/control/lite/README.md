@@ -281,7 +281,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 <input type="checkbox" id="ptr" value="t0"> <label for="ptr"> </label><br>
 </div>
 <div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
-  <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">GoPro</label>&nbsp;&nbsp;
+  <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">Vibrant</label>&nbsp;&nbsp;
   <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural†</label>&nbsp;&nbsp;
   <input type="radio" id="ptc3" name="ptc" value="cF"> <label for="ptc3">Flat</label>&nbsp;&nbsp;
   <input type="radio" id="ptc4" name="ptc" value="" checked> <label for="ptc4">not set</label>
