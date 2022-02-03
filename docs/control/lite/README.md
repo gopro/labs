@@ -574,8 +574,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.42
-updated: Jan 29, 2022
+## version 1.43
+updated: Feb 2, 2022
 
 <script>
 var clipcopy = "";
@@ -773,6 +773,7 @@ function startTime() {
 		dset("settingsPT", true);
 		dset("settingsTLVFOV", true);
 		dset("settingsPhotoRAW", true);
+		dset("settingsDuration", true);
 		dset("noteMODE", true);
 		break;
 		
@@ -782,6 +783,7 @@ function startTime() {
 		dset("settingsPT", true);
 		dset("settingsTLVFOV", true);
 		dset("settingsPhotoRAW", true);
+		dset("settingsDuration", true);
 		dset("noteMODE", true);
 		break;
 		
