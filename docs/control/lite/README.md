@@ -759,6 +759,7 @@ function startTime() {
 		
 		case 15: //Burst Live
 		dset("settingsPT", true);
+		dset("settingsAUDT",true);
 		break;
 		
 		case 16: //Night
