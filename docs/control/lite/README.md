@@ -450,28 +450,23 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 </div>
 
 <div id="NakedTools">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Initization:</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap1" name="sap" value="!PA"> <label for="sap1">Start Quik App Pairing</label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap2" name="sap" value="!PR"> <label for="sap2">Start Remote Pairing</label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap3" name="sap" value="!FRESET"> <label for="sap3">Factory Reset†</label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap4" name="sap" value="!PRESET"> <label for="sap4">Presets Only Reset†</label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap5" name="sap" value="" checked> <label for="sap5">not set</label><br> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Initization: </b> <input type="radio" id="sap7" name="sap" value="" checked> <label for="sap7">not set</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap1" name="sap" value="!PA"> <label for="sap1">Start Quik App Pairing</label>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap2" name="sap" value="!PR"> <label for="sap2">Start Remote Pairing</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap3" name="sap" value="!FRESET"> <label for="sap3">Factory Reset†</label>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap4" name="sap" value="!PRESET"> <label for="sap4">Presets Only Reset†</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap5" name="sap" value="!MWAKE=1"> <label for="sap5">Auto wake on Power†</label>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap6" name="sap" value="!MWAKE=0"> <label for="sap6">disable wake†</label><br>
 &nbsp;&nbsp;or
 </div>
 
 <div id="aS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Start Capture:</b>
-  <input type="radio" id="as1" name="as" value="!S"> <label for="as1">Now </label>&nbsp;&nbsp;
-  <input type="radio" id="as2" name="as" value="!1S"> <label for="as2">in 2 sec </label>&nbsp;&nbsp;
-  <input type="radio" id="as3" name="as" value="!3S"> <label for="as3">in 4 secs </label>&nbsp;&nbsp;
-  <input type="radio" id="as4" name="as" value="!9S"> <label for="as4">in 10 secs </label>&nbsp;&nbsp;
-  <input type="radio" id="as5" name="as" value="" checked> <label for="as5">not set</label><br> 
+  Start in <input type="text" id="dstart" value="" style="width:60px"> seconds. End in <input type="text" id="dend" value="" style="width:60px">seconds (range 1-∞).<br>
 &nbsp;&nbsp;or
 </div>
-<div id="aSM">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Start via Scene Motion Detection:</b> 
-<input type="text" id="mstart" value="" style="width:60px">start <input type="text" id="mend" value="" style="width:60px">end sensitivity (1-9)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delay start: <input type="text" id="dhold" value="" style="width:60px"> seconds to get out of the shot.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mask motion: <input type="text" id="mmhold" value="" style="width:60px"> seconds to learn background motion.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hold time: <input type="text" id="mhold" value="" style="width:60px"> seconds to capture after motion stops.<br>
+<div id="aSM">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Start via Motion Detection:</b> 
+<input type="text" id="mstart" value="" style="width:60px">start <input type="text" id="mend" value="" style="width:60px">end sensitivity (1-6) &nbsp;&nbsp;<input type="checkbox" id="helpM" value=""> <label for="actions">Sensitivity Help</label><br>
+ <div id="motionHelp">
   <small>
 	<table style="margin-left:60px;">
 	  <thead>
@@ -508,12 +503,15 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 	  </tbody>
 	</table>
   </small>
+ </div>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delay start: <input type="text" id="dhold" value="" style="width:60px"> seconds to get out of the shot.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mask motion: <input type="text" id="mmhold" value="" style="width:60px"> seconds to learn background motion.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hold time: <input type="text" id="mhold" value="" style="width:60px"> seconds to capture after motion stops.<br>
 &nbsp;&nbsp;or
 </div>
-<div id="aIT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Start via Camera (IMU) Motion Detection:</b> 
-<input type="text" id="imstart" value="" style="width:60px">start <input type="text" id="imend" value="" style="width:60px">end sensitivity (1-9)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delay start: <input type="text" id="idhold" value="" style="width:60px"> seconds before motion is detected.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hold time: <input type="text" id="imhold" value="" style="width:60px"> seconds to capture after motion stops.<br>
+<div id="aIT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Start via IMU Detection:</b> 
+<input type="text" id="imstart" value="" style="width:60px">start <input type="text" id="imend" value="" style="width:60px">end sensitivity (1-9)&nbsp;&nbsp;<input type="checkbox" id="helpI" value=""> <label for="actions">Sensitivity Help</label><br>
+<div id="imuHelp">
   <small>
 	<table style="margin-left:60px;">
 	  <thead>
@@ -546,6 +544,10 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 	  </tbody>
 	</table>
   </small>
+ </div>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delay start: <input type="text" id="idhold" value="" style="width:60px"> seconds before motion is detected.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hold time: <input type="text" id="imhold" value="" style="width:60px"> seconds to capture after motion stops.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
 
@@ -574,8 +576,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.44
-updated: Feb 4, 2022
+## version 1.45
+updated: Feb 8, 2022
 
 <script>
 var clipcopy = "";
@@ -663,8 +665,10 @@ function startTime() {
 	dset("NakedTools", false);
 	dset("aS", false);
 	dset("aSM", false);
+	dset("motionHelp", false);
 	dset("aIT", false);
 	dset("aR", false);
+	dset("imuHelp", false);
 	
 	var checkedmode = 0;
 	var x;
@@ -859,8 +863,25 @@ function startTime() {
 			dset("aSM", true);
 			dset("aIT", true);
 			dset("aR", true);
+			
+			
+			if(document.getElementById("helpM") !== null)
+			{
+				if(document.getElementById("helpM").checked === true)
+				{
+					dset("motionHelp", true);
+				}
+			}
+			if(document.getElementById("helpI") !== null)
+			{
+				if(document.getElementById("helpI").checked === true)
+				{
+					dset("imuHelp", true);
+				}
+			}
 		}
 	}
+	
 	
 	cmd = dcmd(cmd,"m");  // set mode
 		
@@ -1286,7 +1307,26 @@ function startTime() {
 			}
 			else
 			{
-				cmd = dcmd(cmd,"as");
+			
+				if(document.getElementById("dstart") !== null)
+				{		
+					var dstart = document.getElementById("dstart").value;
+					
+					if(dstart > 0)
+					{
+						cmd = cmd + "!" + dstart + "S";
+				
+						if(document.getElementById("dend") !== null)
+						{		
+							var dend = document.getElementById("dend").value;
+							if(dend > 0)
+							{
+								cmd = cmd + "!" + dend + "E";
+							}	
+						}
+					}
+				}
+				//cmd = dcmd(cmd,"as");
 			}
 		}
 		
