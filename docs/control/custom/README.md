@@ -303,7 +303,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="isomin5" name="isomin" value="M16"> <label for="isomin5">1600 </label>&nbsp;&nbsp;
   <input type="radio" id="isomin6" name="isomin" value="M32"> <label for="isomin6">3200 </label>&nbsp;&nbsp;
   <input type="radio" id="isomin7" name="isomin" value="M64"> <label for="isomin7">6400 </label>&nbsp;&nbsp;
-  <input type="radio" id="isomin8" name="isomin" value="M1" checked> <label for="isomin7">not set</label>
+  <input type="radio" id="isomin8" name="isomin" value="M1" checked> <label for="isomin8">not set</label>
  </div>
 <div id="ptISO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ISO Max:</b>&nbsp;&nbsp;
   <input type="radio" id="iso1" name="iso" value="i1" > <label for="iso1">100 </label>&nbsp;&nbsp;
@@ -532,8 +532,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.43
-updated: Feb 2, 2022
+## version 1.46
+updated: Feb 10, 2022
 
 <script>
 var clipcopy = "";
@@ -1020,10 +1020,28 @@ function startTime() {
 				cmd = dcmd(cmd,"iso"); //iso max
 				if(document.getElementById('isomin8').checked === false)
 				{
-					cmd = dcmd(cmd,"isomin");//iso min
+					let isomin = dcmd("","isomin"); //min
+					let isomax = dcmd("","iso");    //max
+				
+					var min = parseInt(isomin.substring(1));
+					var max = parseInt(isomax.substring(1));
+					
+					if(max < min)
+					{
+						if(max == 1) document.getElementById('isomin1').checked = true;
+						if(max == 2) document.getElementById('isomin2').checked = true;
+						if(max == 4) document.getElementById('isomin3').checked = true;
+						if(max == 8) document.getElementById('isomin4').checked = true;
+						if(max == 16) document.getElementById('isomin5').checked = true;
+						if(max == 32) document.getElementById('isomin6').checked = true;
+						cmd = cmd + "M" + max;    //set the min to match the max iso
+					}
+					else
+						cmd = dcmd(cmd,"isomin"); //add iso min
+						
 					if(document.getElementById('shut7').checked === false)
 					{
-						cmd = dcmd(cmd,"iso"); //iso max
+						//cmd = dcmd(cmd,"iso"); //iso max
 						cmd = dcmd(cmd,"shut"); //shutter angle
 					}
 				}

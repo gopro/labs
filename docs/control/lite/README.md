@@ -161,19 +161,18 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
  
 <div id="settingsTimelapse">
 <b>Timelapse Interval:</b>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse1"    name="fpslapse" value="p2"> <label for="fpslapse1">0.5s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse2"    name="fpslapse" value="p1"> <label for="fpslapse2">1s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse3"   name="fpslapse" value="p.2"> <label for="fpslapse3">2s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse4"   name="fpslapse" value="p.5"> <label for="fpslapse4">5s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse5"  name="fpslapse" value="p.10"> <label for="fpslapse5">10s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse6"  name="fpslapse" value="p.30"> <label for="fpslapse6">30s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse1" name="fpslapse" value="p2"> <label for="fpslapse1">0.5s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse2" name="fpslapse" value="p1"> <label for="fpslapse2">1s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse3" name="fpslapse" value="p.2"> <label for="fpslapse3">2s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse4" name="fpslapse" value="p.5"> <label for="fpslapse4">5s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse5" name="fpslapse" value="p.10"> <label for="fpslapse5">10s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse6" name="fpslapse" value="p.30"> <label for="fpslapse6">30s </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse7" name="fpslapse" value="p.60"> <label for="fpslapse7">60s </label>&nbsp;&nbsp;<br>
   
   &nbsp;&nbsp;&nbsp;&nbsp;HERO 8/9&nbsp;&nbsp; <input type="radio" id="fpslapse8"  name="fpslapse" value="p.120" > <label for="fpslapse8">2min </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse9"  name="fpslapse" value="p.300" > <label for="fpslapse9">5min </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse10" name="fpslapse" value="p.1800"> <label for="fpslapse10">30min </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse11" name="fpslapse" value="p.3600"> <label for="fpslapse11">60min </label>&nbsp;&nbsp;
-  
+  <input type="radio" id="fpslapse11" name="fpslapse" value="p.3600"> <label for="fpslapse11">60min </label>&nbsp;&nbsp;  
   <input type="radio" id="fpslapse12" name="fpslapse" value="" checked> <label for="fpslapse12">not set</label><br><br>
 </div>
 
@@ -313,7 +312,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="isomin5" name="isomin" value="M16"> <label for="isomin5">1600 </label>&nbsp;&nbsp;
   <input type="radio" id="isomin6" name="isomin" value="M32"> <label for="isomin6">3200 </label>&nbsp;&nbsp;
   <input type="radio" id="isomin7" name="isomin" value="M64"> <label for="isomin7">6400 </label>&nbsp;&nbsp;
-  <input type="radio" id="isomin8" name="isomin" value="M1" checked> <label for="isomin7">not set</label>
+  <input type="radio" id="isomin8" name="isomin" value="M1" checked> <label for="isomin8">not set</label>
  </div>
 <div id="ptISO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ISO Max:</b>&nbsp;&nbsp;
   <input type="radio" id="iso1" name="iso" value="i1" > <label for="iso1">100 </label>&nbsp;&nbsp;
@@ -450,13 +449,14 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 </div>
 
 <div id="NakedTools">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Initization: </b> <input type="radio" id="sap7" name="sap" value="" checked> <label for="sap7">not set</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Initization: </b> <input type="radio" id="sap8" name="sap" value="" checked> <label for="sap8">not set</label><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap1" name="sap" value="!PA"> <label for="sap1">Start Quik App Pairing</label>
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap2" name="sap" value="!PR"> <label for="sap2">Start Remote Pairing</label><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap3" name="sap" value="!FRESET"> <label for="sap3">Factory Reset†</label>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap4" name="sap" value="!PRESET"> <label for="sap4">Presets Only Reset†</label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap5" name="sap" value="!MWAKE=1"> <label for="sap5">Auto wake on Power†</label>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap6" name="sap" value="!MWAKE=0"> <label for="sap6">disable wake†</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap4" name="sap" value="!PRESET"> <label for="sap4">Presets Only Reset†</label>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap5" name="sap" value="!RESET"> <label for="sap5">Labs Only Reset</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap6" name="sap" value="!MWAKE=1"> <label for="sap6">Auto wake on Power†</label>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap7" name="sap" value="!MWAKE=0"> <label for="sap7">disable wake†</label><br>
 &nbsp;&nbsp;or
 </div>
 
@@ -576,8 +576,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.45
-updated: Feb 8, 2022
+## version 1.46
+updated: Feb 10, 2022
 
 <script>
 var clipcopy = "";
@@ -1078,17 +1078,35 @@ function startTime() {
 			cmd = dcmd(cmd,"ptc"); //color
 			cmd = dcmd(cmd,"br"); //bitrate
 			cmd = dcmd(cmd,"wb"); //wb
-
+			
 			if(document.getElementById('iso8').checked === false)
 			{
 				cmd = dcmd(cmd,"iso"); //iso max
 				if(document.getElementById('isomin8').checked === false)
 				{
-					cmd = dcmd(cmd,"isomin");//iso min
+					let isomin = dcmd("","isomin"); //min
+					let isomax = dcmd("","iso");    //max
+				
+					var min = parseInt(isomin.substring(1));
+					var max = parseInt(isomax.substring(1));
+					
+					if(max < min)
+					{
+						if(max == 1) document.getElementById('isomin1').checked = true;
+						if(max == 2) document.getElementById('isomin2').checked = true;
+						if(max == 4) document.getElementById('isomin3').checked = true;
+						if(max == 8) document.getElementById('isomin4').checked = true;
+						if(max == 16) document.getElementById('isomin5').checked = true;
+						if(max == 32) document.getElementById('isomin6').checked = true;
+						cmd = cmd + "M" + max;    //set the min to match the max iso
+					}
+					else
+						cmd = dcmd(cmd,"isomin"); //add iso min
+						
 					if(document.getElementById('shut7').checked === false)
 					{
 						//cmd = dcmd(cmd,"iso"); //iso max
-						cmd = dcmd(cmd,"shut"); //shutter angle
+						cmd = dcmd(cmd,"shut");  //shutter angle
 					}
 				}
 				else if(document.getElementById('shut7').checked === false)
