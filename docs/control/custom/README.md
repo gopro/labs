@@ -245,7 +245,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 
 <div id="settingsAUDT">
-<b>Audio Type:</b>&nbsp;&nbsp
+<b>Audio Type:</b>&nbsp;&nbsp;
   <input type="radio" id="audt1" name="audt" value="aA"> <label for="audt1">Auto </label>&nbsp;&nbsp;
   <input type="radio" id="audt2" name="audt" value="aS"> <label for="audt2">Stereo </label>&nbsp;&nbsp;
   <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">Wind</label>&nbsp;&nbsp;
