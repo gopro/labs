@@ -426,7 +426,9 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 <div id="opWC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>WiFi Connections:</b>&nbsp;&nbsp; 
   <input type="radio" id="wc1" name="wc" value="W0"> <label for="wc1">Off </label>&nbsp;&nbsp;
   <input type="radio" id="wc2" name="wc" value="W1"> <label for="wc2">On </label>&nbsp;&nbsp;
-  <input type="radio" id="wc3" name="wc" value="" checked> <label for="wc3">not set</label>
+  <input type="radio" id="wc3" name="wc" value="W2"> <label for="wc3">On 2.4GHz</label>&nbsp;&nbsp;
+  <input type="radio" id="wc4" name="wc" value="W5"> <label for="wc4">On 5GHz</label>&nbsp;&nbsp;
+  <input type="radio" id="wc5" name="wc" value="" checked> <label for="wc5">not set</label>
   </div>
 <div id="opLN">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Voice Language:</b>&nbsp;&nbsp;
   <input type="radio" id="ln1" name="ln" value="L0"> <label for="ln1">English US </label>&nbsp;&nbsp;
@@ -532,8 +534,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.46
-updated: Feb 10, 2022
+## version 1.48
+updated: Feb 14, 2022
 
 <script>
 var clipcopy = "";

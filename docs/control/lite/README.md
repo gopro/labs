@@ -90,10 +90,14 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="f3" name="fov" value="fL"> <label for="f3">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="f4" name="fov" value="fS"> <label for="f4">Superview </label>&nbsp;&nbsp;
   <input type="radio" id="f5" name="fov" value="fH"> <label for="f5">Linear+HL </label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;Max Lens Mod:&nbsp;&nbsp; <input type="radio" id="f6" name="fov" value="oX1fW"> <label for="f6">Enable Wide </label>&nbsp;&nbsp;
-  <input type="radio" id="f7" name="fov" value="oX1fX"> <label for="f7">Enable Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="f8" name="fov" value="oX0"> <label for="f8">Disable MLM</label>&nbsp;&nbsp;
-  <input type="radio" id="f9" name="fov" value="" checked> <label for="f9">not set</label><br><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b>Max Lens Mod:</b>&nbsp;&nbsp; <input type="radio" id="f6" name="fov" value="oX1fW"> <label for="f6">Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="f7" name="fov" value="oX1fX"> <label for="f7">Superview </label>&nbsp;&nbsp;
+  <input type="radio" id="f8" name="fov" value="oX1fL"> <label for="f8">Linear </label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b>MLM Horizon Level:</b>&nbsp;&nbsp; <input type="radio" id="f9" name="fov" value="oX1fWL"> <label for="f9">Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="f10" name="fov" value="oX1fXL"> <label for="f10">Superview </label>&nbsp;&nbsp; 
+  <input type="radio" id="f11" name="fov" value="oX1fLL"> <label for="f11">Linear </label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="f12" name="fov" value="oX0"> <label for="f12">Disable MLM</label>&nbsp;&nbsp; 
+  <input type="radio" id="f13" name="fov" value="" checked> <label for="f13">not set</label><br><br>
  </div>
  
 <div id="settingsPFOV">
@@ -217,7 +221,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 <div id="settingsVideo">
 <b>Hypersmooth:</b>&nbsp;&nbsp;
 	<input type="radio" id="eis1" name="eis" value="e0"> <label for="eis1">Off</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">On</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">Standard</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis3" name="eis" value="e2"> <label for="eis3">High</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis4" name="eis" value="e3"> <label for="eis4">Boost</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis5" name="eis" value="" checked> <label for="eis5">not set</label><br><br>
@@ -377,12 +381,13 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="qc3" name="qc" value="" checked> <label for="qc3">not set </label>
   </div>
 <div id="opDM">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Default Mode:</b>&nbsp;&nbsp;
-  <input type="radio" id="dm1" name="dm" value="dV">  <label for="dm1">Last Used Video</label>&nbsp;&nbsp;
-  <input type="radio" id="dm2" name="dm" value="dP">  <label for="dm2">Last Used Photo</label>&nbsp;&nbsp;
-  <input type="radio" id="dm3" name="dm" value="dT">  <label for="dm3">Last Used Timelapse</label>&nbsp;&nbsp;
-  <input type="radio" id="dm4" name="dm" value="" checked> <label for="dm4">not set</label>
+  <input type="radio" id="dm1" name="dm" value="dL">  <label for="dm1">Last Used</label>&nbsp;&nbsp;
+  <input type="radio" id="dm2" name="dm" value="dV">  <label for="dm2">Last Video</label>&nbsp;&nbsp;
+  <input type="radio" id="dm3" name="dm" value="dP">  <label for="dm3">Last Photo</label>&nbsp;&nbsp;
+  <input type="radio" id="dm4" name="dm" value="dT">  <label for="dm4">Last Timelapse</label>&nbsp;&nbsp;
+  <input type="radio" id="dm5" name="dm" value="" checked> <label for="dm5">not set</label>
 </div>
-<div id="opBV">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Beep Volume:</b>&nbsp;&nbsp; 
+<!--<div id="opBV">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Beep Volume:</b>&nbsp;&nbsp; 
   <input type="radio" id="bv1" name="bv" value="V0"> <label for="bv1">0% </label>&nbsp;&nbsp;
   <input type="radio" id="bv2" name="bv" value="V1"> <label for="bv2">10% </label>&nbsp;&nbsp;
   <input type="radio" id="bv3" name="bv" value="V4"> <label for="bv3">40% </label>&nbsp;&nbsp;
@@ -390,13 +395,13 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="bv5" name="bv" value="V8"> <label for="bv5">85% </label>&nbsp;&nbsp;
   <input type="radio" id="bv6" name="bv" value="V9"> <label for="bv6">100% </label>&nbsp;&nbsp;
   <input type="radio" id="bv7" name="bv" value="" checked> <label for="bv7">not set</label>
-  </div>
-<div id="opLO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>LEDs On:</b>&nbsp;&nbsp;
+  </div>-->
+<!--<div id="opLO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>LEDs On:</b>&nbsp;&nbsp;
   <input type="radio" id="lo1" name="lo" value="D0"> <label for="lo1">All Off </label>&nbsp;&nbsp;
   <input type="radio" id="lo2" name="lo" value="D2"> <label for="lo2">Rear Only </label>&nbsp;&nbsp;
   <input type="radio" id="lo3" name="lo" value="D4"> <label for="lo3">All On </label>&nbsp;&nbsp;
   <input type="radio" id="lo4" name="lo" value="" checked> <label for="lo4">not set</label>
-  </div>
+  </div>-->
 <div id="opOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Orientation Lock:</b>&nbsp;&nbsp; 
   Landscape <input type="radio" id="or1" name="or" value="R1"> <label for="or1">↑</label>&nbsp;&nbsp;&nbsp;
   <input type="radio" id="or2" name="or" value="R2"> <label for="or2">↓</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -415,7 +420,9 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 <div id="opWC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>WiFi Connections:</b>&nbsp;&nbsp; 
   <input type="radio" id="wc1" name="wc" value="W0"> <label for="wc1">Off </label>&nbsp;&nbsp;
   <input type="radio" id="wc2" name="wc" value="W1"> <label for="wc2">On </label>&nbsp;&nbsp;
-  <input type="radio" id="wc3" name="wc" value="" checked> <label for="wc3">not set</label>
+  <input type="radio" id="wc3" name="wc" value="W2"> <label for="wc3">On 2.4GHz</label>&nbsp;&nbsp;
+  <input type="radio" id="wc4" name="wc" value="W5"> <label for="wc4">On 5GHz</label>&nbsp;&nbsp;
+  <input type="radio" id="wc5" name="wc" value="" checked> <label for="wc5">not set</label>
   </div>
 <div id="opLN">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Voice Language:</b>&nbsp;&nbsp;
   <input type="radio" id="ln1" name="ln" value="L0"> <label for="ln1">English US </label>&nbsp;&nbsp;
@@ -576,8 +583,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.46
-updated: Feb 10, 2022
+## version 1.48
+updated: Feb 14, 2022
 
 <script>
 var clipcopy = "";
@@ -655,8 +662,8 @@ function startTime() {
 	dset("opVC", false);
 	dset("opQC", false);
 	dset("opDM", false);
-	dset("opBV", false);
-	dset("opLO", false);
+	//dset("opBV", false);
+	//dset("opLO", false);
 	dset("opOR", false);
 	dset("opAO", false);
 	dset("opWC", false);
@@ -845,8 +852,8 @@ function startTime() {
 			dset("opVC", true);
 			dset("opQC", true);
 			dset("opDM", true);
-			dset("opBV", true);
-			dset("opLO", true);
+			//dset("opBV", true);
+			//dset("opLO", true);
 			dset("opOR", true);
 			dset("opAO", true);
 			dset("opWC", true);
