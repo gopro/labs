@@ -460,9 +460,9 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 </div>
 
 <div id="NakedTools">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Initization: </b> <input type="radio" id="sap8" name="sap" value="" checked> <label for="sap8">not set</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Initization: </b> <input type="radio" id="sap10" name="sap" value="" checked> <label for="sap10">not set</label><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap1" name="sap" value="!PA"> <label for="sap1">Start Quik App Pairing</label>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap2" name="sap" value="!PR"> <label for="sap2">Start Remote Pairing</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap2" name="sap" value="!PR"> <label for="sap2">Start Remote Pairing</label>
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap3" name="sap" value="!PS"> <label for="sap3">Cancel BLE Pairing</label><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap4" name="sap" value="!FRESET"> <label for="sap4">Factory Reset†</label>
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap5" name="sap" value="!PRESET"> <label for="sap5">Presets Reset†</label>
