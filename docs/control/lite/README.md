@@ -253,9 +253,11 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 
 <div id="settingsPhotoRAW">
 <b>Photo Properties:</b><br>
-  <input type="radio" id="raw1" name="raw" value="rW"> <label for="raw1">JPEG only</label>&nbsp;&nbsp;
-  <input type="radio" id="raw2" name="raw" value="r"> <label for="raw2">Raw + JPEG</label>&nbsp;&nbsp;
-  <input type="radio" id="raw3" name="raw" value="" checked> <label for="raw3"> not set</label><br><br>
+  <input type="radio" id="raw1" name="raw" value="rW"> <label for="raw1">Standard </label>&nbsp;&nbsp;
+  <input type="radio" id="raw2" name="raw" value="r"> <label for="raw2">Raw + JPEG </label>&nbsp;&nbsp;
+  <input type="radio" id="raw3" name="raw" value="rS"> <label for="raw3">Superphoto </label>&nbsp;&nbsp;
+  <input type="radio" id="raw4" name="raw" value="rS"> <label for="raw4">HDR </label>&nbsp;&nbsp;
+  <input type="radio" id="raw5" name="raw" value="" checked> <label for="raw5"> not set</label><br><br>
 </div>
 
 <div id="settingsAUDT">
