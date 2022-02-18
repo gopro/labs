@@ -276,7 +276,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 <input type="radio" id="sp8" name="placement" value="50,75"> <label for="sp8">Lower Center</label>&nbsp;
 <input type="radio" id="sp9" name="placement" value="75,75"> <label for="sp9">Lower Right </label>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" id="sp10" name="placement" value="0"> <label for="sp10">Disable </label><br>&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="checkbox" id="sl" value="!2NoSL"> <label for="sm">Exposure Lock 3s after scan (to avoid locking on the QR Code)</label><br>
+<input type="checkbox" id="sl" value="!2NoSL"> <label for="sl">Exposure Lock 3s after scan (to avoid locking on the QR Code)</label><br>
 </div>
 <div id="settingsPT">
 <input type="checkbox" id="pt" value="t"> <label for="pt">Protune Controls</label><br>
