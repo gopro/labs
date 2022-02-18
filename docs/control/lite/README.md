@@ -92,12 +92,9 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="f5" name="fov" value="fH"> <label for="f5">Linear+HL </label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<b>Max Lens Mod:</b>&nbsp;&nbsp; <input type="radio" id="f6" name="fov" value="oX1fW"> <label for="f6">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="f7" name="fov" value="oX1fX"> <label for="f7">Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="f8" name="fov" value="oX1fL"> <label for="f8">Linear </label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<b>MLM Horizon Level:</b>&nbsp;&nbsp; <input type="radio" id="f9" name="fov" value="oX1fWL"> <label for="f9">Wide </label>&nbsp;&nbsp;
-  <input type="radio" id="f10" name="fov" value="oX1fXL"> <label for="f10">Superview </label>&nbsp;&nbsp; 
-  <input type="radio" id="f11" name="fov" value="oX1fLL"> <label for="f11">Linear </label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="f12" name="fov" value="oX0"> <label for="f12">Disable MLM</label>&nbsp;&nbsp; 
-  <input type="radio" id="f13" name="fov" value="" checked> <label for="f13">not set</label><br><br>
+  <input type="radio" id="f8" name="fov" value="oX1fL"> <label for="f8">Linear </label>&nbsp;&nbsp;<input type="checkbox" id="mlmhl" value="L"> <label for="mlmhl">Horizon Level</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="f9" name="fov" value="oX0"> <label for="f9">Disable MLM</label>&nbsp;&nbsp; 
+  <input type="radio" id="f10" name="fov" value="" checked> <label for="f10">not set</label><br><br>
  </div>
  
 <div id="settingsPFOV">
@@ -126,10 +123,10 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="twf2" name="twfov" value="fL"> <label for="twf2">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="twf3" name="twfov" value="fH"> <label for="twf3">Linear+HL </label>&nbsp;&nbsp;
   <input type="radio" id="twf4" name="twfov" value="fN"> <label for="twf4">Narrow </label>&nbsp;&nbsp;  <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;Max Lens Mod:  <input type="radio" id="twf5" name="twfov" value="oX1fW"> <label for="twf5">Enable Wide </label>&nbsp;&nbsp;
-  <input type="radio" id="twf6" name="twfov" value="oX1fX"> <label for="twf6">Enable Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="twf7" name="twfov" value="oX0"> <label for="twf7">Disable MLM</label>&nbsp;&nbsp;
-  <input type="radio" id="twf8" name="twfov" value="" checked> <label for="twf8">not set</label><br><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<b>Max Lens Mod:</b>&nbsp;&nbsp; <input type="radio" id="twf5" name="fov" value="oX1fW"> <label for="twf5">Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="twf6" name="fov" value="oX1fX"> <label for="twf6">Superview </label>&nbsp;&nbsp;
+  <input type="radio" id="twf7" name="fov" value="oX1fL"> <label for="twf7">Linear </label>&nbsp;&nbsp;<input type="checkbox" id="twmlmhl" value="L"> <label for="twmlmhl">Horizon Level</label><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="twf8" name="fov" value="oX0"> <label for="twf8">Disable MLM</label>&nbsp;&nbsp; 
+  <input type="radio" id="twf9" name="fov" value="" checked> <label for="twf9">not set</label><br><br>
  </div>
  
  
@@ -184,10 +181,11 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 <div id="settingsRESTLV">
 <b>Resolution:</b>&nbsp;&nbsp;
   <input type="radio" id="rt1" name="restlv" value="r1080"> <label for="rt1">1080p </label>&nbsp;&nbsp;
-  <input type="radio" id="rt2" name="restlv" value="r27T" > <label for="rt2">2.7k 4x3 </label>&nbsp;&nbsp;
-  <input type="radio" id="rt3" name="restlv" value="r4"   > <label for="rt3">4k </label>&nbsp;&nbsp;
-  <input type="radio" id="rt4" name="restlv" value="r4T"  > <label for="rt4">4k 4x3† </label>&nbsp;&nbsp;
-  <input type="radio" id="rt5" name="restlv" value="" checked> <label for="rt5">not set</label><br><br>
+  <input type="radio" id="rt2" name="restlv" value="r27" >  <label for="rt2">2.7k </label>&nbsp;&nbsp;
+  <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4x3 </label>&nbsp;&nbsp;
+  <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
+  <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4x3† </label>&nbsp;&nbsp;
+  <input type="radio" id="rt6" name="restlv" value="" checked> <label for="rt6">not set</label><br><br>
  </div>
  
 <div id="settingsNightlapse">
@@ -589,8 +587,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.50
-updated: Feb 16, 2022
+## version 1.51
+updated: Feb 17, 2022
 
 <script>
 var clipcopy = "";
@@ -952,6 +950,15 @@ function startTime() {
 				if(zoom == 100) zoom = 99;	
 				
 				cmd = cmd + zoom; //fov
+			}			
+			else if((document.getElementById("twf5").checked === true) || //MLM Wide
+				(document.getElementById("twf6").checked === true) || //MLM Superview
+				(document.getElementById("twf7").checked === true) ) //MLM Linear
+			{
+				if(document.getElementById("twmlmhl").checked === true)
+				{
+					cmd = cmd + "L"; //level MLM modes
+				}
 			}
 		}
 		else if(checkedmode == 13) //Photo
@@ -1009,6 +1016,16 @@ function startTime() {
 			if(zoom == 100) zoom = 99;	
 			
 			cmd = cmd + zoom; //fov
+		}
+		else if((document.getElementById("f6").checked === true) || //MLM Wide
+			(document.getElementById("f7").checked === true) || //MLM Superview
+			(document.getElementById("f8").checked === true) ) //MLM Linear
+		{
+			if(document.getElementById("mlmhl").checked === true)
+			{
+				cmd = cmd + "L"; //level MLM modes
+			}
+			dset("settingsZoom", false);
 		}
 		else
 		{
