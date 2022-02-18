@@ -63,9 +63,18 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="r5" name="res" value="r4T"  > <label for="r5">4k 4x3 </label>&nbsp;&nbsp;
   <input type="radio" id="r6" name="res" value="r5"   > <label for="r6">5.3k </label>&nbsp;&nbsp;
   <input type="radio" id="r7" name="res" value="r5T"  > <label for="r7">5k 4x3† </label>&nbsp;&nbsp;
-  <input type="radio" id="r8" name="res" value="" checked> <label for="r8">not set</label><br>
-  <br>
+  <input type="radio" id="r8" name="res" value="" checked> <label for="r8">not set</label><br><br>
 </div>
+
+<div id="settingsRESTLV">
+<b>Resolution:</b>&nbsp;&nbsp;
+  <input type="radio" id="rt1" name="restlv" value="r1080"> <label for="rt1">1080p </label>&nbsp;&nbsp;
+  <input type="radio" id="rt2" name="restlv" value="r27" >  <label for="rt2">2.7k </label>&nbsp;&nbsp;
+  <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4x3 </label>&nbsp;&nbsp;
+  <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
+  <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4x3† </label>&nbsp;&nbsp;
+  <input type="radio" id="rt6" name="restlv" value="" checked> <label for="rt6">not set</label><br><br>
+ </div>
 
 <div id="settingsFPS">
 <b>Frame Rate:</b>&nbsp;&nbsp;
@@ -178,16 +187,6 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="fpslapse12" name="fpslapse" value="" checked> <label for="fpslapse12">not set</label><br><br>
 </div>
 
-<div id="settingsRESTLV">
-<b>Resolution:</b>&nbsp;&nbsp;
-  <input type="radio" id="rt1" name="restlv" value="r1080"> <label for="rt1">1080p </label>&nbsp;&nbsp;
-  <input type="radio" id="rt2" name="restlv" value="r27" >  <label for="rt2">2.7k </label>&nbsp;&nbsp;
-  <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4x3 </label>&nbsp;&nbsp;
-  <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
-  <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4x3† </label>&nbsp;&nbsp;
-  <input type="radio" id="rt6" name="restlv" value="" checked> <label for="rt6">not set</label><br><br>
- </div>
- 
 <div id="settingsNightlapse">
 <b>Nightlapse Interval:</b>&nbsp;&nbsp;
   <input type="radio" id="fpsnight1" name="fpsnight" value="p"     > <label for="fpsnight1">Auto </label>&nbsp;&nbsp;

@@ -58,6 +58,16 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="r9" name="res" value="r5T"  > <label for="r9">5k 4x3† </label><br><br>
 </div>
 
+<div id="settingsRESTLV">
+<b>Video Resolution:</b>&nbsp;&nbsp;
+  <input type="radio" id="rt1" name="restlv" value="r1080"> <label for="rt1">1080p </label>&nbsp;&nbsp;
+  <input type="radio" id="rt2" name="restlv" value="r27" >  <label for="rt2">2.7k </label>&nbsp;&nbsp;
+  <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4x3 </label>&nbsp;&nbsp;
+  <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
+  <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4x3† </label>&nbsp;&nbsp;
+  <input type="radio" id="rt6" name="restlv" value="" checked> <label for="rt6">not set</label><br><br>
+ </div>
+ 
 <div id="settingsFPS">
 <b>FPS Video:</b>&nbsp;&nbsp;<input type="radio" id="p10" name="fps" value="" checked> <label for="p10">not set</label><br>
   <input type="radio" id="p1" name="fps" value="p24">  <label for="p1">24 </label>&nbsp;&nbsp;
@@ -166,16 +176,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   
   <input type="radio" id="fpslapse12" name="fpslapse" value="" checked> <label for="fpslapse12">not set</label><br><br>
 </div>
-
-<div id="settingsRESTLV">
-<b>Video Resolution:</b>&nbsp;&nbsp;
-  <input type="radio" id="rt1" name="restlv" value="r1080"> <label for="rt1">1080p </label>&nbsp;&nbsp;
-  <input type="radio" id="rt2" name="restlv" value="r27" >  <label for="rt2">2.7k </label>&nbsp;&nbsp;
-  <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4x3 </label>&nbsp;&nbsp;
-  <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
-  <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4x3† </label>&nbsp;&nbsp;
-  <input type="radio" id="rt6" name="restlv" value="" checked> <label for="rt6">not set</label><br><br>
- </div>
  
 <div id="settingsNightlapse">
 <b>Nightlapse Interval:</b>&nbsp;&nbsp;
