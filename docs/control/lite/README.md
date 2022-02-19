@@ -600,7 +600,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.52
+## version 1.53
 updated: Feb 18, 2022
 
 <script>
@@ -843,7 +843,6 @@ function startTime() {
 		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
 		{
 			dset("ptCOLOR", true);
-			dset("ptBITRATE", true);
 			dset("ptWBAL", true);
 			dset("ptISO",true);
 			dset("ptIMIN",true);
@@ -864,13 +863,16 @@ function startTime() {
 				}
 			}
 			
-			if(checkedmode >= 1 && checkedmode <= 10) //Video
+			if(checkedmode >= 1 && checkedmode <= 9) //Video + Audio modes
 			{
 				dset("ptAUD",true);
 			}
+			if(checkedmode >= 1 && checkedmode <= 12) //Video modes
+			{
+				dset("ptBITRATE", true);
+			}
 				
 			dset("ptSHARP",true);
-			dset("ptAUD",true);
 		}
 	}
 	

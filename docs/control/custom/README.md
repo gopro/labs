@@ -770,7 +770,6 @@ function startTime() {
 		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
 		{
 			dset("ptCOLOR", true);
-			dset("ptBITRATE", true);
 			dset("ptWBAL", true);
 			dset("ptISO",true);
 			dset("ptIMIN",true);
@@ -791,13 +790,17 @@ function startTime() {
 				}
 			}
 			
-			if(checkedmode >= 1 && checkedmode <= 10) //Video
+			if(checkedmode >= 1 && checkedmode <= 9) //Video + audio modes
 			{
 				dset("ptAUD",true);
 			}
+			
+			if(checkedmode >= 1 && checkedmode <= 12) //Video modes
+			{
+				dset("ptBITRATE", true);
+			}
 				
 			dset("ptSHARP",true);
-			dset("ptAUD",true);
 		}
 	}
 	
