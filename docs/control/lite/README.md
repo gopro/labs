@@ -262,10 +262,10 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 
 <div id="settingsPhotoRAW">
 <b>Photo Properties:</b><br>
-  <input type="radio" id="raw1" name="raw" value="rW"> <label for="raw1">Standard </label>&nbsp;&nbsp;
+  <input type="radio" id="raw1" name="raw" value="r0"> <label for="raw1">Standard </label>&nbsp;&nbsp;
   <input type="radio" id="raw2" name="raw" value="r"> <label for="raw2">Raw + JPEG </label>&nbsp;&nbsp;
   <input type="radio" id="raw3" name="raw" value="rS"> <label for="raw3">Superphoto </label>&nbsp;&nbsp;
-  <input type="radio" id="raw4" name="raw" value="rS"> <label for="raw4">HDR </label>&nbsp;&nbsp;
+  <input type="radio" id="raw4" name="raw" value="rH"> <label for="raw4">HDR </label>&nbsp;&nbsp;
   <input type="radio" id="raw5" name="raw" value="" checked> <label for="raw5"> not set</label><br><br>
 </div>
 
@@ -276,7 +276,9 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">Wind</label>&nbsp;&nbsp;
   <input type="radio" id="audt4" name="audt" value="" checked> <label for="audt4"> not set</label><br><br>
 </div>
+<div id="spotMeterCheck">
 <input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering (H10) † </label><br>
+</div>
 <div id="spotMeter">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp1" name="placement" value="25,25"> <label for="sp1">Top Left    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" id="sp2" name="placement" value="50,25"> <label for="sp2">Top Center  </label>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -655,6 +657,7 @@ function startTime() {
 	dset("settingsPhotoRAW", false);
 	dset("settingsPT", false);
 	dset("settingsPTR", false);
+	dset("spotMeterCheck", false);
 	dset("spotMeter", false);
 	dset("settingsBurst", false);
 	dset("settingsTimewarp", false);
@@ -818,6 +821,17 @@ function startTime() {
 	
 	if(document.getElementById("sm") !== null)
 	{
+	
+		if( (document.getElementById("raw3").checked === true) || //Superphoto
+			(document.getElementById("raw4").checked === true)) //HDR
+		{	
+			document.getElementById("sm").checked = false;
+		}
+		else
+		{
+			dset("spotMeterCheck", true);
+		}
+		
 		dset("spotMeter", document.getElementById("sm").checked);	
 	}
 		
@@ -1052,6 +1066,9 @@ function startTime() {
 		}
 	}
 	
+	if(checkedmode >= 13 && checkedmode <= 17) //RAW
+		cmd = dcmd(cmd,"raw"); //raw photo control
+		
 	if(document.getElementById("sm") !== null)
 	{
 		if(document.getElementById("sm").checked === true)
@@ -1085,9 +1102,6 @@ function startTime() {
 	cmd = dcmd(cmd,"all"); //auto low light	
 	cmd = dcmd(cmd,"audt"); //audio control
 	
-	
-	if(checkedmode >= 13 && checkedmode <= 17) //RAW
-		cmd = dcmd(cmd,"raw"); //raw photo control
 		
 	if(document.getElementById("p1") !== null)
 	{

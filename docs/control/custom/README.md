@@ -240,7 +240,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 
 <div id="settingsPhotoRAW">
 <b>Photo Properties:</b><br>
-  <input type="radio" id="raw1" name="raw" value="rW"> <label for="raw1">JPEG only</label>&nbsp;&nbsp;
+  <input type="radio" id="raw1" name="raw" value="r0"> <label for="raw1">JPEG only</label>&nbsp;&nbsp;
   <input type="radio" id="raw2" name="raw" value="r"> <label for="raw2">Raw + JPEG</label>&nbsp;&nbsp;
   <input type="radio" id="raw3" name="raw" value="" checked> <label for="raw3"> not set</label><br><br>
 </div>
@@ -953,6 +953,9 @@ function startTime() {
 		}
 	}
 	
+	if(checkedmode >= 13 && checkedmode <= 17) //RAW
+		cmd = dcmd(cmd,"raw"); //raw photo control
+		
 	if(document.getElementById("sm") !== null)
 	{
 		if(document.getElementById("sm").checked === true)
@@ -976,9 +979,6 @@ function startTime() {
 	cmd = dcmd(cmd,"all"); //auto low light	
 	cmd = dcmd(cmd,"audt"); //audio control
 	
-	
-	if(checkedmode >= 13 && checkedmode <= 17) //RAW
-		cmd = dcmd(cmd,"raw"); //raw photo control
 		
 	if(document.getElementById("p1") !== null)
 	{
