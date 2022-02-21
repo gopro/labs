@@ -162,12 +162,11 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="b3" name="burst" value="b5N1"> <label for="b3">5/1 </label>&nbsp;&nbsp;
   <input type="radio" id="b4" name="burst" value="b10N1"> <label for="b4">10/1 </label>&nbsp;&nbsp;
   <input type="radio" id="b5" name="burst" value="b25N1"> <label for="b5">25/1 </label><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="radio" id="b6" name="burst" value="b10N2"> <label for="b6">10/2 </label>&nbsp;&nbsp;
-  <input type="radio" id="b7" name="burst" value="b10N3"> <label for="b7">10/3 </label>&nbsp;&nbsp;
-  <input type="radio" id="b8" name="burst" value="b30N3"> <label for="b8">30/3 </label>&nbsp;&nbsp;
-  <input type="radio" id="b9" name="burst" value="b30N6"> <label for="b9">30/6 </label>&nbsp;&nbsp;
-  <input type="radio" id="b10" name="burst" value="b30N10"> <label for="b10">30/10 </label>&nbsp;&nbsp;
-  <input type="radio" id="b11" name="burst" value="" checked> <label for="b11">not set</label><br><br>
+  <input type="radio" id="b6" name="burst" value="b10N3"> <label for="b6">10/3 </label>&nbsp;&nbsp;
+  <input type="radio" id="b7" name="burst" value="b30N3"> <label for="b7">30/3 </label>&nbsp;&nbsp;
+  <input type="radio" id="b8" name="burst" value="b30N6"> <label for="b8">30/6 </label>&nbsp;&nbsp;
+  <input type="radio" id="b9" name="burst" value="b30N10"> <label for="b9">30/10 </label>&nbsp;&nbsp;
+  <input type="radio" id="b10" name="burst" value="" checked> <label for="b10">not set</label><br><br>
 </div>
 
 <div id="settingsTimewarp">
@@ -600,8 +599,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.53
-updated: Feb 18, 2022
+## version 1.54
+updated: Feb 21, 2022
 
 <script>
 var clipcopy = "";
