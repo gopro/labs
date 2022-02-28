@@ -52,7 +52,7 @@ and as a mobile app:<br>
 
 ## Forum Discussions 
 
-Please join the [**GoPro Labs Community**](https://community.gopro.com/t5/GoPro-Labs/bd-p/GoProLabs)
+Please join the [**GoPro Labs Discussion**](https://community.gopro.com/s/gopro-labs)
 
 ## The Commands Under The Hood 
 
@@ -76,7 +76,7 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.19
+### ver 1.20
 
 
 <script>
