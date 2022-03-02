@@ -599,8 +599,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.55
-updated: Feb 22, 2022
+## version 1.56
+updated: Mar 2, 2022
 
 <script>
 var clipcopy = "";
@@ -1067,7 +1067,7 @@ function startTime() {
 		}
 	}
 	
-	if(checkedmode >= 13 && checkedmode <= 17) //RAW
+	if(checkedmode >= 13 && checkedmode <= 18) //RAW PHoto modes
 		cmd = dcmd(cmd,"raw"); //raw photo control
 		
 	if(document.getElementById("sm") !== null)
