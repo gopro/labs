@@ -36,10 +36,10 @@ Your Network Password: <input type="text" id="networkpass" value=""> (e.g. Pass1
 
 ## Pre-store Your RTMP Address for Live 
 
-Enter the full RTMP address here: <input type="text" id="rtmptxt" value=""><br>(e.g. rtmp://live.twitch.tv/app/live_5554355...)<br>
+Enter the full RTMP address here: <input type="text" id="rtmptxt" value=""><br>(e.g. rtmp://<your server url>/live_555...)<br>
 
 For Twitch users:
-1. Select your base URL From this [**list of servers**](https://stream.twitch.tv/ingests/).
+1. Select your base URL from this [**list of servers**](https://stream.twitch.tv/ingests/).
 2. Login to you Twitch account, and get your [**stream key**](https://link.twitch.tv/myChannelSettings) from your channel settings.![Twitch Channel Settings](streamkey.png)
 3. Combine the server address, replacing {stream_key} with the primary stream key from channel, copy the combined URL into the above RTMP address.
 
@@ -71,7 +71,7 @@ QR Command: <b id="qrtext">time</b><br>
 
 **Compatibility:** Labs enabled HERO8, HERO9 and HERO10
         
-## ver 1.03
+## ver 1.04
 [Learn more](..) on QR Control
 
 <script>
