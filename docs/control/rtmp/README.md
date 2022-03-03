@@ -36,7 +36,7 @@ Your Network Password: <input type="text" id="networkpass" value=""> (e.g. Pass1
 
 ## Pre-store Your RTMP Address for Live 
 
-Enter the full RTMP address here: <input type="text" id="rtmptxt" value=""><br>(e.g. rtmp://<your server url>/live_555...)<br>
+Enter the full RTMP address here: <input type="text" id="rtmptxt" value=""><br>(e.g. rtmp://your_server_url/live_555...)<br>
 
 For Twitch users:
 1. Select your base URL from this [**list of servers**](https://stream.twitch.tv/ingests/).
