@@ -536,7 +536,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.52
+## version 1.53
 updated: Mar 2, 2022
 
 <script>
@@ -867,12 +867,22 @@ function startTime() {
 			break;
 	}
 	
-	if(checkedmode == 10 || checkedmode == 11 || checkedmode == 12) // TLV/TWarp Res/NLV
-		cmd = dcmd(cmd, "rt");
-	else
-		cmd = dcmd(cmd,"r"); //RES
+	if(checkedmode <= 12)
+	{
+		if(checkedmode == 10 || checkedmode == 11 || checkedmode == 12) // TLV/TWarp Res/NLV
+		{
+			cmd = dcmd(cmd, "rt");
+		}
+		else
+		{
+			cmd = dcmd(cmd,"r"); //RES
+		}
+	}
 		
-	cmd = dcmd(cmd,"p"); //fps
+	if(checkedmode <= 9) // video mode
+	{
+		cmd = dcmd(cmd,"p"); //fps
+	}
 	
 	if(checkedmode > 9) // not video	
 	{
