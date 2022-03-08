@@ -14,7 +14,7 @@
 
 ## Prerequisites for Live-streaming (HERO8/9 and 10 only)
 
-1. **Pair with the GoPro mobile app once.** Live-streaming won't work with an out-of-box or factory-reset camera, without connecting with the App first, including the setup for auto upload.  
+1. **Pair with the GoPro mobile app once.** Live-streaming won't work with an out-of-box or factory-reset camera, without connecting with the App first.  
 2. Storing WiFi credentials on the camera, for the network you intend to stream over (e.g. your home WiFi or mobile access point.) 
 3. Storing the RMTP URL address that you intend to stream to (e.g using a service like Twitch.)
 
@@ -71,7 +71,7 @@ QR Command: <b id="qrtext">time</b><br>
 
 **Compatibility:** Labs enabled HERO8, HERO9 and HERO10
         
-## ver 1.04
+## ver 1.05
 [Learn more](..) on QR Control
 
 <script>
