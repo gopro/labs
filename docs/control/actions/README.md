@@ -69,12 +69,19 @@ Any four character code can be used for store other information. You can also st
 * **!MABCD=45.234** - metadata ABCD will be floating point 45.234
 * **!MUNIT=-1723** - metadata UNIT will be -1723 
 
-As these are a semi-permanent addition to your camera, you can erase all your permanent metadata with a **!RESET** QR command. 
-
 ## Storing metadata (Temporarily, until power off)
 
 * **oM**fourcc**=”string”**  
 * **oM**fourcc**=Number metadata**
+
+
+## Reset Actions ##
+
+* **!RESET** - erase all your permanent metadata (anything that used !Mxxxx command.)  (requires user confirmation.)
+* **!FORMAT** - (HERO10 only) for SD formatting via QR Code (requires user confirmation.)
+* **!FRESET** - (HERO10 only) Factory reset, erase everything, except QR code metadata (requires user confirmation.)
+* **!PRESET** - (HERO10 only) Presets reset, restore the default presets (requires user confirmation.)
+* **!WRESET** - (HERO10 only) WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
 
 ## Scripting
 
@@ -99,7 +106,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.06 - 2021 Oct  
+## ver 1.07 - 2022 March 13  
 [BACK](..)
 
 

@@ -40,7 +40,8 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 	
 ### **HERO9/10 only** - Extensions latest Labs firmware
 
-- **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.bin file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
+- **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.txt file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
+- **WAKE=2** - (HERO10 only) Same as WAKE=1, expect it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 - **MUTE=mask** - Mute one or more channels of audio (microphones). For HERO9 cameras, there are four channels, although three microphones. The mask is binary mask for channels 4321. e.g. oMMUTE=15 mute all channels (15 = 1111B), oMMUTE=8 mute the fourth channel (8 = 1000B), oMMUTE=7 mutes the first 3 channels (7 = 0111B).
 - **SOLO=channel** - Use only one channel of audio. e.g. oMSOLO=1 use only channel 1, oMSOLO=4 only use the fourth channel.
 - **GAIN=dB** - Digitally gain up the audio. e.g. oMGAIN=12, increase audio by 12dB.  Will likely reduce the dynamic range.
@@ -63,10 +64,13 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 
 
 
-### <span style="color:steelblue">**NEW**</span> - **HERO10 only** - Advanced features: December 2021 Labs 1.20.70
+### <span style="color:steelblue">**NEW**</span> - **HERO10 only** - Advanced features: Current release December 2021 Labs 1.30.71
 
 - **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
-- **BITR=120** - set the compression in Mb/s for the Protune High Bitrate setting. Normally this would be around 100Mb/s, however higher (or lower) rates may be achieved with newer SD Cards. No guaranteed capture reliability using this feature. Input range in Mb/s from 2 to 200. 
+- **BITR=120** - set the compression in Mb/s for the Protune High Bitrate setting (HEVC only). Normally this would be around 100Mb/s, however higher (or lower) rates may be achieved with newer SD Cards. No guaranteed capture reliability using this feature. Input range in Mb/s from 2 to 200. 
+- **BITH=3** - set the compression in Mb/s for the H264 encodes. Normally this would be for LRVs at around 4Mb/s. No guaranteed capture reliability using this feature. Input range in Mb/s from 1 to 100. 
+- **DLRV=1** - Disable LRV, all videos will have an MP4 old. This is not good idea for Quik uses, as the LRV video helps in video preview. Application: high bit-rate drones video.
+- **DAUD=1** - Disable audio, all video created video files will have no audio. Application: high bit-rate drones video.
 - **DAMP=0.1 to 1000** - Control over the auto-exposure damping. When moving a camera through dramatically changing lighting, like biking through a forest, in and out of sunlight, or flying a drone through a short tunnel, the exposure will adjust automatically, correctly in most scenarios, but sometimes not optimal for some rapidly changing light levels. The camera's auto-exposure currently takes about one second to adjust from sunlight to indoor conditions, but if you are flying a drone through indoors for only a few seconds, the camera would over-expose on exit. In this scenario using an exposure lock might be preferable, maintaining an outdoor exposure throwout, but exposure lock is risky for shooting under variable lighting conditions. Changing the damping might be what you need. Setting the DAMP=1 is the default, so setting to 10 would slow the camera's exposure adjustments 10X. Now shooting into dark for moment will not cause much over-exposure (if any).  Setting DAMP=60 will take a minute for exposure changes. Setting DAMP lower than 1, like 0.2, would make it adjust faster. There is no perfect setting, this is just more control.
 - **TONE=0,1,2 or 3** - Tone-mapping controls. Tone-mapping is the in-camera contrast control, dynamically adjusting the video to look good under a range of lighting conditions. HERO10 adds LTM - Local Tone-Mapping, enabling you to see details in leaves and grass textures, way better than all previous GoPro's. HERO9 and earlier, used GTM, Global Tone-Mapping which adjusts the contrast curve for the image automatically. If you wanted to do these in post, you could use Protune Flat, where all in-camera tone-mapping is disabled and a log curve is applied. For a more developed Rec709 video, by shooting GoPro Color or Natural modes, but you wanted to do your own tone-mapping in post--you can now do that.
   - **TONE=0** - using the cameras default  
@@ -102,7 +106,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 		
-## ver 1.11
+## ver 1.12
+updated: Mar 13, 2022
 [BACK](..)
 
 <script>
