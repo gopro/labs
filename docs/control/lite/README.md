@@ -103,7 +103,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="f6" name="fov" value="fM"> <label for="f6">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="f7" name="fov" value="fX"> <label for="f7">Superview </label>&nbsp;&nbsp;
   <input type="radio" id="f8" name="fov" value="fR"> <label for="f8">Linear(1080) </label>&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="checkbox" id="mlmhl" value="L"> <label for="mlmhl">Horizon Level</label>&nbsp;&nbsp;&nbsp;&nbsp;  <!-- <br>
+  <input type="checkbox" id="mlmhl" value="L"> <label for="mlmhl">Horizon Lock</label>&nbsp;&nbsp;&nbsp;&nbsp;  <!-- <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="f9" name="fov" value="oX1"> <label for="f9">Enable MLM</label>&nbsp;&nbsp; 
   <input type="radio" id="f10" name="fov" value="oX0"> <label for="f10">Disable MLM</label>&nbsp;&nbsp;  -->
@@ -118,7 +118,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   or <b>Max Lens Mod:</b>&nbsp;&nbsp; 
   <input type="radio" id="pf4" name="pfov" value="fM"> <label for="pf4">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="pf5" name="pfov" value="fX"> <label for="pf5">Superview </label>&nbsp;&nbsp; 
-  <input type="checkbox" id="pmlmhl" value="L"> <label for="pmlmhl">Horizon Level</label>&nbsp;&nbsp;&nbsp;&nbsp;  <!-- <br>
+  <input type="checkbox" id="pmlmhl" value="L"> <label for="pmlmhl">Horizon Lock</label>&nbsp;&nbsp;&nbsp;&nbsp;  <!-- <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="pf6" name="pfov" value="oX1"> <label for="pf6">Enable MLM</label>&nbsp;&nbsp; 
   <input type="radio" id="pf7" name="pfov" value="oX0"> <label for="pf7">Disable MLM</label>&nbsp;&nbsp; -->
@@ -144,7 +144,7 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="twf5" name="twfov" value="fM"> <label for="twf5">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="twf6" name="twfov" value="fX"> <label for="twf6">Superview </label>&nbsp;&nbsp;
   <input type="radio" id="twf7" name="twfov" value="fL"> <label for="twf7">Linear </label>&nbsp;&nbsp;
-  <input type="checkbox" id="twmlmhl" value="L"> <label for="twmlmhl">Horizon Level</label>&nbsp;&nbsp;&nbsp;&nbsp;  <!-- <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="checkbox" id="twmlmhl" value="L"> <label for="twmlmhl">Horizon Lock</label>&nbsp;&nbsp;&nbsp;&nbsp;  <!-- <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="radio" id="twf8" name="twfov" value="oX1"> <label for="twf8">Enable MLM</label>&nbsp;&nbsp; 
   <input type="radio" id="twf9" name="twfov" value="oX0"> <label for="twf9">Disable MLM</label>&nbsp;&nbsp; -->
   <input type="radio" id="twf8" name="twfov" value="" checked> <label for="twf8">not set</label><br><br>
@@ -1025,7 +1025,14 @@ function startTime() {
 		}
 		else if(checkedmode == 15) //Live Burst
 		{
-			// do nothing custom
+			dset("settingsZoom", true);
+					
+			var zoom = parseInt(document.getElementById("zoom").value);
+			zoom *= 10;
+			document.getElementById("zoomtext").innerHTML = zoom+"%";	
+			if(zoom == 100) zoom = 99;	
+			
+			cmd = cmd + "fW" + zoom; //fov
 		}
 		else //Everything else
 		{
