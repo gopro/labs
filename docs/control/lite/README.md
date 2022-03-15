@@ -269,10 +269,10 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
 </div>
 
 <div id="settingsAUDT">
-<b>Audio Type:</b>&nbsp;&nbsp;
+<b>Wind Reduction:</b>&nbsp;&nbsp;
   <input type="radio" id="audt1" name="audt" value="aA"> <label for="audt1">Auto </label>&nbsp;&nbsp;
-  <input type="radio" id="audt2" name="audt" value="aS"> <label for="audt2">Stereo </label>&nbsp;&nbsp;
-  <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">Wind</label>&nbsp;&nbsp;
+  <input type="radio" id="audt2" name="audt" value="aS"> <label for="audt2">Off </label>&nbsp;&nbsp;
+  <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">On</label>&nbsp;&nbsp;
   <input type="radio" id="audt4" name="audt" value="" checked> <label for="audt4"> not set</label><br><br>
 </div>
 <div id="spotMeterCheck">
@@ -599,8 +599,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](..) for Labs enabled cameras
 
-## version 1.58
-updated: Mar 3, 2022
+## version 1.59
+updated: Mar 15, 2022
 
 <script>
 var clipcopy = "";

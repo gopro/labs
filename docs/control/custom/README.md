@@ -246,10 +246,10 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 
 <div id="settingsAUDT">
-<b>Audio Type:</b>&nbsp;&nbsp;
+<b>Wind Reduction:</b>&nbsp;&nbsp;
   <input type="radio" id="audt1" name="audt" value="aA"> <label for="audt1">Auto </label>&nbsp;&nbsp;
-  <input type="radio" id="audt2" name="audt" value="aS"> <label for="audt2">Stereo </label>&nbsp;&nbsp;
-  <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">Wind</label>&nbsp;&nbsp;
+  <input type="radio" id="audt2" name="audt" value="aS"> <label for="audt2">Off </label>&nbsp;&nbsp;
+  <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">On</label>&nbsp;&nbsp;
   <input type="radio" id="audt4" name="audt" value="" checked> <label for="audt4"> not set</label><br><br>
 </div>
 <input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering (H10) † </label><br>
@@ -536,8 +536,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.53
-updated: Mar 2, 2022
+## version 1.54
+updated: Mar 15, 2022
 
 <script>
 var clipcopy = "";
