@@ -47,7 +47,8 @@ and as a mobile app:<br>
 * **HERO8/9/10/MAX** - Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
 * **HERO8/9/10/MAX** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9/10** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
-* **HERO9/10** - Enable media [**encryption**](./encrypt) for increased security
+* **HERO10** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
+* **HERO9** - Enable media [**encryption**](./encrypt) for increased security
 * <span style="color:steelblue">**UPDATED**</span> Many more [**extensions**](./extensions) via QR Code
 
 ## Forum Discussions 
@@ -76,7 +77,8 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.20
+### ver 1.21
+updated: Apr 8, 2022
 
 
 <script>

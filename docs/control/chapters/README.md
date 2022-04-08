@@ -22,7 +22,7 @@ GoPro cameras normally split long recordings into 4GB segments, we call these ch
   <center>
   <div id="qrcode"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
-  <b><font color="#005CAC">Large Chapter Control</font></b>
+  <b><font color="#005CAC">Large Chapters <em id="status"></em></font></b>
   </center>
 </div>
 <button id="copyImg">Copy Image to Clipboard</button>
@@ -55,12 +55,15 @@ Steps involved:
 The resulting final.mp4 will be a complete GoPro file will all required metadata.
 
  
-## ver 1.06
+## ver 1.07
+updated: Apr 8, 2022
+
 [More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
 var qrcode;
+var stts = "";
 var cmd = "";
 var clipcopy = "";
 var lasttimecmd = "";
@@ -83,11 +86,13 @@ function makeQR()
 
 function timeLoop()
 {
+  stts = "Disabled";
   cmd = "!M64BT=0";
   if(document.getElementById("lchptrs") !== null)
   {
     if(document.getElementById("lchptrs").checked === true)
-    {
+    { 
+	  stts = "Enabled";
       cmd = "!M64BT=1";
     }
   }
@@ -104,6 +109,7 @@ function timeLoop()
 	
   if(changed === true)
   {
+	document.getElementById("status").innerHTML = stts;
 	document.getElementById("qrtext").innerHTML = cmd;
 	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Large%20Chapter%20Control";
 	document.getElementById("urltext").innerHTML = clipcopy;
