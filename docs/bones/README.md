@@ -24,7 +24,7 @@ Install from: [![google play](../control/google-play-small.png)](https://play.go
 	<tr border="0" padding="0">
 	  <td width="30%" border="0" padding="0">
 	  
-	  <img src="https:/gopro.github.io/labs/bones/scanning.jpg" alt="scanning">
+	  <img src="https://gopro.github.io/labs/bones/scanning.jpg" alt="scanning">
 
 	  </td>
 	  <td border="0" padding="0">
