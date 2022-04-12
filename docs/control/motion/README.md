@@ -85,9 +85,11 @@ Now your camera is ready.
 
 The motion detection will now always use the mask.pgm, so using motion mask option doesn't do anything. To restore to normal motion detection you need to delete the mask.pgm file.
 	
-**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX.  Masking fixed on HERO9 & 10.
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, MAX and BONES.  Masking fixed on HERO9/10/BONES.
         
-## ver 1.09
+## ver 1.10
+updated: Apr 12, 2022
+
 [More features](..) for Labs enabled cameras
 
 <script>

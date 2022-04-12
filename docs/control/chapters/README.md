@@ -35,7 +35,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Known Issue:** Larger chapters will not be enabled when using QuikCapture. QuikCapture starts recording before the Labs service starts, resulting in perfectly fine, but only 4GB chapters. 
 
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10 and MAX 
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10, MAX and BONES 
 
 ## Optional: Joining Chapters After Capture
  
@@ -55,8 +55,8 @@ Steps involved:
 The resulting final.mp4 will be a complete GoPro file will all required metadata.
 
  
-## ver 1.07
-updated: Apr 8, 2022
+## ver 1.08
+updated: Apr 12, 2022
 
 [More features](..) for Labs enabled cameras
 

@@ -58,9 +58,10 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 ![Feedback](feedback.jpg)
 
-**Compatibility:** Labs enabled HERO9 and HERO10 only
+**Compatibility:** Labs enabled HERO9, HERO10 and BONES only
         
-## ver 1.03
+## ver 1.04
+updated: Apr 12, 2022
 
 [More features](..) for Labs enabled cameras
 

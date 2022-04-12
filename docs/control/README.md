@@ -41,7 +41,7 @@ and as a mobile app:<br>
 * **HERO9** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
 ### Miscellaneous Features
-* Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
+* **HERO7/8/9/10/MAX** Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
 * **HERO8/9/10/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
 * **HERO9/10** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
 * **HERO8/9/10/MAX/Bones** - Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
