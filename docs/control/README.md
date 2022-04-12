@@ -13,7 +13,7 @@
 </style>
 
 ### Configuration Commands for All Labs Enabled Cameras
-* Set camera modes with the [**Customizable QR Code Creator**](./custom) and here optimize for [**Bones**](./custom)
+* Set camera modes with the [**Customizable QR Code Creator**](./custom) and here optimized for [**Bones**](./custom)
 and as a mobile app:<br>
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
