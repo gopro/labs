@@ -71,17 +71,17 @@ Now that starting and stopping your GoPro's capture is solved, you also don't wa
 
 ## Sensitivity
 
-| Sensitivity | GYRO degrees per second  | ACCL units gravity | Activity               |
-|-------------|--------------------------|--------------------|------------------------|
-| 1           | 360dps                   | 1.0g               | Throwing the camera    |
-| 2           | 180dps                   | 0.5g               | Jumps                  |
-| 3           | 90dps                    | 0.25g              | most handheld movement |
-| 4           | 45dps                    | 0.125g             | ..                     |
-| 5           | 24dps                    | 0.064g             | any hand movement      |
-| 6           | 15dps                    | 0.032g             | ..                     |
-| 7           | 8dps                     | 0.016g             | ..                     |
-| 8           | 4dps                     | 0.008g             | tiny movement          |
-| 9           | 2dps                     | 0.004g             | small tremor           |
+| Sensitivity | GYRO degrees per second  | ACCL units gravity | Example Camera Activity |
+|-------------|--------------------------|--------------------|-------------------------|
+| 1           | 360dps                   | 1.0g               | Throwing the camera     |
+| 2           | 180dps                   | 0.5g               | Jumps                   |
+| 3           | 90dps                    | 0.25g              | most hand-held movement |
+| 4           | 45dps                    | 0.125g             | ..                      |
+| 5           | 24dps                    | 0.064g             | any hand movement       |
+| 6           | 15dps                    | 0.032g             | ..                      |
+| 7           | 8dps                     | 0.016g             | ..                      |
+| 8           | 4dps                     | 0.008g             | tiny movement           |
+| 9           | 2dps                     | 0.004g             | small tremor            |
 
 ## On Screen Feedback
 
@@ -90,7 +90,7 @@ Now that starting and stopping your GoPro's capture is solved, you also don't wa
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
 
 
-## ver 1.14
+## ver 1.15
 [More features](..) for Labs enabled cameras
 
 <script>
