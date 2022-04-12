@@ -492,8 +492,10 @@ Install from: [![google play](../control/google-play-small.png)](https://play.go
 &nbsp;&nbsp;<input type="radio" id="sap7" name="sap" value="!RESET"> <label for="sap7">Labs</label><br>
 &nbsp;&nbsp;<b>Auto Wake on Power:</b>&nbsp;&nbsp;<input type="radio" id="sap8" name="sap" value="!MWAKE=1"> <label for="sap8">Enable</label>
 &nbsp;&nbsp;<input type="radio" id="sap9" name="sap" value="!MWAKE=0"> <label for="sap9">Disable</label><br>
-&nbsp;&nbsp;<b>Overclock Bitrate:</b>&nbsp;&nbsp;<input type="radio" id="sap10" name="sap" value="b1!MBITR="> 
-  <label for="sap10">Take On Risk</label>&nbsp;&nbsp;<input type="checkbox" id="helpBitr" name="helpBitr" value=""><label for="helpBitr">Help</label><br>
+&nbsp;&nbsp;<b>Use 12GB Chapters:</b>&nbsp;&nbsp;<input type="radio" id="sap10" name="sap" value="!M64BT=1"> <label for="sap10">Enable</label>
+&nbsp;&nbsp;<input type="radio" id="sap11" name="sap" value="!M64BT=0"> <label for="sap11">Disable</label><br>
+&nbsp;&nbsp;<b>Overclock Bitrate:</b>&nbsp;&nbsp;<input type="radio" id="sap12" name="sap" value="b1!MBITR="> 
+  <label for="sap12">Take On Risk</label>&nbsp;&nbsp;<input type="checkbox" id="helpBitr" name="helpBitr" value=""><label for="helpBitr">Help</label><br>
   <div id="bitrHelp">
 	 &nbsp;&nbsp;&nbsp;&nbsp;<small>
 	 
@@ -506,9 +508,9 @@ Install from: [![google play](../control/google-play-small.png)](https://play.go
 </div>
 
 &nbsp;&nbsp;<b>Auto Capture Trigger:</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap11" name="sap" value="!SA"> <label for="sap11">Sound Pressure Level (range 30-120dB)</label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap12" name="sap" value="!SI"> <label for="sap12">Camera Motion - Gyro+Accel (range 1-9)</label><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap13" name="sap" value="!SM"> <label for="sap13">Scene Motion (range 1-6)</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap13" name="sap" value="!SA"> <label for="sap13">Sound Pressure Level (range 30-120dB)</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap14" name="sap" value="!SI"> <label for="sap14">Camera Motion - Gyro+Accel (range 1-9)</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap15" name="sap" value="!SM"> <label for="sap15">Scene Motion (range 1-6)</label><br>
   <div id="motionParams">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sensitivity: <input type="text" id="mstart" value="6" style="width:60px"> (value from range ). <input type="checkbox" id="helpRange" value="">&nbsp;&nbsp;<label for="actions">Help</label>
 	<div id="splHelp">
@@ -561,7 +563,7 @@ Install from: [![google play](../control/google-play-small.png)](https://play.go
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" value="" checked> <label for="repeat">Repeat Command</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="boot" value=""> <label for="boot">Make Boot Command on SD Card -- Automatic Action on boot</label><br>
   </div>
-  &nbsp;&nbsp;<input type="radio" id="sap14" name="sap" value="" checked> <label for="sap14">not set</label><br>
+  &nbsp;&nbsp;<input type="radio" id="sap16" name="sap" value="" checked> <label for="sap16">not set</label><br>
 </div>
 
 
@@ -586,8 +588,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](../control) for Labs enabled cameras
 
-## version 1.03
-updated: Apr 11, 2022
+## version 1.04
+updated: Apr 12, 2022
 
 <script>
 var clipcopy = "";
@@ -697,7 +699,7 @@ function startTime() {
 	}
 	
 	
-	for (i = 1; i < 14; i++) { 
+	for (i = 1; i < 16; i++) { 
 		var amode = "sap"+i;
 		if(document.getElementById(amode) !== null)	{
 			x = document.getElementById(amode).checked;
@@ -867,7 +869,7 @@ function startTime() {
 			//dset("aSM", true);
 			//dset("aIT", true);
 			
-			if(actionmode > 10) 
+			if(actionmode > 12) 
 			{
 				dset("motionParams", true);	
 				dset("aR", true);
@@ -877,9 +879,9 @@ function startTime() {
 			{
 				if(document.getElementById("helpRange").checked === true)
 				{	
-					if(actionmode == 11) dset("splHelp", true);
-					if(actionmode == 12) dset("imuHelp", true);
-					if(actionmode == 13) dset("motionHelp", true);
+					if(actionmode == 13) dset("splHelp", true);
+					if(actionmode == 14) dset("imuHelp", true);
+					if(actionmode == 15) dset("motionHelp", true);
 				}
 			}
 		}
@@ -896,7 +898,7 @@ function startTime() {
 	}
 	
 	
-	if(actionmode == 10)
+	if(actionmode == 12)
 	{	
 		dset("bitrSlider", true);
 	}
@@ -1229,7 +1231,7 @@ function startTime() {
 		lastcmd = cmd;
 	}
 	
-	if((dt === true && actionmode<11) || (dt === true && actionmode>=11 && document.getElementById("repeat").checked === false && document.getElementById("boot").checked === false))
+	if((dt === true && actionmode<13) || (dt === true && actionmode>=13 && document.getElementById("repeat").checked === false && document.getElementById("boot").checked === false))
 	{
 		//dset("opDTS", true);
 		dset("copyshow", false);   // don't what user printing or sharing code with wrong date and time
@@ -1294,14 +1296,14 @@ function startTime() {
 		
 		cmd = dcmd(cmd,"sap"); //naked action
 		
-		if(actionmode >= 11)
+		if(actionmode >= 13)
 		{
 			if(document.getElementById("mstart") !== null)
 			{		
 				var mstart = document.getElementById("mstart").value;
 				
 				if(mstart <= 0) mstart = 6;
-				if(actionmode == 11 ) //audio trigger
+				if(actionmode == 13 ) //audio trigger
 				{
 					while(mstart <= 30) mstart*=10;
 					if(mstart > 120) mstart = 120;
@@ -1338,7 +1340,7 @@ function startTime() {
 			}	
 		}
 		
-		if(actionmode>=11 && document.getElementById("repeat").checked === true)
+		if(actionmode>=13 && document.getElementById("repeat").checked === true)
 		{
 			cmd = cmd + "!" + "R";
 			document.getElementById("dt").checked = false;
@@ -1351,7 +1353,7 @@ function startTime() {
 	  var bitrate = parseInt(document.getElementById("bitr").value);
       document.getElementById("bitrtext").innerHTML = bitrate + "Mb/s";
 	  
-	  if(actionmode == 10)
+	  if(actionmode == 12)
 	  {
 		  cmd = cmd + bitrate;
 	  }
