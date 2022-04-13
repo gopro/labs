@@ -59,7 +59,7 @@ Select your Resolution:
   <input type="radio" id="rs3" name="rs" value="L"><label for="1080p">1080p </label>
 
 Store a high quality copy on camera:
- <input type="checkbox" id="cp" value="t" checked><label for="cp">1080p60 Copy</label><br>
+ <input type="checkbox" id="cp" value="t" checked><label for="cp">1080p Copy</label><br>
 
 <center>
 <div id="qrcode3"></div>
@@ -71,8 +71,8 @@ QR Command: <b id="qrtext">time</b><br>
 
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10 and BONES
         
-## ver 1.06
-updated: Apr 12, 2022
+## ver 1.07
+updated: Apr 13, 2022
 
 [Learn more](..) on QR Control
 
@@ -169,7 +169,7 @@ function timeLoop()
   
   
   
-  cmd3 = "oW1mVr1080p60!W!G";
+  cmd3 = "oW1mVr1080!W!G";
   cmd3 = dcmd(cmd3, "rs");
   if(document.getElementById("cp") != null)
   {
