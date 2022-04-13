@@ -13,7 +13,7 @@
 </style>
 
 ### Configuration Commands for All Labs Enabled Cameras
-* Set camera modes with the [**Customizable QR Code Creator**](./custom) and here optimized for [**Bones**](./custom)
+* Set camera modes with the [**Customizable QR Code Creator**](./custom) and here optimized for [**Bones**](../bones)
 and as a mobile app:<br>
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
@@ -77,8 +77,8 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.22
-updated: Apr 12, 2022
+### ver 1.23
+updated: Apr 13, 2022
 
 
 <script>
