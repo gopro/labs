@@ -162,7 +162,7 @@ Same further option (‘o’) commands
 
 - Camera Auto Off - **oC** - Never, **oC5** - 5min ... **oC30** - 30min
 - Screen Brightness - **oB0** … **oB9** - (100%)
-- Screen Auto Off - **oS** - Never, **oC1** - 1min ... **oC3** - 3min
+- Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
 - Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down
 - WiFi Connection - **oW0** - off, **oW1** - on
 - LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
@@ -176,7 +176,8 @@ Same further option (‘o’) commands
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.11 - 2021 Oct, Fourth Labs release
+## ver 1.12 
+updated: Apr 13, 2022
 
 [Learn more](..) on QR Control
 
