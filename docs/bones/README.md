@@ -588,8 +588,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](../control) for Labs enabled cameras
 
-## version 1.04
-updated: Apr 12, 2022
+## version 1.05
+updated: Apr 14, 2022
 
 <script>
 var clipcopy = "";
@@ -1365,7 +1365,7 @@ function startTime() {
 	}
 	
 	
-	if(document.getElementById("boot").checked === true)
+	if(actionmode>=13 && document.getElementById("boot").checked === true)
 	{
 		cmd = "!MQRDR=1!MBOOT=\"!Lboot\"!SAVEboot=" + cmd;
 	}
