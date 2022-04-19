@@ -292,7 +292,7 @@ updated: Apr 19, 2022
 					{
 						var num = (bytes[i+8+k*4]*16777216);
 						num += (bytes[i+8+k*4+1]<<16) + (bytes[i+8+k*4+2]<<8) + (bytes[i+8+k*4+3]<<0);
-						if(k > 0) dat += ",";
+						if(k > 0) dat += ", ";
 						dat += num.toString();
 					}
 				}
@@ -302,7 +302,7 @@ updated: Apr 19, 2022
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k*2+0]<<8) + (bytes[i+8+k*2+1]<<0);
-						if(k > 0) dat += ",";
+						if(k > 0) dat += ", ";
 						dat += num.toString();
 					}
 				}
@@ -312,7 +312,7 @@ updated: Apr 19, 2022
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k]);
-						if(k > 0) dat += ",";
+						if(k > 0) dat += ", ";
 						dat += num.toString();
 					}
 				}
@@ -323,7 +323,7 @@ updated: Apr 19, 2022
 					{
 						var num = (bytes[i+8+k*4]*16777216);
 							num += (bytes[i+8+k*4+1]<<16) + (bytes[i+8+k*4+2]<<8) + (bytes[i+8+k*4+3]<<0);
-						if(k > 0) dat += ",";
+						if(k > 0) dat += ", ";
 				
 						var val = Bytes2Float32(num);
 						//val = Math.round(val * 1000000) / 1000000
@@ -336,7 +336,7 @@ updated: Apr 19, 2022
 					if(typsize > 4) repeat *= typsize / 4;
 					for(k=0; k<repeat; k++)
 					{
-						if(k > 0) dat += ",";
+						if(k > 0) dat += ", ";
 						dat += String.fromCharCode(bytes[i+8+k*4]) + String.fromCharCode(bytes[i+8+k*4+1]) + String.fromCharCode(bytes[i+8+k*4+2]) + String.fromCharCode(bytes[i+8+k*4+3])
 					}
 				}
@@ -348,7 +348,7 @@ updated: Apr 19, 2022
 					for(k=0; k<repeat*8; k++)
 					{
 						//var num = (bytes[i+8+k]);
-						//if(k > 0) dat += ",";
+						//if(k > 0) dat += ", ";
 						//dat += num.toString();
 						
 						hex = ("0" + bytes[i+8+k].toString(16)).toUpperCase().substr(-2);
