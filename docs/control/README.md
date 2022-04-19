@@ -41,7 +41,7 @@ and as a mobile app:<br>
 * **HERO9** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
 ### Miscellaneous Features
-* **HERO7/8/9/10/MAX** Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
+* **HERO7/8/9/10/MAX** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
 * **HERO8/9/10/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
 * **HERO9/10** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
 * **HERO8/9/10/MAX/Bones** - Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
@@ -50,6 +50,9 @@ and as a mobile app:<br>
 * **HERO10** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
 * **HERO9** - Enable media [**encryption**](./encrypt) for increased security
 * <span style="color:steelblue">**UPDATED**</span> Many more [**extensions**](./extensions) via QR Code
+
+### Metadata Extraction
+* **All GPMF Enabled Cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 
 ## Forum Discussions 
 
@@ -77,8 +80,8 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.23
-updated: Apr 13, 2022
+### ver 1.24
+updated: Apr 19, 2022
 
 
 <script>
