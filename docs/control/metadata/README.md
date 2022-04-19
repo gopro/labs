@@ -1,5 +1,5 @@
 # Metadata Extraction - Global Settings
-Ever wanted to know what settings where used on an existing GoPro video? This simple utility will display the GPMF header metadata for any GoPro file you open.  In the section label "User Metadata", this has a list of the Labs hacks/features you may have enabled, and your ownership information if stored. 
+Ever wanted to know what settings where used on an existing GoPro video or photo? This simple utility will display the GPMF header metadata for any GoPro file you open.  In the section label "User Metadata", this has a list of the Labs hacks/features you may have enabled, and your ownership information if stored. 
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
@@ -17,7 +17,7 @@ Ever wanted to know what settings where used on an existing GoPro video? This si
 
 <div>
 
-Open GoPro video file: <input id="file" type="file" /><br>
+Open GoPro MP4/LRV/360 or JPG file: <input id="file" type="file" /><br>
 file name: <b><span id="name"></span></b><br>
 file size: <b><span id="size"></span></b><br>
 
@@ -36,8 +36,8 @@ file size: <b><span id="size"></span></b><br>
 
 **Compatibility:** All GoPro cameras since HERO5 Black
  
-## ver 1.00
-updated: Apr 18, 2022
+## ver 1.01
+updated: Apr 19, 2022
 
 [More features](..) for Labs enabled cameras
 
@@ -64,6 +64,10 @@ updated: Apr 18, 2022
 	}
 	
 	var mdat_offset = 0;
+	var gpmf_offset = 0;
+	var gpmf_size = 0;
+	var jpeg_gpmf_offset = 0;
+	var jpeg_gpmf_size = 0;
 	
 	var file;
 	function fileChange(event){
@@ -74,7 +78,7 @@ updated: Apr 18, 2022
 		//document.querySelector('#type').innerHTML = file.type;
 		document.querySelector('#size').innerHTML = file.size + " Bytes";
 
-		var blob = file.slice(0, 64);
+		var blob = file.slice(0, 128*1024);
 		reader.readAsArrayBuffer(blob);   // read head to find the moov offset (from mdat)
 	}
 	
@@ -97,10 +101,51 @@ updated: Apr 18, 2022
 				}
 			}
 		}
-		//console.log("moov offset:" + mdat_offset.toString());
+		//console.log("moov offset:" + mdat_offset.toString());		
 		
-		var blob = file.slice(mdat_offset, mdat_offset+(1024*64));
-		reader2.readAsArrayBuffer(blob);   
+		if(mdat_offset == 0) // not an MP4, check for JPEG
+		{
+			i = 0;
+			do
+			{			
+				while(bytes[i] == 0xff && (bytes[i+1] < 0xe0 || bytes[i+1] > 0xef)) i+=2;
+								
+				if(bytes[i] == 0xff && bytes[i+1] >= 0xe1 && bytes[i+1] <= 0xef)
+				{					
+					if(bytes[i+1] == 0xe6) //APP6
+					{
+						//console.log("APP6");
+						if(bytes[i+4] == 0x47/*G*/ && bytes[i+5] == 0x6F/*o*/ && bytes[i+6] == 0x50/*P*/ && bytes[i+7] == 0x72/*r*/ && bytes[i+8] == 0x6F/*o*/)
+						{							
+							//console.log("GoPro file");
+				
+							jpeg_gpmf_offset = i+10;
+							jpeg_gpmf_size = (bytes[i+2]<<8) + (bytes[i+1]<<0);	
+						}
+						break;
+					}
+					else
+					{
+						i += (bytes[i+2]<<8) + (bytes[i+3]) + 2;
+					}
+				}
+				else
+				{
+					break; // bad formatted JPEG
+				}
+			} while(1);
+			
+				
+			var blob = file.slice(jpeg_gpmf_offset, jpeg_gpmf_offset+(jpeg_gpmf_size+1024));
+			reader2.readAsArrayBuffer(blob);   
+			//console.log("gpmf offset:" + jpeg_gpmf_offset.toString());
+			//console.log("gpmf size:" + jpeg_gpmf_size.toString());
+		}
+		else
+		{
+			var blob = file.slice(mdat_offset, mdat_offset+(1024*64));
+			reader2.readAsArrayBuffer(blob);  
+		}
 	}
 	
 	function Bytes2Float32(bytes) {
@@ -125,42 +170,48 @@ updated: Apr 18, 2022
 
 		tableAllDelete();
 		
-		if(mdat_offset == 0) return;
+		if(mdat_offset == 0 && jpeg_gpmf_offset == 0) return;
 
 		var bytes = new Uint8Array(reader2.result);
 
 		mdat_offset = 0;
 		var udta_offset = 0;
-		var gpmf_offset = 0;
-		var gpmf_size = 0;
-
-		for(i=0; i<512; i++)
-		{
-			if(bytes[i] == 117 /*'u'*/ && bytes[i+1] == 100 /*'d'*/ && bytes[i+2] == 116 /*'t'*/ && bytes[i+3] == 97 /*'a'*/)
-			{
-				udta_offset = i;
-				break;
-			}
-		}
-		//console.log("udta offset:" + udta_offset.toString());
 		
-		if(udta_offset)
+		if(jpeg_gpmf_offset == 0)
 		{
-			for(i=udta_offset; i<udta_offset+4096; i++)
+			for(i=0; i<512; i++)
 			{
-				if(bytes[i] == 0x47 /*'G'*/ && bytes[i+1] == 0x50 /*'P'*/ && bytes[i+2] == 0x4D /*'M'*/ && bytes[i+3] == 0x46 /*'F'*/)
+				if(bytes[i] == 117 /*'u'*/ && bytes[i+1] == 100 /*'d'*/ && bytes[i+2] == 116 /*'t'*/ && bytes[i+3] == 97 /*'a'*/)
 				{
-					gpmf_offset = i+4;
-					gpmf_size = (bytes[i-3]<<16) + (bytes[i-2]<<8) + (bytes[i-1]<<0) - 8;
+					udta_offset = i;
 					break;
 				}
 			}
-			//console.log("GPMF offset:" + gpmf_offset.toString());
-			//console.log("GPMF size:" + gpmf_size.toString());
+			//console.log("udta offset:" + udta_offset.toString());
+			
+			if(udta_offset)
+			{
+				for(i=udta_offset; i<udta_offset+4096; i++)
+				{
+					if(bytes[i] == 0x47 /*'G'*/ && bytes[i+1] == 0x50 /*'P'*/ && bytes[i+2] == 0x4D /*'M'*/ && bytes[i+3] == 0x46 /*'F'*/)
+					{
+						gpmf_offset = i+4;
+						gpmf_size = (bytes[i-3]<<16) + (bytes[i-2]<<8) + (bytes[i-1]<<0) - 8;
+						break;
+					}
+				}
+				//console.log("GPMF offset:" + gpmf_offset.toString());
+				//console.log("GPMF size:" + gpmf_size.toString());
+			}
+			
+			if(gpmf_offset == 0 || gpmf_size == 0) return;
+		}
+		else
+		{
+			gpmf_size = jpeg_gpmf_size;
 		}
 		
-		if(gpmf_offset == 0 || gpmf_size == 0) return;
-
+		
 		var txt = "";
 		var hex;
 		var dat;
@@ -230,6 +281,7 @@ updated: Apr 18, 2022
 				
 				if(type == 0x4c || type == 0x6c /* L or l */)
 				{
+					if(typsize > 4) repeat *= typsize / 4;
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k*4]*16777216);
@@ -240,6 +292,7 @@ updated: Apr 18, 2022
 				}
 				if(type == 0x53 || type == 0x73 /* S or s */)
 				{
+					if(typsize > 2) repeat *= typsize / 2;
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k*2+0]<<8) + (bytes[i+8+k*2+1]<<0);
@@ -249,6 +302,7 @@ updated: Apr 18, 2022
 				}
 				if(type == 0x42 || type == 0x62 /* B or b */)
 				{
+					if(typsize > 1) repeat *= typsize;
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k]);
@@ -258,6 +312,7 @@ updated: Apr 18, 2022
 				}
 				if(type == 0x66 /* f */) //float
 				{
+					if(typsize > 4) repeat *= typsize / 4;
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k*4]*16777216);
@@ -271,6 +326,7 @@ updated: Apr 18, 2022
 				}
 				if(type == 0x46 /* F */) //FOURCC
 				{
+					if(typsize > 4) repeat *= typsize / 4;
 					for(k=0; k<repeat; k++)
 					{
 						if(k > 0) dat += ",";
@@ -281,6 +337,7 @@ updated: Apr 18, 2022
 				if(type == 0x4A /* J */) // Jumbo 64-bit integer
 				{
 					dat += "0x";
+					if(typsize > 8) repeat *= typsize / 8;
 					for(k=0; k<repeat*8; k++)
 					{
 						//var num = (bytes[i+8+k]);
@@ -324,5 +381,6 @@ updated: Apr 18, 2022
 	}
 
 }());
+
 
 </script>
