@@ -508,7 +508,7 @@ Install from: [![google play](../control/google-play-small.png)](https://play.go
 </div>
 
 &nbsp;&nbsp;<b>Auto Capture Trigger:</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap13" name="sap" value="!SA"> <label for="sap13">Sound Pressure Level (range 30-120dB)</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap13" name="sap" value="!SD"> <label for="sap13">Sound Pressure Level (range 30-120dB)</label><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap14" name="sap" value="!SI"> <label for="sap14">Camera Motion - Gyro+Accel (range 1-9)</label><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sap15" name="sap" value="!SM"> <label for="sap15">Scene Motion (range 1-6)</label><br>
   <div id="motionParams">
@@ -588,8 +588,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](../control) for Labs enabled cameras
 
-## version 1.05
-updated: Apr 14, 2022
+## version 1.06
+updated: Apr 20, 2022
 
 <script>
 var clipcopy = "";
