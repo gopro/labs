@@ -54,9 +54,19 @@ Steps involved:
 
 The resulting final.mp4 will be a complete GoPro file will all required metadata.
 
+### .360 support changes
+
+>ffmpeg -y -f concat -i **your_path_to/filelist.txt** -c copy -map 0:0 -map 0:1 -map 0:3 -map 0:5 **your_output_path/final.mp4**
+>
+>udtacopy **your_path_to/the_first_GoPro_file.360** **your_output_path/final.mp4**
+>
+>rename **your_output_path/final.mp4** **your_output_path/final.360**
+
+The resulting final.360 will be a complete GoPro file will all required metadata.
+
  
-## ver 1.08
-updated: Apr 12, 2022
+## ver 1.09
+updated: Apr 25, 2022
 
 [More features](..) for Labs enabled cameras
 
