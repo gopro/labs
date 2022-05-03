@@ -495,11 +495,11 @@ Install from: [![google play](../control/google-play-small.png)](https://play.go
 &nbsp;&nbsp;<b>Use 12GB Chapters:</b>&nbsp;&nbsp;<input type="radio" id="sap10" name="sap" value="!M64BT=1"> <label for="sap10">Enable</label>
 &nbsp;&nbsp;<input type="radio" id="sap11" name="sap" value="!M64BT=0"> <label for="sap11">Disable</label><br>
 &nbsp;&nbsp;<b>Overclock Bitrate:</b>&nbsp;&nbsp;<input type="radio" id="sap12" name="sap" value="b1!MBITR="> 
-  <label for="sap12">Take On Risk</label>&nbsp;&nbsp;<input type="checkbox" id="helpBitr" name="helpBitr" value=""><label for="helpBitr">Help</label><br>
+  <label for="sap12">Take On Risk</label>&nbsp;&nbsp;<input type="checkbox" id="helpBitr" name="helpBitr" value=""><label for="helpBitr">More Info</label><br>
   <div id="bitrHelp">
 	 &nbsp;&nbsp;&nbsp;&nbsp;<small>
 	 
-	 <b>Warning:</b> SD Card and encoding reliability is only thoroughly tested at the default bitrates, up to 100Mb/s. Some SD cards can support higher bit-rates when fairly new, but then may fail when extensively used. As the bit-rate is increased, the probability of capture failures increase. Lower frame rate maybe more reliable than higher framerates as some extreme overclocks. Experiment extensively before using this feature on critical projects. You can also disable LRVs and audio capture to help push the video bitrate to the maximum. See more on these <a href="../control/extensions">Labs extensions</a>. Changes can be reversed with a Labs reset. 
+	 <b>Warning:</b> The only risk is SD card encoding reliability, as this capture is thoroughly tested at the default bitrates, up to 100Mb/s. Some SD cards can support higher bit-rates when fairly new, but then may fail when extensively used. As the bit-rate is increased, the probability of capture failures increase. Lower frame rate maybe more reliable than higher framerates as some extreme overclocks. Experiment extensively before using this feature on critical projects. You can also disable LRVs and audio capture to help push the video bitrate to the maximum. See more on these <a href="../control/extensions">Labs extensions</a>. Changes can be reversed with a Labs reset. This will not damage your GoPro.  
 	 
 	 </small>
 </div>
@@ -588,8 +588,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 [More features](../control) for Labs enabled cameras
 
-## version 1.07
-updated: Apr 23, 2022
+## version 1.08
+updated: May 3, 2022
 
 <script>
 var clipcopy = "";
