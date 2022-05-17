@@ -17,11 +17,22 @@ The GPS feature in your GoPro provides speed information in addition to location
 
 ## Customize Speed Triggered Capture
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Start Speed** <input type="range" style="width: 300px;" id="snstvty" name="snstvty" min="1" max="162" value="6"><label for="snstvty"></label>&nbsp;&nbsp;<b id="snstvtytext"></b> km/h (<b id="snstvtymph"></b> mph)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**End Speed** <input type="range" style="width: 300px;" id="esnstvty" name="esnstvty" min="0" max="162" value="0"><label for="esnstvty"></label>&nbsp;&nbsp;<b id="esnstvtytext"></b> km/h (<b id="esnstvtymph"></b> mph) (0 = off or speed threshold)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Hold Time** <input type="range" style="width: 300px;" id="hold" name="hold" min="0" max="120" value="5"><label for="hold"></label>&nbsp;&nbsp;<b id="holdtext"></b> seconds, to continue recording after speed is below the threshold.<br> 
+**Start Speed** <input type="range" style="width: 300px;" id="snstvty" name="snstvty" min="1" max="162" value="6"><label for="snstvty"></label>&nbsp;&nbsp;<b id="snstvtytext"></b> km/h (<b id="snstvtymph"></b> mph)<br>
+**End Speed** <input type="range" style="width: 300px;" id="esnstvty" name="esnstvty" min="0" max="162" value="0"><label for="esnstvty"></label>&nbsp;&nbsp;<b id="esnstvtytext"></b> km/h (<b id="esnstvtymph"></b> mph) (0 = off or speed threshold)<br>
+**Hold Time** <input type="range" style="width: 300px;" id="hold" name="hold" min="0" max="120" value="5"><label for="hold"></label>&nbsp;&nbsp;<b id="holdtext"></b> seconds, to continue recording after speed is below the threshold.<br> 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" name="repeat" checked> 
+**HERO10 Note:** For GPS triggers to work on HERO10, the LCD must remain on. For extended captures set the LCD brightness to low.  
+
+<input type="checkbox" id="camoff" name="camoff"> 
+<label for="camoff">Disable auto power off</label><br>
+
+<input type="checkbox" id="h10lcd" name="h10lcd"> 
+<label for="h10lcd">Set LCD brightness to low (10%)</label><br>
+
+<input type="checkbox" id="h10lcdon" name="h10lcdon"> 
+<label for="h10lcdon">Leave LCD on</label> (Required on HERO10)<br>
+
+<input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat speed triggered capture.</label><br>
 
 Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9 or 10. 
@@ -42,7 +53,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.03
+## ver 1.04
+updated: May 17, 2022
+
 [More features](..) for Labs enabled cameras
 
 <script>
@@ -52,6 +65,8 @@ var cmd = "oC";
 var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
+var h10lcdlow = "oB1";
+var h10lcdon = "oS";
 
 function makeQR() 
 {	
@@ -103,6 +118,19 @@ function timeLoop()
         cmd = cmd + "!R";
       }
     }
+	
+    // Auto off
+    if(document.getElementById("camoff") != null && document.getElementById("camoff").checked) {
+        cmd = "oC" + cmd;
+    }
+    // Hero10 LCD set to low
+    if(document.getElementById("h10lcd") != null && document.getElementById("h10lcd").checked) {
+        cmd = h10lcdlow + cmd;
+    }
+    // Hero10 LCD timeout to Never
+    if(document.getElementById("h10lcdon") != null && document.getElementById("h10lcdon").checked) {
+        cmd = h10lcdon + cmd;
+    }    
   }
   
   qrcode.clear(); 
