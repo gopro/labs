@@ -45,9 +45,12 @@ updated: May 20, 2022
 
 [More features](..) for Labs enabled cameras
 
+
 <script>
 
 var clipcopy = "";
+var hdr_bytes;
+var file;
 
 (function() {
 
@@ -75,7 +78,6 @@ var clipcopy = "";
 	var jpeg_gpmf_offset = 0;
 	var jpeg_gpmf_size = 0;
 	
-	var file;
 	function fileChange(event){
 		var target = event.target;
 		file = target.files[0];
@@ -95,21 +97,21 @@ var clipcopy = "";
 	}
 	
 	function fileHeaderLoad(){	
-		var bytes = new Uint8Array(reader.result);
+		hdr_bytes = new Uint8Array(reader.result);
 		for(i=0; i<60; i++)
 		{
-			if(bytes[i] == 109 /*'m'*/ && bytes[i+1] == 100 /*'d'*/ && bytes[i+2] == 97 /*'a'*/ && bytes[i+3] == 116 /*'t'*/)
+			if(hdr_bytes[i] == 109 /*'m'*/ && hdr_bytes[i+1] == 100 /*'d'*/ && hdr_bytes[i+2] == 97 /*'a'*/ && hdr_bytes[i+3] == 116 /*'t'*/)
 			{
-				if(bytes[i-4] == 0 && bytes[i-3] == 0 && bytes[i-2] == 0 && bytes[i-1] == 1) // 64-bit offset 
+				if(hdr_bytes[i-4] == 0 && hdr_bytes[i-3] == 0 && hdr_bytes[i-2] == 0 && hdr_bytes[i-1] == 1) // 64-bit offset 
 				{
-					mdat_offset = (bytes[i+7]*4294967296);
-					mdat_offset += (bytes[i+8]*16777216);
-					mdat_offset += (bytes[i+9]<<16) + (bytes[i+10]<<8) + (bytes[i+11]<<0) + i - 4;
+					mdat_offset = (hdr_bytes[i+7]*4294967296);
+					mdat_offset += (hdr_bytes[i+8]*16777216);
+					mdat_offset += (hdr_bytes[i+9]<<16) + (hdr_bytes[i+10]<<8) + (hdr_bytes[i+11]<<0) + i - 4;
 				}
 				else
 				{
-					mdat_offset = (bytes[i-4]*16777216);
-					mdat_offset += (bytes[i-3]<<16) + (bytes[i-2]<<8) + (bytes[i-1]<<0) + i - 4;
+					mdat_offset = (hdr_bytes[i-4]*16777216);
+					mdat_offset += (hdr_bytes[i-3]<<16) + (hdr_bytes[i-2]<<8) + (hdr_bytes[i-1]<<0) + i - 4;
 				}
 			}
 		}
@@ -120,25 +122,25 @@ var clipcopy = "";
 			i = 0;
 			do
 			{			
-				while(bytes[i] == 0xff && (bytes[i+1] < 0xe0 || bytes[i+1] > 0xef)) i+=2;
+				while(hdr_bytes[i] == 0xff && (hdr_bytes[i+1] < 0xe0 || hdr_bytes[i+1] > 0xef)) i+=2;
 								
-				if(bytes[i] == 0xff && bytes[i+1] >= 0xe1 && bytes[i+1] <= 0xef)
+				if(hdr_bytes[i] == 0xff && hdr_bytes[i+1] >= 0xe1 && hdr_bytes[i+1] <= 0xef)
 				{					
-					if(bytes[i+1] == 0xe6) //APP6
+					if(hdr_bytes[i+1] == 0xe6) //APP6
 					{
 						//console.log("APP6");
-						if(bytes[i+4] == 0x47/*G*/ && bytes[i+5] == 0x6F/*o*/ && bytes[i+6] == 0x50/*P*/ && bytes[i+7] == 0x72/*r*/ && bytes[i+8] == 0x6F/*o*/)
+						if(hdr_bytes[i+4] == 0x47/*G*/ && hdr_bytes[i+5] == 0x6F/*o*/ && hdr_bytes[i+6] == 0x50/*P*/ && hdr_bytes[i+7] == 0x72/*r*/ && hdr_bytes[i+8] == 0x6F/*o*/)
 						{							
 							//console.log("GoPro file");
 				
 							jpeg_gpmf_offset = i+10;
-							jpeg_gpmf_size = (bytes[i+2]<<8) + (bytes[i+1]<<0);	
+							jpeg_gpmf_size = (hdr_bytes[i+2]<<8) + (hdr_bytes[i+1]<<0);	
 						}
 						break;
 					}
 					else
 					{
-						i += (bytes[i+2]<<8) + (bytes[i+3]) + 2;
+						i += (hdr_bytes[i+2]<<8) + (hdr_bytes[i+3]) + 2;
 					}
 				}
 				else
@@ -184,15 +186,7 @@ var clipcopy = "";
 		
 		if(mdat_offset == 0 && jpeg_gpmf_offset == 0) 
 		{
-			var table = document.getElementById("scrollTable");
-			var row = table.insertRow(-1);
-			var cell1 = row.insertCell(-1);
-			var cell2 = row.insertCell(-1);
-
-			cell1.innerHTML = "Invalid Source Media";
-			cell2.innerHTML = "Not GoPro Media or Corrupted";
-			
-			clipcopy = "Invalid Source Media : Not GoPro Media or Corrupted";
+			dumpHeader(0);
 			return;
 		}
 
@@ -229,17 +223,9 @@ var clipcopy = "";
 				//console.log("GPMF size:" + gpmf_size.toString());
 			}
 			
-			if(gpmf_offset == 0 || gpmf_size == 0) {
-			
-				var table = document.getElementById("scrollTable");
-				var row = table.insertRow(-1);
-				var cell1 = row.insertCell(-1);
-				var cell2 = row.insertCell(-1);
-
-				cell1.innerHTML = "MP4 Source Type";
-				cell2.innerHTML = "No GPMF metadata found";
-				
-				clipcopy = "MP4 Source Type : No GPMF metadata found";
+			if(gpmf_offset == 0 || gpmf_size == 0) 
+			{							
+				dumpHeader(1);			
 				return;
 			}
 		}
@@ -471,6 +457,84 @@ var clipcopy = "";
 }());
 
 
+function dumpHeader(type)
+{
+	var table = document.getElementById("scrollTable");
+	var row = table.insertRow(-1);
+	var cell1 = row.insertCell(-1);
+	var cell2 = row.insertCell(-1);
+
+	if(type == 1)
+	{
+		clipcopy = "MP4 Source Type : No GPMF metadata found\n\n";
+		cell1.innerHTML = "MP4 Source Type";
+		cell2.innerHTML = "No GPMF metadata found";
+	}
+	else
+	{	
+		clipcopy = "Invalid Source Media : Not GoPro Media or Corrupted\n\n";
+		cell1.innerHTML = "Invalid Source Media";
+		cell2.innerHTML = "Not GoPro Media or Corrupted";
+	}
+	
+	row = table.insertRow(-1);
+	cell1 = row.insertCell(-1);
+	cell2 = row.insertCell(-1);
+	
+	clipcopy = clipcopy + file.name + " : " + file.size + " Bytes" + "\n\n";				
+		
+	var line,rows;
+	var pos = 0;
+	var hex;
+	for(line=0; line < 16; line++)
+	{
+		row = table.insertRow(-1);
+		cell1 = row.insertCell(-1);
+		cell2 = row.insertCell(-1);
+		
+		hex = hexpad(line);
+		cell1.innerHTML = "0x"+hex; 
+		
+		clipcopy = clipcopy + "0x" + hex + "   "; 
+		
+		var hexline = "";
+		var charline = "";
+		for(rows = 0; rows < 16; rows++)
+		{
+			
+			var chr = hdr_bytes[pos];
+			hex = hexpad(chr); 
+			
+			if(chr >= 0x21 && chr <= 0x7f)
+				charline = charline + String.fromCharCode(chr);
+			else 
+				charline = charline + ".";
+			
+			pos++;
+			
+			hexline = hexline + hex + " ";
+		}		
+		
+		cell2.innerHTML = hexline + "  |  " + charline;
+		
+		clipcopy = clipcopy + hexline + "  " + charline + "\n";				
+	}
+	
+	return;
+}
+
+function hexpad(line)
+{
+	var hex="";
+	if(line >= 16)
+	   hex = line.toString(16).toUpperCase(); 
+	else if(line >= 1)
+	   hex = '0' + line.toString(16).toUpperCase(); 
+	else
+	   hex = "00"; 
+	
+	return hex;
+}
 
 function dset(label, on) {
 	var settings = document.getElementById(label);
