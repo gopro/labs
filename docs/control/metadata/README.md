@@ -20,7 +20,12 @@ Ever wanted to know what settings were used on an existing GoPro video or photo?
 Open GoPro MP4/LRV/360 or JPG file: <input id="file" type="file" /><br>
 file name: <b><span id="name"></span></b><br>
 file size: <b><span id="size"></span></b><br>
+</div>
 
+<div id="copyMetadata">
+<br>
+<button id="copyBtn">Copy Metadata to Clipboard</button><br>
+<br>
 </div>
 
 
@@ -33,15 +38,16 @@ file size: <b><span id="size"></span></b><br>
   </small>
 </div>
 
-
 **Compatibility:** All GoPro cameras since HERO5 Black
  
-## ver 1.02
-updated: Apr 19, 2022
+## ver 1.04
+updated: May 20, 2022
 
 [More features](..) for Labs enabled cameras
 
 <script>
+
+var clipcopy = "";
 
 (function() {
 
@@ -179,6 +185,7 @@ updated: Apr 19, 2022
 		if(mdat_offset == 0 && jpeg_gpmf_offset == 0) return;
 
 		var bytes = new Uint8Array(reader2.result);
+		var new_float_bytes = new Uint8Array(4);
 
 		mdat_offset = 0;
 		var udta_offset = 0;
@@ -217,6 +224,8 @@ updated: Apr 19, 2022
 			gpmf_size = jpeg_gpmf_size;
 		}
 		
+		if(gpmf_size > 0)
+			clipcopy = ""; //reset for each new file.
 		
 		var txt = "";
 		var hex;
@@ -224,10 +233,12 @@ updated: Apr 19, 2022
 		var j = 0;
 		var k = 0;
 		
+		var cleantxt = "";
 		var indent = 0;
 		var devcsize = 0;
 		var strmsize = 0;
 		for (var i = gpmf_offset; i < gpmf_offset+gpmf_size;) {
+			cleantxt = "";
 			txt = "";
 			dat = "";
 			
@@ -261,6 +272,12 @@ updated: Apr 19, 2022
 			txt += String.fromCharCode(bytes[i+2]);
 			txt += String.fromCharCode(bytes[i+3]);
 			
+			for(j=0; j<indent; j++)
+				cleantxt += "  ";
+			cleantxt += String.fromCharCode(bytes[i]);
+			cleantxt += String.fromCharCode(bytes[i+1]);
+			cleantxt += String.fromCharCode(bytes[i+2]);
+			cleantxt += String.fromCharCode(bytes[i+3]);
 			
 			if(type == 0)
 			{
@@ -281,7 +298,12 @@ updated: Apr 19, 2022
 					else
 					{
 						for(j=0; j<size; j++)
-							dat += String.fromCharCode(bytes[i+8+j]);
+						{
+							if(bytes[i+8+j] != 0 && bytes[i+8+j] != 10 && bytes[i+8+j] != 13)
+								dat += String.fromCharCode(bytes[i+8+j]);
+							if(bytes[i+8+j] == 10 || bytes[i+8+j] == 13)
+								dat += '\\' + 'n';
+						}
 					}
 				}
 				
@@ -326,9 +348,39 @@ updated: Apr 19, 2022
 						if(k > 0) dat += ", ";
 				
 						var val = Bytes2Float32(num);
-						//val = Math.round(val * 1000000) / 1000000
-						//dat += val.toString();
-						dat += val.toFixed(4);
+						var fnum = val.toFixed(4);
+						dat += fnum.toString();
+					}
+				}
+				if(type == 0x64 /* d */) //double
+				{
+					if(typsize > 8) repeat *= typsize / 8;
+					for(k=0; k<repeat; k++)
+					{
+						var signbit = (bytes[i+8+k*8] & 0x80) >> 7;
+						
+						// Convert 64-bit double to 32-bit float, directly.
+						
+						// convert an 11-bit exponent to 8-bit 
+						var expo = ((bytes[i+8+k*8] & 0x7f) << 4) + ((bytes[i+8+k*8+1] & 0xf0) >> 4) - 1023; 
+						var new_expo = expo + 127; 
+						
+						// extract the 23-bit mantissa from the MSBs of the double's mantissa 
+						var new_mant23 = (((bytes[i+8+k*8+1] & 0x0f) << 19) + (bytes[i+8+k*8+2] << 11) + (bytes[i+8+k*8+3] << 3) + ((bytes[i+8+k*8+4]) >> 5));
+
+						// reconstruct a 32-bit float
+						new_float_bytes[0] = (signbit << 7) + (new_expo>>1);
+						new_float_bytes[1] = ((new_expo << 7) & 0x80) + ((new_mant23 >> 16) & 0x7f);
+						new_float_bytes[2] = ((new_mant23 >> 8) & 0xff);
+						new_float_bytes[3] = (new_mant23 & 0xff);
+					
+						var num = (new_float_bytes[0]*16777216);
+							num += (new_float_bytes[1]<<16) + (new_float_bytes[2]<<8) + (new_float_bytes[3]<<0);
+						if(k > 0) dat += ", ";
+				
+						var val = Bytes2Float32(num);
+						var fnum = val.toFixed(4);
+						dat += fnum.toString();
 					}
 				}
 				if(type == 0x46 /* F */) //FOURCC
@@ -361,9 +413,7 @@ updated: Apr 19, 2022
 				{
 					dat += ".complex.";
 				}
-				
-				Bytes2Float32
-				
+								
 				i += 8+align_size;
 				devcsize -= 8+align_size;
 				
@@ -382,11 +432,50 @@ updated: Apr 19, 2022
 
 			cell1.innerHTML = txt;
 			cell2.innerHTML = dat;
+			
+			clipcopy = clipcopy + cleantxt + " " + dat + "\n";
 		}
 
 		txt += "\n";
 	}
+	
+	//if(clipcopy.length > 0)
+	//	dset("copyMetadata",true);
+	//else
+	//	dset("copyMetadata",false);
 
 }());
+
+
+
+function dset(label, on) {
+	var settings = document.getElementById(label);
+	if(on === true)
+	{
+		if (settings.style.display === 'none') 
+			settings.style.display = 'block';
+	}
+	else
+	{
+		settings.style.display = 'none';
+	}
+}
+
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
+
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	};
+}
+
+
+setupButtons();
 
 </script>
