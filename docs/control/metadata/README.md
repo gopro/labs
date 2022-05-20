@@ -40,7 +40,7 @@ file size: <b><span id="size"></span></b><br>
 
 **Compatibility:** All GoPro cameras since HERO5 Black
  
-## ver 1.04
+## ver 1.05
 updated: May 20, 2022
 
 [More features](..) for Labs enabled cameras
@@ -182,7 +182,19 @@ var clipcopy = "";
 
 		tableAllDelete();
 		
-		if(mdat_offset == 0 && jpeg_gpmf_offset == 0) return;
+		if(mdat_offset == 0 && jpeg_gpmf_offset == 0) 
+		{
+			var table = document.getElementById("scrollTable");
+			var row = table.insertRow(-1);
+			var cell1 = row.insertCell(-1);
+			var cell2 = row.insertCell(-1);
+
+			cell1.innerHTML = "Invalid Source Media";
+			cell2.innerHTML = "Not GoPro Media or Corrupted";
+			
+			clipcopy = "Invalid Source Media : Not GoPro Media or Corrupted";
+			return;
+		}
 
 		var bytes = new Uint8Array(reader2.result);
 		var new_float_bytes = new Uint8Array(4);
@@ -217,7 +229,19 @@ var clipcopy = "";
 				//console.log("GPMF size:" + gpmf_size.toString());
 			}
 			
-			if(gpmf_offset == 0 || gpmf_size == 0) return;
+			if(gpmf_offset == 0 || gpmf_size == 0) {
+			
+				var table = document.getElementById("scrollTable");
+				var row = table.insertRow(-1);
+				var cell1 = row.insertCell(-1);
+				var cell2 = row.insertCell(-1);
+
+				cell1.innerHTML = "MP4 Source Type";
+				cell2.innerHTML = "No GPMF metadata found";
+				
+				clipcopy = "MP4 Source Type : No GPMF metadata found";
+				return;
+			}
 		}
 		else
 		{
