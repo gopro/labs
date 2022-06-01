@@ -58,6 +58,11 @@ and as a mobile app:<br>
 
 Please join the [**GoPro Labs Discussion**](https://community.gopro.com/s/gopro-labs)
 
+## Firmware Release Notes 
+
+An incomplete set of [**Release Notes**](./notes) 
+
+
 ## The Commands Under The Hood 
 
 On QR Control Instructions page, one of the first demo QR Code was surfing example, using 1440p and 60fps with some custom Protune settings. The QR Code used this command string: **mVr1440p60tw55x.5**. While some of that seems like 1440p60, here is a full breakdown of how that command works:
@@ -80,8 +85,8 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.24
-updated: Apr 19, 2022
+### ver 1.25
+updated: June 1, 2022
 
 
 <script>
