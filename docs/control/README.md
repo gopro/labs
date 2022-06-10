@@ -36,7 +36,7 @@ and as a mobile app:<br>
 
 ### Video Alteration Features
 * **HERO8/9/10/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
-* **HERO8/9/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
+* **HERO8/9/10/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
 * **HERO8/9** Set the [**Exposure Lock**](./explock) via QR Code
 * **HERO9** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
@@ -85,8 +85,8 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.25
-updated: June 1, 2022
+### ver 1.26
+updated: June 10, 2022
 
 
 <script>

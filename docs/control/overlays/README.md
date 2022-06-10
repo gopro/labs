@@ -82,13 +82,14 @@ Cool Tips:
 - A range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH. For more technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) and other metadata you can display.
 
 Known Issues:
-- The Permanent mode was **not safe on HERO8 Labs v1.70.75**, fixed in the 2021 release. Update to 2021 Labs firmware before using this feature.
+- HERO10 support is limited to video modes 4K 16:9 up to 30, 2.7K up to 60 and 1080p up to 120fps. 
 - Metadata can take a second before it updates after capture start.
-<!-- - Permanent overlays require the clearing of older settings. If your using either Owner or Large Chapters modifications, they will need to be added after the overlay.   -->
 
-**Compatibility:** Labs enabled HERO8, HERO9 and MAX 
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10 and MAX 
         
-## ver 1.30
+## ver 1.31
+updated: June 10, 2022
+
 [Learn more](..) on QR Control
 
 <script>
