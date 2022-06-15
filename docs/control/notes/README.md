@@ -60,6 +60,12 @@ Only the more recent releases are documented below. This a general list of Labs 
  
 ## HERO9 Black
 
+### 1.42.70 - June, 2022
+ - Added !M**HSTO**=x minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
+ - Enhanced SPL trigger levels now reported to the qrlog.txt file.
+ - Enhanced, upon boot the LCD will repeat any permanent Labs modification you might have active.
+ - minor bug fixes
+
 ### 1.70.70 - May 2022
  - Added Max Lens Mod support for Photos
  - Added Command for selecting Live Burst
@@ -117,5 +123,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-## ver 1.00
+## ver 1.01
+updated: June 15, 2022
+
 [Learn more](..) on QR Control

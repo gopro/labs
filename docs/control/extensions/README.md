@@ -39,7 +39,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. !MBOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here". See an example in [IMU Triggers for Drones](../imutrigger)
 	
 ### **HERO9/10 only** - Overlay extensions
-
+- **HSTO=x** minutes <span style="color:steelblue">**NEW**</span> - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
 - **CBAR=1** - enable a small 75% saturated color bars for video tools evaluation (HERO10 limitation: only works 4Kp30 or lower res/fps.)
 - **LBAR=1** - enable a small luma sweep for video tools evaluation  (HERO10 limitation: only works 4Kp30 or lower res/fps.)<br>
 ![EnableCBARLBAR.png](EnableCBARLBAR.png)
@@ -83,6 +83,8 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 
 ### **HERO10 only** - Advanced features
 
+- **IWFR=1** <span style="color:steelblue">**NEW**</span> - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. 
+- **TUSB=1** <span style="color:steelblue">**NEW**</span> - Trust USB power.  Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. This can help with some USB power sources that the camera can reject, but are otherwise sufficient to run all camera operations. If you use TUSB with an inadequate power source, expect capture failures.  
 - **PRXY=1** <span style="color:steelblue">**NEW**</span> - Store LRV files as Adobe Premiere Pro™ style proxy files. Normally a camera will encode and LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GL013784.LRV`<br>
@@ -124,8 +126,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 		
-## ver 1.17
-updated: June 10, 2022
+## ver 1.18
+updated: June 15, 2022
 [BACK](..)
 
 <script>
