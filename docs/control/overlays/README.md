@@ -19,7 +19,7 @@ If either horizontal or vertical size is zero, the size will be computed automat
 Overlay vertical size <input type="range" style="width: 300px;" id="vsize" name="vsize" min="0" max="200" value="20"><label for="vsize"></label> <b id="vstext">40</b><br>
 Overlay horizontal size <input type="range" style="width: 300px;" id="hsize" name="hsize" min="0" max="200" value="0"><label for="hsize"></label> <b id="hstext">0</b><br>
 Offset from the edge <input type="range" style="width: 300px;" id="offset" name="offset" min="10" max="150" value="10"><label for="offset"></label> <b id="offtext">10</b><br>
-Limit display time (HERO9 only) <input type="range" style="width: 200px;" id="brnt" name="brnt" min="0" max="149" value="0"><label for="brnt"></label> <b id="brnttxt">unlimited</b>
+Limit display time <input type="range" style="width: 200px;" id="brnt" name="brnt" min="0" max="149" value="0"><label for="brnt"></label> <b id="brnttxt">unlimited</b>
 
 Note: All text box support **\n** for a new line.
 
@@ -88,7 +88,7 @@ Known Issues:
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10 and MAX 
         
 ## ver 1.31
-updated: June 10, 2022
+updated: July 1, 2022
 
 [Learn more](..) on QR Control
 

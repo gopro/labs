@@ -37,8 +37,7 @@ and as a mobile app:<br>
 ### Video Alteration Features
 * **HERO8/9/10/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
 * **HERO8/9/10/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
-* **HERO8/9** Set the [**Exposure Lock**](./explock) via QR Code
-* **HERO9** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
+* **HERO8/9/10** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
 ### Miscellaneous Features
 * **HERO7/8/9/10/MAX** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
@@ -48,20 +47,21 @@ and as a mobile app:<br>
 * **HERO8/9/10/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9/10** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
 * **HERO10** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
-* **HERO9** - Enable media [**encryption**](./encrypt) for increased security
+
+### Metadata Feature and Extraction
+* **All GPMF Enabled Cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 * <span style="color:steelblue">**UPDATED**</span> Many more [**extensions**](./extensions) via QR Code
 
-### Metadata Extraction
-* **All GPMF Enabled Cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
+### Features Phasing Out
+If we don't see feedback on features it may not get ported to the next camera. If you are uses a Labs feature, provide feedback on the [**GoPro Labs forum**](https://community.gopro.com/s/gopro-labs)
+* **HERO8/9** Set the [**Exposure Lock**](./explock) via QR Code
+* **HERO9** - Enable media [**encryption**](./encrypt) for increased security
 
 ## Forum Discussions 
-
 Please join the [**GoPro Labs Discussion**](https://community.gopro.com/s/gopro-labs)
 
 ## Firmware Release Notes 
-
 An incomplete set of [**Release Notes**](./notes) 
-
 
 ## The Commands Under The Hood 
 
@@ -85,8 +85,8 @@ All setting commands start with a lowercase character, followed by either upperc
 Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 
-### ver 1.26
-updated: June 10, 2022
+### ver 1.27
+updated: July 1, 2022
 
 
 <script>

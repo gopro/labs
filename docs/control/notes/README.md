@@ -96,6 +96,16 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO8 Black
 
+### 2.51.75 - July 2022
+ - Added command to enhance timecode precision !MTCAL=offset in ms
+ - Added logo overlays (like HERO9 & 10)
+ - Added !MWAKE=2, auto boot on power, either from USB or battery insert.
+ - Fixed fN will now correctly select a Narrow FOV Lens.
+ - Fixed Language selection (Voice and user interface.)
+ - improved active feature reporting (show active and non-one values.)
+ - Support for naked cameras with factory resets and firmware updates
+ - Sync with the latest QR Code command language with HERO9 & 10
+
 ### 2.50.71 - January 2021
  - Mostly bug fixes.
 
@@ -122,8 +132,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-
-## ver 1.01
-updated: June 15, 2022
+### ver 1.02
+updated: July 1, 2022
 
 [Learn more](..) on QR Control

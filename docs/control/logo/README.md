@@ -47,9 +47,11 @@ Make the logo permanently active: **Are you sure? (Risky)**  <input type="checkb
 QR Command: <b id="qrtext">time</b><br>
 
 		
-**Compatibility:** Labs enabled HERO9 only
+**Compatibility:** Labs enabled HERO8, HERO9 and HERO10
         
-## ver 1.01
+## ver 1.02
+updated: July 1, 2022
+
 [Learn more](..) on QR Control
 
 <script>
