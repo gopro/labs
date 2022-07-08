@@ -49,44 +49,26 @@ and as a mobile app:<br>
 * **HERO10** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
 
 ### Metadata Feature and Extraction
-* **All GPMF Enabled Cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 * <span style="color:steelblue">**UPDATED**</span> Many more [**extensions**](./extensions) via QR Code
+* **All GPMF Enabled Cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 
 ### Features Phasing Out
 If we don't see feedback on features it may not get ported to the next camera. If you are uses a Labs feature, provide feedback on the [**GoPro Labs forum**](https://community.gopro.com/s/gopro-labs)
 * **HERO8/9** Set the [**Exposure Lock**](./explock) via QR Code
 * **HERO9** - Enable media [**encryption**](./encrypt) for increased security
+* Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
-## Forum Discussions 
-Please join the [**GoPro Labs Discussion**](https://community.gopro.com/s/gopro-labs)
+## Forum Discussions and Feedback 
+Please join the [**GoPro Labs Discussion**](https://community.gopro.com/s/gopro-labs) or post [**questions and feedback**](https://github.com/gopro/labs/issues) on Github
 
 ## Firmware Release Notes 
 An incomplete set of [**Release Notes**](./notes) 
 
 ## The Commands Under The Hood 
+Technical information on the [**Labs command language**](./tech)
 
-On QR Control Instructions page, one of the first demo QR Code was surfing example, using 1440p and 60fps with some custom Protune settings. The QR Code used this command string: **mVr1440p60tw55x.5**. While some of that seems like 1440p60, here is a full breakdown of how that command works:
-
-* **mV** - is shorthand for mode Video - this is the same a swiping the camera to use video mode.
-* **r1440** - set resolution to 1440 - same as using the LCD to set 1440p
-* **p60** - set fps to 60 
-* **t** - Protune on
-* **w55** - white balance to 5500K
-* **x.5** - exposure compensation is set to 0.5
-  
-Any of these can be used on their own, or in different order, however the order can have meaning.  If I enable protune with a ‘t’ command, while in the Photo mode, then switched to video, the video will be in whatever mode setting you had previously. The individual commands within a QR Code are performed in order, just like you would when using the touch LCD.
-
-All setting commands start with a lowercase character, followed by either uppercase or numbers for the parameters, the next lowercase character is the next setting command. Below are some additional setting commands with their range of parameters.
-
-## The Full List of [**Settings Commands**](./settings)
-
-## The Full List of [**Action Commands**](./actions)
-
-Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
-
-
-### ver 1.27
-updated: July 1, 2022
+### ver 1.28
+updated: July 7, 2022
 
 
 <script>
