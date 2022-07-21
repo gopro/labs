@@ -39,7 +39,13 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 ## Optional: Joining Chapters After Capture
  
-Whether you are using the larger chapter feature or not, you may still end up with more than one file for very long video captures. Tools like ReelSteady Go can only operate one file at a time, so here is a solution for merging chapters so that they operate as a valid GoPro MP4 of any length, with all the needed metadata.
+Whether you are using the larger chapter feature or not, you may still end up with more than one file for very long video captures. Tools like ReelSteady can only operate one file at a time, so here is a solution for merging chapters so that they operate as a valid GoPro MP4 of any length, with all the needed metadata.
+
+### Easy Solution:
+
+Try [ReelSteady-Joiner](https://github.com/rubegartor/ReelSteady-Joiner/releases)
+
+### Techie Solution:
 
 Steps involved:
 - install ffmpeg: https://www.ffmpeg.org/ 
@@ -65,8 +71,8 @@ The resulting final.mp4 will be a complete GoPro file will all required metadata
 The resulting final.360 will be a complete GoPro file will all required metadata.
 
  
-## ver 1.09
-updated: Apr 25, 2022
+## ver 1.10
+updated: July 21, 2022
 
 [More features](..) for Labs enabled cameras
 
