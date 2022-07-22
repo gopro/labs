@@ -4,6 +4,14 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO10 Black 
 
+### 1.46.70 - July, 2022
+ - improved active feature reporting (show active and non-one values.)
+ - improved video overlay, removing the 30 frame delay
+ - suppress RTC clock nagging (it will get the date time wrong if you leave out the battery to long.) Use !MBYPS=1
+ - Fixed all the triggers so that they don't require the !MQRDR=1 workaround.
+ - Fixed requiring the LCD active for Audio, IMU and GPS triggers.
+ - Fixed !MWAKE=2 wake on power command.
+
 ### 1.42.70 - June, 2022
  - Added !M**HSTO**=x minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
  - Added !M**IWFR**=1 Increased Write FRequency to support for higher precision file recoveries (defaulted on with !MBITR=x also).  
@@ -132,7 +140,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-### ver 1.02
-updated: July 1, 2022
+### ver 1.03
+updated: July 22, 2022
 
 [Learn more](..) on QR Control
