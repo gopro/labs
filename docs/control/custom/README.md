@@ -254,6 +254,10 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 <input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering (H10) † </label><br>
 <div id="spotMeter">
+   <div id="LCD">
+      <img src="https://gopro.github.io/labs/control/custom/RearCamera.png" alt="LCD"> 
+   </div>
+<!--
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="sp1" name="placement" value="25,25"> <label for="sp1">Top Left    </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" id="sp2" name="placement" value="50,25"> <label for="sp2">Top Center  </label>&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" id="sp3" name="placement" value="75,25"> <label for="sp3">Top Right   </label><br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -264,7 +268,10 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 <input type="radio" id="sp8" name="placement" value="50,75"> <label for="sp8">Lower Center</label>&nbsp;
 <input type="radio" id="sp9" name="placement" value="75,75"> <label for="sp9">Lower Right </label>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" id="sp10" name="placement" value="0"> <label for="sp10">Disable </label><br>&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="checkbox" id="sl" value="oSM0!2NoSL"> <label for="sl">Exposure Lock 3s after scan (to avoid locking on the QR Code)</label><br>
+-->
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009FDF">Spot Meter Coord (x,y):</font> <em id="coordtext"></em><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="smd" value="oSM0"> <label for="smd">Disable Spot</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="sl" value="oSM0!2NoSL"> <label for="sl">Exposure Lock 3s after scan (to avoid locking on the QR Code)</label><br>
 </div>
 <div id="settingsPT">
 <input type="checkbox" id="pt" value="t"> <label for="pt">Protune Controls</label><br>
@@ -273,7 +280,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 <input type="checkbox" id="ptr" value="t0"> <label for="ptr"> </label><br>
 </div>
 <div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
-  <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">GoPro</label>&nbsp;&nbsp;
+  <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">Vibrant</label>&nbsp;&nbsp;
   <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural†</label>&nbsp;&nbsp;
   <input type="radio" id="ptc3" name="ptc" value="cF"> <label for="ptc3">Flat</label>&nbsp;&nbsp;
   <input type="radio" id="ptc4" name="ptc" value="" checked> <label for="ptc4">not set</label>
@@ -536,8 +543,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.54
-updated: Mar 15, 2022
+## version 1.55
+updated: Aug 10, 2022
 
 <script>
 var clipcopy = "";
@@ -552,6 +559,9 @@ var even = 0;
 var qrcode;
 var i;
 
+var spot_x = 50
+var spot_y = 50;
+
 function makeQR() {	
 	if(once === true)
 	{
@@ -565,6 +575,7 @@ function makeQR() {
 	}
 	once = false;
 }
+
 
 function startTime() {	
     var today;
@@ -759,6 +770,23 @@ function startTime() {
 	
 	if(document.getElementById("sm") !== null)
 	{
+		document.getElementById("LCD").addEventListener('click', function (event) 
+		{
+			bounds=this.getBoundingClientRect();
+			
+			spot_x = Math.trunc((event.offsetX - 77)*100/270);
+			spot_y = Math.trunc((event.offsetY-50)*100/185);
+			
+			if(spot_x < 10) spot_x = 10;
+			if(spot_x > 90) spot_x = 90;
+			if(spot_y < 10) spot_y = 10;
+			if(spot_y > 90) spot_y = 90;
+			
+			//alert("x: " + x + " y: " + y);
+		});
+
+		document.getElementById("coordtext").innerHTML = spot_x + "%," + spot_y + "%";
+			
 		dset("spotMeter", document.getElementById("sm").checked);	
 	}
 		
@@ -980,14 +1008,17 @@ function startTime() {
 	{
 		if(document.getElementById("sm").checked === true)
 		{
-			var pos = dcmd("","sp");	
-			if(document.getElementById("sl").checked === true)
+			if(document.getElementById("smd").checked === true)
 			{
-				cmd = dcmd(cmd,"sl") + pos; //spot Lock
+				cmd = cmd + "oSM0"; 
+			}
+			else if(document.getElementById("sl").checked === true)
+			{
+				cmd = dcmd(cmd,"sl") + spot_x + "," + spot_y; //spot Lock
 			}
 			else
 			{
-				cmd = dcmd(cmd,"sm") + pos; //spotMeter
+				cmd = dcmd(cmd,"sm") + spot_x + "," + spot_y; //spotMeter
 			}
 		}
 	}
