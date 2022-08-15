@@ -93,7 +93,6 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 * **\<**time**CMD**  e.g. \<09:00!30R!Lother - if current time is less than 9am, wait 30mins and loop, otherwise load script called ‘other’.
 * **\>**time**CMD** e.g. !SM9\>22:00!R - do motion detection until 10PM, then stop
 * **\>**timeA**\<**timeB**cmdTrue~cmdFalse** e.g. mP>06:00<20:00!180SQ~!06:00S!R - If time is between 06:00 and 20:00 take a photo in 180 seconds else start a 6am, repeat.
-* **\>**timeA**\<**timeB**cmdTrue~cmdFalse** e.g. mP>06:00<20:00!180SQ~!06:00S!R - If time is between 06:00 and 20:00 take a photo in 180 seconds else start a 6am, repeat.
 * **\>**timeA**\<**timeB**cmdTrue+cmdTrue~cmdFalse+cmdFalse** e.g. mP>06:00<20:00"wait 3m"+!180SQ~"wait tomorrow"+!06:00S!R - The '+' characters allow you to extend the conditional command, like changing mode before the action.
 * **"any text"** e.g. mV"Video\nMode"!S!5E!4NmP"Photo\nMode"!S!5R - this will display "Video Mode" and "Photo Mode" when switch to those modes.  
 
@@ -106,7 +105,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.07 - 2022 March 13  
+## ver 1.08 - 2022 August 15  
 [BACK](..)
 
 
