@@ -58,7 +58,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **TCAL=milliseconds** <span style="color:steelblue">**NEW**</span> - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
 ![SPED.jpg](SPED.jpg)
 - **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.txt file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
-- **WAKE=2** - (HERO8/10 only) Same as WAKE=1, expect it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
+- **WAKE=2** - (HERO8/10 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 
 ### **HERO9/10 and Bones cameras** - Audio and MediaMod extensions
 
@@ -128,8 +128,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 		
-### ver 1.19
-updated: July 1, 2022<br>
+### ver 1.20
+updated: August 15, 2022<br>
 
 [Learn more](..) on QR Control
 
