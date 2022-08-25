@@ -382,10 +382,11 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="qc3" name="qc" value="" checked> <label for="qc3">not set </label>
   </div>
 <div id="opDM">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Default Mode:</b>&nbsp;&nbsp;
-  <input type="radio" id="dm1" name="dm" value="dV">  <label for="dm1">Last Used Video</label>&nbsp;&nbsp;
-  <input type="radio" id="dm2" name="dm" value="dP">  <label for="dm2">Last Used Photo</label>&nbsp;&nbsp;
-  <input type="radio" id="dm3" name="dm" value="dT">  <label for="dm3">Last Used Timelapse</label>&nbsp;&nbsp;
-  <input type="radio" id="dm4" name="dm" value="" checked> <label for="dm4">not set</label>
+  <input type="radio" id="dm1" name="dm" value="dL">  <label for="dm1">Last Used</label>&nbsp;&nbsp;
+  <input type="radio" id="dm2" name="dm" value="dV">  <label for="dm2">Video</label>&nbsp;&nbsp;
+  <input type="radio" id="dm3" name="dm" value="dP">  <label for="dm3">Photo</label>&nbsp;&nbsp;
+  <input type="radio" id="dm4" name="dm" value="dT">  <label for="dm4">Timelapse</label>&nbsp;&nbsp;
+  <input type="radio" id="dm5" name="dm" value="" checked> <label for="dm5">not set</label>
 </div>
 <div id="opBV">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Beep Volume:</b>&nbsp;&nbsp; 
   <input type="radio" id="bv1" name="bv" value="V0"> <label for="bv1">0% </label>&nbsp;&nbsp;
@@ -543,8 +544,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.55
-updated: Aug 10, 2022
+## version 1.56
+updated: Aug 25, 2022
 
 <script>
 var clipcopy = "";
@@ -1022,8 +1023,19 @@ function startTime() {
 			}
 		}
 	}
+
+	if(document.getElementById("pt").checked === true)
+	{
+		if(document.getElementById("ptr").checked === true)
+		{
+			cmd = cmd + "t0"; //protune reset
+		}
+		else
+		{
+			cmd = cmd + "t"; //protune
+		}
+	}
 	
-	cmd = dcmd(cmd,"pt"); //protune
 	cmd = dcmd(cmd,"eis"); //eis
 	cmd = dcmd(cmd,"hind"); //hindsight
 	cmd = dcmd(cmd,"dur"); //duration

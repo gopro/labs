@@ -118,14 +118,10 @@ Whether you scan a QR Code from a laptop screen or a mobile phone, the code shou
   <input type="radio" id="wb7" name="wb" value="" checked> <label for="wb7">not set</label>
  </div>
 <div id="ptISO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ISO Limit:</b>&nbsp;&nbsp;
-  <input type="radio" id="iso1" name="iso" value="i1" > <label for="iso1">100 </label>&nbsp;&nbsp;
-  <input type="radio" id="iso2" name="iso" value="i2" > <label for="iso2">200 </label>&nbsp;&nbsp;
-  <input type="radio" id="iso3" name="iso" value="i4" > <label for="iso3">400 </label>&nbsp;&nbsp;
-  <input type="radio" id="iso4" name="iso" value="i8" > <label for="iso4">800 </label>&nbsp;&nbsp;
-  <input type="radio" id="iso5" name="iso" value="i16"> <label for="iso5">1600 (def) </label>&nbsp;&nbsp;
-  <input type="radio" id="iso6" name="iso" value="i32"> <label for="iso6">3200 </label>&nbsp;&nbsp;
-  <input type="radio" id="iso7" name="iso" value="i64"> <label for="iso7">6400 </label>&nbsp;&nbsp;
-  <input type="radio" id="iso8" name="iso" value="i16" checked> <label for="iso8">not set</label>
+  <input type="radio" id="iso1" name="iso" value="i4" > <label for="iso1">400 </label>&nbsp;&nbsp;
+  <input type="radio" id="iso2" name="iso" value="i8" > <label for="iso2">800 </label>&nbsp;&nbsp;
+  <input type="radio" id="iso3" name="iso" value="i16"> <label for="iso3">1600 </label>&nbsp;&nbsp;
+  <input type="radio" id="iso4" name="iso" value="" checked> <label for="iso4">not set</label>
  </div>
 <div id="ptSHUT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Lock Shutter:</b>&nbsp;&nbsp;
   <input type="radio" id="shut1" name="shut" value="S360"> <label for="shut1">360&deg; </label>&nbsp;&nbsp;
@@ -266,7 +262,7 @@ Share this QR Code as a URL: <b id="urltext"></b>
 
 **Compatibility:** Labs enabled HERO5 Session
         
-## ver 1.32
+## ver 1.33
 [Learn more](..) on QR Control
 
 <script>
@@ -383,7 +379,7 @@ function startTime() {
 			dset("ptWBAL", true);
 			dset("ptISO",true);
 
-			if(document.getElementById('iso8').checked === true)
+			if(document.getElementById('iso4').checked === true)
 			{
 				dset("ptSHUT",false);
 				dset("ptEV",true);
@@ -488,7 +484,7 @@ function startTime() {
 			cmd = dcmd(cmd,"ptc"); //color
 			cmd = dcmd(cmd,"wb"); //wb
 
-			if(document.getElementById('iso8').checked === false)
+			if(document.getElementById('iso4').checked === false)
 			{
 				cmd = dcmd(cmd,"iso"); //iso
 				
