@@ -303,9 +303,14 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 <div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
   <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">Vibrant</label>&nbsp;&nbsp;
-  <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural†</label>&nbsp;&nbsp;
+  <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural<sup>10/11</sup></label>&nbsp;&nbsp;
   <input type="radio" id="ptc3" name="ptc" value="cF"> <label for="ptc3">Flat</label>&nbsp;&nbsp;
   <input type="radio" id="ptc4" name="ptc" value="" checked> <label for="ptc4">not set</label>
+</div>
+<div id="ptDEPTH">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Color Depth:</b>&nbsp;&nbsp;
+  <input type="radio" id="ptd1" name="ptd" value="d0"> <label for="ptd1">8-bit</label>&nbsp;&nbsp;
+  <input type="radio" id="ptd2" name="ptd" value="d1"> <label for="ptd2">10-bit</label>&nbsp;&nbsp;
+  <input type="radio" id="ptd3" name="ptd" value="" checked> <label for="ptd3">not set</label>
 </div>
 <div id="ptBITRATE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Bit rate:</b>&nbsp;&nbsp;
   <input type="radio" id="br1" name="br" value="b0"> <label for="br1">Standard</label>&nbsp;&nbsp;
@@ -641,6 +646,7 @@ function startTime() {
 	dset("settingsAUDT",false);
 	
 	dset("ptCOLOR", false);
+	dset("ptDEPTH", false);
 	dset("ptBITRATE", false);
 	dset("ptWBAL", false);
 	dset("ptISO",false);
@@ -848,6 +854,7 @@ function startTime() {
 		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
 		{
 			dset("ptCOLOR", true);
+			dset("ptDEPTH", true);
 			dset("ptWBAL", true);
 			dset("ptISO",true);
 			dset("ptIMIN",true);
@@ -1131,6 +1138,7 @@ function startTime() {
 		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
 		{
 			cmd = dcmd(cmd,"ptc"); //color
+			cmd = dcmd(cmd,"ptd"); //depth
 			cmd = dcmd(cmd,"br"); //bitrate
 			cmd = dcmd(cmd,"wb"); //wb
 
