@@ -10,9 +10,9 @@ Only the more recent releases are documented below. This a general list of Labs 
 - New Commands:
 - d1 or d10 - 10-bit Depth
 - d0 or d8 - 8-bit Depth
-- mST and dST - Star Trails 
-- mLP and dLP - Light Painting
-- mLT and dLT - Light Trials
+- mST - Star Trails 
+- mLP - Light Painting
+- mLT - Vechical Lights
 - mE - mode Easy
 - mPR - mode Pro
 - e4 - autoBoost
