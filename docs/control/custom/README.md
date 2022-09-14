@@ -308,8 +308,8 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="ptc4" name="ptc" value="" checked> <label for="ptc4">not set</label>
 </div>
 <div id="ptDEPTH">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Color Depth:</b>&nbsp;&nbsp;
-  <input type="radio" id="ptd1" name="ptd" value="d0"> <label for="ptd1">8-bit</label>&nbsp;&nbsp;
-  <input type="radio" id="ptd2" name="ptd" value="d1"> <label for="ptd2">10-bit</label>&nbsp;&nbsp;
+  <input type="radio" id="ptd1" name="ptd" value="d0"> <label for="ptd1">8-bit<sup>11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="ptd2" name="ptd" value="d1"> <label for="ptd2">10-bit<sup>11</sup></label>&nbsp;&nbsp;
   <input type="radio" id="ptd3" name="ptd" value="" checked> <label for="ptd3">not set</label>
 </div>
 <div id="ptBITRATE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Bit rate:</b>&nbsp;&nbsp;
