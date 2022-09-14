@@ -38,36 +38,36 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **QRDR=1** - detect QR Codes while recording.  Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
 <!-- - **BIAS=ev_value** - This is a crude EV compensation for modes that don’t have Protune settings, like Live-stream. e.g. oMBIAS=2.0 (do not make this permanent as it can impact all video modes.) Not supported on HERO10. -->
 	
-### **HERO8/9/10 only** - Overlay extensions
+### **HERO8/9/10/11 only** - Overlay extensions
 - **BRNT=0.5** - The overlays or burn-in display time in seconds. e.g. BRNT=0.016 will display the logo or text overlays only on the first frame (1/60th of a second.) 
 - **BRNX=x,y** - This is an upgrade to BRNO (Burn-ins Offset), allowing you to offset the burn-ins with X,Y pixel coordinates. e.g. BRNX=120,40
-- **CBAR=1** - enable a small 75% saturated color bars for video tools evaluation (HERO10 limitation: only works 4Kp30 or lower res/fps.)
-- **LBAR=1** - enable a small luma sweep for video tools evaluation  (HERO10 limitation: only works 4Kp30 or lower res/fps.)<br>
+- **CBAR=1** - enable a small 75% saturated color bars for video tools evaluation (HERO10/11 limitation: only works 4Kp30 or lower res/fps.)
+- **LBAR=1** - enable a small luma sweep for video tools evaluation  (HERO10/11 limitation: only works 4Kp30 or lower res/fps.)<br>
 ![EnableCBARLBAR.png](EnableCBARLBAR.png)
-- **LOGO="filename.png"** - overlay a small logo or icon on the encoded video. The logo must be stored on the SD card in the MISC folder. The alpha channel is supported. The PNG files must be less than 64kBytes with fewer than 64k pixels, e.g. Logo overlay of 400x100 works, but 400x200 will not. The smaller the better for demanding video modes like 4K60 and 1080p240.  (HERO10 limitation: only works 4Kp30 or lower res/fps.) 
+- **LOGO="filename.png"** - overlay a small logo or icon on the encoded video. The logo must be stored on the SD card in the MISC folder. The alpha channel is supported. The PNG files must be less than 64kBytes with fewer than 64k pixels, e.g. Logo overlay of 400x100 works, but 400x200 will not. The smaller the better for demanding video modes like 4K60 and 1080p240.  (HERO10/11 limitation: only works 4Kp30 or lower res/fps.) 
 <br>![EnableLOGO.png](EnableLOGO.png)
 <!-- - **SHMX=time** - SHMX is similar Maximum Shutter Angle (EXPT), except it applies to Photos. e.g. SHMX=1000 would set 1/1000th of a second as the longest shutter time. Use case: action photography in lower light. -->
 <!-- - **ENCR="password 4-16 characters"** - Enabled media encryption during capture. All new media will be encrypted, with no camera or desktop playback without decryption via your password first. This is not intended to have the highest level of security, but it is a good level of privacy when using a sufficiently long and complex password.  <span style="color:red">If the password is forgotten, there is no recovery of the data.</span> If the <span style="color:red">wrong password is used</span> to decrypt, the data is doubly encrypted, <span style="color:red">there is no recovery of the data.</span> Encrypted media has the first character of the GoPro style filename changed from 'G' to 'S'. e.g. A 4K60 MP4 will encrypted with a name like SX014423.MP4. The .THM, .LRV and .JPG files are also encrypted.-->
 <!-- - **DECR="password"** - Decrypt existing encrypted files. <span style="color:red">If the passwords do not match,</span> the data is doubly encrypted, <span style="color:red">there is no recovery of the data. **Be careful**.</span> With the correct password, all files are decrypted on camera. The onto camera process is slow, and the entire encrypted file must be read and rewritten, expect a similar processing time to the capture length. If low battery is an issue, provide the camera external power before decryption.-->
 
 
-### **HERO8/9/10 and Bones cameras** - Extensions latest Labs firmware
+### **HERO8/9/10/11 and Bones cameras** - Extensions latest Labs firmware
 
 - **HSTO=x** - minutes <span style="color:steelblue">**NEW**</span> - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
 - **SPED=x** - SD Card Speed Test. 'x' is the number of runs, each run is around 10 seconds.  Data rates should have minimums above 120Mb/s is you want to reliably capture the high bitrate modes. 
 - **TCAL=milliseconds** <span style="color:steelblue">**NEW**</span> - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
 ![SPED.jpg](SPED.jpg)
 - **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.txt file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
-- **WAKE=2** - (HERO8/10 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
+- **WAKE=2** - (HERO8/10/11 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 
-### **HERO9/10 and Bones cameras** - Audio and MediaMod extensions
+### **HERO9/10/11 and Bones cameras** - Audio and MediaMod extensions
 
 - **GAIN=dB** - Digitally gain up the audio. e.g. oMGAIN=12, increase audio by 12dB.  Will likely reduce the dynamic range.- 
 - **HDMI=0,1 or 2** - Media Mod users can change the output default from Gallery (0) to clean monitoring with no overlays (1), or monitoring live video with overlays (2).
 - **MUTE=mask** - Mute one or more channels of audio (microphones). For HERO9 cameras, there are four channels, although three microphones. The mask is binary mask for channels 4321. e.g. oMMUTE=15 mute all channels (15 = 1111B), oMMUTE=8 mute the fourth channel (8 = 1000B), oMMUTE=7 mutes the first 3 channels (7 = 0111B).
 - **SOLO=channel** - Use only one channel of audio. e.g. oMSOLO=1 use only channel 1, oMSOLO=4 only use the fourth channel.
 
-### **HERO10 and Bones cameras** - Advanced features
+### **HERO10/11 and Bones cameras** - Advanced features
 
 - **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
 - **BITH=3** - set the compression in Mb/s for the H264 encodes. Normally this would be for LRVs at around 4Mb/s. No guaranteed capture reliability using this feature. Input range in Mb/s from 1 to 100. 
@@ -83,7 +83,7 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
   
   
 
-### **HERO10 only** - Advanced features
+### **HERO10/11 only** - Advanced features
 
 - **IWFR=1** <span style="color:steelblue">**NEW**</span> - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. 
 - **PRXY=1** <span style="color:steelblue">**NEW**</span> - Store LRV files as Adobe Premiere Pro™ style proxy files. Normally a camera will encode and LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
@@ -128,8 +128,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 		
-### ver 1.20
-updated: August 15, 2022<br>
+### ver 1.21
+updated: Sept 14, 2022<br>
 
 [Learn more](..) on QR Control
 

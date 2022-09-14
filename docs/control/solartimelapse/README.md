@@ -40,9 +40,9 @@ Note: you will have to manually set the interval and resolution for the night la
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
-**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11 and MAX 
         
-## ver 1.07
+## ver 1.08
 [More features](..) for Labs enabled cameras
 
 <script>

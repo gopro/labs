@@ -14,62 +14,81 @@
 </style>
 
 Create a custom camera mode, and even start a capture all through QR Codes. This is the fastest way to access many of the new GoPro Labs' firmware features. 
-**†** indicates the control requires HERO10 Labs 1.20 or better. Many features of this page are also available as a mobile app.<br>
+<sup>10/11</sup> indicates the camera model required. Many features of this page are also available as a mobile app.<br>
 Install from: [![google play](../google-play-small.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-small.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-<b>Camera Mode:</b>&nbsp;&nbsp;<input type="radio" id="m19" name="mode" value="" checked> <label for="m19">not set</label><br>
+<b>Camera Mode:</b>&nbsp;&nbsp;
   <input type="radio" id="m1" name="mode" value="mV"> <label  for="m1">Video </label>&nbsp;&nbsp;
-  <input type="radio" id="m2" name="mode" value="mVP"> <label for="m2">Performance†</label>&nbsp;&nbsp;
-  <input type="radio" id="m3" name="mode" value="mVE"> <label for="m3">Endurance†</label>&nbsp;&nbsp;
-  <input type="radio" id="m4" name="mode" value="mVS"> <label for="m4">Stationary†</label><br>
-  **Presets †:** 
-  <input type="radio" id="m5" name="mode" value="mV0"> <label for="m5">Standard</label>&nbsp;&nbsp;
-  <input type="radio" id="m6" name="mode" value="mV1"> <label for="m6">Activity</label>&nbsp;&nbsp;
-  <input type="radio" id="m7" name="mode" value="mV2"> <label for="m7">Cinematic</label>&nbsp;&nbsp;
-  <input type="radio" id="m8" name="mode" value="mV4"> <label for="m8">SloMo</label>&nbsp;&nbsp;
-  <input type="radio" id="m9" name="mode" value="mV5"> <label for="m9">Basic</label><br>
-  **VideoTL-Modes:** 
+  <input type="radio" id="m2" name="mode" value="mVP"> <label for="m2">Performance<sup>10/11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m3" name="mode" value="mVE"> <label for="m3">Endurance<sup>10/11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m4" name="mode" value="mVS"> <label for="m4">Stationary<sup>10</sup></label><br>
+  &nbsp;&nbsp;**Presets:**
+  <input type="radio" id="m5" name="mode" value="mV0"> <label for="m5">Standard<sup>10/11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m6" name="mode" value="mV1"> <label for="m6">Activity<sup>10/11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m7" name="mode" value="mV2"> <label for="m7">Cinematic<sup>10/11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m8" name="mode" value="mV4"> <label for="m8">SloMo<sup>10/11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m9" name="mode" value="mV3"> <label for="m9">Full Frame<sup>11</sup></label><br>
+  &nbsp;&nbsp;**VideoTL-Modes:** 
   <input type="radio" id="m10" name="mode" value="mTW"> <label for="m10">TimeWarp</label>&nbsp;&nbsp;
   <input type="radio" id="m11" name="mode" value="mT"> <label  for="m11">Timelapse</label>&nbsp;&nbsp;
   <input type="radio" id="m12" name="mode" value="mNL"> <label for="m12">Nightlapse</label><br>
-  **Photo-Modes:** 
-  <input type="radio" id="m13" name="mode" value="mP">  <label for="m13">Photo</label>&nbsp;&nbsp;
-  <input type="radio" id="m14" name="mode" value="mPB"> <label for="m14">Burst</label>&nbsp;&nbsp;
-  <input type="radio" id="m15" name="mode" value="mL">  <label for="m15">Live Burst</label>&nbsp;&nbsp;
-  <input type="radio" id="m16" name="mode" value="mPN"> <label for="m16">Night</label>&nbsp;&nbsp;
-  <input type="radio" id="m17" name="mode" value="mTP"> <label for="m17">Timelapse</label>&nbsp;&nbsp;
-  <input type="radio" id="m18" name="mode" value="mNP"> <label for="m18">Nightlapse</label><br>
+  &nbsp;&nbsp;**Computational Modes:**
+  <input type="radio" id="m13" name="mode" value="mST"> <label for="m13">Star Trails<sup>11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m14" name="mode" value="mLP"> <label for="m14">Light Painting<sup>11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="m15" name="mode" value="mLT"> <label for="m15">Vechical Lights<sup>11</sup></label><br>
+  &nbsp;&nbsp;**Photo-Modes:** 
+  <input type="radio" id="m16" name="mode" value="mP">  <label for="m16">Photo</label>&nbsp;&nbsp;
+  <input type="radio" id="m17" name="mode" value="mPB"> <label for="m17">Burst</label>&nbsp;&nbsp;
+  <input type="radio" id="m18" name="mode" value="mL">  <label for="m18">Live Burst</label>&nbsp;&nbsp;
+  <input type="radio" id="m19" name="mode" value="mPN"> <label for="m19">Night</label>&nbsp;&nbsp;
+  <input type="radio" id="m20" name="mode" value="mTP"> <label for="m20">Timelapse</label>&nbsp;&nbsp;
+  <input type="radio" id="m21" name="mode" value="mNP"> <label for="m21">Nightlapse</label>&nbsp;&nbsp;
+  <input type="radio" id="m22" name="mode" value="" checked> <label for="m22">not set</label>&nbsp;&nbsp;<br>
 
 <div id="noteMODE" style="font-size:13px;">
 <b>Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.<br><br>
 </div>
 
 <div id="settingsRES">
-<b>Video Resolution:</b>&nbsp;&nbsp;<input type="radio" id="r10" name="res" value="" checked> <label for="r10">not set</label><br>
-  <input type="radio" id="r1" name="res" value="r1080"> <label for="r1">1080p </label>&nbsp;&nbsp;
-  <input type="radio" id="r2" name="res" value="r1440"> <label for="r2">1440p </label>&nbsp;&nbsp;
-  <input type="radio" id="r3" name="res" value="r27"  > <label for="r3">2.7k  </label>&nbsp;&nbsp;
-  <input type="radio" id="r4" name="res" value="r27T" > <label for="r4">2.7k 4x3 </label>&nbsp;&nbsp;
-  <input type="radio" id="r5" name="res" value="r3"   > <label for="r5">3k 360°</label>&nbsp;&nbsp;
-  <input type="radio" id="r6" name="res" value="r4"   > <label for="r6">4k </label>&nbsp;&nbsp;
-  <input type="radio" id="r7" name="res" value="r4T"  > <label for="r7">4k 4x3 </label>&nbsp;&nbsp;
-  <input type="radio" id="r8" name="res" value="r5"   > <label for="r8">5.3k </label>&nbsp;&nbsp;
-  <input type="radio" id="r9" name="res" value="r5T"  > <label for="r9">5k 4x3† </label><br><br>
+<b>Video Resolution:</b>&nbsp;&nbsp;
+  <input type="radio" id="r1"  name="res" value="r1080"> <label for="r1">1080p </label>&nbsp;&nbsp;
+  <input type="radio" id="r2"  name="res" value="r1440"> <label for="r2">1440p </label>&nbsp;&nbsp;
+  <input type="radio" id="r3"  name="res" value="r27"  > <label for="r3">2.7k  </label>&nbsp;&nbsp;
+  <input type="radio" id="r4"  name="res" value="r27T" > <label for="r4">2.7k 4:3 </label>&nbsp;&nbsp;
+  <input type="radio" id="r5"  name="res" value="r3"   > <label for="r5">3k 360°</label>&nbsp;&nbsp;<br>
+  <input type="radio" id="r6"  name="res" value="r4"   > <label for="r6">4k </label>&nbsp;&nbsp;
+  <input type="radio" id="r7"  name="res" value="r4T"  > <label for="r7">4k 4:3 </label>&nbsp;&nbsp;
+  <input type="radio" id="r8"  name="res" value="r4X"  > <label for="r8">4k 8:7<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="r9"  name="res" value="r5"   > <label for="r9">5k </label>
+  <input type="radio" id="r10" name="res" value="r5T"  > <label for="r10">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="r11" name="res" value="r5X"  > <label for="r11">5k 8:7<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="r12" name="res" value="" checked> <label for="r12">not set</label><br><br>
 </div>
 
 <div id="settingsRESTLV">
 <b>Video Resolution:</b>&nbsp;&nbsp;
   <input type="radio" id="rt1" name="restlv" value="r1080"> <label for="rt1">1080p </label>&nbsp;&nbsp;
   <input type="radio" id="rt2" name="restlv" value="r27" >  <label for="rt2">2.7k </label>&nbsp;&nbsp;
-  <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4x3 </label>&nbsp;&nbsp;
+  <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4:3 </label>&nbsp;&nbsp;
   <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
-  <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4x3† </label>&nbsp;&nbsp;
-  <input type="radio" id="rt6" name="restlv" value="" checked> <label for="rt6">not set</label><br><br>
+  <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4:3<sup>10</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="rt6" name="restlv" value="r5"   > <label for="rt4">5k<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="rt7" name="restlv" value="r5T"  > <label for="rt5">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="rt8" name="restlv" value="" checked> <label for="rt8">not set</label><br><br>
+ </div>
+ 
+<div id="settingsCOMPTLV">
+<b>Video Resolution:</b>&nbsp;&nbsp;
+  <input type="radio" id="crt1" name="comptlv" value="r4"   > <label for="crt1">4k </label>&nbsp;&nbsp;
+  <input type="radio" id="crt2" name="comptlv" value="r4T"  > <label for="crt2">4k 4:3 </label>&nbsp;&nbsp;
+  <input type="radio" id="crt3" name="comptlv" value="r5"   > <label for="crt3">5k </label>&nbsp;&nbsp;
+  <input type="radio" id="crt4" name="comptlv" value="r5T"  > <label for="crt4">5k 4:3 </label>&nbsp;&nbsp;
+  <input type="radio" id="crt5" name="comptlv" value="" checked> <label for="crt5">not set</label><br><br>
  </div>
  
 <div id="settingsFPS">
-<b>FPS Video:</b>&nbsp;&nbsp;<input type="radio" id="p10" name="fps" value="" checked> <label for="p10">not set</label><br>
+<b>FPS Video:</b>&nbsp;&nbsp;
   <input type="radio" id="p1" name="fps" value="p24">  <label for="p1">24 </label>&nbsp;&nbsp;
   <input type="radio" id="p2" name="fps" value="p25">  <label for="p2">25 </label>&nbsp;&nbsp;
   <input type="radio" id="p3" name="fps" value="p30">  <label for="p3">30 </label>&nbsp;&nbsp;
@@ -78,7 +97,8 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="p6" name="fps" value="p100"> <label for="p6">100 </label>&nbsp;&nbsp;
   <input type="radio" id="p7" name="fps" value="p120"> <label for="p7">120 </label>&nbsp;&nbsp;
   <input type="radio" id="p8" name="fps" value="p200"> <label for="p8">200 </label>&nbsp;&nbsp;
-  <input type="radio" id="p9" name="fps" value="p240"> <label for="p9">240 </label><br><br>
+  <input type="radio" id="p9" name="fps" value="p240"> <label for="p9">240 </label>&nbsp;&nbsp;
+  <input type="radio" id="p10" name="fps" value="" checked> <label for="p10">not set</label><br><br>
 </div>
 
 <div id="settingsFOV">
@@ -88,11 +108,12 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="f2" name="fov" value="fN"> <label for="f2">Narrow </label>&nbsp;&nbsp;
   <input type="radio" id="f3" name="fov" value="fL"> <label for="f3">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="f4" name="fov" value="fS"> <label for="f4">Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="f5" name="fov" value="fH"> <label for="f5">Linear+HL </label><br>
-  Max Lens Mod:  <input type="radio" id="f6" name="fov" value="oX1fW"> <label for="f6">Enable Wide </label>&nbsp;&nbsp;
-  <input type="radio" id="f7" name="fov" value="oX1fX"> <label for="f7">Enable Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="f8" name="fov" value="oX0"> <label for="f8">Disable MLM</label>&nbsp;&nbsp;
-  <input type="radio" id="f9" name="fov" value="" checked> <label for="f9">not set</label><br><br>
+  <input type="radio" id="f5" name="fov" value="fH"> <label for="f5">Linear+HL </label>&nbsp;&nbsp;
+  <input type="radio" id="f6" name="fov" value="fV"> <label for="f6">Hyperview<sup>11</sup> </label><br>
+  Max Lens Mod:  <input type="radio" id="f7" name="fov" value="oX1fW"> <label for="f7">Enable Wide </label>&nbsp;&nbsp;
+  <input type="radio" id="f8" name="fov" value="oX1fX"> <label for="f8">Enable Superview </label>&nbsp;&nbsp;
+  <input type="radio" id="f9" name="fov" value="oX0"> <label for="f9">Disable MLM</label>&nbsp;&nbsp;
+  <input type="radio" id="f10" name="fov" value="" checked> <label for="f10">not set</label><br><br>
  </div>
  
 <div id="settingsPFOV">
@@ -212,19 +233,20 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 	<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">On</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis3" name="eis" value="e2"> <label for="eis3">High</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis4" name="eis" value="e3"> <label for="eis4">Boost</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="eis5" name="eis" value="" checked> <label for="eis5">not set</label><br><br>
+	<input type="radio" id="eis5" name="eis" value="e4"> <label for="eis5">Auto<sup>11</sup></label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis6" name="eis" value="" checked> <label for="eis6">not set</label><br><br>
 </div>
 
 <div id="settingsHindsight">
-<b>Hindsight (HERO9/10):</b>&nbsp;&nbsp;
+<b>Hindsight<sup>9/10/11</sup>:</b>&nbsp;&nbsp;
 	<input type="radio" id="hind1" name="hind" value="hS0"> <label for="hind1">Off</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind2" name="hind" value="hS1"> <label for="hind2">15s</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind3" name="hind" value="hS2"> <label for="hind3">30s</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind4" name="hind" value="" checked> <label for="hind4">not set</label><br><br>
 </div>
-					
+
 <div id="settingsDuration">
-<b>Duration (HERO9/10):</b>&nbsp;&nbsp;
+<b>Duration<sup>9/10/11</sup>:</b>&nbsp;&nbsp;
 	<input type="radio" id="dur1" name="dur" value="dR0"> <label for="dur1">Off</label>&nbsp;&nbsp;
 	<input type="radio" id="dur2" name="dur" value="dR15"> <label for="dur2">15s</label>&nbsp;&nbsp;
 	<input type="radio" id="dur3" name="dur" value="dR30"> <label for="dur3">30s</label>&nbsp;&nbsp;
@@ -252,7 +274,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">On</label>&nbsp;&nbsp;
   <input type="radio" id="audt4" name="audt" value="" checked> <label for="audt4"> not set</label><br><br>
 </div>
-<input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering (H10) † </label><br>
+<input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering<sup>10/11</sup></label><br>
 <div id="spotMeter">
    <div id="LCD">
       <img src="https://gopro.github.io/labs/control/custom/RearCamera.png" alt="LCD"> 
@@ -288,7 +310,11 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 <div id="ptBITRATE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Bit rate:</b>&nbsp;&nbsp;
   <input type="radio" id="br1" name="br" value="b0"> <label for="br1">Standard</label>&nbsp;&nbsp;
   <input type="radio" id="br2" name="br" value="b1"> <label for="br2">High</label>&nbsp;&nbsp;
-  <input type="radio" id="br3" name="br" value="" checked> <label for="br3">not set</label>
+  <input type="radio" id="br3" name="br" value="" checked> <label for="br3">not set</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Depth:</b>&nbsp;&nbsp;<input type="radio" id="dp1" name="dp" value="d0"> <label for="dp1">8-bit<sup>11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="dp2" name="dp" value="d1"> <label for="dp2">10-bit<sup>11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="dp3" name="dp" value="" checked> <label for="dp3">not set</label>
+  
 </div>
 <div id="ptWBAL">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>White Balance:</b>&nbsp;&nbsp;
   <input type="radio" id="wb1" name="wb" value="wA" checked> <label for="wb1">Auto </label>&nbsp;&nbsp;
@@ -538,14 +564,14 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 <br>
 <button onclick="myReloadFunction()">Reset page</button>
 
-**Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9, HERO10, MAX and Bones 
+**Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9, HERO10, HERO11, MAX and Bones 
 
 **HERO10 Note:** LCD must be on for the QR Code scanning to be active.<br>
         
 [More features](..) for Labs enabled cameras
 
 ## version 1.56
-updated: Aug 25, 2022
+updated: Sep 14, 2022
 
 <script>
 var clipcopy = "";
@@ -599,6 +625,7 @@ function startTime() {
 	dset("settingsTWFOV", false);
 	dset("settingsZoom", false);
 	dset("settingsRESTLV", false);
+	dset("settingsCOMPTLV", false);
 	dset("settingsVideo", false);
 	dset("settingsHindsight", false);
 	dset("settingsDuration", false);
@@ -648,7 +675,7 @@ function startTime() {
 	var checkedmode = 0;
 	var x;
 	
-	for (i = 1; i < 19; i++) { 
+	for (i = 1; i < 22; i++) { 
 		var mode = "m"+i;
 		x = document.getElementById(mode).checked;
 		if( x === true)
@@ -722,33 +749,55 @@ function startTime() {
 		dset("settingsTLVFOV", true);
 		dset("noteMODE", true);
 		break;
+		
+		
+		case 13: //Stars
+		dset("settingsTimelapse", true);	
+		dset("settingsDuration", true);	
+		dset("settingsCOMPTLV", true);
+		dset("settingsPT", true);
+		break;	
+		
+		case 14: //Painting
+		dset("settingsTimelapse", true);	
+		dset("settingsDuration", true);	
+		dset("settingsCOMPTLV", true);
+		dset("settingsPT", true);
+		break;		
+		
+		case 15: //Cars
+		dset("settingsTimelapse", true);	
+		dset("settingsDuration", true);	
+		dset("settingsCOMPTLV", true);
+		dset("settingsPT", true);
+		break;		
 	
-		case 13: //Photo
+		case 16: //Photo
 		dset("settingsPT", true);
 		dset("settingsPFOV", true);
 		dset("settingsPhotoRAW", true);
 		break;
 		
-		case 14: //Burst
+		case 17: //Burst
 		dset("settingsBurst", true);
 		dset("settingsPT", true);
 		dset("settingsTLVFOV", true);
 		dset("settingsPhotoRAW", true);
 		break;
 		
-		case 15: //Burst Live
+		case 18: //Burst Live
 		dset("settingsPT", true);
 		dset("settingsAUDT",true);
 		break;
 		
-		case 16: //Night
+		case 19: //Night
 		dset("settingsNightexposure", true);
 		dset("settingsPT", true);
 		dset("settingsTLVFOV", true);
 		dset("settingsPhotoRAW", true);
 		break;
 		
-		case 17: //TLP
+		case 20: //TLP
 		dset("settingsTimelapse", true);	
 		dset("settingsPT", true);
 		dset("settingsTLVFOV", true);
@@ -757,7 +806,7 @@ function startTime() {
 		dset("noteMODE", true);
 		break;
 		
-		case 18: //NLP
+		case 21: //NLP
 		dset("settingsNightlapse", true);	
 		dset("settingsNightexposure", true);	
 		dset("settingsPT", true);
@@ -879,30 +928,33 @@ function startTime() {
 			cmd = dcmd(cmd,"fpsnight");
 			cmd = dcmd(cmd,"nightexp");
 			break;
-		case 14: //Burst 
+		case 17: //Burst 
 			cmd = dcmd(cmd,"b");
 			break;	
-		case 15: //Live Burst 
+		case 18: //Live Burst 
 			break;	
-		case 16: //Night
+		case 19: //Night
 			cmd = dcmd(cmd,"nightexp");
 			break;
-		case 17: //TLP
+		case 20: //TLP
 			cmd = dcmd(cmd,"fpslapse");
 			break;
-		case 18: //NLP	
+		case 21: //NLP	
 			cmd = dcmd(cmd,"fpsnight");
 			cmd = dcmd(cmd,"nightexp");
 			break;
 	}
 	
-	if(checkedmode <= 12)
+	if(checkedmode <= 15)
 	{
 		if(checkedmode == 10 || checkedmode == 11 || checkedmode == 12) // TLV/TWarp Res/NLV
 		{
 			cmd = dcmd(cmd, "rt");
 		}
-		else
+		else if(checkedmode == 13 || checkedmode == 14 || checkedmode == 15) // COMP TLV
+		{
+			cmd = dcmd(cmd, "crt");
+		}
 		{
 			cmd = dcmd(cmd,"r"); //RES
 		}
@@ -933,7 +985,7 @@ function startTime() {
 				cmd = cmd + zoom; //fov
 			}
 		}
-		else if(checkedmode == 13) //Photo
+		else if(checkedmode == 16) //Photo
 		{
 			cmd = dcmd(cmd,"pf"); //fov		
 		
@@ -950,7 +1002,7 @@ function startTime() {
 				cmd = cmd + zoom; //fov
 			}
 		}
-		else if(checkedmode == 15) //Live Burst
+		else if(checkedmode == 17) //Live Burst
 		{
 			dset("settingsZoom", true);
 					
@@ -1002,7 +1054,7 @@ function startTime() {
 		}
 	}
 	
-	if(checkedmode >= 13 && checkedmode <= 18) //RAW Photo modes
+	if(checkedmode >= 16 && checkedmode <= 21) //RAW Photo modes
 		cmd = dcmd(cmd,"raw"); //raw photo control
 		
 	if(document.getElementById("sm") !== null)

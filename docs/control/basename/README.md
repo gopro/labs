@@ -20,7 +20,7 @@ Your GoPro will typically name your files something like GOPR3606.JPG and GH0136
 Your base filename here: <input type="text" id="addname" value=""> (only a-z, A-Z, 0-9, and +-_(),.)<br> 
 Up to eight characters. e.g. "CAMERA06"<br> 
 
-**HERO10 - Only:** You can added date and time to the filename (Note: make sure your clock is set correctly).  The date and time shortcuts must be within the **[ ]** characters, these are the wildcards:
+**HERO10/11 - Only:** You can added date and time to the filename (Note: make sure your clock is set correctly).  The date and time shortcuts must be within the **[ ]** characters, these are the wildcards:
  - **yyyy** - Year in format: 2021
  - **yy** - Year in to digit format: 21
  - **mm** - Month
@@ -31,7 +31,7 @@ Up to eight characters. e.g. "CAMERA06"<br>
  
 Formatting examples: 
  - CamA-[yyyymmddHHMMSS]-
- - [yy-mm-dd_HH.MM.SS]-HERO10-
+ - [yy-mm-dd_HH.MM.SS]-
 
 Note: Unfortunately filenames can't contain common date/time delimiters, only +-_(),. allowed.
 
@@ -81,10 +81,10 @@ So you have a corrupted/unclosed GoPro file. You crashed your drone, and the bat
 10. Once the camera completes the file repair process, you can eject the SD Card and backup and play the now repaired file
 
 
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10, MAX and BONES 
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-## ver 1.15
-updated: June 5, 2022
+## ver 1.16
+updated: Sept 14, 2022
 
 [More features](..) for Labs enabled cameras
 

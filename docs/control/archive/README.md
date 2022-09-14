@@ -30,13 +30,13 @@ QR Command: <b id="qrtext">command</b><br>
 
 Uncheck the above Archive mode checkbox, and scan the new code while the camera is recording.
 		
-Compatibility: Labs enabled HERO7, HERO8, HERO9, HERO10 and MAX 
+Compatibility: Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11 and MAX 
         
 ## Why is it Called Archive Mode?
 
 The request was from documentary filmmakers handing out cameras to capture protest marches. When this idea was originally pitched, it was for capturing potentially historic moments, as an archive to document the events. The full QR Code becomes **!MARCH**, which has a nice ring to it, as the preceeding **!M** is required to store the metadata that enables the mode.
 		
-## ver 1.01
+## ver 1.02
 [Learn more](..) on QR Control
 
 <script>

@@ -31,11 +31,11 @@ GoPro cameras normally split long recordings into 4GB segments, we call these ch
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
-**Warning:** Larger chapters may not work everywhere in the ecosystem, even **the HERO8 an HERO9 cameras will not playback or USB transfer files larger than 4GB** in this current firmware. Yet the files are valid and accessible using a SD Card reader, and have been tested to work in many tools. So this one of the more experimental features, so please test before committing to this new workflow.  Support for HERO8, HERO9 and MAX cameras.
+**Warning:** Larger chapters may not work everywhere in the ecosystem, even **the HERO8 an HERO9 cameras will not playback or USB transfer files larger than 4GB** in this current firmware. Yet the files are valid and accessible using a SD Card reader, and have been tested to work in many tools. So this one of the more experimental features, so please test before committing to this new workflow.  Support for HERO8, HERO9, HERO10 and MAX cameras.
 
 **Known Issue:** Larger chapters will not be enabled when using QuikCapture. QuikCapture starts recording before the Labs service starts, resulting in perfectly fine, but only 4GB chapters. 
 
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10, MAX and BONES 
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10, MAX and BONES (Standard on HERO11)
 
 ## Optional: Joining Chapters After Capture
  
@@ -71,8 +71,8 @@ The resulting final.mp4 will be a complete GoPro file will all required metadata
 The resulting final.360 will be a complete GoPro file will all required metadata.
 
  
-## ver 1.10
-updated: July 21, 2022
+## ver 1.11
+updated: Sept 14, 2022
 
 [More features](..) for Labs enabled cameras
 

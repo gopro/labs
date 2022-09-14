@@ -24,9 +24,9 @@
 * **!**time**NQ** - No Action until at approximately **time**.
 * **!**time**O** - Off, shutdown the camera.
 * **!**time**OR** - shutdown and restart the camera.
-* **!**time**U** - Attempt and network contention and Upload **HERO9/10 only**.
-* **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored **HERO8/9/10 only**.
-* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local fine, requires a previously successful **!W** command **HERO8/9/10 only**
+* **!**time**U** - Attempt and network contention and Upload <sup>9/10/11</sup>.
+* **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
+* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local fine, requires a previously successful **!W** command <sup>8/9/10/11</sup>
 
 ## Capture Triggers
 
@@ -78,10 +78,10 @@ Any four character code can be used for store other information. You can also st
 ## Reset Actions ##
 
 * **!RESET** - erase all your permanent metadata (anything that used !Mxxxx command.)  (requires user confirmation.)
-* **!FORMAT** - (HERO10 only) for SD formatting via QR Code (requires user confirmation.)
-* **!FRESET** - (HERO10 only) Factory reset, erase everything, except QR code metadata (requires user confirmation.)
-* **!PRESET** - (HERO10 only) Presets reset, restore the default presets (requires user confirmation.)
-* **!WRESET** - (HERO10 only) WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
+* **!FORMAT**<sup>10/11</sup> - for SD formatting via QR Code (requires user confirmation.)
+* **!FRESET**<sup>10/11</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
+* **!PRESET**<sup>10/11</sup> - Presets reset, restore the default presets (requires user confirmation.)
+* **!WRESET**<sup>10/11</sup> - WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
 
 ## Scripting
 
@@ -105,7 +105,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.08 - 2022 August 15  
+## ver 1.00 - 2022 Sept 14  
 [BACK](..)
 
 

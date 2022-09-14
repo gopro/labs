@@ -43,11 +43,11 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Warning:** When this feature is enabled, the lack of LRVs will mean the Quik App will not be able to preview video on the camera. However, this will not prevent the full resolution transfer, or on camera playback.
 
-**Compatibility:** Labs enabled HERO10 
+**Compatibility:** Labs enabled HERO10/11
 
  
-## ver 1.00
-updated: Apr 8, 2022
+## ver 1.01
+updated: Sept 14, 2022
 
 [More features](..) for Labs enabled cameras
 

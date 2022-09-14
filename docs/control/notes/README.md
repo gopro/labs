@@ -2,6 +2,25 @@
 
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
+
+## HERO11 Black 
+
+### 1.10.70 - Sept 14, 2022
+- All the features and fixes of HERO10 Labs 1.46.76
+- New Commands:
+- d1 or d10 - 10-bit Depth
+- d0 or d8 - 8-bit Depth
+- mST and dST - Star Trails 
+- mLP and dLP - Light Painting
+- mLT and dLT - Light Trials
+- mE - mode Easy
+- mPR - mode Pro
+- e4 - autoBoost
+- r5X - 5K 8:7 (r5T - 5K 4:3, r4 - 5K 16:9)
+- r4X - 4K 8:7
+- i0 - ISO Auto, other i1 thru i64 for ISO Max 100 thru 6400 
+- Bug Fix for metadata in video overlays 
+
 ## HERO10 Black 
 
 ### 1.46.70 - July, 2022
@@ -140,7 +159,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-### ver 1.03
-updated: July 22, 2022
+### ver 1.04
+updated: Sept 14, 2022
 
 [Learn more](..) on QR Control

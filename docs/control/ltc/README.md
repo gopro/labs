@@ -17,8 +17,8 @@ If you don't wish to have a dedicated timecode device attached to your GoPro, yo
 ![tcremoved.jpg](tcremoved.jpg)
 
 
-**Compatibility:** Labs enabled HERO9 and HERO10 only 
+**Compatibility:** Labs enabled HERO9, HERO10 and HERO11 only 
 
         
-## ver 1.01
+## ver 1.02
 [Learn more](..) on QR Control

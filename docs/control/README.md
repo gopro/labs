@@ -24,29 +24,29 @@ and as a mobile app:<br>
 ### Capture Triggers 
 * Use the image sensor for [**Motion Detection**](./motion), capturing only scenes with motion
 * Capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
-* **HERO7/8/9/10/MAX** - Start capture only when traveling fast with [**GPS Speed Triggers**](./speedtrigger) 
-* **HERO7/8/9/10/MAX** - Use the [**USB Power Trigger**](./usb) to start and stop the camera (pseudo dash-cam mode)
-* **HERO9/10/Bones** - Start capture using [**Sound Pressure Level Trigger**](./spltrigger)
+* **HERO7-11/MAX** - Start capture only when traveling fast with [**GPS Speed Triggers**](./speedtrigger) 
+* **HERO7-11/MAX** - Use the [**USB Power Trigger**](./usb) to start and stop the camera (pseudo dash-cam mode)
+* **HERO9-11/Bones** - Start capture using [**Sound Pressure Level Trigger**](./spltrigger)
 
 ### Extended Time-lapse Features 
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
 * Use your GoPro to time-lapse [**Construction Projects**](./construction)
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* **HERO9/10/Bones** - Daily Time-lapse with [**auto upload**](./dailytl) (GoPro Subscription required)
+* **HERO9-11/Bones** - Daily Time-lapse with [**auto upload**](./dailytl) (GoPro Subscription required)
 
 ### Video Alteration Features
-* **HERO8/9/10/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
-* **HERO8/9/10/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
-* **HERO8/9/10** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
+* **HERO8-11/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
+* **HERO8-11/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
+* **HERO8-11** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
 ### Miscellaneous Features
-* **HERO7/8/9/10/MAX** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
-* **HERO8/9/10/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
-* **HERO9/10** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
-* **HERO8/9/10/MAX/Bones** - Experiment with larger chapter sizes with [**12 GB Chapters**](./chapters)
-* **HERO8/9/10/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
-* **HERO9/10** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
-* **HERO10** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
+* **HERO7-11/MAX** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
+* **HERO8-11/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
+* **HERO9-11** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
+* **HERO8-10/MAX/Bones** - Enable larger chapter sizes [**12 GB Chapters**](./chapters). Standard on HERO11
+* **HERO8-11/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
+* **HERO9-11** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
+* **HERO10-11** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
 
 ### Metadata Feature and Extraction
 * <span style="color:steelblue">**UPDATED**</span> Many more [**extensions**](./extensions) via QR Code
@@ -67,8 +67,8 @@ An incomplete set of [**Release Notes**](./notes)
 ## The Commands Under The Hood 
 Technical information on the [**Labs command language**](./tech)
 
-### ver 1.28
-updated: July 7, 2022
+### ver 1.30
+updated: Sept 14 7, 2022
 
 
 <script>

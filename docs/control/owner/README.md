@@ -36,9 +36,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 Note: For additional lines use \n within your text. 
 e.g. Joe Bloggs\ncall (555)555-5555 
 
-**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10 and MAX 
+**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11 and MAX 
         
-## ver 1.08
+## ver 1.09
 [More features](..) for Labs enabled cameras
 
 <script>

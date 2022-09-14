@@ -25,11 +25,15 @@ Mode commands:
  * **mPN** - mode Photo Night
  * **mNL** - mode Night-Lapse Video (*)
  * **mNP** - mode Night-Lapse Photo (*)
- * **mL** - mode Live-Burst Photo (HERO10 only)
+ * **mL** - mode Live-Burst Photo (HERO10/11 only)
+ * **mST** - mode Star Trails (HERO11 only)
+ * **mLP** - mode Light Painting (HERO11 only)
+ * **mLT** - mode Vechical Lights (HERO11 only)
  
 <b>* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
  
 Defaults modes (on power up): 
+ * **dL** - last used mode
  * **dV** - last used Video mode
  * **dP** - last used Photo mode
  * **dT** - last used Timelapse mode
@@ -38,8 +42,9 @@ Lens - FOV:
  * **fN** - Narrow
  * **fM** - Medium
  * **fW** - Wide
- * **fX** - SuperMax Wide (H9 with Max Lens Mode)
- * **fH** - Horizonal Level + Linear (H9)
+ * **fX** - SuperMax Wide (Max Lens Mod)
+ * **fH** - Horizonal Level + Linear (H9/10/11)
+ * **fV** - HyperView (H11)
   
 Resolutions: 
  * **r1080** - 1920x1080
@@ -47,10 +52,13 @@ Resolutions:
  * **r27** - for 2.7K 16x9
  * **r27T** - for 2.7K Tall the 4x3 mode
  * **r3** - 3K 360° for GoPro MAX
- * **r4** - for 4k 16x9
- * **r4T** - for 4k Tall the 4x3 mode
+ * **r4** - 4k 16x9
+ * **r4T** - 4k Tall, the 4x3 mode
+ * **r4X** - 4k Extreme, the 8x7 mode (H11)
  * **r5** - 5k for HERO5 and 5K 360° for GoPro MAX
-
+ * **r5T** - 5k Tall, the 4x3 mode
+ * **r5X** - 5k Extreme, the 8x7 mode (H11)
+ 
 Frame rates: 
  * **p24** - 24 fps
  * **p25** - 25 fps
@@ -75,7 +83,8 @@ NightLapse frame rates:
 
 Color: 
  * **cF** - Color Flat
- * **cG** - Color GoPro
+ * **cG** - Color Vibrant
+ * **cN** - Color Natural (H10/11)
 
 White Balance: 
  * **wA** - Auto White Balance
@@ -135,7 +144,7 @@ GoPro MAX Shooting Modes
  * **mF** - mode monitor Front lens
  * **mR** - mode monitor Rear lens
 
-GoPro HERO9/10 Front Screen controls
+GoPro HERO9/10/11 Front Screen controls
  * **oF0 or oFO** - turn the front LCD off
  * **oFU** - UI interface mode info only
  * **oFF** - Full image (image is letterboxed)
@@ -147,19 +156,17 @@ GoPro HERO9/10 Front Screen controls
  * **oF3** - turn off after 3 minutes
  * **oF5** - turn off after 5 minutes
 					
-GoPro HERO9/10 Max Lens Mod Controls
+GoPro HERO9/10/11 Max Lens Mod Controls
  * **oX0** - Lens Mod is not attached
  * **oX1** - Lens Mod is attached
 
 Feature with off and on commands:
-
-- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost
+- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost, **e4** Auto (H11)
 - GPS Active: **g0** - off, **g** or **g1** - on
 - Quick Capture: **q0** - off, **q** or **q1** - on
 - Voice Commands: **v0** - off, **v** or **v1** - on
 
-Same further option (‘o’) commands
-
+Same further option (‘o’) commands:
 - Camera Auto Off - **oC** - Never, **oC5** - 5min ... **oC30** - 30min
 - Screen Brightness - **oB0** … **oB9** - (100%)
 - Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
@@ -168,6 +175,9 @@ Same further option (‘o’) commands
 - LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
 - Beep Volume - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
 
+HERO11 UX modes:
+- mE - mode Easy
+- mPR - mode Pro
 
 # Experiment Here
 ## Typing-in Your Custom Mode:
@@ -176,8 +186,8 @@ Same further option (‘o’) commands
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.12 
-updated: Apr 13, 2022
+## ver 1.14
+updated: Sept 14, 2022
 
 [Learn more](..) on QR Control
 

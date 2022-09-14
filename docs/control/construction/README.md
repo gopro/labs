@@ -52,10 +52,10 @@ As stated above, most Lithium Ion USB power-banks will shut-off early, even when
 
 The second option is a USB keep alive device that prevents your USB power bank from shutting down.  Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
-**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, MAX and BONES 
+**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-## ver 1.16
-updated: Apr 12, 2022
+## ver 1.17
+updated: Sept 14, 2022
 
 [More features](..) for Labs enabled cameras
 
