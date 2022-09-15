@@ -1,4 +1,4 @@
-# GoPro Labs Command Laugage
+# GoPro Labs Command Language
 
 On QR Control Instructions page, one of the first demo QR Code was surfing example, using 1440p and 60fps with some custom Protune settings. The QR Code used this command string: **mVr1440p60tw55x.5**. While some of that seems like 1440p60, here is a full breakdown of how that command works:
 
