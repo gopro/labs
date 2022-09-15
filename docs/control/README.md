@@ -52,14 +52,15 @@ and as a mobile app:<br>
 * <span style="color:steelblue">**UPDATED**</span> Many more [**extensions**](./extensions) via QR Code
 * **All GPMF Enabled Cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 
-### Features Phasing Out
-If we don't see feedback on features it may not get ported to the next camera. If you are uses a Labs feature, provide feedback on the [**GoPro Labs forum**](https://community.gopro.com/s/gopro-labs)
+### Features Phased Out
+If we don't see feedback on features it may not get ported to the next camera. If you are using a Labs feature, please provide feedback.
 * **HERO8/9** Set the [**Exposure Lock**](./explock) via QR Code
 * **HERO9** - Enable media [**encryption**](./encrypt) for increased security
 * Subset of commands for the [**HERO 5 Session**](./session5). Limit to camera settings, date & time, scheduled captures and ownership information.
 
 ## Forum Discussions and Feedback 
-Please join the [**GoPro Labs Discussion**](https://community.gopro.com/s/gopro-labs) or post [**questions and feedback**](https://github.com/gopro/labs/issues) on Github
+* For GoPro Labs discussions, feature requests, and help: [**Labs Discussion on GitHub**](https://github.com/gopro/labs/discussions)
+* For obmissions or errors within these Pages: [**GitHib Labs Issues**](https://github.com/gopro/labs/issues)
 
 ## Firmware Release Notes 
 An incomplete set of [**Release Notes**](./notes) 
@@ -67,8 +68,8 @@ An incomplete set of [**Release Notes**](./notes)
 ## The Commands Under The Hood 
 Technical information on the [**Labs command language**](./tech)
 
-### ver 1.30
-updated: Sept 14 7, 2022
+### ver 1.31
+updated: Sept 15, 2022
 
 
 <script>

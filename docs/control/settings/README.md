@@ -86,6 +86,10 @@ Color:
  * **cG** - Color Vibrant
  * **cN** - Color Natural (H10/11)
 
+Depth (H11 only): 
+ * **d0** or **d8** - 8-bit color
+ * **d1** or **d10** - 10-bit color
+
 White Balance: 
  * **wA** - Auto White Balance
  * **w23** - 2300K While balance
