@@ -40,7 +40,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   &nbsp;&nbsp;**Photo-Modes:** 
   <input type="radio" id="m16" name="mode" value="mP">  <label for="m16">Photo</label>&nbsp;&nbsp;
   <input type="radio" id="m17" name="mode" value="mPB"> <label for="m17">Burst</label>&nbsp;&nbsp;
-  <input type="radio" id="m18" name="mode" value="mL">  <label for="m18">Live Burst</label>&nbsp;&nbsp;
+  <input type="radio" id="m18" name="mode" value="mL">  <label for="m18">Live Burst<sup>10</sup></label>&nbsp;&nbsp;
   <input type="radio" id="m19" name="mode" value="mPN"> <label for="m19">Night</label>&nbsp;&nbsp;
   <input type="radio" id="m20" name="mode" value="mTP"> <label for="m20">Timelapse</label>&nbsp;&nbsp;
   <input type="radio" id="m21" name="mode" value="mNP"> <label for="m21">Nightlapse</label>&nbsp;&nbsp;
