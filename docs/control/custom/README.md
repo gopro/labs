@@ -315,11 +315,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 <div id="ptBITRATE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Bit rate:</b>&nbsp;&nbsp;
   <input type="radio" id="br1" name="br" value="b0"> <label for="br1">Standard</label>&nbsp;&nbsp;
   <input type="radio" id="br2" name="br" value="b1"> <label for="br2">High</label>&nbsp;&nbsp;
-  <input type="radio" id="br3" name="br" value="" checked> <label for="br3">not set</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Depth:</b>&nbsp;&nbsp;<input type="radio" id="dp1" name="dp" value="d0"> <label for="dp1">8-bit<sup>11</sup></label>&nbsp;&nbsp;
-  <input type="radio" id="dp2" name="dp" value="d1"> <label for="dp2">10-bit<sup>11</sup></label>&nbsp;&nbsp;
-  <input type="radio" id="dp3" name="dp" value="" checked> <label for="dp3">not set</label>
-  
+  <input type="radio" id="br3" name="br" value="" checked> <label for="br3">not set</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 </div>
 <div id="ptWBAL">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>White Balance:</b>&nbsp;&nbsp;
   <input type="radio" id="wb1" name="wb" value="wA" checked> <label for="wb1">Auto </label>&nbsp;&nbsp;
