@@ -53,7 +53,7 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 | Time delayed Starts               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Time/date/timecode via QR Code    | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Tone Mapping Controls             | Yes     | Yes     |       |       |       |     |
-| Trigger - GPS speed t             | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
+| Trigger - GPS speed               | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
 | Trigger - Gyroscope               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Trigger - IMU Motion              | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Trigger - Motion detection        | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
