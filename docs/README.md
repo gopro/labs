@@ -20,7 +20,6 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 
 ## Overview of Labs functionality and device compatibility: 
 
-<sub><sup>
 | Feature                           | HERO11  | HERO10/Bones  | HERO9 | HERO8 | HERO7 | MAX |
 |-----------------------------------|---------|---------|-------|-------|-------|-----|
 | 24.0Hz capture (vs 23.976)        | Yes     | Yes     |       |       |       |     |
@@ -63,5 +62,5 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 | Upload scripting                  | Yes     | Yes     | Yes   |       |       |     |
 | USB power trust override          | Yes     | Yes/No  |       |       |       |     |
 | Wake on Power                     | Yes     | Yes     |       | Yes   |       |     |
-</sup></sub>
+
 ## ver 1.02
