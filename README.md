@@ -1,7 +1,21 @@
 # GoPro Labs
 
-Learn more about the GoPro Labs [QR Control](control) features.
+Labs is GoPro's experimental firmware program that uses QR codes to control your camera and extend your camera’s functionality beyond stocks features. It is especially useful in situations where settings can’t be communicated via voice, where WiFi is not available, where app pairing is not established, or in advanced setups, such as multiple cameras time synchronization or delayed camera triggers.
 
-[GoPro Labs](https://gopro.com/labs) information and links to the community pages.
+Learn more information about the program on [GoPro.com](http://www.gopro.com/labs).
 
-## ver 1.01
+Download and install your [GoPro Labs firmware](https://community.gopro.com/s/article/GoPro-Labs).
+
+GoPro QR code generator for basic [camera settings](control/custom) changes
+
+Advanced Commands Overviews
+
+- [Camera Macros](control)
+- [Camera Extension](control/extensions)
+
+Primer on Labs actions, scripting and command set
+
+- [Action Commands](control/actions)
+- [Setting Commands](control/settings)
+
+## ver 1.02
