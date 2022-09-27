@@ -20,48 +20,48 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 
 ## Overview of Labs functionality and device compatibility: 
 
+
 | Feature                           | HERO11  | HERO10/Bones  | HERO9 | HERO8 | HERO7 | MAX |
 |-----------------------------------|---------|---------|-------|-------|-------|-----|
-| Time/date via QR Code             | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Owner Information                 | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Time delayed Starts               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Metadata Injections               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Large Charpter Support (12GB)     | Standard| Yes     | Yes   | Yes   |       | Yes |
-| GPS time sync                     | Yes     | Yes Not Bones | Yes   |       |       |     |
-| Live Stream Initiation            | Yes     | Yes     | Yes   | Yes   |       |     |
-| Archive Mode                      | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| 24.0Hz capture (vs 23.976)        | Yes     | Yes     |       |       |       |     |
 | Accelerometer Triggers            | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Gyrometer Trigger                 | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| IMU Motion Triggers               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| GPS speed trigger                 | Yes     | Yes Not Bones | Yes   | Yes   | Yes   | Yes |
-| USB Power trigger                 | Yes     | Yes Not Bones | Yes   | Yes   |       | Yes |
-| Motion detection                  | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Sound Pressure Trigger            | Yes     | Yes     | Yes   |       |       |     |
-| LTC Time support (via MediaMod)   | Yes     | Yes Not Bones | Yes   |       |       |     |
-| 24Hz - 24.0 film recording        | Yes     | Yes     |       |       |       |     |
-| Bitrate Increase                  | Yes     | Yes     |       |       |       |     |
-| Disable lowres video proxy (LRV)  | limited | limited |       |       |       |     |
-| Disable Audio                     | Yes     | Yes     | Yes   |       |       |     |
-| Exposure Damping Control          | Yes     | Yes     |       |       |       |     |
-| Tone Mapping Controls             | Yes     | Yes     |       |       |       |     |
-| Trust USB power                   | Yes     | Yes Not Bones |       |       |       |     |
-| Adobe-compatible proxies          | Yes     | Yes Not Bones |       |       |       |     |
-| Option QR codes while recording   | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| On-screen histogram               | Yes     | Yes     | Yes   | Yes   |       |     |
-| Wake on Power                     | Yes     | Yes     |       | Yes   |       |     |
-| Boot Command                      | Yes     | Yes     |       | Yes   |       |     |
-| Hindsight Timeout Extension       | Yes     | Yes     |       |       |       |     |
-| Color Bar for evaluation          | limited | limited | Yes   | Yes   |       |     |
-| Luma Sweep for evaluation         | limited | limited | Yes   | Yes   |       |     |
-| Logo Burn-In                      | limited | limited | Yes   |       |       |     |
-| General burn in                   | Yes     | Yes     | Yes   | Yes   |       |     |
-| Audio Channel Gain/Solo/Mute      | Yes     | Yes     | Yes   |       |       |     |
-| HDMI display settings             | Yes     | Yes     | Yes   |       |       |     |
-| SD card speed test                | Yes     | Yes     | Yes   | Yes   |       |     |
-| Extra Long time lapse             | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Max Shutter Angle Control         | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Auto Upload after capture         | Yes     | Yes     | Yes   |       |       |     |
+| Adobe-compatible proxies          | Yes     | Yes/No  |       |       |       |     |
 | Altered File Naming               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Adobe-compatible proxies          | Yes     | Yes Not Bones |       |       |       |     |
+| Archive Mode (locked settings)    | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Audio Channels Gain/Solo/Mute     | Yes     | Yes     | Yes   |       |       |     |
+| Audio Disable                     | Yes     | Yes     | Yes   |       |       |     |
+| Bitrate Controls                  | Yes     | Yes     |       |       |       |     |
+| Boot Command                      | Yes     | Yes     |       | Yes   |       |     |
+| Exposure Damping Control          | Yes     | Yes     |       |       |       |     |
+| Extra Long time lapse             | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| GPS time sync                     | Yes     | Yes/No  | Yes   |       |       |     |
+| HDMI display settings             | Yes     | Yes     | Yes   |       |       |     |
+| Hindsight Timeout Extension       | Yes     | Yes     |       |       |       |     |
+| Histogram (on LCD screen)         | Yes     | Yes     | Yes   | Yes   |       |     |
+| Large Charpter Support (12GB)     | Standard| Yes     | Yes   | Yes   |       | Yes |
+| Live Stream Initiation            | Yes     | Yes     | Yes   | Yes   |       |     |
+| LRV Disable                       | limited | limited |       |       |       |     |
+| LTC Time support (via MediaMod)   | Yes     | Yes/No  | Yes   |       |       |     |
+| Max Shutter Angle Control         | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Metadata Injections               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Overlay - Burn-ins e.g. Time/Date | limited | limited | Yes   | Yes   |       |     |
+| Overlay - Color Bar               | limited | limited | Yes   | Yes   |       |     |
+| Overlay - Logo Burn-In            | limited | limited | Yes   |       |       |     |
+| Overlay - Luma Sweep              | limited | limited | Yes   | Yes   |       |     |
+| Owner Information                 | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| QR decoding while recording       | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| SD card speed test                | Yes     | Yes     | Yes   | Yes   |       |     |
+| Time delayed Starts               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Time/date/timecode via QR Code    | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Tone Mapping Controls             | Yes     | Yes     |       |       |       |     |
+| Trigger - GPS speed               | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
+| Trigger - Gyroscope               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Trigger - IMU Motion              | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Trigger - Motion detection        | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Trigger - Sound Pressure Level    | Yes     | Yes     | Yes   |       |       |     |
+| Trigger - USB Power               | Yes     | Yes/No  | Yes   | Yes   |       | Yes |
+| Upload scripting                  | Yes     | Yes     | Yes   |       |       |     |
+| USB power trust override          | Yes     | Yes/No  |       |       |       |     |
+| Wake on Power                     | Yes     | Yes     |       | Yes   |       |     |
 
 ## ver 1.02
