@@ -43,10 +43,10 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 | LTC Time support (via MediaMod)   | Yes     | Yes/No  | Yes   |       |       |     |
 | Max Shutter Angle Control         | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Metadata Injections               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Overlay - Burn-ins e.g. Time/Date | Yes     | Yes     | Yes   | Yes   |       |     |
+| Overlay - Burn-ins e.g. Time/Date | limited | limited | Yes   | Yes   |       |     |
 | Overlay - Color Bar               | limited | limited | Yes   | Yes   |       |     |
-| Overlays - Logo Burn-In           | limited | limited | Yes   |       |       |     |
-| Overlays - Luma Sweep             | limited | limited | Yes   | Yes   |       |     |
+| Overlay - Logo Burn-In            | limited | limited | Yes   |       |       |     |
+| Overlay - Luma Sweep              | limited | limited | Yes   | Yes   |       |     |
 | Owner Information                 | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | QR decoding while recording       | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | SD card speed test                | Yes     | Yes     | Yes   | Yes   |       |     |
