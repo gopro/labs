@@ -19,7 +19,7 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 - [Setting Commands](control/settings)
 
 ## Overview of Labs functionality and device compatibility: 
-
+ <small>
 | Feature                           | HERO11  | HERO10/Bones  | HERO9 | HERO8 | HERO7 | MAX |
 |-----------------------------------|---------|---------|-------|-------|-------|-----|
 | Time/date via QR Code             | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
@@ -63,5 +63,5 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 | Auto Upload after capture         | Yes     | Yes     | Yes   |       |       |     |
 | Altered File Naming               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Adobe-compatible proxies          | Yes     | Yes Not Bones |       |       |       |     |
-
+ </small>
 ## ver 1.02
