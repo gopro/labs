@@ -975,8 +975,8 @@ function startTime() {
 			cmd = dcmd(cmd,"twf"); //fov		
 		
 			if(	(document.getElementById("twf1").checked === true) || //Wide
-				(document.getElementById("twf2").checked === true) || //Linear
-				(document.getElementById("twf3").checked === true) ) //Linear+HL
+				(document.getElementById("twf2").checked === true) /* || //Linear
+				(document.getElementById("twf3").checked === true) */ ) //Linear+HL
 			{
 				dset("settingsZoom", true);
 					
@@ -1039,8 +1039,8 @@ function startTime() {
 		cmd = dcmd(cmd,"f"); //fov
 		
 		if(	(document.getElementById("f1").checked === true) || //Wide
-			(document.getElementById("f3").checked === true) || //Linear
-			(document.getElementById("f5").checked === true) ) //Linear+HL
+			(document.getElementById("f3").checked === true)/* || //Linear
+			(document.getElementById("f5").checked === true)*/ ) //Linear+HL
 		{
 			dset("settingsZoom", true);			
 			
