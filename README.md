@@ -22,7 +22,7 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 
 | Feature                           | HERO11  | HERO10/Bones  | HERO9 | HERO8 | HERO7 | MAX |
 |-----------------------------------|---------|---------|-------|-------|-------|-----|
-| 24.0Hz capture (vs 23.976)        | Yes     | Yes     |       |       |       |     |
+| [24.0Hz capture](../control/proxies/) (vs 23.976)        | Yes     | Yes     |       |       |       |     |
 | Adobe-compatible proxies          | Yes     | Yes/No  |       |       |       |     |
 | Altered File Naming               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Archive Mode (locked settings)    | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
