@@ -22,21 +22,21 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 
 | Feature                           | HERO11  | HERO10/Bones  | HERO9 | HERO8 | HERO7 | MAX |
 |-----------------------------------|---------|---------|-------|-------|-------|-----|
-| 24.0Hz capture (vs 23.976)        | Yes     | Yes     |       |       |       |     |
-| Adobe-compatible proxies          | Yes     | Yes/No  |       |       |       |     |
-| Altered File Naming               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Archive Mode (locked settings)    | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| Audio Channels Gain/Solo/Mute     | Yes     | Yes     | Yes   |       |       |     |
-| Audio Disable                     | Yes     | Yes     | Yes   |       |       |     |
-| Bitrate Controls                  | Yes     | Yes     |       |       |       |     |
-| Boot Command                      | Yes     | Yes     |       | Yes   |       |     |
-| Exposure Damping Control          | Yes     | Yes     |       |       |       |     |
-| Extra Long time lapse             | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| GPS time sync                     | Yes     | Yes/No  | Yes   |       |       |     |
-| HDMI display settings             | Yes     | Yes     | Yes   |       |       |     |
-| Hindsight Timeout Extension       | Yes     | Yes     |       |       |       |     |
-| Histogram (on LCD screen)         | Yes     | Yes     | Yes   | Yes   |       |     |
-| Large Charpter Support (12GB)     | Standard| Yes     | Yes   | Yes   |       | Yes |
+| [24.0Hz capture](control/extensions) vs 23.976        | Yes     | Yes     |       |       |       |     |
+| Adobe-compatible [proxies](control/proxies)           | Yes     | Yes/No  |       |       |       |     |
+| Altered [File Naming](control/basename)               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| [Archive Mode](control/archive) (locked settings)     | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| Audio Channels [Gain/Solo/Mute](control/extensions)   | Yes     | Yes     | Yes   |       |       |     |
+| [Audio Disable](control/extensions)                   | Yes     | Yes     | Yes   |       |       |     |
+| [Bitrate Controls](control/extensions)                | Yes     | Yes     |       |       |       |     |
+| [Boot Command](control/extensions)                    | Yes     | Yes     |       | Yes   |       |     |
+| [Exposure Damping](control/extensions) Control        | Yes     | Yes     |       |       |       |     |
+| [Extra Long time-lapse](control/longtimelapse)        | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| [GPS time sync](control/gpssync)                      | Yes     | Yes/No  | Yes   |       |       |     |
+| [HDMI display settings](control/extensions)           | Yes     | Yes     | Yes   |       |       |     |
+| Hindsight [Timeout Extension](control/extensions)     | Yes     | Yes     |       |       |       |     |
+| [Histogram](control/extensions) (on LCD screen)       | Yes     | Yes     | Yes   | Yes   |       |     |
+| [Large Charpter](control/chapters) Support (12GB)     | Standard| Yes     | Yes   | Yes   |       | Yes |
 | Live Stream Initiation            | Yes     | Yes     | Yes   | Yes   |       |     |
 | LRV Disable                       | limited | limited |       |       |       |     |
 | LTC Time support (via MediaMod)   | Yes     | Yes/No  | Yes   |       |       |     |
@@ -49,6 +49,7 @@ GoPro QR code generator for basic [camera settings](control/custom) changes
 | Owner Information                 | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | QR decoding while recording       | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | SD card speed test                | Yes     | Yes     | Yes   | Yes   |       |     |
+| Sunrize/Sunset starts             | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
 | Time delayed Starts               | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Time/date/timecode via QR Code    | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | Tone Mapping Controls             | Yes     | Yes     |       |       |       |     |
