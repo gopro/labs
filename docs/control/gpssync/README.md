@@ -43,9 +43,9 @@ Note: it is correct for 23.976 and 29.97 Non-drop timecode to it be 0.1% behind 
 
 <br> 
 
-**Compatibility:** Labs enabled HERO9 and HERO10 only 
+**Compatibility:** Labs enabled HERO9 and HERO10 only (a fix is coming for HERO11, likely v1.20) 
         
-## ver 1.05
+## ver 1.06
 [More features](..) for Labs enabled cameras
 
 <script>
