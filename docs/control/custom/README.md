@@ -696,12 +696,15 @@ function startTime() {
 	//m10 mTW
 	//m11 mT 
 	//m12 mNL
-	//m13 mP 
-	//m14 mPB
-	//m15 mL
-	//m16 mPN
-	//m17 mTP
-	//m18 mNP
+	//m13 mST
+	//m14 mLP
+	//m15 mLT
+	//m16 mP 
+	//m17 mPB
+	//m18 mL
+	//m19 mPN
+	//m20 mTP
+	//m21 mNP
 	
 	switch(checkedmode)
 	{
@@ -1570,7 +1573,7 @@ function dcmd(cmd, id) {
 	}
 	else
 	{
-		for (i = 1; i < 19; i++) { 
+		for (i = 1; i < 22; i++) { 
 			var newid = id+i;
 			if(document.getElementById(newid) !== null)
 			{
