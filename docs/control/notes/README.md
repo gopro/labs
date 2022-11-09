@@ -3,7 +3,31 @@
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
 
+## HERO11 Black Mini
+
+### 1.10.70 - Nov 8, 2022
+- All the features and fixes of HERO11 Labs 1.20.70, minus on-screen and GPS features.
+
 ## HERO11 Black 
+
+### 1.20.70 - Nov 8, 2022
+- All the features and fixes of HERO11 Labs 1.10.70
+- Added oTZx  e.g -7 or oTZ-420  -7 hour or -420 minutes timezone offset
+- Added oDT or oTD1 for daylight savings on or oDT0 for off
+- Added !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
+   If GPS is off it will be switch on temporarily for this command, then off again.
+- Added oMEXPS=1 - exposure settings display
+- Added oMEXPX=x and oMEXPN=n - exposure shutter speed mi(n) and ma(x). e.g. oMEXPX=48 (for 1/48) and oMEXPN=500 (for 1/500) 
+- Added oMLOGB=base,[offset] - Logbase control for more flattened 10-bit  e.g. cFoMLOGB=1000
+- Added oMNR01=x - x is Noise Reduction level 1-100 (100 is normal)
+- Added oMGUID=aspect,aspect,... - on screen framing guides, up to 8, e.g. oMGUID=2.35,1.777
+- Added oMLEVL=size - on screen spirit level sizes 1-9. e.g. oMLEVL=3
+- Added oHSTP=x,y,s - histogram position and size (used with oMHIST=x), negative x position will render it to the front LCD.
+- Improved !M64BT=x x is the size in 100MB. e.g. !M64BT=20 for 2GB chapters. 
+- Fixed - GPS Speed trigger, now using the new GPS chip
+- Fixed - GPS Clock Sync, now using timezones, so it is awesome!
+- Fixed - Motion Detection with masks
+- Fixed - fH0/fH for select Linear+horizon lock 
 
 ### 1.10.70 - Sept 14, 2022
 - All the features and fixes of HERO10 Labs 1.46.76
@@ -159,7 +183,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-### ver 1.04
-updated: Sept 14, 2022
+### ver 1.05
+updated: Nov 8, 2022
 
 [Learn more](..) on QR Control

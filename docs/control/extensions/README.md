@@ -1,4 +1,4 @@
-# Extensions and Other Smaller Additions
+# Extensions and Other Additions
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
@@ -13,11 +13,43 @@
         }
 </style>
 
-After the release of the the first Labs firmware for HERO8, we heard the feedback and added features wherever possible. Some of the more major features got their own page, the rest are documented in this collection.
+## Metadata Features
 
-## Miscellaneous Metadata controls. 
+These new features are stored in your camera's metadata, this metadata is helpful for detemining what features are used per clip.
+The metadata, and the features it enables, can be [extracted with this page](../metadata).
 
-All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy**=value(s) -- where the four character code (4CC) **wxzy** is under your control, along with the data it stores. The **!M** version will permanently store the metadata, and the **oM** will store it for only this power-on session. Metadata is available to flag your files for special uses, or just to label the [camera owner](./owner). Some particular 4CCs will also change camera behavior and/or enable features. Here is a list of additional metadata driven controls: 
+All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy**=value(s) -- where the four character code (4CC) 
+**wxzy** is under your control, along with the data it stores. The **!M** version will permanently store the metadata, and the **oM** 
+will store it for only this power-on session. Metadata is available to flag your files for special uses, or just to label the [camera owner](./owner). 
+Some particular 4CCs will also change camera behavior and/or enable features. Here is a list of additional metadata driven controls: 
+
+### **HERO11 and Mini cameras** - Extensions in the latest Labs firmware (Nov '22)
+
+- **GUID=aspect,aspect,...** - Displays an on-scene shooting guide for different aspect ratios, independent from the camera's current video mode. 
+Up to 8 guides supported at once. e.g. GUID=1.777 will enable a 16:9 guide. GUID=2.35,0.5625 will add guides for Cinemascope and 9:16 social.
+<br>![GUID.jpg](GUID.jpg)
+- **GUIC=level,level,...** - The shooting guides default to white at 255, but you can select their luma level. e.g. GUIC=255,0, will be white for the first guide and black the for second.
+- **EXPS=1** - Display the current ISO and shutter speed being used during preview and capture. For 11-Mini EXPS=num, 
+the number relates to how often the record time or shooting mode is displayed.
+<br>![EXPS.jpg](EXPS.jpg) ![EXPSmini.jpg](EXPSmini.jpg)
+- **EXPX=x** and **EXPN=n** - exposure shutter speed mi(n) and ma(x). e.g. oMEXPX=48 (for 1/48) and oMEXPN=500 (for 1/500)
+- **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram. 
+A negative x-value will place the histograme on the front screen. e.g. oMHSTP=1,83,67 or oMHSTP=-3,55,87.
+<br>![HSTPfront.jpg](HSTPfront.jpg)
+- **LEVL=size** - Add a spirit level to the rear LCD, where the size can be 1-9. e.g. oMLEVL=6
+<br>![LEVL.jpg](LEVL.jpg)
+- **LOGB=logbase,offset** - Super experimental, alter the log encoding for more dynamic range, or for a closer match with other camera's log curves. 
+i.e design your own flat profile. Ideal for use with 10-bit, and the existing flat color setting.  
+e.g. oMLOGB=400 for a little push in dynamic range or oMLOGB=200,-128 for a crude Fuji F-Log emulation.  
+Note: As the pixel size isn't changing, that increasing the logbase (flatness) may not significantly increase the dynamic range.
+<br>[GoPro Log curve designer](https://www.desmos.com/calculator/qwdbih1z5t)
+- **NR01=x** - Noise Reduction control, which should be combined with the LOGB control. e.g. !NR01=50 range 1-100, 100 being 100% active (default), so 1 is the noisest. 
+When pushing the dynamic range of any camera, shadow details may be suppress by noise reduction. 
+Increasing the logbase will enhance the shadows, but will also reveal noise reduction artifacts tuned for a different encoding curve (the more consumer friendly Rec709.)  
+You can back-off the noise reduction to restore shadow details, with the downside being a noiser image (protentially requiring noise reduction in post.)  
+Also a noiser image will need a higher-bitrate to store the additional information (so BITR, NR01 and LOBG are all related.) 
+
+### Miscellaneous controls for most Labs cammeras. 
 
 - **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. !MBOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here". See an example in [IMU Triggers for Drones](../imutrigger)
 	- An inventive use of oMBOOT="command", 'oM' commands do not survive power cycles, so this is not a "boot" command, but this style of command will run as a subroutine. 
@@ -28,8 +60,8 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 - **HNDL=x**, where x is 1 to 31, setting the camera ID for a camera. This is for rare scenarios where multiple cameras see the same QR Code, and you only want particular cameras to respond. This combined with **hZ** command where Z is the bit mask for which cameras will follow the command.
 	- e.g.   h6mP!S  ← this command will only run on cameras with IDs 2 and 3.
     - e.g.   h1mVh2mPB ← set camera 1 to mode Video and camera 2 to Photo Burst.
-- **HIST=x** - Displays a histogram with contrast from 1 to 11. e.g. try setting HIST to 5. HIST=0 will disable it.
-![HIST.jpg](HIST.jpg)
+- **HIST=x** - Displays a histogram with contrast from 1 to 11. e.g. try setting HIST to 5. HIST=0 will disable it.  On 11-Mini the number is a display duratrion.
+<br>![HIST.jpg](HIST.jpg) ![HISTmini.jpg](HISTmini.jpg)
 - **LAPS=1** turns on the burn-in laptime, a hackathon designed for live-streaming auto races. LAPS=0 will disable it. **HERO8/9 only**
 	- **BRNP=”xx”**  this the burnin position TL, TR, BL, BR (default) - T-Top L-Left B-Bottom R-Right, e.g. oMBRNP="TR"
 	- **LFIN=latt,long** GPS location for the Lap Line (finish line), used to compute the lap times. e.g. !MLFIN=36.586221,-121.756818 The finish line at Laguna Seca. You need a high degree of GPS precision for this to work correctly.
@@ -131,8 +163,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 		
-### ver 1.21
-updated: Sept 14, 2022<br>
+### ver 1.22
+updated: Nov 8, 2022<br>
 
 [Learn more](..) on QR Control
 

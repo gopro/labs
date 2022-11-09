@@ -20,7 +20,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 ## Overview of Labs functionality and device compatibility: 
 
-| Feature                                               | HERO11  | HERO10/Bones  | HERO9 | HERO8 | HERO7 | MAX |
+| Feature                                               | HERO11/Mini  | HERO10/Bones  | HERO9 | HERO8 | HERO7 | MAX |
 |-------------------------------------------------------|---------|---------|-------|-------|-------|-----|
 | [24.0Hz capture vs 23.976](https://gopro.github.io/labs/control/extensions)        | Yes     | Yes     |       |       |       |     |
 | [Adobe-compatible proxies](https://gopro.github.io/labs/control/proxies)           | Yes     | Yes/No  |       |       |       |     |
@@ -32,17 +32,17 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Boot Command](https://gopro.github.io/labs/control/extensions)                    | Yes     | Yes     |       | Yes   |       |     |
 | [Exposure Damping](https://gopro.github.io/labs/control/extensions) Control        | Yes     | Yes     |       |       |       |     |
 | [Extra Long time-lapse](https://gopro.github.io/labs/control/longtimelapse)        | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| [GPS time sync](https://gopro.github.io/labs/control/gpssync)                      | Yes     | Yes/No  | Yes   |       |       |     |
-| [HDMI display settings](https://gopro.github.io/labs/control/extensions)           | Yes     | Yes     | Yes   |       |       |     |
+| [GPS time sync](https://gopro.github.io/labs/control/gpssync)                      | Yes/No  | Yes/No  | Yes   |       |       |     |
+| [HDMI display settings](https://gopro.github.io/labs/control/extensions)           | Yes/No  | Yes     | Yes   |       |       |     |
 | [Hindsight Timeout Extension](https://gopro.github.io/labs/control/extensions)     | Yes     | Yes     |       |       |       |     |
 | [Histogram](https://gopro.github.io/labs/control/extensions) (on LCD screen)       | Yes     | Yes     | Yes   | Yes   |       |     |
 | [Large Charpter](https://gopro.github.io/labs/control/chapters) Support (12GB)     | Standard| Yes     | Yes   | Yes   |       | Yes |
 | [Live Stream Initiation](https://gopro.github.io/labs/control/rtmp)                | Yes     | Yes     | Yes   | Yes   |       |     |
 | [LRV Disable](https://gopro.github.io/labs/control/extensions)                     | limited | limited |       |       |       |     |
-| [LTC Time support](https://gopro.github.io/labs/control/ltc) (via MediaMod)        | Yes     | Yes/No  | Yes   |       |       |     |
+| [LTC Time support](https://gopro.github.io/labs/control/ltc) (via MediaMod)        | Yes/No  | Yes/No  | Yes   |       |       |     |
 | [Max Shutter Angle](https://gopro.github.io/labs/control/maxshut) exposure control | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Metadata Injections](https://gopro.github.io/labs/control/extensions)             | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
-| [Overlay - Burn-ins](https://gopro.github.io/labs/control/overlays) e.g. Time/Date | Yes     | Yes     | Yes   | Yes   |       |     |
+| [Overlay - Burn-ins](https://gopro.github.io/labs/control/overlays) e.g. Time/Date | limited | limited | Yes   | Yes   |       |     |
 | [Overlay - Color Bar](https://gopro.github.io/labs/control/extensions)             | limited | limited | Yes   | Yes   |       |     |
 | [Overlays - Logo Burn-In](https://gopro.github.io/labs/control/logo)               | limited | limited | Yes   |       |       |     |
 | [Overlays - Luma Sweep](https://gopro.github.io/labs/control/extensions)           | limited | limited | Yes   | Yes   |       |     |
@@ -59,9 +59,11 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Trigger - IMU Motion](https://gopro.github.io/labs/control/imutrigger)            | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Trigger - Motion detection](https://gopro.github.io/labs/control/motion)          | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Trigger - Sound Pressure Level](https://gopro.github.io/labs/control/spltrigger)  | Yes     | Yes     | Yes   |       |       |     |
-| [Trigger - USB Power](https://gopro.github.io/labs/control/usb)                    | Yes     | Yes/No  | Yes   | Yes   |       | Yes |
+| [Trigger - USB Power](https://gopro.github.io/labs/control/usb)                    | Yes/No  | Yes/No  | Yes   | Yes   |       | Yes |
 | [Upload scripting](https://gopro.github.io/labs/control/dailytl)                   | Yes     | Yes     | Yes   |       |       |     |
 | [USB power trust override](https://gopro.github.io/labs/control/extensions)        | Yes     | Yes/No  |       |       |       |     |
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                   | Yes     | Yes     |       | Yes   |       |     |
 
-## ver 1.02
+## ver 1.03
+
+

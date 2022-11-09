@@ -17,7 +17,7 @@ If you are shooting with multiple GoPro **HERO9/10/11** cameras, enable this fea
 
 ## How it works
 
-This improves the timecode track precision. While this works best outdoors with a clear GPS signal, it is harmless to have active in all shooting locations and modes. If there is a good GPS signal, the camera’s internal clock will be precisely updated, but only minute and second fields. It will not update the hour or day, as it preserves your current timezone offset, so this doesn’t remove the need for initial setup for time and date. This feature updates the MP4s timecode track at the end of capture, so it a good GPS time occurs after the capture begins, the timecode will be accurate. In tools like Adobe Premiere Pro, multiple camera angles can be synchronized using timecode. In limited testing, sync is typically within a frame or two, but your precision my vary.
+This improves the timecode track precision. While this works best outdoors with a clear GPS signal, it is harmless to have active in all shooting locations and modes. If there is a good GPS signal, the camera’s internal clock will be precisely updated, but only minute and second fields (on HERO9 and HERO10.) On older cameras it will not update the hour or day, as it preserves your current timezone offset, so this doesn’t remove the need for initial setup for time and date. On HERO11, the camera has a timezone control, so GPS time can be used fully. This feature updates the MP4s timecode track at the end of capture, so it a good GPS time occurs after the capture begins, the timecode will be accurate. In tools like Adobe Premiere Pro, multiple camera angles can be synchronized using timecode. In limited testing, sync is typically within a frame or two, but your precision my vary.
 
 <input type="checkbox" id="gsync" name="gsync" checked> 
 <label for="gsync">Enable GPS Time Sync</label><br>
@@ -43,9 +43,11 @@ Note: it is correct for 23.976 and 29.97 Non-drop timecode to it be 0.1% behind 
 
 <br> 
 
-**Compatibility:** Labs enabled HERO9 and HERO10 only (a fix is coming for HERO11, likely v1.20) 
+**Compatibility:** Labs enabled HERO9, HERO10 and HERO11
         
-## ver 1.06
+## ver 1.07
+updated: Nov 8, 2022<br>
+
 [More features](..) for Labs enabled cameras
 
 <script>
