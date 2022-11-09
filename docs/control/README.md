@@ -50,7 +50,7 @@ and as a mobile app:<br>
 * **ALL** - <span style="color:steelblue">**UPDATED**</span> Dozens more [**extensions**](./extensions) via QR Code
 
 ### Metadata Extraction
-* **All GPMF Enabled Cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
+* **ALL** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 
 <!--
 ### Features Phased Out

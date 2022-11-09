@@ -178,6 +178,9 @@ Same further option (‘o’) commands:
 - WiFi Connection - **oW0** - off, **oW1** - on
 - LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
 - Beep Volume - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
+- Set date and time - **oT**yymmddhhmmss.sss
+- Set timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
+- Set daillight savcings - **oDT** or **oTD1** for daylight savings on or **oDT0** for off
 
 HERO11 UX modes:
 - mE - mode Easy
@@ -190,8 +193,8 @@ HERO11 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.14
-updated: Sept 14, 2022
+## ver 1.15
+updated: Nov 8, 2022
 
 [Learn more](..) on QR Control
 

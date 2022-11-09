@@ -27,6 +27,7 @@
 * **!**time**U** - Attempt and network contention and Upload <sup>9/10/11</sup>.
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local fine, requires a previously successful **!W** command <sup>8/9/10/11</sup>
+* **!**time**Dx** - (H11) !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
 
 ## Capture Triggers
 
@@ -105,7 +106,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.00 - 2022 Sept 14  
+## ver 1.01 - 2022 Nov 8  
 [BACK](..)
 
 
