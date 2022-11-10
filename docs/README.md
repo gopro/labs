@@ -56,7 +56,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [QR decoding while recording](https://gopro.github.io/labs/control/extensions)              | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [SD card speed test](https://gopro.github.io/labs/control/extensions)                       | Yes     | Yes     | Yes   | Yes   |       |     |
 | [Spirit Level Display](https://gopro.github.io/labs/control/extensions) on rear LCD <span style="color:steelblue">**NEW**</span>        | Yes/No  |         |       |       |       |     |
-| [Sunrize/Sunset starts](https://gopro.github.io/labs/control/solartimelapse)                | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
+| [Sunrise/Sunset starts](https://gopro.github.io/labs/control/solartimelapse)                | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
 | [Time delayed Starts](https://gopro.github.io/labs/control/custom)                          | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Time/date/timecode QR Code](https://gopro.github.io/labs/control/precisiontime)            | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Tone Mapping Controls](https://gopro.github.io/labs/control/extensions)                    | Yes     | Yes     |       |       |       |     |
