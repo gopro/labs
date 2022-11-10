@@ -18,19 +18,19 @@
 Mode commands: 
  * **mV** - mode Video
  * **mP** - mode Photo
- * **mT** - mode Timelapse video (*)
- * **mTP** - mode Timelapse Photo (*)
+ * **mT** - mode Timelapse video (\*)
+ * **mTP** - mode Timelapse Photo (\*)
  * **mTW** - mode TimeWarp
  * **mPB** - mode Photo Burst 
  * **mPN** - mode Photo Night
- * **mNL** - mode Night-Lapse Video (*)
- * **mNP** - mode Night-Lapse Photo (*)
+ * **mNL** - mode Night-Lapse Video (\*)
+ * **mNP** - mode Night-Lapse Photo (\*)
  * **mL** - mode Live-Burst Photo (HERO10/11 only)
  * **mST** - mode Star Trails (HERO11 only)
  * **mLP** - mode Light Painting (HERO11 only)
  * **mLT** - mode Vechical Lights (HERO11 only)
  
-<b>* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
+<b>\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
  
 Defaults modes (on power up): 
  * **dL** - last used mode
@@ -92,7 +92,7 @@ Depth (H11 only):
 
 White Balance: 
  * **wA** - Auto White Balance
- * **w23** - 2300K While balance
+ * **w23** - 2300K White balance
  * **w28**, **w32**, **w40**, **w45**  - 2800K, 3200K, 4000K, 4500K
  * **w50**, **w55**, **w60**, **w65**  - 5000K, 5500K, 6000K, 6500K
  * **wN** - Native White Balance (sensor raw)
@@ -170,7 +170,7 @@ Feature with off and on commands:
 - Quick Capture: **q0** - off, **q** or **q1** - on
 - Voice Commands: **v0** - off, **v** or **v1** - on
 
-Same further option (‘o’) commands:
+Some further option (‘o’) commands:
 - Camera Auto Off - **oC** - Never, **oC5** - 5min ... **oC30** - 30min
 - Screen Brightness - **oB0** … **oB9** - (100%)
 - Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
@@ -180,7 +180,7 @@ Same further option (‘o’) commands:
 - Beep Volume - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
 - Set date and time - **oT**yymmddhhmmss.sss
 - Set timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
-- Set daillight savcings - **oDT** or **oTD1** for daylight savings on or **oDT0** for off
+- Set daylight savcings - **oDT** or **oTD1** for daylight savings on or **oDT0** for off
 
 HERO11 UX modes:
 - mE - mode Easy
