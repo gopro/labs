@@ -50,7 +50,7 @@ Increasing the logbase will enhance the shadows, but will also reveal noise redu
 You can back-off the noise reduction to restore shadow details, with the downside being a noiser image (protentially requiring noise reduction in post.)  
 Also a noiser image will need a higher-bitrate to store the additional information (so BITR, NR01 and LOBG are all related.) 
 
-### Miscellaneous controls for most Labs cammeras. 
+### Miscellaneous controls for most Labs cameras. 
 
 - **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. !MBOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here". See an example in [IMU Triggers for Drones](../imutrigger)
 	- An inventive use of oMBOOT="command", 'oM' commands do not survive power cycles, so this is not a "boot" command, but this style of command will run as a subroutine. 
@@ -138,7 +138,7 @@ Note: When this feature is enabled, the lack of LRVs will mean the Quik App will
 
 
 <input type="checkbox" id="perm" name="perm"> 
-<label for="perm">Make metadata Premanent (are you sure?)</label><br>
+<label for="perm">Make metadata Permanent (are you sure?)</label><br>
 Metadata Four CC: <input type="text" id="addcmd" value="">  e.g. BIAS, HIST etc.<br>
 Metadata Value(s): <input type="text" id="addvalue" value="">  e.g. 2.0 or "Joe Blogg", strings in quotes, numbers comma separated.
 
@@ -195,9 +195,9 @@ function makeQR()
 function timeLoop()
 {
 	if(document.getElementById("addcmd").value.length !== 4)
-		cmd = "Metadata 4CCs must be\\nfour characters long";
+		cmd = "\"Metadata 4CCs must be\\nfour characters long\"";
 	else if(document.getElementById("addvalue").value.length === 0)
-		cmd = "Metadata requires\\nvalid data";
+		cmd = "\"Metadata requires\\nvalid data\"";
 	if(document.getElementById("addcmd").value.length === 4 && document.getElementById("addvalue").value.length > 0)
 	{
 		cmd = "oM";

@@ -11,7 +11,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 ## Advanced Commands Overviews
 
 - [Camera Macros](https://gopro.github.io/labs/control) e.g. motion or sound level triggers
-- [Camera Extension](https://gopro.github.io/labs/control/extensions) e.g. bit-rate enhancements or exposure tweaks
+- [Camera Extensions](https://gopro.github.io/labs/control/extensions) e.g. bit-rate enhancements or exposure tweaks
 
 ## Primer on Labs actions, scripting and command set
 
@@ -41,7 +41,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Hindsight Timeout Extension](https://gopro.github.io/labs/control/extensions)              | Yes     | Yes     |       |       |       |     |
 | [Histogram](https://gopro.github.io/labs/control/extensions) (on display)                   | Yes     | Yes     | Yes   | Yes   |       |     |
 | [Histogram Position/Size](https://gopro.github.io/labs/control/extensions) (either screen) <span style="color:steelblue">**NEW**</span> | Yes/No  |         |       |       |       |     |
-| [Large Charpter](https://gopro.github.io/labs/control/chapters) Support (12GB)              | Standard| Yes     | Yes   | Yes   |       | Yes |
+| [Large Chapter](https://gopro.github.io/labs/control/chapters) Support (12GB)               | Standard| Yes     | Yes   | Yes   |       | Yes |
 | [Live Stream Initiation](https://gopro.github.io/labs/control/rtmp)                         | Yes     | Yes     | Yes   | Yes   |       |     |
 | [LRV Disable](https://gopro.github.io/labs/control/extensions)                              | limited | limited |       |       |       |     |
 | [LTC Time support](https://gopro.github.io/labs/control/ltc) (via MediaMod)                 | Yes/No  | Yes/No  | Yes   |       |       |     |
@@ -56,7 +56,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [QR decoding while recording](https://gopro.github.io/labs/control/extensions)              | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [SD card speed test](https://gopro.github.io/labs/control/extensions)                       | Yes     | Yes     | Yes   | Yes   |       |     |
 | [Spirit Level Display](https://gopro.github.io/labs/control/extensions) on rear LCD <span style="color:steelblue">**NEW**</span>        | Yes/No  |         |       |       |       |     |
-| [Sunrize/Sunset starts](https://gopro.github.io/labs/control/solartimelapse)                | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
+| [Sunrise/Sunset starts](https://gopro.github.io/labs/control/solartimelapse)                | Yes     | Yes/No  | Yes   | Yes   | Yes   | Yes |
 | [Time delayed Starts](https://gopro.github.io/labs/control/custom)                          | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Time/date/timecode QR Code](https://gopro.github.io/labs/control/precisiontime)            | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Tone Mapping Controls](https://gopro.github.io/labs/control/extensions)                    | Yes     | Yes     |       |       |       |     |
@@ -72,4 +72,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     |       | Yes   |       |     |
 
 ## ver 1.03
-updated: Nov 8, 2022<br>
+updated: Nov 11, 2022<br>
