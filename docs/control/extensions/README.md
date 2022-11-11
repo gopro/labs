@@ -42,7 +42,7 @@ A negative x-value will place the histograme on the front screen. e.g. oMHSTP=1,
 i.e design your own flat profile. Ideal for use with 10-bit, and the existing flat color setting.  
 e.g. oMLOGB=400 for a little push in dynamic range or oMLOGB=200,-128 for a crude Fuji F-Log emulation.  
 Note: As the pixel size isn't changing, that increasing the logbase (flatness) may not significantly increase the dynamic range.
-<br>[GoPro Log curve designer](https://www.desmos.com/calculator/qwdbih1z5t)
+<br>[GoPro Log curve designer](https://www.desmos.com/calculator/sfxqtunzty)
 <br>[Example scene with different curves parameters](LogBase.jpg)
 - **NR01=x** - Noise Reduction control, which should be combined with the LOGB control. e.g. oMNR01=50 range 1-100, 100 being 100% active (default), so 1 is the noisest. 
 When pushing the dynamic range of any camera, shadow details may be suppress by noise reduction. 
@@ -50,7 +50,7 @@ Increasing the logbase will enhance the shadows, but will also reveal noise redu
 You can back-off the noise reduction to restore shadow details, with the downside being a noiser image (protentially requiring noise reduction in post.)  
 Also a noiser image will need a higher-bitrate to store the additional information (so BITR, NR01 and LOBG are all related.) 
 
-### Miscellaneous controls for most Labs cameras.
+### Miscellaneous controls for most Labs cameras. 
 
 - **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. !MBOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here". See an example in [IMU Triggers for Drones](../imutrigger)
 	- An inventive use of oMBOOT="command", 'oM' commands do not survive power cycles, so this is not a "boot" command, but this style of command will run as a subroutine. 
