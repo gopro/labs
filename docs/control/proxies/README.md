@@ -13,7 +13,7 @@
         }
 </style>
 
-Decoding 4K and 5K HEVC Video can be very demanding on video tools. To speed up the editing workflow, a common solution is to transcode high resolution files into proxies. With this Labs extension enabled, the camera automatically produces Adobe Premiere Pro™ style proxy files, saving you the time consuming transcoding step. Normally a camera will encode and LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
+Decoding 4K and 5K HEVC Video can be very demanding on video tools. To speed up the editing workflow, a common solution is to transcode high resolution files into proxies. With this Labs extension enabled, the camera automatically produces Adobe Premiere Pro™ style proxy files, saving you the time consuming transcoding step. Normally a camera will encode a LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GL013784.LRV`<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013785.MP4`<br>
