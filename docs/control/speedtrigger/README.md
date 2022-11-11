@@ -51,10 +51,10 @@ Note: you will have to manually set the mode in which you capture.  The detector
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
-**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11 (fix coming soon) and MAX 
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11 and MAX 
         
-## ver 1.06
-updated: Oct 1, 2022
+## ver 1.07
+updated: Nov 11, 2022
 
 [More features](..) for Labs enabled cameras
 
