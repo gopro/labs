@@ -69,8 +69,11 @@ An incomplete set of [**Release Notes**](./notes)
 ## The Commands Under The Hood 
 Technical information on the [**Labs command language**](./tech)
 
-### ver 1.31
-updated: Sept 15, 2022
+## GoPro Labs
+[**Labs start on GitHub**](https://gopro.github.io/labs).
+
+### ver 1.32
+updated: Dec 3, 2022
 
 
 <script>
