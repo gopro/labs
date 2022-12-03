@@ -174,6 +174,7 @@ Some further option (‘o’) commands:
 - Camera Auto Off - **oC** - Never, **oC5** - 5min ... **oC30** - 30min
 - Screen Brightness - **oB0** … **oB9** - (100%)
 - Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
+- LCDs off now - **oDO**
 - Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down
 - WiFi Connection - **oW0** - off, **oW1** - on
 - LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
@@ -181,6 +182,7 @@ Some further option (‘o’) commands:
 - Set date and time - **oT**yymmddhhmmss.sss
 - Set timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
 - Set daylight savcings - **oDT** or **oTD1** for daylight savings on or **oDT0** for off
+
 
 HERO11 UX modes:
 - mE - mode Easy
@@ -193,8 +195,8 @@ HERO11 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.15
-updated: Nov 8, 2022
+## ver 1.16
+updated: Dec 3, 2022
 
 [Learn more](..) on QR Control
 
