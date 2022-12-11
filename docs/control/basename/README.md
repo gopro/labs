@@ -15,7 +15,7 @@
 
 Your GoPro will typically name your files something like GOPR3606.JPG and GH013607.MP4. This is intended for high volume multiple camera production, where simply naming the source media differently will ease post production. 
 
-**WARNING:** The GoPro App and GoPro cloud services will not support these renamed files. In addition, the camera's automatic file repair will not know to repair these files (see Manual File Recovery below), so only use this feature if you aren't putting cameras in extreme danger (where power could be randomly disconnected.) 
+**WARNING:** On camera playback, USB transfer, the GoPro Quik app and GoPro cloud services will not support these renamed files. This is for direct SD card tranfers only. In addition, the camera's automatic file repair will not know to repair these files (see Manual File Recovery below), so only use this feature if you aren't putting cameras in extreme danger (where power could be randomly disconnected.) 
 
 Your base filename here: <input type="text" id="addname" value=""> (only a-z, A-Z, 0-9, and +-_(),.)<br> 
 Up to eight characters. e.g. "CAMERA06"<br> 
@@ -83,8 +83,8 @@ So you have a corrupted/unclosed GoPro file. You crashed your drone, and the bat
 
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-## ver 1.17
-updated: Sept 28, 2022
+## ver 1.18
+updated: Dec 11, 2022
 
 [More features](..) for Labs enabled cameras
 
