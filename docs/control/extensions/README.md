@@ -23,6 +23,15 @@ All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy
 will store it for only this power-on session. Metadata is available to flag your files for special uses, or just to label the [camera owner](./owner). 
 Some particular 4CCs will also change camera behavior and/or enable features. Here is a list of additional metadata driven controls: 
 
+
+### **HERO11 cameras** - Extensions in the latest Labs firmware (Dec '22)
+
+- **EVBS=x** Global EV comp bias for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set. As this is global offset, it will add to EV comp settings with your presets.  So if EVBS=-1 and a preset has EV set to -0.5, the effective EV will be -1.5.
+- **FRNT=1** display most LCD Labs message on the Front screen.  Practicular useful for FPV useful not using the touchscreen.  e.g.  !MFRNT=1!MEXPS=1 will display the ISO and shutter speed on the front LCD.
+- **AUDS=1** display the approximate audio levels in dB SPL.
+- **PRXY=x** This is an enhancement so that more extra files can be moved to the proxies folder. 1- moves LRVs, 2 - moves THMs, 3 moves both into the proxies folder.
+
+
 ### **HERO11 and Mini cameras** - Extensions in the latest Labs firmware (Nov '22)
 
 - **GUID=aspect,aspect,...** - Displays an on-scene shooting guide for different aspect ratios, independent from the camera's current video mode. 
@@ -169,8 +178,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 		
-### ver 1.24
-updated: Dec 6, 2022<br>
+updated: Dec 14, 2022<br>
 
 [Learn more](..) on QR Control
 
