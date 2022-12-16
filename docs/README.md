@@ -2,7 +2,7 @@
 
 # Software 
 
-Labs is expanding, experiment software for GoPro users [GoPro Labs software](https://gopro.github.io/labs/software).
+Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
 # Firmware
 
@@ -77,5 +77,5 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [USB power trust override](https://gopro.github.io/labs/control/extensions)                 | Yes     | Yes/No  |       |       |       |     |
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     |       | Yes   |       |     |
 
-## ver 1.04
-updated: Dec 3, 2022<br>
+
+updated: Dec 16, 2022<br>
