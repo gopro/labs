@@ -13,7 +13,6 @@ Here is a beta release v1.4.2
 - Reordered the Superview/Hyperview math so that the new projection only apply to the current framing
 
 Downloads
-https://github.com/0dan0/qr/blob/master/docs/software/fxreframe/bin/GoPro-FX-Reframe-Plugin-1.4.2.205.zip
 - [Windows](fxreframe/bin/GoPro-FX-Reframe-Plugin-1.4.2.205.zip)
 - [MacOS](fxreframe/bin/GoPro-FX-Reframe-Plugin-1.4.2.274.pkg)
 
