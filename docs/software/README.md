@@ -8,7 +8,7 @@ FX Reframe is the ultimate GoPro image reframing tool, while it is marketed for 
 GoPro's own media team uses this filter of large percentage producted.
 
 Here is a beta release v1.4.2  
-- Fix for line or top edge
+- Fix for line on left or top edge
 - Fix for x,y offsets expanding the edge line
 - Reordered the Superview/Hyperview math so that the new projection only apply to the current framing
 
