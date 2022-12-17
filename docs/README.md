@@ -1,10 +1,10 @@
 # GoPro Labs
 
-# Software 
+## Software 
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-# Firmware
+## Firmware
 
 Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera’s functionality beyond stocks features. It is especially useful in situations where settings can’t be communicated via voice, where WiFi is not available, where app pairing is not established, or in advanced setups, such as multiple cameras time synchronization or delayed camera triggers.
 
@@ -14,17 +14,17 @@ Download and install your [GoPro Labs firmware](https://community.gopro.com/s/ar
 
 GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs/control/custom) changes
 
-## Advanced Commands Overviews
+### Advanced Commands Overviews
 
 - [Camera Macros](https://gopro.github.io/labs/control) e.g. motion or sound level triggers
 - [Camera Extensions](https://gopro.github.io/labs/control/extensions) e.g. bit-rate enhancements or exposure tweaks
 
-## Primer on Labs actions, scripting and command set
+### Primer on Labs actions, scripting and command set
 
 - [Action Commands](https://gopro.github.io/labs/control/actions)
 - [Setting Commands](https://gopro.github.io/labs/control/settings)
 
-## Overview of Labs functionality and device compatibility: 
+### Overview of Labs functionality and device compatibility: 
 
 | Feature                                                                            | HERO11/Mini | HERO10/Bones | HERO9 | HERO8 | HERO7 | MAX |
 |------------------------------------------------------------------------------------|-------------|--------------|-------|-------|-------|-----|
@@ -77,5 +77,9 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [USB power trust override](https://gopro.github.io/labs/control/extensions)                 | Yes     | Yes/No  |       |       |       |     |
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     |       | Yes   |       |     |
 
+
+### Labs Firmware Release Notes
+
+- [Release Notes](https://gopro.github.io/labs/control/notes/)
 
 updated: Dec 16, 2022<br>
