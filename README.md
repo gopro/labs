@@ -64,6 +64,12 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [USB power trust override](https://gopro.github.io/labs/control/extensions)        | Yes     | Yes/No  |       |       |       |     |
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                   | Yes     | Yes     |       | Yes   |       |     |
 
+
+## Labs Firmware Release Notes
+
+- [Release Notes](https://gopro.github.io/labs/control/notes/)
+
+
 ## ver 1.03
 
 
