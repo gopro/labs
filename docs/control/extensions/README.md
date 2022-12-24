@@ -29,7 +29,7 @@ Some particular 4CCs will also change camera behavior and/or enable features. He
 - **AUDS=1** display the approximate audio levels in dB SPL.
 - **EVBS=x** Global EV comp bias for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set. As this is global offset, it will add to EV comp settings with your presets.  So if EVBS=-1 and a preset has EV set to -0.5, the effective EV will be -1.5.
 - **FRNT=1** display most LCD Labs message on the Front screen.  Practicular useful for FPV useful not using the touchscreen.  e.g.  !MFRNT=1!MEXPS=1 will display the ISO and shutter speed on the front LCD.
-- **PRXY=x** This is an enhancement so that more extra files can be moved to the proxies folder. 1- moves LRVs, 2 - moves THMs, 3 moves both into the proxies folder.
+- **PRXY=x** <span style="color:steelblue">**NEW**</span> This is an enhancement so that more extra files can be moved to the proxies folder. 1- moves LRVs, 2 - moves THMs, 3 moves both into the proxies folder.
 
 
 ### **HERO11 and Mini cameras** - Extensions in the latest Labs firmware (Nov '22)
@@ -98,9 +98,9 @@ Also a noiser image will need a higher-bitrate to store the additional informati
 
 ### **HERO8/9/10/11 and Bones cameras** - Extensions latest Labs firmware
 
-- **HSTO=x** - minutes <span style="color:steelblue">**NEW**</span> - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
+- **HSTO=x** - minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
 - **SPED=x** - SD Card Speed Test. 'x' is the number of runs, each run is around 10 seconds.  Data rates should have minimums above 120Mb/s is you want to reliably capture the high bitrate modes. 
-- **TCAL=milliseconds** <span style="color:steelblue">**NEW**</span> - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
+- **TCAL=milliseconds** - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
 ![SPED.jpg](SPED.jpg)
 - **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.txt file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
 - **WAKE=2** - (HERO8/10/11 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
@@ -135,8 +135,8 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 
 ### **HERO10/11 only** - Advanced features
 
-- **IWFR=1** <span style="color:steelblue">**NEW**</span> - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. 
-- **PRXY=1** <span style="color:steelblue">**NEW**</span> - Store LRV files as Adobe Premiere Pro™ style proxy files. Normally a camera will encode a LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
+- **IWFR=1** - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. 
+- **PRXY=1** - Store LRV files as Adobe Premiere Pro™ style proxy files. Normally a camera will encode a LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GL013784.LRV`<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013785.MP4`<br>
@@ -147,7 +147,7 @@ When Proxies are enabled, the LRV files will be created with name naming that is
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/Proxies/GX013784_Proxy.MP4`<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/Proxies/GX013785_Proxy.MP4`<br>
 Note: When this feature is enabled, the lack of LRVs will mean the Quik App will not be able to preview video on the camera. However, this will not prevent the full resolution transfers, or on camera playback.
-- **TUSB=1** <span style="color:steelblue">**NEW**</span> - Trust USB power.  Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. This can help with some USB power sources that the camera can reject, but are otherwise sufficient to run all camera operations. If you use TUSB with an inadequate power source, expect capture failures.  
+- **TUSB=1** - Trust USB power.  Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. This can help with some USB power sources that the camera can reject, but are otherwise sufficient to run all camera operations. If you use TUSB with an inadequate power source, expect capture failures.  
 
 
 
@@ -178,7 +178,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 		
-updated: Dec 14, 2022<br>
+updated: Dec 24, 2022<br>
 
 [Learn more](..) on QR Control
 
