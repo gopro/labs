@@ -24,11 +24,11 @@ will store it for only this power-on session. Metadata is available to flag your
 Some particular 4CCs will also change camera behavior and/or enable features. Here is a list of additional metadata driven controls: 
 
 
-### **HERO11 cameras** - Extensions in the latest Labs firmware (Dec '22)
+### **HERO11/10/Mini cameras** - Extensions in the latest Labs firmware (Dec/Jan '22)
 
 - **AUDS=1** display the approximate audio levels in dB SPL.
 - **EVBS=x** Global EV comp bias for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set. As this is global offset, it will add to EV comp settings with your presets.  So if EVBS=-1 and a preset has EV set to -0.5, the effective EV will be -1.5.
-- **FRNT=1** display most LCD Labs message on the Front screen.  Practicular useful for FPV useful not using the touchscreen.  e.g.  !MFRNT=1!MEXPS=1 will display the ISO and shutter speed on the front LCD.
+- **FRNT=1** For front screen equipped cameras, display most LCD Labs message on the front screen. Practicular useful for FPV useful not using the touchscreen.  e.g.  !MFRNT=1!MEXPS=1 will display the ISO and shutter speed on the front LCD.
 - **PRXY=x** <span style="color:steelblue">**ENHANCED**</span> This is an enhancement so that more extra files can be moved to the proxies folder. 1- moves LRVs, 2 - moves THMs, 3 moves both into the proxies folder.
 
 
