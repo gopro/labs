@@ -135,6 +135,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 
 ### **HERO10/11 only** - Advanced features
 
+- **BERS=1** - Bypass ERS compensation. Do not use unless you have stablization disabled, and know why you want ERS off. Not common.
 - **IWFR=1** - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. 
 - **PRXY=1** - Store LRV files as Adobe Premiere Pro™ style proxy files. Normally a camera will encode a LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
@@ -177,8 +178,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
  Again for dive users.
 
 <br> 
-		
-updated: Dec 24, 2022<br>
+
+updated: Jan 4, 2022<br>
 
 [Learn more](..) on QR Control
 
