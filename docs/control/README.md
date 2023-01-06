@@ -47,6 +47,7 @@ and as a mobile app:<br>
 * **HERO8-11/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-11** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
 * **HERO10-11** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
+* **HERO9** - Experimental on camera real-time [**Media Encryption**] during capture(./encrypt) 
 * **ALL** - <span style="color:steelblue">**UPDATED**</span> Dozens more [**extensions**](./extensions) via QR Code
 
 ### Metadata Extraction
@@ -72,8 +73,7 @@ Technical information on the [**Labs command language**](./tech)
 ## GoPro Labs
 [**Labs start on GitHub**](https://gopro.github.io/labs).
 
-### ver 1.32
-updated: Dec 3, 2022
+updated: Jan 6, 2022
 
 
 <script>
