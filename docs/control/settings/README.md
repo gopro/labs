@@ -148,7 +148,31 @@ GoPro MAX Shooting Modes
  * **mF** - mode monitor Front lens
  * **mR** - mode monitor Rear lens
 
-GoPro HERO9/10/11 Front Screen controls
+Feature with off and on commands:
+- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost, **e4** Auto (H11)
+- GPS Active: **g0** - off, **g** or **g1** - on
+- Quick Capture: **q0** - off, **q** or **q1** - on
+- Voice Commands: **v0** - off, **v** or **v1** - on
+
+Option (‘o’) commands:
+- Brightness of the LCDs - **oB0** … **oB9** - (100%)
+- Camera Auto Off - **oC** - Never, **oC0** - default, **oC1** - 1min, **oC5** - 5min, **oC15** - 15min, **oC30** - 30min
+- LCDs off now - **oDO**
+- LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
+- Extern Audio options - **oE1** - Standard Mic, **oE2** - Standard+ Mic, **oE3** - Powered Mic, **oE4** - Powered+ Mic, **oE5** - Line In (HERO10/11 only)
+- Front Screen control - **oFxy** - (see list below)
+- Language - **oL**x - **0** English USA, **01** English UK, **02** English Aus, **03** English India, **1** German, **2** French, **3** Italian, **4** Spanish, **5** Chinese, **6** Japanese, **7** Korean, **8** Portuaguese, **9** Russian, **91** Swedish
+- Rotation, Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down
+- Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
+- Shortcut Menu on LCD - **oSA**x - Upper Left, **oSB**x - Lower Left, **oSC**x - Upper Right, **oSD**x - Lower Right, **oSR** - reset. Where x is in the list below.
+- Time and date - **oT**yymmddhhmmss.sss
+- Time, daylight savings - **oTD** or **oTD1** for daylight savings on or **oDT0** for off
+- Timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
+- Volume of Beps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
+- WiFi Connection - **oW0** - off, **oW1** - on
+- Max Lens Mod -  **oX0** - disabled, **oX1** - enabled
+
+GoPro HERO9/10/11 Front Screen option commands
  * **oF0 or oFO** - turn the front LCD off
  * **oFU** - UI interface mode info only
  * **oFF** - Full image (image is letterboxed)
@@ -159,34 +183,23 @@ GoPro HERO9/10/11 Front Screen controls
  * **oF2** - turn off after 2 minutes
  * **oF3** - turn off after 3 minutes
  * **oF5** - turn off after 5 minutes
-					
-GoPro HERO9/10/11 Max Lens Mod Controls
- * **oX0** - Lens Mod is not attached
- * **oX1** - Lens Mod is attached
+ 
+Shortcut Menu Types (to be used with oSA, oSB, oSC and oSD)  (coming soon)
 
-Feature with off and on commands:
-- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost, **e4** Auto (H11)
-- GPS Active: **g0** - off, **g** or **g1** - on
-- Quick Capture: **q0** - off, **q** or **q1** - on
-- Voice Commands: **v0** - off, **v** or **v1** - on
-
-Some further option (‘o’) commands:
-- Camera Auto Off - **oC** - Never, **oC5** - 5min ... **oC30** - 30min
-- Screen Brightness - **oB0** … **oB9** - (100%)
-- Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
-- LCDs off now - **oDO**
-- Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down
-- WiFi Connection - **oW0** - off, **oW1** - on
-- LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
-- Beep Volume - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
-- Set date and time - **oT**yymmddhhmmss.sss
-- Set timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
-- Set daylight savcings - **oDT** or **oTD1** for daylight savings on or **oDT0** for off
+| Feature      | value  | Feature      | value  |Feature      | value  |Feature      | value  |
+|--------------|--------|--------------|--------|-------------|--------|-------------|--------|
+|clear shortcut|0|burst rate |8 |ISO max       |15|horizon control  |24|
+|zoom          |1|duration   |9 |mic type      |16|speed ramp       |25|
+|fov           |2|color      |10|raw audio     |18|scheduled capture|26|
+|slowmo        |3|EV comp    |11|sharpness     |19|hindsight        |27|
+|white balance |5|hypersmooth|12|timer         |20|10-bit           |28|
+|shutter       |6|interval   |13|timewarp speed|21|nightphoto       |29|
+|bit rate      |7|ISO min    |14|wind noise    |23|trail length     |30|
 
 
 HERO11 UX modes:
-- mE - mode Easy
-- mPR - mode Pro
+- **mE** - mode Easy
+- **mPR** - mode Pro
 
 # Experiment Here
 ## Typing-in Your Custom Mode:
@@ -195,8 +208,7 @@ HERO11 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.16
-updated: Dec 3, 2022
+updated: Jan 18, 2023
 
 [Learn more](..) on QR Control
 

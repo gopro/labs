@@ -57,7 +57,7 @@ Note: As the pixel size isn't changing, that increasing the logbase (flatness) m
 When pushing the dynamic range of any camera, shadow details may be suppress by noise reduction. 
 Increasing the logbase will enhance the shadows, but will also reveal noise reduction artifacts tuned for a different encoding curve (the more consumer friendly Rec709.)  
 You can back-off the noise reduction to restore shadow details, with the downside being a noiser image (protentially requiring noise reduction in post.)  
-Also a noiser image will need a higher-bitrate to store the additional information (so BITR, NR01 and LOBG are all related.) 
+Also a noiser image will need a higher-bitrate to store the additional information (so BITR, NR01 and LOGB are all related.) 
 
 ### Miscellaneous controls for most Labs cameras. 
 
@@ -179,7 +179,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Jan 4, 2022<br>
+updated: Jan 15, 2022<br>
 
 [Learn more](..) on QR Control
 

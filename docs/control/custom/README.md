@@ -447,11 +447,13 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="or6" name="or" value="" checked> <label for="or6">not set</label>
   </div>
 <div id="opAO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Camera Auto Off:</b>&nbsp;&nbsp; 
-  <input type="radio" id="ao1" name="ao" value="C5"> <label for="ao1">5 mins </label>&nbsp;&nbsp;
-  <input type="radio" id="ao2" name="ao" value="C15"> <label for="ao2">15 mins </label>&nbsp;&nbsp;
-  <input type="radio" id="ao3" name="ao" value="C30"> <label for="ao3">30 mins </label>&nbsp;&nbsp;
-  <input type="radio" id="ao4" name="ao" value="C"> <label for="ao4">Never </label>&nbsp;&nbsp;
-  <input type="radio" id="ao5" name="ao" value="" checked> <label for="ao5">not set</label>
+  <input type="radio" id="ao1" name="ao" value="C1"> <label for="ao1">1 mins </label>&nbsp;&nbsp;
+  <input type="radio" id="ao2" name="ao" value="C5"> <label for="ao2">5 mins </label>&nbsp;&nbsp;
+  <input type="radio" id="ao3" name="ao" value="C15"> <label for="ao3">15 mins </label>&nbsp;&nbsp;
+  <input type="radio" id="ao4" name="ao" value="C30"> <label for="ao4">30 mins </label>&nbsp;&nbsp;
+  <input type="radio" id="ao5" name="ao" value="C0"> <label for="ao5">Default </label>&nbsp;&nbsp;
+  <input type="radio" id="ao6" name="ao" value="C"> <label for="ao6">Never </label>&nbsp;&nbsp;
+  <input type="radio" id="ao7" name="ao" value="" checked> <label for="ao7">not set</label>
   </div>
 <div id="opSO">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Screen Auto Off:</b>&nbsp;&nbsp;
   <input type="radio" id="so1" name="so" value="S1"> <label for="so1">1 mins </label>&nbsp;&nbsp;
@@ -571,8 +573,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.56
-updated: Sep 14, 2022
+## version 1.57
+updated: Jan 17, 2023
 
 <script>
 var clipcopy = "";
