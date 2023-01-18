@@ -38,14 +38,6 @@ Defaults modes (on power up):
  * **dP** - last used Photo mode
  * **dT** - last used Timelapse mode
   
-Lens - FOV: 
- * **fN** - Narrow
- * **fM** - Medium
- * **fW** - Wide
- * **fX** - SuperMax Wide (Max Lens Mod)
- * **fH** - Horizonal Level + Linear (H9/10/11)
- * **fV** - HyperView (H11)
-  
 Resolutions: 
  * **r1080** - 1920x1080
  * **r1440** - 1920x1440
@@ -70,7 +62,7 @@ Frame rates:
  * **p200** - 200 fps
  * **p240** - 240 fps
  * (only supports existing frame rates, so p65 or p1000 will be ignored.)
-
+  
 Time-lapse frame rates: 
  * **p2** (0.5s or 2Hz/2p capture)
  * **p1** (1s interval)
@@ -81,6 +73,23 @@ Time-lapse frame rates:
 NightLapse frame rates: 
  * **p.120** through **p.1800** (2 minutes to 60 minute interval)
 
+Lens - FOV: 
+ * **fN** - Narrow
+ * **fM** - Medium
+ * **fW** - Wide
+ * **fX** - SuperMax Wide (Max Lens Mod)
+ * **fH** - Horizonal Level + Linear (H9/10/11)
+ * **fV** - HyperView (H11)
+ 
+Audio (Raw controls): 
+ * **aL** - Low Processing
+ * **aM** - Medium Processing
+ * **aH** - High Processing
+
+Bitrate: 
+ * **b0** - Standard Bitrate
+ * **b1** - High Bitrate
+
 Color: 
  * **cF** - Color Flat
  * **cG** - Color Vibrant
@@ -89,6 +98,13 @@ Color:
 Depth (H11 only): 
  * **d0** or **d8** - 8-bit color
  * **d1** or **d10** - 10-bit color
+
+EIS (Hypersmooth control): 
+ * **e0** - Off     
+ * **e1** - On
+ * **e2** - High
+ * **e3** - Boost
+ * **e4** - Auto 
 
 White Balance: 
  * **wA** - Auto White Balance
