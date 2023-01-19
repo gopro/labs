@@ -17,20 +17,22 @@
 
 Mode commands: 
  * **mV** - mode Video
+ * **mVL** - mode Video Looping (\*)
  * **mP** - mode Photo
- * **mT** - mode Timelapse video (\*)
- * **mTP** - mode Timelapse Photo (\*)
+ * **mT** - mode Timelapse video (\*\*)
+ * **mTP** - mode Timelapse Photo (\*\*)
  * **mTW** - mode TimeWarp
  * **mPB** - mode Photo Burst 
  * **mPN** - mode Photo Night
- * **mNL** - mode Night-Lapse Video (\*)
- * **mNP** - mode Night-Lapse Photo (\*)
- * **mL** - mode Live-Burst Photo (HERO10/11 only)
+ * **mNL** - mode Night-Lapse Video (\*\*)
+ * **mNP** - mode Night-Lapse Photo (\*\*)
+ * **mL** - mode Live-Burst Photo (HERO10 only)
  * **mST** - mode Star Trails (HERO11 only)
  * **mLP** - mode Light Painting (HERO11 only)
  * **mLT** - mode Vechical Lights (HERO11 only)
  
-<b>\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
+<b>\* Video Looping:</b> You need to create this preset on camera, before this command will select it.<br>
+<b>\*\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
  
 Defaults modes (on power up): 
  * **dL** - last used mode
@@ -224,7 +226,7 @@ HERO11 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: Jan 18, 2023
+updated: Jan 19, 2023
 
 [Learn more](..) on QR Control
 
