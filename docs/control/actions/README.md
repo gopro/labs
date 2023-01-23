@@ -26,7 +26,7 @@
 * **!**time**OR** - shutdown and restart the camera.
 * **!**time**U** - Attempt a network contention and Upload <sup>9/10/11</sup>.
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
-* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local fine, requires a previously successful **!W** command <sup>8/9/10/11</sup>
+* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local file, requires a previously successful **!W** command <sup>8/9/10/11</sup>
 * **!**time**Dx** - (H11) !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
 
 ## Capture Triggers
@@ -91,11 +91,30 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 * **!SAVEname=script**  e.g. !SAVEdaily=dPmP!12:00S!Ldaily - a save script called ‘daily’ that repeatedly shots one photo every day at noon. 
 * **!Lname**  e.g. !LnightLapse - load add run a script called nightLapse
 * **oAxxxx=1** e.g. oAMETA=1  --  to implement a basic counter in metadata
+* **"any text"** e.g. mV"Video Mode"!S!5E!4NmP"Photo Mode"!S!5R - this will display "Video Mode" and "Photo Mode" when switch to those modes.  
+
+### Conditional Based on Time
+
 * **\<**time**CMD**  e.g. \<09:00!30R!Lother - if current time is less than 9am, wait 30mins and loop, otherwise load script called ‘other’.
 * **\>**time**CMD** e.g. !SM9\>22:00!R - do motion detection until 10PM, then stop
 * **\>**timeA**\<**timeB**cmdTrue~cmdFalse** e.g. mP>06:00<20:00!180SQ~!06:00S!R - If time is between 06:00 and 20:00 take a photo in 180 seconds else start a 6am, repeat.
 * **\>**timeA**\<**timeB**cmdTrue+cmdTrue~cmdFalse+cmdFalse** e.g. mP>06:00<20:00"wait 3m"+!180SQ~"wait tomorrow"+!06:00S!R - The '+' characters allow you to extend the conditional command, like changing mode before the action.
-* **"any text"** e.g. mV"Video Mode"!S!5E!4NmP"Photo Mode"!S!5R - this will display "Video Mode" and "Photo Mode" when switch to those modes.  
+
+### Conditionals Based on Camera Status
+
+Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used to test camera states, where 'x' is the camera state to test:
+
+* **u** USB power - **\>u**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
+* **r** recording - **\>r**CMD1~CMD2 if(Recording) then CMD1 else CMD2 
+* **a** accelerationValue - **\>aValue**CMD if(acceleration \> Valie) then CMD, units in milli-Gs
+* **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD ...
+* **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.
+* **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
+* **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
+* **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
+* **i** isoValue - **\>iValue**CMD - testing ISO where ISO ranges from 100 to 6400
+* **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
+
 
 # Experiment Here
 
@@ -106,7 +125,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## ver 1.01 - 2022 Nov 8  
+## updated 2023 Jan 21 
 [BACK](..)
 
 
