@@ -104,16 +104,21 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 
 Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used to test camera states, where 'x' is the camera state to test:
 
-* **u** USB power - **\>u**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
-* **r** recording - **\>r**CMD1~CMD2 if(Recording) then CMD1 else CMD2 
-* **a** accelerationValue - **\>aValue**CMD if(acceleration \> Valie) then CMD, units in milli-Gs
-* **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD ...
+* **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in milli-Gs
+* **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage
+* **c** CoordDistance - **\>cDist**CMD or **\>cXDist**CMD if(distance \> Value) then CMD, units in meters. There are up to 27 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ.  If nothing in FRMx, initialize with current location.
+* **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.
 * **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.
 * **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
-* **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
-* **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
+* **h** heightValue - **\>hValue**CMD if(height \> Value) CMD, numbers are in meters above sealevel.
 * **i** isoValue - **\>iValue**CMD - testing ISO where ISO ranges from 100 to 6400
+* **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
+* **l** loopNumValue - **\<lValue**CMD if(loop_count \< Value) CMD e.g. \<l45!R, this is the loop count for !R repeat, since last QR scan or boot.
+* **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
+* **r** recording - **\>r**CMD1~CMD2 if(Recording) then CMD1 else CMD2 
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
+* **tX** timedate - **\>tXValue**CMD - where X: Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode
+* **u** USB power - **\>u**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
 
 
 # Experiment Here
@@ -125,7 +130,7 @@ Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used t
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## updated 2023 Jan 21 
+## updated 2023 Jan 25 
 [BACK](..)
 
 

@@ -168,9 +168,9 @@ GoPro MAX Shooting Modes
 
 Feature with off and on commands:
 - EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost, **e4** Auto (H11)
-- GPS Active: **g0** - off, **g** or **g1** - on
-- Quick Capture: **q0** - off, **q** or **q1** - on
-- Voice Commands: **v0** - off, **v** or **v1** - on
+- (Deprecated) GPS Active: **g0** - off, **g** or **g1** - on 
+- (Deprecated) Quick Capture: **q0** - off, **q** or **q1** - on 
+- (Deprecated) Voice Commands: **v0** - off, **v** or **v1** - on
 
 Option (‘o’) commands:
 - Brightness of the LCDs - **oB0** … **oB9** - (100%)
@@ -179,14 +179,17 @@ Option (‘o’) commands:
 - LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
 - Extern Audio options - **oE1** - Standard Mic, **oE2** - Standard+ Mic, **oE3** - Powered Mic, **oE4** - Powered+ Mic, **oE5** - Line In (HERO10/11 only)
 - Front Screen control - **oFxy** - (see list below)
+- GPS Options (HERO11 v2.1) - **oG0** - off, **oG1** - on
 - Language - **oL**x - **0** English USA, **01** English UK, **02** English Aus, **03** English India, **1** German, **2** French, **3** Italian, **4** Spanish, **5** Chinese, **6** Japanese, **7** Korean, **8** Portuaguese, **9** Russian, **91** Swedish
-- Rotation, Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down
+- Quick Capture (HERO11 v2.1) - **oQ0** - off, **oQ1** - on
+- Rotation, Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down, **oR2** - Left, **oR3** - Right
 - Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
 - Shortcut Menu on LCD - **oSA**x - Upper Left, **oSB**x - Lower Left, **oSC**x - Upper Right, **oSD**x - Lower Right, **oSR** - reset. Where x is in the list below.
 - Time and date - **oT**yymmddhhmmss.sss
 - Time, daylight savings - **oTD** or **oTD1** for daylight savings on or **oDT0** for off
 - Timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
-- Volume of Beps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
+- Volume of Beeps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
+- Volume Control - **oVC0** - off, **oVC1** - on
 - WiFi Connection - **oW0** - off, **oW1** - on
 - Max Lens Mod -  **oX0** - disabled, **oX1** - enabled
 
