@@ -3,6 +3,48 @@
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
 
+## HERO11 Black Mini
+
+### 2.10.70 - Feb 1, 2023
+- Fixed DLRV to support multiple captures
+- Fixed short DSPL interfering with delayed start 
+- Fixed a common failure in upload in repeating scripts (command !U)
+- Fixed a new issue with delay start like !20N, shutting down before the full command was executed.
+- Fixed !Mwxyz=-value, permanent metadata stores weren't supporting negative values. 
+- Added !MGCMP=1 to disable gyro compensated exposure.
+- Added WIDE (flat color wider gamut, like wN with white balance controls), 2020 (color primaries), MTRX (color matrix) extensions.
+- Added WBLK or wL white balance lock immediately upon capture, allowing auto white balance in dive footage, where good white balance can be tricky.
+- Added new condition commands. Previous only >HH:MMcommand or <HH:MMcommand, meaning if(current_time>HH:MM) or if(current_time<HH:MM) respectivily
+  Now >x and/or <x can be used to test camera states, where 'x' is the camera state to test:
+   * **u** USB stage - >uCmd1~Cmd2 or <uCmd3 expand to if(power is on USB) Cmd1 else Cmd2  or  if(no power on USB) cmd.  e.g. >u"Power On"~"Power Off"
+   * **r** recording 
+   * **a** accelerationValue - >a100     if(acceleration > V) Cmd1  e.g. >a100"accleration\n>100mg" numbers are in milli-gs (1000 is 1 unit of gravity.) 
+   * **d** GPS DOP - <d800 - if(DOP then then 800)
+   * **e** random <e50 - 50% true  <e90  - 90% true. 
+   * **g** gyroValue - >gValue  if(gryo > Value) Cmd1  e.g. >g15"gyro > 15dps" numbers are in degrees per second.
+   * **k** speedValue - if(gps Speed > Value) Cmd1  e.g. >k45"speed > 45km/h" numbers are in km/h.
+   * **p** soundpressureValue - in dB
+   * **i** isoValue - ISO ranging from 100 to 6400
+   * **s** shutterValue - 1/Value for shutter speed
+- Added a random delay option 'e' e.g. !eS (start random within an hour) or !e10E (end random within 10 seconds) or !e60N (NOP wait for random up to 60seconds.)
+- Added crude super of macro (near focus) lenses, with e.g. oMMACR=-0.1,0.2,... (add the distortion prescription for the added lens.)
+- Added oC1 - Auto Off 1 minute  oC0 - Auto Off default length
+- Restored 64BT=x where x is the number of MB.
+- Enhanced PRXY=4 for DaVinci style proxies.
+
+
+### 2.00.70 - Jan 5, 2023
+- Added EVBS=x for EV Comp Bias, global for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set.
+- Added AUDS=1 display the approximate audio levels in dB SPL
+- Enhanced Faster Live-Stream start and reliability via QR code
+- Enhanced !MPRXY=x  so that 1- moves LRVs, 2 - moves THMs, 3 moves both in the proxies folder.
+- Enhanced xV EV compensation can again support the range -6 to 6 (menus are still limited to -2 to 2)  e.g. -x3 or -x-4
+- Fixed DLRV=1, so that disabling LRVs can work for more than two captures.
+
+### 1.10.70 - Nov 8, 2022
+- All the features and fixes of HERO11 Labs 1.20.70, minus on-screen and GPS features.
+
+
 ## HERO11 Black 
 
 ### 2.01.70 - Dec 14, 2022
@@ -55,18 +97,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 - i0 - ISO Auto, other i1 thru i64 for ISO Max 100 thru 6400 
 - Bug Fix for metadata in video overlays 
 
-## HERO11 Black Mini
-
-### 2.00.70 - Jan 5, 2023
-- Added EVBS=x for EV Comp Bias, global for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set.
-- Added AUDS=1 display the approximate audio levels in dB SPL
-- Enhanced Faster Live-Stream start and reliability via QR code
-- Enhanced !MPRXY=x  so that 1- moves LRVs, 2 - moves THMs, 3 moves both in the proxies folder.
-- Enhanced xV EV compensation can again support the range -6 to 6 (menus are still limited to -2 to 2)  e.g. -x3 or -x-4
-- Fixed DLRV=1, so that disabling LRVs can work for more than two captures.
-
-### 1.10.70 - Nov 8, 2022
-- All the features and fixes of HERO11 Labs 1.20.70, minus on-screen and GPS features.
 
 ## HERO10 Black 
 
@@ -220,6 +250,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Jan 4, 2023
+updated: Feb 1, 2023
 
 [Learn more](..) on QR Control

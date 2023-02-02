@@ -114,8 +114,11 @@ Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used t
 * **i** isoValue - **\>iValue**CMD - testing ISO where ISO ranges from 100 to 6400
 * **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
 * **l** loopNumValue - **\<lValue**CMD if(loop_count \< Value) CMD e.g. \<l45!R, this is the loop count for !R repeat, since last QR scan or boot.
+* **m** motionValue - **\<mValue**CMD if(motion \< Value) CMD e.g. >m5!S+60E!R, this look of motion, and record for 60seconds when detected.
 * **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
 * **r** recording - **\>r**CMD1~CMD2 if(Recording) then CMD1 else CMD2 
+* **rC** remote Contented - **\>rC**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
+* **rA** remote App Contented - **\>rA**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
 * **tX** timedate - **\>tXValue**CMD - where X: Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode
 * **u** USB power - **\>u**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
@@ -130,7 +133,7 @@ Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used t
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## updated 2023 Jan 25 
+## updated 2023 Feb 1
 [BACK](..)
 
 

@@ -186,7 +186,7 @@ Option (‘o’) commands:
 - Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
 - Shortcut Menu on LCD - **oSA**x - Upper Left, **oSB**x - Lower Left, **oSC**x - Upper Right, **oSD**x - Lower Right, **oSR** - reset. Where x is in the list below.
 - Time and date - **oT**yymmddhhmmss.sss
-- Time, daylight savings - **oTD** or **oTD1** for daylight savings on or **oDT0** for off
+- Time, daylight savings - **oTD** or **oTD1** for daylight savings on or **oTD0** for off
 - Timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
 - Volume of Beeps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
 - Volume Control - **oVC0** - off, **oVC1** - on
@@ -229,7 +229,7 @@ HERO11 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: Jan 19, 2023
+updated: Feb 1, 2023
 
 [Learn more](..) on QR Control
 
