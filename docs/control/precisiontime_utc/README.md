@@ -31,10 +31,31 @@ updated: Sept 14, 2022
 var once = true;
 var qrcode;
 var cmd = "";
+var id = 0;
+
+
+function id5() {  // 5 characters, so up to 17-bit ID
+  return ([1111]+1).replace(/1/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] % 10 >> c / 4).toString()
+  );
+}
+
+function getMachineId() 
+{
+    let machineId = localStorage.getItem('MachineId');
+    if (!machineId) {
+    	//machineId = crypto.randomUUID();
+        machineId = id5();
+        localStorage.setItem('MachineId', machineId);
+    }
+    return machineId;
+}
+
 
 function makeQR() {	
   if(once === true)
   {
+	id = getMachineId();  // 5 character 10-base, so up to 17-bit ID
     qrcode = new QRCode(document.getElementById("qrcode"), 
     {
       text : "oT0",
@@ -72,12 +93,12 @@ function timeLoop()
   ms = Math.floor(ms / 10); // hundredths
   ms = padTime(ms);
 
-  cmd = "oT" + yy + mm + dd + h + m + s + "." + ms;
+  cmd = "oT" + yy + mm + dd + h + m + s + "." + ms + "TI" + id;
   qrcode.clear(); 
   qrcode.makeCode(cmd);
   document.getElementById("qrtext").innerHTML = cmd;
  
-  var t = setTimeout(timeLoop, 50);
+  var t = setTimeout(timeLoop, 30);
 }
 
 function myReloadFunction() {

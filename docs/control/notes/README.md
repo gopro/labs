@@ -11,9 +11,10 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Fixed a common failure in upload in repeating scripts (command !U)
 - Fixed a new issue with delay start like !20N, shutting down before the full command was executed.
 - Fixed !Mwxyz=-value, permanent metadata stores weren't supporting negative values. 
-- Added !MGCMP=1 to disable gyro compensated exposure.
-- Added WIDE (flat color wider gamut, like wN with white balance controls), 2020 (color primaries), MTRX (color matrix) extensions.
-- Added WBLK or wL white balance lock immediately upon capture, allowing auto white balance in dive footage, where good white balance can be tricky.
+- Added GCMP=1 to disable gyro compensated exposure.
+- Added WIDE=1 flat color wider gamut, like wN with white balance controls
+- Added MTRX=a,b,c,d,e,f,g,h,i. This is the RGB to YUV matrix, new ways to mess up your video. e.g. For an B/W effect in camera oMMTRX=50,175,25,0,0,0,0,0,0
+- Added WBLK=1 or wL white balance lock immediately upon capture, allowing auto white balance in dive footage, where good white balance can be tricky.
 - Added new condition commands. Previous only >HH:MMcommand or <HH:MMcommand, meaning if(current_time>HH:MM) or if(current_time<HH:MM) respectivily
   Now >x and/or <x can be used to test camera states, where 'x' is the camera state to test:
    * **u** USB stage - >uCmd1~Cmd2 or <uCmd3 expand to if(power is on USB) Cmd1 else Cmd2  or  if(no power on USB) cmd.  e.g. >u"Power On"~"Power Off"

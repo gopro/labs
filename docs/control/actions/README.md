@@ -72,7 +72,7 @@ Any four character code can be used for store other information. You can also st
 
 ## Storing metadata (Temporarily, until power off)
 
-* **oM**fourcc**=”string”**  
+* **oM**fourcc**&#61;"string"**  
 * **oM**fourcc**=Number metadata**
 
 
@@ -93,20 +93,99 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 * **oAxxxx=1** e.g. oAMETA=1  --  to implement a basic counter in metadata
 * **"any text"** e.g. mV"Video Mode"!S!5E!4NmP"Photo Mode"!S!5R - this will display "Video Mode" and "Photo Mode" when switch to those modes.  
 
-### Conditional Based on Time
+### Conditionals Based on Time
 
-* **\<**time**CMD**  e.g. \<09:00!30R!Lother - if current time is less than 9am, wait 30mins and loop, otherwise load script called ‘other’.
-* **\>**time**CMD** e.g. !SM9\>22:00!R - do motion detection until 10PM, then stop
-* **\>**timeA**\<**timeB**cmdTrue~cmdFalse** e.g. mP>06:00<20:00!180SQ~!06:00S!R - If time is between 06:00 and 20:00 take a photo in 180 seconds else start a 6am, repeat.
-* **\>**timeA**\<**timeB**cmdTrue+cmdTrue~cmdFalse+cmdFalse** e.g. mP>06:00<20:00"wait 3m"+!180SQ~"wait tomorrow"+!06:00S!R - The '+' characters allow you to extend the conditional command, like changing mode before the action.
+**\<** and **>** character are used to indicate a conditionals, less than, and greater than equal.
+
+**\<08:45!S** is equalivant to 
+
+> if(current_time < 8:45) <br>
+> &nbsp;&nbsp;&nbsp;   Start
+
+**>18:30!R** is equalivant to 
+
+> if(current_time >= 18:30) <br>
+> &nbsp;&nbsp;&nbsp;  Repeat
+
+Note: there is not **equals** condition; nothing like if(time==09:00).
+
+The if condition defaults to effecting only the one command after the condition
+
+**\<08:45!S"Hello World"** is equalivant to:
+
+> if(current_time < 8:45) <br>
+> &nbsp;&nbsp;&nbsp;   Start<br>
+> print "Hello World"
+	
+The start will happen if the condition is true, but the print message occurs whether true or false.  To make the print also part of the true state you can use **+** between the joined commands.
+
+**\<08:45!S+"Hello World"** is equalivant to
+
+> if(current_time < 8:45) <br>
+> {<br>
+> &nbsp;&nbsp;&nbsp;    Start <br>
+> &nbsp;&nbsp;&nbsp;    print "Hello World" <br>
+> }
+
+These can be stacked too, e.g. **\<08:45!S+"Hello World"+!60E** is equalivant to
+
+> if(current_time < 8:45) <br>
+> {<br>
+> &nbsp;&nbsp;&nbsp;    Start <br>
+> &nbsp;&nbsp;&nbsp;    print "Hello World" <br>
+> &nbsp;&nbsp;&nbsp;    After 60 seconds End the capture <br>
+> }
+
+Conditions support **else** statements using the **~** character after the last 'true' command
+
+**\<08:45!S+"Hello World"+!60E~!08:44N!R** is equalivant to
+
+> if(current_time < 8:45) <br>
+> {<br>
+> &nbsp;&nbsp;&nbsp;    Start <br>
+> &nbsp;&nbsp;&nbsp;    print "Hello World" <br>
+> &nbsp;&nbsp;&nbsp;    After 60 seconds End the capture <br>
+> }<br>
+> else<br>
+> {<br>
+> &nbsp;&nbsp;&nbsp;    Sleep until 8:44 the next day <br>
+> }<br>
+> Repeat
+
+
+Conditionals themselves can be stacked like **\>09:15<10:00!S** is equalivant to 
+
+> if(current_time >= 9:15) <br>
+> &nbsp;&nbsp;&nbsp; if(current_time <= 10:00) <br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start<br>
+	
+However the else can only be applied to the last condition. **\>09:15<10:00!S+"Hello World"+!60E~!09:30N!R** is equalivant to
+
+> if(current_time >= 9:15) <br>
+> {<br>
+> &nbsp;&nbsp;&nbsp;	if(current_time <= 10:00) <br>
+> &nbsp;&nbsp;&nbsp;	{<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Start<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print "Hello World"<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		After 60 seconds End the capture<br>
+> &nbsp;&nbsp;&nbsp;	}<br>
+> &nbsp;&nbsp;&nbsp;	else<br>
+> &nbsp;&nbsp;&nbsp;	{<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Sleep until 9:30 the next day<br>
+> &nbsp;&nbsp;&nbsp;	}<br>
+> }<br>
+> Repeat
+
+The command language is kept simple, so it doesn't maintain a stack on the conditional nesting. 
 
 ### Conditionals Based on Camera Status
 
 Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used to test camera states, where 'x' is the camera state to test:
 
-* **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in milli-Gs
+* **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
 * **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage
-* **c** CoordDistance - **\>cDist**CMD or **\>cXDist**CMD if(distance \> Value) then CMD, units in meters. There are up to 27 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ.  If nothing in FRMx, initialize with current location.
+* **c** CoordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location
+* **c:X** CoordDistance - **\>c:XDist**CMD There are up to 26 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ. If nothing is store in FRMx, it will initialize with the current location.
 * **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.
 * **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.
 * **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
@@ -114,13 +193,14 @@ Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used t
 * **i** isoValue - **\>iValue**CMD - testing ISO where ISO ranges from 100 to 6400
 * **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
 * **l** loopNumValue - **\<lValue**CMD if(loop_count \< Value) CMD e.g. \<l45!R, this is the loop count for !R repeat, since last QR scan or boot.
-* **m** motionValue - **\<mValue**CMD if(motion \< Value) CMD e.g. >m5!S+60E!R, this look of motion, and record for 60seconds when detected.
+* **m** motionValue - **\<mValue**CMD if(motion \< Value) CMD Motion value is a percentage of pixels moving  e.g. >m5!S+60E!R, this look of motion greater than 5%, and record for 60seconds when detected.
+* **m:X** motionSensivityValue - <m:A through <m:Z adjusts the sensitivity of the detector, the above is the equivalent <m:J.  'A' is very low sensitivity, only large pixel changes detected, 'Z' tiniest change detected. 
 * **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
-* **r** recording - **\>r**CMD1~CMD2 if(Recording) then CMD1 else CMD2 
-* **rC** remote Contented - **\>rC**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
-* **rA** remote App Contented - **\>rA**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
+* **r** recording - **\>r0**CMD1~CMD2 if(Recording) then CMD1 else CMD2 
+* **r:C** remote Connected - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
+* **r:A** remote App Connected - **\>r0:A**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
-* **tX** timedate - **\>tXValue**CMD - where X: Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode
+* **t:X** timedate - **\>t:XValue**CMD - where X Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode
 * **u** USB power - **\>u**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
 
 
@@ -133,7 +213,7 @@ Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used t
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## updated 2023 Feb 1
+## updated 2023 Feb 7
 [BACK](..)
 
 
