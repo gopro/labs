@@ -212,6 +212,12 @@ function HTMLPrint(txt)
 	var newtxt = txt2.replaceAll(">", "&#62;");
 	return newtxt;
 }
+function URLPrint(txt)
+{
+	var txt2 = txt.replaceAll("+", "%2B");
+	var newtxt = txt2.replaceAll("#", "%23");
+	return newtxt;
+}
 
 function timeLoop()
 {
@@ -239,7 +245,7 @@ function timeLoop()
 	if(cmd != lasttimecmd)
 	{
 		document.getElementById("qrtext").innerHTML = HTMLPrint(cmd);
-		clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
+		clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + URLPrint(cmd);
 		document.getElementById("urltext").innerHTML = HTMLPrint(clipcopy);
 		changed = true;
 		lasttimecmd = cmd;
