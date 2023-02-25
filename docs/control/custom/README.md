@@ -573,8 +573,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-## version 1.57
-updated: Jan 17, 2023
+updated: Feb 24, 2023
 
 <script>
 var clipcopy = "";
@@ -626,6 +625,12 @@ function makeQR() {
 	once = false;
 }
 
+function HTMLPrint(txt)
+{
+	var txt2 = txt.replaceAll("<", "&#60;");
+	var newtxt = txt2.replaceAll(">", "&#62;");
+	return newtxt;
+}
 
 function startTime() {	
     var today;
@@ -1551,9 +1556,9 @@ function startTime() {
 		
 		if(cmd != lasttimecmd)
 		{
-			document.getElementById("qrtext").innerHTML = cmd;
+			document.getElementById("qrtext").innerHTML = HTMLPrint(cmd);
 			clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
-			document.getElementById("urltext").innerHTML = clipcopy;
+			document.getElementById("urltext").innerHTML = HTMLPrint(clipcopy);
 			lasttimecmd = cmd;
 		}		
 		

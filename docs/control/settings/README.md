@@ -174,19 +174,19 @@ Feature with off and on commands:
 
 Option (‘o’) commands:
 - Brightness of the LCDs - **oB0** … **oB9** - (100%)
-- Camera Auto Off - **oC** - Never, **oC0** - default, **oC1** - 1min, **oC5** - 5min, **oC15** - 15min, **oC30** - 30min
+- Camera Auto Off - **oC0** - Never, **oC1** - 1min, **oC5** - 5min, **oC15** - 15min, **oC30** - 30min
 - LCDs off now - **oDO**
-- LED control - **oD** - all off, **oD2** - some on, **oD4** - all on
+- LED control - **oD0** - all off, **oD2** - some on, **oD4** - all on
 - Extern Audio options - **oE1** - Standard Mic, **oE2** - Standard+ Mic, **oE3** - Powered Mic, **oE4** - Powered+ Mic, **oE5** - Line In (HERO10/11 only)
 - Front Screen control - **oFxy** - (see list below)
 - GPS Options (HERO11 v2.1) - **oG0** - off, **oG1** - on
 - Language - **oL**x - **0** English USA, **01** English UK, **02** English Aus, **03** English India, **1** German, **2** French, **3** Italian, **4** Spanish, **5** Chinese, **6** Japanese, **7** Korean, **8** Portuaguese, **9** Russian, **91** Swedish
 - Quick Capture (HERO11 v2.1) - **oQ0** - off, **oQ1** - on
 - Rotation, Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down, **oR2** - Left, **oR3** - Right
-- Screen Auto Off - **oS** - Never, **oS1** - 1min ... **oS3** - 3min
+- Screen Auto Off - **oS0** - Never, **oS1** - 1min ... **oS3** - 3min
 - Shortcut Menu on LCD - **oSA**x - Upper Left, **oSB**x - Lower Left, **oSC**x - Upper Right, **oSD**x - Lower Right, **oSR** - reset. Where x is in the list below.
 - Time and date - **oT**yymmddhhmmss.sss
-- Time, daylight savings - **oTD** or **oTD1** for daylight savings on or **oTD0** for off
+- Time, daylight savings - **oTD1** for daylight savings on or **oTD0** for off
 - Timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
 - Volume of Beeps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
 - Volume Control - **oVC0** - off, **oVC1** - on
@@ -225,11 +225,17 @@ HERO11 UX modes:
 # Experiment Here
 ## Typing-in Your Custom Mode:
 
-<div id="qrcode"></div>
+<div id="qrcode_txt" style="width: 360px">
+ <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
+ </center>
+</div>
+
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: Feb 1, 2023
+updated: Feb 24, 2023
 
 [Learn more](..) on QR Control
 
@@ -253,6 +259,13 @@ function makeQR() {
   }
 }
 
+function HTMLPrint(txt)
+{
+	var txt2 = txt.replaceAll("<", "&#60;");
+	var newtxt = txt2.replaceAll(">", "&#62;");
+	return newtxt;
+}
+
 function timeLoop()
 {
   if(document.getElementById("tryit") != null)
@@ -270,6 +283,9 @@ function timeLoop()
 
   qrcode.clear(); 
   qrcode.makeCode(cmd);
+  
+  document.getElementById("qrtext").innerHTML = HTMLPrint(cmd);
+  
   var t = setTimeout(timeLoop, 50);
 }
 

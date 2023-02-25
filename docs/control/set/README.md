@@ -20,7 +20,6 @@
  <center>
   <div id="qrcode"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
-  <div id="title_div"><font color="#005CAC"><b id="title_txt"></b></font></div>
  </center>
 </div>
 <br>
@@ -34,7 +33,7 @@ Share this QR Code as: <b id="urltext"></b>  -->
 [More features](..) for Labs enabled cameras
 
 
-## version 1.10
+## version 1.11
 
 <script>
 var changed = false;
@@ -50,6 +49,7 @@ var lasttimecmd = "";
 
 let urlParams = new URLSearchParams(document.location.search);
 cmd_url = urlParams.get('cmd');
+	
 if(cmd_url !== null)
 	cmd = cmd_url;
 	
@@ -70,6 +70,15 @@ if(hastime >= 0)
 	dset("copyshow", false);   // don't what user printing or sharing code with wrong date and time
 else	
 	dset("copyshow", true);
+	
+	
+function HTMLPrint(txt)
+{
+	var txt2 = txt.replaceAll("<", "&#60;");
+	var newtxt = txt2.replaceAll(">", "&#62;");
+	return newtxt;
+}
+
 
 function updateTime()
 {
@@ -112,8 +121,8 @@ function updateTime()
 			//cmdnotime = src_cmd.slice(0,position) + src_cmd.slice(position+14);
 		}
 	}
-
-	document.getElementById("qrtext").innerHTML = cmd;
+	
+	document.getElementById("qrtext").innerHTML = HTMLPrint(cmd);
 }
 
 
@@ -150,28 +159,6 @@ function timeLoop()
   updateTime();
   qrcode.clear(); 
   qrcode.makeCode(cmd);
-  
-/* if(document.getElementById("addcmd") !== null)
-  {
-	var addcmd = document.getElementById("addcmd").value;
-	if(addcmd.length > 0)
-		cmd = addcmd;
-  }	
-
-  if(cmd != lasttimecmd)
-  {
-	changed = true;
-	lasttimecmd = cmd;
-  }
-	
-  if(changed === true)
-  {
-	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = window.location.href.split('?')[0] + "?cmd=" + cmdnotime;
-
-	changed = false;
-  }
-*/
 	
   var t = setTimeout(timeLoop, 100);
 }

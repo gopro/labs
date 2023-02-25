@@ -179,7 +179,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Jan 15, 2022<br>
+updated: Feb 24, 2022<br>
 
 [Learn more](..) on QR Control
 
@@ -204,6 +204,13 @@ function makeQR()
     });
     once = false;
   }
+}
+
+function HTMLPrint(txt)
+{
+	var txt2 = txt.replaceAll("<", "&#60;");
+	var newtxt = txt2.replaceAll(">", "&#62;");
+	return newtxt;
 }
 
 function timeLoop()
@@ -231,9 +238,9 @@ function timeLoop()
 
 	if(cmd != lasttimecmd)
 	{
-		document.getElementById("qrtext").innerHTML = cmd;
+		document.getElementById("qrtext").innerHTML = HTMLPrint(cmd);
 		clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd;
-		document.getElementById("urltext").innerHTML = clipcopy;
+		document.getElementById("urltext").innerHTML = HTMLPrint(clipcopy);
 		changed = true;
 		lasttimecmd = cmd;
 	}

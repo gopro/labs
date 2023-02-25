@@ -20,6 +20,7 @@
 * **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
 * **!**time**E** - End at **time** if in hh:mm form, or after n seconds.
 * **!**time**R** - Repeat the whole command.
+* **!**time**Rx** - (H11 v2.1) Repeat the command starting at position x (i.e. a goto command).
 * **!**time**N** - No Action until exact **time**, useful if you just need a pause.
 * **!**time**NQ** - No Action until at approximately **time**.
 * **!**time**O** - Off, shutdown the camera.
@@ -28,8 +29,9 @@
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local file, requires a previously successful **!W** command <sup>8/9/10/11</sup>
 * **!**time**Dx** - (H11) !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
+* **!**time**Zx** - (H11 v2.1)  **!Z3** - Disable Buttons, **!Z0** - Enable (default), **!Z1** - Disable Shutter, **!Z2** - Disable Mode
 
-## Capture Triggers
+## Capture Triggers (Classic, invent your own below.)
 
 * **!**time**SMs-t** - Start Motion detection with start sensitivity 's' and stop sensitivity 't' -- 't' field is optional.
 * **!**time**SMsDdMmHh** - Start Motion detection with sensitivity 's', Delay of 'd', Mask of 'm' and Hold for 'h' seconds (D,M and H fields are all optional.)
@@ -70,11 +72,17 @@ Any four character code can be used for store other information. You can also st
 * **!MABCD=45.234** - metadata ABCD will be floating point 45.234
 * **!MUNIT=-1723** - metadata UNIT will be -1723 
 
-## Storing metadata (Temporarily, until power off)
-
+## Storing metadata (Temporarily, until power off)<br>
+<br>
+(All cameras and Older Labs)<br>
+<br>
 * **oM**fourcc**&#61;"string"**  
 * **oM**fourcc**=Number metadata**
-
+<br>
+(Alternative H11 v2.1)<br>
+<br>
+* **#M**fourcc**&#61;"string"**  
+* **#M**fourcc**=Number metadata**
 
 ## Reset Actions ##
 
@@ -180,40 +188,102 @@ The command language is kept simple, so it doesn't maintain a stack on the condi
 
 ### Conditionals Based on Camera Status
 
-Coming soon (HERO11), new conditional commands. Now \>x and/or \<x can be used to test camera states, where 'x' is the camera state to test:
-
+Coming soon (HERO11), new conditional commands. Now \>xValue and/or \<xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
 * **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage
-* **c** CoordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location
-* **c:X** CoordDistance - **\>c:XDist**CMD There are up to 26 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ. If nothing is store in FRMx, it will initialize with the current location.
+* **c** coordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location
+* **c:X** coord[A-Z]Distance - **\>c:XDist**CMD There are up to 26 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ. If nothing is store in FRMx, it will initialize with the current location.
 * **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.
 * **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.
 * **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
 * **h** heightValue - **\>hValue**CMD if(height \> Value) CMD, numbers are in meters above sealevel.
 * **i** isoValue - **\>iValue**CMD - testing ISO where ISO ranges from 100 to 6400
 * **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
-* **l** loopNumValue - **\<lValue**CMD if(loop_count \< Value) CMD e.g. \<l45!R, this is the loop count for !R repeat, since last QR scan or boot.
+* **l** loop_countValue - **\<lValue**CMD if(loop_count \< Value) CMD e.g. \<l45!R, this is the loop count for !R repeat, since last QR scan or boot.
 * **m** motionValue - **\<mValue**CMD if(motion \< Value) CMD Motion value is a percentage of pixels moving  e.g. >m5!S+60E!R, this look of motion greater than 5%, and record for 60seconds when detected.
-* **m:X** motionSensivityValue - <m:A through <m:Z adjusts the sensitivity of the detector, the above is the equivalent <m:J.  'A' is very low sensitivity, only large pixel changes detected, 'Z' tiniest change detected. 
+* **m:X** motion[A-Z]Value - <m:A through <m:Z adjusts the sensitivity of the detector, the above is the equivalent <m:J.  'A' is very low sensitivity, only large pixel changes detected, 'Z' tiniest change detected. 
 * **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
-* **r** recording - **\>r0**CMD1~CMD2 if(Recording) then CMD1 else CMD2 
+* **r** recording - **\>r0**CMD1~CMD2 if(Recording > 0) then CMD1 else CMD2 
 * **r:C** remote Connected - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
 * **r:A** remote App Connected - **\>r0:A**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
 * **t:X** timedate - **\>t:XValue**CMD - where X Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode
-* **u** USB power - **\>u**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
+* **u** USB power - **\>u0**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
+* **y** mode_pressesValue - **\>y0**CMD1~CMD2 if(mode_presses > 0) then CMD1 else CMD2
+* **z** shutter_pressesValue - **\>z0**CMD1~CMD2 if(shutter_presses > 0) then CMD1 else CMD2
 
+### Assignments, Variables and Math
 
+Coming soon (HERO11), QR Command scripts can include variables and operation on them. Why? Fun maybe? A complete program in a QR Code.
+
+As 'a' to 'z' and system system fields, 'A' to 'Z' are the variable can contain any floating point number. This new variables are all initialized to zero, 
+and can be tested with the '<' and '>' conditionals. To make them non-zero, they can be assign with and '=' command. Just like with conditions and action, 
+the '=' character is the command delimiter and comes first.  
+
+**=A5**  is the command variable A = 5.
+
+**=P3.14159265** assigns Pi to variable P.  
+
+Now math can be used to modify your variables.
+
+* **=A+1.4** adds in form A = A + 1.4
+* **=D-2** substraction D = D - 2  (note: assignments of negative numbers aren't support, but subtracting is. So **=D0=D-2** would initialize D to be -2, although =D0 is unnessary as all variable are initialize to zero at boot.)
+* **=A*P** multiply A = A * P
+* **=E&#47;7** divide E = E &#47; 7
+* **=H^A** raised to a power H = H ^ A
+* **=F^0.5** raised to a power F = sqrt(F)
+* **=B%10** modulus  B = B % 10 
+* **=G#2** Log base N  G = log(G)/log(2) 
+* **=J&6** and  J = (float)((int)J & 6) 
+* **=K&#124;3** or  K = (float)((int)K &#124; 3) 
+
+There should be a prize if some can come up with a practical use for all of these ;)
+
+So if thought the above is crazy, it gets weirder.
+
+* **=B$BITR**  load the contents of the BITR (bitrate) hack into variable B, otherwise store zero.  So you can test if a feature is enabled.
+* **=Tt:W** load the day of the week into varible T
+* **=Di** load the current ISO value into varible D
+* **oMEVBS=E**  store the current into EV Bias hack, so you can make a variable mess with your exposure (potential mid capture.)
+* **!MVarC=C**  permanently store the current variable C into metadata field VarC, so this can be read back on next boot.  
+
+### Why Add Math to QR codes
+
+You the user can have very particular shooting needs, this improves the robustness of Labs to cover a wider range of automatic captures. And is it cool. ;)
+
+Say you want use a GoPro as a crude light meter, and report the output as an [exposure value](https://en.wikipedia.org/wiki/Exposure_value), then make capture decision based on that EV value.
+
+EV = logbase2 (f-number^2/(time x gain_above_base_iso))  is the formula for EV<br>
+
+As a QR command: **=E6.25=Gi=G&#42;0.01=E/G=E&#42;s=E#2"Exposure value $E"!R**<br>
+
+Command steps explained:
+> E=6.25<br>
+> G=ISO value<br>
+> G=G&#42;0.01<br>
+> E=E/G<br>
+> E=E&#42;shutter value (1/s)<br>
+> E=log(E)/log(2)<br>
+> print E<br>
+> repeat<br>
+ 
 # Experiment Here
 
 ## Typing-in Your Custom Action:
 
 
-<div id="qrcode"></div>
+<div id="qrcode_txt" style="width: 360px">
+ <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em>
+ </center>
+</div>
+
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-## updated 2023 Feb 7
+updated: Feb 24, 2023
+
 [BACK](..)
 
 
@@ -236,6 +306,13 @@ function makeQR() {
   }
 }
 
+function HTMLPrint(txt)
+{
+	var txt2 = txt.replaceAll("<", "&#60;");
+	var newtxt = txt2.replaceAll(">", "&#62;");
+	return newtxt;
+}
+
 function timeLoop()
 {
   if(document.getElementById("tryit") !== null)
@@ -253,6 +330,9 @@ function timeLoop()
 
   qrcode.clear(); 
   qrcode.makeCode(cmd);
+  
+  document.getElementById("qrtext").innerHTML = HTMLPrint(cmd);
+  
   var t = setTimeout(timeLoop, 50);
 }
 
