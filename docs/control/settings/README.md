@@ -108,6 +108,12 @@ EIS (Hypersmooth control):
  * **e3** - Boost
  * **e4** - Auto 
 
+Hindsight (Video modes H9-11): 
+ * **hS0** - Off     
+ * **hS1** - On 15s window
+ * **hS2** - On 30s window
+ * **hS5** - Experimental Labs H11 - 5s window
+
 White Balance: 
  * **wA** - Auto White Balance
  * **w23** - 2300K White balance
