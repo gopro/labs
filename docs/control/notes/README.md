@@ -3,50 +3,57 @@
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
 
-## HERO11 Black Mini
+## HERO11 Black 
 
-### 2.10.70 - Feb 1, 2023
+### 2.10.70 - Mar 15, 2023
+
 - Fixed DLRV to support multiple captures
-- Fixed short DSPL interfering with delayed start 
+- Fixed short DSPL interfering with delayed start
 - Fixed a common failure in upload in repeating scripts (command !U)
 - Fixed a new issue with delay start like !20N, shutting down before the full command was executed.
-- Fixed !Mwxyz=-value, permanent metadata stores weren't supporting negative values. 
+- Fixed the bitrate control (BITR), to be compatible with Hindsight.
+- Fixed !Mwxyz=-value, permanent metadata stores weren't supporting negative values.
+- Fixed Proxy files/folders to work with base file-name changes.
+- Added support for QR code scanning will HDMI is connected (the window is narrower, qr code need to be more centered.)
 - Added GCMP=1 to disable gyro compensated exposure.
-- Added WIDE=1 flat color wider gamut, like wN with white balance controls
-- Added MTRX=a,b,c,d,e,f,g,h,i. This is the RGB to YUV matrix, new ways to mess up your video. e.g. For an B/W effect in camera oMMTRX=50,175,25,0,0,0,0,0,0
-- Added WBLK=1 or wL white balance lock immediately upon capture, allowing auto white balance in dive footage, where good white balance can be tricky.
-- Added new condition commands. Previous only >HH:MMcommand or <HH:MMcommand, meaning if(current_time>HH:MM) or if(current_time<HH:MM) respectivily
-  Now >x and/or <x can be used to test camera states, where 'x' is the camera state to test:
-   * **u** USB stage - >uCmd1~Cmd2 or <uCmd3 expand to if(power is on USB) Cmd1 else Cmd2  or  if(no power on USB) cmd.  e.g. >u"Power On"~"Power Off"
-   * **r** recording 
-   * **a** accelerationValue - >a100     if(acceleration > V) Cmd1  e.g. >a100"accleration\n>100mg" numbers are in milli-gs (1000 is 1 unit of gravity.) 
-   * **d** GPS DOP - <d800 - if(DOP then then 800)
-   * **e** random <e50 - 50% true  <e90  - 90% true. 
-   * **g** gyroValue - >gValue  if(gryo > Value) Cmd1  e.g. >g15"gyro > 15dps" numbers are in degrees per second.
-   * **k** speedValue - if(gps Speed > Value) Cmd1  e.g. >k45"speed > 45km/h" numbers are in km/h.
-   * **p** soundpressureValue - in dB
-   * **i** isoValue - ISO ranging from 100 to 6400
-   * **s** shutterValue - 1/Value for shutter speed
+- Added hS5 < 5 sec hindsight and hS10 < 10 second hindsight. (both extra-experimental.)
+- Added shortcut cut options oSAx, oSBx, oSCx, oSDx
+- Added WIDE (flat color wider gamut, like wN with white balance controls), 2020 (color primaries), MTRX (color matrix) extensions.
+- Added WBLK or wL white balance lock immediately upon capture, allowing auto white balance in dive footage, where good white balance can be tricky.
+- Added new condition commands. Previous only >HH:MMcommand or <HH:MMcommand, meaning if(current_time>HH:MM) or if(current_time<HH:MM) respectivily. Now >x and/or <x can be used to test camera states, where 'x' is the camera state to test:
+  * a accelerationValue - >a100     if(acceleration > V) Cmd1  e.g. >a100"accleration\n>100mg" numbers are in milli-gs (1000 is 1 unit of gravity.)
+  * b battery level test
+  * c coord distance test
+  * d GPS DOP - <d800 - if(DOP then then 800)
+  * e random <e50 - 50% true  <e90  - 90% true.
+  * g gyroValue - >gValue  if(gryo > Value) Cmd1  e.g. >g15"gyro > 15dps" numbers are in degrees per second.
+  * k speedValue - if(gps Speed > Value) Cmd1  e.g. >k45"speed > 45km/h" numbers are in km/h.
+  * l loopNumValue - <lValueCMD if(loop_count < Value) CMD e.g. <l45!R, this is the loop count for !R repeat, since last QR scan or boot.
+  * m motionValue - <mValueCMD if(motion < Value) CMD e.g. >m5!S+60E!R, this look of motion, and record for 60seconds when detected.
+  * p soundpressureValue - in dB
+  * i isoValue - ISO ranging from 100 to 6400
+  * r recording - >rCMD1~CMD2 if(Recording) then CMD1 else CMD2
+  * r:C remote Contented - >rCCMD1~CMD2 if(RC_Connected) then CMD1 else CMD2
+  * r:A remote App Contented - >rACMD1~CMD2 if(App_Connected) then CMD1 else CMD2
+  * s shutterValue - 1/Value for shutter speed
+  * t:X timedate - >tXValueCMD - where X: Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode
+  * u USB stage - >uCmd1~Cmd2 or <uCmd3 expand to if(power is on USB) Cmd1 else Cmd2  or  if(no power on USB) cmd.  e.g. >u"Power On"~"Power Off"
+  * y mode button count from scan start
+  * z shutter button count from scan start
+- Added not setting control zX  z3-mute shutter and mode buttons, z2-mute only mode, z1-mute only shutter. z0-unmute both.
 - Added a random delay option 'e' e.g. !eS (start random within an hour) or !e10E (end random within 10 seconds) or !e60N (NOP wait for random up to 60seconds.)
 - Added crude super of macro (near focus) lenses, with e.g. oMMACR=-0.1,0.2,... (add the distortion prescription for the added lens.)
 - Added oC1 - Auto Off 1 minute  oC0 - Auto Off default length
+- Added a "Labs Processing" message for any background looping scripts.
+- Added PMSG="your message" to customize the processing message.  Good for naming background scripts, like "gryo trigger".
+- Added support for variables in QR scripts, =A10, =A^2, =A$BITR and !$AS!$BE etc.
+- Added TimeWarp actions !T - start TW (if not yet) or toggle (real-time/slomo mode)
+- Added TimeWarp speed change !TS or !TR - if recording, do into Slomo or Real-time (interchangable)
+- Added TimeWarp speed change !TN or !TT - if recording, switch back to normal TimeWarp (interchangable)
+- Added Bleep and LED blink control, could be useful in scripts prodicing user feedback !B - Blink once, !B0 - Beep Once, !B1 - both once, !B2 - both twice
 - Restored 64BT=x where x is the number of MB.
 - Enhanced PRXY=4 for DaVinci style proxies.
-
-
-### 2.00.70 - Jan 5, 2023
-- Added EVBS=x for EV Comp Bias, global for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set.
-- Added AUDS=1 display the approximate audio levels in dB SPL
-- Enhanced Faster Live-Stream start and reliability via QR code
-- Enhanced !MPRXY=x  so that 1- moves LRVs, 2 - moves THMs, 3 moves both in the proxies folder.
-- Enhanced xV EV compensation can again support the range -6 to 6 (menus are still limited to -2 to 2)  e.g. -x3 or -x-4
-- Fixed DLRV=1, so that disabling LRVs can work for more than two captures.
-
-### 1.10.70 - Nov 8, 2022
-- All the features and fixes of HERO11 Labs 1.20.70, minus on-screen and GPS features.
-
-
-## HERO11 Black 
+- Enhanced front screen histogram includes ISO and Shutter speeds (automatically.)
 
 ### 2.01.70 - Dec 14, 2022
 - Added EVBS=x for EV Comp Bias, global for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set.
@@ -97,6 +104,49 @@ Only the more recent releases are documented below. This a general list of Labs 
 - r4X - 4K 8:7
 - i0 - ISO Auto, other i1 thru i64 for ISO Max 100 thru 6400 
 - Bug Fix for metadata in video overlays 
+
+
+## HERO11 Black Mini
+
+### 2.10.70 - Feb 1, 2023
+- Fixed DLRV to support multiple captures
+- Fixed short DSPL interfering with delayed start 
+- Fixed a common failure in upload in repeating scripts (command !U)
+- Fixed a new issue with delay start like !20N, shutting down before the full command was executed.
+- Fixed !Mwxyz=-value, permanent metadata stores weren't supporting negative values. 
+- Added GCMP=1 to disable gyro compensated exposure.
+- Added WIDE=1 flat color wider gamut, like wN with white balance controls
+- Added MTRX=a,b,c,d,e,f,g,h,i. This is the RGB to YUV matrix, new ways to mess up your video. e.g. For an B/W effect in camera oMMTRX=50,175,25,0,0,0,0,0,0
+- Added WBLK=1 or wL white balance lock immediately upon capture, allowing auto white balance in dive footage, where good white balance can be tricky.
+- Added new condition commands. Previous only >HH:MMcommand or <HH:MMcommand, meaning if(current_time>HH:MM) or if(current_time<HH:MM) respectivily
+  Now >x and/or <x can be used to test camera states, where 'x' is the camera state to test:
+   * **u** USB stage - >uCmd1~Cmd2 or <uCmd3 expand to if(power is on USB) Cmd1 else Cmd2  or  if(no power on USB) cmd.  e.g. >u"Power On"~"Power Off"
+   * **r** recording 
+   * **a** accelerationValue - >a100     if(acceleration > V) Cmd1  e.g. >a100"accleration\n>100mg" numbers are in milli-gs (1000 is 1 unit of gravity.) 
+   * **d** GPS DOP - <d800 - if(DOP then then 800)
+   * **e** random <e50 - 50% true  <e90  - 90% true. 
+   * **g** gyroValue - >gValue  if(gryo > Value) Cmd1  e.g. >g15"gyro > 15dps" numbers are in degrees per second.
+   * **k** speedValue - if(gps Speed > Value) Cmd1  e.g. >k45"speed > 45km/h" numbers are in km/h.
+   * **p** soundpressureValue - in dB
+   * **i** isoValue - ISO ranging from 100 to 6400
+   * **s** shutterValue - 1/Value for shutter speed
+- Added a random delay option 'e' e.g. !eS (start random within an hour) or !e10E (end random within 10 seconds) or !e60N (NOP wait for random up to 60seconds.)
+- Added crude super of macro (near focus) lenses, with e.g. oMMACR=-0.1,0.2,... (add the distortion prescription for the added lens.)
+- Added oC1 - Auto Off 1 minute  oC0 - Auto Off default length
+- Restored 64BT=x where x is the number of MB.
+- Enhanced PRXY=4 for DaVinci style proxies.
+
+
+### 2.00.70 - Jan 5, 2023
+- Added EVBS=x for EV Comp Bias, global for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set.
+- Added AUDS=1 display the approximate audio levels in dB SPL
+- Enhanced Faster Live-Stream start and reliability via QR code
+- Enhanced !MPRXY=x  so that 1- moves LRVs, 2 - moves THMs, 3 moves both in the proxies folder.
+- Enhanced xV EV compensation can again support the range -6 to 6 (menus are still limited to -2 to 2)  e.g. -x3 or -x-4
+- Fixed DLRV=1, so that disabling LRVs can work for more than two captures.
+
+### 1.10.70 - Nov 8, 2022
+- All the features and fixes of HERO11 Labs 1.20.70, minus on-screen and GPS features.
 
 
 ## HERO10 Black 
