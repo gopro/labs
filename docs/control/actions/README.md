@@ -214,7 +214,7 @@ Coming soon (HERO11), new conditional commands. Now \>xValue and/or \<xValue can
 
 ### Assignments, Variables and Math
 
-Coming soon (HERO11), QR Command scripts can include variables and operation on them. Why? Fun maybe? A complete program in a QR Code.
+HERO11 v2.10.70, QR Command scripts can include variables and operation on them. Why? Fun maybe? More power, for sure! A complete program in a QR Code.
 
 As 'a' to 'z' and system system fields, 'A' to 'Z' are the variable can contain any floating point number. This new variables are all initialized to zero, 
 and can be tested with the '<' and '>' conditionals. To make them non-zero, they can be assign with and '=' command. Just like with conditions and action, 
@@ -282,7 +282,7 @@ Command steps explained:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: Feb 24, 2023
+updated: March 16, 2023
 
 [BACK](..)
 
