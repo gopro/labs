@@ -7,10 +7,10 @@ Labs offers experimental firmware program that uses QR codes to control your cam
 Learn more information about the program on [GoPro.com](https://gopro.com/info/gopro-labs).
 
 Download the GoPro Labs firmware for:
-[HERO11 Black](https://gopro.github.io/labs/firmware/bin/LABS_HERO11_02_10_70.zip) v2.10.70 | Mar 2023
-[HERO11 Black Mini](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000C5Mi/FJyHTQdZol4GIx9ywdMVrMMrhq2hNxnDYbdTAEsKoLY) v2.10.70| Feb 2023
-[HERO10 Black](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000C3qM/qpoJXZ.9GHddIyACxzeFjvmbOUbsbWY2CbEjyvqADpM) v1.50.70| Jan 2023
-[MAX](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000cKuk/ejNxny_Y06bIfPEKh.tVghF5M9kTsFtVMP2nHC5MBDI) v2.00.71 | January 2021
+- [HERO11 Black](https://gopro.github.io/labs/firmware/bin/LABS_HERO11_02_10_70.zip) v2.10.70 | Mar 2023
+- [HERO11 Black Mini](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000C5Mi/FJyHTQdZol4GIx9ywdMVrMMrhq2hNxnDYbdTAEsKoLY) v2.10.70| Feb 2023
+- [HERO10 Black](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000C3qM/qpoJXZ.9GHddIyACxzeFjvmbOUbsbWY2CbEjyvqADpM) v1.50.70| Jan 2023
+- [MAX](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000cKuk/ejNxny_Y06bIfPEKh.tVghF5M9kTsFtVMP2nHC5MBDI) v2.00.71 | January 2021
 
 Download and install older cameras [HERO9, HERO8, HERO7](https://community.gopro.com/s/article/GoPro-Labs).
 
