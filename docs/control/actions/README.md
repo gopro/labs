@@ -188,7 +188,7 @@ The command language is kept simple, so it doesn't maintain a stack on the condi
 
 ### Conditionals Based on Camera Status (HERO11 only)
 
-Out now, new conditional commands. Now \>xValue and/or \<xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
+New conditional commands for 2023. Now \>xValue and/or \<xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
 * **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage
 * **c** coordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location
