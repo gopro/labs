@@ -27,12 +27,13 @@ Some particular 4CCs will also change camera behavior and/or enable features. He
 
 ### **HERO11/Mini cameras** - Extensions in the latest Labs firmware (Jan/Mar '23)
 
-- **GCMP=1** Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11 is smart, as will shorted the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
 - **WIDE=1** This offers a color gamut like setting white balance to Native (wider gamut), while enabling auto whitebalance, or user controlled whitebalance. With WIDE off (0 - the default), the camera saturates color to the Rec709 gamut (basically sRGB), so some extreme real-world color saturations are clipped by the gamut. With WIDE=1, the gamut is sensor native, not Rec709, not Rec2020, just what the sensor sees.
 <br>![WIDE.jpg](WIDE.jpg)
 - **WBLK=1** This is an auto lock for balance, it auto white balances until the capture starts. The feature was added for scuba users, as fixed white balance are computed for above water, and while the auto works great in dive scenarios, some prefer a fix white balance per clip.
 - **MTRX=a,b,c,d,e,f,g,h,i** This is the RGB to YUV matrix, new ways to mess up your video. e.g. For an B/W effect in camera try oMMTRX=50,175,25,0,0,0,0,0,0<br>
 ![MTRX.jpg](MTRX.jpg)<br>
+- **GCMP=1** (Mini only for now) Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11 is smart, as will shorted the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
+
 Note: the scripting has had a significant update in the March '23 firmware. See section [Assignments, Variables and Math](../actions)
 
 ### **HERO11/10/Mini cameras** - Extensions added in Dec'22 firmware

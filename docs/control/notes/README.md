@@ -15,7 +15,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Fixed !Mwxyz=-value, permanent metadata stores weren't supporting negative values.
 - Fixed Proxy files/folders to work with base file-name changes.
 - Added support for QR code scanning will HDMI is connected (the window is narrower, qr code need to be more centered.)
-- Added GCMP=1 to disable gyro compensated exposure.
 - Added hS5 < 5 sec hindsight and hS10 < 10 second hindsight. (both extra-experimental.)
 - Added shortcut cut options oSAx, oSBx, oSCx, oSDx
 - Added WIDE (flat color wider gamut, like wN with white balance controls), 2020 (color primaries), MTRX (color matrix) extensions.
