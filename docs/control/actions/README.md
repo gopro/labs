@@ -186,9 +186,9 @@ However the else can only be applied to the last condition. **\>09:15<10:00!S+"H
 
 The command language is kept simple, so it doesn't maintain a stack on the conditional nesting. 
 
-### Conditionals Based on Camera Status
+### Conditionals Based on Camera Status (HERO11 only)
 
-Coming soon (HERO11), new conditional commands. Now \>xValue and/or \<xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
+Out now, new conditional commands. Now \>xValue and/or \<xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
 * **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage
 * **c** coordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location
