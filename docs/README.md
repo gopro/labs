@@ -4,7 +4,7 @@
 
 Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera’s functionality beyond stocks features. It is especially useful in situations where settings can’t be communicated via voice, where WiFi is not available, where app pairing is not established, or in advanced setups, such as multiple cameras time synchronization or delayed camera triggers.
 
-Learn more information about the program on [GoPro.com](https://gopro.com/gopro-labs).
+Learn more information about the program on [GoPro.com](https://gopro.com/info/gopro-labs).
 
 Download and install your [GoPro Labs firmware](https://community.gopro.com/s/article/GoPro-Labs).
 
