@@ -62,8 +62,8 @@ A negative x-value will place the histograme on the front screen. e.g. oMHSTP=1,
 i.e design your own flat profile. Ideal for use with 10-bit, and the existing flat color setting.  
 e.g. oMLOGB=400 for a little push in dynamic range or oMLOGB=200,-128 for a crude Fuji F-Log emulation.  
 Note: As the pixel size isn't changing, that increasing the logbase (flatness) may not significantly increase the dynamic range.
+<br>![LogBase.jpg](LogBase.jpg)
 <br>[GoPro Log curve designer](https://www.desmos.com/calculator/sfxqtunzty)
-<br>[Example scene with different curves parameters](LogBase.jpg)
 - **NR01=x** - Noise Reduction control, which should be combined with the LOGB control. e.g. oMNR01=50 range 1-100, 100 being 100% active (default), so 1 is the noisest. 
 When pushing the dynamic range of any camera, shadow details may be suppress by noise reduction. 
 Increasing the logbase will enhance the shadows, but will also reveal noise reduction artifacts tuned for a different encoding curve (the more consumer friendly Rec709.)  
@@ -189,7 +189,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Mar 16, 2023<br>
+updated: Mar 18, 2023<br>
 
 [Learn more](..) on QR Control
 
