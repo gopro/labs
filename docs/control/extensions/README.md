@@ -33,6 +33,7 @@ Some particular 4CCs will also change camera behavior and/or enable features. He
 - **MTRX=a,b,c,d,e,f,g,h,i** This is the RGB to YUV matrix, new ways to mess up your video. e.g. For an B/W effect in camera try oMMTRX=50,175,25,0,0,0,0,0,0<br>
 ![MTRX.jpg](MTRX.jpg)<br>
 - **GCMP=1** (Mini only for now) Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11 is smart, as will shorted the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
+- **64BT=32000** <span style="color:steelblue">**ENHANCED**</span> HERO11 cameras default to 12GB chapters when using 64GB card (or larger media), but you can use the 64BT command to specify even larger chapters like 32GB or even 64GB. There has been very limited testing, so experiment first before committing to super large chapters. 
 
 Note: the scripting has had a significant update in the March '23 firmware. See section [Assignments, Variables and Math](../actions)
 
@@ -189,7 +190,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Mar 18, 2023<br>
+updated: Mar 20, 2023<br>
 
 [Learn more](..) on QR Control
 
