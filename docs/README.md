@@ -2,7 +2,10 @@
 
 ## Firmware
 
-Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera’s functionality beyond stocks features. It is especially useful in situations where settings can’t be communicated via voice, where WiFi is not available, where app pairing is not established, or in advanced setups, such as multiple cameras time synchronization or delayed camera triggers. You will not lose any pre-existing modes or features on your GoPro—this update simply adds more features.
+Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera’s functionality beyond stocks features. 
+It is especially useful in situations where settings can’t be communicated via voice, where WiFi is not available, where app pairing is not established, 
+or in advanced setups, such as multiple cameras time synchronization or delayed camera triggers. You will not lose any pre-existing modes or features on 
+your GoPro—this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
 
 Download the GoPro Labs firmware for current shipping cameras:
 - [HERO11 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO11_02_10_70.zip) v2.10.70, Mar 2023
