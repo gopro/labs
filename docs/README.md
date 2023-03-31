@@ -8,7 +8,7 @@ Learn more information about the program on [GoPro.com](https://gopro.com/info/g
 
 Download the GoPro Labs firmware for:
 - [HERO11 Black](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000CEDa/cU4iJhdmOg964m6lYAvGB71gH5F0iUSKfLRvrHQcsSk) v2.10.70, Mar 2023
-- [HERO11 Black Mini](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000C5Mi/FJyHTQdZol4GIx9ywdMVrMMrhq2hNxnDYbdTAEsKoLY) v2.10.70, Feb 2023
+- [HERO11 Black Mini](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MINI11_02_10_70.zip) v2.20.70, Mar 2023
 - [HERO10 Black](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000C3qM/qpoJXZ.9GHddIyACxzeFjvmbOUbsbWY2CbEjyvqADpM) v1.50.70, Jan 2023
 - [MAX](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000cKuk/ejNxny_Y06bIfPEKh.tVghF5M9kTsFtVMP2nHC5MBDI) v2.00.71, January 2021
 
@@ -84,7 +84,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [USB power trust override](https://gopro.github.io/labs/control/extensions)                 | Yes     | Yes/No  |       |       |       |     |
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     |       | Yes   |       |     |
 | [Wider Color Gamut](https://gopro.github.io/labs/control/extensions)                        | Yes     |         |       |       |       |     |
-| [White Balance Lock](https://gopro.github.io/labs/control/extensions)                       | Yes     |         |       |       |       |     |
+| [White Balance Lock](https://gopro.github.io/labs/control/extensions)                       | No/Yes  |         |       |       |       |     |
 
 ### Labs Firmware Release Notes
 
@@ -94,4 +94,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-updated: March 17, 2023<br>
+updated: March 31, 2023<br>
