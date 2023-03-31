@@ -4,19 +4,25 @@
 
 Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera’s functionality beyond stocks features. It is especially useful in situations where settings can’t be communicated via voice, where WiFi is not available, where app pairing is not established, or in advanced setups, such as multiple cameras time synchronization or delayed camera triggers. You will not lose any pre-existing modes or features on your GoPro—this update simply adds more features.
 
-Learn more information about the program on [GoPro.com](https://gopro.com/info/gopro-labs).
-
-Download the GoPro Labs firmware for:
-- [HERO11 Black](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000CEDa/cU4iJhdmOg964m6lYAvGB71gH5F0iUSKfLRvrHQcsSk) v2.10.70, Mar 2023
+Download the GoPro Labs firmware for current shipping cameras:
+- [HERO11 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO11_02_10_70.zip) v2.10.70, Mar 2023
 - [HERO11 Black Mini](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MINI11_02_10_70.zip) v2.20.70, Mar 2023
-- [HERO10 Black](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000C3qM/qpoJXZ.9GHddIyACxzeFjvmbOUbsbWY2CbEjyvqADpM) v1.50.70, Jan 2023
-- [MAX](https://gopro.my.salesforce.com/sfc/p/o0000000HJuF/a/3b000000cKuk/ejNxny_Y06bIfPEKh.tVghF5M9kTsFtVMP2nHC5MBDI) v2.00.71, January 2021
+- [HERO10 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO10_01_50_70.zip) v1.50.70, Jan 2023
+- [MAX](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MAX_02_00_71.zip) v2.00.71, January 2021
 
-Download and install older cameras [HERO9, HERO8, HERO7](https://community.gopro.com/s/article/GoPro-Labs).
+Download and install for older cameras:
+- [HERO9 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO9_01_72_70.zip) v1.72.70, June 2022
+- [HERO8 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO8_02_51_75.zip) v2.51.75, July 2022
+- [HERO7 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO7_01_90_71.zip) v1.90.71, January 2021
+- [HERO5 Session](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO5Session_2.51.72.zip) v2.51.72, May 2021
+
+**By downloading any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).**
 
 Follow the manual firmware update instructions for [Windows](https://gopro.com/en/us/support/hero11-black-product-update/windows) or [MacOS](https://gopro.com/en/us/support/hero11-black-product-update/macos).
 
-By downloading any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).
+Learn more information about the program on [GoPro.com](https://gopro.com/info/gopro-labs).
+
+### Labs Camera Controling any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).
  
 GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs/control/custom) changes
 
