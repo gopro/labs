@@ -22,7 +22,7 @@ Follow the manual firmware update instructions for [Windows](https://gopro.com/e
 
 Learn more information about the program on [GoPro.com](https://gopro.com/info/gopro-labs).
 
-### Labs Camera Controling any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).
+### Labs Camera Control
  
 GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs/control/custom) changes
 
