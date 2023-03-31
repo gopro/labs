@@ -107,6 +107,11 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO11 Black Mini
 
+### 2.20.70 - Mar 31, 2023
+Update to new command language with variable support (matching HERO11 2.10.70.)
+Added !Cx where x is GBs to make sure is clear.  If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. Ideal for dashcam applications.
+Added !X to exit a running script. >l99!X!S!2R <- loop for 99 times, then exit. 
+
 ### 2.10.70 - Feb 1, 2023
 - Fixed DLRV to support multiple captures
 - Fixed short DSPL interfering with delayed start 
@@ -300,6 +305,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Feb 1, 2023
+updated: Mar 31, 2023
 
 [Learn more](..) on QR Control
