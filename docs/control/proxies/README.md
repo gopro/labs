@@ -14,19 +14,30 @@
 </style>
 
 Decoding 4K and 5K HEVC Video can be very demanding on video tools. To speed up the editing workflow, a common solution is to transcode high resolution files into proxies. With this Labs extension enabled, the camera automatically produces Adobe Premiere Pro™ style proxy files, saving you the time consuming transcoding step. Normally a camera will encode a LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GL013784.LRV`<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013785.MP4`<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GL013785.LRV`<br>
-When Proxies are enabled, the LRV files will be created with names that are ready for Premiere Pro's **Attach Proxies** function, greatly speeding up professional workflows. The new folder structure is:<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013785.MP4`<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/Proxies/GX013784_Proxy.MP4`<br>
-&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/Proxies/GX013785_Proxy.MP4`<br>
+<pre>   DCIM/100GOPRO/GX013784.MP4
+   DCIM/100GOPRO/GL013784.LRV
+   DCIM/100GOPRO/GX013785.MP4
+   DCIM/100GOPRO/GL013785.LRV</pre>
+<div id="prem">
+When Proxies are enabled, the LRV files will be created with names that are ready for Premiere Pro's <b>Attach Proxies</b> function, greatly speeding up professional workflows. The new folder structure is:<br>
+<pre>   DCIM/100GOPRO/GX013784.MP4
+   DCIM/100GOPRO/GX013785.MP4
+   DCIM/100GOPRO/Proxies/GX013784_Proxy.MP4
+   DCIM/100GOPRO/Proxies/GX013785_Proxy.MP4</pre>
+</div>
+<div id="davi">
+When Proxies are enabled, the LRV files will be created with names that are ready for DaVinci Resolve, greatly speeding up professional workflows. The new folder structure is:<br>
+<pre>   DCIM/100GOPRO/GX013784.MP4
+   DCIM/100GOPRO/GX013785.MP4
+   DCIM/100GOPRO/Proxy/GX013784.MP4
+   DCIM/100GOPRO/Proxy/GX013785.MP4</pre>
+</div>
+
 Proxies can be used directly from the SD card (when mounted on your PC or Mac), or can be transfered with the MP4s to local storage for the fastest editing experience.
 
-<input type="checkbox" id="proxies" name="proxies" checked> 
-<label for="proxies">Enable Proxies</label><br>
+<input type="checkbox" id="proxies" name="proxies" checked> <label for="proxies">Enable Proxies</label><br>
+
+<input type="checkbox" id="davinci" name="davinci"> <label for="davinci">DaVinci style</label> (HERO11 only - Default off is Premiere Pro style)<br> 
 
 <div id="qrcode_txt" style="width: 360px">
   <center>
@@ -43,7 +54,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Warning:** When this feature is enabled, the lack of LRVs will mean the Quik App will not be able to preview video on the camera. However, this will not prevent the full resolution transfer, or on camera playback.
 
-**Compatibility:** Labs enabled HERO10/11
+**Compatibility:** Labs enabled HERO10 (Premiere Pro only), HERO11 (Both)
 
  
 ## ver 1.01
@@ -60,6 +71,22 @@ var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
 
+
+
+function dset(label, on) {
+		var settings = document.getElementById(label);
+		if(on === true)
+		{
+			if (settings.style.display === 'none') 
+				settings.style.display = 'block';
+		}
+		else
+		{
+			settings.style.display = 'none';
+		}
+}
+
+
 function makeQR() 
 {	
   if(once === true)
@@ -71,6 +98,8 @@ function makeQR()
       height : 360,
       correctLevel : QRCode.CorrectLevel.M
     });
+	dset("davi", false);
+	dset("prem", true);
     once = false;
   }
 }
@@ -83,8 +112,19 @@ function timeLoop()
   {
     if(document.getElementById("proxies").checked === true)
     {
-      stts = "Enabled";
-      cmd = "!MPRXY=1";
+	  stts = "Enabled";
+	  if(document.getElementById("davinci").checked === true)
+	  {
+        cmd = "!MPRXY=4";
+		dset("davi", true);
+		dset("prem", false);
+	  }
+	  else
+	  {
+        cmd = "!MPRXY=1";
+		dset("davi", false);
+		dset("prem", true);
+	  }
     }
   }
 

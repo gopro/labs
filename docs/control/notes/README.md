@@ -18,7 +18,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Added hS5 < 5 sec hindsight and hS10 < 10 second hindsight. (both extra-experimental.)
 - Added shortcut cut options oSAx, oSBx, oSCx, oSDx
 - Added WIDE (flat color wider gamut, like wN with white balance controls), 2020 (color primaries), MTRX (color matrix) extensions.
-- Added WBLK or wL white balance lock immediately upon capture, allowing auto white balance in dive footage, where good white balance can be tricky.
 - Added new condition commands. Previous only >HH:MMcommand or <HH:MMcommand, meaning if(current_time>HH:MM) or if(current_time<HH:MM) respectivily. Now >x and/or <x can be used to test camera states, where 'x' is the camera state to test:
   * a accelerationValue - >a100     if(acceleration > V) Cmd1  e.g. >a100"accleration\n>100mg" numbers are in milli-gs (1000 is 1 unit of gravity.)
   * b battery level test
@@ -51,7 +50,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Added TimeWarp speed change !TN or !TT - if recording, switch back to normal TimeWarp (interchangable)
 - Added Bleep and LED blink control, could be useful in scripts prodicing user feedback !B - Blink once, !B0 - Beep Once, !B1 - both once, !B2 - both twice
 - Restored 64BT=x where x is the number of MB.
-- Enhanced PRXY=4 for DaVinci style proxies.
+- Enhanced PRXY=4 for DaVinci style proxies. [more info](https://gopro.github.io/labs/control/proxies/)
 - Enhanced front screen histogram includes ISO and Shutter speeds (automatically.)
 
 ### 2.01.70 - Dec 14, 2022

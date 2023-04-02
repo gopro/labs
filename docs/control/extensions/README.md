@@ -34,6 +34,17 @@ Some particular 4CCs will also change camera behavior and/or enable features. He
 ![MTRX.jpg](MTRX.jpg)<br>
 - **GCMP=1** (Mini only for now) Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11 is smart, as will shorted the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
 - **64BT=32000** <span style="color:steelblue">**ENHANCED**</span> HERO11 cameras default to 12GB chapters when using 64GB card (or larger media), but you can use the 64BT command to specify even larger chapters like 32GB or even 64GB. There has been very limited testing, so experiment first before committing to super large chapters. 
+- **PRXY=4** <span style="color:steelblue">**ENHANCED**</span> DaVinci style proxies folder. Normally a camera will encode a LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GL013784.LRV`<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013785.MP4`<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GL013785.LRV`<br>
+When PRXY=4 is enabled, the LRV files will be created with name naming that is ready for DaVinci Resolve, greatly speeding up a professional workflows. The new folder structure is:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013785.MP4`<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/Proxy/GX013784.MP4`<br>
+&nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/Proxy/GX013785.MP4`<br>
+Note: When this feature is enabled, the lack of LRVs will mean the Quik App will not be able to preview video on the camera. However, this will not prevent the full resolution transfers, or on camera playback.
 
 Note: the scripting has had a significant update in the March '23 firmware. See section [Assignments, Variables and Math](../actions)
 
@@ -190,7 +201,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Mar 20, 2023<br>
+updated: Apr 2, 2023<br>
 
 [Learn more](..) on QR Control
 
