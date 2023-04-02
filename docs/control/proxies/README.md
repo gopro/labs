@@ -58,8 +58,8 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 **Compatibility:** Labs enabled HERO10 (Premiere Pro only), HERO11 (Both)
 
  
-## ver 1.01
-updated: Sept 14, 2022
+## ver 1.02
+updated: Arp 2, 2023
 
 [More features](..) for Labs enabled cameras
 
