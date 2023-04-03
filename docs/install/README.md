@@ -33,7 +33,3 @@ or<br>
 - Power on the GoPro camera
 - The camera will beep and turn itself off and on several times. A check mark on the front screen will let you know when it’s done.
 - If you get a CAMERA UPDATE FAILED message, remove and reinsert the battery and restart from the beginning.
-
-## Troubleshooting
-- If you encounter any issues during the firmware update process, refer to the [GoPro Support Hub](https://community.gopro.com/) for assistance.
-
