@@ -8,16 +8,16 @@ or in advanced setups, such as multiple cameras time synchronization or delayed 
 your GoPro—this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
 
 Download the GoPro Labs firmware for current shipping cameras:
-- [HERO11 Black](https://bit.ly/LABS_H11_2_10_70) v2.10.70, Mar 2023
-- [HERO11 Black Mini](https://bit.ly/LABS_M11_2_20_70) v2.20.70, Mar 2023
-- [HERO10 Black](https://bit.ly/LABS_H10_1_50_70) v1.50.70, Jan 2023
-- [MAX](https://bit.ly/LABS_MAX_2_00_71) v2.00.71, January 2021
+- [HERO11 Black](https://bit.ly/LABS_H11_2_10_70) - v2.10.70, Mar 2023
+- [HERO11 Black Mini](https://bit.ly/LABS_M11_2_20_70) - v2.20.70, Mar 2023
+- [HERO10 Black](https://bit.ly/LABS_H10_1_50_70) - v1.50.70, Jan 2023
+- [GoPro MAX](https://bit.ly/LABS_MAX_2_00_71) - v2.00.71, January 2021
 
 Download and install for older cameras:
-- [HERO9 Black](https://bit.ly/LABS_H9_1_72_70) v1.72.70, June 2022
-- [HERO8 Black](https://bit.ly/LABS_H8_2_51_75) v2.51.75, July 2022
-- [HERO7 Black](https://bit.ly/LABS_H7_1_90_71) v1.90.71, January 2021
-- [HERO5 Session](https://bit.ly/LABS_H5S_2_51_72) v2.51.72, May 2021
+- [HERO9 Black](https://bit.ly/LABS_H9_1_72_70) - v1.72.70, June 2022
+- [HERO8 Black](https://bit.ly/LABS_H8_2_51_75) - v2.51.75, July 2022
+- [HERO7 Black](https://bit.ly/LABS_H7_1_90_71) - v1.90.71, January 2021
+- [HERO5 Session](https://bit.ly/LABS_H5S_2_51_72) - v2.51.72, May 2021
 
 **By downloading any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).**
 
@@ -103,4 +103,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-updated: March 31, 2023<br>
+updated: Apr 7, 2023<br>
