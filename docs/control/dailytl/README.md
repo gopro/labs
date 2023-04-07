@@ -1,4 +1,4 @@
-# Daily Time-lapse Video and Upload
+# Daily Time-lapse Video and Optional Upload
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
@@ -45,9 +45,9 @@ Note: it is best to set your camera’s date and time before using this QR Code 
 
 Start Time: <input type="range" style="width: 300px;" id="tlstrt" name="tlstrt" min="1" max="143" value="48"><label for="tlstrt"></label> <b id="starttext"></b>
 
-Capture Length: <input type="range" style="width: 240px;" id="tlend" name="tlend" min="1" max="960" value="240"><label for="tlend"></label> <b id="lentext"></b> minutes &nbsp;&nbsp; End Time: <b id="endtext"></b>
+Capture Length: <input type="range" style="width: 360px;" id="tlend" name="tlend" min="1" max="1420" value="292"><label for="tlend"></label> <b id="lentext"></b> minutes &nbsp;&nbsp; End Time: <b id="endtext"></b>
 
-<input type="checkbox" id="upld" name="upld" checked> 
+<input type="checkbox" id="upld" name="upld"> 
 <label for="upld">Upload at the end of each capture</label><br>
 
 Daily playback length (at 30fps): <b id="length"></b> seconds
@@ -69,10 +69,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 A/C powering the camera via USB is the best. With continuous power supplied, remove the internal battery (charging can reset the wake timer), and the camera should run for a very long time (only SD card storage limitations.) You might be tempted to use a Lithium Ion USB powerbank, however they typically do not work well. They are designed to quickly recharge a smartphone, and when they think power is no longer needed, they shut-off. A select few USB battery sources include an "always on feature" designed for time-lapse projects. Example:[voltaicsystems.com/v50](https://voltaicsystems.com/v50/) This one can even solar recharge the battery at the same time. The second option is add a USB keep alive device that prevents your USB power bank from shutting down. Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 	
-**Compatibility:** Labs enabled HHERO9, HERO10, HERO11 and BONES 
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11 and BONES 
 
-## ver 1.04
-updated: Sept 14, 2022
+updated: April 7, 2023
 
 [More features](..) for Labs enabled cameras
 
@@ -162,7 +161,7 @@ function timeLoop()
 	var start = parseInt(document.getElementById("tlstrt").value);
 	var startmins = start*10;
 	var caplen = parseInt(document.getElementById("tlend").value);
-	caplen = Math.trunc(caplen*caplen/960);
+	caplen = Math.trunc(caplen*caplen/1420);
 	if(caplen < 1) caplen = 1;
 	var endmins = startmins + caplen;
 	if(endmins >= 1440)

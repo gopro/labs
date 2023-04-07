@@ -30,9 +30,9 @@ and as a mobile app:<br>
 
 ### Extended Time-lapse Features 
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
-* Use your GoPro to time-lapse [**Construction Projects**](./construction)
+* **HERO8-11/Bones** - [**Daily Time-lapse**](./dailytl) with optional upload
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* **HERO9-11/Bones** - Daily Time-lapse with [**auto upload**](./dailytl) (GoPro Subscription required)
+* **Depricated** - This style is less reliable than the above types [**Daily Long Time-lapses**](./construction)
 
 ### Video Alteration Features
 * **HERO8-11/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
@@ -46,7 +46,7 @@ and as a mobile app:<br>
 * **HERO8-10/MAX/Bones** - Enable larger chapter sizes [**12 GB Chapters**](./chapters). Standard on HERO11
 * **HERO8-11/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-11** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
-* **HERO10-11** - Support for Adobe Premiere Pro™ style [**Proxy Files**](./proxies) 
+* **HERO10-11** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
 * **HERO9** - Experimental on camera real-time [**Media Encryption**](./encrypt) during capture
 * **ALL** - <span style="color:steelblue">**UPDATED**</span> Dozens more [**extensions**](./extensions) via QR Code
 
@@ -73,7 +73,7 @@ Technical information on the [**Labs command language**](./tech)
 ## GoPro Labs
 [**Labs start on GitHub**](https://gopro.github.io/labs).
 
-updated: Jan 6, 2022
+updated: April 7, 2023
 
 
 <script>

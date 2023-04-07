@@ -1,4 +1,4 @@
-# Construction Time-lapses
+# Daily Long Time-lapses
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
@@ -13,7 +13,7 @@
         }
 </style>
 
-An extension of [Extra Long Time-lapses](../longtimelapse) feature, just performed during construction hours alone, to extend your battery life and reduce the number of images you will assemble into a time-lapse.  Remember to set your camera's [clock](../precisiontime) before using this QR Code.
+An extension of [Extra Long Time-lapses](../longtimelapse) feature, just performed during particular hours, to extend your battery life and reduce the number of images you will assemble into a time-lapse.  Remember to set your camera's [clock](../precisiontime) before using this QR Code.
 
 ## Daytime Time-lapse Calculator
 
@@ -33,7 +33,7 @@ Estimated runtime per charged battery: <b id="daystext">0</b> days
   <center>
   <div id="qrcode"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
-  <b><font color="#005CAC">Construction Timelapse</font></b>
+  <b><font color="#005CAC">Daily Timelapse</font></b>
   </center>
 </div>
 <button id="copyImg">Copy Image to Clipboard</button>
@@ -42,6 +42,10 @@ Estimated runtime per charged battery: <b id="daystext">0</b> days
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
+## Warning
+
+This type of timelapse, booting the camera for every image, is less reliable than using [Daily-Timelapse](../dailytl). 	
+		
 ## Extending Time-lapse Duration
 
 Simply replacing the battery is the easiest solution for long captures. After the battery is replaced, power on the camera so that the time-lapse can continue. You might want to set and forget for a multi-week or multi-month time-lapse, for this A/C powering the camera via USB is the best. With continuous power supplied, the battery should be removed, and the camera should run for a very long time (only SD card storage limitations.) You might be tempted to use a Lithium Ion USB powerbank, however they typically do not work well (see below for solutions.) They are designed to quickly recharge a smartphone, and when they think power is no longer needed, they shut-off. For this reason they get you far shorter captures than you would expect. If you want to try a USB powerbank, you must remove the GoPro battery for good results. For long captures away from the power grid, the best solution is a small 12V 18+Ah sealed lead acid battery and attached a non-smart (doesn't shut off) USB regulator. With the right photo interval, this configuration could last a year on a single charge.   
@@ -54,8 +58,7 @@ The second option is a USB keep alive device that prevents your USB power bank f
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-## ver 1.17
-updated: Sept 14, 2022
+updated: Apr 7, 2023
 
 [More features](..) for Labs enabled cameras
 
@@ -150,7 +153,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Construction%20Timelapse";
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Daily%20Timelapse";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }
