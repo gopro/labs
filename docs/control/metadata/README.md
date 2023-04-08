@@ -39,9 +39,8 @@ file size: <b><span id="size"></span></b><br>
 </div>
 
 **Compatibility:** All GoPro cameras since HERO5 Black
- 
-## ver 1.05
-updated: May 20, 2022
+
+updated: Apr 8, 2023
 
 [More features](..) for Labs enabled cameras
 
@@ -92,7 +91,7 @@ var file;
 		jpeg_gpmf_offset = 0;
 		jpeg_gpmf_size = 0;
 	
-		var blob = file.slice(0, 128*1024);
+		var blob = file.slice(0, 1024*1024*24);
 		reader.readAsArrayBuffer(blob);   // read head to find the moov offset (from mdat)
 	}
 	
@@ -157,7 +156,7 @@ var file;
 		}
 		else
 		{
-			var blob = file.slice(mdat_offset, mdat_offset+(1024*64));
+			var blob = file.slice(mdat_offset, mdat_offset+(1024*1024*24));
 			reader2.readAsArrayBuffer(blob);  
 		}
 	}
@@ -198,7 +197,7 @@ var file;
 		
 		if(jpeg_gpmf_offset == 0)
 		{
-			for(i=0; i<512; i++)
+			for(i=0; i<1024*1024*24; i++)
 			{
 				if(bytes[i] == 117 /*'u'*/ && bytes[i+1] == 100 /*'d'*/ && bytes[i+2] == 116 /*'t'*/ && bytes[i+3] == 97 /*'a'*/)
 				{
