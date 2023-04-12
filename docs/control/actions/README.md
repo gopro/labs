@@ -33,6 +33,8 @@
 * **!**time**TR** - (H11)  **!TR* - switch active TimeWarp to Realtime (or slow motion)
 * **!**time**TN** - (H11)  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
 
+## Capture Triggers (Classic, invent your own below.)
+
 * **!**time**SMs-t** - Start Motion detection with start sensitivity 's' and stop sensitivity 't' -- 't' field is optional.
 * **!**time**SMsDdMmHh** - Start Motion detection with sensitivity 's', Delay of 'd', Mask of 'm' and Hold for 'h' seconds (D,M and H fields are all optional.)
 * **!**time**SKs-t** - Start Speed capture at threshold 's' km/h and stop at 't' km/h -- 't' field is optional.
