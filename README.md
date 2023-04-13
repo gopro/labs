@@ -23,7 +23,7 @@ Download and install for older cameras:
 
 **By downloading any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).**
 
-Follow the manual firmware update instructions for [Windows](https://gopro.com/en/us/support/hero11-black-product-update/windows) or [MacOS](https://gopro.com/en/us/support/hero11-black-product-update/macos).
+Follow the [manual firmware update instructions](docs/install).
 
 Need help, or an have Labs questions, we have a dedicated [forum for Labs users](https://github.com/gopro/labs/discussions)
 
