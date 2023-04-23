@@ -38,7 +38,7 @@ Only the more recent releases are documented below. This a general list of Labs 
   * u USB stage - >uCmd1~Cmd2 or <uCmd3 expand to if(power is on USB) Cmd1 else Cmd2  or  if(no power on USB) cmd.  e.g. >u"Power On"~"Power Off"
   * y mode button count from scan start
   * z shutter button count from scan start
-- Added not setting control zX  z3-mute shutter and mode buttons, z2-mute only mode, z1-mute only shutter. z0-unmute both.
+- Added button muting control !Zx  !Z3-mute shutter and mode buttons, !Z2-mute only mode, !Z1-mute only shutter. !Z0-unmutes both.
 - Added a random delay option 'e' e.g. !eS (start random within an hour) or !e10E (end random within 10 seconds) or !e60N (NOP wait for random up to 60seconds.)
 - Added crude super of macro (near focus) lenses, with e.g. oMMACR=-0.1,0.2,... (add the distortion prescription for the added lens.)
 - Added oC1 - Auto Off 1 minute  oC0 - Auto Off default length

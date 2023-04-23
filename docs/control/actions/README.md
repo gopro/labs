@@ -20,7 +20,7 @@
 * **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
 * **!**time**E** - End at **time** if in hh:mm form, or after n seconds.
 * **!**time**R** - Repeat the whole command.
-* **!**time**Rx** - (H11 v2.1) Repeat the command starting at position x (i.e. a goto command).
+* **!**time**Rx** - (H11) Repeat the command starting at position x (i.e. a goto command).
 * **!**time**N** - No Action until exact **time**, useful if you just need a pause.
 * **!**time**NQ** - No Action until at approximately **time**.
 * **!**time**O** - Off, shutdown the camera.
@@ -32,6 +32,8 @@
 * **!**time**Zx** - (H11)  **!Z3** - Disable Buttons, **!Z0** - Enable (default), **!Z1** - Disable Shutter, **!Z2** - Disable Mode
 * **!**time**TR** - (H11)  **!TR* - switch active TimeWarp to Realtime (or slow motion)
 * **!**time**TN** - (H11)  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
+* **!**time**Bx** - (H11) Beeps and Blinks, **!B** - Blink once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Zx** - (H11) **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
 
 ## Capture Triggers (Classic, invent your own below.)
 
@@ -284,7 +286,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: April 11, 2023
+updated: April 23, 2023
 
 [BACK](..)
 
