@@ -32,7 +32,7 @@
 * **!**time**Zx** - (H11)  **!Z3** - Disable Buttons, **!Z0** - Enable (default), **!Z1** - Disable Shutter, **!Z2** - Disable Mode
 * **!**time**TR** - (H11)  **!TR* - switch active TimeWarp to Realtime (or slow motion)
 * **!**time**TN** - (H11)  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
-* **!**time**Bx** - (H11) Beeps and Blinks, **!B** - Blink once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Bx** - (H11) Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
 * **!**time**Zx** - (H11) **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
 
 ## Capture Triggers (Classic, invent your own below.)
