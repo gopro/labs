@@ -137,6 +137,9 @@ function timeLoop()
 	var m = tz - h*60;
 	document.getElementById("tztext").innerHTML = h;	
 	document.getElementById("tzmin").innerHTML = m;	
+	
+	if(Math.trunc(tz/60) == tz/60)
+		tz = tz/60;  // only need hours when precise.
   }
 
   var td = 0;
