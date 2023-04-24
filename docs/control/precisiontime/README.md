@@ -22,7 +22,7 @@ QR Command: <b id="qrtext"></b>
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-updated: Feb 7, 2023
+updated: April 24, 2023
 
 [Learn more](..) on QR Control
 
@@ -92,7 +92,7 @@ function timeLoop()
   ms = Math.floor(ms / 10); // hundredths
   ms = padTime(ms);
 
-  cmd = "oT" + yy + mm + dd + h + m + s + "." + ms + "TI" + id;
+  cmd = "oT" + yy + mm + dd + h + m + s + "." + ms + "oTI" + id;
   qrcode.clear(); 
   qrcode.makeCode(cmd);
   document.getElementById("qrtext").innerHTML = cmd;
