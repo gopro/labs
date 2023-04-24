@@ -12,6 +12,11 @@
         }
 </style>
 
+
+**Timezone** <input type="range" id="tzid" name="tzid" min="-48" max="48" value="0" style="width: 300px;"><label for="tzid"></label>&nbsp;&nbsp;<b id="tztext"></b> hour <b id="tzmin"></b> minute<br>
+
+**Daylight Saving Time** <input type="checkbox" id="tdid" name="tdid"> <label for="tdid">Active</label><br>
+
 Simply point your Labs enabled camera at this animated QR Code, to set your date and time very accurately to local time. This is particularly useful for multi-camera shoots, as it helps synchronize the timecode between cameras. As the camera's internal clock will drift slowly over time, use this QR Code just before your multi-camera shoot for the best synchronization. 
 
 <center>
@@ -50,6 +55,38 @@ function getMachineId()
     return machineId;
 }
 
+function isDST(d) {
+    let jan = new Date(d.getFullYear(), 0, 1).getTimezoneOffset();
+    let jul = new Date(d.getFullYear(), 6, 1).getTimezoneOffset();
+    return Math.max(jan, jul) !== d.getTimezoneOffset();    
+}
+
+function setTZ() {	
+  var today = new Date();
+  var tz,td = 0;  
+  tz = today.getTimezoneOffset();
+  
+  if(isDST(today))
+     td = 1;
+  
+  if(document.getElementById("tzid") !== null)
+  {
+	document.getElementById("tzid").value = -tz/15;	
+	
+	var h = Math.trunc(tz/60);
+	var m = tz - h*60;
+	document.getElementById("tztext").innerHTML = -h;	
+	document.getElementById("tzmin").innerHTML = -m;	
+  }
+  
+  
+  if(document.getElementById("tdid") !== null)
+  {
+	if(td) {
+		document.getElementById("tdid").checked = true;
+	}
+  }
+}
 
 function makeQR() {	
   if(once === true)
@@ -73,7 +110,7 @@ function timeLoop()
 {
   var today;
   var yy,mm,dd,h,m,s;
-  var ms;
+  var ms,tz;
   
   today = new Date();
   yy = today.getFullYear() - 2000;
@@ -91,8 +128,26 @@ function timeLoop()
   s = padTime(s);
   ms = Math.floor(ms / 10); // hundredths
   ms = padTime(ms);
+  
+  if(document.getElementById("tzid") !== null)
+  {
+	tz = parseInt(document.getElementById("tzid").value) * 15;	
 
-  cmd = "oT" + yy + mm + dd + h + m + s + "." + ms + "oTI" + id;
+	var h = Math.trunc(tz/60);
+	var m = tz - h*60;
+	document.getElementById("tztext").innerHTML = h;	
+	document.getElementById("tzmin").innerHTML = m;	
+  }
+
+  var td = 0;
+  if(document.getElementById("tdid") !== null) 
+  {
+	if(document.getElementById("tdid").checked) {
+		td = 1;
+	}
+  }
+
+  cmd = "oT" + yy + mm + dd + h + m + s + "." + ms + "oTD" + td + "oTZ" + tz + "oTI" + id;
   qrcode.clear(); 
   qrcode.makeCode(cmd);
   document.getElementById("qrtext").innerHTML = cmd;
@@ -105,6 +160,7 @@ function myReloadFunction() {
 }
 
 makeQR();
+setTZ();
 timeLoop();
 
 </script>
