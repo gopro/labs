@@ -13,7 +13,7 @@
 </style>
 
 
-**Timezone** <input type="range" id="tzid" name="tzid" min="-48" max="48" value="0" style="width: 300px;"><label for="tzid"></label>&nbsp;&nbsp;<b id="tztext"></b> hour <b id="tzmin"></b> minute<br>
+**Timezone** <input type="range" id="tzid" name="tzid" min="-48" max="56" value="0" style="width: 300px;"><label for="tzid"></label>&nbsp;&nbsp;<b id="tztext"></b> hour <b id="tzmin"></b> minute<br>
 
 **Daylight Saving Time** <input type="checkbox" id="tdid" name="tdid"> <label for="tdid">Active</label><br>
 
