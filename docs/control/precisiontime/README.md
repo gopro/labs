@@ -29,7 +29,7 @@ QR Command: <b id="qrtext"></b>
         
 updated: April 24, 2023
 
-[Learn more](..) on QR Control
+[Learn more](..) back to QR Controls
 
 <script>
 var once = true;
