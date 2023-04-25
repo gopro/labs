@@ -133,10 +133,10 @@ function timeLoop()
   {
 	tz = parseInt(document.getElementById("tzid").value) * 15;	
 
-	var h = Math.trunc(tz/60);
-	var m = tz - h*60;
-	document.getElementById("tztext").innerHTML = h;	
-	document.getElementById("tzmin").innerHTML = m;	
+	var H = Math.trunc(tz/60);
+	var M = tz - h*60;
+	document.getElementById("tztext").innerHTML = H;	
+	document.getElementById("tzmin").innerHTML = M;	
 	
 	if(Math.trunc(tz/60) == tz/60)
 		tz = tz/60;  // only need hours when precise.
