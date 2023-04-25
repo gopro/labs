@@ -134,7 +134,7 @@ function timeLoop()
 	tz = parseInt(document.getElementById("tzid").value) * 15;	
 
 	var H = Math.trunc(tz/60);
-	var M = tz - h*60;
+	var M = tz - H*60;
 	document.getElementById("tztext").innerHTML = H;	
 	document.getElementById("tzmin").innerHTML = M;	
 	
