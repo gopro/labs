@@ -23,6 +23,8 @@ Download and install for older cameras:
 
 Follow the [manual firmware update instructions](install).
 
+See updates and changes in the [Release Notes](https://gopro.github.io/labs/control/notes/)
+
 Need help, or an have Labs questions, we have a dedicated [forum for Labs users](https://github.com/gopro/labs/discussions)
 
 Learn more information about the program on [GoPro.com](https://gopro.com/info/gopro-labs).
@@ -96,10 +98,6 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     |       | Yes   |       |     |
 | [Wider Color Gamut](https://gopro.github.io/labs/control/extensions)                        | Yes     |         |       |       |       |     |
 | [White Balance Lock](https://gopro.github.io/labs/control/extensions)                       | No/Yes  |         |       |       |       |     |
-
-### Labs Firmware Release Notes
-
-- [Release Notes](https://gopro.github.io/labs/control/notes/)
 
 ## Software 
 
