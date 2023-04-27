@@ -11,7 +11,7 @@ Download the GoPro Labs firmware for current shipping cameras:
 - [HERO11 Black](https://bit.ly/LABS_H11_2_10_70) - v2.10.70, March 2023
 - [HERO11 Black Mini](https://bit.ly/LABS_M11_2_20_70) - v2.20.70, March 2023
 - [HERO10 Black](https://bit.ly/LABS_H10_1_50_70) - v1.50.70, January 2023
-- [GoPro MAX](https://bit.ly/LABS_MAX_2_00_71) - v2.00.71, January 2021
+- [GoPro MAX](https://bit.ly/LABS_MAX_2_00_75) - v2.00.75, April 2023
 
 Download and install for older cameras:
 - [HERO9 Black](https://bit.ly/LABS_H9_1_72_70) - v1.72.70, June 2022
