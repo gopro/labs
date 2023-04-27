@@ -152,6 +152,24 @@ Only the more recent releases are documented below. This a general list of Labs 
 - All the features and fixes of HERO11 Labs 1.20.70, minus on-screen and GPS features.
 
 
+## MAX
+
+### 2.00.75 - Apr 27, 2023
+- Updates to the new Labs script language recently released for HERO11 Black and Mini. This allows for If-This-Then-That camera for customize 
+   camera triggers using a good range of system properties like: acceleration and gyroscope levels, battery level, GPS distance 
+   and precision, camera speed, loop count, scene motion and recording and USB status.
+- Added support for BITR command for enhanced bitrate control. 360 HEVC can be increased from 60 up to 100Mb/s (90Mb/s good for most SD media) 
+- Added support for WAKE command, for auto boot the camera upon USB power.
+- Added support for small logo overlays in 360 (and color bars for testing)
+- improvements to motion detection 
+- improvements to histogram
+- many smaller bug fixes for Labs
+
+
+### 2.00.71 - January 2021
+ - The first Labs release for MAX
+
+
 ## HERO10 Black 
 
 ### 1.50.70 - Dec, 2022
@@ -290,12 +308,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 ### 1.90.71 - January 2021
  - The only Labs release for HERO7
  
-
-## MAX
-
-### 2.00.71 - January 2021
- - The only Labs release for MAX
-
 
 ## HERO5 Session
 
