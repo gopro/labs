@@ -60,7 +60,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Exposure Damping](https://gopro.github.io/labs/control/extensions) control                 | Yes     | Yes     |       |       |       |     |
 | [Exposure Curve](https://gopro.github.io/labs/control/extensions) custom log encoding       | Yes     |         |       |       |       |     |
 | [Exposure Min/Max Times](https://gopro.github.io/labs/control/extensions)                   | Yes     |         |       |       |       |     |
-| [Extra Long time-lapse](https://gopro.github.io/labs/control/longtimelapse)                 | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
+| [Extra Long time-lapse](https://gopro.github.io/labs/control/longtimelapse)                 | Yes/No  | Yes     | Yes   | Yes   | Yes   | Yes |
 | [GPS time sync](https://gopro.github.io/labs/control/gpssync)                               | Yes/No  | Yes/No  | Yes   |       |       |     |
 | [Guidelines Display](https://gopro.github.io/labs/control/extensions) on rear LCD           | Yes/No  |         |       |       |       |     |
 | [HDMI display settings](https://gopro.github.io/labs/control/extensions)                    | Yes/No  | Yes     | Yes   |       |       |     |
