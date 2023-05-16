@@ -81,6 +81,7 @@ When pushing the dynamic range of any camera, shadow details may be suppress by 
 Increasing the logbase will enhance the shadows, but will also reveal noise reduction artifacts tuned for a different encoding curve (the more consumer friendly Rec709.)  
 You can back-off the noise reduction to restore shadow details, with the downside being a noiser image (protentially requiring noise reduction in post.)  
 Also a noiser image will need a higher-bitrate to store the additional information (so BITR, NR01 and LOGB are all related.) 
+- **BYPS=1** - Bypass common pop-ups, such as resetting the time and date. Remember to set time and date if you remove the battery.
 
 ### Miscellaneous controls for most Labs cameras. 
 
@@ -201,7 +202,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Apr 2, 2023<br>
+updated: May 16, 2023<br>
 
 [Learn more](..) on QR Control
 
