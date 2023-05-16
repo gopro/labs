@@ -107,6 +107,11 @@ EIS (Hypersmooth control):
  * **e2** - High
  * **e3** - Boost
  * **e4** - Auto 
+ 
+Exposure Lock: 
+ * **eL0** - Off     
+ * **eL1** - On
+ * **eL2 - eL9** -  Lock after 2 to 9 seconds.
 
 Hindsight (Video modes H9-11): 
  * **hS0** - Off     
@@ -241,7 +246,7 @@ HERO11 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: Feb 24, 2023
+updated: May 15, 2023
 
 [Learn more](..) on QR Control
 
