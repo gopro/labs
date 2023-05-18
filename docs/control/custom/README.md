@@ -494,7 +494,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 
 <div id="opDTS">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="dttimecode" value=""> <label for="dttimecode">add 1/100th of a second</label><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="dttimecode" value=""> <label for="dttimecode">add millisecond precision</label><br>
 </div>
 
 <div id="cameraActions">
@@ -573,7 +573,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: Feb 24, 2023
+updated: May 18, 2023
 
 <script>
 var clipcopy = "";
@@ -1300,14 +1300,14 @@ function startTime() {
 		
 		frms = (h * 3600 + m * 60 + s) * timecodefps + Math.floor((timecodefps * ms) / 1000);
 		
-		yy = checkTime(yy);
-		mm = checkTime(mm);
-		dd = checkTime(dd);
-		h = checkTime(h);
-		m = checkTime(m);
-		s = checkTime(s);
-		ms = Math.floor(ms / 10); // hundredths
-		ms = checkTime(ms);
+		yy = padTime(yy);
+		mm = padTime(mm);
+		dd = padTime(dd);
+		h = padTime(h);
+		m = padTime(m);
+		s = padTime(s);
+		//ms = Math.floor(ms / 10); // hundredths
+		ms = padTime1000(ms);
 	
 		//var curr = today.getTime();
 		
@@ -1317,7 +1317,7 @@ function startTime() {
 			cmd = cmd + s;
 			if(timecode)
 			{			
-				cmd = cmd + "." + ms + "TI" + id;
+				cmd = cmd + "." + ms + "oTI" + id;
 			}
 		}
 	
@@ -1571,15 +1571,21 @@ function startTime() {
 		lastms = today.getTime();
 		changed = false;
 		
-		delay = 10;
+		delay = 30;
 		//console.log(cmd);
 	}
 	
 	var t = setTimeout(startTime, delay);
 }
-function checkTime(i) {
-    if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
-    return i;
+
+function padTime(i) {
+  if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
+  return i;
+}
+function padTime1000(i) {
+  if (i >= 10 && i < 100) {i = "0" + i;}  // add zero in front of numbers < 100
+  else if (i < 10) {i = "00" + i;}  // add zero in front of numbers < 10
+  return i;
 }
 
 function dset(label, on) {
