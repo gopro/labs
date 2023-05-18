@@ -27,7 +27,7 @@ QR Command: <b id="qrtext"></b>
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-updated: April 24, 2023
+updated: May 18, 2023
 
 [Learn more](..) back to QR Controls
 
@@ -106,6 +106,11 @@ function padTime(i) {
   if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
   return i;
 }
+function padTime1000(i) {
+  if (i >= 10 && i < 100) {i = "0" + i;}  // add zero in front of numbers < 100
+  else if (i < 10) {i = "00" + i;}  // add zero in front of numbers < 10
+  return i;
+}
 function timeLoop()
 {
   var today;
@@ -126,8 +131,8 @@ function timeLoop()
   h = padTime(h);
   m = padTime(m);
   s = padTime(s);
-  ms = Math.floor(ms / 10); // hundredths
-  ms = padTime(ms);
+  //ms = Math.floor(ms / 10); // hundredths
+  ms = padTime1000(ms);
   
   if(document.getElementById("tzid") !== null)
   {
