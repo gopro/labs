@@ -11,7 +11,7 @@ your GoPro—this update simply adds more features.  Safe to install, safe to us
 
 Download the GoPro Labs firmware for current shipping cameras:
 - [HERO11 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO11_02_10_70.zip) - v2.10.70, March 2023
-- [HERO11 Black Mini](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MINI11_02_20_70.zip) - v2.20.70, March 2023
+- [HERO11 Black Mini](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MINI11_02_30_70.zip) - v2.30.70, March 2023
 - [HERO10 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO10_01_50_70.zip) - v1.50.70, January 2023
 - [GoPro MAX](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MAX_02_00_75.zip) - v2.00.75, April 2023
 
@@ -107,4 +107,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-updated: March 31, 2023<br>
+updated: May 19, 2023<br>
