@@ -106,6 +106,16 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO11 Black Mini
 
+### 2.30.70 - May 19, 2023
+- Added !MFAST=1 for fewer Labs notifications on boot.
+- Added !MBERS=2 for disabling ERS only when Hypersmooth is off.
+- Added oMEXPQ=value for an fixed exposure time of 1/value. Same as oMEXPN=100oMEXPM=100, so a simplification only.
+- Enhanced EXTQ,EXTN,EXTX and EXPT to work on timelapse video
+- Restored Overlays and Logos to Livestream feeds (use only small logos and overlays for reliability)
+- Fixed motion detection so would scan the full image in TimeWarp mode (was only scanning middle 50%.)
+- Fixed Overlays use AM/PM now correctly use 12 hour time
+- Fixed using of Math funcitons is save scripts.
+
 ### 2.20.70 - Mar 31, 2023
 - Update to new command language with variable support (matching HERO11 2.10.70.)
 - Added !Cx where x is GBs to make sure is clear.  If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. Ideal for dashcam applications.
@@ -316,6 +326,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Mar 31, 2023
+updated: May 19, 2023
 
 [Learn more](..) on QR Control
