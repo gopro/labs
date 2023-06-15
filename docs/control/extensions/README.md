@@ -20,7 +20,7 @@ The metadata, and the features it enables, can be [extracted with this page](../
 
 All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy**=value(s) -- where the four character code (4CC) 
 **wxzy** is under your control, along with the data it stores. The **!M** version will permanently store the metadata, and the **oM** 
-will store it for only this power-on session. Metadata is available to flag your files for special uses, or just to label the [camera owner](./owner). 
+will store it for only this power-on session. Metadata is available to flag your files for special uses, or just to label the [camera owner](../owner). 
 Some particular 4CCs will also change camera behavior and/or enable features. Here is a list of additional metadata driven controls: 
 
 
