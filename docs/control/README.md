@@ -32,7 +32,7 @@ and as a mobile app:<br>
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
 * **HERO8-11/Bones** - [**Daily Time-lapse**](./dailytl) with optional upload
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* **Depricated** - This style is less reliable than the above types [**Daily Long Time-lapses**](./construction)
+* **Deprecated** - This style is less reliable than the above types [**Daily Long Time-lapses**](./construction)
 
 ### Video Alteration Features
 * **HERO8-11/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
