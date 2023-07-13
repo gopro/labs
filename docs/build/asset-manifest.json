@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/LabsBlocks/static/css/main.da5bdba3.css",
+    "main.js": "/LabsBlocks/static/js/main.428e7669.js",
+    "index.html": "/LabsBlocks/index.html",
+    "main.da5bdba3.css.map": "/LabsBlocks/static/css/main.da5bdba3.css.map",
+    "main.428e7669.js.map": "/LabsBlocks/static/js/main.428e7669.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da5bdba3.css",
+    "static/js/main.428e7669.js"
+  ]
+}
