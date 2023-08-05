@@ -20,14 +20,18 @@
 Simply point your Labs enabled camera at this animated QR Code, to set your date and time very accurately to local time. This is particularly useful for multi-camera shoots, as it helps synchronize the timecode between cameras. As the camera's internal clock will drift slowly over time, use this QR Code just before your multi-camera shoot for the best synchronization. 
 
 <center>
-<div id="qrcode"></div>
-<br>
+<div id="qrcode"></div><br>
+TC 24: <b id="tctext24"></b><br>
+TC 25: <b id="tctext25"></b><br>
+TC 30: <b id="tctext30"></b><br>
+TC 50: <b id="tctext50"></b><br>
+TC 60: <b id="tctext60"></b><br>
 </center>
 QR Command: <b id="qrtext"></b>
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-updated: May 18, 2023
+updated: Aug 5, 2023
 
 [Learn more](..) back to QR Controls
 
@@ -55,10 +59,26 @@ function getMachineId()
     return machineId;
 }
 
-function isDST(d) {
-    let jan = new Date(d.getFullYear(), 0, 1).getTimezoneOffset();
-    let jul = new Date(d.getFullYear(), 6, 1).getTimezoneOffset();
-    return Math.max(jan, jul) === d.getTimezoneOffset();    
+function isDaylightSavingTime(date) {
+  // Get the time zone offset for the given date
+  const timezoneOffsetMinutes = date.getTimezoneOffset();
+
+  // Get the standard time zone offset for the same date but in January (non-DST period)
+  const januaryOffsetMinutes = new Date(date.getFullYear(), 0, 1).getTimezoneOffset();
+
+  // If the current offset is greater than the standard offset, it is DST
+  return timezoneOffsetMinutes < januaryOffsetMinutes;
+}
+
+function isDST(date) {
+  // Get the time zone offset for the given date
+  const timezoneOffsetMinutes = date.getTimezoneOffset();
+
+  // Get the standard time zone offset for the same date but in January (non-DST period)
+  const januaryOffsetMinutes = new Date(date.getFullYear(), 0, 1).getTimezoneOffset();
+
+  // If the current offset is greater than the standard offset, it is DST
+  return timezoneOffsetMinutes < januaryOffsetMinutes;
 }
 
 function setTZ() {	
@@ -128,6 +148,11 @@ function timeLoop()
   yy = padTime(yy);
   mm = padTime(mm);
   dd = padTime(dd);
+  
+  var tmilli = (ms/1000) + s + (m * 60) + (h * 60 * 60);
+  tmilli /= 1.001; //29.97 vs 30.0
+  var fixtmilli = tmilli;
+  
   h = padTime(h);
   m = padTime(m);
   s = padTime(s);
@@ -159,8 +184,30 @@ function timeLoop()
   qrcode.clear(); 
   qrcode.makeCode(cmd);
   document.getElementById("qrtext").innerHTML = cmd;
- 
-  var t = setTimeout(timeLoop, 30);
+  
+  var tc25 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 25 / 1000));
+  var tc50 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 50 / 1000));
+   
+  h = Math.trunc(tmilli / (60 * 60));  tmilli -= h * (60 * 60);
+  m = Math.trunc(tmilli / (60 ));  tmilli -= m * (60);
+  s = Math.trunc(tmilli);  tmilli -= s;
+  ms = Math.trunc(tmilli * 1000);
+  
+  h = padTime(h);
+  m = padTime(m);
+  s = padTime(s);
+   
+  var tc24 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 24 / 1000));
+  var tc30 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 30 / 1000));
+  var tc60 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 60 / 1000));
+  
+  document.getElementById("tctext24").innerHTML = tc24;  
+  document.getElementById("tctext25").innerHTML = tc25;  
+  document.getElementById("tctext30").innerHTML = tc30;  
+  document.getElementById("tctext50").innerHTML = tc50;  
+  document.getElementById("tctext60").innerHTML = tc60;
+   
+  var t = setTimeout(timeLoop, 10);
 }
 
 function myReloadFunction() {
