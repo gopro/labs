@@ -23,9 +23,9 @@ Simply point your Labs enabled camera at this animated QR Code, to set your date
 <div id="qrcode"></div><br>
 TC 24: <b id="tctext24"></b><br>
 TC 25: <b id="tctext25"></b><br>
-TC 30: <b id="tctext30"></b><br>
+NDF 30: <b id="tctext30"></b>   DF 30: <b id="dftext30"></b><br>
 TC 50: <b id="tctext50"></b><br>
-TC 60: <b id="tctext60"></b><br>
+NDF 60: <b id="tctext60"></b>   DF 60: <b id="dftext60"></b><br>
 </center>
 QR Command: <b id="qrtext"></b>
 
@@ -131,6 +131,91 @@ function padTime1000(i) {
   else if (i < 10) {i = "00" + i;}  // add zero in front of numbers < 10
   return i;
 }
+
+
+function nonDropframeToDropframe(timecode, fps) {
+	// Extract hours, minutes, seconds, and frames from the timecode
+	const [hours, minutes, seconds, frames] = timecode.split(':').map(Number);
+
+	// Calculate the total number of frames
+	const totalFrames = hours * 3600 * fps + minutes * 60 * fps + seconds * fps + frames;
+
+	var i=0,h=0,m=0,s=0,f=0;
+	
+	for(i=0;i<totalFrames-fps;)
+	{
+		i += fps-f;
+		f += fps-f;
+		
+		if(f<fps-1)
+		{
+			f++;	
+		}
+		else
+		{ 
+			f = 0;
+			s++;
+			
+			if(Math.trunc(m/10)*10 != m && s == 60)
+			{
+			    // drop frame every minute except every 10 minutes
+			    if(fps == 60)
+			    	f = 4;
+			    else
+			        f = 2;
+			}
+			if(s == 60) 
+			{
+				s = 0;
+				m++;
+				if(m == 60)
+				{
+					m = 0;
+					h++;
+				}
+			}
+		} 
+	}
+	
+	
+	for(; i<totalFrames; i++)
+	{
+		if(f<fps-1)
+		{
+			f++;	
+		}
+		else
+		{ 
+			f = 0;
+			s++;
+			
+			if(Math.trunc(m/10)*10 != m && s == 60)
+			{
+			    // drop frame every minute except every 10 minutes
+			    if(fps == 60)
+			    	f = 4;
+			    else
+			        f = 2;
+			}
+			if(s == 60) 
+			{
+				s = 0;
+				m++;
+				if(m == 60)
+				{
+					m = 0;
+					h++;
+				}
+			}
+		} 
+	}
+
+	// Format the dropframe timecode
+	const dropframeTimecode = padTime(h)+":"+padTime(m)+":"+padTime(s)+";"+padTime(f);
+
+	return dropframeTimecode;
+}
+
 function timeLoop()
 {
   var today;
@@ -200,12 +285,17 @@ function timeLoop()
   var tc24 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 24 / 1000));
   var tc30 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 30 / 1000));
   var tc60 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 60 / 1000));
-  
+ 
+  var df30 = nonDropframeToDropframe(tc30, 30);
+  var df60 = nonDropframeToDropframe(tc60, 60);
+ 
   document.getElementById("tctext24").innerHTML = tc24;  
   document.getElementById("tctext25").innerHTML = tc25;  
   document.getElementById("tctext30").innerHTML = tc30;  
+  document.getElementById("dftext30").innerHTML = df30;  
   document.getElementById("tctext50").innerHTML = tc50;  
   document.getElementById("tctext60").innerHTML = tc60;
+  document.getElementById("dftext60").innerHTML = df60;
    
   var t = setTimeout(timeLoop, 10);
 }
