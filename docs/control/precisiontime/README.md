@@ -31,7 +31,7 @@ QR Command: <b id="qrtext"></b>
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, MAX and BONES 
         
-updated: Aug 5, 2023
+updated: Aug 8, 2023
 
 [Learn more](..) back to QR Controls
 
@@ -142,7 +142,82 @@ function nonDropframeToDropframe(timecode, fps) {
 
 	var i=0,h=0,m=0,s=0,f=0;
 	
-	for(i=0;i<totalFrames-fps;)
+	for(; i<totalFrames; i++)
+	{
+		if(f<fps-1)
+		{
+			f++;	
+		}
+		else
+		{ 
+			f = 0;
+			s++;
+			
+			if(s == 60)
+			{
+				if(Math.trunc(m/10)*10 != m)
+				{
+					// drop frame every minute except every 10 minutes
+					if(fps == 60)
+						f = 4;
+					else
+						f = 2;
+				}
+				
+				s = 0;
+				m++;
+				if(m == 60)
+				{
+					m = 0;
+					h++;
+				}
+			}
+		} 
+	}
+
+	// Format the dropframe timecode
+	const dropframeTimecode = padTime(h)+":"+padTime(m)+":"+padTime(s)+";"+padTime(f);
+
+	return dropframeTimecode;
+}
+
+
+
+
+function nonDropframeToDropframeFast(timecode, fps) {
+	// Extract hours, minutes, seconds, and frames from the timecode
+	const [hours, minutes, seconds, frames] = timecode.split(':').map(Number);
+
+	// Calculate the total number of frames
+	const totalFrames = hours * 3600 * fps + minutes * 60 * fps + seconds * fps + frames;
+
+	var i=0,h=0,m=0,s=0,f=0;
+	
+	if(fps == 30 || fps == 60)
+	{
+		var mult = Math.trunc(fps/30);
+		while(i+18000*mult <= totalFrames) /// every 10 minutes adds 18*mult frames 
+		{
+			i += 18000*mult
+			f += 18*mult;
+			m += 10;
+		}
+	
+		while(f>=fps)
+		{
+			s++; f-=fps;
+		}
+		while(s>=60)
+		{
+			m++; s-=60;
+		}
+		while(m>=60)
+		{
+			h++; m-=60;
+		}
+	}
+
+	for(;i<totalFrames-fps;)
 	{
 		i += fps-f;
 		f += fps-f;
@@ -156,16 +231,17 @@ function nonDropframeToDropframe(timecode, fps) {
 			f = 0;
 			s++;
 			
-			if(Math.trunc(m/10)*10 != m && s == 60)
+			if(s == 60)
 			{
-			    // drop frame every minute except every 10 minutes
-			    if(fps == 60)
-			    	f = 4;
-			    else
-			        f = 2;
-			}
-			if(s == 60) 
-			{
+				if(Math.trunc(m/10)*10 != m)
+				{
+					// drop frame every minute except every 10 minutes
+					if(fps == 60)
+						f = 4;
+					else
+						f = 2;
+				}
+				
 				s = 0;
 				m++;
 				if(m == 60)
@@ -189,16 +265,17 @@ function nonDropframeToDropframe(timecode, fps) {
 			f = 0;
 			s++;
 			
-			if(Math.trunc(m/10)*10 != m && s == 60)
+			if(s == 60)
 			{
-			    // drop frame every minute except every 10 minutes
-			    if(fps == 60)
-			    	f = 4;
-			    else
-			        f = 2;
-			}
-			if(s == 60) 
-			{
+				if(Math.trunc(m/10)*10 != m)
+				{
+					// drop frame every minute except every 10 minutes
+					if(fps == 60)
+						f = 4;
+					else
+						f = 2;
+				}
+				
 				s = 0;
 				m++;
 				if(m == 60)
@@ -215,6 +292,34 @@ function nonDropframeToDropframe(timecode, fps) {
 
 	return dropframeTimecode;
 }
+
+/*
+var j,h=0,m=0,s=0,f=0;
+for(j=0;j<1000;j++)
+{
+    h = Math.trunc(Math.random()*24);
+    m = Math.trunc(Math.random()*60);
+    s = Math.trunc(Math.random()*60);
+    f = Math.trunc(Math.random()*60);
+    tc = padTime(h)+":"+padTime(m)+":"+padTime(s)+":"+padTime(f);
+    S = nonDropframeToDropframe(tc,60);
+    F = nonDropframeToDropframeFast(tc,60);
+    
+    //if(0 === j)
+    //{
+    //  alert(tc);
+    //}
+    
+    if(0 !== S.localeCompare(F))
+    {
+        alert(S + "!=" + F);
+        exit();
+    }
+}
+
+alert("done");
+*/   
+
 
 function timeLoop()
 {
@@ -286,8 +391,8 @@ function timeLoop()
   var tc30 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 30 / 1000));
   var tc60 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 60 / 1000));
  
-  var df30 = nonDropframeToDropframe(tc30, 30);
-  var df60 = nonDropframeToDropframe(tc60, 60);
+  var df30 = nonDropframeToDropframeFast(tc30, 30);
+  var df60 = nonDropframeToDropframeFast(tc60, 60);
  
   document.getElementById("tctext24").innerHTML = tc24;  
   document.getElementById("tctext25").innerHTML = tc25;  
