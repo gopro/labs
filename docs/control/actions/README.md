@@ -34,6 +34,8 @@
 * **!**time**TN** - (H11)  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
 * **!**time**Bx** - (H11) Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
 * **!**time**Zx** - (H11) **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
+* **!**time**Cx** - (H11) Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
+
 
 ## Capture Triggers (Classic, invent your own below.)
 
@@ -286,7 +288,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: April 23, 2023
+updated: August 9, 2023
 
 [BACK](..)
 

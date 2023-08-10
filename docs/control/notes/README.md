@@ -5,8 +5,25 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO11 Black 
 
-### 2.10.70 - Mar 15, 2023
+### 2.12.70 - Aug 10, 2023
+- Added !MFAST=1 for fewer Labs notifications on boot.
+- Added !MBERS=2 for disabling ERS only when Hypersmooth is off.
+- Added !MBITL=6 controlling the livestream maximum bitrate (up to 8Mbit/s).
+- Added oMEXPQ=value for an fixed exposure time of 1/value.  Same as oMEXPN=100oMEXPX=100, so a simplification only.
+- Enhanced EXTQ,EXTN,EXTX and EXPT to work on timelapse video and photo 
+- Restored Overlays and Logos to Livestream feeds (use only small logos and overlays for reliability)
+- Fixed motion detection so would scan the full image in TimeWarp mode (was only scanning middle 50%.)
+- Fixed Overlays use AM/PM now correctly use 12 hour time
+- Fixed using of Math functions in saved scripts.
+- Fixed setting bitrate (BITR) lower with multiple captures. 
+- Fixed very long captures using motion detection or similar repeating events.
+- Fixed GPS time SYNC=1 to update the year.
+- Improved support for external power with internal battery, wake alarm events.
+- General performance improvement to Labs processing.
+- Support for the new Blockly visual scripting tool [https://gopro.github.io/labs/build/](https://gopro.github.io/labs/build/)
 
+
+### 2.10.70 - Mar 15, 2023
 - Fixed DLRV to support multiple captures
 - Fixed short DSPL interfering with delayed start
 - Fixed a common failure in upload in repeating scripts (command !U)

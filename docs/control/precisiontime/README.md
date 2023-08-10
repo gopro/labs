@@ -87,7 +87,10 @@ function setTZ() {
   tz = today.getTimezoneOffset();
   
   if(isDST(today))
+  {
      td = 1;
+     tz += 60;
+  }
   
   if(document.getElementById("tzid") !== null)
   {
