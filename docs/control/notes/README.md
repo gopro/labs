@@ -10,7 +10,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Added !MBERS=2 for disabling ERS only when Hypersmooth is off.
 - Added !MBITL=6 controlling the livestream maximum bitrate (up to 8Mbit/s).
 - Added oMEXPQ=value for an fixed exposure time of 1/value.  Same as oMEXPN=100oMEXPX=100, so a simplification only.
-- Enhanced EXTQ,EXTN,EXTX and EXPT to work on timelapse video and photo 
+- Enhanced EXPQ,EXPN,EXPX and EXPT to work on timelapse video and photo 
 - Restored Overlays and Logos to Livestream feeds (use only small logos and overlays for reliability)
 - Fixed motion detection so would scan the full image in TimeWarp mode (was only scanning middle 50%.)
 - Fixed Overlays use AM/PM now correctly use 12 hour time
