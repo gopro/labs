@@ -10,16 +10,16 @@ or in advanced setups, such as multiple cameras time synchronization or delayed 
 your GoPro—this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
 
 Download the GoPro Labs firmware for current shipping cameras:
-- [HERO11 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO11_02_10_70.zip) - v2.10.70, March 2023
-- [HERO11 Black Mini](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MINI11_02_30_70.zip) - v2.30.70, March 2023
-- [HERO10 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO10_01_50_70.zip) - v1.50.70, January 2023
-- [GoPro MAX](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_MAX_02_00_75.zip) - v2.00.75, April 2023
+- [HERO11 Black](https://bit.ly/LABS_H11_2_12_70) - v2.12.70, August 2023
+- [HERO11 Black Mini](https://bit.ly/LABS_M11_2_30_70) - v2.30.70, May 2023
+- [HERO10 Black](https://bit.ly/LABS_H10_1_50_70) - v1.50.70, January 2023
+- [GoPro MAX](https://bit.ly/LABS_MAX_2_00_75) - v2.00.75, April 2023
 
 Download and install for older cameras:
-- [HERO9 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO9_01_72_70.zip) - v1.72.70, June 2022
-- [HERO8 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO8_02_51_75.zip) - v2.51.75, July 2022
-- [HERO7 Black](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO7_01_90_71.zip) - v1.90.71, January 2021
-- [HERO5 Session](https://github.com/gopro/labs/raw/master/docs/firmware/lfs/LABS_HERO5Session_2.51.72.zip) - v2.51.72, May 2021
+- [HERO9 Black](https://bit.ly/LABS_H9_1_72_70) - v1.72.70, June 2022
+- [HERO8 Black](https://bit.ly/LABS_H8_2_51_75) - v2.51.75, July 2022
+- [HERO7 Black](https://bit.ly/LABS_H7_1_90_71) - v1.90.71, January 2021
+- [HERO5 Session](https://bit.ly/LABS_H5S_2_51_72) - v2.51.72, May 2021
 
 **By downloading any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).**
 
@@ -107,4 +107,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-updated: May 19, 2023<br>
+updated: August 10, 2023<br>
