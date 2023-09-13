@@ -3,6 +3,20 @@
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
 
+
+
+## HERO12 Black 
+
+### 1.10.70 - Sept 13, 2023
+- Almost all Labs features from HERO11, (known excptions DAUD and DLRV aren't supported.)
+- Adding mH for selecting HDR 
+- Adding mL for selecting Log
+- Adding mS for selecting Standard (switch Log or HDR off)
+- Adding oX2 for selecting Max Lens Mod 2.0
+- Adding l1, l2, l3 for selecting, trails length short, long and infinite.
+- Enhanced support for the new Blockly visual scripting tool [https://gopro.github.io/labs/build/](https://gopro.github.io/labs/build/)
+
+
 ## HERO11 Black 
 
 ### 2.12.70 - Aug 10, 2023
@@ -343,6 +357,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: May 19, 2023
+updated: Sept  13, 2023
 
 [Learn more](..) on QR Control

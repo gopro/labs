@@ -35,7 +35,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Known Issue:** Larger chapters will not be enabled when using QuikCapture. QuikCapture starts recording before the Labs service starts, resulting in perfectly fine, but only 4GB chapters. 
 
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10, MAX and BONES (Standard on HERO11)
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10, MAX and BONES (Standard on HERO11/12)
 
 ## Optional: Joining Chapters After Capture
  

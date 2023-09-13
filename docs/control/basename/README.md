@@ -81,7 +81,7 @@ So you have a corrupted/unclosed GoPro file. You crashed your drone, and the bat
 10. Once the camera completes the file repair process, you can eject the SD Card and backup and play the now repaired file
 
 
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, MAX and BONES 
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, HERO12, MAX and BONES 
         
 ## ver 1.18
 updated: Dec 11, 2022

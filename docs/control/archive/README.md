@@ -30,7 +30,7 @@ QR Command: <b id="qrtext">command</b><br>
 
 Uncheck the above Archive mode checkbox, and scan the new code while the camera is recording.
 		
-Compatibility: Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11 and MAX 
+Compatibility: Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11, HERO12 and MAX 
         
 ## Why is it Called Archive Mode?
 

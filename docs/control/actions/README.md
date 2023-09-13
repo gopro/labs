@@ -192,7 +192,7 @@ However the else can only be applied to the last condition. **\>09:15<10:00!S+"H
 
 The command language is kept simple, so it doesn't maintain a stack on the conditional nesting. 
 
-### Conditionals Based on Camera Status (HERO11 only)
+### Conditionals Based on Camera Status (HERO11 & 12)
 
 New conditional commands for 2023. Now \>xValue and/or \<xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
@@ -288,7 +288,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: August 9, 2023
+updated: September 13, 2023
 
 [BACK](..)
 

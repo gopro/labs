@@ -38,7 +38,7 @@ Proxies can be used directly from the SD card (when mounted on your PC or Mac), 
 
 <input type="checkbox" id="proxies" name="proxies" checked> <label for="proxies">Enable Proxies</label><br>
 
-<input type="checkbox" id="davinci" name="davinci"> <label for="davinci">DaVinci style</label> (HERO11 only - Default off is Premiere Pro style)<br> 
+<input type="checkbox" id="davinci" name="davinci"> <label for="davinci">DaVinci style</label> (HERO11/12 only - Default off is Premiere Pro style)<br> 
 
 <div id="qrcode_txt" style="width: 360px">
   <center>
@@ -55,11 +55,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Warning:** When this feature is enabled, the lack of LRVs will mean the Quik App will not be able to preview video on the camera. However, this will not prevent the full resolution transfer, or on camera playback.
 
-**Compatibility:** Labs enabled HERO10 (Premiere Pro only), HERO11 (Both)
+**Compatibility:** Labs enabled HERO10 (Premiere Pro only), HERO11/12 (Both)
 
- 
-## ver 1.02
-updated: Arp 2, 2023
+updated: Sept 13, 2023
 
 [More features](..) for Labs enabled cameras
 

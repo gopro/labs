@@ -38,7 +38,7 @@ and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlen
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
-**Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10, HERO11 and MAX 
+**Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10, HERO11, HERO12 and MAX 
         
 ## ver 1.04
 [More features](..) for Labs enabled cameras

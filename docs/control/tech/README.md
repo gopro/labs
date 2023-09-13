@@ -8,7 +8,7 @@ Breaking-down how that command works, firstly all GoPro QR settings commands are
 in these groups mV r4 p60 x-.5 cF w55. This is what each command group means:
 
 * **mV** - is shorthand for mode Video - this is the same a swiping the camera to use video mode.
-* **r4** - set resolution to 4K (16:9), r4T (for 4K 4:3) and r4X (for HERO11s 8:7) 
+* **r4** - set resolution to 4K (16:9), r4T (for 4K 4:3) and r4X (for HERO11/12s 8:7) 
 * **p60** - set the frame rate to 60 fps 
 * **x-.5** - exposure compensation is set to -0.5
 * **cF** - color Flat
@@ -37,6 +37,6 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 
 ### The Full List of [**Actions and Conditional Commands**](../actions)
 
-updated: January 29, 2023
+updated: Sept 13, 2023
 
 [Learn more](..) on QR Control

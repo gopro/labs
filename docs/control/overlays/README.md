@@ -85,10 +85,9 @@ Known Issues:
 - HERO10/11 support is limited to video modes 4K 16:9 up to 30, 2.7K up to 60 and 1080p up to 120fps. 
 - Metadata can take a second before it updates after capture start.
 
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11 and MAX 
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, HERO12 and MAX 
         
-## ver 1.32
-updated: Sept 14, 2022
+updated: Sept 13, 2022
 
 [Learn more](..) on QR Control
 

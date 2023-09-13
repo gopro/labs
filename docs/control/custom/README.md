@@ -566,13 +566,13 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 <br>
 <button onclick="myReloadFunction()">Reset page</button>
 
-**Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9, HERO10, HERO11, MAX and Bones 
+**Compatibility:** Labs enabled [HERO5 Session](../session5), HERO7, HERO8, HERO9, HERO10, HERO11, HERO12, MAX and Bones 
 
 **HERO10 Note:** LCD must be on for the QR Code scanning to be active.<br>
         
 [More features](..) for Labs enabled cameras
 
-updated: May 18, 2023
+updated: Sept 13, 2023
 
 <script>
 var clipcopy = "";

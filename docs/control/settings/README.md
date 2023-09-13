@@ -202,7 +202,7 @@ Option (‘o’) commands:
 - Volume of Beeps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
 - Volume Control - **oVC0** - off, **oVC1** - on
 - WiFi Connection - **oW0** - off, **oW1** - on
-- Max Lens Mod -  **oX0** - disabled, **oX1** - enabled
+- Max Lens Mod -  **oX0** - disabled, **oX1** - MLM original enabled, **oX2** - MLM 2.0 enanled
 
 GoPro HERO9/10/11 Front Screen option commands
  * **oF0 or oFO** - turn the front LCD off
@@ -229,7 +229,7 @@ Shortcut Menu Types (to be used with oSA, oSB, oSC and oSD)  (coming soon)
 |bit rate      |7|ISO min    |14|wind noise    |23|trail length     |30|
 
 
-HERO11 UX modes:
+HERO11/12 UX modes:
 - **mE** - mode Easy
 - **mPR** - mode Pro
 
@@ -246,7 +246,7 @@ HERO11 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: May 15, 2023
+updated: Sept 13, 2023
 
 [Learn more](..) on QR Control
 
