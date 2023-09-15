@@ -1,4 +1,4 @@
-# Full List the Action Commands
+# Full List of Action Commands
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
