@@ -1,4 +1,4 @@
-# Full List the Action Commands
+# Full List of Action Commands
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
@@ -288,7 +288,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: September 13, 2023
+updated: September 15, 2023
 
 [BACK](..)
 
