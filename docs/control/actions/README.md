@@ -45,7 +45,7 @@
 * **!**time**SKsHh** - Start Speed capture at threshold 's' km/h and Hold for 'h' seconds (H fields are all optional.)
 * **!**time**SAs-tDdHh** - Accelerometer Trigger
 * **!**time**SGs-tDdHh** - Gyro Trigger
-* **!**time**SIs-tDdHh** - IMU Trigger (both Accerometer and Gyro)
+* **!**time**SIs-tDdHh** - IMU Trigger (both Accelerometer and Gyro)
 * **!**time**SDs-tDdHh** - Speed Pressure Level Trigger, 's' and 't' values are in dB.
 
 ## examples:
@@ -103,7 +103,7 @@ Any four character code can be used for store other information. You can also st
 The geek factor is highest in this section.  This is not a Turing-complete language, but it can get many interesting capture control jobs done.  There are save and load commands, additive metadata and clock time conditionals
 
 * **!SAVEname=script**  e.g. !SAVEdaily=dPmP!12:00S!Ldaily - a save script called ‘daily’ that repeatedly shots one photo every day at noon. 
-* **!Lname**  e.g. !LnightLapse - load add run a script called nightLapse
+* **!Lname**  e.g. !LnightLapse - load and run a script called nightLapse
 * **oAxxxx=1** e.g. oAMETA=1  --  to implement a basic counter in metadata
 * **"any text"** e.g. mV"Video Mode"!S!5E!4NmP"Photo Mode"!S!5R - this will display "Video Mode" and "Photo Mode" when switch to those modes.  
 
@@ -111,12 +111,12 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 
 **\<** and **>** character are used to indicate a conditionals, less than, and greater than equal.
 
-**\<08:45!S** is equalivant to 
+**\<08:45!S** is equivalent to 
 
 > if(current_time < 8:45) <br>
 > &nbsp;&nbsp;&nbsp;   Start
 
-**>18:30!R** is equalivant to 
+**>18:30!R** is equivalent to 
 
 > if(current_time >= 18:30) <br>
 > &nbsp;&nbsp;&nbsp;  Repeat
@@ -125,7 +125,7 @@ Note: there is not **equals** condition; nothing like if(time==09:00).
 
 The if condition defaults to effecting only the one command after the condition
 
-**\<08:45!S"Hello World"** is equalivant to:
+**\<08:45!S"Hello World"** is equivalent to:
 
 > if(current_time < 8:45) <br>
 > &nbsp;&nbsp;&nbsp;   Start<br>
@@ -133,7 +133,7 @@ The if condition defaults to effecting only the one command after the condition
 	
 The start will happen if the condition is true, but the print message occurs whether true or false.  To make the print also part of the true state you can use **+** between the joined commands.
 
-**\<08:45!S+"Hello World"** is equalivant to
+**\<08:45!S+"Hello World"** is equivalent to
 
 > if(current_time < 8:45) <br>
 > {<br>
@@ -141,7 +141,7 @@ The start will happen if the condition is true, but the print message occurs whe
 > &nbsp;&nbsp;&nbsp;    print "Hello World" <br>
 > }
 
-These can be stacked too, e.g. **\<08:45!S+"Hello World"+!60E** is equalivant to
+These can be stacked too, e.g. **\<08:45!S+"Hello World"+!60E** is equivalent to
 
 > if(current_time < 8:45) <br>
 > {<br>
@@ -152,7 +152,7 @@ These can be stacked too, e.g. **\<08:45!S+"Hello World"+!60E** is equalivant to
 
 Conditions support **else** statements using the **~** character after the last 'true' command
 
-**\<08:45!S+"Hello World"+!60E~!08:44N!R** is equalivant to
+**\<08:45!S+"Hello World"+!60E~!08:44N!R** is equivalent to
 
 > if(current_time < 8:45) <br>
 > {<br>
@@ -167,13 +167,13 @@ Conditions support **else** statements using the **~** character after the last 
 > Repeat
 
 
-Conditionals themselves can be stacked like **\>09:15<10:00!S** is equalivant to 
+Conditionals themselves can be stacked like **\>09:15<10:00!S** is equivalent to 
 
 > if(current_time >= 9:15) <br>
 > &nbsp;&nbsp;&nbsp; if(current_time <= 10:00) <br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start<br>
 	
-However the else can only be applied to the last condition. **\>09:15<10:00!S+"Hello World"+!60E~!09:30N!R** is equalivant to
+However the else can only be applied to the last condition. **\>09:15<10:00!S+"Hello World"+!60E~!09:30N!R** is equivalent to
 
 > if(current_time >= 9:15) <br>
 > {<br>
@@ -233,7 +233,7 @@ the '=' character is the command delimiter and comes first.
 Now math can be used to modify your variables.
 
 * **=A+1.4** adds in form A = A + 1.4
-* **=D-2** substraction D = D - 2  (note: assignments of negative numbers aren't support, but subtracting is. So **=D0=D-2** would initialize D to be -2, although =D0 is unnessary as all variable are initialize to zero at boot.)
+* **=D-2** subtraction D = D - 2  (note: assignments of negative numbers aren't support, but subtracting is. So **=D0=D-2** would initialize D to be -2, although =D0 is unnecessary as all variable are initialize to zero at boot.)
 * **=A*P** multiply A = A * P
 * **=E&#47;7** divide E = E &#47; 7
 * **=H^A** raised to a power H = H ^ A
@@ -248,11 +248,11 @@ There should be a prize if some can come up with a practical use for all of thes
 So if thought the above is crazy, it gets weirder.
 
 * **=B$BITR**  load the contents of the BITR (bitrate) hack into variable B, otherwise store zero.  So you can test if a feature is enabled.
-* **=Tt:W** load the day of the week into varible T
-* **=Di** load the current ISO value into varible D
+* **=Tt:W** load the day of the week into variable T
+* **=Di** load the current ISO value into variable D
 * **oMEVBS=E**  store the current into EV Bias hack, so you can make a variable mess with your exposure (potentially mid capture.)
 * **!MVarC=C**  permanently store the current variable C into metadata field VarC, so this can be read back on next boot.  
-* **!$AR**  delay an action (like !R) with a variable amount of time, e.g. this will loop forever, doubling the sleep time with each interation **=A$VARA<A1=A1=A*2!MVARA=A!$AR**
+* **!$AR**  delay an action (like !R) with a variable amount of time, e.g. this will loop forever, doubling the sleep time with each interaction **=A$VARA<A1=A1=A*2!MVARA=A!$AR**
 
 ### Why Add Math to QR codes
 
