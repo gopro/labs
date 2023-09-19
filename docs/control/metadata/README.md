@@ -40,7 +40,7 @@ file size: <b><span id="size"></span></b><br>
 
 **Compatibility:** All GoPro cameras since HERO5 Black
 
-updated: Apr 8, 2023
+updated: Sept 19, 2023
 
 [More features](..) for Labs enabled cameras
 
@@ -322,7 +322,8 @@ var file;
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k*4]*16777216);
-						num += (bytes[i+8+k*4+1]<<16) + (bytes[i+8+k*4+2]<<8) + (bytes[i+8+k*4+3]<<0);
+						num += (bytes[i+8+k*4+1]<<16) + (bytes[i+8+k*4+2]<<8) + (bytes[i+8+k*4+3]<<0);						
+						if(num > 2147483647) num -= 4294967296; // signed numbers
 						if(k > 0) dat += ", ";
 						dat += num.toString();
 					}
@@ -333,6 +334,7 @@ var file;
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k*2+0]<<8) + (bytes[i+8+k*2+1]<<0);
+						if(num > 32767) num -= 65536; // signed numbers
 						if(k > 0) dat += ", ";
 						dat += num.toString();
 					}
@@ -343,6 +345,7 @@ var file;
 					for(k=0; k<repeat; k++)
 					{
 						var num = (bytes[i+8+k]);
+						if(num > 127) num -= 256; // signed numbers
 						if(k > 0) dat += ", ";
 						dat += num.toString();
 					}
