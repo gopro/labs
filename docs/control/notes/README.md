@@ -125,7 +125,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 - d0 or d8 - 8-bit Depth
 - mST - Star Trails 
 - mLP - Light Painting
-- mLT - Vechical Lights
+- mLT - Vehicle Lights
 - mE - mode Easy
 - mPR - mode Pro
 - e4 - autoBoost

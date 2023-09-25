@@ -36,7 +36,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   &nbsp;&nbsp;**Computational Modes:**
   <input type="radio" id="m13" name="mode" value="mST"> <label for="m13">Star Trails<sup>11</sup></label>&nbsp;&nbsp;
   <input type="radio" id="m14" name="mode" value="mLP"> <label for="m14">Light Painting<sup>11</sup></label>&nbsp;&nbsp;
-  <input type="radio" id="m15" name="mode" value="mLT"> <label for="m15">Vechical Lights<sup>11</sup></label><br>
+  <input type="radio" id="m15" name="mode" value="mLT"> <label for="m15">Vehicle Lights<sup>11</sup></label><br>
   &nbsp;&nbsp;**Photo-Modes:** 
   <input type="radio" id="m16" name="mode" value="mP">  <label for="m16">Photo</label>&nbsp;&nbsp;
   <input type="radio" id="m17" name="mode" value="mPB"> <label for="m17">Burst</label>&nbsp;&nbsp;
