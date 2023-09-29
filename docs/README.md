@@ -57,7 +57,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Archive Mode](https://gopro.github.io/labs/control/archive) (locked settings)              | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Audio Channels Gain/Solo/Mute](https://gopro.github.io/labs/control/extensions)            | Yes     | Yes     | Yes   |       |       |     |
 | [Audio Disable](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     | Yes   |       |       |     |
-| [Bitrate Controls](https://gopro.github.io/labs/control/extensions)                         | Yes     | Yes     |       |       |       |     |
+| [Bitrate Controls](https://gopro.github.io/labs/control/extensions)                         | Yes     | Yes     |       |       |       | Yes |
 | [Boot Command](https://gopro.github.io/labs/control/extensions)                             | Yes     | Yes     |       | Yes   |       |     |
 | [DaVinci-compatible proxies](https://gopro.github.io/labs/control/proxies)                  | Yes     |         |       |       |       |     |
 | [Exposure Display](https://gopro.github.io/labs/control/extensions) current ISO and shutter | Yes     |         |       |       |       |     |
