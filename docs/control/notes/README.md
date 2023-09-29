@@ -4,7 +4,8 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO12 Black 
 
-### 1.12.70 - Sept 28, 2023
+### 1.12.70 - Sept 29, 2023
+- Fixed !MWAKE=2 booting without battery (some source may require !MTUSB=1)
 - Fixed bricking bug when a user error sets SPED to be permanent
 - Fixed the exposure error when mxing WIDE and WBLK features
 - Fixed NR01=1 so that the noise reduction is fully off
@@ -363,6 +364,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Sept  28, 2023
+updated: Sept  29, 2023
 
 [Learn more](..) on QR Control
