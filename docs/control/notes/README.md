@@ -2,10 +2,16 @@
 
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
-
-
-
 ## HERO12 Black 
+
+### 1.12.70 - Sept 28, 2023
+- Fixed bricking bug when a user error sets SPED to be permanent
+- Fixed the exposure error when mxing WIDE and WBLK features
+- Fixed NR01=1 so that the noise reduction is fully off
+- Fixed BITL to support Kb/s (oMBITL=1500) and Mb/s (OMBITL=5)
+- Fixed 24HZ=1 not seting the sensor to 24.0Hz
+- Fixed w++ and w-- white up and down control
+
 
 ### 1.10.70 - Sept 13, 2023
 - Almost all Labs features from HERO11, (known excptions DAUD and DLRV aren't supported.)
@@ -357,6 +363,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Sept  13, 2023
+updated: Sept  28, 2023
 
 [Learn more](..) on QR Control
