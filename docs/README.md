@@ -57,7 +57,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Archive Mode](https://gopro.github.io/labs/control/archive) (locked settings)              | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Audio Channels Gain/Solo/Mute](https://gopro.github.io/labs/control/extensions)            | Yes     | Yes     | Yes   |       |       |     |
 | [Audio Disable](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     | Yes   |       |       |     |
-| [Bitrate Controls](https://gopro.github.io/labs/control/extensions)                         | Yes     | Yes     |       |       |       |     |
+| [Bitrate Controls](https://gopro.github.io/labs/control/extensions)                         | Yes     | Yes     |       |       |       | Yes |
 | [Boot Command](https://gopro.github.io/labs/control/extensions)                             | Yes     | Yes     |       | Yes   |       |     |
 | [DaVinci-compatible proxies](https://gopro.github.io/labs/control/proxies)                  | Yes     |         |       |       |       |     |
 | [Exposure Display](https://gopro.github.io/labs/control/extensions) current ISO and shutter | Yes     |         |       |       |       |     |
@@ -79,8 +79,8 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Metadata Injections](https://gopro.github.io/labs/control/extensions)                      | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [Noise Reduction](https://gopro.github.io/labs/control/extensions) control                  | Yes     |         |       |       |       |     |
 | [Overlay - Burn-ins](https://gopro.github.io/labs/control/overlays) e.g. Time/Date          | limited | limited | Yes   | Yes   |       |     |
-| [Overlay - Color Bar](https://gopro.github.io/labs/control/extensions)                      | limited | limited | Yes   | Yes   |       |     |
-| [Overlays - Logo Burn-In](https://gopro.github.io/labs/control/logo)                        | limited | limited | Yes   |       |       |     |
+| [Overlay - Color Bar](https://gopro.github.io/labs/control/extensions)                      | limited | limited | Yes   | Yes   |       | Yes |
+| [Overlays - Logo Burn-In](https://gopro.github.io/labs/control/logo)                        | limited | limited | Yes   |       |       | Yes |
 | [Overlays - Luma Sweep](https://gopro.github.io/labs/control/extensions)                    | limited | limited | Yes   | Yes   |       |     |
 | [Owner Information](https://gopro.github.io/labs/control/owner)                             | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
 | [QR decoding while recording](https://gopro.github.io/labs/control/extensions)              | Yes     | Yes     | Yes   | Yes   | Yes   | Yes |
@@ -99,7 +99,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Trigger - USB Power](https://gopro.github.io/labs/control/usb)                             | Yes/No  | Yes/No  | Yes   | Yes   |       | Yes |
 | [Upload scripting](https://gopro.github.io/labs/control/dailytl)                            | Yes     | Yes     | Yes   |       |       |     |
 | [USB power trust override](https://gopro.github.io/labs/control/extensions)                 | Yes     | Yes/No  |       |       |       |     |
-| [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     |       | Yes   |       |     |
+| [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     |       | Yes   |       | Yes |
 | [Wider Color Gamut](https://gopro.github.io/labs/control/extensions)                        | Yes     |         |       |       |       |     |
 | [White Balance Lock](https://gopro.github.io/labs/control/extensions)                       | No/Yes  |         |       |       |       |     |
 
