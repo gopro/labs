@@ -14,6 +14,8 @@
             margin: 0px;
             display: inline-block;
         }
+		
+		courier { style="font-family:'Courier New'" }
 </style>     
 
 * **!**time**S** - Start at exactly **time** if in hh:mm form, or after n seconds. 
@@ -63,13 +65,13 @@
 
 ## Storing metadata (Permanent, survives power off)
 
-* **!M**fourcc**"string"**
+* **!M**fourcc**<courier>"string"</courier>**
 * **!M**fourcc**=Number metadata**
 
 Example for display the owner’s name
-**!MOWNR="Joe Bloggs"**
+**!MOWNR=<courier>"Joe Bloggs"</courier>**
 
-Note: All strings must use " (ASCII 34) and not the ” (148) character.  
+Note: All strings must use <courier>"</courier> (ASCII 34) and not the <courier>”</courier> (148) character.  
 
 All tags between **OWNA** and **OWNZ** will be displayed and stored in **GoPro-owner.txt**.
 
@@ -84,12 +86,12 @@ Any four character code can be used for store other information. You can also st
 <br>
 (All cameras and Older Labs)<br>
 <br>
-* **oM**fourcc**&#61;"string"**  
+* **oM**fourcc**&#61;<courier>"string"</courier>**  
 * **oM**fourcc**=Number metadata**
 <br>
 (Alternative H11 v2.1)<br>
 <br>
-* **#M**fourcc**&#61;"string"**  
+* **#M**fourcc**&#61;<courier>"string"</courier>**  
 * **#M**fourcc**=Number metadata**
 
 ## Reset Actions ##
@@ -107,7 +109,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 * **!SAVEname=script**  e.g. !SAVEdaily=dPmP!12:00S!Ldaily - a save script called ‘daily’ that repeatedly shots one photo every day at noon. 
 * **!Lname**  e.g. !LnightLapse - load and run a script called nightLapse
 * **oAxxxx=1** e.g. oAMETA=1  --  to implement a basic counter in metadata
-* **"any text"** e.g. mV"Video Mode"!S!5E!4NmP"Photo Mode"!S!5R - this will display "Video Mode" and "Photo Mode" when switch to those modes.  
+* **<courier>"any text"</courier>** e.g. mV<courier>"Video Mode"</courier>!S!5E!4NmP<courier>"Photo Mode"</courier>!S!5R - this will display <courier>"Video Mode"<courier> and <courier>"Photo Mode"</courier> when switch to those modes.  
 
 ### Conditionals Based on Time
 
@@ -127,39 +129,39 @@ Note: there is not **equals** condition; nothing like if(time==09:00).
 
 The if condition defaults to effecting only the one command after the condition
 
-**\<08:45!S"Hello World"** is equivalent to:
+**\<08:45!S<courier>"Hello World"</courier>** is equivalent to:
 
 > if(current_time < 8:45) <br>
 > &nbsp;&nbsp;&nbsp;   Start<br>
-> print "Hello World"
+> print <courier>"Hello World"</courier>
 	
 The start will happen if the condition is true, but the print message occurs whether true or false.  To make the print also part of the true state you can use **+** between the joined commands.
 
-**\<08:45!S+"Hello World"** is equivalent to
+**\<08:45!S+<courier>"Hello World"</courier>** is equivalent to
 
 > if(current_time < 8:45) <br>
 > {<br>
 > &nbsp;&nbsp;&nbsp;    Start <br>
-> &nbsp;&nbsp;&nbsp;    print "Hello World" <br>
+> &nbsp;&nbsp;&nbsp;    print <courier>"Hello World"</courier> <br>
 > }
 
-These can be stacked too, e.g. **\<08:45!S+"Hello World"+!60E** is equivalent to
+These can be stacked too, e.g. **\<08:45!S+<courier>"Hello World"</courier>+!60E** is equivalent to
 
 > if(current_time < 8:45) <br>
 > {<br>
 > &nbsp;&nbsp;&nbsp;    Start <br>
-> &nbsp;&nbsp;&nbsp;    print "Hello World" <br>
+> &nbsp;&nbsp;&nbsp;    print <courier>"Hello World"</courier> <br>
 > &nbsp;&nbsp;&nbsp;    After 60 seconds End the capture <br>
 > }
 
 Conditions support **else** statements using the **~** character after the last 'true' command
 
-**\<08:45!S+"Hello World"+!60E~!08:44N!R** is equivalent to
+**\<08:45!S+<courier>"Hello World"</courier>+!60E~!08:44N!R** is equivalent to
 
 > if(current_time < 8:45) <br>
 > {<br>
 > &nbsp;&nbsp;&nbsp;    Start <br>
-> &nbsp;&nbsp;&nbsp;    print "Hello World" <br>
+> &nbsp;&nbsp;&nbsp;    print <courier>"Hello World"</courier> <br>
 > &nbsp;&nbsp;&nbsp;    After 60 seconds End the capture <br>
 > }<br>
 > else<br>
@@ -175,14 +177,14 @@ Conditionals themselves can be stacked like **\>09:15<10:00!S** is equivalent to
 > &nbsp;&nbsp;&nbsp; if(current_time <= 10:00) <br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Start<br>
 	
-However the else can only be applied to the last condition. **\>09:15<10:00!S+"Hello World"+!60E~!09:30N!R** is equivalent to
+However the else can only be applied to the last condition. **\>09:15<10:00!S+<courier>"Hello World"</courier>+!60E~!09:30N!R** is equivalent to
 
 > if(current_time >= 9:15) <br>
 > {<br>
 > &nbsp;&nbsp;&nbsp;	if(current_time <= 10:00) <br>
 > &nbsp;&nbsp;&nbsp;	{<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		Start<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print "Hello World"<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print <courier>"Hello World"</courier><br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		After 60 seconds End the capture<br>
 > &nbsp;&nbsp;&nbsp;	}<br>
 > &nbsp;&nbsp;&nbsp;	else<br>
@@ -264,7 +266,7 @@ Say you want use a GoPro as a crude light meter, and report the output as an [ex
 
 EV = logbase2 (f-number^2/(time x gain_above_base_iso))  is the formula for EV<br>
 
-As a QR command: **=E6.25=Gi=G&#42;0.01=E/G=E&#42;s=E#2"Exposure value $E"!R**<br>
+As a QR command: **=E6.25=Gi=G&#42;0.01=E/G=E&#42;s=E#2<courier>"Exposure value $E"</courier>!R**<br>
 
 Command steps explained:
 > E=6.25<br>
