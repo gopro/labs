@@ -63,11 +63,13 @@
 
 ## Storing metadata (Permanent, survives power off)
 
-* **!M**fourcc**”string”**
+* **!M**fourcc**"string"**
 * **!M**fourcc**=Number metadata**
 
 Example for display the owner’s name
-**!MOWNR=”Joe Bloggs”**
+**!MOWNR="Joe Bloggs"**
+
+Note: All strings must use " (ASCII 34) and not the ” (148) character.  
 
 All tags between **OWNA** and **OWNZ** will be displayed and stored in **GoPro-owner.txt**.
 
@@ -288,7 +290,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: September 15, 2023
+updated: October 1, 2023
 
 [BACK](..)
 
