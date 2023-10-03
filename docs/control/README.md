@@ -69,7 +69,7 @@ An incomplete set of [**Release Notes**](./notes)
 
 ## The Commands Under The Hood 
 * Technical information on the [**Labs command language**](./tech)
-* **HERO11/12/MAX** Labs scripting via [Visual Script Tool](https://gopro.github.io/labs/build/)
+* **HERO11/12/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 
 ## GoPro Labs
 [**Labs start on GitHub**](https://gopro.github.io/labs).
