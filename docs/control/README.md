@@ -68,12 +68,13 @@ If we don't see feedback on features it may not get ported to the next camera. I
 An incomplete set of [**Release Notes**](./notes) 
 
 ## The Commands Under The Hood 
-Technical information on the [**Labs command language**](./tech)
+* Technical information on the [**Labs command language**](./tech)
+* **HERO11/12/MAX** Labs scripting via [Visual Script Tool](https://gopro.github.io/labs/build/)
 
 ## GoPro Labs
 [**Labs start on GitHub**](https://gopro.github.io/labs).
 
-updated: Sept 13, 2023
+updated: October 3, 2023
 
 
 <script>
