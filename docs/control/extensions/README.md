@@ -61,7 +61,7 @@ A negative x-value will place the histograme on the front screen. e.g. oMHSTP=1,
 <br>![LEVL.jpg](LEVL.jpg)
 - **LOGB=logbase,offset** - Super experimental, alter the log encoding for more dynamic range, or for a closer match with other camera's log curves. 
 i.e design your own flat profile. Ideal for use with 10-bit, and the existing flat color setting.  
-e.g. oMLOGB=400 for a little push in dynamic range or oMLOGB=200,-128 for a crude Fuji F-Log emulation.  
+e.g. oMLOGB=400 for a little push in dynamic range.  
 Note: As the pixel size isn't changing, that increasing the logbase (flatness) may not significantly increase the dynamic range.
 <br>![LogBase.jpg](LogBase.jpg)
 <br>[GoPro Log curve designer](https://www.desmos.com/calculator/sfxqtunzty)
@@ -169,7 +169,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Sept 13, 2023<br>
+updated: Oct 9, 2023<br>
 
 [Learn more](..) on QR Control
 
