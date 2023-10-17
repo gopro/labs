@@ -12,9 +12,10 @@
         }
 </style>
 
-## Prerequisites for Live-streaming (HERO8/9/10 & 11 only)
+## Prerequisites for Live-streaming (HERO8/9/10/11 & 12)
 
-1. **Pair with the GoPro mobile app once.** Live-streaming won't work with an out-of-box or factory-reset camera, without connecting with the App first.  
+1. **Pair with the GoPro mobile app once.** Live-streaming won't work with an out-of-box or factory-reset camera, without connecting with the App first. 
+On HERO12 it seems you have to enable auto upload once. You can immediately disable it once enabled, if the feature is not needed.
 2. Storing WiFi credentials on the camera, for the network you intend to stream over (e.g. your home WiFi or mobile access point.) 
 3. Storing the RMTP URL address that you intend to stream to (e.g using a service like Twitch.)
 
@@ -59,7 +60,10 @@ Select your Resolution:
   <input type="radio" id="rs3" name="rs" value="L"><label for="1080p">1080p </label>
 
 Store a high quality copy on camera:
- <input type="checkbox" id="cp" value="t" checked><label for="cp">1080p Copy</label><br>
+ <input type="checkbox" id="cp" value="t" checked><label for="cp"> 1080p Copy</label><br>
+ 
+HERO12 users enable this:
+ <input type="checkbox" id="h12" value="t"><label for="h12"> Using HERO12</label><br>
 
 <center>
 <div id="qrcode3"></div>
@@ -71,7 +75,7 @@ QR Command: <b id="qrtext">time</b><br>
 
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, HERO12 and BONES
         
-updated: Sept 13, 2023
+updated: October 17, 2023
 
 [Learn more](..) on QR Control
 
@@ -167,8 +171,16 @@ function timeLoop()
   qrcode2.makeCode(cmd2);
   
   
+  cmd3 = "";
+  if(document.getElementById("h12") != null)
+  {
+    if(document.getElementById("h12").checked == false)
+    {
+      cmd3 = cmd3 + "oW1mVr1080!W";
+    }
+  }
   
-  cmd3 = "oW1mVr1080!W!G";
+  cmd3 = cmd3 + "!G";
   cmd3 = dcmd(cmd3, "rs");
   if(document.getElementById("cp") != null)
   {
