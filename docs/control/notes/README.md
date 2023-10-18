@@ -9,7 +9,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Fixed bricking bug when a user error sets SPED to be permanent
 - Fixed the exposure error when mxing WIDE and WBLK features
 - Fixed NR01=1 so that the noise reduction is fully off
-- Fixed BITL to support Kb/s (oMBITL=1500) and Mb/s (OMBITL=5)
+- Fixed BITL to support Kb/s (oMBITL=4500) and Mb/s (oMBITL=5)
 - Fixed 24HZ=1 not seting the sensor to 24.0Hz
 - Fixed w++ and w-- white up and down control
 
