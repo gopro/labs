@@ -1011,7 +1011,7 @@ function startTime() {
 		{
 			cmd = dcmd(cmd, "crt");
 		}
-		
+		else
 		{
 			cmd = dcmd(cmd,"r"); //RES
 		}
