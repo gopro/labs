@@ -64,7 +64,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="r6"  name="res" value="r4"   > <label for="r6">4k </label>&nbsp;&nbsp;
   <input type="radio" id="r7"  name="res" value="r4T"  > <label for="r7">4k 4:3</label>&nbsp;&nbsp;
   <input type="radio" id="r8"  name="res" value="r4X"  > <label for="r8">4k 8:7<sup>11/12</sup> </label><br>
-  <input type="radio" id="r9"  name="res" value="r5"   > <label for="r9">5k </label>
+  <input type="radio" id="r9"  name="res" value="r5"   > <label for="r9">5k </label>&nbsp;&nbsp;
   <input type="radio" id="r10" name="res" value="r5T"  > <label for="r10">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="r11" name="res" value="r5X"  > <label for="r11">5k 8:7<sup>11/12</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="r12" name="res" value="" checked> <label for="r12">not set</label><br><br>
@@ -77,7 +77,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4:3 </label>&nbsp;&nbsp;
   <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
   <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4:3<sup>10/11</sup> </label>&nbsp;&nbsp;
-  <input type="radio" id="rt6" name="restlv" value="r4X"  > <label for="rt6">4k 8:7<sup>12</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="rt6" name="restlv" value="r4X"  > <label for="rt6">4k 8:7<sup>12</sup> </label><br>
   <input type="radio" id="rt7" name="restlv" value="r5"   > <label for="rt7">5k<sup>11/12</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="rt8" name="restlv" value="r5T"  > <label for="rt8">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="rt9" name="restlv" value="r5X"  > <label for="rt9">5k 8:7<sup>12</sup> </label>&nbsp;&nbsp;
@@ -88,7 +88,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 <b>Video Resolution:</b>&nbsp;&nbsp;
   <input type="radio" id="crt1" name="comptlv" value="r4"   > <label for="crt1">4k </label>&nbsp;&nbsp;
   <input type="radio" id="crt2" name="comptlv" value="r4T"  > <label for="crt2">4k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
-  <input type="radio" id="crt3" name="comptlv" value="r4X"  > <label for="crt3">4k 8:7<sup>12</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="crt3" name="comptlv" value="r4X"  > <label for="crt3">4k 8:7<sup>12</sup> </label><br>
   <input type="radio" id="crt4" name="comptlv" value="r5"   > <label for="crt4">5k </label>&nbsp;&nbsp;
   <input type="radio" id="crt5" name="comptlv" value="r5T"  > <label for="crt5">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="crt6" name="comptlv" value="r5X"  > <label for="crt6">5k 8:7<sup>12</sup> </label>&nbsp;&nbsp;
