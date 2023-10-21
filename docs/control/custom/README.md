@@ -60,10 +60,10 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="r2"  name="res" value="r1440"> <label for="r2">1440p </label>&nbsp;&nbsp;
   <input type="radio" id="r3"  name="res" value="r27"  > <label for="r3">2.7k  </label>&nbsp;&nbsp;
   <input type="radio" id="r4"  name="res" value="r27T" > <label for="r4">2.7k 4:3</label>&nbsp;&nbsp;
-  <input type="radio" id="r5"  name="res" value="r3"   > <label for="r5">3k 360°</label>&nbsp;&nbsp;<br>
+  <input type="radio" id="r5"  name="res" value="r3"   > <label for="r5">3k 360°</label><br>
   <input type="radio" id="r6"  name="res" value="r4"   > <label for="r6">4k </label>&nbsp;&nbsp;
   <input type="radio" id="r7"  name="res" value="r4T"  > <label for="r7">4k 4:3</label>&nbsp;&nbsp;
-  <input type="radio" id="r8"  name="res" value="r4X"  > <label for="r8">4k 8:7<sup>11/12</sup> </label><br>
+  <input type="radio" id="r8"  name="res" value="r4X"  > <label for="r8">4k 8:7<sup>11/12</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="r9"  name="res" value="r5"   > <label for="r9">5k </label>&nbsp;&nbsp;
   <input type="radio" id="r10" name="res" value="r5T"  > <label for="r10">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="r11" name="res" value="r5X"  > <label for="r11">5k 8:7<sup>11/12</sup> </label>&nbsp;&nbsp;
