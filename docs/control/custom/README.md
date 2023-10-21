@@ -63,10 +63,10 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="r5"  name="res" value="r3"   > <label for="r5">3k 360°</label>&nbsp;&nbsp;<br>
   <input type="radio" id="r6"  name="res" value="r4"   > <label for="r6">4k </label>&nbsp;&nbsp;
   <input type="radio" id="r7"  name="res" value="r4T"  > <label for="r7">4k 4:3 </label>&nbsp;&nbsp;
-  <input type="radio" id="r8"  name="res" value="r4X"  > <label for="r8">4k 8:7<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="r8"  name="res" value="r4X"  > <label for="r8">4k 8:7<sup>11/12</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="r9"  name="res" value="r5"   > <label for="r9">5k </label>
   <input type="radio" id="r10" name="res" value="r5T"  > <label for="r10">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
-  <input type="radio" id="r11" name="res" value="r5X"  > <label for="r11">5k 8:7<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="r11" name="res" value="r5X"  > <label for="r11">5k 8:7<sup>11/12</sup> </label>&nbsp;&nbsp;
   <input type="radio" id="r12" name="res" value="" checked> <label for="r12">not set</label><br><br>
 </div>
 
@@ -77,9 +77,10 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="rt3" name="restlv" value="r27T" > <label for="rt3">2.7k 4:3 </label>&nbsp;&nbsp;
   <input type="radio" id="rt4" name="restlv" value="r4"   > <label for="rt4">4k </label>&nbsp;&nbsp;
   <input type="radio" id="rt5" name="restlv" value="r4T"  > <label for="rt5">4k 4:3<sup>10</sup> </label>&nbsp;&nbsp;
-  <input type="radio" id="rt6" name="restlv" value="r5"   > <label for="rt4">5k<sup>11</sup> </label>&nbsp;&nbsp;
-  <input type="radio" id="rt7" name="restlv" value="r5T"  > <label for="rt5">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
-  <input type="radio" id="rt8" name="restlv" value="" checked> <label for="rt8">not set</label><br><br>
+  <input type="radio" id="rt6" name="restlv" value="r5"   > <label for="rt6">5k<sup>11/12</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="rt7" name="restlv" value="r5T"  > <label for="rt7">5k 4:3<sup>11</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="rt8" name="restlv" value="r5X"  > <label for="rt8">5k 8:7<sup>12</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="rt9" name="restlv" value="" checked> <label for="rt9">not set</label><br><br>
  </div>
  
 <div id="settingsCOMPTLV">
@@ -576,7 +577,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: Sept 13, 2023
+updated: October 21, 2023
 
 <script>
 var clipcopy = "";
