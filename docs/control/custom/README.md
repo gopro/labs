@@ -14,7 +14,7 @@
 </style>
 
 Create a custom camera mode, and even start a capture all through QR Codes. This is the fastest way to access many of the new GoPro Labs' firmware features. 
-<sup>10/11</sup> indicates the camera model required. Many features of this page are also available as a mobile app.<br>
+<sup>10/11/12</sup> indicates the camera model required. Many features of this page are also available as a mobile app.<br>
 Install from: [![google play](../google-play-small.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-small.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
@@ -246,7 +246,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 
 <div id="settingsHindsight">
-<b>Hindsight<sup>9/10/11</sup>:</b>&nbsp;&nbsp;
+<b>Hindsight<sup>9-12</sup>:</b>&nbsp;&nbsp;
 	<input type="radio" id="hind1" name="hind" value="hS0"> <label for="hind1">Off</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind2" name="hind" value="hS1"> <label for="hind2">15s</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind3" name="hind" value="hS2"> <label for="hind3">30s</label>&nbsp;&nbsp;&nbsp;
@@ -254,7 +254,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 
 <div id="settingsDuration">
-<b>Duration<sup>9/10/11</sup>:</b>&nbsp;&nbsp;
+<b>Duration<sup>9-12</sup>:</b>&nbsp;&nbsp;
 	<input type="radio" id="dur1" name="dur" value="dR0"> <label for="dur1">Off</label>&nbsp;&nbsp;
 	<input type="radio" id="dur2" name="dur" value="dR15"> <label for="dur2">15s</label>&nbsp;&nbsp;
 	<input type="radio" id="dur3" name="dur" value="dR30"> <label for="dur3">30s</label>&nbsp;&nbsp;
@@ -282,7 +282,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">On</label>&nbsp;&nbsp;
   <input type="radio" id="audt4" name="audt" value="" checked> <label for="audt4"> not set</label><br><br>
 </div>
-<input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering<sup>10/11</sup></label><br>
+<input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering<sup>10-12</sup></label><br>
 <div id="spotMeter">
    <div id="LCD">
       <img src="https://gopro.github.io/labs/control/custom/RearCamera.png" alt="LCD"> 
@@ -311,7 +311,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 </div>
 <div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
   <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">Vibrant</label>&nbsp;&nbsp;
-  <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural<sup>10/11</sup></label>&nbsp;&nbsp;
+  <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural<sup>10-12</sup></label>&nbsp;&nbsp;
   <input type="radio" id="ptc3" name="ptc" value="cF"> <label for="ptc3">Flat</label>&nbsp;&nbsp;
   <input type="radio" id="ptc4" name="ptc" value="" checked> <label for="ptc4">not set</label>
 </div>
@@ -580,7 +580,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: October 21, 2023
+updated: Movember 2, 2023
 
 <script>
 var clipcopy = "";

@@ -32,7 +32,7 @@ Some particular 4CCs will also change camera behavior and/or enable features. He
 - **WBLK=1** This is an auto lock for balance, it auto white balances until the capture starts. The feature was added for scuba users, as fixed white balance are computed for above water, and while the auto works great in dive scenarios, some prefer a fix white balance per clip.
 - **MTRX=a,b,c,d,e,f,g,h,i** This is the RGB to YUV matrix, new ways to mess up your video. e.g. For an B/W effect in camera try oMMTRX=50,175,25,0,0,0,0,0,0<br>
 ![MTRX.jpg](MTRX.jpg)<br>
-- **GCMP=1** Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11 is smart, as will shorted the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
+- **GCMP=1** Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11/12 is smart, as will shorted the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
 - **64BT=32000** HERO11/12 cameras default to 12GB chapters when using 64GB card (or larger media), but you can use the 64BT command to specify even larger chapters like 32GB or even 64GB. There has been very limited testing, so experiment first before committing to super large chapters. 
 - **PRXY=x** Normally a camera will encode a LRV (Low Res Video) for every MP4, this extension stores LRVs as Proxy files. 1 - moves LRVs as Adobe Premiere Pro™ style, 2 - moves THMs, 3 moves both into the proxies folder, 4 - uses DaVinci Resolve™ style proxies folder. 
 When PRXY=1 is enabled, you get. Use Premiere Pro’s Attach Proxies function, greatly speeding up a professional workflows.
@@ -93,7 +93,7 @@ Note: the scripting has had a significant update in the March '23 firmware. See 
 HERO10 adds LTM - Local Tone-Mapping, enabling you to see details in leaves and grass textures, way better than all previous GoPro's. HERO9 and earlier, used GTM, Global 
 Tone-Mapping which adjusts the contrast curve for the image automatically. If you wanted to do these in post, you could use Protune Flat, where all in-camera tone-mapping is 
 disabled and a log curve is applied (do not use these control with Flat, can be weird results.) For a more developed Rec709 video, by shooting GoPro Color or Natural modes, 
-but you wanted to do your own tone-mapping in post--you can now do that.  Note: HERO11 is a tad odd with TONE=3, as it tends to under-expose. Always experiment before using an feature.
+but you wanted to do your own tone-mapping in post--you can now do that.  Note: HERO11/12 is a tad odd with TONE=3, as it tends to under-expose. Always experiment before using an feature.
   - **TONE=0** - using the cameras default  
   - **TONE=1** - use GTM only
   - **TONE=2** - use GTM+LTM
@@ -169,7 +169,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Oct 17, 2023<br>
+updated: Nov 2, 2023<br>
 
 [Learn more](..) on QR Control
 
