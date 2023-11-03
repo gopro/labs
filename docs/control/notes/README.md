@@ -4,6 +4,12 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO12 Black 
 
+
+### 1.20.70 - Nov 2, 2023
+- Fixed HSTO Hindsight Timing control
+- minor bug fixes 
+
+
 ### 1.12.70 - Sept 29, 2023
 - Fixed !MWAKE=2 booting without battery (some source may require !MTUSB=1)
 - Fixed bricking bug when a user error sets SPED to be permanent
@@ -25,6 +31,24 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 ## HERO11 Black 
+
+
+### 1.20.70 - Nov 2, 2023
+
+- Added !Cx where x is GBs to make sure is clear.  If more than x is available, no files are removed. x is limited to half SD size.
+- Added !X to exit a running script. >l99!X!S!2R <- loop for 99 times, then exit. 
+- Added QR Equals logo when scaning the same code twice (the first check is all you needed.)
+- Added oMWG84=1 to switch GPS altitude from Mean Sea Level to WGS84 elipsoid. 
+- Restored Overlays and Logos to Livestream feeds
+- Fixed motion detection so would scan the full image in TimeWarp mode (was only scanning middle 50%.)
+- Fixed Overlays use AM/PM now correctly use 12 hour time
+- Fixed error with WLBK and WIDE applied at the same time
+
+
+### 1.20.70 - Nov 2, 2023
+- Fixed HSTO Hindsight Timing control
+- minor bug fixes 
+
 
 ### 2.12.70 - Aug 10, 2023
 - Added !MFAST=1 for fewer Labs notifications on boot.
@@ -364,6 +388,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Sept  29, 2023
+updated: Nov 2, 2023
 
 [Learn more](..) on QR Control
