@@ -6,6 +6,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 ### 1.20.70 - Nov 2, 2023
+- Fixed NR01 to full disable noise reduction
 - Fixed HSTO Hindsight Timing control
 - minor bug fixes 
 
@@ -388,6 +389,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Nov 2, 2023
+updated: Nov 4, 2023
 
 [Learn more](..) on QR Control
