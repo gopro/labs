@@ -51,7 +51,7 @@ Up to 8 guides supported at once. e.g. GUID=1.777 will enable a 16:9 guide. GUID
 <br>![GUID.jpg](GUID.jpg)
 - **GUIC=level,level,...** - The shooting guides default to white at 255, but you can select their luma level. e.g. GUIC=255,0, will be white for the first guide and black the for second.
 - **EXPS=1** - Display the current ISO and shutter speed being used during preview and capture. For 11-Mini EXPS=num, 
-the number relates to how often the record time or shooting mode is displayed.
+the number relates to how often the record time or shooting mode is displayed (values 1 thru 6, 1 - displays exposure more, 6 - record time more.)
 <br>![EXPS.jpg](EXPS.jpg) ![EXPSmini.jpg](EXPSmini.jpg)
 - **EXPX=x** and **EXPN=n** - exposure shutter time mi(n) and ma(x). e.g. oMEXPX=48 (for 1/48) and oMEXPN=500 (for 1/500)
 - **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram. 
