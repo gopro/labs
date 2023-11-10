@@ -14,7 +14,7 @@
 
 
 ## Get Labs Camera Firmware
-[**Labs installation**](https://gopro.github.io/labs).
+Brand new to Labs? Get the firmare and info on [**Labs installation**](https://gopro.github.io/labs)
 
 ## Configuration Commands for All Labs Enabled Cameras
 
