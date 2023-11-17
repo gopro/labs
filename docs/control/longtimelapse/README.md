@@ -22,6 +22,8 @@ Example Time-lapses tested:
 
 As the camera is off between frames, it is also possible to periodically change the battery for extremely long time-laspes without interrupting the time-lapse in progress. Simply replace the battery, power on the camera, the time-lapse will automatically continue.
 
+HERO12 Users: Due to improved reliability, effeciency and Enduro battery, HERO12 can achieve ~40% greater capture times. A test requesting for 24 hours capture, 3.6 minute interval, a HERO12 captured 627 images over nearly 38 hours.
+
 ## Time-lapse Calculator
 
 Number of days <input type="range" style="width: 300px;" id="tldays" name="tldays" min="0" max="50" value="0"><label for="tldays"></label> <b id="daystext"></b>
@@ -55,7 +57,7 @@ The second option is a USB keep alive device that prevents your USB power bank f
 
 Compatibility: Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, HERO12, MAX and BONES 
 
-updated: Sept 13, 2022
+updated: November 13, 2023
 
 [More features](..) for Labs enabled cameras
 

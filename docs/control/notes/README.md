@@ -4,6 +4,11 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO12 Black 
 
+### 1.30.70 - Nov 17, 2023
+- Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
+- Added STDL - Start Delay (default 2000ms, wait before any other commands.) oMSTDL=100 for less wait. Experimental scripting performance.
+- minor bug fixes 
+
 
 ### 1.20.70 - Nov 2, 2023
 - Fixed NR01 to full disable noise reduction
@@ -389,6 +394,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Nov 4, 2023
+updated: Nov 17, 2023
 
 [Learn more](..) on QR Control
