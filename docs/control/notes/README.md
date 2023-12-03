@@ -38,7 +38,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 ## HERO11 Black 
 
 
-### 1.20.70 - Nov 2, 2023
+### 2.20.70 - Nov 2, 2023
 
 - Added !Cx where x is GBs to make sure is clear.  If more than x is available, no files are removed. x is limited to half SD size.
 - Added !X to exit a running script. >l99!X!S!2R <- loop for 99 times, then exit. 
@@ -48,11 +48,8 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Fixed motion detection so would scan the full image in TimeWarp mode (was only scanning middle 50%.)
 - Fixed Overlays use AM/PM now correctly use 12 hour time
 - Fixed error with WLBK and WIDE applied at the same time
-
-
-### 1.20.70 - Nov 2, 2023
 - Fixed HSTO Hindsight Timing control
-- minor bug fixes 
+- other minor bug fixes 
 
 
 ### 2.12.70 - Aug 10, 2023
