@@ -13,7 +13,9 @@
         }
 </style>
 
-The Labs's firmware can use the GPS to get a world position, then calculate the time for pretty solar events.  To ensure the accuracy of your location, it may make take a couple of minutes to get a high-precision GPS lock (you will need to be outdoors.)
+The Labs's firmware can use the GPS to get a world position, then calculate the time for pretty solar events.  
+To ensure the accuracy of your location, it may make take a couple of minutes to get a high-precision GPS lock (you will need to be outdoors.) 
+For poorer GPS locations, or cameras without GPS, you can set the camera location manually using oMLLTZ=<lattitude>,<longitude>,<timezone>  e.g. oMLLTZ=33.0,-117.27,-8.0 For San Diego coast.
 
 ## Sunrise/Sunset Time-lapse Calculator
 
@@ -40,9 +42,10 @@ Note: you will have to manually set the interval and resolution for the night la
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
-**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11 and MAX 
+**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11 and MAX (via GPS), HERO11 Mini and HERO12 (via LLTZ) 
         
-## ver 1.08
+updated: December 4, 2023
+
 [More features](..) for Labs enabled cameras
 
 <script>
