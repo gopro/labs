@@ -105,6 +105,7 @@ updated: Dec 5, 2023
 var once = true;
 var qrcode;
 var cmd = "";
+var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
 
@@ -240,6 +241,8 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Motion%20Detection";	
+	document.getElementById("urltext").innerHTML = clipcopy;				
 	changed = false;
   }
   
