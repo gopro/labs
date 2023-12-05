@@ -72,7 +72,7 @@ Note: All text box support **\n** for a new line.
  <center>
   <div id="qrcode"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
-  <b><font color="#005CAC">Motion Detection</font></b>
+  <b><font color="#005CAC">Overlays</font></b>
  </center>
 </div>
 <button id="copyImg">Copy Image to Clipboard</button>
