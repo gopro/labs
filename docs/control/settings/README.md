@@ -27,9 +27,9 @@ Mode commands:
  * **mNL** - mode Night-Lapse Video (\*\*)
  * **mNP** - mode Night-Lapse Photo (\*\*)
  * **mL** - mode Live-Burst Photo (HERO10 only)
- * **mST** - mode Star Trails (HERO11 only)
- * **mLP** - mode Light Painting (HERO11 only)
- * **mLT** - mode Vehicle Lights (HERO11 only)
+ * **mST** - mode Star Trails (HERO11/12 only)
+ * **mLP** - mode Light Painting (HERO11/12 only)
+ * **mLT** - mode Vehicle Lights (HERO11/12 only)
  
 <b>\* Video Looping:</b> You need to create this preset on camera, before this command will select it.<br>
 <b>\*\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
@@ -48,10 +48,10 @@ Resolutions:
  * **r3** - 3K 360° for GoPro MAX
  * **r4** - 4k 16x9
  * **r4T** - 4k Tall, the 4x3 mode
- * **r4X** - 4k Extreme, the 8x7 mode (H11)
+ * **r4X** - 4k Extreme, the 8x7 mode (H11/12)
  * **r5** - 5k for HERO5 and 5K 360° for GoPro MAX
  * **r5T** - 5k Tall, the 4x3 mode
- * **r5X** - 5k Extreme, the 8x7 mode (H11)
+ * **r5X** - 5k Extreme, the 8x7 mode (H11/12)
  
 Frame rates: 
  * **p24** - 24 fps
@@ -80,8 +80,8 @@ Lens - FOV:
  * **fM** - Medium
  * **fW** - Wide
  * **fX** - SuperMax Wide (Max Lens Mod)
- * **fH** - Horizonal Level + Linear (H9/10/11)
- * **fV** - HyperView (H11)
+ * **fH** - Horizonal Level + Linear (H9-12)
+ * **fV** - HyperView (H11/12)
  
 Audio (Raw controls): 
  * **aL** - Low Processing
@@ -95,9 +95,9 @@ Bitrate:
 Color: 
  * **cF** - Color Flat
  * **cG** - Color Vibrant
- * **cN** - Color Natural (H10/11)
+ * **cN** - Color Natural (H10/11/12)
 
-Depth (H11 only): 
+Depth (H11/12 only): 
  * **d0** or **d8** - 8-bit color
  * **d1** or **d10** - 10-bit color
 
@@ -113,11 +113,11 @@ Exposure Lock:
  * **eL1** - On
  * **eL2 - eL9** -  Lock after 2 to 9 seconds.
 
-Hindsight (Video modes H9-11): 
+Hindsight (Video modes H9-12): 
  * **hS0** - Off     
  * **hS1** - On 15s window
  * **hS2** - On 30s window
- * **hS5** - Experimental Labs H11 - 5s window
+ * **hS5** - Experimental Labs H11/12 - 5s window
 
 White Balance: 
  * **wA** - Auto White Balance
@@ -178,7 +178,7 @@ GoPro MAX Shooting Modes
  * **mR** - mode monitor Rear lens
 
 Feature with off and on commands:
-- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost, **e4** Auto (H11)
+- EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost, **e4** Auto (H11/12)
 - (Deprecated) GPS Active: **g0** - off, **g** or **g1** - on 
 - (Deprecated) Quick Capture: **q0** - off, **q** or **q1** - on 
 - (Deprecated) Voice Commands: **v0** - off, **v** or **v1** - on
@@ -188,7 +188,7 @@ Option (‘o’) commands:
 - Camera Auto Off - **oC0** - Never, **oC1** - 1min, **oC5** - 5min, **oC15** - 15min, **oC30** - 30min
 - LCDs off now - **oDO**
 - LED control - **oD0** - all off, **oD2** - some on, **oD4** - all on
-- Extern Audio options - **oE1** - Standard Mic, **oE2** - Standard+ Mic, **oE3** - Powered Mic, **oE4** - Powered+ Mic, **oE5** - Line In (HERO10/11 only)
+- Extern Audio options - **oE1** - Standard Mic, **oE2** - Standard+ Mic, **oE3** - Powered Mic, **oE4** - Powered+ Mic, **oE5** - Line In (HERO10/11/12 only)
 - Front Screen control - **oFxy** - (see list below)
 - GPS Options (HERO11 v2.1) - **oG0** - off, **oG1** - on
 - Language - **oL**x - **0** English USA, **01** English UK, **02** English Aus, **03** English India, **1** German, **2** French, **3** Italian, **4** Spanish, **5** Chinese, **6** Japanese, **7** Korean, **8** Portuaguese, **9** Russian, **91** Swedish
@@ -198,13 +198,13 @@ Option (‘o’) commands:
 - Shortcut Menu on LCD - **oSA**x - Upper Left, **oSB**x - Lower Left, **oSC**x - Upper Right, **oSD**x - Lower Right, **oSR** - reset. Where x is in the list below.
 - Time and date - **oT**yymmddhhmmss.sss
 - Time, daylight savings - **oTD1** for daylight savings on or **oTD0** for off
-- Timezone (H11) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
+- Timezone (H11/12) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
 - Volume of Beeps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
 - Volume Control - **oVC0** - off, **oVC1** - on
 - WiFi Connection - **oW0** - off, **oW1** - on
 - Max Lens Mod -  **oX0** - disabled, **oX1** - MLM original enabled, **oX2** - MLM 2.0 enanled
 
-GoPro HERO9/10/11 Front Screen option commands
+GoPro HERO9-12 Front Screen option commands
  * **oF0 or oFO** - turn the front LCD off
  * **oFU** - UI interface mode info only
  * **oFF** - Full image (image is letterboxed)
@@ -246,7 +246,7 @@ HERO11/12 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: Sept 13, 2023
+updated: Dec 5, 2023
 
 [Learn more](..) on QR Control
 
