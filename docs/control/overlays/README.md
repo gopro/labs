@@ -2,6 +2,7 @@
 
 <script src="../../jquery.min.js"></script>
 <script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -66,10 +67,19 @@ Note: All text box support **\n** for a new line.
  
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="gps" name="gps"> <label for="gps">Using GPS</label><br>
 
-<center>
-<div id="qrcode"></div>
+
+<div id="qrcode_txt" style="width: 360px">
+ <center>
+  <div id="qrcode"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
+  <b><font color="#005CAC">Motion Detection</font></b>
+ </center>
+</div>
+<button id="copyImg">Copy Image to Clipboard</button>
 <br>
-</center>
+<br>
+Share this QR Code as a URL: <small id="urltext"></small><br>
+<button id="copyBtn">Copy URL to Clipboard</button>
 
 
 Make the overlay permanently active: **Are you sure? (Risky)**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label> <input type="checkbox" id="erase" name="erase"> <label for="erase">Erase</label><br>
@@ -82,12 +92,12 @@ Cool Tips:
 - A range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH. For more technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) and other metadata you can display.
 
 Known Issues:
-- HERO10/11 support is limited to video modes 4K 16:9 up to 30, 2.7K up to 60 and 1080p up to 120fps. 
+- HERO10/11/12 support is limited to video modes 4K 16:9 up to 30, 2.7K up to 60 and 1080p up to 120fps, in 8-bit only. 
 - Metadata can take a second before it updates after capture start.
 
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, HERO12 and MAX 
         
-updated: Sept 13, 2022
+updated: Dec 5, 2023
 
 [Learn more](..) on QR Control
 
@@ -240,6 +250,28 @@ function myReloadFunction() {
   location.reload();
 }
 
+async function copyImageToClipboard() {
+    html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
+}
+async function copyTextToClipboard(text) {
+	try {
+		await navigator.clipboard.writeText(text);
+	} catch(err) {
+		alert('Error in copying text: ', err);
+	}
+}
+
+function setupButtons() {	
+    document.getElementById("copyBtn").onclick = function() { 
+        copyTextToClipboard(clipcopy);
+	};
+    document.getElementById("copyImg").onclick = function() { 
+        copyImageToClipboard();
+	};
+}
+	
+	
 makeQR();
+setupButtons();
 timeLoop();
 </script>
