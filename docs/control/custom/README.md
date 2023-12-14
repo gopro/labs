@@ -117,11 +117,14 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="f3" name="fov" value="fL"> <label for="f3">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="f4" name="fov" value="fS"> <label for="f4">Superview </label>&nbsp;&nbsp;
   <input type="radio" id="f5" name="fov" value="fH"> <label for="f5">Linear+HL </label>&nbsp;&nbsp;
-  <input type="radio" id="f6" name="fov" value="fV"> <label for="f6">Hyperview<sup>11</sup> </label><br>
+  <input type="radio" id="f6" name="fov" value="fV"> <label for="f6">Hyperview<sup>11/12</sup> </label><br>
   Max Lens Mod:  <input type="radio" id="f7" name="fov" value="oX1fW"> <label for="f7">Enable Wide </label>&nbsp;&nbsp;
-  <input type="radio" id="f8" name="fov" value="oX1fX"> <label for="f8">Enable Superview </label>&nbsp;&nbsp;
-  <input type="radio" id="f9" name="fov" value="oX0"> <label for="f9">Disable MLM</label>&nbsp;&nbsp;
-  <input type="radio" id="f10" name="fov" value="" checked> <label for="f10">not set</label><br><br>
+  <input type="radio" id="f8" name="fov" value="oX1fX"> <label for="f8">Enable Superview </label>&nbsp;&nbsp;<br>
+  Max Lens Mod 2.0:  <input type="radio" id="f9" name="fov" value="oX2fW"> <label for="f9">Enable Wide<sup>12</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="f10" name="fov" value="oX2fX"> <label for="f10">Enable MSV<sup>12</sup> </label>&nbsp;&nbsp;
+  <input type="radio" id="f11" name="fov" value="oX2fY"> <label for="f11">Enable MHV<sup>12</sup> </label>&nbsp;&nbsp;<br>
+  <input type="radio" id="f12" name="fov" value="oX0"> <label for="f12">Disable MLM</label>&nbsp;&nbsp;
+  <input type="radio" id="f13" name="fov" value="" checked> <label for="f13">not set</label><br><br>
  </div>
  
 <div id="settingsPFOV">
@@ -281,6 +284,17 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="audt2" name="audt" value="aS"> <label for="audt2">Off </label>&nbsp;&nbsp;
   <input type="radio" id="audt3" name="audt" value="aW"> <label for="audt3">On</label>&nbsp;&nbsp;
   <input type="radio" id="audt4" name="audt" value="" checked> <label for="audt4"> not set</label><br><br>
+</div>
+<input type="checkbox" id="np" value=""> <label for="np">Custom Named Presets<sup>12</sup></label><br>
+<div id="namedPresets">
+   <div id="ICONS">
+	  &nbsp;&nbsp;&nbsp;&nbsp;Click to select the preferred icon:<br>
+	  <div id="ICONS_IMG">
+		<img src="https://gopro.github.io/labs/control/custom/icons.png" alt="ICONS_IMG"> <br>
+      </div>
+	  &nbsp;&nbsp;&nbsp;&nbsp;Preset name: <input type="text" id="newpres" value="Labs-"><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="pdel" value=""> <label for="pdel">delete custom preset</label><br>
+   </div>
 </div>
 <input type="checkbox" id="sm" value="oSM"> <label for="sm">Spot Metering<sup>10-12</sup></label><br>
 <div id="spotMeter">
@@ -598,7 +612,9 @@ var i;
 var spot_x = 50
 var spot_y = 50;
 var id = 0;
-
+var icon_num = 0;
+var last_icon_num = 0;
+var newpresent = "";
 
 function id5() {  // 5 characters, so up to 17-bit ID
   return ([1111]+1).replace(/1/g, c =>
@@ -673,6 +689,7 @@ function startTime() {
 	dset("settingsPhotoRAW", false);
 	dset("settingsPT", false);
 	dset("settingsPTR", false);
+	dset("namedPresets", false);
 	dset("spotMeter", false);
 	dset("settingsBurst", false);
 	dset("settingsTimewarp", false);
@@ -873,6 +890,42 @@ function startTime() {
 		
 	}
 	
+	if(document.getElementById("np") !== null)
+	{
+		document.getElementById("ICONS_IMG").addEventListener('click', function (event) 
+		{
+			bounds=this.getBoundingClientRect();
+			
+			icon_num = Math.trunc(event.offsetX/70) + 6 * Math.trunc(event.offsetY/70);
+			
+			if(icon_num < 0) icon_num = 0;
+			if(icon_num > 18) icon_num = 18;
+			
+			last_icon_num = icon_num;
+		});
+		
+		if(document.getElementById("pdel") !== null)
+		{
+			if(document.getElementById("pdel").checked === true)
+			{
+				icon_num = -1;
+			}
+			else
+			{
+				icon_num = last_icon_num;
+			}
+		}		
+		
+		if(document.getElementById("newpres") !== null)
+		{
+			newpresent = "oMPRES=\"" + icon_num + "," + document.getElementById("newpres").value.substring(0,16) + "\"";
+		}
+		else
+			newpresent = "";
+
+		dset("namedPresets", document.getElementById("np").checked);	
+	}
+	
 	if(document.getElementById("sm") !== null)
 	{
 		document.getElementById("LCD").addEventListener('click', function (event) 
@@ -1000,6 +1053,15 @@ function startTime() {
 			cmd = dcmd(cmd,"nightexp");
 			break;
 	}
+	
+	
+	if(document.getElementById("np") !== null)
+	{
+		if(document.getElementById("np").checked === true)
+		{
+			cmd = cmd + newpresent;
+		}
+	}	
 	
 	if(checkedmode <= 18)
 	{

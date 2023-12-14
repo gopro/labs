@@ -4,6 +4,18 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO12 Black 
 
+### 1.40.70 - Dec 14, 2023
+- Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
+- Added creating, naming and sharing presets oMPRES="1,MyPreset" 0-18 for icon selection, -1 for delete 
+- Added FONT=1 Select the old fonts (if you only want the dot matrix font)
+- Added GRAB=x screen grab x-frames, !F (grab now) and !F3 (grab next 3 Labs overlays) - frame grab the UI.  Useful for education and bug reporting
+- Added font color for script messaging. e.g. try this QR Code "\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d" 
+- Improved the font rendering (higher res fonts)
+- Improved support for Max Lens Mod 2.0
+- Improved upload reliability with an optional maximum transfer time (timeout). e.g. !U3 <- upload now, for up to 3 minutes.
+- minor Labs bug fixes
+
+
 ### 1.30.70 - Nov 17, 2023
 - Added STDL - Start Delay (default 2000ms, wait before any other commands.) oMSTDL=100 for less wait. Experimental scripting performance.
 - minor bug fixes 
@@ -169,6 +181,12 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 ## HERO11 Black Mini
+
+
+### 2.40.70 - Dec 14, 2023
+- Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
+- Improved upload reliability with an optional maximum transfer time (timeout). e.g. !U3 <- upload now, for up to 3 minutes.
+- minor Labs bug fixes
 
 ### 2.30.70 - May 19, 2023
 - Added !MFAST=1 for fewer Labs notifications on boot.
@@ -390,6 +408,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 
 
-updated: Nov 17, 2023
+updated: Dec 14, 2023
 
 [Learn more](..) on QR Control
