@@ -10,9 +10,9 @@ or in advanced setups, such as multiple cameras time synchronization or delayed 
 your GoPro—this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
 
 Download the GoPro Labs firmware for current shipping cameras:
-- [HERO12 Black](https://bit.ly/LABS_H12_1_30_70) - v1.30.70, November 17, 2023
+- [HERO12 Black](https://bit.ly/LABS_H12_2_00_70) - v2.00.70, December 2023
 - [HERO11 Black](https://bit.ly/LABS_H11_2_20_70) - v2.20.70, November 2023
-- [HERO11 Black Mini](https://bit.ly/LABS_M11_2_30_70) - v2.30.70, May 2023
+- [HERO11 Black Mini](https://bit.ly/LABS_M11_2_40_70) - v2.40.70, Decemeber 2023
 - [HERO10 Black](https://bit.ly/LABS_H10_1_50_70) - v1.50.70, January 2023
 - [GoPro MAX](https://bit.ly/LABS_MAX_2_00_75) - v2.00.75, April 2023
 
