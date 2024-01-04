@@ -244,8 +244,8 @@ Now math can be used to modify your variables.
 * **=F^0.5** raised to a power F = sqrt(F)
 * **=B%10** modulus  B = B % 10 
 * **=G#2** Log base N  G = log(G)/log(2) 
-* **=J&6** and  J = (float)((int)J & 6) 
-* **=K&#124;3** or  K = (float)((int)K &#124; 3) 
+* **=J&6** Bitwise AND like  J = (float)((int)J & 6) 
+* **=K&#124;3** Bitwise OR K = (float)((int)K &#124; 3) 
 
 There should be a prize if some can come up with a practical use for all of these ;)
 
