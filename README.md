@@ -105,6 +105,6 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 ## Software 
 
-Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
+Labs is expanding, experiment software for GoPro users [GoPro Labs software](docs/software/).
 
-updated: Decemeber 14, 2023<br>
+updated: January 22, 2024<br>
