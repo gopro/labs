@@ -4,7 +4,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO12 Black 
 
-### 1.40.70 - Dec 14, 2023
+### 2.00.70 - Dec 14, 2023
 - Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
 - Added creating, naming and sharing presets oMPRES="1,MyPreset" 0-18 for icon selection, -1 for delete 
 - Added FONT=1 Select the old fonts (if you only want the dot matrix font)
