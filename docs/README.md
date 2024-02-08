@@ -2,13 +2,13 @@
 
 ## Firmware
 
-Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera’s functionality beyond stocks features. 
-It is especially useful in situations where settings can’t be communicated via voice, where WiFi is not available, where app pairing is not established, 
+Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera's functionality beyond stocks features. 
+It is especially useful in situations where settings can't be communicated via voice, where WiFi is not available, where app pairing is not established, 
 or in advanced setups, such as multiple cameras time synchronization or delayed camera triggers. You will not lose any pre-existing modes or features on 
-your GoPro—this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
+your GoPro, this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
 
 Download the GoPro Labs firmware for current shipping cameras:
-- [HERO12 Black](https://bit.ly/LABS_H12_2_10_70) - v2.10.70, February 2023
+- [HERO12 Black](https://bit.ly/LABS_H12_2_10_70) - v2.10.70, February 2024
 - [HERO11 Black](https://bit.ly/LABS_H11_2_20_70) - v2.20.70, November 2023
 - [HERO11 Black Mini](https://bit.ly/LABS_M11_2_40_70) - v2.40.70, Decemeber 2023
 - [HERO10 Black](https://bit.ly/LABS_H10_1_50_70) - v1.50.70, January 2023
@@ -20,7 +20,7 @@ Download and install for older cameras:
 - [HERO7 Black](https://bit.ly/LABS_H7_1_90_71) - v1.90.71, January 2021
 - [HERO5 Session](https://bit.ly/LABS_H5S_2_51_72) - v2.51.72, May 2021
 
-**By downloading any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms”)](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).**
+**By downloading any of the public updates provided to you on, from, or through this page or the GoPro website you signify your agreement to [these terms of participation (the "Terms")](https://gopro.com/content/dam/help/gopro-labs/Beta_Participation_Terms_and_Conditions.pdf).**
 
 Follow the [manual firmware update instructions](install).
 
