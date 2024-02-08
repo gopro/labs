@@ -7,14 +7,14 @@ Only the more recent releases are documented below. This a general list of Labs 
 ### 2.10.70 - Feb 8, 2024
 - Fixed x++ and x–- EV up and down controls (handy for scuba)
 - Enhancing processing speed for looping scripts about 10-15x faster.
-   example code print to the loop speed: =Sl=Tt:Q=S/T=Ll=L%9<L1oMPMSG="loops $S/s"!R
+   example code print to the loop speed: '''=Sl=Tt:Q=S/T=Ll=L%9<L1oMPMSG="loops $S/s"!R'''
 - Added support testing current camera mode, system variable 'v' will have the mode.
    e.g. Video=12, TLV=13, Looping Video=15, Photo=16, Night Photo=18, Burst Photo=19, etc.
-   Display the current mode with with this command:  "mode $v"!R or fast/cleaner oMPMSG="mode $v"!R
+   Display the current mode with with this command:  '''"mode $v"!R''' or fast/cleaner '''oMPMSG="mode $v"!R'''
 - Added precise variable testing with '=='. Previously only < for less_than and > for greater_than_equal were supported.
-   e.g. command:   >10:10<11:00"do thing between 10:10 and 10:59"
-   now you can do: ==10:10"do thing only at 10:10"
-   useful for mode testing: ==v12"video mode, do thing only on video mode"
+   e.g. command:   '''>10:10<11:00"do thing between 10:10 and 10:59"'''
+   now you can do: '''==10:10"do thing only at 10:10"'''
+   useful for mode testing: '''==v12"video mode, do thing only on video mode"'''
    
 
 ### 2.00.70 - Dec 14, 2023
