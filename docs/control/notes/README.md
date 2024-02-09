@@ -16,6 +16,8 @@ Only the more recent releases are documented below. This a general list of Labs 
    now you can do: ```==10:10"do thing only at 10:10"```
    useful for mode testing: ```==v12"video mode, do thing only on video mode"```
    
+ Known Issue: 24HZ=1 for 24.0 video, has conflict with Autoboost (captures will fail.)  Either turn off autoboost (standard HS works) or shoot 23.976.
+   
 
 ### 2.00.70 - Dec 14, 2023
 - Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
