@@ -22,7 +22,7 @@
 * **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
 * **!**time**E** - End at **time** if in hh:mm form, or after n seconds.
 * **!**time**R** - Repeat the whole command.
-* **!**time**Rx** - (H11) Repeat the command starting at position x (i.e. a goto command).
+* **!**time**Rx** - <sup>H11-12</sup> Repeat the command starting at position x (i.e. a goto command).
 * **!**time**N** - No Action until exact **time**, useful if you just need a pause.
 * **!**time**NQ** - No Action until at approximately **time**.
 * **!**time**O** - Off, shutdown the camera.
@@ -30,13 +30,13 @@
 * **!**time**U** - Attempt a network contention and Upload <sup>9/10/11</sup>.
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local file, requires a previously successful **!W** command <sup>8/9/10/11</sup>
-* **!**time**Dx** - (H11) !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
-* **!**time**Zx** - (H11)  **!Z3** - Disable Buttons, **!Z0** - Enable (default), **!Z1** - Disable Shutter, **!Z2** - Disable Mode
-* **!**time**TR** - (H11)  **!TR* - switch active TimeWarp to Realtime (or slow motion)
-* **!**time**TN** - (H11)  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
-* **!**time**Bx** - (H11) Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
-* **!**time**Zx** - (H11) **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
-* **!**time**Cx** - (H11) Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
+* **!**time**Dx** - <sup>H11-12</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
+* **!**time**Zx** - <sup>H11-12</sup>  **!Z3** - Disable Buttons, **!Z0** - Enable (default), **!Z1** - Disable Shutter, **!Z2** - Disable Mode
+* **!**time**TR** - <sup>H11-12</sup>  **!TR* - switch active TimeWarp to Realtime (or slow motion)
+* **!**time**TN** - <sup>H11-12</sup>  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
+* **!**time**Bx** - <sup>H11-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Zx** - <sup>H11-12</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
+* **!**time**Cx** - <sup>H11-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
 
 
 ## Capture Triggers (Classic, invent your own below.)
@@ -64,12 +64,15 @@
 * **!17:00W!GLC** - start Live-streaming 1080p at 5pm, saving a local copy
 
 ## Storing metadata (Permanent, survives power off)
-
-* **!M**fourcc**<courier>"string"</courier>**
+### Old style (before March, '24)
+* **!M**fourcc**=<courier>"string"</courier>**
 * **!M**fourcc**=Number metadata**
+### New style (after March, '24)
+* **\***fourcc**=<courier>"string"</courier>**
+* **\***fourcc**=Number metadata** 
 
 Example for display the owner’s name
-**!MOWNR=<courier>"Joe Bloggs"</courier>**
+**\*OWNR=<courier>"Joe Bloggs"</courier>**
 
 Note: All strings must use <courier>"</courier> (ASCII 34) and not the <courier>”</courier> (148) character.  
 
@@ -78,29 +81,25 @@ All tags between **OWNA** and **OWNZ** will be displayed and stored in **GoPro-o
 All tags between **OWNa** and **OWNz** will be only stored in the **GoPro-owner.txt**
 
 Any four character code can be used for store other information. You can also store numeric data examples: 
-* **!MCAMR=53** - metadata CAMR will be 53 
-* **!MABCD=45.234** - metadata ABCD will be floating point 45.234
-* **!MUNIT=-1723** - metadata UNIT will be -1723 
+* **\*CAMR=53** - metadata CAMR will be 53 
+* **\*ABCD=45.234** - metadata ABCD will be floating point 45.234
+* **\*UNIT=-1723** - metadata UNIT will be -1723 
 
 ## Storing metadata (Temporarily, until power off)<br>
-<br>
-(All cameras and Older Labs)<br>
-<br>
+### Old style (before March, '24)
 * **oM**fourcc**&#61;<courier>"string"</courier>**  
 * **oM**fourcc**=Number metadata**
-<br>
-(Alternative H11 v2.1)<br>
-<br>
-* **#M**fourcc**&#61;<courier>"string"</courier>**  
-* **#M**fourcc**=Number metadata**
+### New style (after March, '24)
+* **$**fourcc**&#61;<courier>"string"</courier>**  
+* **$**fourcc**=Number metadata**
 
 ## Reset Actions ##
 
 * **!RESET** - erase all your permanent metadata (anything that used !Mxxxx command.)  (requires user confirmation.)
-* **!FORMAT**<sup>10/11</sup> - for SD formatting via QR Code (requires user confirmation.)
-* **!FRESET**<sup>10/11</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
-* **!PRESET**<sup>10/11</sup> - Presets reset, restore the default presets (requires user confirmation.)
-* **!WRESET**<sup>10/11</sup> - WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
+* **!FORMAT**<sup>H10-12</sup> - for SD formatting via QR Code (requires user confirmation.)
+* **!FRESET**<sup>H10-12</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
+* **!PRESET**<sup>H10-12</sup> - Presets reset, restore the default presets (requires user confirmation.)
+* **!WRESET**<sup>H10-12</sup> - WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
 
 ## Scripting
 
@@ -254,8 +253,8 @@ So if thought the above is crazy, it gets weirder.
 * **=B$BITR**  load the contents of the BITR (bitrate) hack into variable B, otherwise store zero.  So you can test if a feature is enabled.
 * **=Tt:W** load the day of the week into variable T
 * **=Di** load the current ISO value into variable D
-* **oMEVBS=E**  store the current into EV Bias hack, so you can make a variable mess with your exposure (potentially mid capture.)
-* **!MVarC=C**  permanently store the current variable C into metadata field VarC, so this can be read back on next boot.  
+* **$EVBS=E**  store the current into EV Bias hack, so you can make a variable mess with your exposure (potentially mid capture.)
+* **\*VarC=C**  permanently store the current variable C into metadata field VarC, so this can be read back on next boot.  
 * **!$AR**  delay an action (like !R) with a variable amount of time, e.g. this will loop forever, doubling the sleep time with each interaction **=A$VARA<A1=A1=A*2!MVARA=A!$AR**
 
 ### Why Add Math to QR codes
@@ -292,7 +291,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: October 1, 2023
+updated: March 14, 2024
 
 [BACK](..)
 
