@@ -87,14 +87,14 @@ The motion detection will now always use the mask.pgm, so using motion mask opti
 	
 **Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11, HERO12, MAX and BONES.  Masking fixed on HERO9/10/BONES.
         
-updated: Sept 13, 2023
+updated: March 15, 2024
 
 [More features](..) for Labs enabled cameras
 
 <script>
 var once = true;
 var qrcode;
-var cmd = "oC";
+var cmd = "oC0";
 var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
@@ -171,7 +171,7 @@ function timeLoop()
 
     // Auto off
     if(document.getElementById("camoff") != null && document.getElementById("camoff").checked) {
-        cmd = "oC" + cmd;
+        cmd = "oC0" + cmd;
     }
     // Hero10 LCD set to low
     if(document.getElementById("h10lcd") != null && document.getElementById("h10lcd").checked) {
