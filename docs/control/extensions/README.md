@@ -122,19 +122,16 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 - **WAKE=2** - (HERO8/10/11/12 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 	
 ### **HERO12/11/10/9 & 8** - Overlay extensions
-Overlays are supported for certain Time Lapse and Video modes as detailed below. Overlays are not supported in Photo mode.
+Old GP1 camera support overlays in video and video time-lapse modes. Overlays are not supported in Photo mode.
 
-#### Supported Overlay Video Modes
-
+#### GP2 limitations - Video Modes
 - Resolution: 1080 Frame Rates: 24, 30, 60, 120 Aspect Ratios: 16:9 
 - Resolution: 2.7K Frame Rates: 60 Aspect Ratios: 16:9 
 - Resolution: 4K Frame Rates: 24, 30 Aspect Ratios: 16:9, 4:3, 8:7
 - Resolution: 5.3K (not supported)
 
-#### Supported Overlay Time Lapse Modes
-
+#### GP2 limitations - Time-lapse Modes
 Only Time Warp preset is supported.
-
 - Resolution: 1080 Aspect Ratios: 16:9  
 - Resolution: 2.7K Aspect Ratios: 4:3 
 - Resolution: 4K Aspect Ratios: 16:9, 4:3 
