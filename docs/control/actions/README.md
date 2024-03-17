@@ -112,7 +112,7 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 
 ### Conditionals Based on Time
 
-**\<** and **>** character are used to indicate a conditionals, less than, and greater than equal.
+**\<** , **>** and **==** characters are used to indicate a conditional: less than, greater than equal, and equal (**==** Since March 2024 firmware)
 
 **\<08:45!S** is equivalent to 
 
@@ -124,7 +124,10 @@ The geek factor is highest in this section.  This is not a Turing-complete langu
 > if(current_time >= 18:30) <br>
 > &nbsp;&nbsp;&nbsp;  Repeat
 
-Note: there is not **equals** condition; nothing like if(time==09:00).
+**==10:10!R** is equivalent to
+> if(current_time == 10:10) <br>
+> &nbsp;&nbsp;&nbsp;  Repeat
+
 
 The if condition defaults to effecting only the one command after the condition
 
@@ -197,7 +200,7 @@ The command language is kept simple, so it doesn't maintain a stack on the condi
 
 ### Conditionals Based on Camera Status (HERO11 & 12)
 
-New conditional commands for 2023. Now \>xValue and/or \<xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
+New conditional commands for 2023. Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
 * **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage
 * **c** coordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location
@@ -218,6 +221,7 @@ New conditional commands for 2023. Now \>xValue and/or \<xValue can be used to t
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
 * **t:X** timedate - **\>t:XValue**CMD - where X Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode
 * **u** USB power - **\>u0**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
+* **v** Current Camera Mode - **==vValue**CMD video=12, TLV=13, Looping Video=15, Photo=16, Night Photo=18, Burst Photo=19, etc. Example: ==v12!S  will start recording video if in Video Mode. ==v16!S will take a photo if in Photo Mode.
 * **y** mode_pressesValue - **\>y0**CMD1~CMD2 if(mode_presses > 0) then CMD1 else CMD2
 * **z** shutter_pressesValue - **\>z0**CMD1~CMD2 if(shutter_presses > 0) then CMD1 else CMD2
 

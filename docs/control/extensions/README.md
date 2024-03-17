@@ -122,6 +122,26 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 - **WAKE=2** - (HERO8/10/11/12 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 	
 ### **HERO12/11/10/9 & 8** - Overlay extensions
+Overlays are supported for certain Time Lapse and Video modes as detailed below. Overlays are not supported in Photo mode.
+
+#### Supported Overlay Video Modes
+
+- Resolution: 1080 Frame Rates: 24, 30, 60, 120 Aspect Ratios: 16:9 
+- Resolution: 2.7K Frame Rates: 60 Aspect Ratios: 16:9 
+- Resolution: 4K Frame Rates: 24, 30 Aspect Ratios: 16:9, 4:3, 8:7
+- Resolution: 5.3K (not supported)
+
+#### Supported Overlay Time Lapse Modes
+
+Only Time Warp preset is supported.
+
+- Resolution: 1080 Aspect Ratios: 16:9  
+- Resolution: 2.7K Aspect Ratios: 4:3 
+- Resolution: 4K Aspect Ratios: 16:9, 4:3 
+- Resolution: 5.3K (not supported)
+
+#### Overlay Commands
+
 - **BRNT=0.5** - The overlays or burn-in display time in seconds. e.g. BRNT=0.016 will display the logo or text overlays only on the first frame (1/60th of a second.) 
 - **BRNX=x,y** - This is an upgrade to BRNO (Burn-ins Offset), allowing you to offset the burn-ins with X,Y pixel coordinates. e.g. BRNX=120,40
 - **CBAR=1** - enable a small 75% saturated color bars for video tools evaluation (HERO10/11/12 limitation: only works 4Kp30 or lower res/fps.)
