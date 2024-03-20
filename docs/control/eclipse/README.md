@@ -261,11 +261,11 @@ function timeLoop()
 	}
 	else	
 	{
+		var etime1 = pad(startmins, 2) + ":" + pad(startmins, 2);
+		
 		startmins -= 60;
 		starthourstime = Math.trunc(startmins / 60);
 		startminstime = startmins - starthourstime * 60;	
-		
-		var etime1 = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 		
 		endmins += 15;
 		endhourstime = Math.trunc(endmins / 60);
