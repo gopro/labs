@@ -261,7 +261,10 @@ function timeLoop()
 	}
 	else	
 	{
-		var etime1 = pad(startmins, 2) + ":" + pad(startmins, 2);
+		starthourstime = Math.trunc(startmins / 60);
+		startminstime = startmins - starthourstime * 60;	
+		
+		var etime1 = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		
 		startmins -= 60;
 		starthourstime = Math.trunc(startmins / 60);
