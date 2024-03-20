@@ -33,7 +33,46 @@ Mode commands:
  
 <b>\* Video Looping:</b> You need to create this preset on camera, before this command will select it.<br>
 <b>\*\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
- 
+
+Video Mode Preset Modifications
+
+The standard default GoPro video presets may be modified with the **mV** command, immediately followed by a single digit or a double digit, referencing the preset index starting at zero. There are 5 built-in presets that cannot be deleted, but can be modified. 
+
+ * **mV0** or **mV00** - Standard Preset
+ * **mV1** or **mV01** - Activity Preset
+ * **mV2** or **mV02** - Cinematic Preset
+ * **mV3** or **mV03** - Full Frame Preset
+ * **mV4** or **mV04** - Ultra Slo-Mo Preset
+
+ * **mV**  or **mV5** or **mV05** - Basic (Modify current displayed Video preset)
+
+Video and Looping Mode Custom Presets
+
+Two kinds of custom presets can be created - Video and Looping.
+
+To modify Video or Looping custom presets, they must first be manually created on the camera. Then, they can be modified using the **mV** command for Video or **mVL** command for Looping. There is no QR command available for creating presets; it is only used for modification.
+
+A total of 12 Video presets are available for the GoPro: the standard 5 as listed above, and a maximum of 7 optional additional custom Video or Looping presets can be created. These presets can consist of all Video, all Looping, or a mixture of both.
+
+The first created custom Video preset has an index of 6, the second one has an index of 7, and so on, up to the seventh custom video preset with an index of 12. For instance, **mV06** and **mV12** reference the first and last custom Video presets.
+
+The **mVL** Looping preset command will accept any index number, a single digit or double digit, but the behaviour is different. Regardless of the index number, only the last created Looping preset is modified. To modify a particular Looping preset, use **mVL** when the Looping display you want to change is shown on the rear screen.
+
+If a predefined name is not selected when manually creating a preset in the camera, it is named "Custom x" where x is either blank for the first Custom name or a digit between 1 and 6, eg: Custom 3.
+
+ * **mV6** or **mV06** - Custom Video Preset
+ * **mV7** or **mV07** - Custom Video Preset
+ * **mV8** or **mV08** - Custom Video Preset
+ * **mV9** or **mV09** - Custom Video Preset
+ * **mV10** - Custom Video Preset
+ * **mV11** - Custom Video Preset
+ * **mV12** - Custom Video Preset
+
+For Video Looping preset, use **mVL** by itself as it only modifies the last looping preset manually entered in the camera. If there is no Looping preset created in the camera, the command does nothing.
+
+ * **mVL**
+
+
 Defaults modes (on power up): 
  * **dL** - last used mode
  * **dV** - last used Video mode
