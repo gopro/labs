@@ -227,7 +227,7 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Type1\"" + "!" + stime + "N" + "!S!" + etime + "E";
+		cmd = "\"Type1\"" + "!" + stime + "N" + "mNLp.4eAr5tb1w55i1M1sM!S!" + etime + "E";
 	} 
 	else if(type == "2")
 	{
@@ -242,7 +242,7 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Type2\"" + "!" + stime + "N" + "!S!" + etime + "E";
+		cmd = "\"Type2\"" + "!" + stime + "N" + "mTp.10r5tb1w55i1M1sMoMEXPX=30!S!" + etime + "EoMEXPX=0";
 	} 
 	else if(type == "3")
 	{
@@ -257,7 +257,7 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Type3\"" + "!" + stime + "N" + "!S!" + etime + "E";
+		cmd = "\"Type3\"" + "!" + stime + "N" + "mNLpeAr5tb1w55i8M1sMoMEXPX=1!S!" + etime + "EoMEXPX=0";
 	}
 	else	
 	{
@@ -265,14 +265,16 @@ function timeLoop()
 		starthourstime = Math.trunc(startmins / 60);
 		startminstime = startmins - starthourstime * 60;	
 		
+		var etime1 = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
+		
 		endmins += 15;
 		endhourstime = Math.trunc(endmins / 60);
 		endminstime = endmins - endhourstime * 60;
 		
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
-		var etime = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
+		var etime2 = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Type4\"" + "!" + stime + "N" + "!S!" + etime + "E";
+		cmd = "\"Type4\"" + "!" + stime + "N" + "mNLp.10r5tb1w55i1M1sMoMEXPX=30!S!" + etime1 + "EoMEXPX=1peAi8M1sMoMEXPX=1!S!" + etime2 + "EoMEXPX=0";
 	}
 	
 	document.getElementById("starttext").innerHTML = stxt;
