@@ -89,7 +89,7 @@ creating two separate video timelapses.
 
 Set up an automatic action via QR Code, so you can ready your camera well in advance, and it will automatically turn on and record with your desired time and settings.<br>
 <br>
-Find 2024 eclipse times [**for your location**](https://nso.edu/for-public/eclipse-map-2024/)
+Find 2024 eclipse times [**for your location**](https://science.nasa.gov/eclipses/future-eclipses/eclipse-2024/where-when/)
 
 Setup A thru D options:
 
