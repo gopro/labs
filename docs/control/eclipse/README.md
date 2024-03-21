@@ -63,26 +63,27 @@ Fitting nicely within Night Lapse with a 4-second interval, with an Auto shutter
 It is tricky to capture both the massive drop in light, and the drama of totality, in a single timelapse capture. If possible, this is best achieved with multiple cameras, 
 editing and blending the results in post.
 
-#### Type 1 - Capture mostly optimized for the totality
-Night Lapse ISO 100, 4s interval, Shutter Auto. If you started 15 minutes before totality and stopped 15 minutes after, the result is a ~17 second timelapse, with 2 seconds in totality (if a 4-minute totality.)  
+### Type 1 - Capture mostly optimized for the totality
+This also works with a stock camera (non-Labs), and it is a decent option. Night Lapse ISO 100, 4s interval, Shutter Auto. If you started 15 minutes before totality and stopped 15 minutes after, the result is a ~17 second timelapse, with 2 seconds in totality (if a 4-minute totality.)  
 
-#### Type 2 - Capture optimized for the drop in brightness
-Timelapse ISO 100, 10s interval, but limiting the shutter to 1/30th of a second (a creative choice, my best guess.) At 1/30, the last 5-6 stops of the eclipse will be more dramatically show the 
-light impact upon the landscape. Capturing one hour before and after totality, the result is a ~25 second timelapse, ~1 second in totality.
+### Type 2 - Capture optimized for the drop in brightness
+Timelapse ISO 100, 10s interval, but limiting the shutter to 1/30th of a second (a creative choice, my best guess.) The requires Labs firmware to control the exposure limit via the EXPX extension. 
+At 1/30, the last 5-6 stops of the eclipse will be more dramatically show the light impact upon the landscape. Capturing one hour before and after totality, the result 
+is a ~25 second timelapse, ~1 second in totality.
 
-Note: Timelapse stock (not Night Lapse) is limited to a maximum of 1/8 second exposures, combined with ISO maximum of 100, this is a good option without Labs firmware. 
+Note: Timelapse (not Night Lapse) is limited to a maximum of 1/8 second exposures, combined with ISO maximum of 100, this is also a good option without Labs firmware. 
 This is what I used in 2017. However, the now only the last 3-4 stops will show a dramatic light change, and this is in the last minute before and after totality, 
 and with a 10s interval, you will only get about six frames of the light drop in the timelapse (quarter second at playback speed.)  Using the 1/30th limit, the estimated 
 length of the light drop-off will double in the final timelapse.  
 
-#### Type 3 - Super optimized for the totality
-Night Lapse ISO Max 800, Auto interval, Shutter Auto, Labs shutter limited to 1s. Auto shutter with Auto interval is a special mode in Night Lapse, in this mode it will take frames as fast as possible, 
+### Type 3 - Super optimized for the totality
+Night Lapse ISO Max 800, Min 100, Auto interval, Shutter Auto, Labs shutter limited to 1s. Auto shutter with Auto interval is a special mode in Night Lapse, in this mode it will take frames as fast as possible, 
 giving you more frames in the totality. When it is bright, this is ~3fps, when it is dark Labs firmware can limit the exposure time to 1fps. If you have 4 minutes of totality, and only 2 minutes before and after,  
 this 8-minute timelapse will result in ~32s playback time, with 4 seconds in the totality in playback. Optional, you could limit the exposure to half a second for up to 8 seconds in totality.
 
-#### Type 4 - Combining 2 & 3
+### Type 4 - Combining 2 & 3
 For those who want to experiment further, Labs firmware allows you to script the camera, so that certain modes or actions can be performed at particular moments. 
-The problem is we haven’t had a prior eclipse to practice on. The very experimental script would be to run type 2) capture until the totality, then switch to type 3), automatically 
+The problem is we haven’t had a prior eclipse to practice these extensions on. The very experimental script would be to run type 2) capture until the first second of totality, then switch to type 3), automatically 
 creating two separate video timelapses. 
 
 ## Eclipse Time-lapse QR Code
@@ -136,7 +137,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
       
 **Compatibility:** Labs enabled HERO11 and HERO12 (likely some support with older Labs enoubled cameras, please test.) 
 
-updated: March 20, 2024
+updated: March 21, 2024
 
 [More features](..) for Labs enabled cameras
 
