@@ -94,21 +94,24 @@ Find 2024 eclipse times [**for your location**](https://science.nasa.gov/eclipse
 Setup A thru D options:
 
 <div id="eTYPE"><b>A - Select Capture Type:</b><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type1" name="type" value="1" checked><label for="type1"><b>Type 1</b> - Easy - 4s Night Lapse</label>             starting <input type="range" style="width: 100px;" id="t1len" name="t1len" min="10" max="120" value="15"><label for="t1len"></label> <b id="type1len"></b> minutes before<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type2" name="type" value="2"><label for="type2"><b>Type 2</b> - Cool - 10s Time Lapse, exposure limited</label>   starting <input type="range" style="width: 100px;" id="t2len" name="t2len" min="10" max="120" value="60"><label for="t2len"></label> <b id="type2len"></b> minutes before<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type3" name="type" value="3"><label for="type3"><b>Type 3</b> - Very Cool - Super optimized 1-3fps Night Lapse</label> starting <input type="range" style="width: 100px;" id="t3len" name="t3len" min="2"  max="10"  value="2" ><label for="t3len"></label> <b id="type3len"></b> minutes before<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type4" name="type" value="4"><label for="type4"><b>Type 4</b> - Experimental - Switching between type 2 and 3 at totality (two automatic captures)</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type1" name="type" value="1" checked><label for="type1"><b> Type 1</b> - Easy, Night Lapse</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4s interval, starting <input type="range" style="width: 100px;" id="t1len" name="t1len" min="10" max="120" value="15"><label for="t1len"></label> <b id="type1len"></b> minutes before<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type2" name="type" value="2"><label for="type2"><b> Type 2</b> - Cool, Time Lapse Exposure Limited</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10s interval, starting <input type="range" style="width: 100px;" id="t2len" name="t2len" min="10" max="120" value="60"><label for="t2len"></label> <b id="type2len"></b> minutes before<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type3" name="type" value="3"><label for="type3"><b> Type 3</b> - Very Cool, Totality optimized</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~0.5s interval, starting <input type="range" style="width: 100px;" id="t3len" name="t3len" min="2"  max="10"  value="2" ><label for="t3len"></label> <b id="type3len"></b> minutes before<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type4" name="type" value="4"><label for="type4"><b> Type 4</b> - Experimental - Switching between type 2 and 3 at totality (two automatic captures)</label><br>
 </div>
-<div id="eRES"><b>B - Capture Resolution:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;<input type="radio" id="res1" name="res" value="" checked><label for="res1">current</label>
+<div id="eRES"><b>B - Capture Resolution:</b><br>&nbsp;&nbsp;
+  &nbsp;&nbsp;<input type="radio" id="res1" name="res" value="" checked><label for="res1"> current</label>
   &nbsp;&nbsp;<input type="radio" id="res2" name="res" value="r4"><label for="res2"> 4K 16:9</label>
-  &nbsp;&nbsp;<input type="radio" id="res3" name="res" value="r4T"><label for="res3">4K 4:3 (H11)</label>
-  &nbsp;&nbsp;<input type="radio" id="res4" name="res" value="r4X"><label for="res4">4K 8:7 (H12)</label>
+  &nbsp;&nbsp;<input type="radio" id="res3" name="res" value="r4T"><label for="res3">4K 4:3</label><sub>H11</sub>
+  &nbsp;&nbsp;<input type="radio" id="res4" name="res" value="r4X"><label for="res4">4K 8:7</label><sub>H12</sub>
   &nbsp;&nbsp;<input type="radio" id="res5" name="res" value="r5"><label for="res5"> 5K 16:9</label>
-  &nbsp;&nbsp;<input type="radio" id="res6" name="res" value="r5T"><label for="res6">5K 4:3 (H11)</label>
-  &nbsp;&nbsp;<input type="radio" id="res7" name="res" value="r5X"><label for="res7">5K 8:7 (H12)</label>
+  &nbsp;&nbsp;<input type="radio" id="res6" name="res" value="r5T"><label for="res6">5K 4:3</label><sub>H11</sub>
+  &nbsp;&nbsp;<input type="radio" id="res7" name="res" value="r5X"><label for="res7">5K 8:7</label><sub>H12</sub>
 </div>
-<div><b>C - Totality Start:</b> <input type="range" style="width: 540px;" id="tlstrt" name="tlstrt" min="720" max="1080" value="780"><label for="tlstrt"></label> <b id="starttext"></b></div>
+<div><b>C - Totality Start:</b> <input type="range" style="width: 480px;" id="tlstrt" name="tlstrt" min="720" max="1080" value="780"><label for="tlstrt"></label> <b id="starttext">:</b><input type="text" id="addsec" value="" style="width:45px"></div>
 <div><b>D - Totality Length:</b> <input type="range" style="width: 300px;" id="tlend" name="tlend" min="1" max="5" value="4"><label for="tlend"></label> <b id="lentext"></b> minutes &nbsp;&nbsp; Totality End Time: <b id="endtext"> seconds</b></div>
 
 Estimated Timelapse Playback Length: <b id="tllen"></b> seconds
@@ -117,7 +120,7 @@ Forum to [**discuss the best settings**](https://github.com/gopro/labs/discussio
  
 <div id="opDT">
 <input type="checkbox" id="dt" value="oT" checked> <label for="dt">Set date + time automatically</label> <br>
-<small>Note: do save a QR Code image with this enabled. This is designed to for live QR Codes, not printed or saved to camera rolls.</small>
+<small>Note: don't save a QR Code image with this enabled. This is designed to for live QR Codes, not printed or saved to camera rolls.</small>
 </div>
 
 <div id="qrcode_txt" style="width: 360px">
@@ -245,6 +248,7 @@ function timeLoop()
 	var startminstime;	
 	var endhourstime;
 	var endminstime;
+	var secondsOffset = 0;
 		
 	starthourstime = Math.trunc(startmins / 60);
 	startminstime = startmins - starthourstime * 60;	
@@ -257,6 +261,12 @@ function timeLoop()
 
 	var type = dcmd("","type"); 
 	var res = dcmd("","res"); 
+	
+	if(document.getElementById("addsec") !== null)
+	{
+		secondsOffset = document.getElementById("addsec").value;
+	}
+	
 	
 	if(type == "1")
 	{
@@ -314,7 +324,7 @@ function timeLoop()
 		starthourstime = Math.trunc(startmins / 60);
 		startminstime = startmins - starthourstime * 60;	
 		
-		var etime1 = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
+		var etime1 = t2len * 60 + Math.trunc(secondsOffset) - 2;
 		
 		startmins -= t2len;
 		starthourstime = Math.trunc(startmins / 60);
@@ -327,8 +337,10 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime2 = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Eclipse TL\nType4\"" + "!" + stime + "N" + "mNLp.10" + res + "tb1w55i1M1sMoMEXPX=30!S!" + etime1 + "EpeAi8M1sMoMEXPX=1!S!" + etime2 + "EoMEXPX=0";
+		cmd = "\"Eclipse TL\nType4\"" + "!" + stime + "N" + "mNLp.10" + res + "tb1w55i1M1sMoMEXPX=30";
 		
+		cmd = cmd + "!S!" + etime1 + "EpeAi8M1sMoMEXPX=1!S!" + etime2 + "EoMEXPX=0";
+				
 		playlen = ((t2len)*60/10 + (t3len)*60*3 + caplen)/30;
 	}
 	
