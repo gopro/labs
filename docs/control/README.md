@@ -16,6 +16,9 @@
 ## Get Labs Camera Firmware
 Brand new to Labs? Get the firmare and info on [**Labs installation**](https://gopro.github.io/labs)
 
+## Solar Elipse Planning <span style="color:steelblue">(coming April 8th, 2024)</span>
+Get the most from the upcoming [**Solar Elipse with Labs custom timelapse controls**](./eclipse)
+
 ## Configuration Commands for All Labs Enabled Cameras
 
 * Set camera modes with the [**Customizable QR Code Creator**](./custom) and here optimized for [**Bones**](../bones)
@@ -77,7 +80,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO11/12/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 
 
-updated: November 10, 2023
+updated: March 25, 2024
 
 
 <script>
