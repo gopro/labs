@@ -4,6 +4,14 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO12 Black 
 
+### 2.20.70 - March 28, 2024
+- Added Macro Support
+- Added $BITR=150 and *BITR=150 versions of oMBITR and !MBITR
+- Fixed LEVL, broken in the last release
+- Fixed protune setting incorrectly changing the color to Vibrant
+- Enhanced $EXPS=1 to work in all modes (timelapse and photo)
+- Enhanced $EXPS=1 to support shutter speeds longer than 1s
+
 ### 2.10.70 - Feb 8, 2024
 - Fixed ```x++``` and ```x--``` EV up and down controls (handy for scuba)
 - Enhancing processing speed for looping scripts about 10-15x faster.
