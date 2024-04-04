@@ -112,7 +112,7 @@ Setup A thru D options:
   &nbsp;&nbsp;<input type="radio" id="res6" name="res" value="r5T"><label for="res6">5K 4:3</label><sub>H11</sub>
   &nbsp;&nbsp;<input type="radio" id="res7" name="res" value="r5X"><label for="res7">5K 8:7</label><sub>H12</sub>
 </div>
-<div><b>C - Totality Start:</b> <input type="range" style="width: 480px;" id="tlstrt" name="tlstrt" min="720" max="1080" value="780"><label for="tlstrt"></label> <b id="starttext">:</b><input type="text" id="addsec" value="" style="width:45px"></div>
+<div><b>C - Totality Start:</b> <input type="range" style="width: 480px;" id="tlstrt" name="tlstrt" min="660" max="1080" value="720"><label for="tlstrt"></label> <b id="starttext">:</b><input type="text" id="addsec" value="" style="width:45px"></div>
 <div><b>D - Totality Length:</b> <input type="range" style="width: 300px;" id="tlend" name="tlend" min="1" max="5" value="4"><label for="tlend"></label> <b id="lentext"></b> minutes &nbsp;&nbsp; Totality End Time: <b id="endtext"> seconds</b></div>
 
 Estimated Timelapse Playback Length: <b id="tllen"></b> seconds
@@ -137,7 +137,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
       
 **Compatibility:** Labs enabled HERO11 and HERO12 (likely some support with older Labs enoubled cameras, please test.) 
 
-updated: April 3, 2024
+updated: April 4, 2024
 
 [More features](..) for Labs enabled cameras
 
