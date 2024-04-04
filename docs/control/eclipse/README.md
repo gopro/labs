@@ -137,7 +137,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
       
 **Compatibility:** Labs enabled HERO11 and HERO12 (likely some support with older Labs enoubled cameras, please test.) 
 
-updated: March 21, 2024
+updated: April 3, 2024
 
 [More features](..) for Labs enabled cameras
 
@@ -340,7 +340,7 @@ function timeLoop()
 	
 		cmd = "\"Eclipse TL\nType4\"" + "!" + stime + "N" + "mNLp.10" + res + "tb1w55i1M1sMoMEXPX=30";
 		
-		cmd = cmd + "!S!" + etime1 + "EpeAi8M1sMoMEXPX=1!S!" + etime2 + "EoMEXPX=0";
+		cmd = cmd + "!S!" + etime1 + "E!1NpeAi8M1sMoMEXPX=1!S!" + etime2 + "EoMEXPX=0";
 				
 		playlen = ((t2len)*60/10 + (t3len)*60*3 + caplen)/30;
 	}
