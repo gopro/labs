@@ -315,6 +315,27 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 ## HERO10 Black 
 
+### 1.60.70 - April 4, 2024
+- Added the new scripting like that of HERO11 & 12. Supports https://gopro.github.io/labs/build/
+- Added Macro Support
+- Added $BITR=150 and *BITR=150 versions of oMBITR and !MBITR
+- Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
+- Added font color for script messaging. e.g. try this QR Code "\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d" 
+- Added support testing current camera mode, system variable 'v' will have the mode.
+   e.g. Video=12, TLV=13, Looping Video=15, Photo=16, Night Photo=18, Burst Photo=19, etc.
+   Display the current mode with with this command:  ```"mode $v"!R``` or fast/cleaner ```oMPMSG="mode $v"!R```
+- Added precise variable testing with '=='. Previously only < for less_than and > for greater_than_equal were supported.
+   e.g. command:   ```>10:10<11:00"do thing between 10:10 and 10:59"```
+   now you can do: ```==10:10"do thing only at 10:10"```
+   useful for mode testing: ```==v12"video mode, do thing only on video mode"```
+- Fixed ```x++``` and ```x--``` EV up and down controls (handy for scuba)
+- Enhanced $EXPS=1 to work in all modes (timelapse and photo)
+- Enhanced $EXPS=1 to support shutter speeds longer than 1s
+- Enhancing processing speed for looping scripts about 10-15x faster.
+   example code print to the loop speed: ```=Sl=Tt:Q=S/T=Ll=L%9<L1oMPMSG="loops $S/s"!R```
+- Improved the font rendering (higher res fonts)
+- many minor Labs bug fixes
+
 ### 1.50.70 - Dec, 2022
 - Added EVBS=x for EV Comp Bias, global for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set.
 - Added FRNT=1 display most LCD Labs message on the Front screen.
@@ -459,6 +480,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: Mar 14, 2024
+updated: Apr 4, 2024
 
 [Learn more](..) on QR Control
