@@ -86,6 +86,12 @@ For those who want to experiment further, Labs firmware allows you to script the
 The problem is we haven’t had a prior eclipse to practice these extensions on. The very experimental script would be to run type 2) capture until the first second of totality, then switch to type 3), automatically 
 creating two separate video timelapses. 
 
+
+## Trouble Shooting
+The setting below assume your camera has time-lapse Video and night-lapse Video presets.  Camera in default configurations have these modes, however the presets can be change to Photo time-lapse and night-lapse.  
+As the scripts will only work with video, either manual change to video type or do a factory reset on the camera. 
+
+
 ## Eclipse Time-lapse QR Code
 
 Set up an automatic action via QR Code, so you can ready your camera well in advance, and it will automatically turn on and record with your desired time and settings.<br>
@@ -282,7 +288,7 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Eclipse TL\nType1\"" + "!" + stime + "N" + "mNPmNLp.4eA" + res + "tb1w55i1M1sM!S!" + etime + "E";
+		cmd = "\"Eclipse TL\nType1\"" + "!" + stime + "N" + "mNLp.4eA" + res + "tb1w55i1M1sM!S!" + etime + "E";
 		
 		playlen = (endmins - startmins)*60/4/30;
 	} 
@@ -299,7 +305,7 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Eclipse TL\nType2\"" + "!" + stime + "N" + "mTPmTp.10" + res + "tb1w55i1M1sMoMEXPX=30!S!" + etime + "EoMEXPX=0";
+		cmd = "\"Eclipse TL\nType2\"" + "!" + stime + "N" + "mTp.10" + res + "tb1w55i1M1sMoMEXPX=30!S!" + etime + "EoMEXPX=0";
 		
 		playlen = (endmins - startmins)*60/10/30;
 	} 
@@ -316,7 +322,7 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Eclipse TL\nType3\"" + "!" + stime + "N" + "mNPmNLpeA" + res + "tb1w55i8M1sMoMEXPX=1!S!" + etime + "EoMEXPX=0";
+		cmd = "\"Eclipse TL\nType3\"" + "!" + stime + "N" + "mNLpeA" + res + "tb1w55i8M1sMoMEXPX=1!S!" + etime + "EoMEXPX=0";
 		
 		playlen = ((endmins - startmins - caplen)*60*3 + caplen)/30;
 	}
@@ -338,7 +344,7 @@ function timeLoop()
 		var stime = pad(starthourstime, 2) + ":" + pad(startminstime, 2);
 		var etime2 = pad(endhourstime, 2) + ":" + pad(endminstime, 2);
 	
-		cmd = "\"Eclipse TL\nType4\"" + "!" + stime + "N" + "mNPmNLp.10" + res + "tb1w55i1M1sMoMEXPX=30";
+		cmd = "\"Eclipse TL\nType4\"" + "!" + stime + "N" + "mNLp.10" + res + "tb1w55i1M1sMoMEXPX=30";
 		
 		cmd = cmd + "!S!" + etime1 + "E!1NpeAi8M1sMoMEXPX=1!S!" + etime2 + "EoMEXPX=0";
 				
