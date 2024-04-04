@@ -32,7 +32,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Added creating, naming and sharing presets oMPRES="1,MyPreset" 0-18 for icon selection, -1 for delete 
 - Added FONT=1 Select the old fonts (if you only want the dot matrix font)
 - Added GRAB=x screen grab x-frames, !F (grab now) and !F3 (grab next 3 Labs overlays) - frame grab the UI.  Useful for education and bug reporting
-- Added font color for script messaging. e.g. try this QR Code "\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d" 
+- Added font color for script messaging. e.g. try this QR Code ```"\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d" ```
 - Improved the font rendering (higher res fonts)
 - Improved support for Max Lens Mod 2.0
 - Improved upload reliability with an optional maximum transfer time (timeout). e.g. !U3 <- upload now, for up to 3 minutes.
@@ -92,7 +92,7 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
    now you can do: ```==10:10"do thing only at 10:10"```
    useful for mode testing: ```==v12"video mode, do thing only on video mode"```
 - Added $GRAB=x screen grab x-frames, !F (grab now) and !F3 (grab next 3 Labs overlays) - frame grab the UI. Useful for education and bug reporting
-- Added font color for script messaging. e.g. try this QR Code "\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d"
+- Added font color for script messaging. e.g. try this QR Code ```"\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d"```
 - Added $STDL=x - Start Delay (default 2000ms, wait before any other commands.) $STDL=100 for less wait. Experimental scripting performance.
 - Improved the font rendering (higher res fonts)
 - Improved upload reliability with an optional maximum transfer time (timeout). e.g. !U3 <- upload now, for up to 3 minutes.
@@ -320,7 +320,7 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 - Added Macro Support
 - Added $BITR=150 and *BITR=150 versions of oMBITR and !MBITR
 - Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
-- Added font color for script messaging. e.g. try this QR Code "\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d" 
+- Added font color for script messaging. e.g. try this QR Code ```"\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d"```
 - Added support testing current camera mode, system variable 'v' will have the mode.
    e.g. Video=12, TLV=13, Looping Video=15, Photo=16, Night Photo=18, Burst Photo=19, etc.
    Display the current mode with with this command:  ```"mode $v"!R``` or fast/cleaner ```oMPMSG="mode $v"!R```
