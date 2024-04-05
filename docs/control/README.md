@@ -77,10 +77,10 @@ An incomplete set of [**Release Notes**](./notes)
 
 ## Full Control, Commands Under The Hood 
 * Technical information on the [**Labs command language**](./tech)
-* **HERO11/12/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
+* **HERO10/11/Mini/12/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 
 
-updated: March 25, 2024
+updated: April 5, 2024
 
 
 <script>
