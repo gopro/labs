@@ -87,10 +87,14 @@ The problem is we haven’t had a prior eclipse to practice these extensions on.
 creating two separate video timelapses. 
 
 
-## Trouble Shooting
-The setting below assume your camera has time-lapse Video and night-lapse Video presets.  Camera in default configurations have these modes, however the presets can be change to Photo time-lapse and night-lapse.  
-As the scripts will only work with video, either manual change to video type or do a factory reset on the camera. 
+## Troubleshooting and Advance Configurations
+All of Labs features use the Pro Mode on your Black addition camera. In Pro Mode you can change a lot of settings, but to keep these script from getting too complex, 
+some assumptions have been made that the settings are close the system defaults. The script below assume your camera has time-lapse Video and 
+night-lapse Video presets. Camera in default configurations have these modes, however the presets can be changed to Photo time-lapse and Photo night-lapse. 
+If you have changed these, either manual change them to Video type or do a factory reset on the camera, then reenable Pro Mode. 
 
+None the scripts change the default color look or EV settings. So if unchanged the timelapse captures will be Color Natural at EV 0.0, which is perfectly fine.  
+However if you intend to apply some color correction, setting Color Flat and EV to -0.5 is recommended. Set these with the time-lapse and night-lapse Video presets.
 
 ## Eclipse Time-lapse QR Code
 
@@ -143,7 +147,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
       
 **Compatibility:** Labs enabled HERO11 and HERO12 (likely some support with older Labs enoubled cameras, please test.) 
 
-updated: April 4, 2024
+updated: April 5, 2024
 
 [More features](..) for Labs enabled cameras
 
