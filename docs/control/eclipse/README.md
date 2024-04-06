@@ -347,7 +347,7 @@ function timeLoop()
 	
 		cmd = "mPR\"Eclipse TL\nType3\"" + "!" + stime + "N" + "mNLpeA" + res + "tb1w55i8M1sMoMEXPX=1!S!" + etime + "EoMEXPX=0";
 		
-		playlen = ((endmins - startmins - caplen)*60*3 + caplen)/30;
+		playlen = ((endmins - startmins - caplen)*60*4 + caplen*60)/30;
 		
 		title = "Eclipse Totality-lapse " + stime + " to " + etime;
 	}
@@ -383,7 +383,7 @@ function timeLoop()
 			title = title + " then timelapse continues";
 		}
 				
-		playlen = ((t2len)*60/10 + (t3len)*60*3 + caplen)/30;
+		playlen = ((t2len)*60/10 + (t3len)*60*4 + caplen*60)/30;
 	}
 	
 	
