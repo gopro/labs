@@ -86,15 +86,14 @@ For those who want to experiment further, Labs firmware allows you to script the
 The problem is we haven’t had a prior eclipse to practice these extensions on. The very experimental script would be to run type 2) capture until the first second of totality, then switch to type 3), automatically 
 creating two separate video timelapses. 
 
-
 ## Troubleshooting and Advance Configurations
-All of Labs features use the Pro Mode on your Black addition camera. In Pro Mode you can change a lot of settings, but to keep these script from getting too complex, 
-some assumptions have been made that the settings are close the system defaults. The script below assume your camera has time-lapse Video and 
+All of Labs features use the Pro Mode on your Black addition camera. In Pro Mode you can change a lot of settings, but to keep these scripts from getting too complex, 
+some assumptions have been made that the settings are close to the system defaults. The script below assume your camera has time-lapse Video and 
 night-lapse Video presets. Camera in default configurations have these modes, however the presets can be changed to Photo time-lapse and Photo night-lapse. 
-If you have changed these, either manual change them to Video type or do a factory reset on the camera, then reenable Pro Mode. 
+If you have changed these, either manually change them back to Video type or do a factory reset on the camera, then reenable Pro Mode. 
 
-None the scripts change the default color look or EV settings. So if unchanged the timelapse captures will be Color Natural at EV 0.0, which is perfectly fine.  
-However if you intend to apply some color correction, setting Color Flat and EV to -0.5 is recommended. Set these with the time-lapse and night-lapse Video presets.
+None of the scripts will change the default color look or EV settings. So if unchanged the timelapse captures will be Color Natural at EV 0.0, which is perfectly fine.  
+However if you intend to apply some color correction, setting Color Flat and EV to -0.5 is recommended. Set these properties within the time-lapse and night-lapse Video presets.
 
 ## Eclipse Time-lapse QR Code
 
@@ -112,6 +111,8 @@ Setup A thru D options:
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type3" name="type" value="3"><label for="type3"><b> Type 3</b> - Very Cool, Totality optimized</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~0.5s interval, add <input type="range" style="width: 100px;" id="t3len" name="t3len" min="2"  max="10"  value="2" ><label for="t3len"></label> <b id="type3len"></b> mins before and after totality<br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="type4" name="type" value="4"><label for="type4"><b> Type 4</b> - Experimental - Switching between type 2 and 3 at totality (two automatic captures)</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="ex"> <label for="ex">Extend with a third timelapse until battery end.</label> <br>
+
 </div>
 <div id="eRES"><b>B - Capture Resolution:</b><br>&nbsp;&nbsp;
   &nbsp;&nbsp;<input type="radio" id="res1" name="res" value="" checked><label for="res1"> current</label>
@@ -138,7 +139,7 @@ Forum to [**discuss the best settings**](https://github.com/gopro/labs/discussio
   <center>
   <div id="qrcode"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
-  <b><font color="#005CAC">Eclipse Timelapse</font></b>
+  <b><font color="#005CAC"><em id="qrtitle"></em></font></b>
   </center>
 </div>
 <br>
@@ -147,7 +148,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
       
 **Compatibility:** Labs enabled HERO11 and HERO12 (likely some support with older Labs enoubled cameras, please test.) 
 
-updated: April 5, 2024
+updated: April 6, 2024
 
 [More features](..) for Labs enabled cameras
 
@@ -155,6 +156,7 @@ updated: April 5, 2024
 var once = true;
 var qrcode;
 var cmd = "mPdP!60SQ!1R";
+var title = "Eclipse ";
 var clipcopy = "";
 var lasttimecmd = "";
 var changed = false;
@@ -295,6 +297,8 @@ function timeLoop()
 		cmd = "mPR\"Eclipse TL\nType1\"" + "!" + stime + "N" + "mNLp.4eA" + res + "tb1w55i1M1sM!S!" + etime + "E";
 		
 		playlen = (endmins - startmins)*60/4/30;
+		
+		title = "Eclipse Nightlapse " + stime + " to " + etime;
 	} 
 	else if(type == "2")
 	{
@@ -312,6 +316,8 @@ function timeLoop()
 		cmd = "mPR\"Eclipse TL\nType2\"" + "!" + stime + "N" + "mTp.10" + res + "tb1w55i1M1sMoMEXPX=30!S!" + etime + "EoMEXPX=0";
 		
 		playlen = (endmins - startmins)*60/10/30;
+		
+		title = "Eclipse Timelapse " + stime + " to " + etime;
 	} 
 	else if(type == "3")
 	{
@@ -329,13 +335,15 @@ function timeLoop()
 		cmd = "mPR\"Eclipse TL\nType3\"" + "!" + stime + "N" + "mNLpeA" + res + "tb1w55i8M1sMoMEXPX=1!S!" + etime + "EoMEXPX=0";
 		
 		playlen = ((endmins - startmins - caplen)*60*3 + caplen)/30;
+		
+		title = "Eclipse Totality-lapse " + stime + " to " + etime;
 	}
 	else	
 	{
 		starthourstime = Math.trunc(startmins / 60);
 		startminstime = startmins - starthourstime * 60;	
 		
-		var etime1 = t2len * 60 + Math.trunc(secondsOffset) - 2;
+		var etime1 = t2len * 60 + Math.trunc(secondsOffset) + 10; // End one TLV frame in totality
 		
 		startmins -= t2len;
 		starthourstime = Math.trunc(startmins / 60);
@@ -351,6 +359,16 @@ function timeLoop()
 		cmd = "mPR\"Eclipse TL\nType4\"" + "!" + stime + "N" + "mNLp.10" + res + "tb1w55i1M1sMoMEXPX=30";
 		
 		cmd = cmd + "!S!" + etime1 + "E!1NpeAi8M1sMoMEXPX=1!S!" + etime2 + "EoMEXPX=0";
+		
+		title = "Eclipse Nightlapse " + stime + " to " + etime2;		
+		
+		var ex = document.getElementById("ex").checked;
+		if(ex === true)
+		{
+			cmd = cmd + "!1NmTp.5" + res + "b1w55i1M1sM!S";
+			
+			title = title + " then timelapse continues";
+		}
 				
 		playlen = ((t2len)*60/10 + (t3len)*60*3 + caplen)/30;
 	}
@@ -407,6 +425,7 @@ function timeLoop()
   if(changed === true)
   {
 	document.getElementById("qrtext").innerHTML = cmd;
+	document.getElementById("qrtitle").innerHTML = title;
 	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Eclipse%20Timelapse";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
