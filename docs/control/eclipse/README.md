@@ -86,6 +86,17 @@ For those who want to experiment further, Labs firmware allows you to script the
 The problem is we haven’t had a prior eclipse to practice these extensions on. The very experimental script would be to run type 2) capture until the first second of totality, then switch to type 3), automatically 
 creating two separate video timelapses. 
 
+#### 2024 Example of Type 4 (starting at Type 2 and ending in Type 3.)
+Example from user Scotty MacPherson shooting with HERO11 running Labs v2.30.70.<br>
+Totality exposure of Type 2<br>
+![Type2-Totality.jpg](Type2-Totality.jpg) ![Type2Type2TotalityFrame.jpg](Type2TotalityFrame.jpg)<br>
+Totality exposure of Type 3<br>
+![Type3-Totality.jpg](Type3-Totality.jpg) ![Type3Type2TotalityFrame.jpg](Type3TotalityFrame.jpg)<br>
+<video width="504" height="284" controls>
+  <source src="https://gopro.github.io/labs/control/eclipse/Type4-1080-30fps.mp4" type="video/mp4">
+</video>
+
+
 ## Troubleshooting and Advance Configurations
 All of Labs features use the Pro Mode on your Black addition camera. In Pro Mode you can change a lot of settings, but to keep these scripts from getting too complex, 
 some assumptions have been made that the settings are close to the system defaults. The script below assume your camera has time-lapse Video and 
@@ -123,7 +134,7 @@ Setup A thru D options:
   &nbsp;&nbsp;<input type="radio" id="res6" name="res" value="r5T"><label for="res6">5K 4:3</label><sub>H11</sub>
   &nbsp;&nbsp;<input type="radio" id="res7" name="res" value="r5X"><label for="res7">5K 8:7</label><sub>H12</sub>
 </div>
-<div><b>C - Totality Start:</b> <input type="range" style="width: 480px;" id="tlstrt" name="tlstrt" min="660" max="1080" value="720"><label for="tlstrt"></label> <b id="starttext">:</b><input type="text" id="addsec" value="" style="width:45px"></div>
+<div><b>C - Totality Start:</b> <input type="range" style="width: 480px;" id="tlstrt" name="tlstrt" min="600" max="1080" value="720"><label for="tlstrt"></label> <b id="starttext">:</b><input type="text" id="addsec" value="" style="width:45px"></div>
 <div><b>D - Totality Length:</b> <input type="range" style="width: 300px;" id="tlend" name="tlend" min="1" max="5" value="4"><label for="tlend"></label> <b id="lentext"></b> minutes &nbsp;&nbsp; Totality End Time: <b id="endtext"> seconds</b></div>
 
 Estimated Timelapse Playback Length: <b id="tllen"></b> seconds
@@ -151,7 +162,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
       
 **Compatibility:** Labs enabled HERO11 and HERO12 (likely some support with older Labs enabled cameras, please test.) 
 
-updated: April 6, 2024
+updated: April 9, 2024
 
 [More features](..) for Labs enabled cameras
 
