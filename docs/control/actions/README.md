@@ -30,13 +30,13 @@
 * **!**time**U** - Attempt a network contention and Upload <sup>9/10/11</sup>.
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local file, requires a previously successful **!W** command <sup>8/9/10/11</sup>
-* **!**time**Dx** - <sup>H11-12</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
-* **!**time**Zx** - <sup>H11-12</sup>  **!Z3** - Disable Buttons, **!Z0** - Enable (default), **!Z1** - Disable Shutter, **!Z2** - Disable Mode
+* **!**time**Dx** - <sup>H10-11</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
 * **!**time**TR** - <sup>H11-12</sup>  **!TR* - switch active TimeWarp to Realtime (or slow motion)
 * **!**time**TN** - <sup>H11-12</sup>  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
-* **!**time**Bx** - <sup>H11-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
-* **!**time**Zx** - <sup>H11-12</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
-* **!**time**Cx** - <sup>H11-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
+* **!**time**Bx** - <sup>H10-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Zx** - <sup>H10-12</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
+* **!**time**X** - <sup>H10-12/MAX</sup> Exit script. 
+* **!**time**Cx** - <sup>H10-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
 
 
 ## Capture Triggers (Classic, invent your own below.)
@@ -295,7 +295,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: March 14, 2024
+updated: April 12, 2024
 
 [BACK](..)
 
