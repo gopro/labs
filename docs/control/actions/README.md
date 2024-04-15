@@ -98,14 +98,27 @@ Any four character code can be used for store other information. You can also st
 
 
 ## Macro support (since March, '24)
+Added support for macros, or crude scripting subroutines. This expands the potential complexity for QR scripting, as the entire script is no longer limited to 255 characters. 
+It would be possible to run scripts nearing ~1.2KB. Note: recursion is supported, macros can call other macros, and can call themselves.
+
+Macros are saved in string FourCCs:
 * **$**fourcc**&#61;<courier>"custom Labs commands"</courier>**  (temporary)
 * **\***fourcc**&#61;<courier>"custom Labs commands"</courier>**  (permanent)
 
 Example: This macro calculates the Light Value and stores the result in variable **E**<br>
 **\*LVAL=**<courier>"=Ii=Ss=I/100=S/I=E6.25=E*S=E#2"</courier>
 
+ e.g. *SUBA="mVr4p60'60p'!S!2E!1N" Note: Use single quotes for text within double quotes.
+
 In a separate QR Code will call LVAL and display the result<br>
 **^LVAL**<courier>"Current LV $E"</courier>
+
+Note: for Macros that print output use single quotes for text within.
+**\*DPLV=**<courier>"^LVAL'current LV $E'"</courier>
+
+
+
+
 
 ## Reset Actions ##
 
