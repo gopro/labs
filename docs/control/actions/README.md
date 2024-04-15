@@ -64,12 +64,13 @@
 * **!17:00W!GLC** - start Live-streaming 1080p at 5pm, saving a local copy
 
 ## Storing metadata (Permanent, survives power off)
-### Old style (before March, '24)
+### Old style (firmware released before March, '24)
 * **!M**fourcc**=<courier>"string"</courier>**
-* **!M**fourcc**=Number metadata**
+* **!M**fourcc**=Number metadata** (comma separated)
+
 ### New style (after March, '24)
 * **\***fourcc**=<courier>"string"</courier>**
-* **\***fourcc**=Number metadata** 
+* **\***fourcc**=Number metadata**  (comma separated)
 
 Example for display the owner’s name
 **\*OWNR=<courier>"Joe Bloggs"</courier>**
@@ -84,14 +85,27 @@ Any four character code can be used for store other information. You can also st
 * **\*CAMR=53** - metadata CAMR will be 53 
 * **\*ABCD=45.234** - metadata ABCD will be floating point 45.234
 * **\*UNIT=-1723** - metadata UNIT will be -1723 
+* **\*LLTZ=32.707,-117.1576,-7** - set camera location (GPS off) with Latt/Long/TimeZone 
 
 ## Storing metadata (Temporarily, until power off)<br>
-### Old style (before March, '24)
+### Old style (firmware released before March, '24)
 * **oM**fourcc**&#61;<courier>"string"</courier>**  
-* **oM**fourcc**=Number metadata**
+* **oM**fourcc**=Number metadata** (comma separated)
+
 ### New style (after March, '24)
 * **$**fourcc**&#61;<courier>"string"</courier>**  
-* **$**fourcc**=Number metadata**
+* **$**fourcc**=Number metadata** (comma separated)
+
+
+## Macro support (since March, '24)
+* **$**fourcc**&#61;<courier>"custom Labs commands"</courier>**  (temporary)
+* **\***fourcc**&#61;<courier>"custom Labs commands"</courier>**  (permanent)
+
+Example: This macro calculates the Light Value and stores the result in variable **E**<br>
+**\*LVAL=**<courier>"=Ii=Ss=I/100=S/I=E6.25=E*S=E#2"</courier>
+
+In a separate QR Code will call LVAL and display the result<br>
+**^LVAL**<courier>"Current LV $E"</courier>
 
 ## Reset Actions ##
 
@@ -295,7 +309,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: April 12, 2024
+updated: April 15, 2024
 
 [BACK](..)
 
