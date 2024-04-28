@@ -594,7 +594,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: November 20, 2023
+updated: April 28, 2024
 
 <script>
 var clipcopy = "";
@@ -659,6 +659,36 @@ function URLPrint(txt)
 	var txt2 = txt.replaceAll("+", "%2B");
 	var newtxt = txt2.replaceAll("#", "%23");
 	return newtxt;
+}
+
+function unicodeToAscii(codepoint) {
+	if (codepoint < 0xC0) {
+        // Pass all ASCII characters unaltered
+        return String.fromCharCode(codepoint);
+    }
+	
+    const mapping = {
+        0x00C0: 'A', 0x00C1: 'A', 0x00C2: 'A', 0x00C3: 'A', 0x00C4: 'A', 0x00C5: 'A',
+        0x00E0: 'a', 0x00E1: 'a', 0x00E2: 'a', 0x00E3: 'a', 0x00E4: 'a', 0x00E5: 'a',
+        0x00C8: 'E', 0x00C9: 'E', 0x00CA: 'E', 0x00CB: 'E',
+        0x00E8: 'e', 0x00E9: 'e', 0x00EA: 'e', 0x00EB: 'e',
+        0x00CC: 'I', 0x00CD: 'I', 0x00CE: 'I', 0x00CF: 'I',
+        0x00EC: 'i', 0x00ED: 'i', 0x00EE: 'i', 0x00EF: 'i',
+        0x00D2: 'O', 0x00D3: 'O', 0x00D4: 'O', 0x00D5: 'O', 0x00D6: 'O', 0x00D8: 'O',
+        0x00F2: 'o', 0x00F3: 'o', 0x00F4: 'o', 0x00F5: 'o', 0x00F6: 'o', 0x00F8: 'o',
+        0x00D9: 'U', 0x00DA: 'U', 0x00DB: 'U', 0x00DC: 'U',
+        0x00F9: 'u', 0x00FA: 'u', 0x00FB: 'u', 0x00FC: 'u',
+        0x00C7: 'C', 0x00E7: 'c',
+        0x00D1: 'n', 0x00F1: 'n',
+        0x0093: '"', 0x0094: '"', 0x201C: '"', 0x201D: '"',
+        0x0091: '\'',0x0092: '\'',0x2018: '\'',0x2019: '\''.
+		0x0082: ',', 
+		0x0090: '.',
+        0x0096: '-', 0x0097: '-',
+        0x0098: '~'
+    };
+	
+	return mapping[codepoint] || '?'; // Default to '?' for unmapped code points
 }
 
 function startTime() {	
@@ -1616,7 +1646,13 @@ function startTime() {
 	
 	if(document.getElementById("addcmd") !== null)
 	{
-		cmd = cmd + document.getElementById("addcmd").value;
+		let unicodeInput = document.getElementById("addcmd").value;
+
+		// Convert input string to an array of code points
+		let codePoints = Array.from(unicodeInput);
+
+		let asciiOutput = codePoints.map(cp => unicodeToAscii(cp.codePointAt(0))).join('');
+		cmd = cmd + asciiOutput;
 	}
 	
 	
