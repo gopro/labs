@@ -122,7 +122,7 @@ Note: for Macros that print output use single quotes for text within.
 
 ## Reset Actions ##
 
-* **!RESET** - erase all your permanent metadata (anything that used !Mxxxx command.)  (requires user confirmation.)
+* **!RESET!1OR** - erase all your permanent metadata (anything that used !Mxxxx command.) Then Reboot.  (requires user confirmation.)
 * **!FORMAT**<sup>H10-12</sup> - for SD formatting via QR Code (requires user confirmation.)
 * **!FRESET**<sup>H10-12</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
 * **!PRESET**<sup>H10-12</sup> - Presets reset, restore the default presets (requires user confirmation.)
@@ -322,7 +322,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: April 15, 2024
+updated: April 23, 2024
 
 [BACK](..)
 
