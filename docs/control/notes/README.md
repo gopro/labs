@@ -234,6 +234,9 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 ## HERO11 Black Mini
 
 
+### 2.50.70 - May 9, 2024
+- Most of the latets Labs features from HERO11 v2.30.70
+
 ### 2.40.70 - Dec 14, 2023
 - Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
 - Improved upload reliability with an optional maximum transfer time (timeout). e.g. !U3 <- upload now, for up to 3 minutes.
