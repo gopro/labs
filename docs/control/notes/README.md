@@ -315,6 +315,12 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 ## HERO10 Black 
 
+### 1.62.70 - May 28, 2024
+- Added $RLTC=1 - Read LTC timecode via MediaMod line input.
+- Added repeat support to subroutines.
+- Fixed setting commands after an End command could be missed.
+- minor Labs bug fixes
+
 ### 1.60.70 - April 4, 2024
 - Added the new scripting like that of HERO11 & 12. Supports https://gopro.github.io/labs/build/
 - Added Macro Support
@@ -480,6 +486,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: Apr 4, 2024
+updated: May 28, 2024
 
 [Learn more](..) on QR Control
