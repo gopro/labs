@@ -233,6 +233,8 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 ## HERO11 Black Mini
 
+### 2.50.71 - June 1, 2024
+- Minor bug fix
 
 ### 2.50.70 - May 9, 2024
 - Most of the latets Labs features from HERO11 v2.30.70
@@ -489,6 +491,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: May 28, 2024
+updated: June 2, 2024
 
 [Learn more](..) on QR Control
