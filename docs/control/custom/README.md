@@ -109,6 +109,17 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="p10" name="fps" value="" checked> <label for="p10">not set</label><br><br>
 </div>
 
+
+<div id="settingsVideo">
+<b>Hypersmooth:</b>&nbsp;&nbsp;
+	<input type="radio" id="eis1" name="eis" value="e0"> <label for="eis1">Off</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">On</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis3" name="eis" value="e2"> <label for="eis3">High</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis4" name="eis" value="e3"> <label for="eis4">Boost</label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis5" name="eis" value="e4"> <label for="eis5">Auto<sup>11</sup></label>&nbsp;&nbsp;&nbsp;
+	<input type="radio" id="eis6" name="eis" value="" checked> <label for="eis6">not set</label><br><br>
+</div>
+
 <div id="settingsFOV">
 <b>Lens:</b>
   <input type="radio" id="f1" name="fov" value="fW"> <label for="f1">Wide </label>&nbsp;&nbsp;
@@ -236,16 +247,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="nightexp6" name="nightexp" value="e20"> <label for="nightexp6">20s </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp7" name="nightexp" value="e30"> <label for="nightexp7">30s </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp8" name="nightexp" value="" checked> <label for="nightexp8"> not set</label><br><br>
-</div>
-
-<div id="settingsVideo">
-<b>Hypersmooth:</b>&nbsp;&nbsp;
-	<input type="radio" id="eis1" name="eis" value="e0"> <label for="eis1">Off</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">On</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="eis3" name="eis" value="e2"> <label for="eis3">High</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="eis4" name="eis" value="e3"> <label for="eis4">Boost</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="eis5" name="eis" value="e4"> <label for="eis5">Auto<sup>11</sup></label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="eis6" name="eis" value="" checked> <label for="eis6">not set</label><br><br>
 </div>
 
 <div id="settingsHindsight">
@@ -594,7 +595,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: April 28, 2024
+updated: June 7, 2024
 
 <script>
 var clipcopy = "";
@@ -1182,7 +1183,22 @@ function startTime() {
 	}
 	else
 	{
-		cmd = dcmd(cmd,"f"); //fov
+		var eis_set = "";
+		var fov_set = "";
+		eis_set = dcmd(eis_set,"eis");
+		fov_set = dcmd(fov_set,"f");
+		
+		if(eis_set.length > 0 && fov_set.length > 0)
+		{	
+			cmd = dcmd(cmd,"eis"); //eis
+			cmd = cmd + "!N"; // delay	
+			cmd = dcmd(cmd,"f"); //fov
+		}
+		else
+		{
+			cmd = dcmd(cmd,"eis"); //eis
+			cmd = dcmd(cmd,"f"); //fov
+		}
 		
 		if(	(document.getElementById("f1").checked === true) || //Wide
 			(document.getElementById("f3").checked === true)/* || //Linear
@@ -1237,7 +1253,6 @@ function startTime() {
 		}
 	}
 	
-	cmd = dcmd(cmd,"eis"); //eis
 	cmd = dcmd(cmd,"hind"); //hindsight
 	cmd = dcmd(cmd,"dur"); //duration
 	cmd = dcmd(cmd,"all"); //auto low light	
