@@ -12,7 +12,7 @@ your GoPro, this update simply adds more features.  Safe to install, safe to use
 Download the GoPro Labs firmware for current shipping cameras:
 - [HERO12 Black](https://bit.ly/LABS_H12_2_20_70) - v2.20.70, March 2024
 - [HERO11 Black](https://bit.ly/LABS_H11_2_30_70) - v2.30.70, March 2024
-- [HERO11 Black Mini](https://bit.ly/LABS_M11_2_50_71) - v2.50.71, June 2024
+- [HERO11 Black Mini](https://bit.ly/LABS_M11_2_50_71b) - v2.50.71, June 2024
 - [HERO10 Black](https://bit.ly/LABS_H10_1_62_70) - v1.62.70, May 2024
 - [GoPro MAX](https://bit.ly/LABS_MAX_2_00_75) - v2.00.75, April 2023
 
@@ -98,7 +98,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Trigger - USB Power](https://gopro.github.io/labs/control/usb)                             | Yes     | Yes/No  | Yes/No  | Yes | Yes |     | Yes |
 | [Upload scripting](https://gopro.github.io/labs/control/dailytl)                            | Yes     | Yes     | Yes     | Yes |     |     |     |
 | [USB power trust override](https://gopro.github.io/labs/control/extensions)                 | Yes     | Yes     | Yes/No  |     |     |     |     |
-| [Visual Scripting Blockly](https://gopro.github.io/labs/build)                              | Yes     | Yes     |         |     |     |     | Yes |
+| [Visual Scripting Blockly](https://gopro.github.io/labs/build)                              | Yes     | Yes     | Yes/No  |     |     |     | Yes |
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | Yes     | Yes     | Yes     |     | Yes |     | Yes |
 | [Wider Color Gamut](https://gopro.github.io/labs/control/extensions)                        | Yes     | Yes     |         |     |     |     |     |
 | [White Balance Lock](https://gopro.github.io/labs/control/extensions)                       | Yes     | Yes     |         |     |     |     |     |
@@ -107,4 +107,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](docs/software/).
 
-updated: June 1, 2024<br>
+updated: June 13, 2024<br>
