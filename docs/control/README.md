@@ -53,10 +53,12 @@ and as a mobile app:<br>
 * **HERO8-12/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-12** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
 * **HERO10-12** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
-* **ALL** - <span style="color:steelblue">**UPDATED**</span> Dozens more [**extensions**](./extensions) via QR Code
+
+## Full List of Extensions
+* **All Labs cameras** - <span style="color:steelblue">**UPDATED**</span> Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
 ## Metadata Extraction
-* **ALL** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
+* **ALL cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 
 <!--
 ## Features Phased Out

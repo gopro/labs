@@ -13,16 +13,23 @@
         }
 </style>
 
-## Metadata Features
+## Extensions and Metadata Features
 
-These new features are stored in your camera's metadata, this metadata is helpful for detemining what features are used per clip.
+All camera extensions are stored in your camera's metadata, this metadata is helpful for detemining what features are used per clip.
 The metadata, and the features it enables, can be [extracted with this page](../metadata).
 
-All metadata QR commands are written in the form oM**wxzy**=value(s) or !M**wxzy**=value(s) -- where the four character code (4CC) 
-**wxzy** is under your control, along with the data it stores. The **!M** version will permanently store the metadata, and the **oM** 
-will store it for only this power-on session. Metadata is available to flag your files for special uses, or just to label the [camera owner](../owner). 
-Some particular 4CCs will also change camera behavior and/or enable features. Here is a list of additional metadata driven controls: 
+All metadata QR commands are written in the form <b>$wxzy</b>=value(s) or <b>*wxzy</b>=value(s) -- where the four character code (4CC) 
+**wxzy** is under your control, along with the data it stores. All camera support the <b>!Mwxzy=</b> version will permanently store the metadata, and the **oMwxzy=** 
+will store it for only this power-on session. HERO10 or newer support the simplified <b>*wxzy=</b> and <b>$wxzy=</b> notation for permanent and temporary storage. 
+Camera Metadata is available to flag your files for special uses, or just to label the [camera owner](../owner). 
+Some particular 4CCs will also change camera behavior and/or enable features. 
 
+Here is a list of additional metadata driven camera extensions: 
+
+
+### **HERO12 cameras**
+
+- **PRES=x,name** - Added creating, naming and sharing presets where x 0-18 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
 
 
 ### **HERO12/11/Mini cameras**
@@ -54,6 +61,9 @@ Up to 8 guides supported at once. e.g. GUID=1.777 will enable a 16:9 guide. GUID
 the number relates to how often the record time or shooting mode is displayed (values 1 thru 6, 1 - displays exposure more, 6 - record time more.)
 <br>![EXPSnew.jpg](EXPSnew.jpg) ![EXPSmini.jpg](EXPSmini.jpg)
 - **EXPX=x** and **EXPN=n** - exposure shutter time mi(n) and ma(x). e.g. oMEXPX=48 (for 1/48) and oMEXPN=500 (for 1/500)
+- **EXPQ=x** - exposure Quick shutter, same as $EXPX=x$EXPN=x, setting min and max shutter to the same value
+- **FEAT=x** - Display the permanent Labs feature active for x seconds. It is easy to miss the start-up message, this QR command redisplays that message.
+- **GRAB=x** - Screen grab 'x'-frames, grab next 'x' Labs overlays - frame grab the UI. Useful for education and bug reporting.
 - **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram. 
 A negative x-value will place the histograme on the front screen. e.g. oMHSTP=1,83,67 or oMHSTP=-3,55,87.
 <br>![HSTPfront.jpg](HSTPfront.jpg)
@@ -74,7 +84,7 @@ Also a noiser image will need a higher-bitrate to store the additional informati
 - **BERS=x** - 1 - Bypass ERS compensation. 2 - Bypass ERS only with stablization disabled. Not commonly used.
 - **IWFR=1** - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. Not commonly used.
 - **TUSB=1** - Trust USB power.  Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. This can help with some USB power sources that the camera can reject, but are otherwise sufficient to run all camera operations. If you use TUSB with an inadequate power source, expect capture failures.  
-
+- **STDL=x** - Start Delay is milliseconds (default 2000ms, wait before any other commands.) $STDL=100 for less wait. Experimental to improve scripting performance.
 
 Note: the scripting has had a significant update in the March '23 firmware. See section [Assignments, Variables and Math](../actions)
 
@@ -122,7 +132,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 - **WAKE=2** - (HERO8/10/11/12 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 	
 ### **HERO12/11/10/9 & 8** - Overlay extensions
-Old GP1 camera support overlays in video and video time-lapse modes. Overlays are not supported in Photo mode.
+Older GP1 based cameras support overlays in video and video time-lapse modes. Overlays are not supported in Photo mode.
 
 #### GP2 limitations - Video Modes
 - Resolution: 1080 Frame Rates: 24, 30, 60, 120 Aspect Ratios: 16:9 
@@ -186,7 +196,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Nov 19, 2023<br>
+updated: June 13, 2024<br>
 
 [Learn more](..) on QR Control
 
