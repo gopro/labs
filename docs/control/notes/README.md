@@ -302,6 +302,13 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 ## MAX
 
+### 2.02.70 - July 12, 2024
+- Improved QR Code scanning on complex code in 360 mode.
+- Improved the Labs fonts for LCD and Overlays.
+- Latest logic for scripting
+- Support for $ and * commands (etc. *BITR=90 and $FEAT=5)  
+- Added *WAKE=2 support (boot on power)
+
 ### 2.00.75 - Apr 27, 2023
 - Updates to the new Labs script language recently released for HERO11 Black and Mini. This allows for If-This-Then-That camera for customize 
    camera triggers using a good range of system properties like: acceleration and gyroscope levels, battery level, GPS distance 
@@ -491,6 +498,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: June 2, 2024
+updated: July 12, 2024
 
 [Learn more](..) on QR Control
