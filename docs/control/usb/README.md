@@ -52,7 +52,7 @@ The Script above was developed using Blocky and visual coding tool configured fo
 
 ![ScriptDemo+XML.png](ScriptDemo+XML.png)
 
-If you load this PNG image (of the script), into [**Visual Script Tool**](https://gopro.github.io/labs/build/) via the "Import image", you can enhance it further. 
+If you save the above PNG image (of the script), and load that into [**Visual Script Tool**](https://gopro.github.io/labs/build/) via the "Import image", you can enhance it further. 
 
 ![importImage.png](importImage.png)
 
