@@ -13,17 +13,23 @@
         }
 </style>
 
-The camera can use the switching on of USB power to boot the camera, and perform an action of your choice.
+The camera can use the switching on of USB power to boot the camera, and auto capture upon boot.
 
-The command to perform: <input type="text" id="addcmd" value="!S">  e.g. **!S** Will start capture in the camera's default mode. You can make you own command using many of the features within the [**GoPro QR Code Creator**](../custom).
-
-Start command <input type="range" style="width: 200px;" id="tlsec" name="tlsec" min="0" max="60" value="0"><label for="tlsec"></label>&nbsp;&nbsp;<b id="secstext"></b> seconds after USB power,<br> 
-and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlendsec" min="0" max="60" value="2"><label for="tlendsec"></label>&nbsp;&nbsp;<b id="secsendtext"></b> seconds after USB power is off.
+End capture after <input type="range" style="width: 200px;" id="tlendsec" name="tlendsec" min="0" max="60" value="2"><label for="tlendsec"></label>&nbsp;&nbsp;<b id="secsendtext"></b> seconds after USB power is off.
 
 **Note:** A battery is required, as the camera needs close captured video when power is removed. Unfortunately this means your battery will eventually discharge, so it is best to have a spare battery if you intended to used this feature as a dedicated dash-cam.  
 
-<input type="checkbox" id="repeat" name="repeat" checked> 
-<label for="repeat">Repeat for the next USB power on event</label><br>
+<input type="checkbox" id="enablenew" name="enablenew" checked> 
+<label for="enablenew">Enable for newer Cameras: MAX, HERO10, 11, 11Mini & 12</label><br>
+
+<div id="newer">
+Once scanned, power off the camera. Now the camera will start with USB power, end capture and shutdown with USB power off. You can temporarily cancel any capture with the shutter button, power on with USB power, full manual camera control is restored.<br>
+<br>
+<input type="checkbox" id="usefast" name="usefast"> 
+<label for="usefast">Enable a faster Labs boot.</label><br>  
+<input type="checkbox" id="disablenew" name="disablenew"> 
+<label for="disablenew">Disable the USB trigger.</label><br>   
+</div>
 
 <div id="qrcode_txt" style="width: 360px">
  <center>
@@ -38,9 +44,10 @@ and end after <input type="range" style="width: 200px;" id="tlendsec" name="tlen
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
-**Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10, HERO11, HERO12 and MAX 
-        
-## ver 1.04
+**Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10, HERO11, 11Mini, HERO12 and MAX         
+
+updated: August 1, 2024
+
 [More features](..) for Labs enabled cameras
 
 <script>
@@ -50,6 +57,20 @@ var cmd = "oC15dTmNLeA";
 var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
+
+function dset(label, on) {
+		var settings = document.getElementById(label);
+		if(on === true)
+		{
+			if (settings.style.display === 'none') 
+				settings.style.display = 'block';
+		}
+		else
+		{
+			settings.style.display = 'none';
+		}
+}
+
 
 function dcmd(cmd, id) {
     var x;
@@ -97,15 +118,15 @@ function checkTime(i) {
 
 function timeLoop()
 {
-  if(document.getElementById("tlsec") !== null)
+  if(document.getElementById("tlendsec") !== null)
   {
 	cmd = "";
 				
-	var secs = parseInt(document.getElementById("tlsec").value);	
-	document.getElementById("secstext").innerHTML = secs;	
+	var secs = 0;	
 		
-	var endsecs = parseInt(document.getElementById("tlendsec").value);	
+	var endsecs = parseInt(document.getElementById("tlendsec").value);
 	endsecs *= 5;
+	if(endsecs == 0) endsecs = 1; 
 	document.getElementById("secsendtext").innerHTML = endsecs;	
 	
 	if(secs > 0)
@@ -113,22 +134,57 @@ function timeLoop()
 	else
 		cmd = cmd + "!uN";
 		
-	if(document.getElementById("addcmd") !== null)
-	{
-		cmd = cmd + document.getElementById("addcmd").value;
-	}
+	cmd = cmd + "!S";
 	
 	if(endsecs > 0)
 		cmd = cmd + "!u" + endsecs + "E";	
 	else
 		cmd = cmd + "!uE";
+    
+	cmd = cmd + "!R";
 	
-    if(document.getElementById("repeat") !== null)
+    if(document.getElementById("enablenew") !== null)
     {
-      if(document.getElementById("repeat").checked === true)
+      if(document.getElementById("enablenew").checked === true)
       {
-        cmd = cmd + "!R";
+		dset("newer",true);
+		if(document.getElementById("disablenew").checked === true)
+		{
+			if(document.getElementById("usefast").checked === true)
+			{
+				cmd = "*WAKE=0*FAST=0*BOOT=0";
+			}
+			else
+			{
+				cmd = "*WAKE=0*BOOT=0";
+			}
+		}
+		else
+		{
+			//*WAKE=2*BOOT="!Lbt"!SAVEbt=<u0!X<r0!S>u0=At:B<u0>r0=Bt:B+=B-A>B9>r0!E+!1N+!1O<r0!X!R10
+			
+			if(document.getElementById("usefast").checked === true)
+			{
+				cmd = "*FAST=1";
+			}
+			else
+			{
+				cmd = "*FAST=0";
+			}
+			cmd = cmd + "*WAKE=2*BOOT=\"!Lbt\"!SAVEbt=";
+			cmd = cmd + "<u0!X";
+			cmd = cmd + "<r0!S";
+			cmd = cmd + ">u0=At:B";
+			cmd = cmd + "<u0>r0=Bt:B+=B-A"
+			cmd = cmd + ">B" + endsecs;
+			cmd = cmd + ">r0!E+!1N+!1O";
+			cmd = cmd + "<r0!X!R10";
+		}
       }
+	  else
+	  {
+	  	dset("newer",false);
+	  }
     }
   }
   
@@ -143,8 +199,8 @@ function timeLoop()
 	
   if(changed === true)
   {
-	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=USB%20Power%20Trigger";
+	document.getElementById("qrtext").innerHTML = cmd.replace(/</g, '&lt;');
+	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + encodeURIComponent(cmd) + "&title=USB%20Power%20Trigger";
 	document.getElementById("urltext").innerHTML = clipcopy;
 	changed = false;
   }
