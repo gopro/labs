@@ -46,6 +46,16 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 **Compatibility:** Labs enabled HERO7 (limited), HERO8, HERO9, HERO10, HERO11, 11Mini, HERO12 and MAX         
 
+## BACKGROUND
+
+The Script above was developed using Blocky and visual coding tool configured for Labs scripts.
+
+![ScriptDemo+XML.png](ScriptDemo+XML.png)
+
+If you load this PNG image (of the script), into [**Visual Script Tool**](https://gopro.github.io/labs/build/) via the "Import image", you can enhance it further. 
+
+![importImage.png](importImage.png)
+
 updated: August 1, 2024
 
 [More features](..) for Labs enabled cameras
