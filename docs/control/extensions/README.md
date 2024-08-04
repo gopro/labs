@@ -88,6 +88,10 @@ Also a noiser image will need a higher-bitrate to store the additional informati
 
 Note: the scripting has had a significant update in the March '23 firmware. See section [Assignments, Variables and Math](../actions)
 
+### **HERO11 only (GPS feature)**
+
+- **WG84=1** to switch GPS altitude from Mean Sea Level to WGS84 elipsoid.
+
 ### **HERO12/11/10 and Bones cameras** - Advanced features
 
 - **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
@@ -98,7 +102,10 @@ Note: the scripting has had a significant update in the March '23 firmware. See 
 - **DAUD=1** - Disable audio, all video created video files will have no audio. Application: high bit-rate drones video. (not supported on HERO12)
 - **DLRV=1** - Disable LRV, all videos will have an MP4 only. This is not good idea for Quik uses, as the LRV video helps in video preview. Note: There is currently a bug in this feature (HERO10 as requires a restart after two captures.) (not supported on H12)
 - **EVBS=x** Global EV comp bias for all video modes that also works with Live-Stream and web-cam, and can be changed during capture if QRDR=1 is set. As this is global offset, it will add to EV comp settings with your presets.  So if EVBS=-1 and a preset has EV set to -0.5, the effective EV will be -1.5.
+- **FAST=1** For fewer Labs notifications on boot. Useful for any script that repeats after a shutdown, and the script will run sooner, and reducting battery consumption.
+- **FONT=1** Select the old fonts (if you only want the dot matrix font)
 - **FRNT=1** For front screen equipped cameras, display most LCD Labs message on the front screen. Practicular useful for FPV useful not using the touchscreen.  e.g.  !MFRNT=1!MEXPS=1 will display the ISO and shutter speed on the front LCD.
+- **STDL=x** All scripts running the **!S** start command, will wait a second or two before the next action. STDL allow you to set this wait time in millisecond, for scripts needing a faster reponse time.
 - **TONE=0,1,2 or 3** - Tone-mapping controls. Tone-mapping is the in-camera contrast control, dynamically adjusting the video to look good under a range of lighting conditions. 
 HERO10 adds LTM - Local Tone-Mapping, enabling you to see details in leaves and grass textures, way better than all previous GoPro's. HERO9 and earlier, used GTM, Global 
 Tone-Mapping which adjusts the contrast curve for the image automatically. If you wanted to do these in post, you could use Protune Flat, where all in-camera tone-mapping is 
@@ -196,7 +203,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: June 13, 2024<br>
+updated: August 4, 2024<br>
 
 [Learn more](..) on QR Control
 
