@@ -56,7 +56,7 @@ If you save the above PNG image (of the script), and load that into [**Visual Sc
 
 ![importImage.png](importImage.png)
 
-updated: August 1, 2024
+updated: August 4, 2024
 
 [More features](..) for Labs enabled cameras
 
@@ -179,7 +179,7 @@ function timeLoop()
 			}
 			else
 			{
-				cmd = "*FAST=0";
+				cmd = "";
 			}
 			cmd = cmd + "*WAKE=2*BOOT=\"!Lbt\"!SAVEbt=";
 			cmd = cmd + "<u0!X";
