@@ -54,7 +54,7 @@ used between commands.
  * **dT** - last used Timelapse mode
   
 ### Resolutions: 
-Resolutions are also in the format rX(Y) - where X is the first character of the horizon resolution, and the optional Y is aspect ratio, T - Tall 4:3, X - eXtreme 8:7, nothing is 16:9
+Resolutions are also in the format rX(Y) - where X is the first character of the resolution, and the optional Y is aspect ratio, T - Tall 4:3, X - eXtreme 8:7, nothing is 16:9
  * **r1** or **r10** or **r1080**  - 1920x1080
  * **r1T** or **r14** or **r1440**  - 1920x1440
  * **r2** or **r27** - for 2.7K 16x9
