@@ -254,25 +254,27 @@ the camera until 8am, and then start capture (in the camera's default mode.) We 
 time is greater than 6am and less than 7pm, set mode Video, else set mode NightLaspe, then start.  You can start pre-programming actions with QR codes.
 
 ### The Full List of Actions
-* **!**time**S** - Start at exactly **time** if in hh:mm form, or after n seconds. 
-* **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
+* **!**time**Bx** - <sup>H10-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Cx** - <sup>H10-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
+* **!**time**C or CA-CZ** - <sup>H13</sup>Clear location distance for system variables c, c:A thru c:Z
+* **!**time**Dx** - <sup>H10-11</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
 * **!**time**E** - End at **time** if in hh:mm form, or after n seconds.
-* **!**time**R** - Repeat the whole command.
-* **!**time**Rx** - <sup>H11-12</sup> Repeat the command starting at position x (i.e. a goto command).
+* **!**time**Fx** - Frame Grab (LCD) at **time** - 'x' grab next x Labs messages.
+* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local file, requires a previously successful **!W** command <sup>8/9/10/11</sup>
 * **!**time**N** - No Action until exact **time**, useful if you just need a pause.
 * **!**time**NQ** - No Action until at approximately **time**.
 * **!**time**O** - Off, shutdown the camera.
 * **!**time**OR** - shutdown and restart the camera.
-* **!**time**U** - Attempt a network contention and Upload <sup>9/10/11</sup>.
-* **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
-* **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local file, requires a previously successful **!W** command <sup>8/9/10/11</sup>
-* **!**time**Dx** - <sup>H10-11</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
+* **!**time**R** - Repeat the whole command.
+* **!**time**Rx** - <sup>H11-12</sup> Repeat the command starting at position x (i.e. a goto command).
+* **!**time**S** - Start at exactly **time** if in hh:mm form, or after n seconds. 
+* **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
 * **!**time**TR** - <sup>H11-12</sup>  **!TR* - switch active TimeWarp to Realtime (or slow motion)
 * **!**time**TN** - <sup>H11-12</sup>  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
-* **!**time**Bx** - <sup>H10-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
-* **!**time**Zx** - <sup>H10-12</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
+* **!**time**U** - Attempt a network contention and Upload <sup>9/10/11</sup>.
+* **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**X** - <sup>H10-12/MAX</sup> Exit script. 
-* **!**time**Cx** - <sup>H10-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
+* **!**time**Zx** - <sup>H10-12</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
 
 ### Capture Triggers (Classic, invent your own below.)
 * **!**time**SMs-t** - Start Motion detection with start sensitivity 's' and stop sensitivity 't' -- 't' field is optional.
@@ -338,9 +340,9 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **64BT** H8-10/MAX: 12GB Chapter sizes on HERO8/9/10 and MAX cameras (default on H11.) Note: Will not be active for QuickCaptures. Input Data: 1-enable, 0-disable WARNING: Larger chapters will not playback on camera or support USB transfers, but are compatible with desktop tools. Permanent required.",
 * **ARCH** H8-12/MAX: Archive mode: an ultra simplified video camera mode for novices documenting critical events, where you don’t want the camera mode modified. Either button will start and stop video capture. Input Data: 1-enable, 0-disable WARNING: only removable via the disable command. Permanent required.",
 * **AUDS** H10-12: Audio Level: displays the current estimate of the sound pressure level in dB. Input Data: 1-enable, 0-disable.",
-* **BASE** H8-10/MAX: Base file name change, adding to beginning of the filename. Input: H10/11 supports wildcards within [ ]: like [yyyy-mm-dd] or [HH-MM-SS]  e.g. A-[yyyymmddHHMMSS] WARNING: GoPro App and cloud will not support renamed files.",
+* **BASE** H8-10/MAX: Base file name change, adding to beginning of the filename. Input: H10-12 supports wildcards within [ ]: like [yyyy-mm-dd] or [HH-MM-SS]  e.g. A-[yyyymmddHHMMSS] WARNING: GoPro App and cloud will not support renamed files.",
 * **BERS** H10-12: Bypass ERS compensation, extremely rare usecases. Input Data: 0-display, 1-enable, 2-enable only with EIS off",
-* **BIAS** H9 only: Bias is like EV Compensation, but it can only be used after recording has began. It is a hack designed to tweak exposure during a livestream or webcam session. Input Data: Number of stops between -6 and 6, supports half stops like 3.5.",
+* **BIAS** H9 only (new cameras use EVBS): Bias is like EV Compensation, but it can only be used after recording has began. It is a hack designed to tweak exposure during a livestream or webcam session. Input Data: Number of stops between -6 and 6, supports half stops like 3.5.",
 * **BITR** H10-12: set the compression in Mb/s for the Protune High Bitrate setting. Normally this would be around 100Mb/s, however higher (or lower) rates may be achieved with newer SD Cards.Input Data: MB/s from 2 to 200.",
 * **BITH** H10-12: set the compression for LRVs in Mb/s. Normally this would be around 4Mb/s, however higher (or lower) rates may be achieved with newer SD Cards. Input Data: MB/s from 1 to 100.",
 * **BITL** H11-12: controlling the livestream maximum bitrate (up to 8Mbit/s). Input Data: MB/s from 1 to 8.",
@@ -402,7 +404,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **WAKE** H9-12: Conditional wake on any power addition. Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure.  Input Data: 1-wake if there is a delay action pending, 2-wake on power, 0-disable",
 * **WBLK** H11-12: White balance Lock upon capture. Allows the convenience of auto white balance, without the risk of WB change during capture. Input Data: 1-enable WB Lock, 0-disable",
 * **WIDE** H11-12: A wide gamut color profile, this supports all in-camera white balancing. Like using white balance Native, without as much post color work. Input Data: 1-enable WIDE gamut, 0-disable",
-
+* **ZONE** H9-12: Set the time zone for use with SYNC. Input Data: time zone offset in minutes.
 
 ## Macro support (since March, '24)
 Added support for macros, or crude scripting subroutines. This expands the potential complexity for QR scripting, as the entire script is no longer limited to 255 characters. 
