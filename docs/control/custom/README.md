@@ -930,7 +930,7 @@ function startTime() {
 			icon_num = Math.trunc(event.offsetX/70) + 6 * Math.trunc(event.offsetY/70);
 			
 			if(icon_num < 0) icon_num = 0;
-			if(icon_num > 31) icon_num = 31;
+			if(icon_num > 32) icon_num = 32;
 			
 			last_icon_num = icon_num;
 		});
