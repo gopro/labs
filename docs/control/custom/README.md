@@ -955,13 +955,6 @@ function startTime() {
 			newpresent = "";
 
 		dset("namedPresets", document.getElementById("np").checked);
-
-		for (i = 1; i < 25; i++) { 
-			var mode = "m"+i;
-			x = document.getElementById(mode).checked;
-			if( x === true)
-				checkedmode = i;
-		}
 	}
 	
 	if(document.getElementById("sm") !== null)
@@ -1097,7 +1090,8 @@ function startTime() {
 	{
 		if(document.getElementById("np").checked === true)
 		{
-			cmd = cmd + newpresent;
+			cmd = cmd + newpresent;	
+			cmd = dcmd(cmd,"m");  // set mode
 		}
 	}	
 	
