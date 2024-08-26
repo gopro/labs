@@ -254,7 +254,7 @@ the camera until 8am, and then start capture (in the camera's default mode.) We 
 time is greater than 6am and less than 7pm, set mode Video, else set mode NightLaspe, then start.  You can start pre-programming actions with QR codes.
 
 ### The Full List of Actions
-* **!**time**Bx** - <sup>H10-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Bx** - <sup>H11-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
 * **!**time**Cx** - <sup>H10-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
 * **!**time**C or CA-CZ** - <sup>H13</sup>Clear location distance for system variables c, c:A thru c:Z
 * **!**time**Dx** - <sup>H10-11</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
@@ -618,6 +618,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: August 7, 2024
+updated: August 25, 2024
 
 [Learn more](..) on QR Control
