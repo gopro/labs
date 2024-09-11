@@ -26,8 +26,26 @@ Some particular 4CCs will also change camera behavior and/or enable features.
 
 Here is a list of additional metadata driven camera extensions: 
 
+### **HERO13 cameras**
 
-### **HERO12 cameras**
+- **DIST=x** - Time-Lapse Video Distance, x is a GPS travel distance between exposures, rather than time for an in-camera computed timelapse. When x=1 10m will be used.
+- **DIVE=1** - optimizing the Hypersmooth stabilization for underwater. It might be no surprise, but HyperSmooth is designed for the camera operation above the water's surface, 
+underwater there is typically less camera shake, and HS is still 70% effective at removing shake. The hack adapts HS to use the refractive index (RI)
+of water (defaults to 1.335, good for fresh and command salt water), to remove closer to 100% of unwanted shake. Note: if you know your area's RI is significantly different, 
+use DIVE=r, where r can be 1.3 to 1.45 is supported.
+- **WARM=x** - WARM maybe useful with DIVE, so you can improve the red respond for deeper dives. x range -50 to 100. Reducing or increasing red signal only.
+- **COOL=x** - COOL maybe useful with DIVE, so you can decrease the blue respond for deeper dives. x range -50 to 100. Reducing or increasing blue signal only.
+- **MMSK=x** - for auto generating a mask for the new motion detector.
+- **OLTC=x** - frame offset to LTC, enabling calibration you are seeing any offset.
+- **RLTC=1** - to enable LTC timecode reading from line-in audio.
+- **GOAL=x** - 0 to 60 (or x) MPH speed timing. Not for precision timing, just for fun. Drive safe. It currents a JPEG in MISC for you speed award. All very crude, from a recent hackathon.
+- **GPSL=x** - to enabled continous GPS location logging, even when not capturing, so the capture can log more of you path and adventures. Path is saved by day into 
+MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meter from the last stored location.
+- **STOP=x** - Stop Motion where is x the number for frame to store per shutter press. Works great with the remote. Mode button ends capture.  
+- **ONIO=x** - Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.
+
+
+### **HERO12/13 cameras**
 
 - **PRES=x,name** - Added creating, naming and sharing presets where x 0-18 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
 
