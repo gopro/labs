@@ -25,7 +25,7 @@ This trigger uses the SPL of the audio detected start and stop captures.  Exampl
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="repeat" name="repeat" checked> 
 <label for="repeat">Repeat SPL triggered capture.</label><br>
 
-Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9/10/11. 
+Note: you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9-13. 
  
 
 <div id="qrcode_txt" style="width: 360px">
@@ -58,9 +58,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 ![Feedback](feedback.jpg)
 
-**Compatibility:** Labs enabled HERO9, HERO10, HERO11, HERO12 and BONES only
+**Compatibility:** Labs enabled HERO9-13 and BONES
         
-updated: Sept 13, 2023
+updated: September 10, 2024
 
 [More features](..) for Labs enabled cameras
 

@@ -29,9 +29,9 @@ NDF 60: <b id="tctext60"></b>   DF 60: <b id="dftext60"></b><br>
 </center>
 QR Command: <b id="qrtext"></b>
 
-**Compatibility:** Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, HERO12, MAX and BONES 
+**Compatibility:** Labs enabled HERO5 Session, HERO7-13, MAX and BONES 
         
-updated: Sept 13, 2023
+updated: September 10, 2024
 
 [Learn more](..) back to QR Controls
 

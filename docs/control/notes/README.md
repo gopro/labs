@@ -2,6 +2,57 @@
 
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
+
+## HERO13 Black 
+
+### 1.10.70 - September 10, 2024
+- Added STOP=x for Stop Motion where is x the number for frame to store per shutter press. Works great with the remote. Mode button ends capture.  
+- Added ONIO=x Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.  
+- Added DIST=x Time-Lapse Video Distance, x is a GPS travel distance, rather than time for an in-camera computed timelapse. When x=1 10m will be used.   
+- Added DIVE=1 - optimizing the Hypersmooth stabilization for underwater. The water refractive index defaults to 1.335 (good for fresh and command salt water), if you know your area RI is significantly different DIVE=r where r can be 1.3 to 1.45 is supported.
+- Added WARM=x and COOL=x to offset white balance.  WARM is good to use with DIVE, so you can improve the red respond for deeper dives. 
+- Added RLTC=1 to enable LTC timecode reading from line-in audio 
+- Added OLTC=x frame offset to LTC, enabling calibration you are seeing any offset.
+- Added MMSK=time, for auto generating a mask for the new motion detector
+- Added GOAL=x - 0 to 60 (or x) MPH speed timing. Not for precision timing, just for fun. Drive safe.
+- Added GPSL=x to enabled continous GPS location logging, even when not capturing, so the capture can log more of you path and adventures. 
+    Path is saved by day into MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meter from the last stored location. 
+- Added custom Labs setting within Preset names. e.g. ```*DIVE=1*BITR=160``` (standard formatting) or ```DIVE 24HZ``` or ```24HZ,DIVE,NR01``` (space or comma delimited). 
+    For advanced Labs users, preset names can call macros. Warning: don't put permanent settings or actions with presets, could brick your camera. 
+	Safe example 1: ```*OVLY="$BURN='(0,20)[BRHH:MM:SSaa mm-dd-yyyy ]'"```   <- Enable overlay macro
+	                ```*OVLy="$BURN=''"```   <- Disable overlay macro, required to disable when leaving/deselecting a preset
+	                ```$PRES="0,OVLY"``` <- Now this OVLY preset will enable overlays for that preset alone.
+	                as one cmd: ```*OVLY="$BURN='(0,20)[BRHH:MM:SSaa mm-dd-yyyy ]'"*OVLy="$BURN=''"$PRES="0,OVLY"```
+	Safe example 2: ```*DVMD="$DIVE=1$PMSG='Dive Mode'!R7"```  <- Enabled and display Dive Mode on the LCD
+	                ```*DVMd="$DIVE=0$PMSG=''"``` <- disable dive mode
+	                ```$PRES="0,DVMD"``` <- Now this DVMD preset will enable Dive mode, and display that on the LCD automatically.
+	                as one cmd: ```*DVMD="$DIVE=1$PMSG='Dive Mode'!R7"*DVMd="$DIVE=0$PMSG=''"$PRES="0,DVMD"```
+- Added !A for appending frames for a new controlled video timelapse.  Stop motion, GPS interval Lapse etc.
+- Added !C to Clear last GSP distance so command like this are simplier >c10!C+!A!R //(if distance > 10m) Clear()+Append() repeat;
+- Added support for !R-x relative gotos. e.g. "Hello"!N!R-2 keep back 2 character before !R.
+- Added command p.3 for 3s interval support
+- Added command p4 for a custom 4fps Time-lapse Video interval (0.25s)
+- Added 24.0 LTC Timecode support
+- Added !SAVEfile=0 - to erase MISC/file
+- Added oNx commands for Noise Reduction controls - oN0 - High/default, oN1 - Medium, oN2 - Low.
+- Added script variables b:T - battery temperature, p:T - processor temperature
+- Added mVB - mode Video Burst command
+- Added oX0, oX2 to oX9 - Standard, MLM2.0, MLM2.5, Macro, future, ND4, ND8, ND16, ND32
+- Added r4S - new Square 4K mode for the Ulta Wide lens mode (and MLM2.)
+- Added variables a:X, a:Y, a:Z and g:X, g:Y, g:Z, for accelerometer and gyro single axis measurements 
+- Added commands r1V and r4V, for 1080p and 4K vertical video modes.
+- Improved the new style motion detection, faster and more precise.  System variable m is the percentage of the frame in motion. 
+- Improved QR Scan will a Labs script is already running.
+- Improved QR Sanning of complex codes in different lens modes. 
+- Improved handling of utf-8 characters in QR Codes.
+- Improved long form wake reliability
+- Improved archive messages
+- Improved AUDS, auto start voice control (required for SPL outside of video recording) 
+- Fixed subroutine handling of !R repeats
+- Fixed commands running too fast, occasionally missing steps or sleeps
+- Fixed BOOT commands to only happen during boot, so that when scan in a new boot command, it will not run immediately
+- Fixed attempted file I/O with SD Card removed.
+
 ## HERO12 Black 
 
 ### 2.20.70 - March 28, 2024
@@ -498,6 +549,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: July 12, 2024
+updated: September 10, 2024
 
 [Learn more](..) on QR Control

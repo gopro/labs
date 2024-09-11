@@ -192,6 +192,7 @@ Option (‘o’) commands:
 - Front Screen control - **oFxy** - (see list below)
 - GPS Options (HERO11 v2.1) - **oG0** - off, **oG1** - on
 - Language - **oL**x - **0** English USA, **01** English UK, **02** English Aus, **03** English India, **1** German, **2** French, **3** Italian, **4** Spanish, **5** Chinese, **6** Japanese, **7** Korean, **8** Portuaguese, **9** Russian, **91** Swedish
+- Noise Reduction control (HERO13) - **oN0** High/Default (less noise/detail),  **oN1** Medium,  **oN2** Low (more noise/detail),  
 - Quick Capture (HERO11 v2.1) - **oQ0** - off, **oQ1** - on
 - Rotation, Camera Orientation - **oR0** - Auto, **oR1** - Up, **oR2** - Down, **oR2** - Left, **oR3** - Right
 - Screen Auto Off - **oS0** - Never, **oS1** - 1min ... **oS3** - 3min

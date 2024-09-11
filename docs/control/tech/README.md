@@ -8,7 +8,7 @@ Breaking-down how that command works, firstly all GoPro QR settings commands are
 in these groups mV r4 p60 x-.5 cF w55. This is what each command group means:
 
 * **mV** - is shorthand for mode Video - this is the same a swiping the camera to use video mode.
-* **r4** - set resolution to 4K (16:9), r4T (for 4K 4:3) and r4X (for HERO11/12s 8:7) 
+* **r4** - set resolution to 4K (16:9), r4T (for 4K 4:3) and r4X (for HERO11-13s 8:7) 
 * **p60** - set the frame rate to 60 fps 
 * **x-.5** - exposure compensation is set to -0.5
 * **cF** - color Flat
@@ -40,9 +40,9 @@ used between commands.
  * **mNL** - mode Night-Lapse Video (\*\*)
  * **mNP** - mode Night-Lapse Photo (\*\*)
  * **mL** - mode Live-Burst Photo (HERO10 only)
- * **mST** - mode Star Trails (HERO11/12 only)
- * **mLP** - mode Light Painting (HERO11/12 only)
- * **mLT** - mode Vehicle Lights (HERO11/12 only)
+ * **mST** - mode Star Trails (HERO11-13 only)
+ * **mLP** - mode Light Painting (HERO11-13 only)
+ * **mLT** - mode Vehicle Lights (HERO11-13 only)
  
 <b>\* Video Looping:</b> You need to create this preset on camera, before this command will select it.<br>
 <b>\*\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
@@ -57,15 +57,18 @@ used between commands.
 Resolutions are also in the format rX(Y) - where X is the first character of the resolution, and the optional Y is aspect ratio, T - Tall 4:3, X - eXtreme 8:7, nothing is 16:9
  * **r1** or **r10** or **r1080**  - 1920x1080
  * **r1T** or **r14** or **r1440**  - 1920x1440
+ * **r1V*  - 1080x1920 HD Vertical Video (H13)
  * **r2** or **r27** - for 2.7K 16x9
  * **r2T** or **r27T** - for 2.7K Tall the 4x3 mode
  * **r3** - 3K 360° for GoPro MAX
  * **r4** - 4k 16x9
  * **r4T** - 4k Tall, the 4:3 mode
- * **r4X** - 4k eXtreme, the 8:7 mode (H11/12)
+ * **r4X** - 4k eXtreme, the 8:7 mode (H11-13)
+ * **r4S** - 4k Square, the 1:1 mode using Ultra Wide (H13)
+ * **r4V*  - 2160x3840 4K Vertical Video (H13)
  * **r5** - 5.3k for HERO and 5.6K 360° for GoPro MAX
  * **r5T** - 5k Tall, the 4:3 mode (H10)
- * **r5X** - 5k eXtreme, the 8:7 mode (H11/12)
+ * **r5X** - 5k eXtreme, the 8:7 mode (H11-13)
  
 ### Frame rates: 
  * **p24** - 24 fps
@@ -92,8 +95,8 @@ Resolutions are also in the format rX(Y) - where X is the first character of the
  * **fW** - Wide
  * **fL** - Linear
  * **fS** - Superview 
- * **fV** - HyperView (H11/12)
- * **fH** - Horizonal Level + Linear (H9-12)
+ * **fV** - HyperView (H11-13)
+ * **fH** - Horizonal Level + Linear (H9-13)
  * **fX** - SuperMax Wide (Max Lens Mod)
  
 ### Audio (Raw controls): 
@@ -108,7 +111,7 @@ Resolutions are also in the format rX(Y) - where X is the first character of the
 ### Color: 
  * **cF** - Color Flat
  * **cG** - Color Vibrant (old GoPro Color)
- * **cN** - Color Natural (H10/11/12)
+ * **cN** - Color Natural (H10-13)
 
 ### Depth (H11/12 only): 
  * **d0** or **d8** - 8-bit color
@@ -126,11 +129,11 @@ Resolutions are also in the format rX(Y) - where X is the first character of the
  * **eL1** - On
  * **eL2 - eL9** -  Lock after 2 to 9 seconds.
 
-### Hindsight (Video modes H9-12): 
+### Hindsight (Video modes H9-13): 
  * **hS0** - Off     
  * **hS1** - On 15s window
  * **hS2** - On 30s window
- * **hS5** - Experimental Labs H11/12 - 5s window
+ * **hS5** - Experimental Labs H11-13 - 5s window
 
 ### White Balance: 
  * **wA** - Auto White Balance
@@ -197,7 +200,7 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
  * Camera Auto Off - **oC0** - Never, **oC1** - 1min, **oC5** - 5min, **oC15** - 15min, **oC30** - 30min
  * LCDs off now - **oDO**
  * LED control - **oD0** - all off, **oD2** - some on, **oD4** - all on
- * Extern Audio options - **oE1** - Standard Mic, **oE2** - Standard+ Mic, **oE3** - Powered Mic, **oE4** - Powered+ Mic, **oE5** - Line In (HERO10/11/12 only)
+ * Extern Audio options - **oE1** - Standard Mic, **oE2** - Standard+ Mic, **oE3** - Powered Mic, **oE4** - Powered+ Mic, **oE5** - Line In (HERO10-13)
  * Front Screen control - **oFxy** - (see list below)
  * GPS Options (HERO11 v2.1) - **oG0** - off, **oG1** - on
  * Language - **oL**x - **0** English USA, **01** English UK, **02** English Aus, **03** English India, **1** German, **2** French, **3** Italian, **4** Spanish, **5** Chinese, **6** Japanese, **7** Korean, **8** Portuaguese, **9** Russian, **91** Swedish
@@ -208,13 +211,13 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
  * Shortcut Menu on LCD - **oSA**x - Upper Left, **oSB**x - Lower Left, **oSC**x - Upper Right, **oSD**x - Lower Right, **oSR** - reset. Where x is in the list below.
  * Time and date - **oT**yymmddhhmmss.sss
  * Time, daylight savings - **oTD1** for daylight savings on or **oTD0** for off
- * Timezone (H11/12) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
+ * Timezone (H11-13) - **oTZ-7** or **oTZ-420** e.g. -7 hour or -420 minutes timezone offset
  * Volume of Beeps - **oV0** - Mute, **oV1** ... **oV9** (min through max.)
  * Volume Control - **oVC0** - off, **oVC1** - on
  * WiFi Connection - **oW0** - off, **oW1** - on
  * Max Lens Mod -  **oX0** - disabled, **oX1** - MLM original enabled, **oX2** - MLM 2.0 enanled
 
-### GoPro HERO9-12 Front Screen option commands
+### GoPro HERO9-13 Front Screen option commands
  * **oF0 or oFO** - turn the front LCD off
  * **oFU** - UI interface mode info only
  * **oFF** - Full image (image is letterboxed)
@@ -242,7 +245,7 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
 |shutter       |6|interval   |13|timewarp speed|21|nightphoto       |29|
 |bit rate      |7|ISO min    |14|wind noise    |23|trail length     |30|
 
-### HERO11/12 UX modes: (limited, best to use the camera menu)
+### HERO11-13 UX modes: (limited, best to use the camera menu)
 - **mE** - mode Easy
 - **mPR** - mode Pro
 
@@ -254,8 +257,8 @@ the camera until 8am, and then start capture (in the camera's default mode.) We 
 time is greater than 6am and less than 7pm, set mode Video, else set mode NightLaspe, then start.  You can start pre-programming actions with QR codes.
 
 ### The Full List of Actions
-* **!**time**Bx** - <sup>H11-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
-* **!**time**Cx** - <sup>H10-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
+* **!**time**Bx** - <sup>H11-13</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Cx** - <sup>H10-13</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
 * **!**time**C or CA-CZ** - <sup>H13</sup>Clear location distance for system variables c, c:A thru c:Z
 * **!**time**Dx** - <sup>H10-11</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
 * **!**time**E** - End at **time** if in hh:mm form, or after n seconds.
@@ -266,15 +269,15 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * **!**time**O** - Off, shutdown the camera.
 * **!**time**OR** - shutdown and restart the camera.
 * **!**time**R** - Repeat the whole command.
-* **!**time**Rx** - <sup>H11-12</sup> Repeat the command starting at position x (i.e. a goto command).
+* **!**time**Rx** - <sup>H11-13</sup> Repeat the command starting at position x (i.e. a goto command).
 * **!**time**S** - Start at exactly **time** if in hh:mm form, or after n seconds. 
 * **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
-* **!**time**TR** - <sup>H11-12</sup>  **!TR* - switch active TimeWarp to Realtime (or slow motion)
-* **!**time**TN** - <sup>H11-12</sup>  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
+* **!**time**TR** - <sup>H11-13</sup>  **!TR* - switch active TimeWarp to Realtime (or slow motion)
+* **!**time**TN** - <sup>H11-13</sup>  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
 * **!**time**U** - Attempt a network contention and Upload <sup>9/10/11</sup>.
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
-* **!**time**X** - <sup>H10-12/MAX</sup> Exit script. 
-* **!**time**Zx** - <sup>H10-12</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
+* **!**time**X** - <sup>H10-13/MAX</sup> Exit script. 
+* **!**time**Zx** - <sup>H10-13</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
 
 ### Capture Triggers (Classic, invent your own below.)
 * **!**time**SMs-t** - Start Motion detection with start sensitivity 's' and stop sensitivity 't' -- 't' field is optional.
@@ -336,75 +339,75 @@ All metadata in stored in a GPMF format with the MP4, 360 or JPG files, this is 
 The above global metadata can be extracted with this [**demo web tool**](../metadata)
 
 ### Some Four Character Codes are reserved for feature extensions
-* **24HZ** 10-12: enable film standard 24.0 frame, rather than the default broadcast standard 23.976. The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. Input Data: 1-enable, 0-disable",
+* **24HZ** 10-13: enable film standard 24.0 frame, rather than the default broadcast standard 23.976. The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. Input Data: 1-enable, 0-disable",
 * **64BT** H8-10/MAX: 12GB Chapter sizes on HERO8/9/10 and MAX cameras (default on H11.) Note: Will not be active for QuickCaptures. Input Data: 1-enable, 0-disable WARNING: Larger chapters will not playback on camera or support USB transfers, but are compatible with desktop tools. Permanent required.",
-* **ARCH** H8-12/MAX: Archive mode: an ultra simplified video camera mode for novices documenting critical events, where you don’t want the camera mode modified. Either button will start and stop video capture. Input Data: 1-enable, 0-disable WARNING: only removable via the disable command. Permanent required.",
-* **AUDS** H10-12: Audio Level: displays the current estimate of the sound pressure level in dB. Input Data: 1-enable, 0-disable.",
-* **BASE** H8-10/MAX: Base file name change, adding to beginning of the filename. Input: H10-12 supports wildcards within [ ]: like [yyyy-mm-dd] or [HH-MM-SS]  e.g. A-[yyyymmddHHMMSS] WARNING: GoPro App and cloud will not support renamed files.",
-* **BERS** H10-12: Bypass ERS compensation, extremely rare usecases. Input Data: 0-display, 1-enable, 2-enable only with EIS off",
+* **ARCH** H8-13/MAX: Archive mode: an ultra simplified video camera mode for novices documenting critical events, where you don’t want the camera mode modified. Either button will start and stop video capture. Input Data: 1-enable, 0-disable WARNING: only removable via the disable command. Permanent required.",
+* **AUDS** H10-13: Audio Level: displays the current estimate of the sound pressure level in dB. Input Data: 1-enable, 0-disable.",
+* **BASE** H8-10/MAX: Base file name change, adding to beginning of the filename. Input: H10-13 supports wildcards within [ ]: like [yyyy-mm-dd] or [HH-MM-SS]  e.g. A-[yyyymmddHHMMSS] WARNING: GoPro App and cloud will not support renamed files.",
+* **BERS** H10-13: Bypass ERS compensation, extremely rare usecases. Input Data: 0-display, 1-enable, 2-enable only with EIS off",
 * **BIAS** H9 only (new cameras use EVBS): Bias is like EV Compensation, but it can only be used after recording has began. It is a hack designed to tweak exposure during a livestream or webcam session. Input Data: Number of stops between -6 and 6, supports half stops like 3.5.",
-* **BITR** H10-12: set the compression in Mb/s for the Protune High Bitrate setting. Normally this would be around 100Mb/s, however higher (or lower) rates may be achieved with newer SD Cards.Input Data: MB/s from 2 to 200.",
-* **BITH** H10-12: set the compression for LRVs in Mb/s. Normally this would be around 4Mb/s, however higher (or lower) rates may be achieved with newer SD Cards. Input Data: MB/s from 1 to 100.",
-* **BITL** H11-12: controlling the livestream maximum bitrate (up to 8Mbit/s). Input Data: MB/s from 1 to 8.",
-* **BURN** H8-12/MAX: Add date, time and other burn-in text to your video. Input Format (0,height)[yyyy-mm-dd HH:MM:SSaa] examples:   (0,30)Local Time: [HH:MMaa]   (0,26)Local Time: [HH:MM:SSAA]   (0,40)©[yyyy]\ XYZ Inc.   (0,24)Shoot Date [yy/mm/dd]",
-* **BRNP** H8-12/MAX: The burn-in position for overlays or LOGO display. Input Data (select 1 of 8): TL, TC, TR, ML,BL, BC, and BR\nT-Top B-Bottom C-Center L-Left and R-Right.",
-* **BRNT** H8-12/MAX: The overlays or LOGO display time in seconds. e.g. BRNT=0.016 will display the logo or text overlays only on the first frame. Input Data: 0 is unlimited, or 0.01 to 3600 seconds.",
-* **BRNX** H8-12/MAX: Offset the overlays or LOGO display with X,Y pixel coordinates. Input Data: x,y pixel coordinates.e.g. 120,40",
-* **BYPS** "H11-12: Bypass common pop-ups, such as resetting the time and date. Remember to set time and date if you remove the battery. Input Data: 1 to bypass, 0 for normal notifications",
-* **CBAR** H9-12: enable a small 75% saturated color bars for video tools evaluation. Most cameras limit overlays to 4K30, 2.7Kp60 or lower. Input Data: 1 to enable, 0 to disable",
-* **DAMP** H10-12: Control over the auto-exposure damping. Setting the DAMP to 1 is the default, setting to 10 would slow the camera’s exposure adjustments 10X.Input Data: 0.1 to 10000",
-* **DAUD** H10-11: Disable Audio in video captures, all MP4 files will have no audio track. Application: high bit-rate drones video.Input Data: 1 to disable audio, 0 to re-enable",
+* **BITR** H10-13: set the compression in Mb/s for the Protune High Bitrate setting. Normally this would be around 100Mb/s, however higher (or lower) rates may be achieved with newer SD Cards.Input Data: MB/s from 2 to 200.",
+* **BITH** H10-13: set the compression for LRVs in Mb/s. Normally this would be around 4Mb/s, however higher (or lower) rates may be achieved with newer SD Cards. Input Data: MB/s from 1 to 100.",
+* **BITL** H11-13: controlling the livestream maximum bitrate (up to 8Mbit/s). Input Data: MB/s from 1 to 8.",
+* **BURN** H8-13/MAX: Add date, time and other burn-in text to your video. Input Format (0,height)[yyyy-mm-dd HH:MM:SSaa] examples:   (0,30)Local Time: [HH:MMaa]   (0,26)Local Time: [HH:MM:SSAA]   (0,40)©[yyyy]\ XYZ Inc.   (0,24)Shoot Date [yy/mm/dd]",
+* **BRNP** H8-13/MAX: The burn-in position for overlays or LOGO display. Input Data (select 1 of 8): TL, TC, TR, ML,BL, BC, and BR\nT-Top B-Bottom C-Center L-Left and R-Right.",
+* **BRNT** H8-13/MAX: The overlays or LOGO display time in seconds. e.g. BRNT=0.016 will display the logo or text overlays only on the first frame. Input Data: 0 is unlimited, or 0.01 to 3600 seconds.",
+* **BRNX** H8-13/MAX: Offset the overlays or LOGO display with X,Y pixel coordinates. Input Data: x,y pixel coordinates.e.g. 120,40",
+* **BYPS** "H11-13: Bypass common pop-ups, such as resetting the time and date. Remember to set time and date if you remove the battery. Input Data: 1 to bypass, 0 for normal notifications",
+* **CBAR** H9-13: enable a small 75% saturated color bars for video tools evaluation. Most cameras limit overlays to 4K30, 2.7Kp60 or lower. Input Data: 1 to enable, 0 to disable",
+* **DAMP** H10-13: Control over the auto-exposure damping. Setting the DAMP to 1 is the default, setting to 10 would slow the camera’s exposure adjustments 10X.Input Data: 0.1 to 10000",
+* **DAUD** H10-11/13: Disable Audio in video captures, all MP4 files will have no audio track. Application: high bit-rate drones video.Input Data: 1 to disable audio, 0 to re-enable",
 * **DLRV** H10-11: Disable LRV file creation. Application: high bit-rate drones video. Input Data: 1 to disable LRVs, 0 to re-enable",
 * **DSPC** Labs text display contrast:  Set the background opacity for Labs text on the LCD. Input Data: Number from 0-transparent to 6-completely opaque.",
 * **DSPL** Labs text display length: How long to display each Labs message, like owner information (OWNR). The default is 1 second. Input Data: Number from 1-9 seconds or 10-9999 milliseconds.",
 * **ENCR** H9 only: Experimental media encryption, using a password to prevent playback by non-authorized users. As the QR Code with the password is not encrypted, do not print or save the QR code image.Enable by using password between 4 and 16 characters. Disable with an empty password.",
 * **DECR** H9 only: Decryption of media encryption with ENCR.  Warning: If the passwords do not match, the data is doubly encrypted, there is no recovery of the data. Be careful. This operation is slow, USB power or have a full battery.Input a matching password",
-* **EVBS** H10-12: This is an EV compensation value that works with webcam and livestreaming, it can be changed live (with QRDR=1) and it is global, adding the any existing EV control in your presets.Input Data: range -4 to 4.",
-* **EXPQ** H11-12: Min and Max Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable",
-* **EXPS** H11-12: Video exposure values: ISO and Shutter speed, rendered to the LCD. Handy for those using ND Filters. Input Data: 1 to enable, 0 to disable",
-* **EXPX** H10-12: Max Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable",
-* **EXPN** H10-12: Min Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable",
+* **EVBS** H10-13: This is an EV compensation value that works with webcam and livestreaming, it can be changed live (with QRDR=1) and it is global, adding the any existing EV control in your presets.Input Data: range -4 to 4.",
+* **EXPQ** H11-13: Min and Max Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable",
+* **EXPS** H11-13: Video exposure values: ISO and Shutter speed, rendered to the LCD. Handy for those using ND Filters. Input Data: 1 to enable, 0 to disable",
+* **EXPX** H10-13: Max Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable",
+* **EXPN** H10-13: Min Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable",
 * **EXPT** Video Exposure Control through Maximum Shutter Angle for video modes. Can improve stabilization in low light. Input Data: Number 0 through 5 stops.  0-360° (camera default), 1-180°, 2-90°, 3-45°, 4-22.5° etc.",
 * **FAST** Faster and fewer Labs notifications on boot. Input Data: 1-enable, 0-disable",
-* **FEAT** H10-12/MAX: Displays Labs enabled Features for x seconds. Input Data: x-seconds",
-* **GAIN** H9-12: Digitally gain up the audio. e.g. \$GAIN=12, increase audio by 12dB. Will likely reduce the dynamic range.Input Data: 0-48 in dB.",
-* **GCMP** H11-12: Disable Gryo Compensated Exposure.  When GoPro camera modes, it normally uses a faster shutter for improved stabilization, this control disables this feature.Input Data: 1 to disable gyro comp, 0 - default",
-* **GUID** H11-12: On screen guides lines for output aspect ratios. e.g. \$GUID=2.35, set shooting guides for cinescope. Input Data: List of aspect ratios (up to 8) as real numbers, so 16:9 is 1.778 and 9:16 is 0.5625.",
-* **GUIC** H11-12: Color/brightness of guides lines. e.g. \$GUIC=10,255. Input Data: List of guide brightness (up to 8). e.g. 255,10",
+* **FEAT** H10-13/MAX: Displays Labs enabled Features for x seconds. Input Data: x-seconds",
+* **GAIN** H9-13: Digitally gain up the audio. e.g. \$GAIN=12, increase audio by 12dB. Will likely reduce the dynamic range.Input Data: 0-48 in dB.",
+* **GCMP** H11-13: Disable Gryo Compensated Exposure.  When GoPro camera modes, it normally uses a faster shutter for improved stabilization, this control disables this feature.Input Data: 1 to disable gyro comp, 0 - default",
+* **GUID** H11-13: On screen guides lines for output aspect ratios. e.g. \$GUID=2.35, set shooting guides for cinescope. Input Data: List of aspect ratios (up to 8) as real numbers, so 16:9 is 1.778 and 9:16 is 0.5625.",
+* **GUIC** H11-13: Color/brightness of guides lines. e.g. \$GUIC=10,255. Input Data: List of guide brightness (up to 8). e.g. 255,10",
 * **HDMI** Media Mod users can change the output default from Gallery, to clean monitoring with no overlays, or monitoring live video with On Screen Display overlays. Input Data: 0-Galley, 1-Clean Video, 2-Video+OSD",
 * **HIST** Enable a histogram with with a range of contrast options. Input Data: Number 1 to 11 enables the histogram with contrast 1 through 11, 0 will disable it.",
-* **HSTP** H11-12, not Mini: Histogram position and size. A negative position will place the histogram on the front LCD. Input Data: x,y,size as percentages. e.g. 20,40,60",
+* **HSTP** H11-13, not Mini: Histogram position and size. A negative position will place the histogram on the front LCD. Input Data: x,y,size as percentages. e.g. 20,40,60",
 * **HNDL** Set the camera ID to limit which cameras to respond to a QR Code. Used with the hZ command, where Z is the bit mask for which cameras will follow the command. Input Data: ID Number from 1-31. Usage: h6mP!S ← runs on cameras with IDs 2 or 3.",
-* **HSTO** H9-12: Number minutes controlling the length of the Hindsight timeout, changing from the default for 15 minutes. Input Data: minutes from 5-1440.",
+* **HSTO** H9-13: Number minutes controlling the length of the Hindsight timeout, changing from the default for 15 minutes. Input Data: minutes from 5-1440.",
 * **IWFR** H10-11: Increased Write FRequency to support for higher precision file recoveries (defaulted on with *BITR=x bitrate changes). This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. Great for FPV users.",
 * **JOIN** Setup storing your WiFi network credentials.Input Data: String in the format your_ssid:your_passphase e.g. HomeWiFi:Pass1234",
-* **LBAR** H9-12: enable a small luma sweep for video tools evaluation. Most cameras limit overlays to 4K30, 2.7Kp60 or lower. Input Data: 1 to enable, 0 to disable",
-* **LEVL** H11-12: enable on-screen spirit level. Input Data: 1-9 sets the size of the level, 0 to disable",
+* **LBAR** H9-13: enable a small luma sweep for video tools evaluation. Most cameras limit overlays to 4K30, 2.7Kp60 or lower. Input Data: 1 to enable, 0 to disable",
+* **LEVL** H11-13: enable on-screen spirit level. Input Data: 1-9 sets the size of the level, 0 to disable",
 * **LLTZ** Manual location: using Sunset/Sunrise triggers without waiting for a GPS lock. Input Data: numbers in the format latitude,longitude,timezone e.g. 33.126,-117.327,-8.0",
-* **LOGB** H11-12: Extremely advanced users. Change the Log base for very flat encoding. Color Flat is Log base 113. Math:out = log(in*(base-1)+1)/log(b). Should be combined with Flat and 10-bit settings. Input Data: base,[offset]e.g. 200,-128 or 400",
-* **LOGO** H9-12: Activate a small logo (under 64K pixels) to render within the video. There must be a PNG file stored on the SD card in the MISC folder. Most cameras limit overlays to 4K30, 2.7Kp60 or lower. Input Data: String e.g. Logo.PNG for the name of your image",
-* **MUTE** H9-12: Mute one or more channels of audio. e.g. \$MUTE=15 mutes all channels, for a single channel use 1 = first, 2 = second, 4 = third and 8 = fourth channelInput Data: 0-15, the value is binary mask.",
-* **NR01** H11-12: Noise reduction control, for advanced user intending noise reduction in post. Likely needs a higher BITR. Input Data: 1-100, is the default full denoise processing in camera. 1 - leaves the most noise. 0 - disables",
+* **LOGB** H11-13: Extremely advanced users. Change the Log base for very flat encoding. Color Flat is Log base 113. Math:out = log(in*(base-1)+1)/log(b). Should be combined with Flat and 10-bit settings. Input Data: base,[offset]e.g. 200,-128 or 400",
+* **LOGO** H9-13: Activate a small logo (under 64K pixels) to render within the video. There must be a PNG file stored on the SD card in the MISC folder. Most cameras limit overlays to 4K30, 2.7Kp60 or lower. Input Data: String e.g. Logo.PNG for the name of your image",
+* **MUTE** H9-13: Mute one or more channels of audio. e.g. \$MUTE=15 mutes all channels, for a single channel use 1 = first, 2 = second, 4 = third and 8 = fourth channelInput Data: 0-15, the value is binary mask.",
+* **NR01** H11-13: Noise reduction control, for advanced user intending noise reduction in post. Likely needs a higher BITR. Input Data: 1-100, is the default full denoise processing in camera. 1 - leaves the most noise. 0 - disables",
 * **OLTC** Offset for LTC timecode in frames, enabling calibration you are seeing any offset..Input Data: x - frames.",
 * **OWNR** Display Owner information. This written into every MP4 and JPGs metadata, and MISC/GoPro-owner.txt file.Input Data: String up to 64 characters using '\\n' for a newline. Permanent required.",
 * **OWNr** Owner information, not displayed. This written into metadata, and MISC/GoPro-owner.txt file.Input Data: String up to 64 characters using '\\n' for a newline. Permanent required.",
-* **PMSG** H11-12: Message to display during a Labs looping script, so you know the camera is running something custom. Input Data: Any label less than 20 characters, or empty to disable.",
-* **PRES** H12: Create a new preset with custom name and icon. Input Data: Icon number 0 thru 15, preset name up to 15 characters",
-* **PRXY** H10-12: Store LRV files as NLE ready proxies. Normally a camera will encode an LRV (Low Res Video) for every MP4, with this enabled LRVs are made MP4s within a subfolder. Input Data: 1-move LRVs, 2-move THMs, 3-both, (v2.1) 4-No _Proxy name. 0-disable",
+* **PMSG** H11-13: Message to display during a Labs looping script, so you know the camera is running something custom. Input Data: Any label less than 20 characters, or empty to disable.",
+* **PRES** H12-13: Create a new preset with custom name and icon. Input Data: Icon number 0 thru 15, preset name up to 15 characters",
+* **PRXY** H10-13: Store LRV files as NLE ready proxies. Normally a camera will encode an LRV (Low Res Video) for every MP4, with this enabled LRVs are made MP4s within a subfolder. Input Data: 1-move LRVs, 2-move THMs, 3-both, (v2.1) 4-No _Proxy name. 0-disable",
 * **QRDR** Detect QR Codes while recording. Used for changing a video burn-in message in the middle of a live-stream. This also allows you to end a capture via a QR Code (command: !E).  Input Data: 1-enable, 0-disable",
 * **RLTC** Read LTC timecode from audio inputsInput Data: 1-Enable, 0-Disable.",
 * **RTMP** RTMP Address to livestream to. Combined with JOIN Metadata, use !W!GLC to start a 1080p livestream. Input Data: String of the RTMP URL, e.g. rtmp://live.twitch.tv/app/live_1234567. Permanent required.",
 * **SHMX** H8-9 & MAX: Photo shutter maximum exposure time: this is similar Maximum Shutter Angle (EXPT), except it applies to Photos. e.g. SHMX=1000 would set 1/1000th of a second as the longest shutter time. Input Data: 30-2000.",
-* **SOLO** H9-12: Use only one channel of audio. e.g. \$SOLO=1 use only channel 1, \$SOLO=4 use only channel 4.Input Data: 0-4, the value is a channel number.",
+* **SOLO** H9-13: Use only one channel of audio. e.g. \$SOLO=1 use only channel 1, \$SOLO=4 use only channel 4.Input Data: 0-4, the value is a channel number.",
 * **SPED** SD Card Speed Test. Data rates should have minimums above 120Mb/s is you want to reliably capture the high bitrate modes.Input Data: 1-9, number of times to run the test.",
 * **SYNC** H9-11: GPS time/timecode sync. With a good GPS signal, the camera’s internal clock will be precisely updated to the millisecond. It will not update the hour or date, preserving your current timezone offset. Input Data: 1-enable, 0-disable. Permanent required.",
-* **TCAL** H9-12: Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.",
-* **TONE** H10-12: Tone-mapping controls. Input Data:   0 - current defaults   1 - global tone-mapping only   2 - both tone-mapping   3 - disable all tone-mapping",
-* **TUSB** H10-12: Trust USB power. Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. If you use TUSB with an inadequate power source, expect capture failures.\n",
-* **WAKE** H9-12: Conditional wake on any power addition. Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure.  Input Data: 1-wake if there is a delay action pending, 2-wake on power, 0-disable",
-* **WBLK** H11-12: White balance Lock upon capture. Allows the convenience of auto white balance, without the risk of WB change during capture. Input Data: 1-enable WB Lock, 0-disable",
-* **WIDE** H11-12: A wide gamut color profile, this supports all in-camera white balancing. Like using white balance Native, without as much post color work. Input Data: 1-enable WIDE gamut, 0-disable",
-* **ZONE** H9-12: Set the time zone for use with SYNC. Input Data: time zone offset in minutes.
+* **TCAL** H9-13: Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.",
+* **TONE** H10-13: Tone-mapping controls. Input Data:   0 - current defaults   1 - global tone-mapping only   2 - both tone-mapping   3 - disable all tone-mapping",
+* **TUSB** H10-13: Trust USB power. Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. If you use TUSB with an inadequate power source, expect capture failures.\n",
+* **WAKE** H9-13: Conditional wake on any power addition. Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure.  Input Data: 1-wake if there is a delay action pending, 2-wake on power, 0-disable",
+* **WBLK** H11-13: White balance Lock upon capture. Allows the convenience of auto white balance, without the risk of WB change during capture. Input Data: 1-enable WB Lock, 0-disable",
+* **WIDE** H11-13: A wide gamut color profile, this supports all in-camera white balancing. Like using white balance Native, without as much post color work. Input Data: 1-enable WIDE gamut, 0-disable",
+* **ZONE** H9-13: Set the time zone for use with SYNC. Input Data: time zone offset in minutes.
 
 ## Macro support (since March, '24)
 Added support for macros, or crude scripting subroutines. This expands the potential complexity for QR scripting, as the entire script is no longer limited to 255 characters. 
@@ -429,10 +432,10 @@ Note: for Macros that print output use single quotes for text within.
 ## Reset Actions ##
 
 * **!RESET!1OR** - erase all your permanent metadata (anything that used !Mxxxx command.) Then Reboot.  (requires user confirmation.)
-* **!FORMAT**<sup>H10-12</sup> - for SD formatting via QR Code (requires user confirmation.)
-* **!FRESET**<sup>H10-12</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
-* **!PRESET**<sup>H10-12</sup> - Presets reset, restore the default presets (requires user confirmation.)
-* **!WRESET**<sup>H10-12</sup> - WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
+* **!FORMAT**<sup>H10-13</sup> - for SD formatting via QR Code (requires user confirmation.)
+* **!FRESET**<sup>H10-13</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
+* **!PRESET**<sup>H10-13</sup> - Presets reset, restore the default presets (requires user confirmation.)
+* **!WRESET**<sup>H10-13</sup> - WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
 
 ## Scripting
 
@@ -530,7 +533,7 @@ However the else can only be applied to the last condition. **\>09:15<10:00!S+<c
 
 The command language is kept simple, so it doesn't maintain a stack on the conditional nesting. 
 
-### Conditionals Based on Camera Status (HERO11 & 12)
+### Conditionals Based on Camera Status (HERO11-13)
 
 New conditional commands for 2023. Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs

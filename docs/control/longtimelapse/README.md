@@ -22,7 +22,7 @@ Example Time-lapses tested:
 
 As the camera is off between frames, it is also possible to periodically change the battery for extremely long time-laspes without interrupting the time-lapse in progress. Simply replace the battery, power on the camera, the time-lapse will automatically continue.
 
-HERO12 Users: Due to improved reliability, effeciency and Enduro battery, HERO12 can achieve ~40% greater capture times. A test requesting for 24 hours capture, 3.6 minute interval, a HERO12 captured 627 images over nearly 38 hours.
+HERO12-13 Users: Due to improved reliability, effeciency and Enduro battery, HERO12-13 can achieve ~40% greater capture times. A test requesting for 24 hours capture, 3.6 minute interval, a HERO12 captured 627 images over nearly 38 hours.
 
 ## Time-lapse Calculator
 
@@ -55,9 +55,9 @@ As stated above, most Lithium Ion USB power-banks will shut-off early, even when
 
 The second option is a USB keep alive device that prevents your USB power bank from shutting down.  Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
-Compatibility: Labs enabled HERO5 Session, HERO7, HERO8, HERO9, HERO10, HERO11, HERO12, MAX and BONES 
+Compatibility: Labs enabled HERO5 Session, HERO7-13, MAX and BONES 
 
-updated: November 13, 2023
+updated: September 10, 2024
 
 [More features](..) for Labs enabled cameras
 

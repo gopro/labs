@@ -22,7 +22,7 @@
 * **!**time**SQ** - Start Quickly at approximately **time** if in hh:mm form, or after n seconds.  
 * **!**time**E** - End at **time** if in hh:mm form, or after n seconds.
 * **!**time**R** - Repeat the whole command.
-* **!**time**Rx** - <sup>H11-12</sup> Repeat the command starting at position x (i.e. a goto command).
+* **!**time**Rx** - <sup>H11-13</sup> Repeat the command starting at position x (i.e. a goto command).
 * **!**time**N** - No Action until exact **time**, useful if you just need a pause.
 * **!**time**NQ** - No Action until at approximately **time**.
 * **!**time**O** - Off, shutdown the camera.
@@ -31,12 +31,12 @@
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**G(S or M or L)(C)** - Start Live-streaming, **S** - 480p, **M** - 720p, **L** - 1080p, optional **C** for capture a local file, requires a previously successful **!W** command <sup>8/9/10/11</sup>
 * **!**time**Dx** - <sup>H10-11</sup> !Dx wait for GPS lock with a DOP less than x, then sync time. For time only locks !D is fine. 
-* **!**time**TR** - <sup>H11-12</sup>  **!TR* - switch active TimeWarp to Realtime (or slow motion)
-* **!**time**TN** - <sup>H11-12</sup>  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
-* **!**time**Bx** - <sup>H11-12</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
-* **!**time**Zx** - <sup>H10-12</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
-* **!**time**X** - <sup>H10-12/MAX</sup> Exit script. 
-* **!**time**Cx** - <sup>H10-12</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
+* **!**time**TR** - <sup>H11-13</sup>  **!TR* - switch active TimeWarp to Realtime (or slow motion)
+* **!**time**TN** - <sup>H11-13</sup>  **!TN* - switch active TimeWarp to Normal (speed-up timelapse mode)
+* **!**time**Bx** - <sup>H11-13</sup> Beeps and Blinks, **!B** - Blink once, **!B0** - Beep once, **!B1** - Blink+Beep once, **!B2** - Blink+Beep twice
+* **!**time**Zx** - <sup>H10-13</sup> **!Z3** - mute both buttons, **!Z2** - mute only mode, **!Z1** - mute only shutter, **!Z0** - unmutes both
+* **!**time**X** - <sup>H10-13/MAX</sup> Exit script. 
+* **!**time**Cx** - <sup>H10-13</sup> Up to x GBs to make sure is clear on the SD card. e.f **!C16** - clears up to 16GB. If more than x is available, no files are removed. x is limited to half SD size. Deletes the oldest media first. 
 
 
 ## Capture Triggers (Classic, invent your own below.)
@@ -123,10 +123,10 @@ Note: for Macros that print output use single quotes for text within.
 ## Reset Actions ##
 
 * **!RESET!1OR** - erase all your permanent metadata (anything that used !Mxxxx command.) Then Reboot.  (requires user confirmation.)
-* **!FORMAT**<sup>H10-12</sup> - for SD formatting via QR Code (requires user confirmation.)
-* **!FRESET**<sup>H10-12</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
-* **!PRESET**<sup>H10-12</sup> - Presets reset, restore the default presets (requires user confirmation.)
-* **!WRESET**<sup>H10-12</sup> - WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
+* **!FORMAT**<sup>H10-13</sup> - for SD formatting via QR Code (requires user confirmation.)
+* **!FRESET**<sup>H10-13</sup> - Factory reset, erase everything, except QR code metadata (requires user confirmation.)
+* **!PRESET**<sup>H10-13</sup> - Presets reset, restore the default presets (requires user confirmation.)
+* **!WRESET**<sup>H10-13</sup> - WiFi Credentials reset, erase all your BLE and WiFi configurations (requires user confirmation.)
 
 ## Scripting
 
@@ -225,7 +225,7 @@ However the else can only be applied to the last condition. **\>09:15<10:00!S+<c
 
 The command language is kept simple, so it doesn't maintain a stack on the conditional nesting. 
 
-### Conditionals Based on Camera Status (HERO11 & 12)
+### Conditionals Based on Camera Status (HERO10-13)
 
 New conditional commands for 2023. Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
@@ -252,9 +252,9 @@ New conditional commands for 2023. Now \>xValue and/or \<xValue and/or ==xValue 
 * **y** mode_pressesValue - **\>y0**CMD1~CMD2 if(mode_presses > 0) then CMD1 else CMD2
 * **z** shutter_pressesValue - **\>z0**CMD1~CMD2 if(shutter_presses > 0) then CMD1 else CMD2
 
-### Assignments, Variables and Math
+### Assignments, Variables and Math (HERO10-13)
 
-HERO11 v2.10.70, QR Command scripts can include variables and operation on them. Why? Fun maybe? More power, for sure! A complete program in a QR Code.
+QR Command scripts can include variables and operation on them. Why? Fun maybe? More power, for sure! A complete program in a QR Code.
 
 As 'a' to 'z' and system system fields, 'A' to 'Z' are the variable can contain any floating point number. This new variables are all initialized to zero, 
 and can be tested with the '<' and '>' conditionals. To make them non-zero, they can be assign with and '=' command. Just like with conditions and action, 
@@ -322,7 +322,7 @@ Command steps explained:
 
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
-updated: April 23, 2024
+updated: September 10, 2024
 
 [BACK](..)
 

@@ -43,7 +43,7 @@ Brand new to Labs? Get the firmare and info on [**Labs installation**](https://g
 
 ### Extension - EXPS
 Things to try with GoPro Labs. ```oMEXPS=1``` this will display ISO and shutter for your current shooting mode. Test with time-lapse or night-lapse, recording to see the exposure 
-for different light levels. Practice well before the eclipse. This feature requires the latest Labs firmware on HERO12 and HERO11 to view exposure during a timelapse 
+for different light levels. Practice well before the eclipse. This feature requires the latest Labs firmware on HERO11 thru HERO13 to view exposure during a timelapse 
 (it works only in video modes on older releases.)  
 
 ![EXPS.png](EXPS.png)
@@ -129,10 +129,10 @@ Setup A thru D options:
   &nbsp;&nbsp;<input type="radio" id="res1" name="res" value="" checked><label for="res1"> current</label>
   &nbsp;&nbsp;<input type="radio" id="res2" name="res" value="r4"><label for="res2"> 4K 16:9</label>
   &nbsp;&nbsp;<input type="radio" id="res3" name="res" value="r4T"><label for="res3">4K 4:3</label><sub>H11</sub>
-  &nbsp;&nbsp;<input type="radio" id="res4" name="res" value="r4X"><label for="res4">4K 8:7</label><sub>H12</sub>
+  &nbsp;&nbsp;<input type="radio" id="res4" name="res" value="r4X"><label for="res4">4K 8:7</label><sub>12-13</sub>
   &nbsp;&nbsp;<input type="radio" id="res5" name="res" value="r5"><label for="res5"> 5K 16:9</label>
   &nbsp;&nbsp;<input type="radio" id="res6" name="res" value="r5T"><label for="res6">5K 4:3</label><sub>H11</sub>
-  &nbsp;&nbsp;<input type="radio" id="res7" name="res" value="r5X"><label for="res7">5K 8:7</label><sub>H12</sub>
+  &nbsp;&nbsp;<input type="radio" id="res7" name="res" value="r5X"><label for="res7">5K 8:7</label><sub>12-13</sub>
 </div>
 <div><b>C - Totality Start:</b> <input type="range" style="width: 480px;" id="tlstrt" name="tlstrt" min="600" max="1080" value="720"><label for="tlstrt"></label> <b id="starttext">:</b><input type="text" id="addsec" value="" style="width:45px"></div>
 <div><b>D - Totality Length:</b> <input type="range" style="width: 300px;" id="tlend" name="tlend" min="1" max="5" value="4"><label for="tlend"></label> <b id="lentext"></b> minutes &nbsp;&nbsp; Totality End Time: <b id="endtext"> seconds</b></div>
@@ -160,9 +160,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyImg">Copy Image to Clipboard</button>
 </div>
       
-**Compatibility:** Labs enabled HERO11 and HERO12 (likely some support with older Labs enabled cameras, please test.) 
+**Compatibility:** Labs enabled HERO11-13 (likely some support with older Labs enabled cameras, please test.) 
 
-updated: April 9, 2024
+updated: September 10, 2024
 
 [More features](..) for Labs enabled cameras
 

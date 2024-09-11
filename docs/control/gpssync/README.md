@@ -13,7 +13,7 @@
         }
 </style>
 
-If you are shooting with multiple GoPro **HERO9/10/11** cameras, enable this feature. 
+If you are shooting with multiple GoPro **HERO9/10/11/13** cameras, enable this feature. 
 
 ## How it works
 
@@ -43,10 +43,9 @@ Note: it is correct for 23.976 and 29.97 Non-drop timecode to it be 0.1% behind 
 
 <br> 
 
-**Compatibility:** Labs enabled HERO9, HERO10 and HERO11
-        
-## ver 1.07
-updated: Nov 8, 2022<br>
+**Compatibility:** Labs enabled HERO9, HERO10, HERO11 and HERO13
+
+updated: September 10, 2024<br>
 
 [More features](..) for Labs enabled cameras
 

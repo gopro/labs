@@ -92,12 +92,12 @@ Cool Tips:
 - A range (not all) of GoPro metadata can be displayed in their stored units, so speed is in meters/sec, not MPH. For more technical information on [GoPro's GPMF Metadata](https://gopro.github.io/gpmf-parser/) and other metadata you can display.
 
 Known Issues:
-- HERO10/11/12 support is limited to video modes 4K 16:9 up to 30, 2.7K up to 60 and 1080p up to 120fps, in 8-bit only. 
+- HERO10-13 support is limited to video modes 4K 16:9 up to 30, 2.7K up to 60 and 1080p up to 120fps, in 8-bit only. 
 - Metadata can take a second before it updates after capture start.
 
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, HERO12 and MAX 
+**Compatibility:** Labs enabled HERO8-13 and MAX 
         
-updated: Dec 5, 2023
+updated: September 10, 2024
 
 [Learn more](..) on QR Control
 

@@ -87,9 +87,9 @@ Now that starting and stopping your GoPro's capture is solved, you also don't wa
 
 ![Feedback](feedback.jpg)
 
-**Compatibility:** Labs enabled HERO7, HERO8, HERO9, HERO10, HERO11, HERO12, MAX and BONES
+**Compatibility:** Labs enabled HERO7-13, MAX and BONES
 
-updated: Sept 13, 2023
+updated: Sept 10, 2024
 
 [More features](..) for Labs enabled cameras
 
