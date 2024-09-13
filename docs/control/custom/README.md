@@ -294,7 +294,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
    <div id="ICONS">
 	  &nbsp;&nbsp;&nbsp;&nbsp;Click to select the preferred icon:<br>
 	  <div id="ICONS_IMG">
-		<img src="https://gopro.github.io/labs/control/custom/icons2.png" alt="ICONS_IMG"> <br>
+		<img src="https://gopro.github.io/labs/control/custom/icons3.png" alt="ICONS_IMG"> <br>
       </div>
 	  &nbsp;&nbsp;&nbsp;&nbsp;Preset name: <input type="text" id="newpres" value="Labs-"><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="pdel" value=""> <label for="pdel">delete custom preset</label><br>
