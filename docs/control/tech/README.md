@@ -538,7 +538,7 @@ The command language is kept simple, so it doesn't maintain a stack on the condi
 New conditional commands for 2023. Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs
 * **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage
-* **b:T** batteryTemperature - **<sup>H13</sup>\>bValue**CMD if(battery \> Value) then CMD, units in degrees C
+* **b:T** batteryTemperature<sup>H13</sup> - **\>bValue**CMD if(battery \> Value) then CMD, units in degrees C
 * **c** coordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location
 * **c:X** coord[A-Z]Distance - **\>c:XDist**CMD There are up to 26 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ. If nothing is store in FRMx, it will initialize with the current location. Reset a location with $FRMx=0,0 it will reinit with the current location.
 * **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.
@@ -553,7 +553,7 @@ New conditional commands for 2023. Now \>xValue and/or \<xValue and/or ==xValue 
 * **n** network Connect - if false it returns -1, otherwise it returns the string length of the SSID
 * **n:L** networkLivestreaming - if false it returns -1, 1.0 if currently livestreaming
 * **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
-* **p:T** processorTempValue - **<sup>H13</sup>\>pValue**CMD if(processorTemp \> Value) then CMD, units in degrees C
+* **p:T** processorTempValue<sup>H13</sup> - **\>pValue**CMD if(processorTemp \> Value) then CMD, units in degrees C
 * **r** recording - **\>r0**CMD1~CMD2 if(Recording > 0) then CMD1 else CMD2 
 * **r:C** remote Connected - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
 * **r:A** remote App Connected - **\>r:A0**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
