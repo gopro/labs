@@ -5,6 +5,11 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO13 Black 
 
+### 1.12.70 - September 24, 2024
+- Added command oX10 to select Auto Detect for lens mods.
+- Fixed LOGB with offsets less than -100, now LOGB=200,-128 works as intended.
+- Fixed crash with creating presets through the menus.  If instability presists, reset the presets.
+
 ### 1.10.70 - September 10, 2024
 - Added STOP=x for Stop Motion where is x the number for frame to store per shutter press. Works great with the remote. Mode button ends capture.  
 - Added ONIO=x Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.  
