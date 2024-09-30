@@ -77,7 +77,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Large Chapter](https://gopro.github.io/labs/control/chapters) Support (12GB)               | >12GB | >12GB | >12GB | ✔️ | ✔️ | ✔️ | ❌ | ✔️ |
 | [Live Stream Initiation](https://gopro.github.io/labs/control/rtmp)                         | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ |
 | [LRV Disable](https://gopro.github.io/labs/control/extensions)                              | ❌ | ❌ | ✔️ | some | ❌ | ❌ | ❌ | ❌ |
-| [LTC Time support](https://gopro.github.io/labs/control/ltc) (via MediaMod/Pro Mic Adapter)                 | ✔️ | ✔️ | ✔️ | ✔️/❌  | ✔️ | ❌ | ❌ | ❌ |
+| [LTC Time support](https://gopro.github.io/labs/control/ltc) (via MediaMod/Pro Mic Adapter) | ✔️ | ✔️ | ✔️ | ✔️/❌  | ✔️ | ❌ | ❌ | ❌ |
 | [Max Shutter Angle](https://gopro.github.io/labs/control/maxshut) exposure control          | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Metadata Injections](https://gopro.github.io/labs/control/extensions)                      | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Noise Reduction](https://gopro.github.io/labs/control/extensions) control                  | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -115,4 +115,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](docs/software/).
 
-updated: Sept 24, 2024<br>
+updated: Sept 30, 2024<br>
