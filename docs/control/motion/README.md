@@ -87,7 +87,7 @@ The motion detection will now always use the mask.pgm, so using motion mask opti
 	
 **Compatibility:** Labs enabled HERO7-13, MAX and BONES.  Masking fixed on HERO9/10/BONES.
         
-updated: September 10, 2024
+updated: October 1, 2024
 
 [More features](..) for Labs enabled cameras
 
@@ -165,7 +165,7 @@ function timeLoop()
     {
       if(document.getElementById("repeat").checked == true)
       {
-        cmd = cmd + "!R";
+        cmd = cmd + "!1R";
       }
     }
 
