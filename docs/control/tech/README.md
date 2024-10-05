@@ -57,7 +57,7 @@ used between commands.
 Resolutions are also in the format rX(Y) - where X is the first character of the resolution, and the optional Y is aspect ratio, T - Tall 4:3, X - eXtreme 8:7, nothing is 16:9
  * **r1** or **r10** or **r1080**  - 1920x1080
  * **r1T** or **r14** or **r1440**  - 1920x1440
- * **r1V*  - 1080x1920 HD Vertical Video (H13)
+ * **r1V** - 1080x1920 HD Vertical Video (H13)
  * **r2** or **r27** - for 2.7K 16x9
  * **r2T** or **r27T** - for 2.7K Tall the 4x3 mode
  * **r3** - 3K 360° for GoPro MAX
@@ -65,7 +65,7 @@ Resolutions are also in the format rX(Y) - where X is the first character of the
  * **r4T** - 4k Tall, the 4:3 mode
  * **r4X** - 4k eXtreme, the 8:7 mode (H11-13)
  * **r4S** - 4k Square, the 1:1 mode using Ultra Wide (H13)
- * **r4V*  - 2160x3840 4K Vertical Video (H13)
+ * **r4V** - 2160x3840 4K Vertical Video (H13)
  * **r5** - 5.3k for HERO and 5.6K 360° for GoPro MAX
  * **r5T** - 5k Tall, the 4:3 mode (H10)
  * **r5X** - 5k eXtreme, the 8:7 mode (H11-13)
@@ -621,6 +621,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: September 17, 2024
+updated: October 5, 2024
 
 [Learn more](..) on QR Control
