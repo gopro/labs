@@ -34,7 +34,7 @@ Share this QR Code as: <b id="urltext"></b>  -->
 [More features](..) for Labs enabled cameras
 
 
-## version 1.12
+## version 1.13
 
 <script>
 var changed = false;
@@ -85,7 +85,6 @@ function updateTime()
 {
 	let position = cmd.search(/oT/);
 	
-	cmdnotime = cmd;
 	if(position >= 0)
 	{
 		var src_cmd = cmd;
@@ -107,19 +106,17 @@ function updateTime()
 		s = checkTime(s);
 		ms = Math.floor(ms / 10); // hundredths
 		ms = checkTime(ms);
-			
-		var newtimetxt = yy + mm + dd + h + m + s;        
+		
+		var newtimetxt = yy.toString() + mm.toString() + dd.toString() + h.toString() + m.toString() + s.toString();
 		let letter = src_cmd.charAt(position+14);
 		if(letter == '.')
 		{
-			newtimetxt = newtimetxt + "." + ms;
+			newtimetxt = newtimetxt + "." + ms.toString();
 			cmd = src_cmd.slice(0,position+2) + newtimetxt + src_cmd.slice(position+17);
-			//cmdnotime = src_cmd.slice(0,position) + src_cmd.slice(position+17);
 		}
 		else
 		{
 			cmd = src_cmd.slice(0,position+2) + newtimetxt + src_cmd.slice(position+14);
-			//cmdnotime = src_cmd.slice(0,position) + src_cmd.slice(position+14);
 		}
 	}
 	
