@@ -598,7 +598,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: September 10, 2024
+updated: October 10, 2024
 
 <script>
 var clipcopy = "";
@@ -661,8 +661,9 @@ function HTMLPrint(txt)
 function URLPrint(txt)
 {
 	var txt2 = txt.replaceAll("+", "%2B");
-	var newtxt = txt2.replaceAll("#", "%23");
-	return newtxt;
+	var txt3 = txt2.replaceAll("#", "%23");
+	var txt4 = txt3.replaceAll("%", "%25");
+	return txt4;
 }
 
 function unicodeToAscii(codepoint) {
