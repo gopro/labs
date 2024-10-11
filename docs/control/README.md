@@ -40,7 +40,7 @@ and as a mobile app:<br>
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
 * **HERO8-12/Bones** - [**Daily Time-lapse**](./dailytl) with optional upload
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* **Deprecated** - This style is less reliable than the above types [**Daily Long Time-lapses**](./construction)
+* Construction time-laspes only recommend for HERO12-13 [**Daily Long Time-lapses**](./construction)
 * Solar Eclipse [**Timelapse Planner**](./eclipse)
 
 ## Video Alteration Features
@@ -51,7 +51,7 @@ and as a mobile app:<br>
 ## Miscellaneous Features
 * **HERO7-12/MAX** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
 * **HERO8-12/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
-* **HERO9-11** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
+* **HERO9-11,13** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
 * **HERO8-10/MAX/Bones** - Enable larger chapter sizes [**12 GB Chapters**](./chapters). Standard on HERO11
 * **HERO8-12/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-12** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
@@ -81,7 +81,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO10/11/Mini/12/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 
 
-updated: April 9, 2024
+updated: October 11, 2024
 
 
 <script>

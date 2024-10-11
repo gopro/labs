@@ -663,7 +663,8 @@ function URLPrint(txt)
 	var txt2 = txt.replaceAll("+", "%2B");
 	var txt3 = txt2.replaceAll("#", "%23");
 	var txt4 = txt3.replaceAll("%", "%25");
-	return txt4;
+	var txt5 = txt4.replaceAll("&", "%26");
+	return txt5;
 }
 
 function unicodeToAscii(codepoint) {
