@@ -50,7 +50,7 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 - **PRES=x,name** - Added creating, naming and sharing presets where x 0-18 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
 
 
-### **HERO12/11/Mini cameras**
+### **HERO13/12/11/Mini cameras**
 
 - **WIDE=1** This offers a color gamut like setting white balance to Native (wider gamut), while enabling auto whitebalance, or user controlled whitebalance. With WIDE off (0 - the default), the camera saturates color to the Rec709 gamut (basically sRGB), so some extreme real-world color saturations are clipped by the gamut. With WIDE=1, the gamut is sensor native, not Rec709, not Rec2020, just what the sensor sees.
 <br>![WIDE.jpg](WIDE.jpg)
@@ -106,11 +106,11 @@ Also a noiser image will need a higher-bitrate to store the additional informati
 
 Note: the scripting has had a significant update in the March '23 firmware. See section [Assignments, Variables and Math](../actions)
 
-### **HERO11 only (GPS feature)**
+### **HERO13/11 only (GPS feature)**
 
 - **WG84=1** to switch GPS altitude from Mean Sea Level to WGS84 elipsoid.
 
-### **HERO12/11/10 and Bones cameras** - Advanced features
+### **HERO13/12/11/10 and Bones cameras** - Advanced features
 
 - **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
 - **AUDS=1** display the approximate audio levels in dB SPL.
@@ -133,6 +133,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
   - **TONE=1** - use GTM only
   - **TONE=2** - use GTM+LTM
   - **TONE=3** - disable all tone-mapping
+- **FSOS=1** - Scan the SD for files that can be repaired (truncated). Normal file recovery checks only the last file captured, this checks and fixes them all.
 
 ### Miscellaneous controls for most Labs cameras. 
 
@@ -156,7 +157,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 - **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.txt file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
 - **WAKE=2** - (HERO8/10/11/12 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 	
-### **HERO12/11/10/9 & 8** - Overlay extensions
+### **HERO13/12/11/10/9 & 8** - Overlay extensions
 Older GP1 based cameras support overlays in video and video time-lapse modes. Overlays are not supported in Photo mode.
 
 #### GP2 limitations - Video Modes
@@ -185,7 +186,7 @@ Only Time Warp preset is supported.
 <!-- - **ENCR="password 4-16 characters"** - Enabled media encryption during capture. All new media will be encrypted, with no camera or desktop playback without decryption via your password first. This is not intended to have the highest level of security, but it is a good level of privacy when using a sufficiently long and complex password.  <span style="color:red">If the password is forgotten, there is no recovery of the data.</span> If the <span style="color:red">wrong password is used</span> to decrypt, the data is doubly encrypted, <span style="color:red">there is no recovery of the data.</span> Encrypted media has the first character of the GoPro style filename changed from 'G' to 'S'. e.g. A 4K60 MP4 will encrypted with a name like SX014423.MP4. The .THM, .LRV and .JPG files are also encrypted.-->
 <!-- - **DECR="password"** - Decrypt existing encrypted files. <span style="color:red">If the passwords do not match,</span> the data is doubly encrypted, <span style="color:red">there is no recovery of the data. **Be careful**.</span> With the correct password, all files are decrypted on camera. The onto camera process is slow, and the entire encrypted file must be read and rewritten, expect a similar processing time to the capture length. If low battery is an issue, provide the camera external power before decryption.-->
 
-### **HERO12/11/10 and 9** - Audio and MediaMod extensions
+### **HERO13/12/11/10 and 9** - Audio and MediaMod extensions
 
 - **GAIN=dB** - Digitally gain up the audio. e.g. oMGAIN=12, increase audio by 12dB.  Will likely reduce the dynamic range.- 
 - **HDMI=0,1 or 2** - Media Mod users can change the output default from Gallery (0) to clean monitoring with no overlays (1), or monitoring live video with overlays (2).
@@ -221,7 +222,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: October 10, 2024<br>
+updated: October 12, 2024<br>
 
 [Learn more](..) on QR Control
 
