@@ -45,7 +45,7 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 - **ONIO=x** - Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.
 
 
-### **HERO12/13 cameras**
+### **HERO13/12 cameras**
 
 - **PRES=x,name** - Added creating, naming and sharing presets where x 0-18 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
 
