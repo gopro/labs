@@ -5,6 +5,19 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO13 Black 
 
+### 1.20.70 - October 25, 2024
+
+- Added *DRFT=1 for automatic clock drift fix.
+- Added *DRFS=-11.3 for a fixed clock drift fix.
+- Added mPp1 or p.5 for interval photo
+- Fix for the TONE extension
+- Fix for wake events under power
+- Fix for ISO and SHUT LCD overlay position
+- Fix for multiple day wake events e.g. !259200N for sleeping for 72 hours
+- Fix for the !1R required in motion detection, now !R works again 
+- Fix for *SYNC=1 and its impact on timecode
+
+
 ### 1.12.70 - September 24, 2024
 - Added command oX10 to select Auto Detect for lens mods.
 - Fixed LOGB with offsets less than -100, now LOGB=200,-128 works as intended.
@@ -551,6 +564,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: September 10, 2024
+updated: October 25, 2024
 
 [Learn more](..) on QR Control
