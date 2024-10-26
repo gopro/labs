@@ -10,7 +10,7 @@ or in advanced setups, such as multiple cameras time synchronization or delayed 
 your GoPro, this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
 
 Download the GoPro Labs firmware for current shipping cameras:
-- [HERO13 Black](https://bit.ly/LABS_H13_1_12_70) - v1.12.70, September 24, 2024
+- [HERO13 Black](https://bit.ly/LABS_H13_1_20_70) - v1.20.70, October 25, 2024
 - [HERO12 Black](https://bit.ly/LABS_H12_2_20_70) - v2.20.70, March 2024
 
 Download and install for older cameras:
@@ -115,4 +115,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](docs/software/).
 
-updated: Sept 30, 2024<br>
+updated: October 25, 2024<br>
