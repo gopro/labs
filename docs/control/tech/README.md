@@ -216,6 +216,7 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
  * Volume Control - **oVC0** - off, **oVC1** - on
  * WiFi Connection - **oW0** - off, **oW1** - on
  * Max Lens Mod -  **oX0** - disabled, **oX1** - MLM original enabled, **oX2** - MLM 2.0 enanled
+ * Denoise - **oN0** - High/default, **oN1** - Medium, **oN2** - Low.
 
 ### GoPro HERO9-13 Front Screen option commands
  * **oF0 or oFO** - turn the front LCD off
@@ -621,6 +622,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: October 5, 2024
+updated: November 5, 2024
 
 [Learn more](..) on QR Control
