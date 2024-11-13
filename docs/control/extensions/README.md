@@ -57,8 +57,8 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 - **WBLK=1** This is an auto lock for balance, it auto white balances until the capture starts. The feature was added for scuba users, as fixed white balance are computed for above water, and while the auto works great in dive scenarios, some prefer a fix white balance per clip.
 - **MTRX=a,b,c,d,e,f,g,h,i** This is the RGB to YUV matrix, new ways to mess up your video. e.g. For an B/W effect in camera try oMMTRX=50,175,25,0,0,0,0,0,0<br>
 ![MTRX.jpg](MTRX.jpg)<br>
-- **GCMP=1** Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11/12 is smart, it will shorten the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
-- **64BT=32000** HERO11/12 cameras default to 12GB chapters when using 64GB card (or larger media), but you can use the 64BT command to specify even larger chapters like 32GB or even 64GB. There has been very limited testing, so experiment first before committing to super large chapters. 
+- **GCMP=1** Disables gyro compensated exposure. This is users not concerned about Hypersmooth stabilization, and would prefer the auto exposure to use a longer shutter, rather than more sensor gain.  Longer shutters are worse for stabilization, so the HERO11-13 is smart, it will shorten the shutter if it detects the camera's movement.  GCMP=1 disables this feature.
+- **64BT=32000** HERO11-13 cameras default to 12GB chapters when using 64GB card (or larger media), but you can use the 64BT command to specify even larger chapters like 32GB or even 64GB. There has been very limited testing, so experiment first before committing to super large chapters. 
 - **PRXY=x** Normally a camera will encode a LRV (Low Res Video) for every MP4, this extension stores LRVs as Proxy files. 1 - moves LRVs as Adobe Premiere Pro™ style, 2 - moves THMs, 3 moves both into the proxies folder, 4 - uses DaVinci Resolve™ style proxies folder. 
 When PRXY=1 is enabled, you get. Use Premiere Pro’s Attach Proxies function, greatly speeding up a professional workflows.
 &nbsp;&nbsp;&nbsp;&nbsp; `DCIM/100GOPRO/GX013784.MP4`<br>
@@ -155,7 +155,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 ![SPEDnew.jpg](SPEDnew.jpg)
 - **TCAL=milliseconds** - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
 - **WAKE=1** - This will make the camera wake on any power addition, but only if there is a delay action pending (determined by a delay.txt file in the MISC folder, created automatically with wake timer events.) Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure. With some experimentation, this may be used to improve very long time-lapse reliability, by cycling USB power every 24 hours -- reseting the camera to restart scripts.
-- **WAKE=2** - (HERO8/10/11/12 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
+- **WAKE=2** - (HERO8/10-13 only) Same as WAKE=1, except it will ignore any pending actions, and wake of any power addition. This is useful with combined with a boot command. 
 	
 ### **HERO13/12/11/10/9 & 8** - Overlay extensions
 Older GP1 based cameras support overlays in video and video time-lapse modes. Overlays are not supported in Photo mode.
@@ -177,7 +177,7 @@ Only Time Warp preset is supported.
 
 - **BRNT=0.5** - The overlays or burn-in display time in seconds. e.g. BRNT=0.016 will display the logo or text overlays only on the first frame (1/60th of a second.) 
 - **BRNX=x,y** - This is an upgrade to BRNO (Burn-ins Offset), allowing you to offset the burn-ins with X,Y pixel coordinates. e.g. BRNX=120,40
-- **CBAR=1** - enable a small 75% saturated color bars for video tools evaluation (HERO10/11/12 limitation: only works 4Kp30 or lower res/fps.)
+- **CBAR=1** - enable a small 75% saturated color bars for video tools evaluation (HERO10-13 has a GP2 limitation: only works 4Kp30 or lower res/fps.)
 - **LBAR=1** - enable a small luma sweep for video tools evaluation  (HERO10/11 limitation: only works 4Kp30 or lower res/fps.)<br>
 ![EnableCBARLBAR.png](EnableCBARLBAR.png)
 - **LOGO="filename.png"** - overlay a small logo or icon on the encoded video. The logo must be stored on the SD card in the MISC folder. The alpha channel is supported. The PNG files must be less than 64kBytes with fewer than 64k pixels, e.g. Logo overlay of 400x100 works, but 400x200 will not. The smaller the better for demanding video modes like 4K60 and 1080p240.  (HERO10/11 limitation: only works 4Kp30 or lower res/fps.) 
@@ -222,7 +222,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: October 12, 2024<br>
+updated: November 13, 2024<br>
 
 [Learn more](..) on QR Control
 
