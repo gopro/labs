@@ -59,7 +59,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Bitrate Controls](https://gopro.github.io/labs/control/extensions)                         | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ✔️ |
 | [Boot Command](https://gopro.github.io/labs/control/extensions)                             | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ✔️ | ❌ | ❌ |
 | [Distance-Lapse](https://gopro.github.io/labs/control/extensions)                           | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [Dive Mode](https://gopro.github.io/labs/control/extensions)                                | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Dive Mode](https://gopro.github.io/labs/control/extensions)                                | ✔️ | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Exposure Display](https://gopro.github.io/labs/control/extensions) current ISO and shutter | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Exposure Damping](https://gopro.github.io/labs/control/extensions) control                 | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ |
 | [Exposure Curve](https://gopro.github.io/labs/control/extensions) custom log encoding       | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -87,7 +87,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [QR decoding while recording](https://gopro.github.io/labs/control/extensions)              | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [SD card speed test](https://gopro.github.io/labs/control/extensions)                       | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ |
 | [Spirit Level Display](https://gopro.github.io/labs/control/extensions) on rear LCD         | ✔️ | ✔️ | ✔️/❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [Stop Motion](https://gopro.github.io/labs/control/extensions)                              | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Stop Motion](https://gopro.github.io/labs/control/extensions)                              | ✔️ | ✔ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Sunrise/Sunset starts](https://gopro.github.io/labs/control/solartimelapse)                | ✔️ | Manual | ✔️/Man | ✔️/❌ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Time delayed Starts](https://gopro.github.io/labs/control/custom)                          | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Time/date/timecode QR Code](https://gopro.github.io/labs/control/precisiontime)            | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -105,7 +105,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Wake on Power](https://gopro.github.io/labs/control/extensions)                            | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ✔️ | ❌ | ✔️ |
 | [Wider Color Gamut](https://gopro.github.io/labs/control/extensions)                        | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [White Balance Lock](https://gopro.github.io/labs/control/extensions)                       | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [White Balance Warmer/Cooler](https://gopro.github.io/labs/control/extensions)              | ✔️ | ❌ | ❌️ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [White Balance Warmer/Cooler](https://gopro.github.io/labs/control/extensions)              | ✔️ | ✔ | ❌️ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Zero to sixty timing](https://gopro.github.io/labs/control/extensions)                     | ✔️ | ❌ | ❌️ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 
