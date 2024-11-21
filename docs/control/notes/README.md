@@ -5,8 +5,19 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO13 Black 
 
-### 1.20.70 - October 25, 2024
+### 1.30.70 - November 21, 2024
+- Added WBDV - White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, 
+WBDV is more automatic -- as the scene get more blue, the more the red channel is gain up. Currently $WBDV=1 is uses =2.33,4.0 internally 
+(gaining red 4x after red gain hits 2.33), so you can try tuning this yourself e.g. $WBDV=2.4,5.0
+- Added SHEL - Using $SHEL=1 enables a command shell for Labs over a USB serial port. Every experimental, and looking for feedback. 
+Connect to COM at 115200 8N1. All QR code command work, just type them. Used $ commands will report their data back to the shell, 
+e.g. $BITR or $A or $p:T to read variables.
+- Added OPNW - Open Network (allows of faster non-secure http:// vs https:// to be used with Open GoPro)
+- Fixed supporting numbers in FourCC codes in Presets (e.g. preset named "DIVE 24HZ")
+- Fixed d1 and d10 for 10-bit selection
+- Fixed voice control enabling in Labs
 
+### 1.20.70 - October 25, 2024
 - Added *DRFT=1 for automatic clock drift fix.
 - Added *DRFS=-11.3 for a fixed clock drift fix.
 - Added mPp1 or p.5 for interval photo
@@ -16,7 +27,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Fix for multiple day wake events e.g. !259200N for sleeping for 72 hours
 - Fix for the !1R required in motion detection, now !R works again 
 - Fix for *SYNC=1 and its impact on timecode
-
 
 ### 1.12.70 - September 24, 2024
 - Added command oX10 to select Auto Detect for lens mods.
@@ -606,6 +616,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: November 13, 2024
+updated: November 21, 2024
 
 [Learn more](..) on QR Control
