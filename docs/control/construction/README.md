@@ -58,7 +58,7 @@ The second option is a USB keep alive device that prevents your USB power bank f
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7-13, MAX and BONES 
         
-updated: September 10, 2024
+updated: November 26, 2024
 
 [More features](..) for Labs enabled cameras
 
@@ -137,7 +137,11 @@ function timeLoop()
 	var interval = Math.trunc(((endmins - startmins)*60 / perday) - 15);
 	if(interval < 30) interval = 30;
 	
-	cmd = "mPdP>" + stxt + "<" + etxt + "!" + interval + "SQ~" + "!" + rtxt + "S!1R";
+	//Old style: mPdP>07:59<17:00!525SQ~!08:00S!1R
+	//cmd = "mPdP>" + stxt + "<" + etxt + "!" + interval + "SQ~" + "!" + rtxt + "S!1R";
+	
+	//New Style: mPdP!S<11:09!11:00R>17:00!11:00R!105RQ (bypassing a bug handling >time1<time2(true)~(false))
+	cmd = "mPdP!S!N<" + stxt + "!" + rtxt + ">" + etxt + "!" + rtxt + "!" + interval + "RQ";
   }
   
   qrcode.clear(); 
