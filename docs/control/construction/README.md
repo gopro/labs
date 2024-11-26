@@ -141,7 +141,7 @@ function timeLoop()
 	//cmd = "mPdP>" + stxt + "<" + etxt + "!" + interval + "SQ~" + "!" + rtxt + "S!1R";
 	
 	//New Style: mPdP!S<11:09!11:00R>17:00!11:00R!105RQ (bypassing a bug handling >time1<time2(true)~(false))
-	cmd = "mPdP!S!N<" + stxt + "!" + rtxt + "R>" + etxt + "!" + rtxt + "R!" + interval + "RQ";
+	cmd = "mPdP!S!2N<" + stxt + "!" + rtxt + "R>" + etxt + "!" + rtxt + "R!" + interval + "RQ";
   }
   
   qrcode.clear(); 
