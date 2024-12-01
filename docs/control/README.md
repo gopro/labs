@@ -52,7 +52,7 @@ and as a mobile app:<br>
 * **HERO7-13/MAX** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
 * **HERO8-13/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
 * **HERO9-11,13** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
-* **HERO8-10/MAX/Bones** - Enable larger chapter sizes [**12 GB Chapters**](./chapters). Standard on HERO11
+* **HERO8-10/MAX/Bones** - Enable larger chapter sizes for 64+GB cards [**12 GB Chapters**](./chapters). Standard on HERO11/12/13
 * **HERO8-13/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-13** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
 * **HERO10-13** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
@@ -81,7 +81,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO10-13/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 
 
-updated: October 11, 2024
+updated: December 1, 2024
 
 
 <script>
