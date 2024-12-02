@@ -395,7 +395,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **PMSG** H11-13: Message to display during a Labs looping script, so you know the camera is running something custom. Input Data: Any label less than 20 characters, or empty to disable.",
 * **PRES** H12-13: Create a new preset with custom name and icon. Input Data: Icon number 0 thru 15, preset name up to 15 characters",
 * **PRXY** H10-13: Store LRV files as NLE ready proxies. Normally a camera will encode an LRV (Low Res Video) for every MP4, with this enabled LRVs are made MP4s within a subfolder. Input Data: 1-move LRVs, 2-move THMs, 3-both, (v2.1) 4-No _Proxy name. 0-disable",
-* **QRDR** Detect QR Codes while recording. Used for changing a video burn-in message in the middle of a live-stream. This also allows you to end a capture via a QR Code (command: !E).  Input Data: 1-enable, 0-disable",
+* **QRDR** Detect QR Codes while recording and during Quik previews. Used for changing a video burn-in message in the middle of a live-stream. This also allows you to end a capture via a QR Code (command: !E).  Input Data: 1-enable, 0-disable",
 * **RLTC** Read LTC timecode from audio inputsInput Data: 1-Enable, 0-Disable.",
 * **RTMP** RTMP Address to livestream to. Combined with JOIN Metadata, use !W!GLC to start a 1080p livestream. Input Data: String of the RTMP URL, e.g. rtmp://live.twitch.tv/app/live_1234567. Permanent required.",
 * **SHMX** H8-9 & MAX: Photo shutter maximum exposure time: this is similar Maximum Shutter Angle (EXPT), except it applies to Photos. e.g. SHMX=1000 would set 1/1000th of a second as the longest shutter time. Input Data: 30-2000.",
