@@ -28,7 +28,17 @@ Here is a list of additional metadata driven camera extensions:
 
 ### **HERO13 cameras**
 
+- **WBDV=1** - White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, WBDV is more automatic – as the scene get more blue, the more the red channel is gain up. Currently $WBDV=1 is uses =2.33,4.0 internally (gaining red 4x after red gain hits 2.33), so you can try tuning this yourself e.g. $WBDV=2.4,5.0
+- **SHEL=1** - Using $SHEL=1 enables a command shell for Labs over a USB serial port. Every experimental, and looking for feedback. Connect to COM at 115200 8N1. All QR code command work, just type them. Used $ commands will report their data back to the shell, e.g. $BITR or $A or $p:T to read variables.
+- **OPNW=1** - Open Network (allows of faster non-secure http vs https to be used with Open GoPro)
 - **DIST=x** - Time-Lapse Video Distance, x is a GPS travel distance between exposures, rather than time for an in-camera computed timelapse. When x=1 10m will be used.
+- **GOAL=x** - 0 to 60 (or x) MPH speed timing. Not for precision timing, just for fun. Drive safe. It currents a JPEG in MISC for you speed award. All very crude, from a recent hackathon.
+- **GPSL=x** - to enabled continous GPS location logging, even when not capturing, so the capture can log more of you path and adventures. Path is saved by day into 
+MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meter from the last stored location.
+
+
+### **HERO13/12 cameras**
+
 - **DIVE=1** - optimizing the Hypersmooth stabilization for underwater. It might be no surprise, but HyperSmooth is designed for the camera operation above the water's surface, 
 underwater there is typically less camera shake, and HS is still 70% effective at removing shake. The hack adapts HS to use the refractive index (RI)
 of water (defaults to 1.335, good for fresh and command salt water), to remove closer to 100% of unwanted shake. Note: if you know your area's RI is significantly different, 
@@ -38,15 +48,9 @@ use DIVE=r, where r can be 1.3 to 1.45 is supported.
 - **MMSK=x** - for auto generating a mask for the new motion detector.
 - **OLTC=x** - frame offset to LTC, enabling calibration you are seeing any offset.
 - **RLTC=1** - to enable LTC timecode reading from line-in audio.
-- **GOAL=x** - 0 to 60 (or x) MPH speed timing. Not for precision timing, just for fun. Drive safe. It currents a JPEG in MISC for you speed award. All very crude, from a recent hackathon.
-- **GPSL=x** - to enabled continous GPS location logging, even when not capturing, so the capture can log more of you path and adventures. Path is saved by day into 
 MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meter from the last stored location.
 - **STOP=x** - Stop Motion where is x the number for frame to store per shutter press. Works great with the remote. Mode button ends capture.  
 - **ONIO=x** - Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.
-
-
-### **HERO13/12 cameras**
-
 - **PRES=x,name** - Added creating, naming and sharing presets where x 0-18 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
 
 
@@ -150,7 +154,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 <br>![HISTnew.jpg](HISTnew.jpg) ![HISTmini.jpg](HISTmini.jpg)
 - **HSTO=x** - minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
 - **LLTZ=latt,long,timezone** for those want to use Sunset/Sunrise timelapse without GPS, or for when you are shooting a sunset timelapse from indoors. The metadata is used to store your GPS Location and timezone e.g. !MLLTZ=33.126,-117.327,-8.0  In this case you must used the !M command, permanent storage, as solar event timers will shutdown the camera.
-- **QRDR=1** - detect QR Codes while recording.  Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
+- **QRDR=1** - detect QR Codes while recording, or even Quik Preview. Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
 - **SPED=1** - SD Card Speed Test, only really useful on older cameras (HERO9 or older.) GP2 cameras are faster and generally require faster SD cards anyway. It still works on newer cameras, but the results are misleading, are often way higher than what the encoder can support (i.e. don't set BITR to 200 because you card writes at 500Mb/s.)
 ![SPEDnew.jpg](SPEDnew.jpg)
 - **TCAL=milliseconds** - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
@@ -222,7 +226,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: November 13, 2024<br>
+updated: December 2, 2024<br>
 
 [Learn more](..) on QR Control
 

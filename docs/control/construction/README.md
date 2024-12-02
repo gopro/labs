@@ -134,7 +134,7 @@ function timeLoop()
 	
 	document.getElementById("daystext").innerHTML = dd;
 		
-	var interval = Math.trunc(((endmins - startmins)*60 / perday) - 15);
+	var interval = Math.trunc(((endmins - startmins)*60 / perday) - 15)-2;
 	if(interval < 30) interval = 30;
 	
 	//Old style: mPdP>07:59<17:00!525SQ~!08:00S!1R
