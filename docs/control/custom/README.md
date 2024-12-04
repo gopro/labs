@@ -207,15 +207,14 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
  
 <div id="settingsTimelapse">
 <b>Timelapse Interval:</b>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse1"    name="fpslapse" value="p2"> <label for="fpslapse1">0.5s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse2"    name="fpslapse" value="p1"> <label for="fpslapse2">1s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse3"   name="fpslapse" value="p.2"> <label for="fpslapse3">2s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse4"   name="fpslapse" value="p.5"> <label for="fpslapse4">5s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse1"  name="fpslapse" value="p2"> <label for="fpslapse1">0.5s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse2"  name="fpslapse" value="p1"> <label for="fpslapse2">1s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse3"  name="fpslapse" value="p.2"> <label for="fpslapse3">2s </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse4"  name="fpslapse" value="p.5"> <label for="fpslapse4">5s </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse5"  name="fpslapse" value="p.10"> <label for="fpslapse5">10s </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse6"  name="fpslapse" value="p.30"> <label for="fpslapse6">30s </label>&nbsp;&nbsp;
-  <input type="radio" id="fpslapse7" name="fpslapse" value="p.60"> <label for="fpslapse7">60s </label>&nbsp;&nbsp;<br>
-  
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp; <input type="radio" id="fpslapse8"  name="fpslapse" value="p.120" > <label for="fpslapse8">2min </label>&nbsp;&nbsp;
+  <input type="radio" id="fpslapse7"  name="fpslapse" value="p.60"> <label for="fpslapse7">60s </label>&nbsp;&nbsp;<br>
+  <input type="radio" id="fpslapse8"  name="fpslapse" value="p.120" > <label for="fpslapse8">2min </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse9"  name="fpslapse" value="p.300" > <label for="fpslapse9">5min </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse10" name="fpslapse" value="p.1800"> <label for="fpslapse10">30min </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse11" name="fpslapse" value="p.3600"> <label for="fpslapse11">60min </label>&nbsp;&nbsp;
