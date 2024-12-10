@@ -45,11 +45,10 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 ### Primer on Labs actions, scripting and command sets
 
-- [Action Commands](https://gopro.github.io/labs/control/actions)
-- [Setting Commands](https://gopro.github.io/labs/control/settings)
+- AI Chat Bot to help you create [Labs scripts](https://bit.ly/chat_gp_labs)
+- Technical information on the [Labs command language](https://gopro.github.io/labs/control/tech)
 
 ### Overview of Labs functionality and device compatibility: 
-
 
 | Feature                                                                                     | H13 | H12 | H11/M11 | H10/Bones | H9 | H8 | H7 | MAX |
 |---------------------------------------------------------------------------------------------|--------|--------|----------|-----------|----|----|----|-----|
@@ -113,9 +112,8 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Zero to sixty timing](https://gopro.github.io/labs/control/extensions)                     | ✔️ | ❌ | ❌️ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 
-
 ## Software 
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](docs/software/).
 
-updated: November 26, 2024<br>
+updated: December 10, 2024<br>
