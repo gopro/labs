@@ -41,11 +41,11 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 - [Camera Macros](https://gopro.github.io/labs/control) e.g. motion or sound level triggers, long form time-lapses, etc.
 - [Camera Extensions](https://gopro.github.io/labs/control/extensions) e.g. bit-rate enhancements or exposure tweaks
-- [Visual Script Tool](https://gopro.github.io/labs/build/) HERO12/11/Mini/Max
+- [Visual Script Tool](https://gopro.github.io/labs/build/) HERO13/12/11/Mini/10/Max
 
 ### Primer on Labs actions, scripting and command sets
 
-- AI Chat Bot to help you create [Labs scripts](https://bit.ly/chat_gp_labs)
+- New [AI Chat Bot](https://bit.ly/chat_gp_labs) to help you create Labs scripts
 - Technical information on the [Labs command language](https://gopro.github.io/labs/control/tech)
 
 ### Overview of Labs functionality and device compatibility: 
