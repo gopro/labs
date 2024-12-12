@@ -80,6 +80,13 @@ For advanced Labs users, preset names can call macros. Warning: don't put perman
 
 ## HERO12 Black 
 
+### 2.32.70 - December 12, 2024
+- Added variable $f to determine how full the SD Card is. Returns -1 if the SD card is ejected, or storage remaining in GBytes. Use $f:U for storage used in GBytes. e.g. `$PMSG="$f GB"!R`
+- Added support for printing the contents of fourCCs directly `"bitrate $BITR"` and `"Owner $OWNR"` are now supported.
+- Fixed range time conditional in form >time<time(TRUE)~(FALSE) the else wasn't be processed.
+- Fixed for scripts Photo follow by a sleep.
+- Fixed WBDV red channel clipping (overflow).
+
 ### 2.30.70 - November 13, 2024
 - Added *DRFT=1 for automatic clock fix.
 - Added *DRFS=-11.3 for a fixed clock fix.
@@ -616,6 +623,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: November 21, 2024
+updated: December 12, 2024
 
 [Learn more](..) on QR Control

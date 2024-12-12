@@ -9,7 +9,7 @@ your GoPro, this update simply adds more features.  Safe to install, safe to use
 
 Download the GoPro Labs firmware for current shipping cameras:
 - [HERO13 Black](https://bit.ly/LABS_H13_1_30_70) - v1.30.70, November 21, 2024
-- [HERO12 Black](https://bit.ly/LABS_H12_2_30_70) - v2.30.70, November 13, 2024
+- [HERO12 Black](https://bit.ly/LABS_H12_2_32_70) - v2.32.70, December 12, 2024
 
 Download and install for older cameras:
 - [HERO11 Black](https://bit.ly/LABS_H11_2_30_70) - v2.30.70, March 2024
@@ -114,4 +114,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-updated: December 10, 2024<br>
+updated: December 12, 2024<br>
