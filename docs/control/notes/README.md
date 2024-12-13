@@ -5,6 +5,13 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO13 Black 
 
+### 1.30.72 - December 13, 2024
+- Added variable $f to determine how full the SD Card is. Returns -1 if the SD card is ejected, or storage remaining in GBytes. Use $f:U for storage used in GBytes. e.g. `$PMSG="$f GB"!R`
+- Added support for printing the contents of fourCCs directly `"bitrate $BITR"` and `"Owner $OWNR"` are now supported.
+- Fixed range time conditional in form >time<time(TRUE)~(FALSE) the else wasn't be processed.
+- Fixed for scripts Photo follow by a sleep.
+- Fixed WBDV red channel clipping (overflow).
+
 ### 1.30.70 - November 21, 2024
 - Added WBDV - White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, 
 WBDV is more automatic -- as the scene get more blue, the more the red channel is gain up. Currently $WBDV=1 is uses =2.33,4.0 internally 
@@ -83,9 +90,14 @@ For advanced Labs users, preset names can call macros. Warning: don't put perman
 ### 2.32.70 - December 12, 2024
 - Added variable $f to determine how full the SD Card is. Returns -1 if the SD card is ejected, or storage remaining in GBytes. Use $f:U for storage used in GBytes. e.g. `$PMSG="$f GB"!R`
 - Added support for printing the contents of fourCCs directly `"bitrate $BITR"` and `"Owner $OWNR"` are now supported.
+- Added SHEL - Using $SHEL=1 enables a command shell for Labs over a USB serial port. Every experimental, and looking for feedback. 
+Connect to COM at 115200 8N1. All QR code command work, just type them. Used $ commands will report their data back to the shell, 
+e.g. $BITR or $A or $p:T to read variables.
 - Fixed range time conditional in form >time<time(TRUE)~(FALSE) the else wasn't be processed.
 - Fixed for scripts Photo follow by a sleep.
 - Fixed WBDV red channel clipping (overflow).
+- Fixed voice control enabling in Labs
+
 
 ### 2.30.70 - November 13, 2024
 - Added *DRFT=1 for automatic clock fix.
@@ -623,6 +635,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: December 12, 2024
+updated: December 13, 2024
 
 [Learn more](..) on QR Control
