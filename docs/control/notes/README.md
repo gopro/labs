@@ -41,9 +41,9 @@ e.g. $BITR or $A or $p:T to read variables.
 - Fixed crash with creating presets through the menus.  If instability presists, reset the presets.
 
 ### 1.10.70 - September 10, 2024
-- Added STOP=x for Stop Motion where is x the number for frame to store per shutter press. Works great with the remote. Mode button ends capture.  
+- Added STOP=x A Stop Motion extension where is x the number for frames to store per shutter press. This modify timelapse video. It is recommend to make a stop motion preset with this command ```mT$PRES="0,STOP"mTr5Xp4``` Works great with the remote. Mode button ends capture. 
 - Added ONIO=x Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.  
-- Added DIST=x Time-Lapse Video Distance, x is a GPS travel distance, rather than time for an in-camera computed timelapse. When x=1 10m will be used.   
+- Added DIST=x Time-Lapse Video Distance, x is a GPS travel distance between exposures in meters, rather than time for an in-camera computed timelapse. So $DIST=5 will set a 5 meter interval for TLV. One exception is when x=1, 10 meters will be used, 1 meter is too noisy (GPS errors.) So this feature is good for 2 meters of larger. For shorter distances or a higher speed, you the new TLV sample rate for 4Hz (p4), for the best distance precision. e.g. mTr5Xp4$DIST=5
 - Added DIVE=1 - optimizing the Hypersmooth stabilization for underwater. The water refractive index defaults to 1.335 (good for fresh and command salt water), if you know your area RI is significantly different DIVE=r where r can be 1.3 to 1.45 is supported.
 - Added WARM=x and COOL=x to offset white balance.  WARM is good to use with DIVE, so you can improve the red respond for deeper dives. 
 - Added RLTC=1 to enable LTC timecode reading from line-in audio 
@@ -103,7 +103,7 @@ e.g. $BITR or $A or $p:T to read variables.
 - Added *DRFT=1 for automatic clock fix.
 - Added *DRFS=-11.3 for a fixed clock fix.
 - Added mPp1 or p.5 for interval photo
-- Added STOP=x for Stop Motion where is x the number for frame to store per shutter press. Works great with the remote. Mode button ends capture.  
+- Added STOP=x A Stop Motion extension where is x the number for frames to store per shutter press. This modify timelapse video. It is recommend to make a stop motion preset with this command ```mT$PRES="0,STOP"mTr5Xp4``` Works great with the remote. Mode button ends capture. 
 - Added ONIO=x Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.  
 - Added DIVE=1 - optimizing the Hypersmooth stabilization for underwater. The water refractive index defaults to 1.335 (good for fresh and salt water), if you know your area RI is significantly different DIVE=r where r can be 1.3 to 1.45 is supported.
 - Added WARM=x and COOL=x to offset white balance.  WARM is good to use with DIVE, so you can improve the red respond for deeper dives. 
@@ -635,6 +635,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: December 13, 2024
+updated: December 29, 2024
 
 [Learn more](..) on QR Control
