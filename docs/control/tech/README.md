@@ -434,6 +434,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **BRNX** H8-13/MAX: Offset the overlays or LOGO display with X,Y pixel coordinates. Input Data: x,y pixel coordinates.e.g. 120,40
 * **BYPS** "H11-13: Bypass common pop-ups, such as resetting the time and date. Remember to set time and date if you remove the battery. Input Data: 1 to bypass, 0 for normal notifications. e.g. `*BYPS=1`
 * **CBAR** H9-13: enable a small 75% saturated color bars for video tools evaluation. Most cameras limit overlays to 4K30, 2.7Kp60 or lower. Input Data: 1 to enable, 0 to disable
+* **COOL** H12-13: offset white balance for the blue channel. $COOL=40 will add 40% more gain to the blue channel.
 * **DAMP** H10-13: Control over the auto-exposure damping. Setting the DAMP to 1 is the default, setting to 10 would slow the camera’s exposure adjustments 10X.Input Data: 0.1 to 10000. e.g. `$DAMP=10`
 * **DAUD** H10-13: Disable Audio in video captures, all MP4 files will have no audio track. Application: high bit-rate drones video.Input Data: 1 to disable audio, 0 to re-enable
 * **DIST** H13: Time-Lapse Video Distance, x is a GPS travel distance between exposures in meters, rather than time for an in-camera computed timelapse. So $DIST=5 will set a 5 meter interval for TLV. One exception is when x=1, 10 meters will be used, 1 meter is too noisy (GPS errors.) So this feature is good for 2 meters of larger. For shorter distances or a higher speed, you the new TLV sample rate for 4Hz (p4), for the best distance precision. e.g. mTr5Xp4$DIST=5
@@ -446,13 +447,14 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **EVBS** H10-13: This is an EV compensation value that works with webcam and livestreaming, it can be changed live (with QRDR=1) and it is global, adding the any existing EV control in your presets.Input Data: range -4 to 4.
 * **EXPQ** H11-13: Min and Max Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable. e.g. `$EXPQ=120`
 * **EXPS** H11-13: Video exposure values: ISO and Shutter speed, rendered to the LCD. Handy for those using ND Filters. Input Data: 1 to enable, 0 to disable
-* **EXPX** H10-13: Max Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable
-* **EXPN** H10-13: Min Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable
+* **EXPX** H10-13: Max Shutter speed (shortest exposure time), 1/x format. EXPX is a good control to set the look for stabilization in lower light. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable
+* **EXPN** H10-13: Min Shutter speed (longest exposure time), 1/x format. EXPN is a good to ensure you have motion blur, you may need ND filters. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable
 * **EXPT** Video Exposure Control through Maximum Shutter Angle for video modes. Can improve stabilization in low light. Input Data: Number 0 through 5 stops.  0-360° (camera default), 1-180°, 2-90°, 3-45°, 4-22.5° etc.
 * **FAST** Faster and fewer Labs notifications on boot. Input Data: 1-enable, 0-disable. e.g. `*FAST=1`
 * **FEAT** H10-13/MAX: Displays Labs enabled Features for x seconds. Input Data: x-seconds.  e.g. `$FEAT=4`
 * **GAIN** H9-13: Digitally gain up the audio. e.g. \$GAIN=12, increase audio by 12dB. Will likely reduce the dynamic range.Input Data: 0-48 in dB.
 * **GCMP** H11-13: Disable Gryo Compensated Exposure.  When GoPro camera modes, it normally uses a faster shutter for improved stabilization, this control disables this feature.Input Data: 1 to disable gyro comp, 0 - default
+* **GPSL** H13 only: enable continous GPS location logging, even when not capturing, so the capture can log more of you path and adventures, simply have the camera on. Path is saved by day into MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meters from the last stored location. e.g. $GPSL=10 to log evert meters.
 * **GUID** H11-13: On screen guides lines for output aspect ratios. e.g. \$GUID=2.35, set shooting guides for cinescope. Input Data: List of aspect ratios (up to 8) as real numbers, so 16:9 is 1.778 and 9:16 is 0.5625.
 * **GUIC** H11-13: Color/brightness of guides lines. e.g. \$GUIC=10,255. Input Data: List of guide brightness (up to 8). e.g. 255,10
 * **HDMI** Media Mod users can change the output default from Gallery, to clean monitoring with no overlays, or monitoring live video with On Screen Display overlays. Input Data: 0-Galley, 1-Clean Video, 2-Video+OSD
@@ -487,6 +489,8 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **TONE** H10-13: Tone-mapping controls. Input Data:   0 - current defaults   1 - global tone-mapping only   2 - both tone-mapping   3 - disable all tone-mapping
 * **TUSB** H10-13: Trust USB power. Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. If you use TUSB with an inadequate power source, expect capture failures.
 * **WAKE** H9-13: Conditional wake on any power addition. Inserting a battery or the connection of USB power, will boot up the camera to continue a script after a power failure.  Input Data: 1-wake if there is a delay action pending, 2-wake on power, 0-disable  e.g. `*WAKE=2`
+* **WARM** H12-13: offset white balance for the red channel. WARM is good to use with DIVE, so you can improve the red respond for deeper dives. $WARM=50 will add 50% more gain to the red channel.  
+* **WBDV** H13 only: White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, WBDV is more automatic – as the scene gets more blue, the more the red channel is gained up. Currently $WBDV=1 is uses =2.33,4.0 internally (gaining red 4x after red gain hits 2.33), so you can try tuning this yourself e.g. $WBDV=2.4,3.0
 * **WBLK** H11-13: White balance Lock upon capture. Allows the convenience of auto white balance, without the risk of WB change during capture. Input Data: 1-enable WB Lock, 0-disable
 * **WIDE** H11-13: A wide gamut color profile, this supports all in-camera white balancing. Like using white balance Native, without as much post color work. Input Data: 1-enable WIDE gamut, 0-disable
 * **ZONE** H9-13: Set the time zone for use with SYNC. Input Data: time zone offset in minutes.
