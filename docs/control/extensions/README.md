@@ -51,7 +51,7 @@ use DIVE=r, where r can be 1.3 to 1.45 is supported.
 MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meter from the last stored location.
 - **STOP=x** - A Stop Motion extension where is x the number for frames to store per shutter press. This modify timelapse video. It is recommend to make a stop motion preset with this command ```mT$PRES="0,STOP"mTr5Xp4``` Works great with the remote. Mode button ends capture. 
 - **ONIO=x** - Onion percentage used for Stop Motion where is x the precentage of transparency of the onion skin.
-- **PRES=x,name** - Added creating, naming and sharing presets where x 0-18 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
+- **PRES=x,name** - Added creating, naming and sharing presets where x 0-32 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
 
 
 ### **HERO13/12/11/Mini cameras**

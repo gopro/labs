@@ -475,7 +475,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **OWNR** Display Owner information. This written into every MP4 and JPGs metadata, and MISC/GoPro-owner.txt file.Input Data: String up to 64 characters using '\\n' for a newline. Permanent required.
 * **OWNr** Owner information, not displayed. This written into metadata, and MISC/GoPro-owner.txt file.Input Data: String up to 64 characters using '\\n' for a newline. Permanent required.
 * **PMSG** H11-13: Message to display during a Labs looping script, so you know the camera is running something custom. Input Data: Any label less than 20 characters, or empty to disable.
-* **PRES** H12-13: Create a new preset with custom name and icon. Input Data: Icon number 0 thru 15, preset name up to 15 characters
+* **PRES** H12-13: Create a new preset with custom name and icon. Input Data: Icon number 0 thru 32, preset name up to 15 characters. e.g. `$PRES="14,Scuba"`
 * **PRXY** H10-13: Store LRV files as NLE ready proxies. Normally a camera will encode an LRV (Low Res Video) for every MP4, with this enabled LRVs are made MP4s within a subfolder. Input Data: 1-move LRVs, 2-move THMs, 3-both, (v2.1) 4-No _Proxy name. 0-disable
 * **QRDR** Detect QR Codes while recording and during Quik previews. Used for changing a video burn-in message in the middle of a live-stream. This also allows you to end a capture via a QR Code (command: !E).  Input Data: 1-enable, 0-disable
 * **RLTC** Read LTC timecode from audio inputsInput Data: 1-Enable, 0-Disable.  e.g. `*RLTC=1`
@@ -622,6 +622,9 @@ The command language is kept simple, so it doesn't maintain a stack on the condi
 
 Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
 * **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `>a0.5"half g"`
+* **a:X** x_accel_value  - **\=Xa:X>XValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
+* **a:Y** y_accel_value  - **\=Ya:Y>YValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
+* **a:Z** z_accel_value  - **\=Za:Z>ZValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `=Za:X>Z0.5"Z half g"`
 * **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage  e.g. `<b10"Battery less than 10%"`
 * **b:T** batteryTemperature<sup>H13</sup> - **\>bValue**CMD if(battery \> Value) then CMD, units in degrees C  e.g. `>b:T70"Battery Hot"`
 * **c** coordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location  e.g. `>c10"moved 10m"`
@@ -629,6 +632,9 @@ Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, 
 * **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.   e.g. `<d500"GPS precision high"`
 * **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.    e.g. `<e50"Heads"~"Tails"`
 * **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
+* **g:X** x_accel_value  - **\=Xg:X>XValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
+* **g:Y** y_accel_value  - **\=Yg:Y>YValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
+* **g:Z** z_accel_value  - **\=Zg:Z>ZValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Za:X>Z0.5"Z half g"`
 * **h** heightValue - **\>hValue**CMD if(height \> Value) CMD, numbers are in meters above sealevel.
 * **i** isoValue - **\>iValue**CMD - testing ISO where ISO ranges from 100 to 6400
 * **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
@@ -638,7 +644,7 @@ Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, 
 * **n** network Connect - if false it returns -1, otherwise it returns the string length of the SSID
 * **n:L** networkLivestreaming - if false it returns -1, 1.0 if currently livestreaming
 * **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
-* **p:T** processorTempValue<sup>H13</sup> - **\>pValue**CMD if(processorTemp \> Value) then CMD, units in degrees C
+* **p:T** processorTempValue<sup>H13</sup> - **\>p:TValue**CMD if(processorTemp \> Value) then CMD, units in degrees C
 * **r** recording - **\>r0**CMD1~CMD2 if(Recording > 0) then CMD1 else CMD2 
 * **r:C** remote Connected - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
 * **r:A** remote App Connected with Live Preview - **\>r:A0**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 

@@ -166,7 +166,7 @@ e.g. $BITR or $A or $p:T to read variables.
 
 ### 2.00.70 - Dec 14, 2023
 - Added FEAT - Display the Labs feature you have active, without have to reboot the camera. e.g. oMFEAT=4 <- display for 4 seconds.
-- Added creating, naming and sharing presets oMPRES="1,MyPreset" 0-18 for icon selection, -1 for delete 
+- Added creating, naming and sharing presets oMPRES="1,MyPreset" 0-22 for icon selection, -1 for delete 
 - Added FONT=1 Select the old fonts (if you only want the dot matrix font)
 - Added GRAB=x screen grab x-frames, !F (grab now) and !F3 (grab next 3 Labs overlays) - frame grab the UI.  Useful for education and bug reporting
 - Added font color for script messaging. e.g. try this QR Code ```"\1H\2e\3l\4l\5o \6W\7o\8r\1l\2d" ```
@@ -207,7 +207,14 @@ e.g. $BITR or $A or $p:T to read variables.
 - Enhanced support for the new Blockly visual scripting tool [https://gopro.github.io/labs/build/](https://gopro.github.io/labs/build/)
 
 
-## HERO11 Black 
+## HERO11 Black
+
+
+### 2.30.72 - Jan 21 14, 2025
+- Added variable $f to determine how full the SD Card is. Returns -1 if the SD card is ejected, or storage remaining in GBytes. Use $f:U for storage used in GBytes. e.g. `$PMSG="$f GB"!R`
+- Added support for printing the contents of permanent fourCCs directly `"bitrate $BITR"` and `"Owner $OWNR"` are now supported.
+- general labs scripting bug fixes.
+
 
 ### 2.30.70 - Mar 14, 2024
 - Added *wxyz, permanent storage, is the simplified version of !Mwxyz, e.g. *BITR=160
@@ -635,6 +642,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: December 29, 2024
+updated: January 21, 2025
 
 [Learn more](..) on QR Control
