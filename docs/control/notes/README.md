@@ -210,7 +210,7 @@ e.g. $BITR or $A or $p:T to read variables.
 ## HERO11 Black
 
 
-### 2.30.72 - Jan 21 14, 2025
+### 2.32.70 - Jan 21, 2025
 - Added variable $f to determine how full the SD Card is. Returns -1 if the SD card is ejected, or storage remaining in GBytes. Use $f:U for storage used in GBytes. e.g. `$PMSG="$f GB"!R`
 - Added support for printing the contents of permanent fourCCs directly `"bitrate $BITR"` and `"Owner $OWNR"` are now supported.
 - general labs scripting bug fixes.
@@ -642,6 +642,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: January 21, 2025
+updated: January 25, 2025
 
 [Learn more](..) on QR Control
