@@ -26,6 +26,13 @@ Note: All text box support **\n** for a new line.
 
 **Any start message here:** <input type="text" id="startmsg" value=""><br>
 
+**Add Date with format**  <input type="text" id="adddate" value="yyyy-mm-dd "> Remove by emptying this field.
+
+ * yy - year in two digit format
+ * yyyy - year in four digit format
+ * mm - month (1-12)
+ * dd - day (1-31)
+
 **Add Time with format**  <input type="text" id="addtime" value="HH:MM:SSaa "> Remove by emptying this field.
 
  * HH - Hour
@@ -33,13 +40,7 @@ Note: All text box support **\n** for a new line.
  * SS - Second
  * aa - am/pm (also switches off 24 hour time)
  * AA - AM/PM (also switches off 24 hour time)
-
-**Add Date with format**  <input type="text" id="adddate" value="mm-dd-yyyy "> Remove by emptying this field.
-
- * yy - year in two digit format
- * yyyy - year in four digit format
- * mm - month (1-12)
- * dd - day (1-31)
+ 
  
 **Display Metadata (experimental)** 
 
@@ -97,7 +98,7 @@ Known Issues:
 
 **Compatibility:** Labs enabled HERO8-13 and MAX 
         
-updated: September 10, 2024
+updated: Febuary 4, 2025
 
 [Learn more](..) on QR Control
 
@@ -203,7 +204,7 @@ function timeLoop()
 			cmd = cmd + mtype + "MBRNT=" + s;
 	}
 	
-    cmd = cmd + mtype + "MBRNO=" + document.getElementById("offset").value + mtype + "MBURN=\"(" + document.getElementById("hsize").value + "," + document.getElementById("vsize").value + ")" + document.getElementById("startmsg").value + openb + pos + document.getElementById("addtime").value + document.getElementById("adddate").value;
+    cmd = cmd + mtype + "MBRNO=" + document.getElementById("offset").value + mtype + "MBURN=\"(" + document.getElementById("hsize").value + "," + document.getElementById("vsize").value + ")" + document.getElementById("startmsg").value + openb + pos + document.getElementById("adddate").value + document.getElementById("addtime").value;
 	cmd = dcmd(cmd, "am");
 	cmd = cmd + closeb + document.getElementById("endmsg").value + "\"";
 	
