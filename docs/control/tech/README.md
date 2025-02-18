@@ -631,6 +631,8 @@ Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, 
 * **c:X** coord[A-Z]Distance - **\>c:XDist**CMD There are up to 26 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ. If nothing is store in FRMx, it will initialize with the current location. Reset a location with $FRMx=0,0 it will reinit with the current location.
 * **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.   e.g. `<d500"GPS precision high"`
 * **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.    e.g. `<e50"Heads"~"Tails"`
+* **f** SD full? Remaining space on SD card in GB (or -1.0 for no SD) - **\>fValue**CMD \>f4 - more than 4GB left e.g. `<f4"SD card warning"`
+* **f:U** GB Used? Used space on SD card in GB (or -1.0 for no SD) - **\>f:UValue**CMD \>f:U32 - more than 32GB used e.g. `>f:U32"32GB used"`
 * **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
 * **g:X** x_accel_value  - **\=Xg:X>XValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
 * **g:Y** y_accel_value  - **\=Yg:Y>YValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
@@ -712,6 +714,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: December 29, 2024
+updated: February 18, 2025
 
 [Learn more](..) on QR Control
