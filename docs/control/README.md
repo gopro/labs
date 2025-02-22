@@ -28,7 +28,7 @@ and as a mobile app:<br>
 
 ## Forum Discussions and Feedback 
 * For GoPro Labs discussions, feature requests, and help: [**Labs Discussion on GitHub**](https://github.com/gopro/labs/discussions)
-* For obmissions or errors within these Pages: [**GitHib Labs Issues**](https://github.com/gopro/labs/issues)
+* For obmissions or errors within these Pages: [**GitHub Labs Issues**](https://github.com/gopro/labs/issues)
 
 ## The Many Features of Labs
 
