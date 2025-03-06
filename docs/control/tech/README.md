@@ -437,6 +437,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **COOL** H12-13: offset white balance for the blue channel. $COOL=40 will add 40% more gain to the blue channel.
 * **DAMP** H10-13: Control over the auto-exposure damping. Setting the DAMP to 1 is the default, setting to 10 would slow the camera’s exposure adjustments 10X.Input Data: 0.1 to 10000. e.g. `$DAMP=10`
 * **DAUD** H10-13: Disable Audio in video captures, all MP4 files will have no audio track. Application: high bit-rate drones video.Input Data: 1 to disable audio, 0 to re-enable
+* **DBGL** Enables more debug logging. Labs saves it logs to the SD card under MISC/qrlog.txt. Using this extension increases the details and logged events. e.g. To see more logging from boot up use `*DBGL=1`
 * **DIST** H13: Time-Lapse Video Distance, x is a GPS travel distance between exposures in meters, rather than time for an in-camera computed timelapse. So `$DIST=5` will set a 5 meter interval for TLV. One exception is when x=1, 10 meters will be used, 1 meter is too noisy (GPS errors.) So this feature is good for 2 meters of larger. For shorter distances or a higher speed, you the new TLV sample rate for 4Hz (p4), for the best distance precision. e.g. `mTr5Xp4$DIST=5`
 * **DIVE** H12-13: Optimizing the Hypersmooth stabilization for underwater. It might be no surprise, but HyperSmooth is designed for the camera operation above the water's surface, underwater there is typically less camera shake, and HS is still 70% effective at removing shake. The hack adapts HS to use the refractive index (RI) of water (defaults to 1.335, good for fresh and command salt water), to remove closer to 100% of unwanted shake. Note: if you know your area's RI is significantly different, use DIVE=r, where r can be 1.3 to 1.45 is supported. e.g. `$DIVE=1` for most underwater captures. To create a dive preset use `mV$PRES="14,DIVE"mV`
 * **DLRV** H10-11: Disable LRV file creation. Application: high bit-rate drones video. Input Data: 1 to disable LRVs, 0 to re-enable. e.g. `*DLRV=1` to permanently disable LRV files.
@@ -714,6 +715,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: February 18, 2025
+updated: March 6, 2025
 
 [Learn more](..) on QR Control

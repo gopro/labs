@@ -145,6 +145,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 	- An inventive use of oMBOOT="command", 'oM' commands do not survive power cycles, so this is not a "boot" command, but this style of command will run as a subroutine. 
 	- e.g. !10:00NoMBOOT="!SM3D4H5!R" <- Wake at 10am, then motion capture continuously.
 	-  vs !10:00N!SM3D4H5!R <- which will wake at 10am, but only motion capture once a day.
+- **DBGL=1** - enabled more debug logging. Labs saves it logs to the SD card under MISC/qrlog.txt. Using this extension increases the details and logged events.
 - **DSPC=value**, this sets that contrast for which messages are displayed.  Contrast is from 0 - transparent text background, to 6 - opaque black background
 - **DSPL=time**, this will control the amount of time messages are displayed. For users who want there own information displayed longer. The default is 1 second.  DSPL=1 thru 9 is in seconds.  DSPL = 10 thru 9999 is in milliseconds.  So for much faster messages set DSPL to 100. Set this before setting the owner information, as metadata commands are processed in the order they are stored. 
 - **HNDL=x**, where x is 1 to 31, setting the camera ID for a camera. This is for rare scenarios where multiple cameras see the same QR Code, and you only want particular cameras to respond. This combined with **hZ** command where Z is the bit mask for which cameras will follow the command.
@@ -226,7 +227,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: Febuary 6, 2025<br>
+updated: March 6, 2025<br>
 
 [Learn more](..) on QR Control
 
