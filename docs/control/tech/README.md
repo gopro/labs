@@ -633,7 +633,7 @@ Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, 
 * **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.   e.g. `<d500"GPS precision high"`
 * **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.    e.g. `<e50"Heads"~"Tails"`
 * **f** (H12/H13) SD full? Remaining space on SD card in GB (or -1.0 for no SD) - **\>fValue**CMD \>f4 - more than 4GB left e.g. `<f4"SD card warning"`
-* **f:U** GB Used? Used space on SD card in GB (or -1.0 for no SD) - **\>f:UValue**CMD \>f:U32 - more than 32GB used e.g. `>f:U32"32GB used"`
+* **f:U** (H12/H13) GB Used? Used space on SD card in GB (or -1.0 for no SD) - **\>f:UValue**CMD \>f:U32 - more than 32GB used e.g. `>f:U32"32GB used"`
 * **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
 * **g:X** x_accel_value  - **\=Xg:X>XValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
 * **g:Y** y_accel_value  - **\=Yg:Y>YValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
