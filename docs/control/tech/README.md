@@ -337,13 +337,14 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * **!**time**Fx** - Frame Grab (LCD) at <time> - 'x' grab next x Labs messages. e.g. `!F` frame grab now or !F3 frame grab teh next 3 Labs events
 * **!**time**G(S or M or L)(C)** - Start Live-streaming, e.g. `!GS` - start at 480p, `!GM` - start at 720p, `!GL` - 1080p, optional `C` for capture a local file like `!GLC`
 * **!**time**N** - No Action until exact <time>, useful if you just need a pause. e.g. `!11:30N` - Pause (Sleep) until 11:30am or `!90N` - Sleep for 90s.
-* **!**time**NQ** - No Action until at approximately <time>. e.g. `!09:50NQ` - Pause (Sleep) until approximately 9:50am or `!180NQ` - Sleep for approx 180s.
+* **!**time**NQ** - No Action until at approximately <time> (more power efficient). e.g. `!09:50NQ` - Pause (Sleep) until approximately 9:50am or `!180NQ` - Sleep for approx 180s.
 * **!**time**O** - Off, shutdown the camera. e.g. `!O` Off now or `!5O` Off in 5 seconds
 * **!**time**OR** - shutdown and restart the camera. e.g. `!OR` Off and restart now or `!2O` Off in 2 seconds, then restart
 * **!**time**R** - Repeat the whole command. e.g. `!1R` repeat the whole command in 1 second or `!08:00R` repeat at 8am.
+* **!**time**RQ** - Repeat Quickly at approximately <time> (more power efficient). e.g. `!08:00RQ` repeat the whole command at approximately 8am.
 * **!**time**Rx** - <sup>H11-13</sup> Repeat the command starting at position x (i.e. a goto command). e.g. `!R5` repeat start at command character 5. 
 * **!**time**S** - Start at exactly <time> if in hh:mm form, or after n seconds. e.g. `!20:00S` - Start at 8pm or `!5S` Start in 5 seconds.
-* **!**time**SQ** - Start Quickly at approximately <time> if in hh:mm form, or after n seconds. e.g. `!18:00SQ` - Start at approx 6pm or `!60SQ` Start in 60 seconds approximately.
+* **!**time**SQ** - Start Quickly at approximately <time> if in hh:mm form, or after n seconds. !timeSQ commands are a bit more power efficient than !timeS. e.g. `!18:00SQ` - Start at approx 6pm or `!60SQ` Start in 60 seconds approximately.
 * **!**time**TR** - <sup>H11-13</sup>  `!TR`- switch active TimeWarp to Realtime (or slow motion)
 * **!**time**TN** - <sup>H11-13</sup>  `!TN` - switch active TimeWarp to Normal (speed-up timelapse mode)
 * **!**time**U** - `!U` Attempt a network contention and Upload now <sup>9/10/11/12/13</sup>.
@@ -715,6 +716,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: March 8, 2025
+updated: March 24, 2025
 
 [Learn more](..) on QR Control
