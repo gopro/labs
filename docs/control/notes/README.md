@@ -5,6 +5,21 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO13 Black 
 
+### 2.02.70 - March 27, 2025
+- Added commands to enable and disable the touch screen (tE and tD). These will be usefil in script to prevent an accidental screen touch setting the wrong mode. 
+- Added $EXPL=1, for exposure lock upon capture, just like the existing $WBLK=1 for white balance lock. 
+- Added simplified script versions for exposure lock: eL <- Lock exposure, like wL <- Lock whitebalance, automatically upon capture. Disable with eL0 and wL0.
+- Added support for Stop Motion via Quik, using the hilight tag button to add a frame.
+- Improved Photo capture response times (removing the user timer animation, when run Labs scripts) 
+- Improved command shell response times
+- Fixed *BYPS=1 will now correctly suppress the Date/Time setup popup.
+- Fixed Macros using temporary assignments *ALLD="$BITR=150$GCMP=1"
+- Fixed a preset name with one FourCC and a following string is now support. e.g. "WBDV Wb for Dive"
+- Fixed a conflict when using *FAST=1 the camera sometimes not reading BOOT commands.
+- Fixed overlays rendering time before the date (was rendering time as 00:00:00)
+- Fixed e4 to enable Auto Boost even with UltraWide or Max Lens Mod 2.0 attached.
+- Fixed a rare wake late error, resulting in a 24 hour pause in longform timelapse. 
+
 ### 1.30.72 - December 13, 2024
 - Added variable $f to determine how full the SD Card is. Returns -1 if the SD card is ejected, or storage remaining in GBytes. Use $f:U for storage used in GBytes. e.g. `$PMSG="$f GB"!R`
 - Added support for printing the contents of fourCCs directly `"bitrate $BITR"` and `"Owner $OWNR"` are now supported.
