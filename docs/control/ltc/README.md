@@ -17,9 +17,9 @@ If you don't wish to have a dedicated timecode device attached to your GoPro, yo
 ![tcremoved.jpg](tcremoved.jpg)
 
 
-**Compatibility:** Labs enabled HERO9-13 only.  Note: Recent firmware updates may require the AUDS feature enabled. Scan *AUDS=1 so the LTC reading will be also enabled at boot. On HERO13 use *RLTC=1 to enable reading LTC. 
+**Compatibility:** Labs enabled HERO9-13 only.  Note: Recent firmware updates may require the RLTC feature enabled. Scan *RLTC=1 so the LTC reading will be also enabled at boot. 
 
         
-updated: September 5, 2024
+updated: April 2, 2025
 
 [Learn more](..) on QR Control
