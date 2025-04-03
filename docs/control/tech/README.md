@@ -364,22 +364,25 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 
 ### more examples:
 * `!S` - start now  
-* `!07:00S` - start at precisely 7am  
-* `!300SQ` - start in approximately 300 seconds.  
+* `!07:00S` - start at precisely 7am, the camera will shutdown and sleep until 7am.  
+* `!300SQ` - start in approximately 300 seconds, it will shutdown and sleep for ~300s.  
+* `!N` - short pause around 500ms.  
+* `!2N` - pause for seconds 2s.
+* `!20N` - pause for seconds 20s. Any pause for greater than 9 seconds will shutdown and sleep the camera.  
 * `!60E` - end after 60 seconds (End commands are not used for photos.)
 * `!2R` - repeat after 2 seconds
-* `!s-01:00S` - start one hour before sunset
+* `!s-01:00S` - start one hour before sunset, the camera will shutdown and sleep until one hour before sunset.  
 * `!nS` - start at true noon.
 * `!s1200E` - end 1200 seconds after sunset
 * `!r-600S` - start 600 seconds before sunrise
 * `!17:00W!GLC` - start Live-streaming 1080p at 5pm, saving a local copy
 
 ### Storing metadata (Permanent, survives power off)
-#### Old style (old cameras up to HERO9)
+#### Old style (old cameras up to HERO9, supported by all models)
 * **!M**fourcc**=<courier>"string"</courier>**
 * **!M**fourcc**=Number metadata** (comma separated)
 
-#### New style (HERO10 onward)
+#### New style (support HERO10 onward)
 * **\***fourcc**=<courier>"string"</courier>**
 * **\***fourcc**=Number metadata**  (comma separated)
 
@@ -716,6 +719,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: March 24, 2025
+updated: April 3, 2025
 
 [Learn more](..) on QR Control
