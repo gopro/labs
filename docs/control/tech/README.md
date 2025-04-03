@@ -24,7 +24,7 @@ Just like settings, these alter camera options, not the settings used in a prese
 While each setting command is a single lowercase character, it can be followed by a number of either uppercase or numbers for the parameters. Option commands, starting with `o` 
 can stack many parameter in one command. This is a single options command `oV1B4D2` which translates to Volume - 10%, Brightness 40%, and LEDs rear only. The same command can be 
 written as `oV1oB4oD2`, three separate option commands, but as storage in a QR code is limited so options can be stacked for more efficiency, this is also why spaces are not 
-used between commands.
+used between commands. The only places for using spaces is within quotes, like for preset names or printing messages to the screen.
 
 ## The Full List of Settings and Option Commands
 
@@ -321,6 +321,12 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
 - `mE` - mode Easy
 - `mPR` - mode Pro
 
+### Print Messages ###
+Anything within quotes that is not being store in an FourCC metadata field will be printed to the screen for one second.
+- "Hello World" - prints the Hello World message.
+- "Set Video\nMode"mV - prints Set Video Mode over two lines, and set the mode to video with the `mV` command.
+- "Current mode $v" - $v is one of the system variable (see below), v display the camera current mode.
+- "Temperature\n $p:T C" - $p:T system variable for processor Temperature (see below), prints text "Temperature" on a new line value of the temp in C.
 
 ## Action and Conditional Commands
 Now you know how to set up your camera with QR commands, the fun really begins with Actions and Conditionals. Actions are starting `!S` or ending a capture `!E`, manual upload `!U`, 
@@ -387,7 +393,9 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * **\***fourcc**=Number metadata**  (comma separated)
 
 #### Example for display the owner’s name
-* `*OWNR="Joe Bloggs"`
+* `*OWNR="Joe Bloggs"`  - Within the quotes spaces are allowed.
+* `*OWNR="Jill Bloggs\n(555)-252-5555"`  - the addition of "\n" allows for a new line.
+* `*OWNS="Jill and Joes\n(555)-252-5555\njandj@yahoo.com"`  - multi-line example
 
 Note: All strings must use <courier>"</courier> (ASCII 34) and not the <courier>”</courier> (148) character.  
 
@@ -480,7 +488,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **OWNR** Display Owner information. This written into every MP4 and JPGs metadata, and MISC/GoPro-owner.txt file.Input Data: String up to 64 characters using '\\n' for a newline. Permanent required.
 * **OWNr** Owner information, not displayed. This written into metadata, and MISC/GoPro-owner.txt file.Input Data: String up to 64 characters using '\\n' for a newline. Permanent required.
 * **PMSG** H11-13: Message to display during a Labs looping script, so you know the camera is running something custom. Input Data: Any label less than 20 characters, or empty to disable.
-* **PRES** H12-13: Create a new preset with custom name and icon. Input Data: Icon number 0 thru 32, preset name up to 15 characters. e.g. `$PRES="14,Scuba"`
+* **PRES** H12-13: Create a new preset with custom name and icon. Input Data: Icon number 0 thru 32, preset name up to 15 characters. e.g. `$PRES="14,Scuba"`  On HERO12 and 13, present name that use FourCC commands with enable those command only when the user selects that preset.  e.g. `$PRES="14,DIVE WBLK"` creates a preset called "DIVE WBLK" that enables the DIVE and WBLK extensions.
 * **PRXY** H10-13: Store LRV files as NLE ready proxies. Normally a camera will encode an LRV (Low Res Video) for every MP4, with this enabled LRVs are made MP4s within a subfolder. Input Data: 1-move LRVs, 2-move THMs, 3-both, (v2.1) 4-No _Proxy name. 0-disable
 * **QRDR** Detect QR Codes while recording and during Quik previews. Used for changing a video burn-in message in the middle of a live-stream. This also allows you to end a capture via a QR Code (command: !E).  Input Data: 1-enable, 0-disable
 * **RLTC** Read LTC timecode from audio inputsInput Data: 1-Enable, 0-Disable.  e.g. `*RLTC=1`
