@@ -1,7 +1,7 @@
 # Precision Date and Time (Local)
 
 <script src="../../jquery.min.js"></script>
-<script src="../../qrcodeborder.js"></script>
+<script src="../../qrcode_canvas.js"></script>
 <style>
         #qrcode{
             width: 100%;
@@ -20,18 +20,20 @@
 Simply point your Labs enabled camera at this animated QR Code, to set your date and time very accurately to local time. This is particularly useful for multi-camera shoots, as it helps synchronize the timecode between cameras. As the camera's internal clock will drift slowly over time, use this QR Code just before your multi-camera shoot for the best synchronization. 
 
 <center>
-<div id="qrcode"></div><br>
+<canvas id="qr-canvas" width="360" height="360" style="image-rendering: pixelated;"></canvas>
+<br>
 TC 24: <b id="tctext24"></b><br>
 TC 25: <b id="tctext25"></b><br>
 NDF 30: <b id="tctext30"></b>   DF 30: <b id="dftext30"></b><br>
 TC 50: <b id="tctext50"></b><br>
 NDF 60: <b id="tctext60"></b>   DF 60: <b id="dftext60"></b><br>
 </center>
-QR Command: <b id="qrtext"></b>
+QR Command: <b id="qrtext"></b><br>
+fps: <b id="fpstext"> Hz<br>
 
 **Compatibility:** Labs enabled HERO5 Session, HERO7-13, MAX and BONES 
-        
-updated: September 10, 2024
+		
+updated: May 16, 2025
 
 [Learn more](..) back to QR Controls
 
@@ -111,7 +113,33 @@ function setTZ() {
   }
 }
 
-function makeQR() {	
+let qrCanvas, qrCtx;
+
+function makeQR() {
+  qrCanvas = document.getElementById("qr-canvas");
+  qrCtx = qrCanvas.getContext("2d");
+}
+
+function renderQRToCanvas(data) {
+  const qr = qrcode(0, 'M');  // Type number auto
+  qr.addData(data);
+  qr.make();
+
+  const count = qr.getModuleCount();
+  const size = qrCanvas.width;
+  const tileSize = size / (count+2);
+
+  qrCtx.clearRect(0, 0, size, size);
+  for (let row = 0; row < count; row++) {
+    for (let col = 0; col < count; col++) {
+      qrCtx.fillStyle = qr.isDark(row, col) ? "#000" : "#fff";
+      qrCtx.fillRect((col+1) * tileSize, (row+1) * tileSize, tileSize, tileSize);
+    }
+  }
+}
+
+
+function makeQROld() {	
   if(once === true)
   {
   	id = getMachineId();  // 5 character 10-base, so up to 17-bit ID
@@ -296,33 +324,17 @@ function nonDropframeToDropframeFast(timecode, fps) {
 	return dropframeTimecode;
 }
 
-/*
-var j,h=0,m=0,s=0,f=0;
-for(j=0;j<1000;j++)
-{
-    h = Math.trunc(Math.random()*24);
-    m = Math.trunc(Math.random()*60);
-    s = Math.trunc(Math.random()*60);
-    f = Math.trunc(Math.random()*60);
-    tc = padTime(h)+":"+padTime(m)+":"+padTime(s)+":"+padTime(f);
-    S = nonDropframeToDropframe(tc,60);
-    F = nonDropframeToDropframeFast(tc,60);
-    
-    //if(0 === j)
-    //{
-    //  alert(tc);
-    //}
-    
-    if(0 !== S.localeCompare(F))
-    {
-        alert(S + "!=" + F);
-        exit();
-    }
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el && el.innerHTML !== value)
+    el.innerHTML = value;
 }
 
-alert("done");
-*/   
 
+var starttime = 0;
+var updates = 0;
+var tlast = 0;
+var fps = "1";
 
 function timeLoop()
 {
@@ -342,6 +354,8 @@ function timeLoop()
   mm = padTime(mm);
   dd = padTime(dd);
   
+  var tnow = performance.now() / 1000;
+  
   var tmilli = (ms/1000) + s + (m * 60) + (h * 60 * 60);
   tmilli /= 1.001; //29.97 vs 30.0
   var fixtmilli = tmilli;
@@ -349,7 +363,6 @@ function timeLoop()
   h = padTime(h);
   m = padTime(m);
   s = padTime(s);
-  //ms = Math.floor(ms / 10); // hundredths
   ms = padTime1000(ms);
   
   if(document.getElementById("tzid") !== null)
@@ -374,9 +387,12 @@ function timeLoop()
   }
 
   cmd = "oT" + yy + mm + dd + h + m + s + "." + ms + "oTD" + td + "oTZ" + tz + "oTI" + id;
-  qrcode.clear(); 
-  qrcode.makeCode(cmd);
-  document.getElementById("qrtext").innerHTML = cmd;
+  
+  renderQRToCanvas(cmd);
+  //qrcode.clear(); 
+  //qrcode.makeCode(cmd);
+  
+  setText("qrtext", cmd);
   
   var tc25 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 25 / 1000));
   var tc50 = h + ":" + m + ":" + s + ":" + padTime(Math.trunc(ms * 50 / 1000));
@@ -397,15 +413,42 @@ function timeLoop()
   var df30 = nonDropframeToDropframeFast(tc30, 30);
   var df60 = nonDropframeToDropframeFast(tc60, 60);
  
-  document.getElementById("tctext24").innerHTML = tc24;  
-  document.getElementById("tctext25").innerHTML = tc25;  
-  document.getElementById("tctext30").innerHTML = tc30;  
-  document.getElementById("dftext30").innerHTML = df30;  
-  document.getElementById("tctext50").innerHTML = tc50;  
-  document.getElementById("tctext60").innerHTML = tc60;
-  document.getElementById("dftext60").innerHTML = df60;
+  setText("tctext24", tc24);
+  setText("tctext25", tc25);
+  setText("tctext30", tc30);
+  setText("dftext30", df30);
+  setText("tctext50", tc50);
+  setText("tctext60", tc60);
+  setText("dftext60", df60);
+  
+  var tdelta = tnow - tlast;
+  if(starttime == 0)
+  {
+    updates = 0;
+    starttime = tnow;
+  }
+  else
+  {
+    updates = updates + 1;
+    if(updates > 5)
+      fps = updates / (tnow - starttime);
+  }
+  
+  setText("fpstext", Math.trunc(fps*10)/10);
    
-  var t = setTimeout(timeLoop, 10);
+  if(updates > 400)
+  {
+    updates = 200;
+    starttime += (tnow - starttime)/2;
+  }
+  if(tdelta > 0.2 && tlast > 0)
+  {
+    updates = 0;
+	starttime = tnow;
+  }
+  tlast = tnow;
+  
+  requestAnimationFrame(timeLoop);
 }
 
 function myReloadFunction() {
