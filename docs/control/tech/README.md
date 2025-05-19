@@ -431,6 +431,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 ### Some Four Character Codes are reserved for feature extensions
 * **24HZ** 10-13: enable film standard 24.0 frame, rather than the default broadcast standard 23.976. The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. Input Data: 1-enable, 0-disable. e.g. `*24HZ=1`
 * **64BT** H8-10/MAX: 12GB Chapter sizes on HERO8/9/10 and MAX cameras (default on H11 onward.) Note: Will not be active for QuickCaptures. Input Data: 1-enable, 0-disable WARNING: Larger chapters will not playback on camera or support USB transfers, but are compatible with desktop tools. Permanent required. e.g. `*64BT=1` for older cameras. For HERO11 or newer try `*64BT=64000` for 64GB chapters.
+* **64BT** H11-13: These camera default to 12GB Chapter sizes, but support larger. Note: Will not be active for QuickCaptures. Input Data: x-size in MBs, 0-disable. Permanent required. e.g. `*64BT=64000` for 64GB chapters.
 * **ARCH** H8-13/MAX: Archive mode: an ultra simplified video camera mode for novices documenting critical events, where you don’t want the camera mode modified. Either button will start and stop video capture. Input Data: 1-enable, 0-disable WARNING: only removable via the disable command. Permanent required. e.g. `*ARCH=1`
 * **AUDS** H10-13: Audio Level: displays the current estimate of the sound pressure level in dB. Input Data: 1-enable, 0-disable. e.g. `$AUDS=1`
 * **BASE** H8-10/MAX: Base file name change, adding to beginning of the filename. Input: H10-13 supports wildcards within [ ]: like [yyyy-mm-dd] or [HH-MM-SS]  e.g. A-[yyyymmddHHMMSS] WARNING: GoPro App and cloud will not support renamed files. e.g. `*BASE="CamA-[yy-mm-dd]"`
@@ -727,6 +728,6 @@ Command steps explained:
 > repeat<br>
  
 
-updated: April 3, 2025
+updated: May 19, 2025
 
 [Learn more](..) on QR Control
