@@ -667,7 +667,16 @@ Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, 
 * **r:C** remote Connected - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
 * **r:A** remote App Connected with Live Preview - **\>r:A0**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
-* **t:X** timedate - **\>t:XValue**CMD - where X Y-Year M-Month D-Day H-Hour N-miNute S-second W-day_of_the_Week B-seconds_since_Boot Q-seconds_since_Qrcode R-recording_time W-day_of_week
+* **t:Y** Year (e.g. 2025)<br>
+* **t:M** Month (1 thru 12)<br>
+* **t:D** Day (1 thru 31)<br>
+* **t:H** Hour (0 thru 23)<br>
+* **t:N** miNute (0 thru 59)<br>
+* **t:S** second (0 thru 59)<br>
+* **t:W** day_of_the_Week (0-Sunday, 1-Monday,... thru 6-Saturday)<br>
+* **t:B** seconds_since_Boot <br>
+* **t:Q** seconds_since_Qrcode <br>
+* **t:R** recording_time  <br>
 * **u** USB power - **\>u0**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
 * **v** Current Camera Mode - **==vValue**CMD video=12, TLV=13, Looping Video=15, Photo=16, Night Photo=18, Burst Photo=19, etc. Example: ==v12!S  will start recording video if in Video Mode. ==v16!S will take a photo if in Photo Mode.
 * **y** mode_pressesValue - **\>y0**CMD1~CMD2 if(mode_presses > 0) then CMD1 else CMD2
