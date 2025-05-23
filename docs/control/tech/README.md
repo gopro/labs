@@ -667,16 +667,16 @@ Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, 
 * **r:C** remote Connected - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
 * **r:A** remote App Connected with Live Preview - **\>r:A0**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
-* **t:Y** Year (e.g. 2025)<br>
-* **t:M** Month (1 thru 12)<br>
-* **t:D** Day (1 thru 31)<br>
-* **t:H** Hour (0 thru 23)<br>
-* **t:N** miNute (0 thru 59)<br>
-* **t:S** second (0 thru 59)<br>
-* **t:W** day_of_the_Week (0-Sunday, 1-Monday,... thru 6-Saturday)<br>
-* **t:B** seconds_since_Boot <br>
-* **t:Q** seconds_since_Qrcode <br>
-* **t:R** recording_time  <br>
+* **t:Y** time Year (e.g. 2025)
+* **t:M** time Month (1 thru 12)
+* **t:D** time Day (1 thru 31)
+* **t:H** time Hour (0 thru 23)
+* **t:N** time miNutes (0 thru 59)
+* **t:S** time Seconds (0 thru 59)
+* **t:W** time day_of_the_Week (0-Sunday, 1-Monday,... thru 6-Saturday)
+* **t:B** time in seconds since the camera Boot
+* **t:Q** time in seconds since scanning the QR code
+* **t:R** time is seconds for the current recording
 * **u** USB power - **\>u0**CMD1~CMD2 if(power is on USB) then CMD1 else CMD2
 * **v** Current Camera Mode - **==vValue**CMD video=12, TLV=13, Looping Video=15, Photo=16, Night Photo=18, Burst Photo=19, etc. Example: ==v12!S  will start recording video if in Video Mode. ==v16!S will take a photo if in Photo Mode.
 * **y** mode_pressesValue - **\>y0**CMD1~CMD2 if(mode_presses > 0) then CMD1 else CMD2
@@ -706,6 +706,7 @@ Now math can be used to modify your variables.
 * `=G#2` Log base N  G = log(G)/log(2) 
 * `=J&6` Bitwise AND like  J = (float)((int)J & 6) 
 * `=K|3` Bitwise OR K = (float)((int)K &#124; 3) 
+* `=Tt:W=T%6>T1"week day"~"weekend"` This is a week day vs Weekend detector
 
 There should be a prize if some can come up with a practical use for all of these ;)
 
