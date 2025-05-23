@@ -739,7 +739,25 @@ Command steps explained:
 > print E<br>
 > repeat<br>
  
+### Example command requests
 
-updated: May 19, 2025
+1) Shoot a construction timelapse only Monday thru friday from 9am to 5pm with a 10 minute interval, shutting down the camera between images to extend battery.
+
+`=Tt:W=T%6>T1>09:00<17:00mP+!S+!2N+!600RQ!09:00R`
+ 
+Step-by-step explanation:
+`=Tt:W` - Loads the current day of the week into variable T. (Sunday = 0, Monday =1,... Saturday = 6)
+`=T%6` - Computes T % 6 (modulus), which distinguishes weekdays (1-5) from Sunday and Saturday (now both 0). 
+`>T1>09:00<17:00` - Conditional stack:
+`  >T1` - True if it's a week day (T >= 1)
+`  >09:00<17:00` - True if current time is between 9:00 AM and 5:00 PM
+`mP+!S+!2N+!600RQ` - If the condition is met:
+`  mP` - Switch to Photo mode
+`  !S` - Take a photo immediately
+`  !2N` - Wait 2 seconds
+`  !600RQ` - Repeat the entire script every ~10 minutes (600 seconds) using the power-efficient quick repeat
+`!09:00R` - Repeat the entire script at exactly 09:00 AM daily
+ 
+updated: May 23, 2025
 
 [Learn more](..) on QR Control
