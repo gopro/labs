@@ -749,13 +749,13 @@ Step-by-step explanation:<br>
 `=Tt:W` - Loads the current day of the week into variable T. (Sunday = 0, Monday =1,... Saturday = 6)<br>
 `=T%6` - Computes T % 6 (modulus), which distinguishes weekdays (1-5) from Sunday and Saturday (now both 0). <br>
 `>T1>09:00<17:00` - Conditional stack:<br>
-&nbsp;`>T1` - True if it's a week day (T >= 1)<br>
-&nbsp;`>09:00<17:00` - True if current time is between 9:00 AM and 5:00 PM<br>
+&nbsp;&nbsp;&nbsp;`>T1` - True if it's a week day (T >= 1)<br>
+&nbsp;&nbsp;&nbsp;`>09:00<17:00` - True if current time is between 9:00 AM and 5:00 PM<br>
 `mP+!S+!2N+!600RQ` - If the condition is met:<br>
-&nbsp;`mP` - Switch to Photo mode<br>
-&nbsp;`!S` - Take a photo immediately<br>
-&nbsp;`!2N` - Wait 2 seconds<br>
-&nbsp;`!600RQ` - Repeat the entire script every ~10 minutes (600 seconds) using the power-efficient quick repeat<br>
+&nbsp;&nbsp;&nbsp;`mP` - Switch to Photo mode<br>
+&nbsp;&nbsp;&nbsp;`!S` - Take a photo immediately<br>
+&nbsp;&nbsp;&nbsp;`!2N` - Wait 2 seconds<br>
+&nbsp;&nbsp;&nbsp;`!600RQ` - Repeat the entire script every ~10 minutes (600 seconds) using the power-efficient quick repeat<br>
 `!09:00R` - Repeat the entire script at exactly 09:00 AM daily<br>
 
 ## Troubleshooting
