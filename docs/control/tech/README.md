@@ -636,44 +636,44 @@ The command language is kept simple, so it doesn't maintain a stack on the condi
 
 ### Conditionals Based on Camera Status (HERO10 or newer)
 
-Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against:<br>
-* **a** accelerationValue - **\>aValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `>a0.5"half g"`
-* **a:X** x_accel_value  - **\=Xa:X>XValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
-* **a:Y** y_accel_value  - **\=Ya:Y>YValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
-* **a:Z** z_accel_value  - **\=Za:Z>ZValue**CMD if(acceleration \> Value) then CMD, units in Gs  e.g. `=Za:X>Z0.5"Z half g"`
-* **b** batteryLevel - **\>bValue**CMD if(battery \> Value) then CMD, units in percentage  e.g. `<b10"Battery less than 10%"`
-* **b:T** batteryTemperature<sup>H13</sup> - **\>bValue**CMD if(battery \> Value) then CMD, units in degrees C  e.g. `>b:T70"Battery Hot"`
+Now \>xValue and/or \<xValue and/or ==xValue can be used to test camera states, where 'x' is the camera state to test, and Value the amount to test against. Again Labs uses the `>` symbol to mean greater-than-equals ('>=' is other languages), `<` for less-than, and `==` for equal to:<br>
+* **a** accelerationValue - **\>aValue**CMD if(acceleration \>= Value) then CMD, units in Gs  e.g. `>a0.5"half g"`
+* **a:X** x_accel_value  - **\=Xa:X>XValue**CMD if(acceleration \>= Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
+* **a:Y** y_accel_value  - **\=Ya:Y>YValue**CMD if(acceleration \>= Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
+* **a:Z** z_accel_value  - **\=Za:Z>ZValue**CMD if(acceleration \>= Value) then CMD, units in Gs  e.g. `=Za:X>Z0.5"Z half g"`
+* **b** batteryLevel - **\>bValue**CMD if(battery \>= Value) then CMD, units in percentage  e.g. `<b10"Battery less than 10%"`
+* **b:T** batteryTemperature<sup>H13</sup> - **\>bValue**CMD if(battery \>= Value) then CMD, units in degrees C  e.g. `>b:T70"Battery Hot"`
 * **c** coordDistance - **\>cDist**CMD  then CMD, units in meters, compare distance from initial GPS location  e.g. `>c10"moved 10m"`
 * **c:X** coord[A-Z]Distance - **\>c:XDist**CMD There are up to 26 pre-stored GPS locations oMFRMA=latt,long thru oMFRMZ. If nothing is store in FRMx, it will initialize with the current location. Reset a location with $FRMx=0,0 it will reinit with the current location.
 * **d** GPS DOP - **\<dValue**CMD - if(DOP \< Value) then CMD, units in 100x DOP. GPS location precision.   e.g. `<d500"GPS precision high"`
 * **e** random - **\<eValue**CMD \<e50 - 50% true \<e90 - 90% true.    e.g. `<e50"Heads"~"Tails"`
 * **f** (H12/H13) SD full? Remaining space on SD card in GB (or -1.0 for no SD) - **\>fValue**CMD \>f4 - more than 4GB left e.g. `<f4"SD card warning"`
 * **f:U** (H12/H13) GB Used? Used space on SD card in GB (or -1.0 for no SD) - **\>f:UValue**CMD \>f:U32 - more than 32GB used e.g. `>f:U32"32GB used"`
-* **g** gyroValue - **\>gValue**CMD if(gryo \> Value) CMD, numbers are in degrees per second.
-* **g:X** x_accel_value  - **\=Xg:X>XValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
-* **g:Y** y_accel_value  - **\=Yg:Y>YValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
-* **g:Z** z_accel_value  - **\=Zg:Z>ZValue**CMD if(gryo \> Value) then CMD, units in Gs  e.g. `=Za:X>Z0.5"Z half g"`
-* **h** heightValue - **\>hValue**CMD if(height \> Value) CMD, numbers are in meters above sealevel.
+* **g** gyroValue - **\>gValue**CMD if(gryo \>= Value) CMD, numbers are in degrees per second.
+* **g:X** x_accel_value  - **\=Xg:X>XValue**CMD if(gryo \>= Value) then CMD, units in Gs  e.g. `=Xa:X>X0.5"X half g"`
+* **g:Y** y_accel_value  - **\=Yg:Y>YValue**CMD if(gryo \>= Value) then CMD, units in Gs  e.g. `=Ya:X>Y0.5"Y half g"`
+* **g:Z** z_accel_value  - **\=Zg:Z>ZValue**CMD if(gryo \>= Value) then CMD, units in Gs  e.g. `=Za:X>Z0.5"Z half g"`
+* **h** heightValue - **\>hValue**CMD if(height \>= Value) CMD, numbers are in meters above sealevel.
 * **i** isoValue - **\>iValue**CMD - testing ISO where ISO ranges from 100 to 6400
-* **k** speedValue - **\>kValue**CMD if(gps Speed \> Value) CMD e.g. >k45!S, numbers are in km/h.
+* **k** speedValue - **\>kValue**CMD if(gps Speed \>= Value) CMD e.g. >k45!S, numbers are in km/h.
 * **l** loop_countValue - **\<lValue**CMD if(loop_count \< Value) CMD e.g. \<l45!R, this is the loop count for !R repeat, since last QR scan or boot.
 * **m** motionValue - **\<mValue**CMD if(motion \< Value) CMD Motion value is a percentage of pixels moving  e.g. >m5!S+60E!R, this look of motion greater than 5%, and record for 60seconds when detected.
 * **m:X** motion[A-Z]Value - <m:A through <m:Z adjusts the sensitivity of the detector, the above is the equivalent <m:J.  'A' is very low sensitivity, only large pixel changes detected, 'Z' tiniest change detected. 
 * **n** network Connect - if false it returns -1, otherwise it returns the string length of the SSID
 * **n:L** networkLivestreaming - if false it returns -1, 1.0 if currently livestreaming
-* **p** soundpressureValue - **\>pValue**CMD if(spl \> Value) CMD, numbers are in dB
+* **p** soundpressureValue - **\>pValue**CMD if(spl \>= Value) CMD, numbers are in dB
 * **p:T** processorTempValue<sup>H13</sup> - **\>p:TValue**CMD if(processorTemp \> Value) then CMD, units in degrees C
-* **r** recording - **\>r0**CMD1~CMD2 if(Recording > 0) then CMD1 else CMD2 
-* **r:C** remote Connected - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
-* **r:A** remote App Connected with Live Preview - **\>r:A0**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
+* **r** recording, 1 for true, -1 for false, - **\>r0**CMD1~CMD2 if(Recording > 0) then CMD1 else CMD2 
+* **r:C** remote Connected, 1 for true, -1 for false, - **\>r:C0**CMD1~CMD2 if(RC_Connected) then CMD1 else CMD2 
+* **r:A** remote App Connected with Live Preview, 1 for true, -1 for false, - **\>r:A0**CMD1~CMD2 if(App_Connected) then CMD1 else CMD2 
 * **s** shutterValue - **\>sValue**CMD - testing shutter, where 1/Value is used for shutter speed
-* **t:Y** time Year (e.g. 2025)
+* **t:Y** time Year (e.g. 2025) e.g. \<t:Y2025"You clock is wrong"
 * **t:M** time Month (1 thru 12)
 * **t:D** time Day (1 thru 31)
 * **t:H** time Hour (0 thru 23)
-* **t:N** time miNutes (0 thru 59)
-* **t:S** time Seconds (0 thru 59)
-* **t:W** time day_of_the_Week (0-Sunday, 1-Monday,... thru 6-Saturday)
+* **t:N** time miNutes (0 thru 59) e.g. \>t:N55!U - auto upload at the end of the hour, i.e. xx:55 or greater
+* **t:S** time Seconds (0 thru 59) 
+* **t:W** time day_of_the_Week (0-Sunday, 1-Monday,... thru 6-Saturday) e.g. =Tt:W>T1<T6"Week Day"
 * **t:B** time in seconds since the camera Boot
 * **t:Q** time in seconds since scanning the QR code
 * **t:R** time is seconds for the current recording
@@ -718,13 +718,12 @@ So if thought the above is crazy, it gets weirder.
 * `$EVBS=E`  store the current into EV Bias hack, so you can make a variable mess with your exposure (potentially mid capture.)
 * `*VARC=C`  permanently store the current variable C into metadata field VarC, so this can be read back on next boot.  
 * `!$AR`  delay an action (like !R) with a variable amount of time, e.g. `=A$VARA<A1=A1=A*2*VARA=A!$AR` this will loop forever, doubling the sleep time with each interation
+ 
+### Example command requests
 
-### Why Add Math to QR codes
+#### 1) Use a GoPro as a crude light meter, and report the output as an Exposure Value, then make capture decision based on that EV value.
 
-You the user can have very particular shooting needs, this improves the robustness of Labs to cover a wider range of automatic captures. And is it cool. ;)
-
-Say you want use a GoPro as a crude light meter, and report the output as an [exposure value](https://en.wikipedia.org/wiki/Exposure_value), then make capture decision based on that EV value.
-
+Info on [exposure value](https://en.wikipedia.org/wiki/Exposure_value) shows to math as:
 EV = logbase2 (f-number^2/(time x gain_above_base_iso))  is the formula for EV<br>
 
 As a QR command: `=E6.25=Gi=G*0.01=E/G=E*s=E#2"Exposure value $E"!R`<br>
@@ -738,10 +737,8 @@ Command steps explained:
 > E=log(E)/log(2)<br>
 > print E<br>
 > repeat<br>
- 
-### Example command requests
 
-1) Shoot a construction timelapse only Monday thru friday from 9am to 5pm with a 10 minute interval, shutting down the camera between images to extend battery.
+#### 2) Shoot a construction timelapse only Monday thru friday from 9am to 5pm with a 10 minute interval, shutting down the camera between images to extend battery.
 
 `=Tt:W=T%6>T1>09:00<17:00mP+!S+!2N+!600RQ!09:00R`
  
@@ -763,6 +760,6 @@ Step-by-step explanation:<br>
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: May 23, 2025
+updated: May 24, 2025
 
 [Learn more](..) on QR Control
