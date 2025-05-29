@@ -62,7 +62,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Boot Command](https://gopro.github.io/labs/control/extensions)                             | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ✔️ | ❌ | ❌ |
 | [Command Shell](https://gopro.github.io/labs/control/extensions)                            | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Distance-Lapse](https://gopro.github.io/labs/control/extensions)                           | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [Dive Mode](https://gopro.github.io/labs/control/extensions)                                | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Dive Mode](https://gopro.github.io/labs/control/divemode)                                  | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Exposure Display](https://gopro.github.io/labs/control/extensions) current ISO and shutter | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Exposure Damping](https://gopro.github.io/labs/control/extensions) control                 | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ |
 | [Exposure Curve](https://gopro.github.io/labs/control/extensions) custom log encoding       | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
