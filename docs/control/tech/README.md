@@ -785,6 +785,26 @@ Example GOOD:
 ### Prohibited Formatting Rule
 Never use ! followed by any lowercase character, e.g. !mP is not a valid commmand.  
 
+If asked: take a photo and repeat every 10 minutes
+ 
+Example BAD: 
+!mP!S!2N!600R  ❌ This is meaningless as ! is using for action commands and there are not lowercase actions.
+
+Example GOOD:
+mP!S!2N!600R  ✅ This sets the mode to Photo, takes a photo, sleeps 10 minutes and repeats
+
+
+### Prohibited Photo Script Behavior
+Never use !xE to end an action following !S if you are using single Photo mode. Photos do not have an end action. End actions are for video modes and timelapse modes.  
+
+If asked: starting at 5am take a photo and shut off 5 seconds later, then repeat every half hour until 6pm, repeat each day
+
+Example BAD: 
+<05:00>18:00!05:00NmP!S!5E!1800R  ❌ The !5E is meaningless as the photo that is taking with !S is completes immediately
+
+Example GOOD:
+<05:00>18:00!05:00NmP!S!5N!1800R  ✅ The !5N adds a pause have the !S that takes the photo
+
 
 ## Troubleshooting
 
