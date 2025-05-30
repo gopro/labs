@@ -15,6 +15,8 @@
 
 A Stop Motion extension where only a single frames is stored per shutter press. Once the Stop motion has started, on the LCD the there is ghost of the previous frame, "onion skinning" to help with character position and speed of movement. This modify timelapse video, so the new preset is under timelapse. 
 
+![](stopmotionvideo.mp4)
+
 ## Stop Motion controls
  
 <input type="checkbox" id="stopmt" name="stopmt" checked><label for="stopmt">Enable Stop Motion</label><br>
