@@ -51,6 +51,7 @@ and as a mobile app:<br>
 
 ### Video Alteration Features
 * **HERO12-13** - Enable [**Dive Mode**](./divemode) for optimized scuda video capture stabilization and white balance
+* **HERO12-13** - Enable [**Stop Motion Mode**](./stopmotion) for creating cool animations
 * **HERO8-13/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
 * **HERO8-13/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
 * **HERO8-13** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
@@ -84,7 +85,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO10-13/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 * New [ChatBot for GoPro Labs commands](https://bit.ly/chat_gp_labs)
 
-updated: May 29, 2025
+updated: May 30, 2025
 
 
 <script>
