@@ -358,19 +358,6 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * **!**time**X** - `!X` exist script now <sup>H10-13/MAX</sup>. 
 * **!**time**Zx** - <sup>H10-13</sup> `!Z3` - mute both buttons, `!Z2` - mute only mode, `!Z1` - mute only shutter, `!Z0` - unmutes both
 
-#### Prohibited Action Rule
-Never use !O, !xO, or any form of shutdown (!O, !5O, !20:00O) in a repeating script using !RQ, !R, or time-based loops.
-
-Shutdown stops the camera entirely and halts all future scheduled events.
-
-Use !xN (sleep) instead for power-saving pauses that still allow repeat execution.
-
-Example BAD: 
->08:00<18:00mP+!S+!5O+!1800RQ!08:00R  ❌ This halts the script after first execution
-
-Example GOOD:
->08:00<18:00mP+!S+!2N+!1800RQ!08:00R  ✅ This sleeps and repeats correctly
-
 ### Capture Triggers (Classic method)
 * **!**time**SMs-t** - Start Motion detection with start sensitivity 's' and stop sensitivity 't' -- 't' field is optional. e.g. `!SM5` start with motion detection a level 5 sensitivity. 
 * **!**time**SMsDdMmHh** - Start Motion detection with sensitivity 's', Delay of 'd', Mask of 'm' and Hold for 'h' seconds (D,M and H fields are all optional.) e.g. `!SM3D1H5` start with motion detection a level 3 sensitivity, delay 1s and hold for 5s. 
@@ -779,6 +766,25 @@ Step-by-step explanation:<br>
 &nbsp;&nbsp;&nbsp;`+!2N` - A 2-second pause after taking the photo, bundled with the same time condition.
 &nbsp;&nbsp;&nbsp;`+!1800RQ` - Instructs the camera to sleep for approximately 1800 seconds (30 minutes), then repeat the script (power-efficient wake). Again, bundled with the same time condition using +.
 `!06:00R` - Daily repeat at exactly 6:00 AM, ensuring the script runs every day starting from this time.
+
+
+### Prohibited Action Rule
+Never use !O, !xO, or any form of shutdown (!O, !5O, !20:00O) in a repeating script using !RQ, !R, or time-based loops.
+
+Shutdown stops the camera entirely and halts all future scheduled events.
+
+Use !xN (sleep) instead for power-saving pauses that still allow repeat execution.
+
+Example BAD: 
+>08:00<18:00mP+!S+!5O+!1800RQ!08:00R  ❌ This halts the script after first execution
+
+Example GOOD:
+>08:00<18:00mP+!S+!2N+!1800RQ!08:00R  ✅ This sleeps and repeats correctly
+
+
+### Prohibited Formatting Rule
+Never use ! followed by any lowercase character, e.g. !mP is not a valid commmand.  
+
 
 ## Troubleshooting
 
