@@ -19,9 +19,31 @@ Corrects Hypersmooth stabilization so that is it optimized for underwater, impro
  
 <input type="checkbox" id="divemd" name="divemd" checked><label for="divemd">Enable dive mode</label><br>
 <input type="checkbox" id="wblock" name="wblock" checked><label for="wblock">White Balance lock upon capture start</label><br>
+
+Or use automatic White Balance:
+<br>WBDV=1
+
+<i>White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, WBDV is more automatic – as the scene get more blue, the more the red channel is gain up.</i>
+
+<input type="checkbox" id="wbdvmode" name="wbdvmode"><label for="wbdvmode">White Balance Dive Improvements</label><br>
+
 <input type="checkbox" id="wgamut" name="wgamut" checked><label for="wgamut">Wide gamut colorspace (same a GPLog) for all video modes</label><br>
 <input type="checkbox" id="preset" name="preset" checked><label for="preset">Make this as a new preset</label><br>
-<input type="checkbox" id="permanent" name="permanent"><label for="permanent">If not a present, make this permanent setting</label><br>
+
+<b>Video Settings:</b>&nbsp;&nbsp;
+  <input type="radio" id="videoh" name="videores" checked> <label  for="videoh">5K 16:9</label>&nbsp;&nbsp;
+  <input type="radio" id="videov" name="videores"> <label for="videov">5K 8:7</label>&nbsp;&nbsp;
+
+There is no need to use GPS underwater<br>HERO13 only!<br>
+<b>GPS:</b>&nbsp;&nbsp;
+<input type="checkbox" id="gpsoff" name="gpsoff" checked> <label for="gpson">OFF<sup>13</sup></label>&nbsp;&nbsp;
+
+Disable audio track<br>
+<b>Audio:</b>&nbsp;&nbsp;
+<input type="checkbox" id="audoff" name="audoff" checked> <label for="audoff">OFF</label>&nbsp;&nbsp;
+
+
+<input type="checkbox" id="permanent" name="permanent"><label for="permanent">If not a preset, make this permanent setting</label><br>
 
 <div id="qrcode_txt" style="width: 360px">
  <center>
@@ -38,7 +60,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
         
 ## Background
-Dive mode optimizes the Hypersmooth stabilization for underwater. It might be no surprise, but HyperSmooth is designed for the camera operation above the water’s surface, 
+Dive mode optimizes the Hypersmooth stabilization for underwater. It might be no surprise, but HyperSmooth is designed for the camera operation above the water's surface, 
 underwater there is typically less camera shake, and HS is still 70% effective at removing shake. This hack adapts HS to use the refractive index (RI) of water 
 (defaults to 1.335, good for fresh and command salt water), to remove closer to 100% of unwanted shake.<br>
 
@@ -63,30 +85,6 @@ var cmd = "oC15dTmNLeA";
 var clipcopy = "";
 var lasttimecmd = "";
 var changed = true;
-
-function dcmd(cmd, id) {
-    var x;
-	if(document.getElementById(id) !== null)
-	{
-		x = document.getElementById(id).checked;
-		if( x === true)
-			cmd = cmd + document.getElementById(id).value;
-	}
-	else
-	{
-	    var i;
-		for (i = 1; i < 15; i++) { 
-			var newid = id+i;
-			if(document.getElementById(newid) !== null)
-			{
-				x = document.getElementById(newid).checked;
-				if( x === true)
-					cmd = cmd + document.getElementById(newid).value;
-			}
-		}
-	}
-	return cmd;
-}
 
 let qrCanvas, qrCtx;
 
@@ -113,123 +111,73 @@ function renderQRToCanvas(data) {
   }
 }
 
-function checkTime(i) {
-    if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
-    return i;
-}
 
-function timeLoop()
-{
-  if(document.getElementById("preset") !== null)
-  {
-	if(document.getElementById("preset").checked === true)
-	{
-		if(document.getElementById("wblock").checked === true)
-		{
-			if(document.getElementById("wgamut").checked === true)
-			{
-				cmd = "mV$PRES=\"14,DIVE WBLK WIDE\"r5e1!NfW";
-			}
-			else
-			{
-				cmd = "mV$PRES=\"14,DIVE WBLK\"r5e1!NfW";
-			}
-		}
-		else
-		{
-			if(document.getElementById("wgamut").checked === true)
-			{
-				cmd = "mV$PRES=\"14,DIVE WIDE\"r5e1!NfW";
-			}
-			else
-			{
-				cmd = "mV$PRES=\"14,DIVE\"r5e1!NfW";
-			}
-		}
-	}
-	else
-	{ 
-  	  if(document.getElementById("permanent").checked === true)
-	  {
-		if(document.getElementById("wblock").checked === true)
-		{
-			if(document.getElementById("wgamut").checked === true)
-			{
-				cmd = "mV*DIVE=1*WBLK=1*WIDE=1";
-			}
-			else
-			{
-				cmd = "mV*DIVE=1*WBLK=1";
-			}
-		}
-		else
-		{
-			if(document.getElementById("wgamut").checked === true)
-			{
-				cmd = "mV*DIVE=1*WIDE=1";
-			}
-			else
-			{
-				cmd = "mV*DIVE=1";
-			}
-		}
-	  }
-	  else
-	  {
-		if(document.getElementById("wblock").checked === true)
-		{
-			if(document.getElementById("wgamut").checked === true)
-			{
-				cmd = "mV$DIVE=1$WBLK=1$WIDE=1";
-			}
-			else
-			{
-				cmd = "mV$DIVE=1$WBLK=1";
-			}
-		}
-		else
-		{
-			if(document.getElementById("wgamut").checked === true)
-			{
-				cmd = "mV$DIVE=1$WIDE=1";
-			}
-			else
-			{
-				cmd = "mV$DIVE=1";
-			}
-		}
-	  }
-	}
-    if(document.getElementById("divemd").checked === false)
-	{ 
-		if(document.getElementById("permanent").checked === true)
-		{
-			cmd = "*DIVE=0*WBLK=0*WIDE=0";
-		}
-		else
-		{
-			cmd = "$DIVE=0$WBLK=0$WIDE=0";
-		}
-	}
-  }
+function timeLoop() {
+  // mutually exclusive: white balance dive improvements and white balance auto lock
+  const wblock = document.getElementById("wblock");
+  const wbdvmode = document.getElementById("wbdvmode");
+
+  wblock.addEventListener("change", function() {
+      if (this.checked) {
+          wbdvmode.checked = false;
+      }
+  });
+
+  wbdvmode.addEventListener("change", function() {
+      if (this.checked) {
+          wblock.checked = false;
+      }
+  });
+
+  let cmd = "mV";
   
+  if (document.getElementById("preset")?.checked) {
+    cmd += "$PRES=\"14,DIVE"; // start of preset
+    if (document.getElementById("wblock")?.checked) cmd += " WBLK";
+    if (document.getElementById("wgamut")?.checked) cmd += " WIDE";
+    if (document.getElementById("wbdvmode")?.checked) cmd += " WBDV";
+    if (document.getElementById("audoff")?.checked) cmd += " MUTE";
+
+    // r5X for 8:7
+    const verticalVideo = document.getElementById("videov")?.checked ? "X" : ""
+    cmd += "\"r5" + verticalVideo + "e1!NfW"; // quotations ends the preset
+    
+    if (document.getElementById("gpsoff")?.checked) {
+      cmd += "g0"
+    }
+  } else {
+  // $ == non permanent
+  // * == permanent
+    const makePermanent = document.getElementById("permanent")?.checked ? "*" : "$"; 
+    
+    if (document.getElementById("divemd")?.checked) {
+      cmd += makePermanent + "DIVE=1";
+      if (document.getElementById("wblock")?.checked) cmd += makePermanent + "WBLK=1";
+      if (document.getElementById("wgamut")?.checked) cmd += makePermanent + "WIDE=1";
+      if (document.getElementById("wbdvmode")?.checked) cmd += makePermanent + " WBDV=1";
+      if (document.getElementById("audoff")?.checked) cmd += makePermanent + " MUTE=1";
+      if (document.getElementById("gpsoff")?.checked) cmd += "g0"
+    } else {
+      cmd = makePermanent + "DIVE=0" + makePermanent + "WBLK=0" + makePermanent + "WIDE=0";
+    }
+  }
   
   renderQRToCanvas(cmd);
   
   if(cmd != lasttimecmd)
   {
-	changed = true;
-	lasttimecmd = cmd;
+  changed = true;
+  lasttimecmd = cmd;
   }
-	
+  
   if(changed === true)
   {
-	document.getElementById("qrtext").innerHTML = cmd;
-	clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Dive%20Mode";
-	document.getElementById("urltext").innerHTML = clipcopy;
-	changed = false;
+  document.getElementById("qrtext").innerHTML = cmd;
+  clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + cmd + "&title=Dive%20Mode";
+  document.getElementById("urltext").innerHTML = clipcopy;
+  changed = false;
   }
-	
+  
   var t = setTimeout(timeLoop, 100);
 }
 
@@ -242,20 +190,20 @@ async function copyImageToClipboard() {
     html2canvas(document.querySelector("#qrcode_txt")).then(canvas => canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})])));
 }
 async function copyTextToClipboard(text) {
-	try {
-		await navigator.clipboard.writeText(text);
-	} catch(err) {
-		alert('Error in copying text: ', err);
-	}
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch(err) {
+    alert('Error in copying text: ', err);
+  }
 }
 
 function setupButtons() {	
     document.getElementById("copyBtn").onclick = function() { 
         copyTextToClipboard(clipcopy);
-	};
+  };
     document.getElementById("copyImg").onclick = function() { 
         copyImageToClipboard();
-	};
+  };
 }
 
 makeQR();
