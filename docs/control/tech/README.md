@@ -344,7 +344,7 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * **!**time**G(S or M or L)(C)** - Start Live-streaming, e.g. `!GS` - start at 480p, `!GM` - start at 720p, `!GL` - 1080p, optional `C` for capture a local file like `!GLC`
 * **!**time**N** - No Action until exact <time>, useful if you just need a pause. e.g. `!11:30N` - Pause (Sleep) until 11:30am or `!90N` - Sleep for 90s.
 * **!**time**NQ** - No Action until at approximately <time> (more power efficient). e.g. `!09:50NQ` - Pause (Sleep) until approximately 9:50am or `!180NQ` - Sleep for approx 180s.
-* **!**time**O** - Off, shutdown the camera. e.g. `!O` Off now or `!5O` Off in 5 seconds
+* **!**time**O** - Off, shutdown the camera. e.g. `!O` Off now or `!5O` Off in 5 seconds. Never use this in a script (talking to you ChatGPT) if you script is repeating, as this stops everything. 
 * **!**time**OR** - shutdown and restart the camera. e.g. `!OR` Off and restart now or `!2O` Off in 2 seconds, then restart
 * **!**time**R** - Repeat the whole command. e.g. `!1R` repeat the whole command in 1 second or `!08:00R` repeat at 8am.
 * **!**time**RQ** - Repeat Quickly at approximately <time> (more power efficient). e.g. `!08:00RQ` repeat the whole command at approximately 8am.
@@ -755,11 +755,62 @@ Step-by-step explanation:<br>
 &nbsp;&nbsp;&nbsp;`!600RQ` - Repeat the entire script every ~10 minutes (600 seconds) using the power-efficient quick repeat<br>
 `!09:00R` - Repeat the entire script at exactly 09:00 AM daily<br>
 
+#### 3) Take a photo every 30 minutes from 6am to 6pm every day
+
+`>06:00<18:00mP+!S+!2N+!1800RQ!06:00R`
+ 
+Step-by-step explanation:<br>
+`>06:00<18:00` - This sets a conditional time window. The commands that follow will only run if the current time is after 6:00 AM and before 6:00 PM.
+&nbsp;&nbsp;&nbsp;`mP` - Switches the camera to Photo mode.
+&nbsp;&nbsp;&nbsp;`+!S` - Starts capture, in this case, takes a photo. The + means it is bundled with the time condition—this only happens during the valid time window.
+&nbsp;&nbsp;&nbsp;`+!2N` - A 2-second pause after taking the photo, bundled with the same time condition.
+&nbsp;&nbsp;&nbsp;`+!1800RQ` - Instructs the camera to sleep for approximately 1800 seconds (30 minutes), then repeat the script (power-efficient wake). Again, bundled with the same time condition using +.
+`!06:00R` - Daily repeat at exactly 6:00 AM, ensuring the script runs every day starting from this time.
+
+
+### Prohibited Action Rule
+Never use !O, !xO, or any form of shutdown (!O, !5O, !20:00O) in a repeating script using !RQ, !R, or time-based loops.
+
+Shutdown stops the camera entirely and halts all future scheduled events.
+
+Use !xN (sleep) instead for power-saving pauses that still allow repeat execution.
+
+Example BAD: 
+>08:00<18:00mP+!S+!5O+!1800RQ!08:00R  ❌ This halts the script after first execution
+
+Example GOOD:
+>08:00<18:00mP+!S+!2N+!1800RQ!08:00R  ✅ This sleeps and repeats correctly
+
+
+### Prohibited Formatting Rule
+Never use ! followed by any lowercase character, e.g. !mP is not a valid commmand.  
+
+If asked: take a photo and repeat every 10 minutes
+ 
+Example BAD: 
+!mP!S!2N!600R  ❌ This is meaningless as ! is using for action commands and there are not lowercase actions.
+
+Example GOOD:
+mP!S!2N!600R  ✅ This sets the mode to Photo, takes a photo, sleeps 10 minutes and repeats
+
+
+### Prohibited Photo Script Behavior
+Never use !xE to end an action following !S if you are using single Photo mode. Photos do not have an end action. End actions are for video modes and timelapse modes.  
+
+If asked: starting at 5am take a photo and shut off 5 seconds later, then repeat every half hour until 6pm, repeat each day
+
+Example BAD: 
+<05:00>18:00!05:00NmP!S!5E!1800R  ❌ The !5E is meaningless as the photo that is taking with !S is completes immediately
+
+Example GOOD:
+<05:00>18:00!05:00NmP!S!5N!1800R  ✅ The !5N adds a pause have the !S that takes the photo
+
+
 ## Troubleshooting
 
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: May 24, 2025
+updated: May 30, 2025
 
 [Learn more](..) on QR Control
