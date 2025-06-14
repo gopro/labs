@@ -27,9 +27,6 @@ Your base filename here: <input type="text" id="addname" value=""> (only a-z, A-
  - **HH** - Hour
  - **MM** - Minute
  - **SS** - Second
- 
-**Older Labs camera:**
- - Only up to eight characters supported. e.g. "CAMERA06"<br> 
 
 Formatting examples: 
  - CamA-[yyyymmddHHMMSS]-
@@ -39,6 +36,9 @@ Notes:
  - filenames can't contain common date/time delimiters, only +-_(),. allowed
  - Basename length extensions are 28 characters or less
 
+**Older Labs camera:**
+ - Only up to eight characters supported. e.g. "CAMERA06"<br> 
+ 
 <br>
 Your filenames will be in the format: <b id="newnameMP4">nameGH013607.MP4</b> and <b id="newnameJPG">nameGOPR3607.JPEG</b><br>
 
