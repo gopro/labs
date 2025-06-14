@@ -34,8 +34,8 @@ Formatting examples:
  - [yy-mm-dd_HH.MM.SS]-
 
 Notes: 
-1) filenames can't contain common date/time delimiters, only +-_(),. allowed. 
-2) Basename length extensions are 28 characters or less. 
+ - filenames can't contain common date/time delimiters, only +-_(),. allowed
+ - Basename length extensions are 28 characters or less
 
 <br>
 Your filenames will be in the format: <b id="newnameMP4">nameGH013607.MP4</b> and <b id="newnameJPG">nameGOPR3607.JPEG</b><br>
