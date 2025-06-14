@@ -33,7 +33,9 @@ Formatting examples:
  - CamA-[yyyymmddHHMMSS]-
  - [yy-mm-dd_HH.MM.SS]-
 
-Note: Unfortunately filenames can't contain common date/time delimiters, only +-_(),. allowed.
+Notes: 
+1) filenames can't contain common date/time delimiters, only +-_(),. allowed. 
+2) Basename length extensions are 28 characters or less. 
 
 <br>
 Your filenames will be in the format: <b id="newnameMP4">nameGH013607.MP4</b> and <b id="newnameJPG">nameGOPR3607.JPEG</b><br>
@@ -83,7 +85,7 @@ So you have a corrupted/unclosed GoPro file. You crashed your drone, and the bat
 
 **Compatibility:** Labs enabled HERO8, HERO9, HERO10, HERO11, HERO12, HERO13, MAX and BONES 
         
-updated: September 10, 2024
+updated: June 14, 2025
 
 [More features](..) for Labs enabled cameras
 
@@ -127,6 +129,7 @@ function filter(txt)
 	desired = desired.replace(/[^a-zA-Z0-9-_+(){},.]/gi, '');
 	desired = desired.replace('{', '\[');
 	desired = desired.replace('}', ']');
+	desired = desired.length > 28 ? desired.slice(0, 28) : desired;
 	return desired;
 }
 
