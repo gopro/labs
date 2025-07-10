@@ -59,7 +59,7 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 | [Audio Channels Gain/Solo/Mute](https://gopro.github.io/labs/control/extensions)            | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ |
 | [Audio Mute or Disable](https://gopro.github.io/labs/control/extensions)                    | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ |
 | [Bitrate Controls](https://gopro.github.io/labs/control/extensions)                         | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ✔️ |
-| [Boot Command](https://gopro.github.io/labs/control/extensions)                             | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ✔️ | ❌ | ❌ |
+| [Boot Command](https://gopro.github.io/labs/control/extensions)                             | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ |
 | [Command Shell](https://gopro.github.io/labs/control/extensions)                            | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Distance-Lapse](https://gopro.github.io/labs/control/extensions)                           | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Dive Mode](https://gopro.github.io/labs/control/divemode)                                  | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -116,4 +116,4 @@ GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](docs/software/).
 
-updated: January 21, 2025<br>
+updated: July 10, 2025<br>
