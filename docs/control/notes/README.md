@@ -5,6 +5,29 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## HERO13 Black 
 
+### 2.04.70 - August 25, 2025
+- Added oS5 - 5 minute rear screen timeout (to match in menu control)
+- Added oS10 - 10 minute rear screen timeout
+- Added oS15 - 15 minute rear screen timeout
+- Added oS30 - 30 minute rear screen timeout
+- Added *BFLK=1 to bypass deflicker controls, to allow for continuous shutter speeds from 1/fps
+- Added *EXPS=2 for ISO/SHUT within the capture screen during capture (reducing flicker of the ISO display.) Older *EXPS=1 still works the same. 
+- Added *ALLI=1 for ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 100.0, 120.0, 200.0, 240.0 
+- Added $COHN=1 to initize credientials (once) for remote camera connections and control
+- Added $SHPS=x to show the password/credientials for x seconds (also stored in MISC/qrlog.txt)
+- Added $ADDR=x to display the current IP ADDR for x seconds (also stored in MISC/qrlog.txt)
+- Improved Quik connection detection (particularly with *FAST=1 enabled.)
+- Improved for a more consistent display of floating point variables (float point always uses 5 characters if it can.) 
+- Improved render speed and quality for the LEVL control
+- Improved handling on GUID and LEVL rendering in extreme modes like 4Kp120 SuperView 10-bit 
+- Improved silencing messages from extensions in preset names
+- Improved *WBLK=x where 1 locks WB immediately, or after x seconds (2-99) or 100-9999 milliseconds.
+- Improved *WAKE=1 is now the same as *WAKE=2, the old (very rare) use of 1 is now *WAKE=3
+- Increased support for QR Codes with up to 400 characters
+- Fixed !W joining a network as established by *JOIN="SSID:password"
+- Fixed voice activation being disabled randomly in Labs
+- Fixed support for "24HZ" in the preset name
+
 ### 2.02.70 - March 27, 2025
 - Added commands to enable and disable the touch screen (tE and tD). These will be usefil in script to prevent an accidental screen touch setting the wrong mode. 
 - Added $EXPL=1, for exposure lock upon capture, just like the existing $WBLK=1 for white balance lock. 
