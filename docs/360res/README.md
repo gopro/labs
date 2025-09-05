@@ -28,7 +28,7 @@
 
 <div id="secrets">
 	<input type="password" id="password" placeholder="Password">
-	<button onclick="unlock()">Unlock</button>
+	<button onclick="unlock()">Click to unlock with password</button>
 	<div id="error"></div>
 </div>
   
@@ -348,7 +348,9 @@ function calc() {
   markActivePreset();
 }
 
-const ciphertext = "U2FsdGVkX1+QJU8pZ5LhAIncpHYmpGt/0nOPb9tFOEwu/j9OHuMInpitVWCqVq6JUvcnPG9TYsxUvM5fPqDop2688mZchwgo3AVLMV6zczY=";
+const ciphertext1 = "U2FsdGVkX1+QJU8pZ5LhAIncpHYmpGt/0nOPb9tFOEwu/j9OHuMInpitVWCqVq6JUvcnPG9TYsxUvM5fPqDop2688mZchwgo3AVLMV6zczY=";
+const ciphertext2 = "U2FsdGVkX1+oA7kfDiTnnei7G7RZ5Cbajro+/WIz0lIQmNzw0B3uJkiYLzRYEI/klqI7YBgOXKrs2B0J+BOPyOXdBDiFF6Jjh767Vqao6vQ=";
+
 function parseCSV(input) {
   return input.split(",").map(item => item.trim());
 }
@@ -360,16 +362,12 @@ function parseCSVwithNumbers(input) {
   });
 }
 
-function unlock() {
-  const pw = document.getElementById('password').value;
-  try {
-	const bytes = CryptoJS.AES.decrypt(ciphertext, pw);
-	const plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	if (!plaintext) 
-	{
-		throw new Error("Wrong password");
-	}
-	
+function applyPassword(ciphertext, password) {
+	var bytes = CryptoJS.AES.decrypt(ciphertext, password);
+	var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	var fails = 0
+	if(!plaintext) return 0;
+
 	let parsed = parseCSVwithNumbers(plaintext);
 	max_res = cam1_res = parsed[0];
 	cam1 = Math.round(parsed[1] * 10) / 10;
@@ -385,9 +383,20 @@ function unlock() {
 	document.getElementById("secrets").style.display = "none";
 	document.getElementById("presetbuttons").style.display = "block";
 	document.getElementById("eac").style.display = "block";
-  } catch (e) {
-	//document.getElementById('error').innerText = CryptoJS.AES.encrypt("This is the secret message!", "password").toString();
-	document.getElementById('error').innerText = "Invalid password. Try again.";
+	
+	return 1;
+}
+
+function unlock() {
+  const pw = document.getElementById('password').value;
+ 
+  var fails = 0;
+  fails += applyPassword(ciphertext1, pw);
+  fails += applyPassword(ciphertext2, pw);
+  
+  if(fails != 1)
+  {
+    document.getElementById('error').innerText = "Invalid password. Try again.";
   }
 }
 
