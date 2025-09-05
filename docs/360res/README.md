@@ -373,9 +373,9 @@ function unlock() {
 	
 	let parsed = parseCSVwithNumbers(plaintext);
 	max_res = cam1_res = parsed[0];
-	cam1 = parsed[1];
-	cam2 = parsed[2];
-	cam3 = parsed[3];
+	cam1 = Math.round(parsed[1] * 10) / 10;
+	cam2 = Math.round(parsed[2] * 10) / 10;
+	cam3 = Math.round(parsed[3] * 10) / 10;
 	
 	document.getElementById('preset-xam').innerText = parsed[4];
 	document.getElementById('preset-lam').innerText = parsed[5];
