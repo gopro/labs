@@ -348,8 +348,7 @@ function calc() {
   markActivePreset();
 }
 
-const ciphertext = "U2FsdGVkX18Xv+4p6Lt2Lx8hjaj2YYvrLiShf+eZ47lAmAieRDxCz0RDNU4qPUWGdVxb9VFXuqBLBdRvFddPXffGpl+us6f//y06xF+TPEt8BwOG9krb2Olg2dBVhUfP";
-
+const ciphertext = "U2FsdGVkX1+QJU8pZ5LhAIncpHYmpGt/0nOPb9tFOEwu/j9OHuMInpitVWCqVq6JUvcnPG9TYsxUvM5fPqDop2688mZchwgo3AVLMV6zczY=";
 function parseCSV(input) {
   return input.split(",").map(item => item.trim());
 }
