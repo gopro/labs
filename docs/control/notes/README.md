@@ -47,6 +47,21 @@ Now Labs is aware is was woken via BLE, and the behavior now supports a Quik con
 continue when you press camera off from within Quik. If you are using the new clock relative sleeps, Quik download time will not likely 
 mess up your interval on your timelapses.<br>
 
+If you want the older behavior, use *NBLE=1 to set No BLE for Labs scripting. The best power option.
+
+Other release note changes (to experiment with):
+Added command !Q or !Qx to wait for Quik connection and control, defaults to 30seconds, e.g. !Q60 would be 60seconds
+Added system variable r:Q - connected with the Quik app
+Added system variable r:B - remote connect with any BLE device, Remote or Quik
+Added system variable r:H - connected with the BT Headphone/Microphone
+Added system variable w - wake reason, so you can branch code based on the reason the camera started. Common values:
+-  1 - camera reset 
+-  2 - power button
+-  3 - quikcapture
+-  6 - wake alarm
+-  9 - BLE Wake
+-  10 - USB power wake
+
 ### 2.02.70 - March 27, 2025
 - Added commands to enable and disable the touch screen (tE and tD). These will be usefil in script to prevent an accidental screen touch setting the wrong mode. 
 - Added $EXPL=1, for exposure lock upon capture, just like the existing $WBLK=1 for white balance lock. 
