@@ -28,6 +28,25 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Fixed voice activation being disabled randomly in Labs
 - Fixed support for "24HZ" in the preset name
 
+New timing commands (updated Sept 7th, 2025):
+There is a new interval time representation. Previously sleep alarms were absolute times, e.g. !10:00N or just pauses relative to now: e.g. !600N. 
+But users have been requesting photos on the hour or similar, which was harder to do as commands like !3600N would drift a few seconds with each call.
+e.g. commands like !60R - sleeps for ~60 seconds, but this will drift over time, 10:00:00, 10:01:04, 10:02:07...<br>
+Now you can use:<br>
+!00;01R sleeps until the next clock minute, no drift: 10:00:00, 10:01:00, 10:02:00...<br>
+!00;05R sleeps until the next clock 5 minute: so 10:00, 10:05, 10:10, 10:15...<br>
+!01;00R sleeps until the next hour so 10:00, 11:00, 12:00...<br>
+<br>
+A daily command to shoot precisely hourly between 8am and 6pm simplifies to:<br>
+!01;00NmP!S!1N>18:00!08:00R!R<br>
+<br>
+This was added for a second reason, as with no drift, you now know when your camera might be busy (for cameras in remote places.) 
+This supports a more significant change: the ability to use Quik and Labs scripts at the same time. Previously any sleep command would shutdown BLE and 
+all wireless services, while this does help with power/battery life, the second reason it would prevent Quik breaking a running script. 
+Now Labs is aware is was woken via BLE, and the behavior now supports a Quik connection, control and data off load, then the script will 
+continue when you press camera off from within Quik. If you are using the new clock relative sleeps, Quik download time will not likely 
+mess up your interval on your timelapses.<br>
+
 ### 2.02.70 - March 27, 2025
 - Added commands to enable and disable the touch screen (tE and tD). These will be usefil in script to prevent an accidental screen touch setting the wrong mode. 
 - Added $EXPL=1, for exposure lock upon capture, just like the existing $WBLK=1 for white balance lock. 

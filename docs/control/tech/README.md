@@ -383,6 +383,25 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * `!r-600S` - start 600 seconds before sunrise
 * `!17:00W!GLC` - start Live-streaming 1080p at 5pm, saving a local copy
 
+### New timing commands (HERO13 2.04.70 or later):
+There is a new interval time representation. Previously sleep alarms were absolute times, e.g. !10:00N or just pauses relative to now: e.g. !600N. 
+But users have been requesting photos on the hour or similar, which was harder to do as commands like !3600N would drift a few seconds with each call.
+e.g. commands like !60R - sleeps for ~60 seconds, but this will drift over time, 10:00:00, 10:01:04, 10:02:07...<br>
+Now you can use:<br>
+!00;01R sleeps until the next clock minute, no drift: 10:00:00, 10:01:00, 10:02:00...<br>
+!00;05R sleeps until the next clock 5 minute: so 10:00, 10:05, 10:10, 10:15...<br>
+!01;00R sleeps until the next hour so 10:00, 11:00, 12:00...<br>
+<br>
+A daily command to shoot precisely hourly between 8am and 6pm simplifies to:<br>
+!01;00NmP!S!1N>18:00!08:00R!R<br>
+<br>
+This was added for a second reason, as with no drift, you now know when your camera might be busy (for cameras in remote places.) 
+This supports a more significant change: the ability to use Quik and Labs scripts at the same time. Previously any sleep command would shutdown BLE and 
+all wireless services, while this does help with power/battery life, the second reason it would prevent Quik breaking a running script. 
+Now Labs is aware is was woken via BLE, and the behavior now supports a Quik connection, control and data off load, then the script will 
+continue when you press camera off from within Quik. If you are using the new clock relative sleeps, Quik download time will not likely 
+mess up your interval on your timelapses.<br>
+
 ### Storing metadata (Permanent, survives power off)
 #### Old style (old cameras up to HERO9, supported by all models)
 * **!M**fourcc**=<courier>"string"</courier>**
@@ -811,6 +830,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: May 30, 2025
+updated: Sept 7, 2025
 
 [Learn more](..) on QR Control
