@@ -62,6 +62,11 @@ Added system variable w - wake reason, so you can branch code based on the reaso
 -  9 - BLE Wake
 -  10 - USB power wake
 
+Added to this massive release, Labs commands over Open GoPro WiFi links is now supported.
+Just a teaser (this work with user credentials from COHN, SHPS, ADDR):
+ curl -k 'https://gopro:ffYfdlgjdsflkjg@192.168.0.165/gopro/qrcode?labs=1&code=r5'
+
+
 ### 2.02.70 - March 27, 2025
 - Added commands to enable and disable the touch screen (tE and tD). These will be usefil in script to prevent an accidental screen touch setting the wrong mode. 
 - Added $EXPL=1, for exposure lock upon capture, just like the existing $WBLK=1 for white balance lock. 
