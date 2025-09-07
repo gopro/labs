@@ -64,7 +64,9 @@ Added system variable w - wake reason, so you can branch code based on the reaso
 
 Added to this massive release, Labs commands over Open GoPro WiFi links is now supported.
 Just a teaser (this work with user credentials from COHN, SHPS, ADDR):
- curl -k 'https://gopro:ffYfdlgjdsflkjg@192.168.0.165/gopro/qrcode?labs=1&code=r5'
+Example: WiFi calls to Labs:
+ curl -k 'https://gopro:xxxxxxxxxxx@192.168.x.xxx/gopro/qrcode?labs=1&code=r5p24'
+ curl -k -G --data-urlencode 'code="Hello World"' 'https://gopro:xxxxxxxxxxx@192.168.x.xxx/gopro/qrcode?labs=1'
 
 
 ### 2.02.70 - March 27, 2025
