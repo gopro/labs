@@ -155,7 +155,7 @@ but you wanted to do your own tone-mapping in post--you can now do that.  Note: 
 <br>![HISTnew.jpg](HISTnew.jpg) ![HISTmini.jpg](HISTmini.jpg)
 - **HSTO=x** - minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
 - **LLTZ=latt,long,timezone** for those want to use Sunset/Sunrise timelapse without GPS, or for when you are shooting a sunset timelapse from indoors. The metadata is used to store your GPS Location and timezone e.g. !MLLTZ=33.126,-117.327,-8.0  In this case you must used the !M command, permanent storage, as solar event timers will shutdown the camera.
-- **QRDR=1** - detect QR Codes while recording, or even Quik Preview. Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
+- **QRDR=1** - detect QR Codes while recording, or even Quik Preview. This also enables Labs BOOT commands to work with QuikCapture in recent models. Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
 - **SPED=1** - SD Card Speed Test, only really useful on older cameras (HERO9 or older.) GP2 cameras are faster and generally require faster SD cards anyway. It still works on newer cameras, but the results are misleading, are often way higher than what the encoder can support (i.e. don't set BITR to 200 because you card writes at 500Mb/s.)
 ![SPEDnew.jpg](SPEDnew.jpg)
 - **TCAL=milliseconds** - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
@@ -227,7 +227,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: March 6, 2025<br>
+updated: September 7, 2025<br>
 
 [Learn more](..) on QR Control
 
