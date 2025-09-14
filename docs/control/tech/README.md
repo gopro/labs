@@ -549,6 +549,15 @@ In a separate QR Code will call LVAL and display the result<br>
 Note: for Macros that print output use single quotes for text within.
 `DPLV="^LVAL'current LV $E'"`
 
+### Macros in Presets (Powerful)
+
+Presets names enabling features like DIVE and HIST work fine, but you can't name a preset $EXPN=120. However you can do this, create macros. 
+For Presets you need two macros, one for selecting the preset, and another for leaving the preset. 
+Set up macro: `*STUF="$EXPN=120$GCMP=1$BITR=180"`
+Restore macro (lowercase last character):  `*STUf="$EXPN=0$GCMP=0$BITR=0"`
+Name have a preset call "STUF", e.g. `$PRES="0,STUF"`
+When the preset is selected it runs `$EXPN=120$GCMP=1$BITR=180`, and when you select another preset it first runs `$EXPN=0$GCMP=0$BITR=0`.  
+
 ## Reset Actions ##
 
 * `!RESET!1OR` - erase all your permanent metadata (anything that used !Mxxxx command.) Then Reboot. (requires user confirmation.)
@@ -830,6 +839,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: Sept 7, 2025
+updated: Sept 14, 2025
 
 [Learn more](..) on QR Control
