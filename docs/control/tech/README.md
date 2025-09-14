@@ -553,10 +553,24 @@ Note: for Macros that print output use single quotes for text within.
 
 Presets names enabling features like DIVE and HIST work fine, but you can't name a preset $EXPN=120. However you can do this, create macros. 
 For Presets you need two macros, one for selecting the preset, and another for leaving the preset. 
+
 Set up macro: `*STUF="$EXPN=120$GCMP=1$BITR=180"`
+
 Restore macro (lowercase last character):  `*STUf="$EXPN=0$GCMP=0$BITR=0"`
+
 Name have a preset call "STUF", e.g. `$PRES="0,STUF"`
-When the preset is selected it runs `$EXPN=120$GCMP=1$BITR=180`, and when you select another preset it first runs `$EXPN=0$GCMP=0$BITR=0`.  
+
+When the preset is selected it runs `$EXPN=120$GCMP=1$BITR=180`, and when you select another preset it first runs `$EXPN=0$GCMP=0$BITR=0`.
+
+### Macros in Presets running scripts (Crazy Powerful)
+
+Set up a script macro: `*RUNN="=A+1$PMSG='$A looping'!R"`
+
+Set up a shutdown script macro: `*RUNn="$PMSG='done'"`  (can't be empty)
+
+Name have a preset call "RUNN", e.g. `$PRES="0,RUNN"`
+
+Now the script will automatically run with the selection of this preset.
 
 ## Reset Actions ##
 
