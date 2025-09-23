@@ -26,11 +26,13 @@
   <button id="preset-bam" class="preset-btn" type="button" title="cam3">Camera 3</button>
 </div>
 
+ 
 <div id="secrets">
 	<input type="password" id="password" placeholder="Password">
 	<button onclick="unlock()">Click to unlock with password</button>
 	<div id="error"></div>
 </div>
+
   
 <div>
   <div>
@@ -388,11 +390,11 @@ function applyPassword(ciphertext, password) {
 }
 
 function unlock() {
-  const pw = document.getElementById('password').value;
+  const pw = "True8K";//document.getElementById('password').value;
  
   var fails = 0;
   fails += applyPassword(ciphertext1, pw);
-  fails += applyPassword(ciphertext2, pw);
+  //fails += applyPassword(ciphertext2, pw);
   
   if(fails != 1)
   {
@@ -403,7 +405,7 @@ function unlock() {
 
 let frameCount = 0;
 function animate() {
-  if (frameCount % 10 === 0) {
+  if(frameCount % 10 === 0) {
     calc();
   }
   requestAnimationFrame(animate);
@@ -414,6 +416,8 @@ function animate() {
 });
 bindPresets();
 calc();
+unlock();
+  
 
 animate();
 
