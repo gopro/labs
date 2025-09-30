@@ -18,9 +18,9 @@ Brand new to Labs? Get the firmware and info on [**Labs installation**](https://
 
 ## Configuration Commands for All Labs Enabled Cameras
 
-* Set camera modes for Most Labs cameras [**QR Code Creator**](./custom) <br>
-  optimizted for [**MAX2**](../max2) <br>
-  and for [**Bones**](../bones)<br>
+* Set camera modes for most Labs cameras [**QR Code Creator**](./custom) <br>
+  optimized for [**GoPro MAX2**](./max2) <br>
+  optimized for [**GoPro HERO10 Bones**](../bones)<br>
   and as a mobile app:<br>
   [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
   [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
