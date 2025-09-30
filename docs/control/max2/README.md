@@ -568,91 +568,6 @@ var last_icon_num = 0;
 var newpresent = "";
 
 
-function validateGoProLabsCommand(command) {
-    // Ensure the command is a single line with allowed characters
-    const basicPattern = /^[\w!"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~ ]+$/;
-    if (!basicPattern.test(command)) {
-        return "Invalid: Command contains unsupported characters.";
-    }
-
-    // Check length restriction (<= 255 characters)
-    if (command.length > 255) {
-        return "Invalid: Command exceeds 255 character limit.";
-    }
-
-    // Validate quoted strings
-    const quotePattern = /"[^"]*"/g;
-    let quotedParts = command.match(quotePattern) || [];
-    for (const part of quotedParts) {
-        if (part.includes("\n") || part.includes("\r")) {
-            return "Invalid: Quoted strings must be single-line.";
-        }
-    }
-
-    // Validate mode commands
-    const modePattern = /(mV|mP|mT|mNL|mNP|mST|mLP|mLT|dL|dV|dP|dT)/;
-    if (!modePattern.test(command)) {
-        return "Invalid: Missing a valid mode command.";
-    }
-
-    // Validate resolution
-    const resolutionPattern = /(r1|r1T|r1V|r2|r2T|r4|r4T|r4X|r4S|r4V|r5|r5T|r5X)/;
-    if (command.includes("r") && !resolutionPattern.test(command)) {
-        return "Invalid: Resolution setting is incorrect.";
-    }
-
-    // Validate frame rate
-    const frameRatePattern = /(p24|p25|p30|p50|p60|p100|p120|p200|p240|p\.2|p\.5|p\.10|p\.30|p\.60|p\.120|p\.300|p\.1800|p\.3600)/;
-    if (command.includes("p") && !frameRatePattern.test(command)) {
-        return "Invalid: Frame rate setting is incorrect.";
-    }
-
-    // Validate lens type
-    const lensPattern = /(fW|fL|fS|fV)/;
-    if (command.includes("f") && !lensPattern.test(command)) {
-        return "Invalid: Lens type setting is incorrect.";
-    }
-
-    // Validate action commands
-    const actionPattern = /![\d:]*[A-Z]+/;
-    if (!actionPattern.test(command)) {
-        return "Invalid: Missing or incorrect action command.";
-    }
-
-    // Validate time formats
-    const timePatterns = [
-        /!(\d{2}):([0-5]\d)[A-Z]/, // hh:mmA format
-        /!(\d+)[A-Z]/,             // time_in_secondsA format
-        /!s-?\d+[A-Z]/,            // Sunset-relative format (!s<number>A)
-        /!r-?\d+[A-Z]/             // Sunrise-relative format (!r<number>A)
-    ];
-    const invalidTimePatterns = [
-        /!(\d):/,                  // Single-digit hours (e.g., !2:00)
-        /!-\d+/,                   // Negative seconds for absolute time
-        /!s-?\d+\D/,               // Invalid sunset-relative format (e.g., missing action)
-        /!r-?\d+\D/                // Invalid sunrise-relative format (e.g., missing action)
-    ];
-
-    // Ensure valid time patterns exist
-    if (!timePatterns.some(pattern => pattern.test(command))) {
-        return "Invalid: Time format is incorrect.";
-    }
-
-    // Ensure invalid time patterns are excluded
-    if (invalidTimePatterns.some(pattern => pattern.test(command))) {
-        return "Invalid: Contains incorrect time format (e.g., single-digit hours or missing action).";
-    }
-
-    // Validate order (Mode -> Resolution -> FrameRate -> Lens -> Actions)
-    const orderPattern = /^m[A-Z][a-z]*(r[1-5][A-Z]?)*(p[\d\.]+)*(f[WLSV])*(".*")*(![\d:]*[A-Z]+)+$/;
-    if (!orderPattern.test(command)) {
-        return "Invalid: Incorrect command sequence.";
-    }
-
-    return "Valid GoPro Labs Command.";
-}
-
-
 
 function id5() {  // 5 characters, so up to 17-bit ID
   return ([1111]+1).replace(/1/g, c =>
@@ -1647,8 +1562,6 @@ function startTime() {
 			clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + URLPrint(cmd);
 			document.getElementById("urltext").innerHTML = HTMLPrint(clipcopy);
 			lasttimecmd = cmd;
-			
-			document.getElementById("feedbacktext").innerHTML = validateGoProLabsCommand(cmd);
 		}
 		
 		lastms = today.getTime();
