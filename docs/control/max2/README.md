@@ -47,7 +47,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 <div id="noteMODE" style="font-size:13px;">
 <b>Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.<br><br>
 </div>
-
 <div id="settingsRES">
 <b>Video Resolution:</b>&nbsp;&nbsp;
   <input type="radio" id="r1"  name="res" value="r8"> <label for="r1">8k 360</label>&nbsp;&nbsp;
@@ -58,21 +57,18 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="r6" name="res" value="r4V"> <label for="r6">4k 9:16</label>&nbsp;&nbsp;
   <input type="radio" id="r7" name="res" value="" checked> <label for="r7">not set</label><br><br>
 </div>
-
 <div id="settingsRESTLV">
 <b>Video Resolution:</b>&nbsp;&nbsp;
   <input type="radio" id="rt1" name="restlv" value="r8"> <label for="rt1">8k 360</label>&nbsp;&nbsp;
   <input type="radio" id="rt2" name="restlv" value="r5"> <label for="rt2">5.6k 360</label>&nbsp;&nbsp;
   <input type="radio" id="rt3" name="restlv" value="" checked> <label for="rt3">not set</label><br><br>
- </div>
- 
+</div>
 <div id="settingsCOMPTLV">
 <b>Video Resolution:</b>&nbsp;&nbsp;
   <input type="radio" id="crt1" name="comptlv" value="r8"  > <label for="crt1">8k </label>&nbsp;&nbsp;
   <input type="radio" id="crt2" name="comptlv" value="r5"  > <label for="crt2">5.6k</label>
   <input type="radio" id="crt3" name="comptlv" value="" checked> <label for="crt3">not set</label><br><br>
- </div>
- 
+</div>
 <div id="settingsFPS">
 <b>FPS Video:</b>&nbsp;&nbsp;
   <input type="radio" id="p1" name="fps" value="p24">  <label for="p1">24 </label>&nbsp;&nbsp;
@@ -84,18 +80,15 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="p7" name="fps" value="p100"> <label for="p7">100 </label>&nbsp;&nbsp;
   <input type="radio" id="p8" name="fps" value="" checked> <label for="p8">not set</label><br><br>
 </div>
-
-
 <div id="settingsVideo">
-<b>Hypersmooth:</b>&nbsp;&nbsp;
+<b>Hypersmooth (2D only):</b>&nbsp;&nbsp;
 	<input type="radio" id="eis1" name="eis" value="e0"> <label for="eis1">Off</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis2" name="eis" value="e1"> <label for="eis2">On</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis3" name="eis" value="e4"> <label for="eis5">Auto Boost </label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="eis4" name="eis" value="" checked> <label for="eis4">not set</label><br><br>
 </div>
-
 <div id="settingsFOV">
-<b>Lens:</b>
+<b>Lens (2D only):</b>
   <input type="radio" id="f1" name="fov" value="fL"> <label for="f1">Linear </label>&nbsp;&nbsp;
   <input type="radio" id="f2" name="fov" value="fW"> <label for="f2">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="f3" name="fov" value="fX"> <label for="f3">UltraWide </label>&nbsp;&nbsp;
@@ -103,33 +96,28 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="f5" name="fov" value="fX"> <label for="f5">MaxHyperView </label>&nbsp;&nbsp;
   <input type="radio" id="f6" name="fov" value="" checked> <label for="f">not set</label><br><br>
  </div>
- 
 <div id="settingsPFOV">
-<b>Lens:</b>
+<b>Lens (2D only):</b>
   <input type="radio" id="pf1" name="pfov" value="fL"> <label for="pf1">Linear</label>&nbsp;&nbsp;
   <input type="radio" id="pf2" name="pfov" value="fW"> <label for="pf2">Wide</label>&nbsp;&nbsp;
   <input type="radio" id="pf3" name="pfov" value="fX"> <label for="pf3">UltraWide</label>&nbsp;&nbsp;
   <input type="radio" id="pf4" name="pfov" value="" checked> <label for="pf4">not set</label><br><br>
  </div>
-  
- 
 <div id="settingsTLVFOV">
-<b>Lens:</b>
+<b>Lens (2D only):</b>
   <input type="radio" id="tlvf1" name="tlvfov" value="fL"> <label for="tlvf1">Linear</label>&nbsp;&nbsp;
   <input type="radio" id="tlvf2" name="tlvfov" value="fW"> <label for="tlvf2">Wide</label>&nbsp;&nbsp;
   <input type="radio" id="tlvf3" name="tlvfov" value="fX"> <label for="tlvf3">UltraWide</label>&nbsp;&nbsp;  
   <input type="radio" id="tlvf4" name="tlvfov" value="" checked> <label for="tlvf4">not set</label><br><br>
  </div>
-  
 <div id="settingsTWFOV">
-<b>Lens:</b>
+<b>Lens (2D only):</b>
   <input type="radio" id="twf1" name="twfov" value="fL"> <label for="twf1">Linear</label>&nbsp;&nbsp;
   <input type="radio" id="twf2" name="twfov" value="fW"> <label for="twf2">Wide</label>&nbsp;&nbsp;
   <input type="radio" id="twf3" name="twfov" value="fX"> <label for="twf3">UltraWide</label>&nbsp;&nbsp;
   <input type="radio" id="twf4" name="twfov" value="fM"> <label for="twf4">MaxHyperView</label>&nbsp;&nbsp;
   <input type="radio" id="twf5" name="twfov" value="" checked> <label for="twf5">not set</label><br><br>
  </div>
-
 <div id="settingsBurst">
 <b>Burst Style:</b>&nbsp;&nbsp;
   <input type="radio" id="b1" name="burst" value="bA"> <label for="b1">Auto </label>&nbsp;&nbsp;
@@ -144,7 +132,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="b10" name="burst" value="b30N10"> <label for="b10">30/10 </label>&nbsp;&nbsp;
   <input type="radio" id="b11" name="burst" value="" checked> <label for="b11">not set</label><br><br>
 </div>
-
 <div id="settingsTimewarp">
 <b>TimeWarp Speed:</b>&nbsp;&nbsp;
   <input type="radio" id="fpswarp1"    name="fpswarp" value="p15"> <label for="fpswarp1">2X </label>&nbsp;&nbsp;
@@ -154,9 +141,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="fpswarp5"    name="fpswarp" value="p1"> <label for="fpswarp5">30X </label>&nbsp;&nbsp;
   <input type="radio" id="fpswarp6"    name="fpswarp" value="pA"> <label for="fpswarp6">Auto </label>&nbsp;&nbsp;
   <input type="radio" id="fpswarp7"    name="fpswarp" value="" checked> <label for="fpswarp7">not set</label><br><br>
-</div>
- 
- 
+</div> 
 <div id="settingsTimelapse">
 <b>Timelapse Interval:</b>&nbsp;&nbsp;
   <input type="radio" id="fpslapse1"  name="fpslapse" value="p2"> <label for="fpslapse1">0.5s </label>&nbsp;&nbsp;
@@ -170,10 +155,8 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="fpslapse9"  name="fpslapse" value="p.300" > <label for="fpslapse9">5min </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse10" name="fpslapse" value="p.1800"> <label for="fpslapse10">30min </label>&nbsp;&nbsp;
   <input type="radio" id="fpslapse11" name="fpslapse" value="p.3600"> <label for="fpslapse11">60min </label>&nbsp;&nbsp;
-  
   <input type="radio" id="fpslapse12" name="fpslapse" value="" checked> <label for="fpslapse12">not set</label><br><br>
 </div>
- 
 <div id="settingsNightlapse">
 <b>Nightlapse Interval:</b>&nbsp;&nbsp;
   <input type="radio" id="fpsnight1" name="fpsnight" value="p"     > <label for="fpsnight1">Auto </label>&nbsp;&nbsp;
@@ -190,7 +173,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="fpsnight12" name="fpsnight" value="p.3600"> <label for="fpsnight12">60min </label>&nbsp;&nbsp;
   <input type="radio" id="fpsnight13" name="fpsnight" value="" checked> <label for="fpsnight13">not set</label><br><br>
 </div>
-
 <div id="settingsNightexposure">
 <b>Shutter:</b>&nbsp;&nbsp;
   <input type="radio" id="nightexp1" name="nightexp" value="eA" > <label for="nightexp1">auto </label>&nbsp;&nbsp;
@@ -202,7 +184,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="nightexp7" name="nightexp" value="e30"> <label for="nightexp7">30s </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp8" name="nightexp" value="" checked> <label for="nightexp8"> not set</label><br><br>
 </div>
-
 <div id="settingsHindsight">
 <b>Hindsight:</b>&nbsp;&nbsp;
 	<input type="radio" id="hind1" name="hind" value="hS0"> <label for="hind1">Off</label>&nbsp;&nbsp;&nbsp;
@@ -210,7 +191,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 	<input type="radio" id="hind3" name="hind" value="hS2"> <label for="hind3">30s</label>&nbsp;&nbsp;&nbsp;
 	<input type="radio" id="hind4" name="hind" value="" checked> <label for="hind4">not set</label><br><br>
 </div>
-
 <div id="settingsDuration">
 <b>Duration:</b>&nbsp;&nbsp;
 	<input type="radio" id="dur1" name="dur" value="dR0"> <label for="dur1">Off</label>&nbsp;&nbsp;
@@ -225,14 +205,12 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
 	<input type="radio" id="dur10" name="dur" value="dR9999"> <label for="dur10">3hour</label>&nbsp;&nbsp;
 	<input type="radio" id="dur11" name="dur" value="" checked> <label for="dur11">not set</label><br><br>
 </div>
-
 <div id="settingsPhotoRAW">
 <b>Photo Properties:</b><br>
   <input type="radio" id="raw1" name="raw" value="r0"> <label for="raw1">JPEG only</label>&nbsp;&nbsp;
   <input type="radio" id="raw2" name="raw" value="r"> <label for="raw2">Raw + JPEG</label>&nbsp;&nbsp;
   <input type="radio" id="raw3" name="raw" value="" checked> <label for="raw3"> not set</label><br><br>
 </div>
-
 <div id="settingsAUDT">
 <b>Wind Reduction:</b>&nbsp;&nbsp;
   <input type="radio" id="audt1" name="audt" value="aA"> <label for="audt1">Auto </label>&nbsp;&nbsp;
@@ -682,7 +660,7 @@ function startTime() {
 	dset("ptEV",false);
 	dset("ptSHARP",false);
 	dset("ptAUD",false);
-		
+	
 	dset("opGPS", false);
 	dset("opVC", false);
 	dset("opQC", false);
@@ -969,7 +947,7 @@ function startTime() {
 	
 	cmd = dcmd(cmd,"m");  // set mode
 		
-	if(checkedmode < 7)
+	if(checkedmode>=1 && checkedmode < 7)
 	{
 		cmd = dcmd(cmd, "max");
 	}
@@ -1559,6 +1537,7 @@ function startTime() {
 		if(cmd != lasttimecmd)
 		{
 			document.getElementById("qrtext").innerHTML = HTMLPrint(cmd);
+
 			clipcopy = "https://gopro.github.io/labs/control/set/?cmd=" + URLPrint(cmd);
 			document.getElementById("urltext").innerHTML = HTMLPrint(clipcopy);
 			lasttimecmd = cmd;
