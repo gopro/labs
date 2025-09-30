@@ -18,10 +18,12 @@ Brand new to Labs? Get the firmware and info on [**Labs installation**](https://
 
 ## Configuration Commands for All Labs Enabled Cameras
 
-* Set camera modes with the [**Customizable QR Code Creator**](./custom) and here optimized for [**Bones**](../bones)
-and as a mobile app:<br>
-[![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
-[![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
+* Set camera modes for Most Labs cameras [**QR Code Creator**](./custom) <br>
+  optimizted for [**MAX2**](../max2) <br>
+  and for [**Bones**](../bones)<br>
+  and as a mobile app:<br>
+  [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
+  [![apple app store](apple-store-823.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 * Set Precision [**Local Date and Time**](./precisiontime) or [**UTC Time**](./precisiontime_utc) or
 * <div id="qrcode">Set Local Time:</div>
 * Personalize your cameras with [**Owner Information**](./owner)
@@ -40,30 +42,30 @@ and as a mobile app:<br>
 * Capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
 * **HERO7-13/MAX** - Use the [**USB Power Trigger**](./usb) to start and stop the camera (pseudo dash-cam mode)
 * **HERO9-13/Bones** - Start capture using [**Sound Pressure Level Trigger**](./spltrigger)
-* **HERO7-11,13/MAX** - Start capture only when traveling fast with [**GPS Speed Triggers**](./speedtrigger) 
+* **HERO7-11,13/MAX/2** - Start capture only when traveling fast with [**GPS Speed Triggers**](./speedtrigger) 
 
 ### Extended Time-lapse Features 
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
-* **HERO8-13/Bones** - [**Daily Time-lapse**](./dailytl) with optional upload
+* **HERO8-13/Bones/MAX2** - [**Daily Time-lapse**](./dailytl) with optional upload
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* Construction time-laspes only recommend for HERO12-13 [**Daily Long Time-lapses**](./construction)
+* Construction time-laspes only recommend for HERO12-13/MAX2 [**Daily Long Time-lapses**](./construction)
 * Solar Eclipse [**Timelapse Planner**](./eclipse)
 
 ### Video Alteration Features
 * **HERO12-13** - Enable [**Dive Mode**](./divemode) for optimized scuda video capture stabilization and white balance
 * **HERO12-13** - Enable [**Stop Motion Mode**](./stopmotion) for creating cool animations
-* **HERO8-13/MAX/Bones** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
+* **HERO8-13/MAX/Bones/MAX2** - Set the [**Max Shutter Angle**](./maxshut) for control over stabilization in low light
 * **HERO8-13/MAX** - Add text like Date and Time with [**Video 'Burn-in' Overlays**](./overlays)
 * **HERO8-13** - Add a logo or any small image to your video with [**Logo Overlays**](./logo)
 
 ### Miscellaneous Features
 * **HERO7-13/MAX** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
 * **HERO8-13/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
-* **HERO9-11,13** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
+* **HERO9-11,13/MAX2** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
 * **HERO8-10/MAX/Bones** - Enable larger chapter sizes for 64+GB cards [**12 GB Chapters**](./chapters). Standard on HERO11/12/13
-* **HERO8-13/MAX/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
+* **HERO8-13/MAX/2/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-13** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
-* **HERO10-13** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
+* **HERO10-13/MAX2** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
 ## Metadata Extraction
@@ -82,10 +84,10 @@ An incomplete set of [**Release Notes**](./notes)
 
 ## Full Control, Commands Under The Hood 
 * Technical information on the [**Labs command language**](./tech)
-* **HERO10-13/MAX** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
+* **HERO10-13/MAX/2** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 * New [ChatBot for GoPro Labs commands](https://bit.ly/chat_gp_labs)
 
-updated: May 30, 2025
+updated: September 30, 2025
 
 
 <script>
