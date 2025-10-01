@@ -94,7 +94,7 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="f3" name="fov" value="fX"> <label for="f3">UltraWide </label>&nbsp;&nbsp;
   <input type="radio" id="f4" name="fov" value="fX"> <label for="f4">MaxSuperview </label>&nbsp;&nbsp;
   <input type="radio" id="f5" name="fov" value="fX"> <label for="f5">MaxHyperView </label>&nbsp;&nbsp;
-  <input type="radio" id="f6" name="fov" value="" checked> <label for="f6>not set</label><br><br>
+  <input type="radio" id="f6" name="fov" value="" checked> <label for="f6">not set</label><br><br>
  </div>
 <div id="settingsPFOV">
 <b>Lens (2D only):</b>
