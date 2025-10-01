@@ -184,13 +184,6 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="nightexp7" name="nightexp" value="e30"> <label for="nightexp7">30s </label>&nbsp;&nbsp;
   <input type="radio" id="nightexp8" name="nightexp" value="" checked> <label for="nightexp8"> not set</label><br><br>
 </div>
-<div id="settingsHindsight">
-<b>Hindsight:</b>&nbsp;&nbsp;
-	<input type="radio" id="hind1" name="hind" value="hS0"> <label for="hind1">Off</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="hind2" name="hind" value="hS1"> <label for="hind2">15s</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="hind3" name="hind" value="hS2"> <label for="hind3">30s</label>&nbsp;&nbsp;&nbsp;
-	<input type="radio" id="hind4" name="hind" value="" checked> <label for="hind4">not set</label><br><br>
-</div>
 <div id="settingsDuration">
 <b>Duration:</b>&nbsp;&nbsp;
 	<input type="radio" id="dur1" name="dur" value="dR0"> <label for="dur1">Off</label>&nbsp;&nbsp;
@@ -635,7 +628,6 @@ function startTime() {
 	dset("settingsRESTLV", false);
 	dset("settingsCOMPTLV", false);
 	dset("settingsVideo", false);
-	dset("settingsHindsight", false);
 	dset("settingsDuration", false);
 	dset("settingsPhotoRAW", false);
 	dset("settingsPT", false);
@@ -717,7 +709,6 @@ function startTime() {
 		dset("settingsFPS", true);
 		dset("settingsFOV", true);
 		dset("settingsVideo", true);
-		dset("settingsHindsight", true);
 		dset("settingsDuration", true);
 		dset("settingsPT", true);
 		dset("settingsAUDT",true);
@@ -1096,11 +1087,9 @@ function startTime() {
 		}
 	}
 	
-	cmd = dcmd(cmd,"hind"); //hindsight
 	cmd = dcmd(cmd,"dur"); //duration
 	cmd = dcmd(cmd,"all"); //auto low light	
 	cmd = dcmd(cmd,"audt"); //audio control
-	
 		
 	if(document.getElementById("p1") !== null)
 	{
