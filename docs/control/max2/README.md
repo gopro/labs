@@ -18,7 +18,7 @@ Many features of this page are also available as a mobile app.<br>
 Install from: [![google play](../google-play-small.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
 [![apple app store](../apple-store-small.png)](https://apps.apple.com/us/app/gopro-app/id1518134202)
 
-  &nbsp;&nbsp;**Camera Mode:**&nbsp;&nbsp; 
+**Camera Mode:**&nbsp;&nbsp; 
   <input type="radio" id="max1" name="max" value="M"> <label for="max1">360</label>&nbsp;&nbsp;
   <input type="radio" id="max2" name="max" value="HF"> <label for="max2">Front Only</label>&nbsp;&nbsp;
   <input type="radio" id="max3" name="max" value="HR"> <label for="max3">Rear Only</label>&nbsp;&nbsp;
@@ -26,8 +26,8 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   
   &nbsp;&nbsp;**Video Modes:**&nbsp;&nbsp; 
   <input type="radio" id="m1" name="mode" value="mV"> <label  for="m1">Video </label>&nbsp;&nbsp;
-  <input type="radio" id="m2" name="mode" value="mVL"> <label  for="m2">Log</label>&nbsp;&nbsp;
-  <input type="radio" id="m3" name="mode" value="mVS"> <label  for="m3">Std</label>&nbsp;&nbsp;
+  <input type="radio" id="m2" name="mode" value="mVL"> <label for="m2">Log</label>&nbsp;&nbsp;
+  <input type="radio" id="m3" name="mode" value="mVS"> <label for="m3">Std</label>&nbsp;&nbsp;
   <input type="radio" id="m4" name="mode" value="mTW"> <label for="m4">TimeWarp</label>&nbsp;&nbsp;
   <input type="radio" id="m5" name="mode" value="mT"> <label  for="m5">TimeLapse</label>&nbsp;&nbsp;
   <input type="radio" id="m6" name="mode" value="mNL"> <label for="m6">NightLapse</label><br>
@@ -41,8 +41,8 @@ Install from: [![google play](../google-play-small.png)](https://play.google.com
   <input type="radio" id="m12" name="mode" value="mPN"> <label for="m12">Night</label><br>
   &nbsp;&nbsp;**TimeLapse:**&nbsp;&nbsp; 
   <input type="radio" id="m13" name="mode" value="mTP"> <label for="m13">Photo</label>&nbsp;&nbsp;
-  <input type="radio" id="m14" name="mode" value="mNP"> <label for="m14">NightLapse</label>
-  <input type="radio" id="m15" name="mode" value="" checked> <label for="m15">not set</label><br>
+  <input type="radio" id="m14" name="mode" value="mNP"> <label for="m14">NightLapse</label><br>
+  &nbsp;&nbsp;<input type="radio" id="m15" name="mode" value="" checked> <label for="m15">not set</label><br>
 
 <div id="noteMODE" style="font-size:13px;">
 <b>Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.<br><br>
