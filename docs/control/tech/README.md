@@ -213,6 +213,10 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
  - `g0` or `gO`: GPS off
  - `g1` or `g`: GPS on
  
+### Touch Active (H13/MAX2 only):
+ - `tE`: Touch screen input enabled
+ - `tD`: Touch screen input disabled
+ 
 ### Quick Capture:
  - `q0` or `qO` : off
  - `q1` or `q1` : on
@@ -853,6 +857,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: Sept 14, 2025
+updated: October 3, 2025
 
 [Learn more](..) on QR Control
