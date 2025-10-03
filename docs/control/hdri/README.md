@@ -660,7 +660,7 @@ async function loadAndPreprocess(files, scale = 1.0) {
 
         // B: heavier blur & *multiply by 16*, then t/=16  (synthetic shorter exposure)
         gaussianBlurROI(lin, w, minx, miny, maxx + 1, maxy + 1, SUN_BLUR2);
-        for (let p = 0; p < lin.length; p++) lin[p] *= 16.0;
+        for (let p = 0; p < lin.length; p++) lin[p] /= 16.0;
         t /= 16.0;
         linearImages.push({ w, h, data: lin.slice(0) });
         expandedTimes.push(t);
