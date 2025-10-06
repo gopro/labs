@@ -753,6 +753,68 @@ function colorMatrix(lin,
   }
 }
 
+
+function getColorTempSun(lin, w, h, sun_x, sun_y) {
+  let rBias = 0.0, gBias = 0.0, bBias = 0.0;
+  sun_x = sun_x & 0xffff;
+  sun_y = sun_y & 0xffff;
+  
+  let angle,radius;
+  let rmax = w/90.0;
+  let rstep = rmax / 50.0;
+  let x = sun_x;
+  let y = sun_y;
+  let total = 0;
+  
+  //console.log("sun pos:", sun_x, sun_y);
+  
+  for(angle=0.0;angle<6.28; angle+=0.025)
+  {
+	  let xstep = Math.cos(angle);
+	  let ystep = Math.sin(angle);
+	  for(radius = rstep;radius<rmax; radius+=rstep)
+	  {
+		x = (sun_x + radius * xstep) & 0x7ffff;
+		y = (sun_y + radius * ystep) & 0x7ffff;
+		
+		
+		let i = (y*w + x)*3;
+		let r = lin[i];
+		let g = lin[i + 1];
+		let b = lin[i + 2];
+		
+		if(r<0.9 && g<0.9 && b<0.9)
+		{
+			rBias += r;
+			gBias += g;
+			bBias += b;
+			total ++;
+			//console.log("per:", radius/rmax *100.0);
+			break;
+		}
+	  }
+  }
+  
+  if(total)
+  {
+	  rBias /= total;
+	  gBias /= total;
+	  bBias /= total;
+  }
+  else
+  {
+	  rBias = 1.0;
+	  gBias = 1.0;
+	  bBias = 1.0;
+  }
+  
+  //console.log("RGB:", rBias, gBias, bBias, total);
+  
+  // Small sanity clamp to avoid extreme tints
+  const clamp = (v) => Math.min(4, Math.max(0.25, v));
+  return [clamp(rBias), gBias, clamp(bBias)];
+}
+
 /**
  * Load JPGs, read EXIF shutter times, sort by exposure, optionally scale,
  * convert to linear, apply short-sun logic (ROI blur + synthetic pushes),
@@ -840,8 +902,7 @@ async function loadAndPreprocess(files, scale = 1.0) {
 
     // sRGB → linear (your existing function)
     let lin = srgbToLinear_u8(imgData);
-	colorMatrix(
-	  lin,
+	colorMatrix( lin,
 	  1.693, -0.607, -0.086,
 	 -0.189,  1.522, -0.333,
 	  0.047, -0.678,  1.631
@@ -881,6 +942,13 @@ async function loadAndPreprocess(files, scale = 1.0) {
         }
 		let sun_x = (maxx+minx)/2;
 		let sun_y = (maxy+miny)/2;
+		
+		const [rBias, gBias, bBias] = getColorTempSun(lin, w, h, sun_x, sun_y);
+		
+		//console.log("rBias:", rBias);
+		//console.log("gBias:", gBias);
+		//console.log("bBias:", bBias);
+		
 		//console.log("near minx maxx: ", minx, maxx);
 		//console.log("near miny maxy: ", miny, maxy);
         // pad ROI a bit; clamp to image
@@ -923,9 +991,9 @@ async function loadAndPreprocess(files, scale = 1.0) {
 				
 				if(alpha > 1.0) alpha = 1.0;
 				else if(alpha < 0.0) alpha = 0.0;
-				lin[p] += lin[p]*3200.0*alpha;
-				lin[p + 1] += lin[p + 1]*3200.0*alpha;
-				lin[p + 2] += lin[p + 2]*3200.0*alpha;
+				lin[p] += lin[p]*3200.0*rBias*alpha;
+				lin[p + 1] += lin[p + 1]*3200.0*gBias*alpha;
+				lin[p + 2] += lin[p + 2]*3200.0*bBias*alpha;
 				
 				if(alpha > 0.0) count++;
 				count2++;
