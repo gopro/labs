@@ -43,6 +43,11 @@ Looking for a free web tool to view and test your .HDR file, try <a href="https:
     <input id="files" type="file" accept="image/jpeg" multiple /><br>
   </div>
   <div class="row" style="margin-bottom: 5px;">
+	Select RGB color range before merging:
+	<input type="radio" id="rec709" name="color" checked><label for="rec709">Rec709</label>&nbsp;
+	<input type="radio" id="rec2020" name="color"><label for="rec2020">Rec2020</label>
+  </div>
+  <div class="row" style="margin-bottom: 5px;">
     <button id="run" disabled>Merge HDR</button>
     <button id="runHalf" disabled>HDR (½ Res)</button>
     <button id="runQuarter" disabled>HDR (¼ Res)</button>
@@ -85,13 +90,23 @@ const CLIPPED_COUNT  = 1000;    // number of clipped pixels to consider "has cli
 /* ===================== Helpers / UI ===================== */
 const $ = sel => document.querySelector(sel);
 const logEl = $('#log');
-function logLine(msg, cls='') {
+
+const MAX_LOG_LINES = 8;
+function logLine(msg, cls = '') {
   const line = document.createElement('div');
   if (cls) line.className = cls;
   line.textContent = msg;
   logEl.appendChild(line);
+
+  // Keep at most MAX_LOG_LINES
+  while (logEl.children.length > MAX_LOG_LINES) {
+    logEl.removeChild(logEl.firstChild);
+  }
+
+  // Always scroll to bottom
   logEl.scrollTop = logEl.scrollHeight;
 }
+
 function setStage(msg) { $('#stage').textContent = msg; }
 function setOverall(pct) { $('#overall').value = Math.max(0, Math.min(100, pct)); }
 function setPerFile(pct) { $('#perfile').value = Math.max(0, Math.min(100, pct)); }
@@ -902,11 +917,18 @@ async function loadAndPreprocess(files, scale = 1.0) {
 
     // sRGB → linear (your existing function)
     let lin = srgbToLinear_u8(imgData);
-	colorMatrix( lin,
-	  1.693, -0.607, -0.086,
-	 -0.189,  1.522, -0.333,
-	  0.047, -0.678,  1.631
-	);
+	
+	if(true === document.getElementById("rec709").checked)
+		colorMatrix( lin,
+		1.693, -0.607, -0.086,
+		-0.189,  1.522, -0.333,
+		0.047, -0.678,  1.631);
+	else
+		colorMatrix( lin,
+		 1.00199602,  0.09096836, -0.09296437,
+		-0.05627738,  1.34989477, -0.29361737,
+		 0.05320917, -0.48320693,  1.42999776);
+
     let t = sortedExpos[i];
 
     // ---------- Short-exposure "sun" logic (unchanged behavior, now at scaled size) ----------
