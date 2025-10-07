@@ -1,3 +1,12 @@
+<script src="../../jquery.min.js"></script>
+<script src="../../qrcodeborder.js"></script>
+<script src="../../html2canvas.min.js"></script>
+<style>
+        #qrcode{
+            width: 100%;
+        }
+</style>
+
 # HDRI Merge (optimized for GoPro MAX2)
 
 <b>Why:</b> 360° HDRIs capture the full lighting environment in every direction, making them ideal for 
@@ -8,15 +17,36 @@ photorealistic lighting in visualizations and games.
 
 ## Configure Your MAX2 to Create HDRIs Easily 
 
-<b>First QR Code</b> is a GoPro Labs macro that will taking nine exposures, 2.0 stops apart. 
-This is only storing the macro, does not run it yet. The script will name the files 
-<b>H</b>ab<b>_GS01</b>xzwy.<b>JPG</b>, this to help you find the exposure groups on the SD card, 
+<b>First QR Code</b> is a GoPro Labs macro that will taking up to 11 exposures, 2.0 stops apart for very wide HDRIs. 
+Optionally optimize for moonlit nights (<input type="checkbox" id="moon" name="moon">very low light), 
+this will add even longer exposures, which are otherwise useless for lit-interiors or daylight (recommended off.) 
+The script will optionally name the files <b>H</b>ab<b>_GS01</b>xzwy.<b>JPG</b> 
+(<input type="checkbox" id="lname" name="lname" checked>Enable Name Change), 
+to help you find the exposure groups on the SD card, 
 however the renamed files will not show in camera playback or in Quik. The HDRI script is 
 designed for laptop/desktop workflows.<br>
-<img src="https://gopro.github.io/labs/control/hdri/macroQR.png" alt="Macro"><br>
+
+<div id="qrcode_txt" style="width: 540px">
+  <center>
+  <div id="qrcode" style="width: 540px"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
+  <b><font color="#005CAC">HDRI Macro v1.0<em id="status"></em></font></b>
+  </center>
+</div>
+<br>
 <br>
 <b>Second QR Code</b> makes a preset called "HDRI" from the above macro.<br>
-<img src="https://gopro.github.io/labs/control/hdri/presetQR.png" alt="Preset"><br>
+
+<div id="qrcode_txt2" style="width: 540px">
+  <center>
+  <div id="qrcode2" style="width: 540px"></div><br>
+  <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext2"></em><br>
+  <b><font color="#005CAC">HDRI Preset<em id="status"></em></font></b>
+  </center>
+</div>
+<br>
+<br>
+<!-- <img src="https://gopro.github.io/labs/control/hdri/presetQR.png" alt="Preset"><br> -->
 <br>
 
 ## Using HDRI Preset
@@ -35,7 +65,6 @@ Then press Merge HDR (8K) for the ½ or ¼ Res merge for a faster preview.
 Once complete, click on Download .HDR.<br>
 <br>
 Looking for a free web tool to view and test your .HDR file, try <a href="https://wkjarosz.github.io/hdrview/">HDRview</a><br>
-
 
 <fieldset>
   <legend>Inputs</legend>
@@ -1334,6 +1363,69 @@ function updateMergeButtons() {
 	}
 }
 
+let cmd = String.raw`*HDRI="!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R55$EXPQ=0=C+1!R14"`;
+let cmd2 = String.raw`*HDRi="!Z0$EXPQ=0$GAMA=0$BASE=''"mPN$PRES="16,HDRI"`;
+let once = true;
+
+function makeQR() 
+{
+  if(once === true)
+  {
+    qrcode = new QRCode(document.getElementById("qrcode"), 
+    {
+      text : cmd,
+      width : 540,
+      height : 540,
+      correctLevel : QRCode.CorrectLevel.M
+    });
+	
+	document.getElementById("qrtext").textContent  = cmd;
+	
+    qrcode2 = new QRCode(document.getElementById("qrcode2"), 
+    {
+      text : cmd2,
+      width : 540,
+      height : 540,
+      correctLevel : QRCode.CorrectLevel.M
+    });
+	
+	document.getElementById("qrtext2").textContent  = cmd2;
+	
+    once = false;
+  }
+}
+
+async function updateQRs()
+{
+	if(document.getElementById("lname").checked === true)
+	{
+		if(document.getElementById("moon").checked === true)
+		{
+			cmd = String.raw`*HDRI="!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R55$EXPQ=0=C+1!R14"`;
+			//!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N<A0.1=A0.11$EXPQ=A!N!S=A/4>A0.05!R55$EXPQ=0=C+1!R14
+		} else {
+			cmd = String.raw`*HDRI="!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R55$EXPQ=0=C+1!R14"`;
+			//!Z1=Ct:ScFi1x0=S0.25=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R55$EXPQ=0=C+1!R14
+		}
+	}
+	else
+	{
+		if(document.getElementById("moon").checked === true)
+		{
+			cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R38$EXPQ=0!R9"`;
+			//!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N<A0.1=A0.11$EXPQ=A!N!S=A/4>A0.05!R38$EXPQ=0!R9
+		} else {
+			cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R38$EXPQ=0!R9"`;
+			//!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R38$EXPQ=0!R9
+		}
+	}
+	//console.log(cmd);
+	document.getElementById("qrtext").textContent = cmd;
+	
+	qrcode.clear(); 
+	qrcode.makeCode(cmd);
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   const filesInput = document.getElementById('files');
   const runBtn = document.getElementById('run');
@@ -1374,5 +1466,15 @@ $('#runQuarter').addEventListener('click', async () => {
 $('#previewExp').addEventListener('change', async () => {
   await runPreview(); 
 });
+
+$('#lname').addEventListener('change', async () => {
+  await updateQRs(); 
+});
+$('#moon').addEventListener('change', async () => {
+  await updateQRs(); 
+});
+
+
+makeQR();
 
 </script>
