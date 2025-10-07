@@ -19,7 +19,7 @@ Brand new to Labs? Get the firmware and info on [**Labs installation**](https://
 ## Configuration Commands for All Labs Enabled Cameras
 
 * Set camera modes with the Customizable QR Code Creator [**HERO Black Cameras**](./custom)<br>
-* and here optimized for [**GoPro MAX2**](../max2)<br>
+* and here optimized for [**GoPro MAX2**](./max2)<br>
 * and here optimized for [**GoPro HERO10 Bones**](../bones)<br>
 and as a mobile app:<br>
 [![google play](google-play-823.png)](https://play.google.com/store/apps/details?id=com.miscdata.qrcontrol)
