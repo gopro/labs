@@ -2,6 +2,25 @@
 
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
+## MAX2
+
+Much of MAX2 Labs feature are similar to HERO13, with a few exceptions. Here is some bonus Labs features on MAX2:
+
+- Added IFRM=1 for I-frame only encoding. Likely the first action camera with an all I-frame encoding option in HEVC. Recommend to run at least 180Mb/s using BITR. Still very experimental.
+- Added LOWL=1 for a low light mode, technically it is the same a GCMP=1, but easier to remember. All this does is bias the camera to use a longer shutter when shooting video.
+- Added preset friendly B001 to B999 for bitrate control e.g. B180 in a preset name will be 180mbs
+- Added preset friendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
+- Added mVMxy <- Max2 video 360 select, supporting F/R - front/rear, and S/L - standard/Log
+- Added mVHxy <- Max2 video HERO select, supporting F/R - front/rear, and S/L - standard/Log
+- Added DPTS=x (1-15) depth change smoother, 1 - fast, 15 - smooth. 360 experimental.
+- Added DPTP=x (1-7) depth change speed, 1 - slow, 7 - fast (like DPTS with a different implementation). 360 experimental.
+- Added DPTL=x depth lock stitch after x seconds, 1 - immediate, 2-99 - seconds, 100-99999 - milliseconds. 360 experimental.
+- Added GAMA=2.2 for HDRI work, gamma equivalent of LOGB.
+- Added ALLI=1 for optionally ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 90.0, 100.0
+- Improved EXPQ to be more precise (now used for HDRI imaging in MAX2)
+- Improved 64BT=1, now defaults to a 64GB chapter, but *64BT=64000 still works.
+- Fixes for repeating triggers like speed and IMU
+
 
 ## HERO13 Black 
 
@@ -721,6 +740,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: January 25, 2025
+updated: October 7, 2025
 
 [Learn more](..) on QR Control
