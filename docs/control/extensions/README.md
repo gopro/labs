@@ -26,15 +26,33 @@ Some particular 4CCs will also change camera behavior and/or enable features.
 
 Here is a list of additional metadata driven camera extensions: 
 
-### **HERO13 cameras**
 
-- **WBDV=1** - White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, WBDV is more automatic – as the scene get more blue, the more the red channel is gain up. Currently $WBDV=1 is uses =2.33,4.0 internally (gaining red 4x after red gain hits 2.33), so you can try tuning this yourself e.g. $WBDV=2.4,5.0
+### **MAX2 cameras**
+
+- **IFRM=1** - for I-frame only encoding. Likely the first action camera with an all I-frame encoding option in HEVC. Recommend to run at least 180Mb/s using BITR. Still very experimental.
+- **LOWL=1** - for a low light mode, technically it is the same a GCMP=1, but easier to remember. All this does is bias the camera to use a longer shutter when shooting video.
+- **preset** - friendly B001 to B999 for bitrate control e.g. B180 in a preset name will be 180mbs
+- **preset** - friendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
+- **DPTS=x** - (1-15) depth change smoother, 1 - fast, 15 - smooth. 360 experimental.
+- **DPTP=x** - (1-7) depth change speed, 1 - slow, 7 - fast (like DPTS with a different implementation). 360 experimental.
+- **DPTL=x** - depth lock stitch after x seconds, 1 - immediate, 2-99 - seconds, 100-99999 - milliseconds. 360 experimental.
+- **GAMA=2.2** - Useful for HDRI work, gamma equivalent of LOGB.
+- **ALLI=1** - for optionally ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 90.0, 100.0
+
+
+### **HERO13/MAX2 cameras**
+
 - **SHEL=1** - Using $SHEL=1 enables a command shell for Labs over a USB serial port. Every experimental, and looking for feedback. Connect to COM at 115200 8N1. All QR code command work, just type them. Used $ commands will report their data back to the shell, e.g. $BITR or $A or $p:T to read variables.
 - **OPNW=1** - Open Network (allows of faster non-secure http vs https to be used with Open GoPro)
 - **DIST=x** - Time-Lapse Video Distance, x is a GPS travel distance between exposures in meters, rather than time for an in-camera computed timelapse. So $DIST=5 will set a 5 meter interval for TLV. One exception is when x=1, 10 meters will be used, 1 meter is too noisy (GPS errors.) So this feature is good for 2 meters of larger. For shorter distances or a higher speed, you the new TLV sample rate for 4Hz (p4), for the best distance precision. e.g. mTr5Xp4$DIST=5
 - **GOAL=x** - 0 to 60 (or x) MPH speed timing. Not for precision timing, just for fun. Drive safe. It currents a JPEG in MISC for you speed award. All very crude, from a recent hackathon.
 - **GPSL=x** - to enabled continous GPS location logging, even when not capturing, so the capture can log more of you path and adventures. Path is saved by day into 
 MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meter from the last stored location.
+
+
+### **HERO13 cameras**
+
+- **WBDV=1** - White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, WBDV is more automatic – as the scene get more blue, the more the red channel is gain up. Currently $WBDV=1 is uses =2.33,4.0 internally (gaining red 4x after red gain hits 2.33), so you can try tuning this yourself e.g. $WBDV=2.4,5.0
 
 
 ### **HERO13/12 cameras**
@@ -54,7 +72,7 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 - **PRES=x,name** - Added creating, naming and sharing presets where x 0-32 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **oMPRES="14,Scuba"**
 
 
-### **HERO13/12/11/Mini cameras**
+### **HERO13/12/11/Mini/MAX2 cameras**
 
 - **WIDE=1** This offers a color gamut like setting white balance to Native (wider gamut), while enabling auto whitebalance, or user controlled whitebalance. With WIDE off (0 - the default), the camera saturates color to the Rec709 gamut (basically sRGB), so some extreme real-world color saturations are clipped by the gamut. With WIDE=1, the gamut is sensor native, not Rec709, not Rec2020, just what the sensor sees.
 <br>![WIDE.jpg](WIDE.jpg)
@@ -114,7 +132,7 @@ Note: the scripting has had a significant update in the March '23 firmware. See 
 
 - **WG84=1** to switch GPS altitude from Mean Sea Level to WGS84 elipsoid.
 
-### **HERO13/12/11/10 and Bones cameras** - Advanced features
+### **HERO13/12/11/10/MAX2 and Bones cameras** - Advanced features
 
 - **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
 - **AUDS=1** display the approximate audio levels in dB SPL.
