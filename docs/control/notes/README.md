@@ -32,8 +32,8 @@ Much of MAX2 Labs feature are similar to HERO13, with a few exceptions. Here is 
 - Added *BFLK=1 to bypass deflicker controls, to allow for continuous shutter speeds from 1/fps
 - Added *EXPS=2 for ISO/SHUT within the capture screen during capture (reducing flicker of the ISO display.) Older *EXPS=1 still works the same. 
 - Added *ALLI=1 for ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 100.0, 120.0, 200.0, 240.0 
-- Added $COHN=1 to initize credientials (once) for remote camera connections and control
-- Added $SHPS=x to show the password/credientials for x seconds (also stored in MISC/qrlog.txt)
+- Added $COHN=1 to initialize credentials (once) for remote camera connections and control
+- Added $SHPS=x to show the password/credentials for x seconds (also stored in MISC/qrlog.txt)
 - Added $ADDR=x to display the current IP ADDR for x seconds (also stored in MISC/qrlog.txt)
 - Improved Quik connection detection (particularly with *FAST=1 enabled.)
 - Improved for a more consistent display of floating point variables (float point always uses 5 characters if it can.) 
@@ -81,7 +81,7 @@ Added system variable w - wake reason, so you can branch code based on the reaso
 -  9 - BLE Wake
 -  10 - USB power wake
 
-Added to this massive release, Labs commands over Open GoPro WiFi links is now supported.
+Added to this massive release, Labs commands over Open GoPro WiFi links are now supported.
 Just a teaser (this work with user credentials from COHN, SHPS, ADDR):
 Example: WiFi calls to Labs:
  curl -k 'https://gopro:xxxxxxxxxxx@192.168.x.xxx/gopro/qrcode?labs=1&code=r5p24'
