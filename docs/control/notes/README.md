@@ -24,6 +24,18 @@ Much of MAX2 Labs feature are similar to HERO13, with a few exceptions. Here is 
 
 ## HERO13 Black 
 
+### 2.10.70 - October 17, 2025
+- Added IFRM for I-frame only encoding (very expperimental)
+- Added GAMA=2.2 for custom gamma curves (like LOGB), maybe useful for HDRI computations
+- Added preset frendly B000 to B999 for bitratre control e.g. B180 in a preset name will be 180mbs
+- Added preset frendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
+- Improved, more Labs feature now with with QuikCapture, like LOGB, WIDE, etc.
+- Improved EXPQ to be more precise
+- Improved the old triggers to repeat more reliably (without adding !2N)
+- Fixed script loops, that end, but continue to show "Labs Processing"
+- Fixed *HDMI=1 switching to a clean HDMI feed on boot with HDMI already connected
+- Fixed preset naming with Labs functions like DIVE
+
 ### 2.04.70 - August 25, 2025
 - Added oS5 - 5 minute rear screen timeout (to match in menu control)
 - Added oS10 - 10 minute rear screen timeout
@@ -740,6 +752,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: October 7, 2025
+updated: October 17, 2025
 
 [Learn more](..) on QR Control

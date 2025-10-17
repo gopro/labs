@@ -29,19 +29,19 @@ Here is a list of additional metadata driven camera extensions:
 
 ### **MAX2 cameras**
 
-- **IFRM=1** - for I-frame only encoding. Likely the first action camera with an all I-frame encoding option in HEVC. Recommend to run at least 180Mb/s using BITR. Still very experimental.
-- **LOWL=1** - for a low light mode, technically it is the same a GCMP=1, but easier to remember. All this does is bias the camera to use a longer shutter when shooting video.
-- **preset** - friendly B001 to B999 for bitrate control e.g. B180 in a preset name will be 180mbs
-- **preset** - friendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
 - **DPTS=x** - (1-15) depth change smoother, 1 - fast, 15 - smooth. 360 experimental.
 - **DPTP=x** - (1-7) depth change speed, 1 - slow, 7 - fast (like DPTS with a different implementation). 360 experimental.
 - **DPTL=x** - depth lock stitch after x seconds, 1 - immediate, 2-99 - seconds, 100-99999 - milliseconds. 360 experimental.
-- **GAMA=2.2** - Useful for HDRI work, gamma equivalent of LOGB.
-- **ALLI=1** - for optionally ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 90.0, 100.0
 
 
 ### **HERO13/MAX2 cameras**
 
+- **ALLI=1** - for optionally ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 90.0, 100.0
+- **IFRM=1** - for I-frame only encoding. Likely the first action camera with an all I-frame encoding option in HEVC. Recommend to run at least 180Mb/s using BITR. Still very experimental.
+- **LOWL=1** - for a low light mode, technically it is the same a GCMP=1, but easier to remember. All this does is bias the camera to use a longer shutter when shooting video.
+- **GAMA=2.2** - Useful for HDRI work, gamma equivalent of LOGB.
+- **preset** - friendly B001 to B999 for bitrate control e.g. B180 in a preset name will be 180mbs
+- **preset** - friendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
 - **SHEL=1** - Using $SHEL=1 enables a command shell for Labs over a USB serial port. Every experimental, and looking for feedback. Connect to COM at 115200 8N1. All QR code command work, just type them. Used $ commands will report their data back to the shell, e.g. $BITR or $A or $p:T to read variables.
 - **OPNW=1** - Open Network (allows of faster non-secure http vs https to be used with Open GoPro)
 - **DIST=x** - Time-Lapse Video Distance, x is a GPS travel distance between exposures in meters, rather than time for an in-camera computed timelapse. So $DIST=5 will set a 5 meter interval for TLV. One exception is when x=1, 10 meters will be used, 1 meter is too noisy (GPS errors.) So this feature is good for 2 meters of larger. For shorter distances or a higher speed, you the new TLV sample rate for 4Hz (p4), for the best distance precision. e.g. mTr5Xp4$DIST=5
@@ -245,7 +245,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: September 7, 2025<br>
+updated: October 17, 2025<br>
 
 [Learn more](..) on QR Control
 
