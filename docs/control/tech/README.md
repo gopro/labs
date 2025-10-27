@@ -489,8 +489,8 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **EVBS** H10-13/M1-2: This is an EV compensation value that works with webcam and livestreaming, it can be changed live (with QRDR=1) and it is global, adding the any existing EV control in your presets.Input Data: range -4 to 4.
 * **EXPQ** H11-13/M1-2: Min and Max Shutter speed, 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable. e.g. `$EXPQ=120`
 * **EXPS** H11-13/M1-2: Video exposure values: ISO and Shutter speed, rendered to the LCD. Handy for those using ND Filters. Input Data: 1 to enable, 0 to disable (2 smoother rendering.) 
-* **EXPX** H10-13/M1-2: Max Shutter speed (shortest exposure time), 1/x format. EXPX is a good control to set the look for stabilization in lower light. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable. e.g. `$EXPX=120`
-* **EXPN** H10-13/M1-2: Min Shutter speed (longest exposure time), 1/x format. EXPN is a good to ensure you have motion blur, you may need ND filters. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable.  e.g. `$EXPN=240`
+* **EXPX** H10-13/M1-2: maX EXPosure time (longest shutter), 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable. e.g. `$EXPX=120`
+* **EXPN** H10-13/M1-2: miN EXPosure time (shortest shutter), 1/x format. Input Data: 24 to 8000, representing 1/24 and 1/8000s, 0 to disable.  e.g. `$EXPN=240`
 * **EXPT** H7-13/M1-2: Video Exposure Control through Maximum Shutter Angle for video modes. Can improve stabilization in low light. Input Data: Number 0 through 5 stops.  0-360° (camera default), 1-180°, 2-90°, 3-45°, 4-22.5° etc.
 * **FAST** H10-13/M1-2: Faster and fewer Labs notifications on boot. Input Data: 1-enable, 0-disable. e.g. `*FAST=1`
 * **FEAT** H10-13/M1-2: Displays Labs enabled Features for x seconds. Input Data: x-seconds.  e.g. `$FEAT=4`
@@ -866,6 +866,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: October 7, 2025
+updated: October 26, 2025
 
 [Learn more](..) on QR Control

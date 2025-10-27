@@ -49,6 +49,10 @@ designed for laptop/desktop workflows.<br>
 <!-- <img src="https://gopro.github.io/labs/control/hdri/presetQR.png" alt="Preset"><br> -->
 <br>
 
+## On camera Setup
+
+Go to the Menu -> Preferences -> General, scroll down to 360 Photo Format, and select .JPG (rather than .36P).  
+
 ## Using HDRI Preset
 
 After scanning the above two QR Codes, to run HDRI mode, select the new HDRI preset from the photo menu. 
