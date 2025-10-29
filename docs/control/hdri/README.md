@@ -62,6 +62,8 @@ as the nine exposures will take about 33 seconds. <br>
 WARNING: While the HDRI preset is selected, the camera will remain on, no auto shutdown. 
 You can manual power off, or go to any other preset for returned normal camera functionality.
 
+[![Watch the video](https://img.youtube.com/vi/Q7apDnsnU-o/default.jpg)](https://youtu.be/Q7apDnsnU-o)
+
 # Merge your Bracketed Exposures
 
 Press "Choose Files" below to select your files to compute a single HDRI.  
