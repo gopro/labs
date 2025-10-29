@@ -15,6 +15,8 @@ HDRI onto a sphere or dome, artists can recreate the natural reflections, colors
 of real locations, perfect for matching CGI elements to live-action footage or achieving 
 photorealistic lighting in visualizations and games.
 
+[![Watch the video](./videoicon.jpg)](https://youtu.be/Q7apDnsnU-o)
+
 ## Configure Your MAX2 to Create HDRIs Easily 
 
 <b>First QR Code</b> is a GoPro Labs macro that will taking up to 11 exposures, 2.0 stops apart for very wide HDRIs. 
@@ -61,8 +63,6 @@ Shutter press can be via Quik, any compatible BLE remote, or the physical button
 as the nine exposures will take about 33 seconds. <br>
 WARNING: While the HDRI preset is selected, the camera will remain on, no auto shutdown. 
 You can manual power off, or go to any other preset for returned normal camera functionality.
-
-[![Watch the video](https://img.youtube.com/vi/Q7apDnsnU-o/default.jpg)](https://youtu.be/Q7apDnsnU-o)
 
 # Merge your Bracketed Exposures
 
