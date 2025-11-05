@@ -197,6 +197,23 @@ For advanced Labs users, preset names can call macros. Warning: don't put perman
 
 ## HERO12 Black 
 
+### 2.40.70 - November 4, 2024
+ - Current Labs libary, with support and bug fixes very similar to the current MAX2 and HERO13 releases. Most HERO13 Labs features are now supported HERO12.
+ - Added GAMA=2.2 for custom gamma curves (like LOGB), maybe useful for HDRI computations
+ - Added preset frendly B000 to B999 for bitratre control e.g. B180 in a preset name will be 180mbs
+ - Added preset frendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
+ - Added oS5 - 5 minute rear screen timeout (to match in menu control)
+ - Added oS10 - 10 minute rear screen timeout
+ - Added oS15 - 15 minute rear screen timeout
+ - Added oS30 - 30 minute rear screen timeout
+ - Added *BFLK=1 to bypass deflicker controls, to allow for continuous shutter speeds from 1/fps
+ - Added *EXPS=2 for ISO/SHUT within the capture screen during capture (reducing flicker of the ISO display.) Older *EXPS=1 still works the same. 
+ - Added *ALLI=1 for ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 100.0, 120.0, 200.0, 240.0 
+ - Added commands to enable and disable the touch screen (tE and tD). These will be usefil in script to prevent an accidental screen touch setting the wrong mode. 
+ - Added $EXPL=1, for exposure lock upon capture, just like the existing $WBLK=1 for white balance lock. 
+ - Added simplified script versions for exposure lock: eL <- Lock exposure, like wL <- Lock whitebalance, automatically upon capture. Disable with eL0 and wL0.
+
+
 ### 2.32.70 - December 12, 2024
 - Added variable $f to determine how full the SD Card is. Returns -1 if the SD card is ejected, or storage remaining in GBytes. Use $f:U for storage used in GBytes. e.g. `$PMSG="$f GB"!R`
 - Added support for printing the contents of fourCCs directly `"bitrate $BITR"` and `"Owner $OWNR"` are now supported.
@@ -752,6 +769,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: October 17, 2025
+updated: November 5, 2025
 
 [Learn more](..) on QR Control
