@@ -12,7 +12,7 @@ your GoPro, this update simply adds more features.  Safe to install, safe to use
 Download the GoPro Labs firmware for current shipping cameras:
 - [HERO13 Black](https://bit.ly/LABS_H13_2_10_70) - v2.10.70, October 17, 2025
 - [MAX2](https://bit.ly/LABS_MAX2_01_12_70) - v1.12.70, October 7, 2025
-- [HERO12 Black](https://bit.ly/LABS_H12_2_40_70) - v2.40.70, November 4, 2024
+- [HERO12 Black](https://bit.ly/LABS_H12_2_40_70) - v2.40.70, November 4, 2025
 
 Download and install for older cameras:
 - [HERO11 Black](https://bit.ly/LABS_H11_2_32_70) - v2.32.70, January 2025
