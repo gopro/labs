@@ -59,7 +59,7 @@ Go to the Menu -> Preferences -> General, scroll down to 360 Photo Format, and s
 
 After scanning the above two QR Codes, to run HDRI mode, select the new HDRI preset from the photo menu. 
 The camera will say "Labs processing", as it waiting for a shutter press to run the nine exposures. 
-Shutter press can be via Quik, any compatible BLE remote, or the physical button. The camera should be stationary, 
+Shutter press via any compatible BLE remote, or the physical button (it will not work via Quik.) The camera should be stationary, 
 as the nine exposures will take about 33 seconds. <br>
 WARNING: While the HDRI preset is selected, the camera will remain on, no auto shutdown. 
 You can manual power off, or go to any other preset for returned normal camera functionality.

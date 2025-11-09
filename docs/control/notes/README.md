@@ -197,7 +197,7 @@ For advanced Labs users, preset names can call macros. Warning: don't put perman
 
 ## HERO12 Black 
 
-### 2.40.70 - November 4, 2024
+### 2.40.70 - November 4, 2025
  - Current Labs libary, with support and bug fixes very similar to the current MAX2 and HERO13 releases. Most HERO13 Labs features are now supported HERO12.
  - Added GAMA=2.2 for custom gamma curves (like LOGB), maybe useful for HDRI computations
  - Added preset frendly B000 to B999 for bitratre control e.g. B180 in a preset name will be 180mbs
@@ -206,7 +206,6 @@ For advanced Labs users, preset names can call macros. Warning: don't put perman
  - Added oS10 - 10 minute rear screen timeout
  - Added oS15 - 15 minute rear screen timeout
  - Added oS30 - 30 minute rear screen timeout
- - Added *BFLK=1 to bypass deflicker controls, to allow for continuous shutter speeds from 1/fps
  - Added *EXPS=2 for ISO/SHUT within the capture screen during capture (reducing flicker of the ISO display.) Older *EXPS=1 still works the same. 
  - Added *ALLI=1 for ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 100.0, 120.0, 200.0, 240.0 
  - Added commands to enable and disable the touch screen (tE and tD). These will be usefil in script to prevent an accidental screen touch setting the wrong mode. 

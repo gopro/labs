@@ -53,7 +53,7 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 ### **HERO13 cameras**
 
 - **WBDV=1** - White Balance DiVe improvements. Rather than WARM for improving diving white balance, which effects WB the same at all depths, WBDV is more automatic – as the scene get more blue, the more the red channel is gain up. Currently $WBDV=1 is uses =2.33,4.0 internally (gaining red 4x after red gain hits 2.33), so you can try tuning this yourself e.g. $WBDV=2.4,5.0
-
+- **BFLK=1** - to bypass deflicker controls for 50/60Hz lightinh, to allow for continuous shutter speeds from 1/fps. Useful if you are locking ISO by setting min and max ISO to the same value, but using an auto shutter.
 
 ### **HERO13/12 cameras**
 
@@ -245,7 +245,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: October 17, 2025<br>
+updated: November 9, 2025<br>
 
 [Learn more](..) on QR Control
 
