@@ -4,6 +4,13 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MAX2
 
+
+### 1.14.70 - November 10, 2025
+
+Many more Labs features are now working immediately to support QuikCapture. 
+
+### 1.12.70 - October 7, 2025
+
 Much of MAX2 Labs feature are similar to HERO13, with a few exceptions. Here is some bonus Labs features on MAX2:
 
 - Added IFRM=1 for I-frame only encoding. Likely the first action camera with an all I-frame encoding option in HEVC. Recommend to run at least 180Mb/s using BITR. Still very experimental.
