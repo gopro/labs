@@ -25,10 +25,11 @@ Select your desired exposures:<br>
 &nbsp;&nbsp;&nbsp;<input type="checkbox" id="ev-3" name="ev-3">ev -3<br> 
 &nbsp;&nbsp;&nbsp;<input type="checkbox" id="ev-4" name="ev-4">ev -4<br> 
  
-The script will optionally name the files <b>B</b>ab<b>_GS01</b>xzwy.<b>JPG</b> 
-(<input type="checkbox" id="lname" name="lname" checked>Enable Name Change), 
-to help you find the exposure groups on the SD card, 
-however the renamed files will not show in camera playback or in Quik.<br>
+**Start Delay** <input type="range" style="width: 180px;" id="delay" name="delay" min="0" max="9" value="0"><label for="delay"></label>&nbsp;&nbsp;<b id="delaytext"></b> seconds<br>
+ 
+<input type="checkbox" id="lname" name="lname" checked>Enable Name Change - The script can optionally name the files <b>B</b>ab<b>_GS01</b>xzwy.<b>JPG</b>, 
+this is to help you find the exposure groups on the SD card (via PC/Mac), 
+<b>however the renamed files will not show in camera playback or in Quik.</b><br>
 
 <div id="qrcode_txt" style="width: 540px">
   <center>
@@ -64,8 +65,8 @@ You can manual power off, or go to any other preset for returned normal camera f
 
 <script>
 
-let cmd = String.raw`*BRKT="!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='B$C_'$GAMA=2.2x2!S!Nx0!S!Nx-2!S!N=C+1!R14"`;
-let cmd2 = String.raw`*BRKt="!Z0$GAMA=0$BASE=''"mPN$PRES="16,BRKT"`;
+let cmd = " ";
+let cmd2 = " ";
 let once = true;
 
 function makeQR() 
@@ -99,47 +100,86 @@ function makeQR()
 
 async function updateQRs()
 {
-	cmd = String.raw`*BRKT="!Z1=Ct:ScFi1x0=Bz!N==zB!R17`;
+	var offset = 0; 
+	cmd = String.raw`*BRKT="!Z1cFi1$GAMA=2.2=Cex0=Bz!N==zB!R-6`; offset += 15; // Offset points back to 'x0'
+	cmd2 = String.raw`*BRKt="!Z0$GAMA=0`;
+	
+	if(document.getElementById("delay") !== null)
+	{
+		var delay = parseInt(document.getElementById("delay").value);
+		document.getElementById("delaytext").innerHTML = delay;
+		if(delay > 0)
+		{
+			cmd = cmd + "!" + delay + "B"; offset += 3;
+		}
+	}
 	
 	if(document.getElementById("lname").checked === true)
-		cmd = cmd + String.raw`$BASE='B$C_'`;
+	{
+		cmd = cmd + String.raw`=C+1=C%99$BASE='B$C_'`; offset += 21;
+		cmd2 = cmd2 + String.raw`$BASE=''"`;
+	}
+	cmd2 = cmd2 + String.raw`mPN$PRES="16,BRKT"`;
+	
 	if(document.getElementById("ev4").checked === true)
-		cmd = cmd + "x4!S!N";
+	{
+		cmd = cmd + "x4!S"; offset += 4;
+	}
 	if(document.getElementById("ev3").checked === true)
-		cmd = cmd + "x2!S!N";
+	{
+		cmd = cmd + "x2!S"; offset += 4;
+	}
 	if(document.getElementById("ev2").checked === true)
-		cmd = cmd + "x2!S!N";
+	{
+		cmd = cmd + "x2!S"; offset += 4;
+	}
 	if(document.getElementById("ev1").checked === true)
-		cmd = cmd + "x1!S!N";
+	{
+		cmd = cmd + "x1!S"; offset += 4;
+	}
 	if(document.getElementById("ev0").checked === true)
-		cmd = cmd + "x0!S!N";
+	{
+		cmd = cmd + "x0!S"; offset += 4;
+	}
 	if(document.getElementById("ev-1").checked === true)
-		cmd = cmd + "x-1!S!N";
+	{
+		cmd = cmd + "x-1!S"; offset += 5;
+	}
 	if(document.getElementById("ev-2").checked === true)
-		cmd = cmd + "x-2!S!N";
+	{
+		cmd = cmd + "x-2!S"; offset += 5;
+	}
 	if(document.getElementById("ev-3").checked === true)
-		cmd = cmd + "x-3!S!N";
+	{
+		cmd = cmd + "x-3!S"; offset += 5;
+	}
 	if(document.getElementById("ev-4").checked === true)
-		cmd = cmd + "x-4!S!N";
-	cmd = cmd + "=C+1!R14";
+	{
+		cmd = cmd + "x-4!S"; offset += 5;
+	}
+	cmd = cmd + "!R" + "-" + offset;
 	cmd = cmd + String.raw`"`;
 	
 	document.getElementById("qrtext").textContent = cmd;
+	document.getElementById("qrtext2").textContent = cmd2;
 	
 	qrcode.clear(); 
 	qrcode.makeCode(cmd);
+	qrcode2.clear(); 
+	qrcode2.makeCode(cmd2);
 }
 
 
 makeQR();
+updateQRs();
 
 document.addEventListener("DOMContentLoaded", function() {
   // Select all checkbox elements
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="range"]');
   
   // Add change event listener to each checkbox
   checkboxes.forEach(function(checkbox) {
-	checkbox.addEventListener('change', function() {
+	checkbox.addEventListener('input', function() {
 	  // Reload the page when any checkbox changes
 	  updateQRs();
 	});

@@ -34,8 +34,13 @@ and as a mobile app:<br>
 
 ## The Many Features of Labs
 
-### New Showcase feature: HDRIs for MAX2
+### New Showcase features: 
+
+#### HDRIs for MAX2
 * Use MAX2 to shoot HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
+
+#### Bracketted Photos MAX2/HERO13/HERO12
+* Use bracketting within a custom photo preset [**Add Bracketting Preset**](./bracket)
 
 ### Camera Extensions
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
@@ -90,7 +95,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO10-13/MAX1-2** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 * New [ChatBot for GoPro Labs commands](https://bit.ly/chat_gp_labs)
 
-updated: October 8, 2025
+updated: November 10, 2025
 
 
 <script>

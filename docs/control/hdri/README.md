@@ -7,6 +7,7 @@
         }
 </style>
 
+
 # HDRI Merge (optimized for GoPro MAX2)
 
 <b>Why:</b> 360° HDRIs capture the full lighting environment in every direction, making them ideal for 
@@ -28,11 +29,13 @@ to help you find the exposure groups on the SD card,
 however the renamed files will not show in camera playback or in Quik. The HDRI script is 
 designed for laptop/desktop workflows.<br>
 
+**Start Delay** <input type="range" style="width: 180px;" id="delay" name="delay" min="0" max="9" value="0"><label for="delay"></label>&nbsp;&nbsp;<b id="delaytext"></b> seconds<br>
+ 
 <div id="qrcode_txt" style="width: 540px">
   <center>
   <div id="qrcode" style="width: 540px"></div><br>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
-  <b><font color="#005CAC">HDRI Macro v1.0<em id="status"></em></font></b>
+  <b><font color="#005CAC">HDRI Macro v1.1<em id="status"></em></font></b>
   </center>
 </div>
 <br>
@@ -1369,8 +1372,8 @@ function updateMergeButtons() {
 	}
 }
 
-let cmd = String.raw`*HDRI="!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R55$EXPQ=0=C+1!R14"`;
-let cmd2 = String.raw`*HDRi="!Z0$EXPQ=0$GAMA=0$BASE=''"mPN$PRES="16,HDRI"`;
+let cmd = " ";
+let cmd2 = " ";
 let once = true;
 
 function makeQR() 
@@ -1403,33 +1406,60 @@ function makeQR()
 
 async function updateQRs()
 {
+	var delay = 0;
+	if(document.getElementById("delay") !== null)
+	{
+		delay = parseInt(document.getElementById("delay").value);
+		document.getElementById("delaytext").innerHTML = delay;
+	}
+	
 	if(document.getElementById("lname").checked === true)
 	{
 		if(document.getElementById("moon").checked === true)
 		{
-			cmd = String.raw`*HDRI="!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R55$EXPQ=0=C+1!R14"`;
-			//!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N<A0.1=A0.11$EXPQ=A!N!S=A/4>A0.05!R55$EXPQ=0=C+1!R14
+			if(delay > 0)
+				cmd = String.raw`*HDRI="!Z1=CecFi1x0=Bz!N==zB!R-6` + "!" + delay + "B" + String.raw`$BASE='H$C_'$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R-33$EXPQ=0=C+1=C%99!R-100"`;
+			else
+				cmd = String.raw`*HDRI="!Z1=CecFi1x0=Bz!N==zB!R-6$BASE='H$C_'$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R-33$EXPQ=0=C+1=C%99!R-97"`;
+			//!Z1=Ct:ScFi1x0=Bz!N==zB!R-6$BASE='H$C_'$GAMA=2.2=A81920!N<A0.1=A0.11$EXPQ=A!N!S=A/4>A0.05!R55$EXPQ=0=C+1=C%99!R-97
 		} else {
-			cmd = String.raw`*HDRI="!Z1=Ct:ScFi1x0=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R55$EXPQ=0=C+1!R14"`;
-			//!Z1=Ct:ScFi1x0=S0.25=Bz!N==zB!R17$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R55$EXPQ=0=C+1!R14
+			if(delay > 0)
+				cmd = String.raw`*HDRI="!Z1=CecFi1x0=Bz!N==zB!R-6` + "!" + delay + "B" + String.raw`$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R-20$EXPQ=0=C+1=C%99!R-87"`;
+			else
+				cmd = String.raw`*HDRI="!Z1=CecFi1x0=Bz!N==zB!R-6$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R-20$EXPQ=0=C+1=C%99!R-84"`;
+			//!Z1=Ct:ScFi1x0=S0.25=Bz!N==zB!R-6$BASE='H$C_'$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R-20$EXPQ=0=C+1=C%99!R-84
 		}
+		
+		cmd2 = String.raw`*HDRi="!Z0$EXPQ=0$GAMA=0$BASE=''"mPN$PRES="16,HDRI"`;
 	}
 	else
 	{
 		if(document.getElementById("moon").checked === true)
 		{
-			cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R38$EXPQ=0!R9"`;
-			//!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N<A0.1=A0.11$EXPQ=A!N!S=A/4>A0.05!R38$EXPQ=0!R9
+			if(delay > 0)
+				cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R-6` + "!" + delay + "B" + String.raw`$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R-33$EXPQ=0!R-76"`;
+			else
+				cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R-6$GAMA=2.2=A81920!N<A0.1=A0.1$EXPQ=A!N!S=A/4>A0.05!R-33$EXPQ=0!R-76"`;
+
+			//!Z1cFi1x0=Bz!N==zB!R-6$GAMA=2.2=A81920!N<A0.1=A0.11$EXPQ=A!N!S=A/4>A0.05!R-33$EXPQ=0!R-76
 		} else {
-			cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R38$EXPQ=0!R9"`;
-			//!Z1cFi1x0=Bz!N==zB!R12$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R38$EXPQ=0!R9
+			if(delay > 0)
+				cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R-6` + "!" + delay + "B" + String.raw`$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R-20$EXPQ=0!R-51"`;
+			else
+				cmd = String.raw`*HDRI="!Z1cFi1x0=Bz!N==zB!R-6$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R-20$EXPQ=0!R-48"`;
+			//!Z1cFi1x0=Bz!N==zB!R-6$GAMA=2.2=A81920!N$EXPQ=A!N!S=A/4>A2!R-20$EXPQ=0!R-45
 		}
+		
+		cmd2 = String.raw`*HDRi="!Z0$EXPQ=0$GAMA=0"mPN$PRES="16,HDRI"`;
 	}
 	//console.log(cmd);
 	document.getElementById("qrtext").textContent = cmd;
+	document.getElementById("qrtext2").textContent = cmd2;
 	
 	qrcode.clear(); 
 	qrcode.makeCode(cmd);
+	qrcode2.clear(); 
+	qrcode2.makeCode(cmd2);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -1480,7 +1510,12 @@ $('#moon').addEventListener('change', async () => {
   await updateQRs(); 
 });
 
+$('#delay').addEventListener('input', async () => {
+  await updateQRs(); 
+});
+
 
 makeQR();
+updateQRs();
 
 </script>
