@@ -39,8 +39,8 @@ and as a mobile app:<br>
 #### HDRIs for MAX2
 * Use MAX2 to shoot HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
 
-#### Bracketted Photos MAX2/HERO13/HERO12
-* Use bracketting within a custom photo preset [**Add Bracketting Preset**](./bracket)
+#### Bracketed Photos MAX2/HERO13/HERO12
+* Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
 
 ### Camera Extensions
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
