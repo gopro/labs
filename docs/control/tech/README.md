@@ -69,7 +69,13 @@ Resolutions are also in the format rX(Y) - where X is the first character of the
  * `r5` - 5.3k for HERO and 5.6K 360° for GoPro MAX
  * `r5T` - 5k Tall, the 4:3 mode (H10)
  * `r5X` - 5k eXtreme, the 8:7 mode (H11-13)
- 
+
+### Raw (.GPR) Photos
+
+The use of 'r' command also enables or disable Raw in photo modes
+ * `r` - Enable Raw photos
+ * `r0` - Disable Raw Photos
+
 ### Frame rates: 
  * `p24` - 24 fps
  * `p25` - 25 fps
@@ -866,6 +872,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: October 26, 2025
+updated: November 11, 2025
 
 [Learn more](..) on QR Control
