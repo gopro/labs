@@ -51,9 +51,15 @@ this is to help you find the exposure groups on the SD card (via PC/Mac),
 </div>
 <br>
 
-## On camera Setup (MAX2 users)
+## On camera Setup
+
+### MAX2 users
 
 Go to the Menu -> Preferences -> General, scroll down to 360 Photo Format, and select .JPG (rather than .36P).  
+
+### HERO12/13 and MAX2 Single Lens users
+
+You can enable Raw capture, in the BRKT preset (once created.) This works with JPEG and Raw captures.
 
 ## Using BRKT Preset
 
