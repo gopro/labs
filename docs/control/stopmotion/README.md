@@ -32,7 +32,7 @@ A Stop Motion extension where only a single frames is stored per shutter press. 
  <center>
   <canvas id="qr-canvas" width="360" height="360" style="image-rendering: pixelated;"></canvas>
   <b><font color="#009FDF">GoProQR:</font></b> <em id="qrtext"></em><br>
-  <b><font color="#005CAC">Dive Mode</font></b>
+  <b><font color="#005CAC">Stop Motion</font></b>
  </center>
 </div>
 <button id="copyImg">Copy Image to Clipboard</button>
@@ -49,7 +49,7 @@ Your new Preset will look like this.  The "???" is normal, as the frame rate is 
 
 **Compatibility:** Labs enabled HERO12-13
         
-updated: May 30, 2025
+updated: Nov 16, 2025
 
 [More features](..) for Labs enabled cameras
 
