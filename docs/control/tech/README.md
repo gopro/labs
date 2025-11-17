@@ -366,7 +366,7 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * **!**time**U** - `!U` Attempt a network contention and Upload now <sup>9/10/11/12/13</sup>.
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**X** - `!X` exist script now <sup>H10-13/MAX</sup>. 
-* **!**time**Zx** - <sup>H10-13</sup> `!Z3` - mute both buttons, `!Z2` - mute only mode, `!Z1` - mute only shutter, `!Z0` - unmutes both
+* **!**time**Zx** - <sup>H10-13</sup> `!Z3` - ignore both buttons, `!Z2` - ignore mode button, `!Z1` - ignore shutter button, `!Z0` - restore both
 
 ### Capture Triggers (Classic method)
 * **!**time**SMs-t** - Start Motion detection with start sensitivity 's' and stop sensitivity 't' -- 't' field is optional. e.g. `!SM5` start with motion detection a level 5 sensitivity. 
