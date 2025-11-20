@@ -26,26 +26,21 @@ Download and install for older cameras:
 
 Follow the [manual firmware update instructions](install).
 
-See updates and changes in the [Release Notes](https://gopro.github.io/labs/control/notes/)
+[Discussion forum](https://github.com/gopro/labs/discussions) if you need help, have Labs questions, or feature suggestions. 
 
-Need help, or an have Labs questions, we have a dedicated [forum for Labs users](https://github.com/gopro/labs/discussions)
+See updates and changes in the [Release Notes](https://gopro.github.io/labs/control/notes/)
 
 Learn more information about the program on [GoPro.com](https://gopro.com/info/gopro-labs).
 
 ### Labs Camera Control
  
-GoPro QR code generator for basic [camera settings](https://gopro.github.io/labs/control/custom) changes
-
-### Advanced Commands Overviews
-
-- [Camera Macros](https://gopro.github.io/labs/control) e.g. motion or sound level triggers, long form time-lapses, etc.
-- [Camera Extensions](https://gopro.github.io/labs/control/extensions) e.g. bit-rate enhancements or exposure tweaks
-- [Visual Script Tool](https://gopro.github.io/labs/build/) HERO13/12/11/Mini/10/Max
+There is a lot in Labs, this is the best page to start [Labs Camera Control](https://gopro.github.io/labs/control)
 
 ### Primer on Labs actions, scripting and command sets
 
 - New [AI Chat Bot](https://bit.ly/chat_gp_labs) to help you create Labs scripts
 - Technical information on the [Labs command language](https://gopro.github.io/labs/control/tech)
+- [Visual Script Tool](https://gopro.github.io/labs/build/) HERO13/12/11/Mini/10/Max
 
 ### Overview of Labs functionality and device compatibility: 
 
