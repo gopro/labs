@@ -467,6 +467,7 @@ The above global metadata can be extracted with this [**demo web tool**](../meta
 * **B001** thru **B999** M2 only: preset friendly B001 to B999 for bitrate control e.g. B180 in a preset name will be 180mbs
 * **BASE** H8-13/M1-2: Base file name change, adding to beginning of the filename. Input: H10-13 supports wildcards within [ ]: like [yyyy-mm-dd] or [HH-MM-SS]  e.g. A-[yyyymmddHHMMSS] WARNING: GoPro App and cloud will not support renamed files. e.g. `*BASE="CamA-[yy-mm-dd]"`
 * **BERS** H10-13: Bypass ERS compensation, extremely rare usecases. Input Data: 0-display, 1-enable, 2-enable only with EIS off e.g. `*BERS=2`
+* **BFLK** H13 only: to bypass shutter speed deflicker controls, to allow for continuous shutter speeds from 1/fps.  This is priorily used for when locking the ISO, setting ISO Max to 100, now the camera can only use the shutter to autoexpose. Yet the deflicker control black some shutter speeds, if you are shoot outdoor/daylight, the deflick control is not needed.
 * **BIAS** H9 only (new cameras use EVBS): Bias is like EV Compensation, but it can only be used after recording has began. It is a hack designed to tweak exposure during a livestream or webcam session. Input Data: Number of stops between -6 and 6, supports half stops like 3.5.
 * **BITR** H10-13/M1-2: set the compression in Mb/s for the Protune High Bitrate setting. Normally this would be around 100Mb/s, however higher (or lower) rates may be achieved with newer SD Cards.Input Data: MB/s from 2 to 200. e.g. `*BITR=180`
 * **BITH** H10-12: set the compression for LRVs in Mb/s. Normally this would be around 4Mb/s, however higher (or lower) rates may be achieved with newer SD Cards. Input Data: MB/s from 1 to 100. 
@@ -872,6 +873,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: November 11, 2025
+updated: November 24, 2025
 
 [Learn more](..) on QR Control
