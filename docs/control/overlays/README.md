@@ -46,9 +46,9 @@ Note: All text box support **\n** for a new line.
 
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am1" name="addmeta" value="'GPS53%1.2f'm/s"> <label for="am1">Add speed in m/s *</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS50%1.6f', 'GPS51%1.6f'"> <label for="am2">Add GPS Location (HERO11 or older) *</label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS90%1.6f', 'GPS91%1.6f'"> <label for="am2">Add GPS Location (HERO13 or newer) *</label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am3" name="addmeta" value="ISO:'ISOE%d'"> <label for="am3">Sensor ISO</label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am4" name="addmeta" value="" checked> <label for="am4">none</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am3" name="addmeta" value="'GPS90%1.6f', 'GPS91%1.6f'"> <label for="am3">Add GPS Location (HERO13 or newer) *</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am4" name="addmeta" value="ISO:'ISOE%d'"> <label for="am4">Sensor ISO</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am5" name="addmeta" value="" checked> <label for="am5">none</label><br>
   
   Note: * These features require the GPS to be enabled. If combined with Livestreaming, you will need to record a local copy for these features to display correctly.
   
