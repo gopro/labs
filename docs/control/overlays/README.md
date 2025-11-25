@@ -45,7 +45,8 @@ Note: All text box support **\n** for a new line.
 **Display Metadata (experimental)** 
 
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am1" name="addmeta" value="'GPS53%1.2f'm/s"> <label for="am1">Add speed in m/s *</label><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS50%1.6f', 'GPS51%1.6f'"> <label for="am2">Add GPS Location *</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS50%1.6f', 'GPS51%1.6f'"> <label for="am2">Add GPS Location (HERO11 or older) *</label><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am2" name="addmeta" value="'GPS90%1.6f', 'GPS91%1.6f'"> <label for="am2">Add GPS Location (HERO13 or newer) *</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am3" name="addmeta" value="ISO:'ISOE%d'"> <label for="am3">Sensor ISO</label><br>
   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="am4" name="addmeta" value="" checked> <label for="am4">none</label><br>
   
@@ -98,7 +99,7 @@ Known Issues:
 
 **Compatibility:** Labs enabled HERO8-13 and MAX 
         
-updated: Febuary 4, 2025
+updated: November 25, 2025
 
 [Learn more](..) on QR Control
 
