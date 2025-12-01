@@ -9,7 +9,7 @@ your GoPro, this update simply adds more features.  Safe to install, safe to use
 
 Download the GoPro Labs firmware for current shipping cameras:
 - [HERO13 Black](https://bit.ly/LABS_H13_2_10_70) - v2.10.70, October 17, 2025
-- [MAX2](https://bit.ly/LABS_MAX2_01_14_70) - v1.14.70, November 10, 2025
+- [MAX2](https://bit.ly/LABS_MAX2_01_22_70) - v1.22.70, December 1, 2025
 - [HERO12 Black](https://bit.ly/LABS_H12_2_40_70) - v2.40.70, November 4, 2025
 
 Download and install for older cameras:
@@ -47,6 +47,7 @@ There is a lot in Labs, this is the best page to start [Labs Camera Control](htt
 | Feature                                                                                     | MAX2 | H13 | H12 | H11/M11 | H10/Bones | H9 | H8 | H7 | MAX |
 |---------------------------------------------------------------------------------------------|--------|--------|--------|----------|-----------|----|----|----|-----|
 | [24.0Hz capture vs 23.976](https://gopro.github.io/labs/control/extensions)                 | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ |
+| [All Integer frame rates 30.0 vs 29.97](https://gopro.github.io/labs/control/extensions)    | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [NLE proxies](https://gopro.github.io/labs/control/proxies)                                 | 2D️ | ✔️ | ✔️ | ✔️ | Some/❌ | ❌ | ❌ | ❌ | ❌ |
 | [Altered File Naming](https://gopro.github.io/labs/control/basename)                        | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Archive Mode](https://gopro.github.io/labs/control/archive) (locked settings)              | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -69,8 +70,10 @@ There is a lot in Labs, this is the best page to start [Labs Camera Control](htt
 | [Hindsight Timeout Extension](https://gopro.github.io/labs/control/extensions)              | ❌️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ |
 | [Histogram](https://gopro.github.io/labs/control/extensions) (on display)                   | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ |
 | [Histogram Position/Size](https://gopro.github.io/labs/control/extensions) (either screen)  | ✔️ | ✔️ | ✔️ | ✔️/❌  | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [I-Frame only HEVC Encoding](https://gopro.github.io/labs/control/extensions)               | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Large Chapter](https://gopro.github.io/labs/control/chapters) Support (12GB)               | ✔️ | >12GB | >12GB | >12GB | ✔️ | ✔️ | ✔️ | ❌ | ✔️ |
 | [Live Stream Initiation](https://gopro.github.io/labs/control/rtmp)                         | ❌️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ |
+| [Low Light mode](https://gopro.github.io/labs/control/extensions)                           | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [LRV Disable](https://gopro.github.io/labs/control/extensions)                              | ❌️ | ❌ | ❌ | ✔️ | some | ❌ | ❌ | ❌ | ❌ |
 | [LTC Time support](https://gopro.github.io/labs/control/ltc) (via MediaMod/Pro Mic Adapter) | ❌️ | ✔️ | ✔️ | ✔️ | ✔️/❌  | ✔️ | ❌ | ❌ | ❌ |
 | [Max Shutter Angle](https://gopro.github.io/labs/control/maxshut) exposure control          | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -110,4 +113,4 @@ There is a lot in Labs, this is the best page to start [Labs Camera Control](htt
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-updated: November 10, 2025<br>
+updated: December 1, 2025<br>

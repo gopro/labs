@@ -32,7 +32,9 @@ Here is a list of additional metadata driven camera extensions:
 - **DPTS=x** - (1-15) depth change smoother, 1 - fast, 15 - smooth. 360 experimental.
 - **DPTP=x** - (1-7) depth change speed, 1 - slow, 7 - fast (like DPTS with a different implementation). 360 experimental.
 - **DPTL=x** - depth lock stitch after x seconds, 1 - immediate, 2-99 - seconds, 100-99999 - milliseconds. 360 experimental.
-
+- **WBLC=1** - (same as wC) for white balance lock NOW, where recording on not. To scan while recording use *QRDR=1.
+- **DIxx** - DI01 to DI99 for 1 to 99m Distancement preset names
+- **Bxxx** - Preset name for bitrate control B001 to B999 - 1Mbs to 999Mbs
 
 ### **HERO13/MAX2 cameras**
 
@@ -245,7 +247,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: November 9, 2025<br>
+updated: December 1, 2025<br>
 
 [Learn more](..) on QR Control
 

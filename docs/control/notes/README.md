@@ -4,6 +4,12 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MAX2
 
+### 1.22.70 - December 1, 2025
+
+- Added $WBLC=1 and wC for white balance lock NOW, where recording on not. To scan while recording use *QRDR=1
+- Added DIxx or DI01 to DI99 for 1 to 99m Distancement preset names
+- Fixed DIST distance Laps for 360 TLV and NLV captures
+- Fixed Bxxx preset name for bitrate control wasn't 100% working
 
 ### 1.14.70 - November 10, 2025
 
