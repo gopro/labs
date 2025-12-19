@@ -363,7 +363,7 @@ time is greater than 6am and less than 7pm, set mode Video, else set mode NightL
 * **!**time**SQ** - Start Quickly at approximately <time> if in hh:mm form, or after n seconds. !timeSQ commands are a bit more power efficient than !timeS. e.g. `!18:00SQ` - Start at approx 6pm or `!60SQ` Start in 60 seconds approximately.
 * **!**time**TR** - <sup>H11-13</sup>  `!TR`- switch active TimeWarp to Realtime (or slow motion)
 * **!**time**TN** - <sup>H11-13</sup>  `!TN` - switch active TimeWarp to Normal (speed-up timelapse mode)
-* **!**time**U** - `!U` Attempt a network contention and Upload now <sup>9/10/11/12/13</sup>.
+* **!**time**Ux** - `!U` Attempt a network contention and Upload now <sup>9/10/11/12/13</sup>. Option x - is the timeout in minutes. e.g. !U15 upload for no more than 15 minutes.
 * **!**time**W** - Connect to a network, requires JOIN metadata to have been previous stored <sup>9/10/11</sup>.
 * **!**time**X** - `!X` exist script now <sup>H10-13/MAX</sup>. 
 * **!**time**Zx** - <sup>H10-13</sup> `!Z3` - ignore both buttons, `!Z2` - ignore mode button, `!Z1` - ignore shutter button, `!Z0` - restore both
@@ -873,6 +873,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: November 24, 2025
+updated: December 18, 2025
 
 [Learn more](..) on QR Control
