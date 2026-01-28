@@ -124,11 +124,14 @@ You can back-off the noise reduction to restore shadow details, with the downsid
 Also a noiser image will need a higher-bitrate to store the additional information (so BITR, NR01 and LOGB are all related.) 
 - **BYPS=1** - Bypass common pop-ups, such as resetting the time and date. Remember to set time and date if you remove the battery.
 - **BERS=x** - 1 - Bypass ERS compensation. 2 - Bypass ERS only with stablization disabled. Not commonly used.
-- **IWFR=1** - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. Not commonly used.
 - **TUSB=1** - Trust USB power.  Some USB power sources may report less than they are capable. This modification assumes the USB Power source is 2A minimum, and disables the testing. This can help with some USB power sources that the camera can reject, but are otherwise sufficient to run all camera operations. If you use TUSB with an inadequate power source, expect capture failures.  
 - **STDL=x** - Start Delay is milliseconds (default 2000ms, wait before any other commands.) $STDL=100 for less wait. Experimental to improve scripting performance.
 
 Note: the scripting has had a significant update in the March '23 firmware. See section [Assignments, Variables and Math](../actions)
+
+### **HERO10/11 only **
+
+- **IWFR=1** - Increased Write FRequency to support for higher precision file recoveries (this is also defaulted on with !MBITR=x bitrate changes). If you have ever had a big crash that ejects the battery, you may have noticed the file recovery will miss 5-15 seconds of your video. Missing even the lead up to the great moment. This hack increases the rate in which video data is flushed to the SD Card, improving the recoverability for footage. With this enabled, battery ejects will not lose more than 1-2 seconds of footage.  Great for FPV users. Not commonly used.
 
 ### **HERO13/11 only (GPS feature)**
 
@@ -247,7 +250,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: December 1, 2025<br>
+updated: January 28, 2026<br>
 
 [Learn more](..) on QR Control
 
