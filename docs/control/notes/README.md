@@ -4,6 +4,16 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MAX2
 
+### 1.30.70 - March 17, 2026
+
+- Added DIxx or DI01 to DI99 for 1 to 99m Distancement preset names
+- Added $WBLC=1 and wC for white balance lock NOW, where recording on not. To scan while recording use *QRDR=1
+- Added $DPTW=x Depth Wait for a stable stitch after x seconds
+- Added $NROT=1 No Rotation EIS on 360 captures (used for 3D applications.)
+- Fixed DIST distance Laps for 360 TLV and NLV captures
+- Fixed Bxxx preset name for bitrate control wasn't 100% working
+
+
 ### 1.22.70 - December 1, 2025
 
 - Added $WBLC=1 and wC for white balance lock NOW, where recording on not. To scan while recording use *QRDR=1
@@ -781,6 +791,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: November 5, 2025
+updated: March 17, 2026
 
 [Learn more](..) on QR Control
