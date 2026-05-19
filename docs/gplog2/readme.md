@@ -1,5 +1,7 @@
+---
+layout: bare
+---
 # GPLog2 LUT Generator
-
 
 <style>
   h1 { font-size: 20px; margin: 0 0 12px; }
@@ -12,7 +14,6 @@
   .preset-btn { padding: 8px 12px; border: 1px solid #ccc; border-radius: 8px; background: #f8f8f8; cursor: pointer; }
   .preset-btn.active { border-color: #4a7; background: #e9fff1; }
 </style>
-
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
