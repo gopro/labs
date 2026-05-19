@@ -252,23 +252,32 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
       <span class="ev-lbl">Exposure offset</span>
       <span class="ev-val" id="evDisp" title="Double-click to reset">+1.8 EV</span>
     </div>
-    <input type="range" id="evSlider" min="0" max="3.0" step="0.1" value="1.8">
+    <input type="range" id="evSlider" min="0" max="4.0" step="0.1" value="1.8">
     <div class="ticks">
-      <span class="tick">0</span>
+      <span class="tick">0.0</span>
       <span class="tick">+1.0</span>
       <span class="tick">+2.0</span>
       <span class="tick">+3.0</span>
+      <span class="tick">+4.0</span>
     </div>
   </div>
 
   <div>
     <div class="lbl">Options</div>
     <label class="cb-row">
-      <input type="checkbox" id="rolloff">
+      <input type="checkbox" id="rolloff" checked>
       <div class="cb-box"><div class="cb-check"></div></div>
       <div>
         <div class="cb-txt">Highlight Rolloff</div>
-        <div class="cb-desc">Smooth compression above 60–80% to reduce clipping artifacts</div>
+        <div class="cb-desc">Smoothly rolloff hilights, for easier SDR color corrrection</div>
+      </div>
+    </label>
+    <label class="cb-row" style="margin-top:8px">
+      <input type="checkbox" id="clampOut">
+      <div class="cb-box"><div class="cb-check"></div></div>
+      <div>
+        <div class="cb-txt">Clamp Output</div>
+        <div class="cb-desc">Limit output values to 0.0–1.0, not for HDR/wide-gamut color correction</div>
       </div>
     </label>
   </div>
@@ -280,10 +289,11 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
   <div class="info">
     <div class="ii"><label>LUT Size</label><span id="iSize">33³</span></div>
     <div class="ii"><label>Entries</label><span id="iCount">35,937</span></div>
-    <div class="ii"><label>Input</label><span>GPLog₆₀₀</span></div>
+    <div class="ii"><label>Input</label><span>Log₆₀₀</span></div>
     <div class="ii"><label>Output</label><span id="iOut">Rec.709</span></div>
     <div class="ii"><label>EV Gain</label><span id="iGain">×3.48</span></div>
     <div class="ii"><label>Rolloff</label><span id="iRoll">Off</span></div>
+    <div class="ii"><label>Clamp</label><span id="iClamp">Off</span></div>
   </div>
 
 </aside>
@@ -432,7 +442,7 @@ function rolloff(r, g, b) {
 }
 
 // ── Full per-pixel transform ─────────────────
-function transform(r0, g0, b0, ev, cs, useRolloff) {
+function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   // 1. GPLog2 → linear Rec.2020
   let r = invLog(r0), g = invLog(g0), b = invLog(b0);
   // 2. Colour matrix
@@ -442,15 +452,24 @@ function transform(r0, g0, b0, ev, cs, useRolloff) {
   r *= gain; g *= gain; b *= gain;
   // 4. Highlight rolloff
   if (useRolloff) [r,g,b] = rolloff(r,g,b);
-  // 5. Rec.709 OETF
-  r = Math.max(0,r); g = Math.max(0,g); b = Math.max(0,b);
-  return [rec709(r), rec709(g), rec709(b)];
+  // 5. Rec.709 OETF — floor negatives only when not clamping (rec709 handles near-zero linearly)
+  if (!useClamp) {
+    r = rec709(r); g = rec709(g); b = rec709(b);
+  } else {
+    r = Math.max(0,r); g = Math.max(0,g); b = Math.max(0,b);
+    r = rec709(r); g = rec709(g); b = rec709(b);
+    // 6. Clamp output to [0, 1]
+    r = Math.max(0, Math.min(1, r));
+    g = Math.max(0, Math.min(1, g));
+    b = Math.max(0, Math.min(1, b));
+  }
+  return [r, g, b];
 }
 
 // ═══════════════════════════════════════════════
 // LUT GENERATION  (generates .cube text)
 // ═══════════════════════════════════════════════
-function makeCube(size, ev, cs, useRolloff) {
+function makeCube(size, ev, cs, useRolloff, useClamp) {
   const csName = cs === 'rec709' ? 'Rec.709' : 'Rec.2020';
   const evStr  = `+${ev.toFixed(1)}`;
   const lines  = [
@@ -459,6 +478,7 @@ function makeCube(size, ev, cs, useRolloff) {
     `# Output:   ${csName} SDR`,
     `# EV comp:  ${evStr}`,
     `# Rolloff:  ${useRolloff ? 'enabled' : 'disabled'}`,
+    `# Clamp:    ${useClamp ? 'enabled (0.0–1.0)' : 'disabled'}`,
     ``,
     `LUT_3D_SIZE ${size}`,
     ``
@@ -478,11 +498,12 @@ function makeCube(size, ev, cs, useRolloff) {
   return lines.join('\n') + '\n';
 }
 
-function cubeFilename(size, ev, cs, useRolloff) {
-  const evTag  = `EV+${ev.toFixed(1)}`;
-  const csTag  = cs === 'rec709' ? 'Rec709' : 'Rec2020';
-  const rollTag= useRolloff ? '_rolloff' : '';
-  return `GPLog2_${evTag}_${csTag}${rollTag}_${size}.cube`;
+function cubeFilename(size, ev, cs, useRolloff, useClamp) {
+  const evTag    = `EV+${ev.toFixed(1)}`;
+  const csTag    = cs === 'rec709' ? 'Rec709' : 'Rec2020';
+  const rollTag  = useRolloff ? '_rolloff' : '';
+  const clampTag = useClamp   ? '_clamp'   : '';
+  return `GPLog2_${evTag}_${csTag}${rollTag}${clampTag}_${size}.cube`;
 }
 
 // ═══════════════════════════════════════════════
@@ -520,16 +541,16 @@ function makeTestImage() {
     { n:'White',         r:243, g:243, b:242 },
     { n:'Neutral 8',     r:200, g:200, b:200 },
     { n:'Neutral 6.5',   r:160, g:160, b:160 },
-    { n:'Neutral 5',     r:122, g:122, b:121 },
+    { n:'Neutral 5 (~18%)',     r:122, g:122, b:121 },
     { n:'Neutral 3.5',   r: 85, g: 85, b: 85 },
     { n:'Black',         r: 52, g: 52, b: 52 },
   ];
 
   const COLS = 6, ROWS = 4;
-  const W = 810, H = 530;
-  const GAP = 7;
-  const HDR = 30;   // header bar height
-  const FTR = 52;   // footer for grey ramp + labels
+  const W = 1620, H = 1060;
+  const GAP = 14;
+  const HDR = 60;   // header bar height
+  const FTR = 104;   // footer for grey ramp + labels
   const pW  = Math.floor((W - GAP * (COLS + 1)) / COLS);
   const pH  = Math.floor((H - HDR - FTR - GAP * (ROWS + 1)) / ROWS);
 
@@ -588,19 +609,19 @@ function makeTestImage() {
 
     // Swatch border
     ctx.strokeStyle = 'rgba(0,0,0,0.45)';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(x + 0.5, y + 0.5, pW - 1, pH - 1);
+    ctx.lineWidth = 2;
+    ctx.strokeRect(x + 1, y + 1, pW - 2, pH - 2);
 
     // Patch label – fixed dim grey so it reads in log space
     ctx.fillStyle = 'rgba(180,170,160,0.72)';
-    ctx.font = '7.5px monospace';
+    ctx.font = '15px monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'bottom';
     ctx.fillText(p.n, x + pW / 2, y + pH - 3);
 
     // Patch number (top-left)
     ctx.fillStyle = 'rgba(180,170,160,0.45)';
-    ctx.font = '7px monospace';
+    ctx.font = '14px monospace';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
     ctx.fillText(i + 1, x + 4, y + 3);
@@ -637,13 +658,13 @@ const srcCvs  = document.getElementById('srcCvs');
 const dstCvs  = document.getElementById('dstCvs');
 const display = document.getElementById('display');
 
-function processToCanvas(imgData, ev, cs, useRolloff) {
+function processToCanvas(imgData, ev, cs, useRolloff, useClamp) {
   const w = imgData.width, h = imgData.height;
   const out = new ImageData(w, h);
   const s = imgData.data, d = out.data;
   for (let i = 0; i < w*h; i++) {
     const p = i*4;
-    const [r,g,b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff);
+    const [r,g,b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff, useClamp);
     d[p]   = Math.round(Math.max(0,Math.min(1,r)) * 255);
     d[p+1] = Math.round(Math.max(0,Math.min(1,g)) * 255);
     d[p+2] = Math.round(Math.max(0,Math.min(1,b)) * 255);
@@ -714,8 +735,9 @@ function doUpdate() {
     const ev = parseFloat(document.getElementById('evSlider').value);
     const cs = currentCS;
     const ro = document.getElementById('rolloff').checked;
+    const cl = document.getElementById('clampOut').checked;
 
-    const processed = processToCanvas(srcData, ev, cs, ro);
+    const processed = processToCanvas(srcData, ev, cs, ro, cl);
 
     dstCvs.width  = srcCvs.width;
     dstCvs.height = srcCvs.height;
@@ -759,12 +781,13 @@ function updateInfo() {
   const ev = parseFloat(document.getElementById('evSlider').value);
   document.getElementById('iGain').textContent  = `×${Math.pow(2,ev).toFixed(2)}`;
   document.getElementById('iRoll').textContent  = document.getElementById('rolloff').checked ? 'On' : 'Off';
+  document.getElementById('iClamp').textContent = document.getElementById('clampOut').checked ? 'On' : 'Off';
 }
 
 function updateSlider() {
   const sl = document.getElementById('evSlider');
   const v  = parseFloat(sl.value);
-  const pct = (v / 3.0) * 100;
+  const pct = (v / 4.0) * 100;
   sl.style.background = `linear-gradient(to right,var(--accent) ${pct}%,var(--border2) ${pct}%)`;
   document.getElementById('evDisp').textContent = v === 0 ? '0.0 EV' : `+${v.toFixed(1)} EV`;
   updateInfo();
@@ -803,6 +826,11 @@ document.getElementById('rolloff').addEventListener('change', () => {
   updateInfo(); scheduleUpdate();
 });
 
+// Clamp Output
+document.getElementById('clampOut').addEventListener('change', () => {
+  updateInfo(); scheduleUpdate();
+});
+
 // ─── Save LUT ────────────────────────────────
 document.getElementById('saveBtn').addEventListener('click', async () => {
   const btn = document.getElementById('saveBtn');
@@ -810,8 +838,9 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
   await new Promise(r => setTimeout(r, 12));
   const ev = parseFloat(slEl.value);
   const ro = document.getElementById('rolloff').checked;
-  const content  = makeCube(currentSize, ev, currentCS, ro);
-  const filename = cubeFilename(currentSize, ev, currentCS, ro);
+  const cl = document.getElementById('clampOut').checked;
+  const content  = makeCube(currentSize, ev, currentCS, ro, cl);
+  const filename = cubeFilename(currentSize, ev, currentCS, ro, cl);
   const blob = new Blob([content], {type:'text/plain'});
   const url  = URL.createObjectURL(blob);
   const a    = Object.assign(document.createElement('a'), {href:url, download:filename});
