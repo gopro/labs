@@ -306,7 +306,7 @@ For most production work, the 33x33x33 cube, is the optimal balance of accuracy 
 The LUT generator names files with all relevant parameters encoded:
 
 ```
-GPLog2_EV+1.8_Rec709_rolloff_33.cube
+GP-Log2_EV+1.8_Rec709_rolloff_33.cube
          │      │      │       └── LUT size
          │      │      └── Rolloff enabled
          │      └── Output color space
