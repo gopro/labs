@@ -34,7 +34,7 @@
   --mono:        'JetBrains Mono','Courier New',monospace;
   --sans:        'Barlow Condensed','Arial Narrow',sans-serif;
 }
-html,body { height:100%; overflow:hidden; }
+
 body { background:var(--bg); color:var(--text); font-family:var(--sans); font-size:14px; line-height:1.4; }
 
 /* ─── HEADER ─────────────────────────────────── */
@@ -224,8 +224,6 @@ hr { border:none; border-top:1px solid var(--border); }
 /* Drop overlay */
 body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; border-radius:4px; }
 </style>
-</head>
-<body>
 
 <header>
   <div class="h-title"><em>GPLog2</em> LUT Generator</div>
@@ -886,5 +884,3 @@ updateSlider();
 updateInfo();
 document.getElementById('testBtn').click();  // auto-load test chart
 </script>
-</body>
-</html>
