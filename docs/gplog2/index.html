@@ -762,12 +762,40 @@ function processToCanvas(imgData, ev, cs, useRolloff) {
   for (let i = 0; i < w*h; i++) {
     const p = i*4;
     const [r,g,b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff);
-    d[p]   = Math.round(Math.max(0,Math.min(1,r)) * 255);
-    d[p+1] = Math.round(Math.max(0,Math.min(1,g)) * 255);
-    d[p+2] = Math.round(Math.max(0,Math.min(1,b)) * 255);
+    // TPDF dither at 2× LSB — covers the wider quantization steps
+    // introduced by the rolloff curve without adding visible grain.
+    const dr = (Math.random() + Math.random() - 1) * 2 / 255;
+    const dg = (Math.random() + Math.random() - 1) * 2 / 255;
+    const db = (Math.random() + Math.random() - 1) * 2 / 255;
+    d[p]   = Math.round(Math.max(0, Math.min(1, r + dr)) * 255);
+    d[p+1] = Math.round(Math.max(0, Math.min(1, g + dg)) * 255);
+    d[p+2] = Math.round(Math.max(0, Math.min(1, b + db)) * 255);
     d[p+3] = 255;
   }
   return out;
+}
+
+// High-quality downscale: step down in halves until close to target size,
+// then do the final draw. Avoids the aliasing of a single large→small drawImage.
+function hqDownscale(srcCanvas, targetW, targetH) {
+  let cw = srcCanvas.width, ch = srcCanvas.height;
+  // If we're upscaling or within 2× just return source directly
+  if (targetW >= cw / 2 && targetH >= ch / 2) return srcCanvas;
+
+  // Step down by halves until we're within 2× of target
+  let cur = srcCanvas;
+  while (cw / 2 > targetW || ch / 2 > targetH) {
+    cw = Math.max(Math.round(cw / 2), targetW);
+    ch = Math.max(Math.round(ch / 2), targetH);
+    const tmp = document.createElement('canvas');
+    tmp.width = cw; tmp.height = ch;
+    const tc = tmp.getContext('2d');
+    tc.imageSmoothingEnabled = true;
+    tc.imageSmoothingQuality = 'high';
+    tc.drawImage(cur, 0, 0, cw, ch);
+    cur = tmp;
+  }
+  return cur;
 }
 
 function renderSplit() {
@@ -781,6 +809,8 @@ function renderSplit() {
   display.height = dh;
 
   const ctx = display.getContext('2d');
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
   ctx.fillStyle = '#111';
   ctx.fillRect(0, 0, dw, dh);
 
@@ -792,18 +822,23 @@ function renderSplit() {
   const ox    = Math.round((dw - drawW) / 2);
   const oy    = Math.round((dh - drawH) / 2);
 
-  // Source (log) fills full canvas, graded clips right of split
-  ctx.drawImage(srcCvs, ox, oy, drawW, drawH);
+  // Pre-downscale both canvases to avoid single-pass aliasing
+  const srcDown = hqDownscale(srcCvs, drawW, drawH);
+  const dstDown = hqDownscale(dstCvs, drawW, drawH);
 
+  // Source (log) left side
+  ctx.drawImage(srcDown, ox, oy, drawW, drawH);
+
+  // Graded right side, clipped at split
   const sx = Math.round(splitPos * dw);
   if (sx < dw) {
     ctx.save();
     ctx.beginPath(); ctx.rect(sx, 0, dw - sx, dh); ctx.clip();
-    ctx.drawImage(dstCvs, ox, oy, drawW, drawH);
+    ctx.drawImage(dstDown, ox, oy, drawW, drawH);
     ctx.restore();
   }
 
-  // Split line (full height so it's visible over letterbox bars too)
+  // Split line
   ctx.strokeStyle = 'rgba(232,146,32,.9)';
   ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(sx, 0); ctx.lineTo(sx, dh); ctx.stroke();
