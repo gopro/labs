@@ -290,7 +290,7 @@ For each of the N³ input triplets (r, g, b):
 | Size | Entries | Accuracy | File Size | Recommended Use |
 |------|---------|----------|-----------|-----------------|
 | 16 | 4,096 | Moderate | ~93 KB | Quick preview |
-| 17 | 4,913 | Moderate | ~111 KB | DaVinci default |
+| 17 | 4,913 | Moderate | ~111 KB | Common Monitoring LUT |
 | 32 | 32,768 | Good | ~742 KB | General use |
 | 33 | 35,937 | Good | ~814 KB | Common standard |
 | 48 | 110,592 | Very Good | ~2.5 MB | High quality |
