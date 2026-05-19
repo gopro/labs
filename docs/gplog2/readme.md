@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,6 +236,7 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
       <button class="sz" data-s="17">17</button>
       <button class="sz" data-s="32">32</button>
       <button class="sz on" data-s="33">33</button>
+      <button class="sz" data-s="48">48</button>
       <button class="sz" data-s="64">64</button>
       <button class="sz" data-s="65">65</button>
     </div>
