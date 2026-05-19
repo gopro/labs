@@ -213,6 +213,78 @@ hr { border:none; border-top:1px solid var(--border); }
 
 /* Drop overlay */
 body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; border-radius:4px; }
+
+/* ─── MOBILE / VERTICAL LAYOUT ───────────────── */
+@media (max-width: 640px) {
+  html, body { height:auto; overflow:auto; }
+
+  header {
+    padding:9px 12px;
+    flex-wrap:wrap;
+    gap:3px 10px;
+  }
+  .h-title { font-size:17px; }
+  .h-sub   { font-size:10px; width:100%; }
+
+  main {
+    flex-direction:column;
+    height:auto;
+    overflow:visible;
+  }
+
+  aside {
+    width:100%; min-width:0;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+    padding:14px 12px;
+    gap:14px;
+    overflow-y:visible;
+  }
+
+  /* 4-column size grid so buttons stay tappable */
+  .size-row { grid-template-columns:repeat(4,1fr); gap:4px; }
+  .sz       { padding:10px 2px; font-size:13px; }
+
+  /* Bigger touch targets */
+  .cs       { padding:12px; font-size:14px; }
+  .cb-box   { width:20px; height:20px; min-width:20px; }
+  .cb-txt   { font-size:14px; }
+  .cb-desc  { font-size:11px; }
+  input[type=range] { height:6px; }
+  input[type=range]::-webkit-slider-thumb { width:24px; height:24px; }
+  .ev-val   { font-size:19px; }
+
+  .save     { padding:15px; font-size:17px; }
+
+  .preview  { width:100%; }
+
+  /* Preview header: hide the hint text */
+  .ph-hint  { display:none; }
+  .ph       { padding:8px 12px; flex-wrap:wrap; gap:6px; }
+
+  .pb       { padding:8px; gap:6px; }
+
+  /* Canvas: fixed aspect-ratio height instead of flex:1 */
+  .cw {
+    flex:none;
+    height:56vw;
+    min-height:180px;
+    max-height:420px;
+  }
+
+  /* File controls: stack, hide drag hint */
+  .fc        { flex-wrap:wrap; gap:6px; }
+  .fbtn      { flex:1; padding:11px 8px; font-size:14px; text-align:center; }
+  .drop-hint { display:none; }
+
+  /* Status bar: single column, smaller */
+  .sb {
+    flex-direction:column;
+    gap:1px;
+    padding:5px 10px;
+    font-size:9px;
+  }
+}
 </style>
 </head>
 <body>
