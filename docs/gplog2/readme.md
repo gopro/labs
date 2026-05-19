@@ -1,6 +1,8 @@
 ---
 layout: bare
 ---
+<!DOCTYPE html>
+
 # GPLog2 LUT Generator
 
 <style>
