@@ -451,11 +451,13 @@ function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   r *= gain; g *= gain; b *= gain;
   // 4. Highlight rolloff
   if (useRolloff) [r,g,b] = rolloff(r,g,b);
-  // 5. Rec.709 OETF
-  r = Math.max(0,r); g = Math.max(0,g); b = Math.max(0,b);
-  r = rec709(r); g = rec709(g); b = rec709(b);
-  // 6. Clamp output to [0, 1]
-  if (useClamp) {
+  // 5. Rec.709 OETF — floor negatives only when not clamping (rec709 handles near-zero linearly)
+  if (!useClamp) {
+    r = rec709(r); g = rec709(g); b = rec709(b);
+  } else {
+    r = Math.max(0,r); g = Math.max(0,g); b = Math.max(0,b);
+    r = rec709(r); g = rec709(g); b = rec709(b);
+    // 6. Clamp output to [0, 1]
     r = Math.max(0, Math.min(1, r));
     g = Math.max(0, Math.min(1, g));
     b = Math.max(0, Math.min(1, b));
@@ -484,10 +486,6 @@ function makeCube(size, ev, cs, useRolloff, useClamp) {
     for (let g = 0; g < size; g++) {
       for (let r = 0; r < size; r++) {
         let [ro,go,bo] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, useRolloff, useClamp);
-        // Clamp to reasonable range (NLEs handle out-of-range)
-        ro = Math.max(0, Math.min(1, ro));
-        go = Math.max(0, Math.min(1, go));
-        bo = Math.max(0, Math.min(1, bo));
         lines.push(`${ro.toFixed(6)} ${go.toFixed(6)} ${bo.toFixed(6)}`);
       }
     }
