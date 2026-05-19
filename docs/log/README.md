@@ -290,7 +290,6 @@ For each of the N³ input triplets (r, g, b):
 
 | Size | Entries | Accuracy | File Size | Recommended Use |
 |------|---------|----------|-----------|-----------------|
-| 8 | 512 | Low | ~12 KB | Testing only |
 | 16 | 4,096 | Moderate | ~93 KB | Quick preview |
 | 17 | 4,913 | Moderate | ~111 KB | DaVinci default |
 | 32 | 32,768 | Good | ~742 KB | General use |
