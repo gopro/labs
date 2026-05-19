@@ -609,7 +609,7 @@ function makeTestImage() {
     { n:'White',         r:243, g:243, b:242 },
     { n:'Neutral 8',     r:200, g:200, b:200 },
     { n:'Neutral 6.5',   r:160, g:160, b:160 },
-    { n:'Neutral 5',     r:122, g:122, b:121 },
+    { n:'Neutral 5 (~18%)',     r:122, g:122, b:121 },
     { n:'Neutral 3.5',   r: 85, g: 85, b: 85 },
     { n:'Black',         r: 52, g: 52, b: 52 },
   ];
@@ -681,14 +681,14 @@ function makeTestImage() {
     ctx.strokeRect(x + 0.5, y + 0.5, pW - 1, pH - 1);
 
     // Patch label – fixed dim grey so it reads in log space
-    ctx.fillStyle = 'rgba(180,170,160,0.72)';
+    ctx.fillStyle = 'rgba(18,17,16,0.72)';
     ctx.font = '7.5px monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'bottom';
     ctx.fillText(p.n, x + pW / 2, y + pH - 3);
 
     // Patch number (top-left)
-    ctx.fillStyle = 'rgba(180,170,160,0.45)';
+    ctx.fillStyle = 'rgba(18,17,16,0.45)';
     ctx.font = '7px monospace';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
