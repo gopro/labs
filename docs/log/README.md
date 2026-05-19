@@ -1,4 +1,4 @@
-# GPLog2 & Logarithmic Exposure
+# GP-Log2 & Logarithmic Exposure
 
 **Understanding GoPro's Log Base 600 Encoding, Exposure Strategy, and LUT-Based Color Grading**
 
@@ -8,9 +8,9 @@
 
 1. Introduction
 2. What Is a Logarithmic Encoding?
-3. GPLog2: Log Base 600 Explained
+3. GP-Log2: Log Base 600 Explained
 4. Color Primaries: Rec.2020 and Why It Matters
-5. Exposing with GPLog2 in the Field
+5. Exposing with GP-Log2 in the Field
 6. Understanding the EV Compensation Parameter
 7. Highlight Protection vs. Shadow Protection
 8. The Highlight Rolloff Option
@@ -21,11 +21,11 @@
 
 ## 1. Introduction
 
-Modern cameras capable of capturing logarithmic video offer a significant advantage over standard gamma footage: far greater dynamic range is encoded into the same 8- or 10-bit signal. GoPro cameras using the **GPLog2** profile are no exception. Rather than mapping scene luminance to a display-ready gamma curve — discarding data in the process — GPLog2 compresses an extremely wide tonal range into a manageable digital signal that retains information in both shadows and highlights for later processing.
+Modern cameras capable of capturing logarithmic video offer a significant advantage over standard gamma footage: far greater dynamic range is encoded into the same 10-bit signal. GoPro Mission 1 series cameras using the **GP-Log2** profile are no exception. Rather than mapping scene luminance to a display-ready gamma curve — discarding data in the process — GP-Log2 compresses an extremely wide tonal range into a manageable digital signal that retains information in both shadows and highlights for later processing.
 
 However, this flexibility introduces complexity. Log footage looks flat and desaturated straight out of the camera, and requires a **Look-Up Table (LUT)** to restore it to a pleasing, display-ready image. More importantly, the exposure decisions made at the time of capture directly determine how much of the scene's dynamic range ends up in each zone of the log signal — and therefore how much latitude you have in post.
 
-This white paper explains how GPLog2 works mathematically, how to use it intelligently in the field, and how the GPLog2 LUT Generator tool translates your exposure intent into a precise color transform.
+This white paper explains how GP-Log2 works mathematically, how to use it intelligently in the field, and how the GP-Log2 LUT Generator tool translates your exposure intent into a precise color transform.
 
 ---
 
@@ -33,28 +33,28 @@ This white paper explains how GPLog2 works mathematically, how to use it intelli
 
 A **linear** encoding maps scene light directly to a code value: doubling the light doubles the number. This mirrors physical reality but wastes bit depth — human vision is not linear. We are far more sensitive to changes in dark tones than bright ones.
 
-A **logarithmic** encoding compresses the signal using a log function, allocating more code values to dark regions (where the eye is most sensitive) and fewer to bright ones. The result is a signal that behaves more like human perception and packs far more dynamic range into the same number of bits.
+A **logarithmic** encoding compresses the signal using a log function, allocating more code values to dark regions (where the eye is most sensitive). The result is a signal that behaves more like human perception and packs far more dynamic range into the same number of bits.
 
-The tradeoff is that log footage looks wrong on a standard display. A dedicated transform — a LUT — must undo the log encoding and map the signal to the appropriate output color space and transfer function before viewing.
+The tradeoff is that log footage looks 'wrong' on a standard display. A dedicated transform — a LUT — must undo the log encoding and map the signal to the appropriate output color space and transfer function before viewing.
 
 ### Linear vs. Log: A Concrete Example
 
-Suppose a scene contains 12 stops of dynamic range. With a linear encoding in 10 bits (1024 values), the top stop (the brightest octave) uses 512 values, the next stop uses 256, and so on. The bottom stop (10th, not 12th) gets just one code value — rounding errors cause visible banding in the shadows.
+Suppose a scene contains 12 stops of dynamic range. With a linear encoding in 10 bits (1024 values), the top stop (the brightest octave) uses 512 values, the next stop uses 256, and so on. The bottom stop (10th, not 12th) gets just one code value — 10-bit linear can only encode 10-stop maximum.
 
-With a log encoding, each stop receives roughly the same number of code values regardless of brightness. All 12 stops are encoded with comparable precision, and shadow banding disappears.
+With a log encoding, each stop receives roughly the same number of code values regardless of brightness. All 12 stops are encoded with comparable precision, preserving shadow details.
 
 ---
 
-## 3. GPLog2: Log Base 600 Explained
+## 3. GP-Log2: Log Base 600 Explained
 
-GPLog2 uses a **logarithm of base 600** to encode scene luminance. The base number is the key design parameter: it determines how much dynamic range is packed into the 0–1 signal range and how the tones are distributed across that range.
+GP-Log2 uses a **logarithm of base 600** to encode scene luminance. The base number is the key design parameter: it determines how much dynamic range is packed into the 0–1 signal range and how the tones are distributed across that range.
 
 ### The Forward Transform (Capture)
 
-Given a linear scene value *L* (where 0 = black, 1 = 18% grey at the camera's nominal exposure), GPLog2 encodes it as:
+Given a linear scene value *L* (where 0 = black, 1 = 18% grey at the camera's nominal exposure), GP-Log2 encodes it as:
 
 ```
-GPLog2(L) = log₆₀₀(L × (600 − 1) + 1)
+GP-Log2(L) = log₆₀₀(L × (600 − 1) + 1)
            = log(L × 599 + 1) / log(600)
 ```
 
@@ -65,7 +65,7 @@ This maps:
 
 ### The Inverse Transform (Decoding in a LUT)
 
-To recover linear light from a GPLog2 code value *v*:
+To recover linear light from a GP-Log2 code value *v*:
 
 ```
 L = (600ᵛ − 1) / (600 − 1)
@@ -81,17 +81,17 @@ The base controls the **compression ratio** of the curve:
 - A **higher base** compresses the highlights more aggressively and encodes greater dynamic range, but allocates fewer code values to each stop — reducing per-stop precision.
 - A **lower base** is gentler, preserving more precision per stop but encoding a narrower dynamic range.
 
-Base 600 represents GoPro's engineering decision for the dynamic range capability of their sensors and the bit depth of their recording formats. It is a relatively high base, designed to encode up to 14 stops of dynamic range into an 10-bit signal without significant banding.
+Base 600 represents GoPro's engineering decision for the dynamic range capability of their sensors and the bit depth of their recording formats. It is a relatively high log-base, designed to encode up to 14 stops of dynamic range into an 10-bit signal.
 
 ---
 
 ## 4. Color Primaries: Rec.2020 and Why It Matters
 
-GPLog2 footage is encoded with **Rec.2020 color primaries** — the same wide color gamut used in HDR broadcast and cinema production. Rec.2020 encompasses a significantly larger portion of the CIE color space than the Rec.709 primaries used by standard HD displays.
+GP-Log2 footage is encoded with **Rec.2020 color primaries** — the same wide color gamut used in HDR broadcast and cinema production. Rec.2020 encompasses a significantly larger portion of the CIE color space than the Rec.709 primaries used by standard HD displays.
 
 ### Practical Implications
 
-When GPLog2 is decoded, the resulting linear RGB values live in Rec.2020 space. If displayed directly on a Rec.709 monitor (the standard for most HD screens), colors will appear desaturated.
+When GP-Log2 is decoded, the resulting linear RGB values live in Rec.2020 space. If displayed directly on a Rec.709 monitor (the standard for most HD screens), colors will appear desaturated.
 
 The LUT must therefore include a **color matrix transform** that converts from Rec.2020 primaries to the target display space. Without this step, even a correctly exposed, correctly decoded image will have inaccurate colors.
 
@@ -109,19 +109,19 @@ Note that this matrix produces **negative values** for out-of-gamut colors — c
 
 ---
 
-## 5. Exposing with GPLog2 in the Field
+## 5. Exposing with GP-Log2 in the Field
 
-Because GPLog2 compresses tones non-linearly, the exposure strategy you use at capture time has an effect on the quality of the final grade. Unlike JPEG or standard gamma video, where exposure mistakes are largely permanent, GPLog2 gives you significant latitude — but only if you make deliberate choices about where you place your exposure.
+Because GP-Log2 compresses tones non-linearly, the exposure strategy you use at capture time has an effect on the quality of the final grade. Unlike JPEG or standard gamma video, where exposure mistakes are largely permanent, GP-Log2 gives you significant latitude — but only if you make deliberate choices about where you place your exposure.
 
-The GoPro camera exposes for the world (in Auto) using the linear light data. Exposure for color mode like GPLog2, Flat, Natural or Vibrant, and are all starting with similar shutter and ISO settings. GPLog2 will just appear brighter, on the LCD or timeline. The GoPro exposure logic is protecting about 1.8+ stops of highlights above reflected white. 
+The GoPro camera exposes for the world (in Auto) using the linear light data. Exposure for color mode like GP-Log2, Flat, Cinematic, Natural or Vibrant, and are all starting with similar shutter and ISO settings. GP-Log2 will just appear brighter, on the LCD or timeline. The GoPro exposure logic is protecting about 1.8+ stops of highlights above reflected white. 
 This is why the LUT Generation tool defaults to adding 1.8EV to Rec709 output.  If you create a monitoring LUT for a Rec709 display, +1.8EV within the LUT will match the GoPro's exposure.  
-If you set the camera to -1EV, or manual setting to similar effect, to protect an additional stop of highlights, you could compensate will an additonal stop into the preview LUT (set +2.8EV.)  You can then exposure for 18% grey through your monitor LUT, knowing the amount of highlight protected.
+If you set the camera to -1EV, or manual setting to similar effect, to protect an additional stop of highlights, you could compensate will an additional stop into the preview LUT (set +2.8EV.)  You can then exposure for 18% grey through your monitor LUT, knowing the amount of highlight protected.
 
 ### Three Exposure Strategies
 
 #### Strategy 1: Expose for Middle Grey (Balanced)
 
-Place 18% grey at the GPLog2 midpoint, approximately code value 456 out of 1023 (roughly 45%). This gives the maximum balanced latitude — an equal number of stops are available above and below the midtone.
+Place 18% grey at the GP-Log2 midpoint, approximately code value 456 out of 1023 (roughly 45%). This gives the maximum balanced latitude — an equal number of stops are available above and below the mid-tone.
 
 **Best for:** Scenes with balanced dynamic range, controlled lighting, and predictable content.
 
@@ -129,15 +129,15 @@ Place 18% grey at the GPLog2 midpoint, approximately code value 456 out of 1023 
 
 #### Strategy 2: Expose to Protect Highlights (ETTR — Expose To The Right)
 
-Allow the midtones to fall slightly lower than nominal, keeping highlights from clipping. Since the GPLog2 curve is flat in the highlights, even severely bright areas can be recovered if they remain below the digital clip point.
+Allow the mid-tones to fall slightly lower than nominal, keeping highlights from clipping. Since the GP-Log2 curve is flat in the highlights, even severely bright areas can be recovered if they remain below the digital clip point.
 
 **Best for:** High-contrast outdoor scenes, sunlit environments, any scenario where blown highlights are unacceptable (e.g., sky, windows, specular reflections).
 
-**EV Compensation in the LUT:** A higher positive offset (e.g., +2.0 to +2.5 EV) to restore underexposed midtones. The highlights, which were preserved in the log signal, will now be correctly rendered.
+**EV Compensation in the LUT:** A higher positive offset (e.g., +2.0 to +2.5 EV) to restore underexposed mid-tones. The highlights, which were preserved in the log signal, will now be correctly rendered.
 
 #### Strategy 3: Expose to Protect Shadows
 
-Allow the midtones and highlights to sit higher, ensuring shadows are lifted above the noise floor. This sacrifices highlight headroom in exchange for cleaner, less noisy shadow detail.
+Allow the mid-tones and highlights to sit higher, ensuring shadows are lifted above the noise floor. This sacrifices highlight headroom in exchange for cleaner, less noisy shadow detail.
 
 **Best for:** Night scenes, dimly lit interiors, situations where shadow noise is the primary concern.
 
@@ -164,11 +164,10 @@ L_output = L_linear × 2ⁿ
 | +1.8 EV | ×3.48 | Default — matches camera metering |
 | +2.0 EV | ×4.00 | Two stops brighter |
 | +3.0 EV | ×8.00 | Three stops brighter |
-| +4.0 EV | ×16.00 | Four stops brighter |
 
 ### Why +1.8 EV is the Default
 
-GoPro cameras exposing with GPLog2 intentionally underexpose the sensor to protect highlights, placing 18% grey at a lower code value than a standard gamma camera would. The +1.8 EV default in the LUT generator is calibrated to restore 18% grey to its correct display value when using nominal camera metering. This is not arbitrary — it reflects the camera manufacturer's intended middle-grey placement for this log format.
+GoPro cameras exposing with GP-Log2 intentionally underexpose the sensor to protect highlights, placing 18% grey at a lower code value than a standard gamma camera would. The +1.8 EV default in the LUT generator is calibrated to restore 18% grey to its correct display value when using nominal camera metering. This is not arbitrary — it reflects the camera manufacturer's intended middle-grey placement for this log format.
 
 If your footage was shot with deliberate exposure compensation (e.g., +1 stop for shadow protection), you would reduce the LUT's EV compensation by the same amount to maintain correct output.
 
@@ -208,7 +207,7 @@ A higher EV compensation shifts the entire tone map upward — recovering shadow
 
 ## 8. The Highlight Rolloff Option
 
-The **Highlight Rolloff** feature applies a multi-stage HSV-space compression to the decoded image before the output transfer function. It is designed to produce a more film-like response to overexposure rather than a hard digital clip.
+The **Highlight Rolloff** feature applies a multi-stage HSV-space (Hue Saturation Value) compression to the decoded image before the output transfer function. It is designed to produce a more film-like response to overexposure rather than a hard digital clip.
 
 ### When to Use Rolloff
 
@@ -243,7 +242,7 @@ The standard color space for HD broadcast, web streaming, and most consumer disp
 **Choose Rec.709 when:**
 - Delivering for standard HD broadcast or streaming
 - Monitoring on a standard HD display
-- The final destination is YouTube, Vimeo, or similar platforms
+- The final destination is YouTube in Rec.709, Vimeo, or similar platforms
 - Working in a standard SDR workflow
 
 ### Rec.2020
@@ -262,7 +261,7 @@ When Rec.2020 is selected as the output, the LUT generator skips the Rec.2020 �
 
 ## 10. How the LUT Generator Works
 
-The GPLog2 [LUT Generator](https://gopro.github.io/labs/gplog2/) produces a 3D LUT in the industry-standard .cube format. Understanding how it builds the LUT clarifies why each setting matters.
+The GP-Log2 [LUT Generator](https://gopro.github.io/labs/gplog2/) produces a 3D LUT in the industry-standard .cube format. Understanding how it builds the LUT clarifies why each setting matters.
 
 ### 3D LUT Structure
 
@@ -274,7 +273,7 @@ For a 33-point LUT (33³ = 35,937 entries), each input value is spaced 1/32nd of
 
 For each of the N³ input triplets (r, g, b):
 
-1. **GPLog2 Decode:** Apply the inverse log transform to convert from log code values to linear light in Rec.2020 space.
+1. **GP-Log2 Decode:** Apply the inverse log transform to convert from log code values to linear light in Rec.2020 space.
 
 2. **Color Matrix:** If Rec.709 output is selected, multiply by the 3×3 Rec.2020 → Rec.709 matrix. If Rec.2020 output is selected, skip this step.
 
@@ -293,12 +292,12 @@ For each of the N³ input triplets (r, g, b):
 | 16 | 4,096 | Moderate | ~93 KB | Quick preview |
 | 17 | 4,913 | Moderate | ~111 KB | DaVinci default |
 | 32 | 32,768 | Good | ~742 KB | General use |
-| 33 | 35,937 | Good | ~814 KB | Resolve standard |
+| 33 | 35,937 | Good | ~814 KB | Common standard |
 | 48 | 110,592 | Very Good | ~2.5 MB | High quality |
 | 64 | 262,144 | Excellent | ~5.9 MB | Demanding work |
 | 65 | 274,625 | Excellent | ~6.2 MB | Maximum precision |
 
-For most production work, 33 is the optimal balance of accuracy and compatibility. Sizes 17 and 33 are the most widely supported across NLEs. Use 64 or 65 only when the transform has complex non-linearities (such as combined rolloff with high EV compensation) that require more interpolation points for smooth gradients.
+For most production work, the 33x33x33 cube, is the optimal balance of accuracy and compatibility. Sizes 17 and 33 are the most widely supported across NLEs. Use 64 or 65 only when the transform has complex non-linearities (such as combined rolloff with high EV compensation) that require more interpolation points for smooth gradients.
 
 ---
 
@@ -318,9 +317,9 @@ When `_clamped` appears, output has been constrained to 0–1. When it is absent
 
 ---
 
-*This white paper was prepared in conjunction with the GPLog2 LUT Generator tool. The mathematical transforms described here are implemented directly in the tool's JavaScript source and match the behavior of the exported .cube LUT files.*
+*This white paper was prepared in conjunction with the GP-Log2 LUT Generator tool. The mathematical transforms described here are implemented directly in the tool's JavaScript source and match the behavior of the exported .cube LUT files.*
 
 ---
 
 **Document Version:** 1.0
-**Subject:** GPLog2 Logarithmic Encoding and LUT-Based Color Grading
+**Subject:** GP-Log2 Logarithmic Encoding and LUT-Based Color Grading
