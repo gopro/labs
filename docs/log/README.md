@@ -15,7 +15,7 @@
 7. Highlight Protection vs. Shadow Protection
 8. The Highlight Rolloff Option
 9. Color Space Output: Rec.709 vs. Rec.2020
-10. How the LUT Generator Works
+10. How the [LUT Generator](https://gopro.github.io/labs/gplog2/) Works
 
 ---
 
@@ -262,7 +262,7 @@ When Rec.2020 is selected as the output, the LUT generator skips the Rec.2020 â†
 
 ## 10. How the LUT Generator Works
 
-The GPLog2 LUT Generator produces a 3D LUT in the industry-standard .cube format. Understanding how it builds the LUT clarifies why each setting matters.
+The GPLog2 [LUT Generator](https://gopro.github.io/labs/gplog2/) produces a 3D LUT in the industry-standard .cube format. Understanding how it builds the LUT clarifies why each setting matters.
 
 ### 3D LUT Structure
 
