@@ -334,8 +334,9 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
 </main>
 
 <!-- hidden work canvases -->
-<canvas id="srcCvs" style="display:none"></canvas>
-<canvas id="dstCvs" style="display:none"></canvas>
+<canvas id="srcCvs"   style="display:none"></canvas>
+<canvas id="dstCvs"   style="display:none"></canvas>
+<canvas id="zebraCvs" style="display:none"></canvas>
 
 <script>
 // ═══════════════════════════════════════════════
@@ -657,20 +658,45 @@ let dragging = false;
 
 const srcCvs  = document.getElementById('srcCvs');
 const dstCvs  = document.getElementById('dstCvs');
+const zebraCvs = document.getElementById('zebraCvs');
 const display = document.getElementById('display');
 
 function processToCanvas(imgData, ev, cs, useRolloff, useClamp) {
   const w = imgData.width, h = imgData.height;
-  const out = new ImageData(w, h);
-  const s = imgData.data, d = out.data;
-  for (let i = 0; i < w*h; i++) {
-    const p = i*4;
-    const [r,g,b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff, useClamp);
-    d[p]   = Math.round(Math.max(0,Math.min(1,r)) * 255);
-    d[p+1] = Math.round(Math.max(0,Math.min(1,g)) * 255);
-    d[p+2] = Math.round(Math.max(0,Math.min(1,b)) * 255);
+  const out   = new ImageData(w, h);
+  const zmask = new ImageData(w, h);  // zebra overlay — transparent except at clips
+  const s = imgData.data, d = out.data, z = zmask.data;
+  const STRIPE = 12; // diagonal stripe width in source pixels
+
+  for (let i = 0; i < w * h; i++) {
+    const p = i * 4;
+    const [r, g, b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff, useClamp);
+
+    const r8 = Math.round(Math.max(0, Math.min(1, r)) * 255);
+    const g8 = Math.round(Math.max(0, Math.min(1, g)) * 255);
+    const b8 = Math.round(Math.max(0, Math.min(1, b)) * 255);
+
+    d[p]   = r8;
+    d[p+1] = g8;
+    d[p+2] = b8;
     d[p+3] = 255;
+
+    // Zebra: any channel clipping at 255
+    if (r8 === 255 || g8 === 255 || b8 === 255) {
+      const px = i % w, py = Math.floor(i / w);
+      const stripe = Math.floor((px + py) / STRIPE) % 2;
+      z[p]   = 0;
+      z[p+1] = 0;
+      z[p+2] = 0;
+      z[p+3] = stripe ? 0 : 128;   // transparent (show image) / 50% black
+    }
+    // else z[p+3] remains 0 (fully transparent — ImageData initialises to 0)
   }
+
+  zebraCvs.width  = w;
+  zebraCvs.height = h;
+  zebraCvs.getContext('2d').putImageData(zmask, 0, 0);
+
   return out;
 }
 
@@ -704,6 +730,8 @@ function renderSplit() {
     ctx.save();
     ctx.beginPath(); ctx.rect(sx, 0, dw - sx, dh); ctx.clip();
     ctx.drawImage(dstCvs, ox, oy, drawW, drawH);
+    // Zebra overlay — drawn on top of the graded image
+    if (zebraCvs.width > 0) ctx.drawImage(zebraCvs, ox, oy, drawW, drawH);
     ctx.restore();
   }
 
