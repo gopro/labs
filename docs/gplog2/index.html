@@ -324,7 +324,7 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
       <span class="ev-lbl">Exposure offset</span>
       <span class="ev-val" id="evDisp" title="Double-click to reset">+1.8 EV</span>
     </div>
-    <input type="range" id="evSlider" min="0" max="3.0" step="0.1" value="1.8">
+    <input type="range" id="evSlider" min="0" max="4.0" step="0.1" value="1.8">
     <div class="ticks">
       <span class="tick">0</span>
       <span class="tick">+1.0</span>
@@ -854,7 +854,7 @@ function updateInfo() {
 function updateSlider() {
   const sl = document.getElementById('evSlider');
   const v  = parseFloat(sl.value);
-  const pct = (v / 3.0) * 100;
+  const pct = (v / 4.0) * 100;
   sl.style.background = `linear-gradient(to right,var(--accent) ${pct}%,var(--border2) ${pct}%)`;
   document.getElementById('evDisp').textContent = v === 0 ? '0.0 EV' : `+${v.toFixed(1)} EV`;
   updateInfo();
