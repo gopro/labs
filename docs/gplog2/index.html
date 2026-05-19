@@ -677,19 +677,19 @@ function makeTestImage() {
 
     // Swatch border
     ctx.strokeStyle = 'rgba(0,0,0,0.45)';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(x + 0.5, y + 0.5, pW - 1, pH - 1);
+    ctx.lineWidth = 2;
+    ctx.strokeRect(x + 1, y + 1, pW - 2, pH - 2);
 
     // Patch label – fixed dim grey so it reads in log space
-    ctx.fillStyle = 'rgba(18,17,16,0.72)';
-    ctx.font = '7.5px monospace';
+    ctx.fillStyle = 'rgba(180,170,160,0.72)';
+    ctx.font = '15px monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'bottom';
     ctx.fillText(p.n, x + pW / 2, y + pH - 3);
 
     // Patch number (top-left)
-    ctx.fillStyle = 'rgba(18,17,16,0.45)';
-    ctx.font = '7px monospace';
+    ctx.fillStyle = 'rgba(180,170,160,0.45)';
+    ctx.font = '14px monospace';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
     ctx.fillText(i + 1, x + 4, y + 3);
