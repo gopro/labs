@@ -213,6 +213,152 @@ hr { border:none; border-top:1px solid var(--border); }
 
 /* Drop overlay */
 body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; border-radius:4px; }
+
+/* ═══════════════════════════════════════════════
+   MOBILE / PORTRAIT  (≤ 600px)
+   Strategy: vertical stack, controls collapse into
+   a drawer toggled by a floating button, preview
+   fills most of the screen.
+   ═══════════════════════════════════════════════ */
+@media (max-width: 600px) {
+
+  html, body { height: 100%; overflow: hidden; }
+
+  /* Tighten header */
+  header { padding: 9px 12px; gap: 8px; }
+  .h-title { font-size: 16px; }
+  .h-sub   { display: none; }
+
+  /* Stack main vertically */
+  main {
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    overflow: hidden;
+  }
+
+  /* ── Controls drawer ────────────────────────
+     Hidden off-screen by default, slides in when
+     body has .ctrl-open                          */
+  aside {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    width: 100%; min-width: 0;
+    max-height: 72vh;
+    border-right: none;
+    border-top: 2px solid var(--accent-dim);
+    border-radius: 14px 14px 0 0;
+    padding: 10px 14px 24px;
+    gap: 14px;
+    z-index: 200;
+    transform: translateY(100%);
+    transition: transform .28s cubic-bezier(.22,.68,0,1.2);
+    box-shadow: 0 -8px 40px rgba(0,0,0,.7);
+  }
+  body.ctrl-open aside {
+    transform: translateY(0);
+  }
+
+  /* Drag handle pill at top of drawer */
+  aside::before {
+    content: '';
+    display: block;
+    width: 36px; height: 4px;
+    background: var(--border2);
+    border-radius: 2px;
+    margin: 0 auto 8px;
+    flex-shrink: 0;
+  }
+
+  /* Two-column control grid inside drawer */
+  .ctrl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  /* Full-width items inside the grid */
+  .ctrl-full { grid-column: 1 / -1; }
+
+  /* Larger touch targets on size buttons */
+  .sz { padding: 10px 2px; font-size: 13px; }
+
+  /* Larger CS toggle */
+  .cs { padding: 11px; font-size: 14px; }
+
+  /* Bigger EV value */
+  .ev-val { font-size: 20px; }
+
+  /* Larger range thumb */
+  input[type=range]::-webkit-slider-thumb { width: 22px; height: 22px; }
+
+  /* Bigger save button */
+  .save { padding: 15px; font-size: 15px; }
+
+  /* Info grid: 3 cols on mobile to be compact */
+  .info { grid-template-columns: 1fr 1fr 1fr; }
+
+  /* ── Preview area: fills everything ──────── */
+  .preview {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Slim preview header */
+  .ph { padding: 7px 10px; gap: 8px; flex-wrap: wrap; }
+  .ph-hint { display: none; }
+
+  /* Full padding on preview body */
+  .pb { padding: 6px; gap: 6px; }
+
+  /* Status bar: single line, smaller */
+  .sb { padding: 3px 10px; font-size: 9px; }
+  .sb span:first-child { display: none; }
+
+  /* File buttons: full width row */
+  .fc { flex-wrap: wrap; }
+  .fbtn { flex: 1; text-align: center; padding: 10px 8px; font-size: 13px; }
+  .drop-hint { display: none; }
+
+  /* ── Floating toggle button ──────────────── */
+  #ctrlToggle {
+    display: flex;
+    align-items: center; justify-content: center;
+    position: fixed;
+    bottom: 18px; right: 16px;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#6b3b08,#3d2005);
+    border: 1.5px solid var(--accent-dim);
+    color: var(--accent);
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 300;
+    box-shadow: 0 4px 20px rgba(0,0,0,.6);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  #ctrlToggle:hover,
+  body.ctrl-open #ctrlToggle {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  /* Overlay behind open drawer */
+  #ctrlOverlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 190;
+  }
+  body.ctrl-open #ctrlOverlay { display: block; }
+}
+
+/* ── Desktop: hide the mobile toggle ────────── */
+@media (min-width: 601px) {
+  #ctrlToggle  { display: none; }
+  #ctrlOverlay { display: none; }
+}
 </style>
 </head>
 <body>
@@ -225,65 +371,75 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
 <main>
 <aside>
 
-  <div>
-    <div class="lbl">LUT Size</div>
-    <div class="size-row">
-      <button class="sz" data-s="16">16</button>
-      <button class="sz" data-s="17">17</button>
-      <button class="sz" data-s="32">32</button>
-      <button class="sz on" data-s="33">33</button>
-      <button class="sz" data-s="48">48</button>
-      <button class="sz" data-s="64">64</button>
-      <button class="sz" data-s="65">65</button>
-    </div>
-  </div>
+  <div class="ctrl-grid">
 
-  <div>
-    <div class="lbl">Output Colorspace</div>
-    <div class="cs-wrap">
-      <button class="cs on" data-c="rec709">Rec.709</button>
-      <button class="cs" data-c="rec2020">Rec.2020</button>
-    </div>
-  </div>
-
-  <div>
-    <div class="lbl">EV Compensation</div>
-    <div class="ev-row">
-      <span class="ev-lbl">Exposure offset</span>
-      <span class="ev-val" id="evDisp" title="Double-click to reset">+1.8 EV</span>
-    </div>
-    <input type="range" id="evSlider" min="0" max="3.0" step="0.1" value="1.8">
-    <div class="ticks">
-      <span class="tick">0</span>
-      <span class="tick">+1.0</span>
-      <span class="tick">+2.0</span>
-      <span class="tick">+3.0</span>
-    </div>
-  </div>
-
-  <div>
-    <div class="lbl">Options</div>
-    <label class="cb-row">
-      <input type="checkbox" id="rolloff">
-      <div class="cb-box"><div class="cb-check"></div></div>
-      <div>
-        <div class="cb-txt">Highlight Rolloff</div>
-        <div class="cb-desc">Smooth compression above 60–80% to reduce clipping artifacts</div>
+    <div class="ctrl-full">
+      <div class="lbl">LUT Size</div>
+      <div class="size-row">
+        <button class="sz" data-s="8">8</button>
+        <button class="sz" data-s="16">16</button>
+        <button class="sz" data-s="17">17</button>
+        <button class="sz" data-s="32">32</button>
+        <button class="sz on" data-s="33">33</button>
+        <button class="sz" data-s="64">64</button>
+        <button class="sz" data-s="65">65</button>
       </div>
-    </label>
-  </div>
+    </div>
 
-  <hr>
+    <div>
+      <div class="lbl">Colorspace</div>
+      <div class="cs-wrap">
+        <button class="cs on" data-c="rec709">Rec.709</button>
+        <button class="cs" data-c="rec2020">Rec.2020</button>
+      </div>
+    </div>
 
-  <button class="save" id="saveBtn">↓ &nbsp;Save .cube LUT</button>
+    <div>
+      <div class="lbl">Options</div>
+      <label class="cb-row">
+        <input type="checkbox" id="rolloff">
+        <div class="cb-box"><div class="cb-check"></div></div>
+        <div>
+          <div class="cb-txt">Highlight Rolloff</div>
+          <div class="cb-desc">Compress highlights above 60–80%</div>
+        </div>
+      </label>
+    </div>
 
-  <div class="info">
-    <div class="ii"><label>LUT Size</label><span id="iSize">33³</span></div>
-    <div class="ii"><label>Entries</label><span id="iCount">35,937</span></div>
-    <div class="ii"><label>Input</label><span>GPLog₆₀₀</span></div>
-    <div class="ii"><label>Output</label><span id="iOut">Rec.709</span></div>
-    <div class="ii"><label>EV Gain</label><span id="iGain">×3.48</span></div>
-    <div class="ii"><label>Rolloff</label><span id="iRoll">Off</span></div>
+    <div class="ctrl-full">
+      <div class="lbl">EV Compensation</div>
+      <div class="ev-row">
+        <span class="ev-lbl">Exposure offset</span>
+        <span class="ev-val" id="evDisp" title="Double-click to reset">+1.8 EV</span>
+      </div>
+      <input type="range" id="evSlider" min="0" max="3.0" step="0.1" value="1.8">
+      <div class="ticks">
+        <span class="tick">0</span>
+        <span class="tick">+1.0</span>
+        <span class="tick">+2.0</span>
+        <span class="tick">+3.0</span>
+      </div>
+    </div>
+
+    <div class="ctrl-full">
+      <hr>
+    </div>
+
+    <div class="ctrl-full">
+      <button class="save" id="saveBtn">↓ &nbsp;Save .cube LUT</button>
+    </div>
+
+    <div class="ctrl-full">
+      <div class="info">
+        <div class="ii"><label>LUT Size</label><span id="iSize">33³</span></div>
+        <div class="ii"><label>Entries</label><span id="iCount">35,937</span></div>
+        <div class="ii"><label>Input</label><span>GPLog₆₀₀</span></div>
+        <div class="ii"><label>Output</label><span id="iOut">Rec.709</span></div>
+        <div class="ii"><label>EV Gain</label><span id="iGain">×3.48</span></div>
+        <div class="ii"><label>Rolloff</label><span id="iRoll">Off</span></div>
+      </div>
+    </div>
+
   </div>
 
 </aside>
@@ -874,6 +1030,31 @@ new ResizeObserver(() => { renderSplit(); }).observe(document.getElementById('ca
 updateSlider();
 updateInfo();
 document.getElementById('testBtn').click();  // auto-load test chart
+</script>
+<!-- Mobile controls toggle -->
+<div id="ctrlOverlay"></div>
+<button id="ctrlToggle" aria-label="Toggle controls">⚙</button>
+
+<script>
+// ─── Mobile drawer toggle ─────────────────────
+const ctrlToggle  = document.getElementById('ctrlToggle');
+const ctrlOverlay = document.getElementById('ctrlOverlay');
+const asideEl     = document.querySelector('aside');
+
+function openDrawer()  { document.body.classList.add('ctrl-open');    ctrlToggle.textContent = '✕'; }
+function closeDrawer() { document.body.classList.remove('ctrl-open'); ctrlToggle.textContent = '⚙'; }
+
+ctrlToggle.addEventListener('click',  () =>
+  document.body.classList.contains('ctrl-open') ? closeDrawer() : openDrawer()
+);
+ctrlOverlay.addEventListener('click', closeDrawer);
+
+// Swipe-down on drawer to close
+let touchStartY = 0;
+asideEl.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, {passive:true});
+asideEl.addEventListener('touchend',   e => {
+  if (e.changedTouches[0].clientY - touchStartY > 60) closeDrawer();
+}, {passive:true});
 </script>
 </body>
 </html>
