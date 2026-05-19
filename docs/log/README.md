@@ -1,4 +1,4 @@
-# GPLog2 & Logarithmic Exposure: A Practical White Paper
+# GPLog2 & Logarithmic Exposure
 
 **Understanding GoPro's Log Base 600 Encoding, Exposure Strategy, and LUT-Based Color Grading**
 
