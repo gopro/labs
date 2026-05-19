@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ── Reset & tokens ─────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --bg:          #0c0d11;
@@ -21,303 +20,199 @@
   --text:        #cac4b6;
   --dim:         #555060;
   --bright:      #ede8de;
+  --green:       #38c870;
   --mono:        'JetBrains Mono','Courier New',monospace;
   --sans:        'Barlow Condensed','Arial Narrow',sans-serif;
 }
+html,body { height:100%; overflow:hidden; }
+body { background:var(--bg); color:var(--text); font-family:var(--sans); font-size:14px; line-height:1.4; }
 
-/* ── Base (mobile-first) ────────────────────── */
-html, body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 14px;
-  line-height: 1.4;
-  /* Full-screen app on all sizes */
-  height: 100%;
-  overflow: hidden;
-}
-
-/* ── Header ─────────────────────────────────── */
+/* ─── HEADER ─────────────────────────────────── */
 header {
-  padding: 9px 12px;
+  padding: 13px 20px;
   border-bottom: 1px solid var(--border);
   background: var(--panel);
   display: flex;
   align-items: baseline;
-  gap: 10px;
-  flex-shrink: 0;
+  gap: 14px;
 }
 .h-title {
-  font-size: 17px; font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--bright);
+  font-size:21px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--bright);
 }
-.h-title em { color: var(--accent); font-style: normal; }
-.h-sub { font-size: 10px; color: var(--dim); letter-spacing: .04em; display: none; }
+.h-title em { color:var(--accent); font-style:normal; }
+.h-sub { font-size:11px; color:var(--dim); letter-spacing:.04em; }
 
-/* ── Shared component styles ────────────────── */
+/* ─── LAYOUT ─────────────────────────────────── */
+main { display:flex; height:calc(100vh - 52px); overflow:hidden; }
+
+/* ─── CONTROLS ───────────────────────────────── */
+aside {
+  width:288px; min-width:288px;
+  background:var(--panel);
+  border-right:1px solid var(--border);
+  padding:18px 14px;
+  overflow-y:auto;
+  display:flex; flex-direction:column; gap:18px;
+  scrollbar-width:thin; scrollbar-color:var(--border2) transparent;
+}
 .lbl {
-  font-size: 9.5px; font-weight: 700; letter-spacing: .15em;
-  color: var(--dim); text-transform: uppercase; margin-bottom: 7px;
+  font-size:9.5px; font-weight:700; letter-spacing:.15em;
+  color:var(--dim); text-transform:uppercase; margin-bottom:7px;
 }
-.size-row { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+
+/* Size row */
+.size-row {
+  display:grid; grid-template-columns:repeat(7,1fr); gap:3px;
+}
 .sz {
-  background: var(--panel2); border: 1px solid var(--border);
-  color: var(--text); font-family: var(--mono); font-size: 13px;
-  padding: 10px 2px; text-align: center; cursor: pointer;
-  border-radius: 3px; transition: all .14s;
+  background:var(--panel2); border:1px solid var(--border);
+  color:var(--text); font-family:var(--mono); font-size:11.5px;
+  padding:7px 2px; text-align:center; cursor:pointer;
+  border-radius:3px; transition:all .14s;
 }
-.sz:hover { border-color: var(--accent-dim); color: var(--bright); }
-.sz.on { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); font-weight: 500; }
+.sz:hover { border-color:var(--accent-dim); color:var(--bright); }
+.sz.on { background:var(--accent-dim); border-color:var(--accent); color:var(--accent); font-weight:500; }
 
-.cs-wrap { display: flex; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+/* CS toggle */
+.cs-wrap { display:flex; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
 .cs {
-  flex: 1; background: var(--panel2); border: none;
-  color: var(--dim); font-family: var(--sans); font-size: 14px; font-weight: 600;
-  letter-spacing: .04em; padding: 11px; cursor: pointer; transition: all .14s;
+  flex:1; background:var(--panel2); border:none;
+  color:var(--dim); font-family:var(--sans); font-size:13px; font-weight:600;
+  letter-spacing:.04em; padding:9px; cursor:pointer; transition:all .14s;
 }
-.cs + .cs { border-left: 1px solid var(--border); }
-.cs.on { background: var(--accent-dim); color: var(--accent); }
+.cs + .cs { border-left:1px solid var(--border); }
+.cs.on { background:var(--accent-dim); color:var(--accent); }
 
-.ev-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-.ev-lbl { flex: 1; font-size: 12px; color: var(--dim); }
-.ev-val {
-  font-family: var(--mono); font-size: 20px; font-weight: 500;
-  color: var(--accent); min-width: 70px; text-align: right; cursor: pointer;
-}
+/* EV Slider */
+.ev-row { display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+.ev-lbl { flex:1; font-size:12px; color:var(--dim); }
+.ev-val { font-family:var(--mono); font-size:17px; font-weight:500; color:var(--accent); min-width:70px; text-align:right; cursor:pointer; }
+.ev-val title { display:none; }
 input[type=range] {
-  -webkit-appearance: none; appearance: none;
-  width: 100%; height: 4px; border-radius: 2px; outline: none; cursor: pointer;
+  -webkit-appearance:none; appearance:none;
+  width:100%; height:4px; border-radius:2px; outline:none; cursor:pointer;
   background: linear-gradient(to right, var(--accent) 60%, var(--border2) 60%);
 }
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 22px; height: 22px;
-  background: var(--accent); border-radius: 50%; cursor: pointer;
-  box-shadow: 0 0 8px var(--accent-glow); transition: box-shadow .14s;
+  -webkit-appearance:none; width:16px; height:16px;
+  background:var(--accent); border-radius:50%; cursor:pointer;
+  box-shadow:0 0 8px var(--accent-glow); transition:box-shadow .14s;
 }
-.ticks { display: flex; justify-content: space-between; margin-top: 4px; padding: 0 1px; }
-.tick  { font-family: var(--mono); font-size: 9px; color: var(--dim); }
+input[type=range]:hover::-webkit-slider-thumb { box-shadow:0 0 16px var(--accent-glow); }
+.ticks { display:flex; justify-content:space-between; margin-top:4px; padding:0 1px; }
+.tick { font-family:var(--mono); font-size:9px; color:var(--dim); }
 
-label.cb-row { display: flex; align-items: flex-start; gap: 9px; cursor: pointer; padding: 2px 0; }
-label.cb-row input { display: none; }
+/* Checkbox */
+label.cb-row { display:flex; align-items:flex-start; gap:9px; cursor:pointer; padding:2px 0; }
+label.cb-row input { display:none; }
 .cb-box {
-  width: 18px; height: 18px; min-width: 18px; margin-top: 1px;
-  border: 1px solid var(--border2); background: var(--panel2);
-  border-radius: 3px; display: flex; align-items: center; justify-content: center;
-  transition: all .14s;
+  width:15px; height:15px; min-width:15px; margin-top:1px;
+  border:1px solid var(--border2); background:var(--panel2);
+  border-radius:3px; display:flex; align-items:center; justify-content:center;
+  transition:all .14s;
 }
-label.cb-row input:checked + .cb-box { background: var(--accent-dim); border-color: var(--accent); }
-.cb-check { display: none; width: 8px; height: 5px; border: 2px solid var(--accent); border-top: none; border-right: none; transform: rotate(-45deg) translateY(-1px); }
-label.cb-row input:checked + .cb-box .cb-check { display: block; }
-.cb-txt  { font-size: 14px; font-weight: 600; letter-spacing: .02em; color: var(--text); }
-.cb-desc { font-size: 11px; color: var(--dim); margin-top: 2px; line-height: 1.3; }
+label.cb-row input:checked + .cb-box { background:var(--accent-dim); border-color:var(--accent); }
+.cb-check { display:none; width:8px; height:5px; border:2px solid var(--accent); border-top:none; border-right:none; transform:rotate(-45deg) translateY(-1px); }
+label.cb-row input:checked + .cb-box .cb-check { display:block; }
+.cb-txt { font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--text); }
+.cb-desc { font-size:10.5px; color:var(--dim); margin-top:1px; line-height:1.3; }
 
-hr { border: none; border-top: 1px solid var(--border); }
+/* Divider */
+hr { border:none; border-top:1px solid var(--border); }
 
+/* Save button */
 .save {
-  width: 100%; padding: 15px; cursor: pointer; border-radius: 4px;
-  background: linear-gradient(135deg,#6b3b08,#3d2005);
-  border: 1px solid var(--accent-dim); color: var(--accent);
-  font-family: var(--sans); font-size: 16px; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  transition: all .15s;
+  width:100%; padding:13px; cursor:pointer; border-radius:4px;
+  background:linear-gradient(135deg,#6b3b08,#3d2005);
+  border:1px solid var(--accent-dim); color:var(--accent);
+  font-family:var(--sans); font-size:16px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  transition:all .15s; position:relative; overflow:hidden;
 }
-.save:hover   { border-color: var(--accent); box-shadow: 0 0 22px rgba(232,146,32,.18); }
-.save:active  { transform: scale(.98); }
-.save:disabled { opacity: .5; cursor: not-allowed; }
+.save:hover { border-color:var(--accent); box-shadow:0 0 22px rgba(232,146,32,.18); }
+.save:active { transform:scale(.98); }
+.save:disabled { opacity:.5; cursor:not-allowed; }
 
+/* Info grid */
 .info {
-  background: var(--panel2); border: 1px solid var(--border);
-  border-radius: 4px; padding: 10px 12px;
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px;
+  background:var(--panel2); border:1px solid var(--border);
+  border-radius:4px; padding:10px 12px;
+  display:grid; grid-template-columns:1fr 1fr; gap:7px;
 }
-.ii label { font-size: 9px; letter-spacing: .1em; color: var(--dim); text-transform: uppercase; display: block; }
-.ii span  { font-family: var(--mono); font-size: 12px; color: var(--bright); }
+.ii label { font-size:9px; letter-spacing:.1em; color:var(--dim); text-transform:uppercase; display:block; }
+.ii span  { font-family:var(--mono); font-size:12.5px; color:var(--bright); }
 
-/* ── Preview section ─────────────────────────── */
-.preview { display: flex; flex-direction: column; overflow: hidden; flex: 1; min-height: 0; }
-
+/* ─── PREVIEW ────────────────────────────────── */
+.preview { flex:1; display:flex; flex-direction:column; overflow:hidden; }
 .ph {
-  padding: 7px 10px; border-bottom: 1px solid var(--border);
-  background: var(--panel); display: flex; align-items: center;
-  gap: 8px; flex-shrink: 0; flex-wrap: wrap;
+  padding:11px 18px; border-bottom:1px solid var(--border);
+  background:var(--panel); display:flex; align-items:center; gap:12px;
 }
-.ph-lbl   { font-size: 10.5px; letter-spacing: .12em; color: var(--dim); text-transform: uppercase; }
-.ph-arr   { color: var(--border2); font-size: 12px; }
-.ph-badge { font-family: var(--mono); font-size: 10.5px; padding: 2px 8px; background: var(--accent-dim); color: var(--accent); border-radius: 2px; }
-.ph-hint  { display: none; }
+.ph-lbl { font-size:10.5px; letter-spacing:.12em; color:var(--dim); text-transform:uppercase; }
+.ph-arr { color:var(--border2); font-size:12px; }
+.ph-badge {
+  font-family:var(--mono); font-size:10.5px; padding:2px 8px;
+  background:var(--accent-dim); color:var(--accent); border-radius:2px; letter-spacing:.04em;
+}
+.ph-hint { margin-left:auto; font-size:10.5px; color:var(--dim); font-style:italic; }
 
 .pb {
-  flex: 1; min-height: 0;
-  display: flex; flex-direction: column;
-  padding: 6px; gap: 6px; overflow: hidden;
+  flex:1; min-height:0;
+  display:flex; flex-direction:column;
+  padding:12px; gap:8px; overflow:hidden;
 }
 
+/* Canvas wrap — fills all remaining vertical space */
 .cw {
-  flex: 1; min-height: 0; width: 100%;
-  position: relative;
-  border: 1px solid var(--border); border-radius: 4px;
-  overflow: hidden; cursor: ew-resize; background: #111;
-  box-shadow: 0 6px 40px rgba(0,0,0,.7);
+  flex:1; min-height:0; width:100%;
+  position:relative;
+  border:1px solid var(--border); border-radius:4px;
+  overflow:hidden; cursor:ew-resize; background:#111;
+  box-shadow:0 6px 40px rgba(0,0,0,.7);
 }
-#display { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-
+/* display canvas is sized by JS to match container pixels */
+#display { position:absolute; inset:0; width:100%; height:100%; display:block; }
 .split-labels {
-  position: absolute; top: 0; left: 0; right: 0;
-  display: flex; justify-content: space-between; pointer-events: none;
+  position:absolute; top:0; left:0; right:0;
+  display:flex; justify-content:space-between;
+  pointer-events:none;
 }
 .slab {
-  font-size: 9.5px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; padding: 5px 9px;
-  background: rgba(12,13,17,.72); backdrop-filter: blur(4px);
+  font-size:9.5px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; padding:5px 9px;
+  background:rgba(12,13,17,.72); backdrop-filter:blur(4px);
 }
-.slab-in  { border-bottom-right-radius: 4px; color: var(--dim); }
-.slab-out { border-bottom-left-radius: 4px; color: var(--accent); }
-
+.slab-in { border-bottom-right-radius:4px; color:var(--dim); }
+.slab-out { border-bottom-left-radius:4px; color:var(--accent); }
 .proc {
-  position: absolute; inset: 0; background: rgba(12,13,17,.75);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 11px; letter-spacing: .08em;
-  color: var(--accent); opacity: 0; pointer-events: none; transition: opacity .15s;
+  position:absolute; inset:0; background:rgba(12,13,17,.75);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em;
+  color:var(--accent); opacity:0; pointer-events:none; transition:opacity .15s;
 }
-.proc.show { opacity: 1; pointer-events: all; }
+.proc.show { opacity:1; pointer-events:all; }
 
-.fc { display: flex; gap: 6px; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
+/* File controls — fixed height row at the bottom of preview body */
+.fc { display:flex; gap:8px; align-items:center; flex-shrink:0; }
 .fbtn {
-  flex: 1; text-align: center;
-  padding: 10px 8px; background: var(--panel2); border: 1px solid var(--border2);
-  color: var(--text); font-family: var(--sans); font-size: 13px; font-weight: 600;
-  letter-spacing: .04em; cursor: pointer; border-radius: 4px; transition: all .14s;
+  padding:7px 14px; background:var(--panel2); border:1px solid var(--border2);
+  color:var(--text); font-family:var(--sans); font-size:13px; font-weight:600;
+  letter-spacing:.04em; cursor:pointer; border-radius:4px; transition:all .14s;
 }
-.fbtn:hover { border-color: var(--accent-dim); color: var(--bright); }
-.fbtn.hi    { border-color: var(--accent-dim); color: var(--accent); }
-.drop-hint  { display: none; }
+.fbtn:hover { border-color:var(--accent-dim); color:var(--bright); }
+.fbtn.hi { border-color:var(--accent-dim); color:var(--accent); }
+.drop-hint { font-size:11px; color:var(--dim); }
 
+/* Status bar */
 .sb {
-  padding: 3px 10px; border-top: 1px solid var(--border);
-  background: var(--panel); font-family: var(--mono); font-size: 9px;
-  color: var(--dim); display: flex; gap: 16px; justify-content: flex-end;
-  flex-shrink: 0;
-}
-.sb-detail { display: none; }
-
-body.drag-over .pb { outline: 2px dashed var(--accent); outline-offset: -6px; border-radius: 4px; }
-
-/* ── Mobile layout ───────────────────────────── */
-/* Full-screen stack: header / preview / drawer toggle */
-body {
-  display: flex;
-  flex-direction: column;
-}
-main {
-  flex: 1; min-height: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  padding:5px 18px; border-top:1px solid var(--border);
+  background:var(--panel); font-family:var(--mono); font-size:10px;
+  color:var(--dim); display:flex; gap:16px; justify-content:space-between;
 }
 
-/* Aside = bottom drawer on mobile */
-aside {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  max-height: 75vh;
-  background: var(--panel);
-  border-top: 2px solid var(--accent-dim);
-  border-radius: 16px 16px 0 0;
-  padding: 6px 14px 28px;
-  overflow-y: auto;
-  display: flex; flex-direction: column; gap: 14px;
-  z-index: 200;
-  transform: translateY(100%);
-  transition: transform .3s cubic-bezier(.22,.68,0,1.2);
-  scrollbar-width: thin; scrollbar-color: var(--border2) transparent;
-  /* Two-col inner grid */
-}
-aside::before {
-  content: '';
-  display: block;
-  width: 40px; height: 4px;
-  background: var(--border2); border-radius: 2px;
-  margin: 4px auto 4px;
-  flex-shrink: 0;
-}
-body.ctrl-open aside { transform: translateY(0); }
-
-/* inner two-column grid */
-.ctrl-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.ctrl-full { grid-column: 1 / -1; }
-
-/* Overlay */
-#ctrlOverlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 190;
-}
-body.ctrl-open #ctrlOverlay { display: block; }
-
-/* FAB toggle */
-#ctrlToggle {
-  position: fixed;
-  bottom: 18px; right: 16px;
-  width: 54px; height: 54px;
-  border-radius: 50%;
-  background: linear-gradient(135deg,#6b3b08,#3d2005);
-  border: 1.5px solid var(--accent-dim);
-  color: var(--accent); font-size: 24px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; z-index: 300;
-  box-shadow: 0 4px 20px rgba(0,0,0,.6);
-  transition: border-color .15s, box-shadow .15s;
-}
-body.ctrl-open #ctrlToggle { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
-
-/* ── Desktop override (≥ 640px) ─────────────── */
-@media (min-width: 640px) {
-  header    { padding: 13px 20px; }
-  .h-title  { font-size: 21px; }
-  .h-sub    { display: block; }
-  .ph-hint  { display: block; margin-left: auto; font-size: 10.5px; color: var(--dim); font-style: italic; }
-  .sb-detail { display: block; }
-  .sb       { font-size: 10px; padding: 5px 18px; justify-content: space-between; }
-  .drop-hint { display: block; font-size: 11px; color: var(--dim); }
-  .fbtn     { flex: none; padding: 7px 14px; }
-  .info     { grid-template-columns: 1fr 1fr; }
-  .sz       { padding: 7px 2px; font-size: 11.5px; }
-  .cs       { font-size: 13px; padding: 9px; }
-  input[type=range]::-webkit-slider-thumb { width: 16px; height: 16px; }
-  .ev-val   { font-size: 17px; }
-  .save     { padding: 13px; font-size: 16px; }
-  .cb-box   { width: 15px; height: 15px; min-width: 15px; }
-
-  /* Restore side-by-side layout */
-  main {
-    flex-direction: row;
-    height: calc(100vh - 52px);
-  }
-  aside {
-    /* Override drawer styles */
-    position: static;
-    transform: none !important;
-    width: 288px; min-width: 288px;
-    max-height: none;
-    border-top: none;
-    border-right: 1px solid var(--border);
-    border-radius: 0;
-    padding: 18px 14px;
-    gap: 18px;
-    z-index: auto;
-    overflow-y: auto;
-  }
-  aside::before { display: none; }
-  .ctrl-grid { display: contents; }
-  .ctrl-full { grid-column: auto; }
-  #ctrlToggle  { display: none; }
-  #ctrlOverlay { display: none !important; }
-}
+/* Drop overlay */
+body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; border-radius:4px; }
 </style>
 </head>
 <body>
@@ -328,76 +223,78 @@ body.ctrl-open #ctrlToggle { border-color: var(--accent); box-shadow: 0 0 20px v
 </header>
 
 <main>
-
 <aside>
-  <div class="ctrl-grid">
 
-    <div class="ctrl-full">
-      <div class="lbl">LUT Size</div>
-      <div class="size-row">
-        <button class="sz" data-s="16">16</button>
-        <button class="sz" data-s="17">17</button>
-        <button class="sz" data-s="32">32</button>
-        <button class="sz on" data-s="33">33</button>
-        <button class="sz" data-s="48">48</button>
-        <button class="sz" data-s="64">64</button>
-        <button class="sz" data-s="65">65</button>
-      </div>
+  <div>
+    <div class="lbl">LUT Size</div>
+    <div class="size-row">
+      <button class="sz" data-s="16">16</button>
+      <button class="sz" data-s="17">17</button>
+      <button class="sz" data-s="32">32</button>
+      <button class="sz on" data-s="33">33</button>
+      <button class="sz" data-s="48">48</button>
+      <button class="sz" data-s="64">64</button>
+      <button class="sz" data-s="65">65</button>
     </div>
-
-    <div>
-      <div class="lbl">Colorspace</div>
-      <div class="cs-wrap">
-        <button class="cs on" data-c="rec709">Rec.709</button>
-        <button class="cs" data-c="rec2020">Rec.2020</button>
-      </div>
-    </div>
-
-    <div>
-      <div class="lbl">Options</div>
-      <label class="cb-row">
-        <input type="checkbox" id="rolloff">
-        <div class="cb-box"><div class="cb-check"></div></div>
-        <div>
-          <div class="cb-txt">Highlight Rolloff</div>
-          <div class="cb-desc">Compress highlights above 60–80%</div>
-        </div>
-      </label>
-    </div>
-
-    <div class="ctrl-full">
-      <div class="lbl">EV Compensation</div>
-      <div class="ev-row">
-        <span class="ev-lbl">Exposure offset</span>
-        <span class="ev-val" id="evDisp" title="Double-click to reset">+1.8 EV</span>
-      </div>
-      <input type="range" id="evSlider" min="0" max="3.0" step="0.1" value="1.8">
-      <div class="ticks">
-        <span class="tick">0</span>
-        <span class="tick">+1.0</span>
-        <span class="tick">+2.0</span>
-        <span class="tick">+3.0</span>
-      </div>
-    </div>
-
-    <div class="ctrl-full"><hr></div>
-
-    <div class="ctrl-full">
-      <button class="save" id="saveBtn">↓ &nbsp;Save .cube LUT</button>
-    </div>
-
-    <div class="ctrl-full">
-      <div class="info">
-        <div class="ii"><label>LUT Size</label><span id="iSize">33³</span></div>
-        <div class="ii"><label>Entries</label><span id="iCount">35,937</span></div>
-        <div class="ii"><label>Input</label><span>GPLog₆₀₀</span></div>
-        <div class="ii"><label>Output</label><span id="iOut">Rec.709</span></div>
-        <div class="ii"><label>EV Gain</label><span id="iGain">×3.48</span></div>
-        <div class="ii"><label>Rolloff</label><span id="iRoll">Off</span></div>
-      </div>
-    </div>
-
   </div>
+
+  <div>
+    <div class="lbl">Output Colorspace</div>
+    <div class="cs-wrap">
+      <button class="cs on" data-c="rec709">Rec.709</button>
+      <button class="cs" data-c="rec2020">Rec.2020</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="lbl">EV Compensation</div>
+    <div class="ev-row">
+      <span class="ev-lbl">Exposure offset</span>
+      <span class="ev-val" id="evDisp" title="Double-click to reset">+1.8 EV</span>
+    </div>
+    <input type="range" id="evSlider" min="0" max="3.0" step="0.1" value="1.8">
+    <div class="ticks">
+      <span class="tick">0</span>
+      <span class="tick">+1.0</span>
+      <span class="tick">+2.0</span>
+      <span class="tick">+3.0</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="lbl">Options</div>
+    <label class="cb-row">
+      <input type="checkbox" id="rolloff">
+      <div class="cb-box"><div class="cb-check"></div></div>
+      <div>
+        <div class="cb-txt">Highlight Rolloff</div>
+        <div class="cb-desc">Smooth compression above 60–80% to reduce clipping artifacts</div>
+      </div>
+    </label>
+    <label class="cb-row" style="margin-top:8px">
+      <input type="checkbox" id="clampOut">
+      <div class="cb-box"><div class="cb-check"></div></div>
+      <div>
+        <div class="cb-txt">Clamp Output</div>
+        <div class="cb-desc">Limit output values to 0.0–1.0, hard-clipping any out-of-range data</div>
+      </div>
+    </label>
+  </div>
+
+  <hr>
+
+  <button class="save" id="saveBtn">↓ &nbsp;Save .cube LUT</button>
+
+  <div class="info">
+    <div class="ii"><label>LUT Size</label><span id="iSize">33³</span></div>
+    <div class="ii"><label>Entries</label><span id="iCount">35,937</span></div>
+    <div class="ii"><label>Input</label><span>GPLog₆₀₀</span></div>
+    <div class="ii"><label>Output</label><span id="iOut">Rec.709</span></div>
+    <div class="ii"><label>EV Gain</label><span id="iGain">×3.48</span></div>
+    <div class="ii"><label>Rolloff</label><span id="iRoll">Off</span></div>
+    <div class="ii"><label>Clamp</label><span id="iClamp">Off</span></div>
+  </div>
+
 </aside>
 
 <section class="preview">
@@ -420,7 +317,7 @@ body.ctrl-open #ctrlToggle { border-color: var(--accent); box-shadow: 0 0 20px v
     </div>
 
     <div class="fc">
-      <button class="fbtn hi" id="loadBtn">⬆ Load Image</button>
+      <button class="fbtn hi" id="loadBtn">⬆ Load GPLog2 Image</button>
       <button class="fbtn" id="testBtn">↺ Test Chart</button>
       <span class="drop-hint">or drag &amp; drop JPEG / PNG</span>
     </div>
@@ -428,23 +325,17 @@ body.ctrl-open #ctrlToggle { border-color: var(--accent); box-shadow: 0 0 20px v
   </div>
 
   <div class="sb">
-    <span class="sb-detail">GPLog2 → Log base 600 · Rec.2020 primaries · Output: Rec.709 OETF</span>
+    <span>GPLog2 → Log base 600 · Rec.2020 primaries · Output: Rec.709 OETF (BT.709 transfer)</span>
     <span id="sbRes">No image loaded</span>
   </div>
 </section>
-
 </main>
 
 <!-- hidden work canvases -->
 <canvas id="srcCvs" style="display:none"></canvas>
 <canvas id="dstCvs" style="display:none"></canvas>
 
-<!-- Mobile controls drawer -->
-<div id="ctrlOverlay"></div>
-<button id="ctrlToggle" aria-label="Toggle controls">⚙</button>
-
 <script>
-
 // ═══════════════════════════════════════════════
 // COLOUR MATH  (ported from lutfix.cpp)
 // ═══════════════════════════════════════════════
@@ -550,7 +441,7 @@ function rolloff(r, g, b) {
 }
 
 // ── Full per-pixel transform ─────────────────
-function transform(r0, g0, b0, ev, cs, useRolloff) {
+function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   // 1. GPLog2 → linear Rec.2020
   let r = invLog(r0), g = invLog(g0), b = invLog(b0);
   // 2. Colour matrix
@@ -560,14 +451,22 @@ function transform(r0, g0, b0, ev, cs, useRolloff) {
   r *= gain; g *= gain; b *= gain;
   // 4. Highlight rolloff
   if (useRolloff) [r,g,b] = rolloff(r,g,b);
-  // 5. Rec.709 OETF — no clamp, negatives handled by mirrored rec709()
-  return [rec709(r), rec709(g), rec709(b)];
+  // 5. Rec.709 OETF
+  r = Math.max(0,r); g = Math.max(0,g); b = Math.max(0,b);
+  r = rec709(r); g = rec709(g); b = rec709(b);
+  // 6. Clamp output to [0, 1]
+  if (useClamp) {
+    r = Math.max(0, Math.min(1, r));
+    g = Math.max(0, Math.min(1, g));
+    b = Math.max(0, Math.min(1, b));
+  }
+  return [r, g, b];
 }
 
 // ═══════════════════════════════════════════════
 // LUT GENERATION  (generates .cube text)
 // ═══════════════════════════════════════════════
-function makeCube(size, ev, cs, useRolloff) {
+function makeCube(size, ev, cs, useRolloff, useClamp) {
   const csName = cs === 'rec709' ? 'Rec.709' : 'Rec.2020';
   const evStr  = `+${ev.toFixed(1)}`;
   const lines  = [
@@ -576,6 +475,7 @@ function makeCube(size, ev, cs, useRolloff) {
     `# Output:   ${csName} SDR`,
     `# EV comp:  ${evStr}`,
     `# Rolloff:  ${useRolloff ? 'enabled' : 'disabled'}`,
+    `# Clamp:    ${useClamp ? 'enabled (0.0–1.0)' : 'disabled'}`,
     ``,
     `LUT_3D_SIZE ${size}`,
     ``
@@ -583,7 +483,11 @@ function makeCube(size, ev, cs, useRolloff) {
   for (let b = 0; b < size; b++) {
     for (let g = 0; g < size; g++) {
       for (let r = 0; r < size; r++) {
-        let [ro,go,bo] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, useRolloff);
+        let [ro,go,bo] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, useRolloff, useClamp);
+        // Clamp to reasonable range (NLEs handle out-of-range)
+        ro = Math.max(0, Math.min(1, ro));
+        go = Math.max(0, Math.min(1, go));
+        bo = Math.max(0, Math.min(1, bo));
         lines.push(`${ro.toFixed(6)} ${go.toFixed(6)} ${bo.toFixed(6)}`);
       }
     }
@@ -591,11 +495,12 @@ function makeCube(size, ev, cs, useRolloff) {
   return lines.join('\n') + '\n';
 }
 
-function cubeFilename(size, ev, cs, useRolloff) {
-  const evTag  = `EV+${ev.toFixed(1)}`;
-  const csTag  = cs === 'rec709' ? 'Rec709' : 'Rec2020';
-  const rollTag= useRolloff ? '_rolloff' : '';
-  return `GPLog2_${evTag}_${csTag}${rollTag}_${size}.cube`;
+function cubeFilename(size, ev, cs, useRolloff, useClamp) {
+  const evTag    = `EV+${ev.toFixed(1)}`;
+  const csTag    = cs === 'rec709' ? 'Rec709' : 'Rec2020';
+  const rollTag  = useRolloff ? '_rolloff' : '';
+  const clampTag = useClamp   ? '_clamp'   : '';
+  return `GPLog2_${evTag}_${csTag}${rollTag}${clampTag}_${size}.cube`;
 }
 
 // ═══════════════════════════════════════════════
@@ -750,47 +655,19 @@ const srcCvs  = document.getElementById('srcCvs');
 const dstCvs  = document.getElementById('dstCvs');
 const display = document.getElementById('display');
 
-function processToCanvas(imgData, ev, cs, useRolloff) {
+function processToCanvas(imgData, ev, cs, useRolloff, useClamp) {
   const w = imgData.width, h = imgData.height;
   const out = new ImageData(w, h);
   const s = imgData.data, d = out.data;
   for (let i = 0; i < w*h; i++) {
     const p = i*4;
-    const [r,g,b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff);
-    // TPDF dither at 2× LSB — covers the wider quantization steps
-    // introduced by the rolloff curve without adding visible grain.
-    const dr = (Math.random() + Math.random() - 1) * 2 / 255;
-    const dg = (Math.random() + Math.random() - 1) * 2 / 255;
-    const db = (Math.random() + Math.random() - 1) * 2 / 255;
-    d[p]   = Math.round(Math.max(0, Math.min(1, r + dr)) * 255);
-    d[p+1] = Math.round(Math.max(0, Math.min(1, g + dg)) * 255);
-    d[p+2] = Math.round(Math.max(0, Math.min(1, b + db)) * 255);
+    const [r,g,b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff, useClamp);
+    d[p]   = Math.round(Math.max(0,Math.min(1,r)) * 255);
+    d[p+1] = Math.round(Math.max(0,Math.min(1,g)) * 255);
+    d[p+2] = Math.round(Math.max(0,Math.min(1,b)) * 255);
     d[p+3] = 255;
   }
   return out;
-}
-
-// High-quality downscale: step down in halves until close to target size,
-// then do the final draw. Avoids the aliasing of a single large→small drawImage.
-function hqDownscale(srcCanvas, targetW, targetH) {
-  let cw = srcCanvas.width, ch = srcCanvas.height;
-  // If we're upscaling or within 2× just return source directly
-  if (targetW >= cw / 2 && targetH >= ch / 2) return srcCanvas;
-
-  // Step down by halves until we're within 2× of target
-  let cur = srcCanvas;
-  while (cw / 2 > targetW || ch / 2 > targetH) {
-    cw = Math.max(Math.round(cw / 2), targetW);
-    ch = Math.max(Math.round(ch / 2), targetH);
-    const tmp = document.createElement('canvas');
-    tmp.width = cw; tmp.height = ch;
-    const tc = tmp.getContext('2d');
-    tc.imageSmoothingEnabled = true;
-    tc.imageSmoothingQuality = 'high';
-    tc.drawImage(cur, 0, 0, cw, ch);
-    cur = tmp;
-  }
-  return cur;
 }
 
 function renderSplit() {
@@ -804,8 +681,6 @@ function renderSplit() {
   display.height = dh;
 
   const ctx = display.getContext('2d');
-  ctx.imageSmoothingEnabled = true;
-  ctx.imageSmoothingQuality = 'high';
   ctx.fillStyle = '#111';
   ctx.fillRect(0, 0, dw, dh);
 
@@ -817,23 +692,18 @@ function renderSplit() {
   const ox    = Math.round((dw - drawW) / 2);
   const oy    = Math.round((dh - drawH) / 2);
 
-  // Pre-downscale both canvases to avoid single-pass aliasing
-  const srcDown = hqDownscale(srcCvs, drawW, drawH);
-  const dstDown = hqDownscale(dstCvs, drawW, drawH);
+  // Source (log) fills full canvas, graded clips right of split
+  ctx.drawImage(srcCvs, ox, oy, drawW, drawH);
 
-  // Source (log) left side
-  ctx.drawImage(srcDown, ox, oy, drawW, drawH);
-
-  // Graded right side, clipped at split
   const sx = Math.round(splitPos * dw);
   if (sx < dw) {
     ctx.save();
     ctx.beginPath(); ctx.rect(sx, 0, dw - sx, dh); ctx.clip();
-    ctx.drawImage(dstDown, ox, oy, drawW, drawH);
+    ctx.drawImage(dstCvs, ox, oy, drawW, drawH);
     ctx.restore();
   }
 
-  // Split line
+  // Split line (full height so it's visible over letterbox bars too)
   ctx.strokeStyle = 'rgba(232,146,32,.9)';
   ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(sx, 0); ctx.lineTo(sx, dh); ctx.stroke();
@@ -862,8 +732,9 @@ function doUpdate() {
     const ev = parseFloat(document.getElementById('evSlider').value);
     const cs = currentCS;
     const ro = document.getElementById('rolloff').checked;
+    const cl = document.getElementById('clampOut').checked;
 
-    const processed = processToCanvas(srcData, ev, cs, ro);
+    const processed = processToCanvas(srcData, ev, cs, ro, cl);
 
     dstCvs.width  = srcCvs.width;
     dstCvs.height = srcCvs.height;
@@ -907,6 +778,7 @@ function updateInfo() {
   const ev = parseFloat(document.getElementById('evSlider').value);
   document.getElementById('iGain').textContent  = `×${Math.pow(2,ev).toFixed(2)}`;
   document.getElementById('iRoll').textContent  = document.getElementById('rolloff').checked ? 'On' : 'Off';
+  document.getElementById('iClamp').textContent = document.getElementById('clampOut').checked ? 'On' : 'Off';
 }
 
 function updateSlider() {
@@ -951,6 +823,11 @@ document.getElementById('rolloff').addEventListener('change', () => {
   updateInfo(); scheduleUpdate();
 });
 
+// Clamp Output
+document.getElementById('clampOut').addEventListener('change', () => {
+  updateInfo(); scheduleUpdate();
+});
+
 // ─── Save LUT ────────────────────────────────
 document.getElementById('saveBtn').addEventListener('click', async () => {
   const btn = document.getElementById('saveBtn');
@@ -958,8 +835,9 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
   await new Promise(r => setTimeout(r, 12));
   const ev = parseFloat(slEl.value);
   const ro = document.getElementById('rolloff').checked;
-  const content  = makeCube(currentSize, ev, currentCS, ro);
-  const filename = cubeFilename(currentSize, ev, currentCS, ro);
+  const cl = document.getElementById('clampOut').checked;
+  const content  = makeCube(currentSize, ev, currentCS, ro, cl);
+  const filename = cubeFilename(currentSize, ev, currentCS, ro, cl);
   const blob = new Blob([content], {type:'text/plain'});
   const url  = URL.createObjectURL(blob);
   const a    = Object.assign(document.createElement('a'), {href:url, download:filename});
@@ -1022,27 +900,6 @@ new ResizeObserver(() => { renderSplit(); }).observe(document.getElementById('ca
 updateSlider();
 updateInfo();
 document.getElementById('testBtn').click();  // auto-load test chart
-
-
-// ─── Mobile drawer ────────────────────────────
-const ctrlToggle  = document.getElementById('ctrlToggle');
-const ctrlOverlay = document.getElementById('ctrlOverlay');
-const asideEl     = document.querySelector('aside');
-
-function openDrawer()  { document.body.classList.add('ctrl-open');    ctrlToggle.textContent = '✕'; }
-function closeDrawer() { document.body.classList.remove('ctrl-open'); ctrlToggle.textContent = '⚙'; }
-
-ctrlToggle.addEventListener('click', () =>
-  document.body.classList.contains('ctrl-open') ? closeDrawer() : openDrawer()
-);
-ctrlOverlay.addEventListener('click', closeDrawer);
-
-// Swipe down on drawer to close
-let _ty0 = 0;
-asideEl.addEventListener('touchstart', e => { _ty0 = e.touches[0].clientY; }, {passive:true});
-asideEl.addEventListener('touchend',   e => {
-  if (e.changedTouches[0].clientY - _ty0 > 55) closeDrawer();
-}, {passive:true});
 </script>
 </body>
 </html>
