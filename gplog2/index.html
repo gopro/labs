@@ -631,15 +631,16 @@ function makeTestImage() {
     ctx.fillText(i + 1, x + 4, y + 3);
   });
 
-  // ── Continuous grey ramp (linear → GP-Log2) ──
+  // ── Continuous grey ramp (log base 600 scale) ──
+  // x maps linearly to GPLog2 code value 0→1, so pixel values are a straight
+  // ramp 0→255. The underlying linear light follows the log-600 curve, which
+  // gives equal visual spacing per stop — no gamma pre-warp needed.
   const rampY = H - FTR + GAP;
   const rampH = 22;
   // Span from near-black to 1 stop above white at the LUT's default EV
   const rampMax = 1.0; // slight overexposure on right edge
   for (let x = 0; x < W; x++) {
-    const lin  = (x*x / ((W - 1)*(W - 1))) * rampMax;
-    const lv   = Math.max(0, Math.min(1, logEnc(Math.max(1e-7, lin))));
-    const v    = Math.round(lv * 255);
+    const v = Math.round((x / (W - 1)) * 255);
     ctx.fillStyle = `rgb(${v},${v},${v})`;
     ctx.fillRect(x, rampY, 1, rampH);
   }
@@ -647,6 +648,47 @@ function makeTestImage() {
   ctx.strokeStyle = 'rgba(255,255,255,0.08)';
   ctx.lineWidth = 1;
   ctx.strokeRect(0.5, rampY + 0.5, W - 1, rampH - 1);
+
+  // ── Stop markers ─────────────────────────────
+  // Stop n: lin = 2^(-n)  →  GPLog2 code = logEnc(2^(-n))  →  x = (W-1) × logEnc(2^(-n))
+  // With log-scale ramp each stop is evenly spaced — no staggering needed.
+  const tickTop = rampY + rampH + 4;
+  const tickH   = 8;
+  const lblRowA = tickTop + tickH + 4;   // primary row   (even stops)
+  const lblRowB = tickTop + tickH + 22;  // staggered row (odd stops ≥ 7)
+
+  ctx.font = '13px monospace';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+
+  for (let n = 0; n <= 12; n++) {
+    const sx    = Math.round((W - 1) * logEnc(Math.pow(2, -n)));
+    const label = n.toFixed(0);
+    const row   = (n >= 7 && n % 2 === 1) ? lblRowB : lblRowA;
+
+    // Tick line
+    ctx.strokeStyle = n === 0 ? 'rgba(200,190,170,0.8)' : 'rgba(140,132,120,0.55)';
+    ctx.lineWidth   = n === 0 ? 2 : 1;
+    ctx.beginPath(); ctx.moveTo(sx, tickTop); ctx.lineTo(sx, tickTop + tickH); ctx.stroke();
+
+    // Stagger connector line for offset labels
+    if (row === lblRowB) {
+      ctx.strokeStyle = 'rgba(100,94,84,0.4)';
+      ctx.lineWidth   = 1;
+      ctx.beginPath(); ctx.moveTo(sx, tickTop + tickH); ctx.lineTo(sx, row); ctx.stroke();
+    }
+
+    // Label
+    ctx.fillStyle = n === 0 ? 'rgba(200,190,170,0.9)' : 'rgba(140,132,120,0.75)';
+    ctx.fillText(label, sx, row);
+  }
+
+  // Direction label at far right
+  ctx.font = '11px monospace';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'top';
+  ctx.fillStyle = 'rgba(200,190,170,0.6)';
+  ctx.fillText('← stops below peak', W - 10, tickTop);
 
   return c;
 }
