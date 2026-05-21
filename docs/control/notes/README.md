@@ -2,6 +2,42 @@
 
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
+## MISSION 1 & MISSION 1 PRO
+
+First Labs version, bring maybe of the classic Labs feature to this new product line. Many Labs feature from older camera are now in the stock firmware: DIVE, EXPT, EXPS and LOWL are some big examples. 
+
+New commands for Mission cameras:
+- Added b2 - Max bitrate (if the mode supports)
+- Added bS - bitrate Standard/Low
+- Added bH - bitrate High
+- Added bM - bitrate Max1
+- Added cL - color GPLog2
+- Added cC - color Cinematic
+- Added dL - denoise Low       (or older cmd oN2)   d0 / d8 - depth 8, d1 / d10 - depth 10
+- Added dM - denoise Medium    (or older cmd oN1)
+- Added dH - denoise High      (or older cmd oN)
+- Added tW / tU / TD - Underwater tuning
+- Added tF - Face tuning
+- Added tS - Sport tuning
+- Added tB - Balanced tuning
+- Added bA - motion blur Adaptive
+- Added bR - motion blur Reduced
+- Added bX - motion blur Cinematic Low
+- Added bY - motion blur Cinematic Medium
+- Added bC - motion blur Cinematic High
+- Added bP - motion blur Photo
+- Added hH0 - HLG off
+- Added hH or hH1 - HLG on
+- $BERS=1 is now only active with EIS
+- $24HZ=1 now works
+- Added mVN - mode Video Night - Low Light mode.
+- Added i4M4R90  <- Range with a min shutter angle
+- Added s0 <- Auto shutter
+- Added s90 or s180 <- Manual shutter angle
+- Added s90M or s180M <- Minimum shutter angle
+- Added oI <- Capture info amd oI0 info off
+- Fixed !FORMAT for when BASE was used (media count was wrong)
+
 ## MAX2
 
 ### 1.30.70 - March 17, 2026
@@ -791,6 +827,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: March 17, 2026
+updated: May 20, 2026
 
 [Learn more](..) on QR Control

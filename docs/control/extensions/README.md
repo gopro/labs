@@ -26,6 +26,52 @@ Some particular 4CCs will also change camera behavior and/or enable features.
 
 Here is a list of additional metadata driven camera extensions: 
 
+### **MISSION cameras**
+
+- **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
+- **64BT=1** - Enables 64GB chapters. 
+- **ALLI=1** - for optionally ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 90.0, 100.0, 120.0, 200.0, 240.0, 400.0, 480.0, 800.0, 960.0
+- **BERS=1** - Bypass ERS compensation with stablization disabled. Not commonly used.
+- **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. \*BOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here".
+- **BYPS=1** - Bypass common pop-ups. Remember to set time and date if you remove the battery.
+- **COOL=x** - COOL maybe useful with DIVE, so you can decrease the blue respond for deeper dives. x range -50 to 100. Reducing or increasing blue signal only.
+- **DAUD=1** - Disable audio, all video created video files will have no audio. Application: high bit-rate drones video.
+- **DBGL=1** - enabled more debug logging. Labs saves it logs to the SD card under MISC/qrlog.txt. Using this extension increases the details and logged events.
+- **DSPC=value**, this sets that contrast for which messages are displayed.  Contrast is from 0 - transparent text background, to 6 - opaque black background
+- **DSPL=time**, this will control the amount of time messages are displayed. For users who want there own information displayed longer. The default is 1 second.  DSPL=1 thru 9 is in seconds.  DSPL = 10 thru 9999 is in milliseconds.  So for much faster messages set DSPL to 100. Set this before setting the owner information, as metadata commands are processed in the order they are stored. 
+- **FAST=1** For fewer Labs notifications on boot. Useful for any script that repeats after a shutdown, and the script will run sooner, and reducting battery consumption.
+- **FEAT=x** - Display the permanent Labs feature active for x seconds. It is easy to miss the start-up message, this QR command redisplays that message.
+- **FONT=1** Select the old fonts (if you only want the dot matrix font)
+- **FRNT=1** For front screen equipped cameras, display most LCD Labs message on the front screen. Practicular useful for FPV useful not using the touchscreen.  e.g.  \*FRNT=1\*EXPS=1 will display the ISO and shutter speed on the front LCD.
+- **GPSL=x** - to enabled continous GPS location logging, even when not capturing, so the capture can log more of you path and adventures. Path is saved by day into 
+MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log movement great than x meter from the last stored location.
+- **GRAB=x** - Screen grab 'x'-frames, grab next 'x' Labs overlays - frame grab the UI. Useful for education and bug reporting.
+- **GUID=aspect,aspect,...** - Displays an on-scene shooting guide for different aspect ratios, independent from the camera's current video mode. 
+- **GUIC=level,level,...** - The shooting guides default to white at 255, but you can select their luma level. e.g. GUIC=255,0, will be white for the first guide and black the for second.
+- **HNDL=x**, where x is 1 to 31, setting the camera ID for a camera. This is for rare scenarios where multiple cameras see the same QR Code, and you only want particular cameras to respond. This combined with **hZ** command where Z is the bit mask for which cameras will follow the command.
+	- e.g.   h6mP!S  ← this command will only run on cameras with IDs 2 and 3.
+    - e.g.   h1mVh2mPB ← set camera 1 to mode Video and camera 2 to Photo Burst.
+- **HIST=x** - Displays a histogram with contrast from 1 to 11. e.g. try setting HIST to 5. HIST=0 will disable it.  
+- **HSTO=x** - minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
+- **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram. 
+- **IFRM=1** - for I-frame only encoding. Recommend to run at least 240Mb/s using BITR. Still very experimental.
+- **LEVL=size** - Add a spirit level to the rear LCD, where the size can be 1-9. e.g. $LEVL=6. 
+- **LLTZ=latt,long,timezone** for those want to use Sunset/Sunrise timelapse without using GPS, or for when you are shooting a sunset timelapse from indoors. The metadata is used to store your GPS Location and timezone e.g. !MLLTZ=33.126,-117.327,-8.0  In this case you must used the !M command, permanent storage, as solar event timers will shutdown the camera.
+- **MMSK=x** - for auto generating a mask for the new motion detector.
+- **NR01=x** - Noise Reduction control. e.g. $NR01=50 range 1-100, 100 being 100% active (default), so 1 is the noisest. Mainly if you want noise reduction complete off, or lower than Low.
+- **PRES=x,name** - Added creating, naming and sharing presets where x 0-32 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **$PRES="14,Scuba"**
+- **PRXY=x** - Normally a camera will encode a LRV (Low Res Video) for every MP4, this extension stores LRVs as Proxy files. 1 - moves LRVs as Adobe Premiere Pro™ style, 2 - moves THMs, 3 moves both into the proxies folder, 4 - uses DaVinci Resolve™ style proxies folder. 
+- **preset** - friendly B001 to B999 for bitrate control e.g. B180 in a preset name will be 180mbs
+- **preset** - friendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
+- **QRDR=1** - detect QR Codes while recording, or even Quik Preview. This also enables Labs BOOT commands to work with QuikCapture in recent models. Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
+- **SPED=1** - SD Card Speed Test. 
+- **STDL=x** - Start Delay is milliseconds (default 2000ms, wait before any other commands.) $STDL=100 for less wait. Experimental to improve scripting performance.
+- **TUSB=1** - Trust USB power. Limited implementation on Mission.
+- **TCAL=milliseconds** - Timecode CALibration, help to increase the precision of setting timecode via QR Code. The milliseconds can be positive or negative as needed.
+- **WAKE=1** - This will make the camera wake on any power addition.
+- **WARM=x** - WARM maybe useful with DIVE, so you can improve the red respond for deeper dives. x range -50 to 100. Reducing or increasing red signal only.
+
+
 
 ### **MAX2 cameras**
 
@@ -250,7 +296,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: January 28, 2026<br>
+updated: May 20, 2026<br>
 
 [Learn more](..) on QR Control
 

@@ -588,7 +588,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 Feedback: <small id="feedbacktext"></small><br>
 
-**Compatibility:** Labs enabled MISSION sersies<br>
+**Compatibility:** Labs enabled MISSION series<br>
         
 [More features](..) for Labs enabled cameras
 
