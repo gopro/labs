@@ -592,7 +592,7 @@ Feedback: <small id="feedbacktext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: May 12, 2026
+updated: May 20, 2026
 
 <script>
 var clipcopy = "";
