@@ -26,7 +26,7 @@ Some particular 4CCs will also change camera behavior and/or enable features.
 
 Here is a list of additional metadata driven camera extensions: 
 
-### **MISSION cameras**
+### **MISSION 1 Series cameras**
 
 - **24HZ=1** - enable film standard 24.0 frame, rather than the default broadcast standard 23.976.  The existing 24p mode(s) will have the new frame rate when this is enabled, all other video modes are unaffected. 
 - **64BT=1** - Enables 64GB chapters. 
@@ -296,7 +296,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: May 20, 2026<br>
+updated: May 21, 2026<br>
 
 [Learn more](..) on QR Control
 

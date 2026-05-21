@@ -6,7 +6,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 First Labs version, bring maybe of the classic Labs feature to this new product line. Many Labs feature from older camera are now in the stock firmware: DIVE, EXPT, EXPS and LOWL are some big examples. 
 
-New commands for Mission cameras:
+New commands for MISSION 1 Series cameras:
 - Added b2 - Max bitrate (if the mode supports)
 - Added bS - bitrate Standard/Low
 - Added bH - bitrate High
@@ -827,6 +827,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: May 20, 2026
+updated: May 21, 2026
 
 [Learn more](..) on QR Control

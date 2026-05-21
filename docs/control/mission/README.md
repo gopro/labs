@@ -12,7 +12,7 @@
 </style>
 
 
-#  GoPro Mission One QR Code Creator
+#  GoPro MISSION 1 Series QR Code Creator
 
 Create a custom camera mode, and even start a capture all through QR Codes. This is the fastest way to access many of the new GoPro Labs' firmware features. 
 Many features of this page are also available as a mobile app.<br>
@@ -592,7 +592,7 @@ Feedback: <small id="feedbacktext"></small><br>
         
 [More features](..) for Labs enabled cameras
 
-updated: May 20, 2026
+updated: May 21, 2026
 
 <script>
 var clipcopy = "";
