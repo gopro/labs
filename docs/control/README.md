@@ -49,7 +49,7 @@ and as a mobile app:<br>
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
 * **HERO8-13/MAX1-2/Bones** - [**Daily Time-lapse**](./dailytl) with optional upload
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
-* Construction time-laspes only recommend for HERO12-13 [**Daily Long Time-lapses**](./construction)
+* Construction time-laspes only recommend for MISSION/HERO12-13 [**Daily Long Time-lapses**](./construction)
 * Solar Eclipse [**Timelapse Planner**](./eclipse)
 
 ### Video Alteration Features
