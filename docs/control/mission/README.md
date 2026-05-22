@@ -105,7 +105,7 @@ Install from: [![google play](https://gopro.github.io/labs/control/google-play-8
 <b>Lens:</b>
   <input type="radio" id="f1" name="fov" value="fW"> <label for="f1">Wide </label>&nbsp;&nbsp;
   <input type="radio" id="f2" name="fov" value="fL"> <label for="f2">Linear </label>&nbsp;&nbsp;
-  <input type="radio" id="f3" name="fov" value="fS"> <label for="f3">Superview </label>&nbsp;&nbsp
+  <input type="radio" id="f3" name="fov" value="fS"> <label for="f3">Superview </label>&nbsp;&nbsp;
   <input type="radio" id="f4" name="fov" value="" checked> <label for="f4">not set</label><br><br>
  </div>
  
@@ -315,7 +315,7 @@ Install from: [![google play](https://gopro.github.io/labs/control/google-play-8
   <input type="radio" id="ptc4" name="ptc" value="cF"> <label for="ptc4">Flat</label>&nbsp;&nbsp;
   <input type="radio" id="ptc5" name="ptc" value="cL"> <label for="ptc5">GP-Log2</label>&nbsp;&nbsp;
   <input type="radio" id="ptc6" name="ptc" value="" checked> <label for="ptc6">not set</label>
-</div>
+</div>[![GP-Log2 Info/LUTs]](../../log)
 <div id="ptCOLORHLG">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
   <input type="radio" id="ptch1" name="ptch" value="cG"> <label for="ptch1">Vibrant</label>&nbsp;&nbsp;
   <input type="radio" id="ptch2" name="ptch" value="cN"> <label for="ptch2">Natural</label>&nbsp;&nbsp;

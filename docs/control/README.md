@@ -20,7 +20,8 @@
 
 ## Configuration Commands for All Labs Enabled Cameras
 
-* Set camera modes with the Customizable QR Code Creator [**HERO Black Cameras**](./custom)<br>
+* Optimized for [**MISSION 1 Series Cameras**](./mission)<br>
+* and here optimized for [**HERO Black Cameras**](./custom)<br>
 * and here optimized for [**GoPro MAX2**](./max2)<br>
 * and here optimized for [**GoPro HERO10 Bones**](../bones)<br>
 and as a mobile app:<br>
@@ -96,7 +97,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO10-13/MAX1-2** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 * New [ChatBot for GoPro Labs commands](https://bit.ly/chat_gp_labs)
 
-updated: November 20, 2025
+updated: May 22, 2025
 
 
 <script>
