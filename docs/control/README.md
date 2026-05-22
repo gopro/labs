@@ -64,7 +64,7 @@ and as a mobile app:<br>
 * **HERO8 or newer** - Enable larger chapter sizes for 64+GB cards [**12 GB Chapters**](./chapters). Standard on HERO11/12/13
 * **HERO8 or newer** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-13** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
-* **HERO10 or newer* - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
+* **HERO10 or newer** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
 ### HDRIs for MAX2
