@@ -43,9 +43,9 @@ Note: it is correct for 23.976 and 29.97 Non-drop timecode to it be 0.1% behind 
 
 <br> 
 
-**Compatibility:** Labs enabled HERO9, HERO10, HERO11 and HERO13
+**Compatibility:** Labs enabled HERO9, HERO10, HERO11, HERO13 and likely MISSION (untested)
 
-updated: September 10, 2024<br>
+updated: May 22, 2026<br>
 
 [More features](..) for Labs enabled cameras
 

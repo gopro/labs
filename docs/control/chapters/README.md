@@ -33,7 +33,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Warning:** Larger chapters may not work everywhere in the ecosystem, even **the HERO8 an HERO9 cameras will not playback or USB transfer files larger than 4GB** in this current firmware. Yet the files are valid and accessible using a SD Card reader, and have been tested to work in many tools. So this one of the more experimental features, so please test before committing to this new workflow.  Support for HERO8, HERO9, HERO10 and MAX cameras.
 
-**Compatibility:** Labs enabled HERO8-10, MAX and BONES (standard on HERO11-13)
+**Compatibility:** Labs enabled HERO8-10, MAX/2, BONES and MISSION Series
 
 ## Optional: Joining Chapters After Capture
  

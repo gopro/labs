@@ -47,7 +47,7 @@ and as a mobile app:<br>
 
 ### Extended Time-lapse Features 
 * Start a 24-hour long time-lapse or greater with [**Extra Long Time-lapses**](./longtimelapse)
-* **HERO8-13/MAX1-2/Bones** - [**Daily Time-lapse**](./dailytl) with optional upload
+* [**Daily Time-lapse**](./dailytl) with optional upload
 * Schedule your camera to automatically [**Time-lapse Sunsets and Sunrises**](./solartimelapse)
 * Construction time-laspes only recommend for MISSION/HERO12-13 [**Daily Long Time-lapses**](./construction)
 * Solar Eclipse [**Timelapse Planner**](./eclipse)
@@ -62,11 +62,11 @@ and as a mobile app:<br>
 ### Miscellaneous Features
 * **HERO7-13/MAX1-2** - Enable [**Archive Mode**](./archive), a video only capture mode for loaned cameras 
 * **HERO8-13/Bones** - Configure your camera for [**Live-streaming**](./rtmp) via QR Code
-* **HERO9-11,13/MAX1-2** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
-* **HERO8-10/MAX1-2/Bones** - Enable larger chapter sizes for 64+GB cards [**12 GB Chapters**](./chapters). Standard on HERO11/12/13
-* **HERO8-13/MAX1-2/Bones** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
+* **GPS Enabled Cameras** - Sync multiple cameras' timecode via [**GPS Time Synchronization**](./gpssync)
+* **HERO8 or newer** - Enable larger chapter sizes for 64+GB cards [**12 GB Chapters**](./chapters). Standard on HERO11/12/13
+* **HERO8 or newer** - Multi-camera users, label you media with [**Altered File Naming**](./basename)
 * **HERO9-13** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
-* **HERO10-13** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
+* **HERO10 or newer* - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
 ### HDRIs for MAX2
