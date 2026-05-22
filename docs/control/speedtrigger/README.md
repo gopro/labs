@@ -51,9 +51,9 @@ Note: you will have to manually set the mode in which you capture.  The detector
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
 
-**Compatibility:** Labs enabled HERO7-11, HERO13 and MAX 
+**Compatibility:** Labs enabled GPS Equiped cameras, including MISSION Series
 
-updated: September 10, 2024
+updated: May 22, 2026
 
 [More features](..) for Labs enabled cameras
 
