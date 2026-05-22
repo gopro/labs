@@ -13,7 +13,7 @@
         }
 </style>
 
-Decoding 4K and 5K HEVC Video can be very demanding on video tools. To speed up the editing workflow, a common solution is to transcode high resolution files into proxies.
+Decoding 4K, 5K and now 8K HEVC Video can be very demanding on video tools. To speed up the editing workflow, a common solution is to transcode high resolution files into proxies.
 With this Labs extension enabled, the camera automatically produces Adobe Premiere Pro™ or DaVinci style proxy files, saving you the time consuming transcoding step. 
 Normally a camera will encode a LRV (Low Res Video) for every MP4 using this standard directory structure:<br>
 <pre>   DCIM/100GOPRO/GX013784.MP4
@@ -55,9 +55,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 **Warning:** When this feature is enabled, the lack of LRVs will mean the Quik App will not be able to preview video on the camera. However, this will not prevent the full resolution transfer, or on camera playback.
 
-**Compatibility:** Labs enabled HERO10 (Premiere Pro only), HERO11-13 (Both NLEs)
+**Compatibility:** Labs enabled HERO10 (Premiere Pro only), HERO11-13 and MISSION Series (Both NLEs)
 
-updated: September 10, 2024
+updated: May 22, 2026
 
 [More features](..) for Labs enabled cameras
 
