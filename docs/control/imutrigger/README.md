@@ -34,7 +34,7 @@ While the motion detection feature looks for changes in the image, this is only 
 
 Notes: 
 - Sensitivity range: 1-low to 9-high - see table below
-- you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature on HERO9/10/11. 
+- you will have to manually set the mode in which you capture.  The detector can be combined with the Hindsight feature. 
  
  
 <div id="qrcode_txt1" style="width: 360px">
@@ -87,9 +87,9 @@ Now that starting and stopping your GoPro's capture is solved, you also don't wa
 
 ![Feedback](feedback.jpg)
 
-**Compatibility:** Labs enabled HERO7-13, MAX and BONES
+**Compatibility:** Labs enabled HERO7-13, MAX/2, BONES and MISSION Series
 
-updated: Sept 10, 2024
+updated: May 22, 2026
 
 [More features](..) for Labs enabled cameras
 
