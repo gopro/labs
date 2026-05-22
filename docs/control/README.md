@@ -33,8 +33,6 @@ and as a mobile app:<br>
 
 ## The Many Features of Labs
 
-### New Showcase features: 
-
 ### Camera Extensions
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
@@ -94,7 +92,7 @@ An incomplete set of [**Release Notes**](./notes)
 
 ## Full Control, Commands Under The Hood 
 * Technical information on the [**Labs command language**](./tech)
-* **HERO10-13/MAX1-2** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
+* **HERO10 or newer** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 * New [ChatBot for GoPro Labs commands](https://bit.ly/chat_gp_labs)
 
 updated: May 22, 2025
