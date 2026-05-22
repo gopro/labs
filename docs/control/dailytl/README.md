@@ -21,7 +21,7 @@ Note: it is best to set your camera’s date and time before using this QR Code 
 
 <b>Type:</b>&nbsp;&nbsp;
   <input type="radio" id="nltlv1" name="nltlv" value="mT" checked> <label for="nltlv1">TimeLapse Video</label>&nbsp;&nbsp;
-  <input type="radio" id="nltlv2" name="nltlv" value="mNL"> <label for="nltlv2">NightLapse Video (not M1(P))</label>&nbsp;&nbsp;
+  <input type="radio" id="nltlv2" name="nltlv" value="mNL"> <label for="nltlv2">NightLapse Video (not MISSION)</label>&nbsp;&nbsp;
   <input type="radio" id="nltlv3" name="nltlv" value=""> <label for="nltlv3">not set</label>
  
 <b>Lens:</b>&nbsp;&nbsp;
