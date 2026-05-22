@@ -305,7 +305,7 @@ Install from: [![google play](https://gopro.github.io/labs/control/google-play-8
   <input type="radio" id="hlg2" name="hlg" value="hH0"> <label for="hlg2">HLG off</label>&nbsp;&nbsp;
   <input type="radio" id="hlg3" name="hlg" value="" checked> <label for="hlg3">not set</label>
 </div>
-<div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Color:</b>[GP-Log2 Info](../../log)
+<div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Color:</b><a href="https://gopro.github.io/labs/log/">GP-Log2 Info</a>
   <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">Vibrant</label>&nbsp;&nbsp;
   <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural</label>&nbsp;&nbsp;
   <input type="radio" id="ptc3" name="ptc" value="cC"> <label for="ptc3">Cinematic</label>&nbsp;&nbsp;
