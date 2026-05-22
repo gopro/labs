@@ -67,11 +67,9 @@ and as a mobile app:<br>
 * **HERO10 or newer** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
-### HDRIs for MAX2
-* Use MAX2 to shoot HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
-
-### Bracketed Photos MAX2/HERO13/HERO12
-* Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
+###  Bracketing Scripts
+* **MAX2** Create 360 HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
+* **MAX2/HERO12-13**Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
 
 ## Metadata Extraction
 * **ALL cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
