@@ -35,12 +35,6 @@ and as a mobile app:<br>
 
 ### New Showcase features: 
 
-#### HDRIs for MAX2
-* Use MAX2 to shoot HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
-
-#### Bracketed Photos MAX2/HERO13/HERO12
-* Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
-
 ### Camera Extensions
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
@@ -74,6 +68,12 @@ and as a mobile app:<br>
 * **HERO9-13** - Timecode Support via [**LTC**](./ltc) over audio line-in using Media Mod 
 * **HERO10-13** - Support for Adobe Premiere Pro™ and DaVinci style [**Proxy Files**](./proxies) 
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
+
+### HDRIs for MAX2
+* Use MAX2 to shoot HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
+
+### Bracketed Photos MAX2/HERO13/HERO12
+* Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
 
 ## Metadata Extraction
 * **ALL cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
