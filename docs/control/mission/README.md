@@ -308,13 +308,13 @@ Install from: [![google play](https://gopro.github.io/labs/control/google-play-8
   <input type="radio" id="hlg2" name="hlg" value="hH0"> <label for="hlg2">HLG off</label>&nbsp;&nbsp;
   <input type="radio" id="hlg3" name="hlg" value="" checked> <label for="hlg3">not set</label>
 </div>
-<div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
+<div id="ptCOLOR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Color:</b>[GP-Log2 Info](../../log)
   <input type="radio" id="ptc1" name="ptc" value="cG"> <label for="ptc1">Vibrant</label>&nbsp;&nbsp;
   <input type="radio" id="ptc2" name="ptc" value="cN"> <label for="ptc2">Natural</label>&nbsp;&nbsp;
   <input type="radio" id="ptc3" name="ptc" value="cC"> <label for="ptc3">Cinematic</label>&nbsp;&nbsp;
   <input type="radio" id="ptc4" name="ptc" value="cF"> <label for="ptc4">Flat</label>&nbsp;&nbsp;
   <input type="radio" id="ptc5" name="ptc" value="cL"> <label for="ptc5">GP-Log2</label>&nbsp;&nbsp;
-  <input type="radio" id="ptc6" name="ptc" value="" checked> <label for="ptc6">not set</label>[GP-Log2 Info/LUTs](../../log)
+  <input type="radio" id="ptc6" name="ptc" value="" checked> <label for="ptc6">not set</label>
 </div>
 <div id="ptCOLORHLG">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Color:</b>&nbsp;&nbsp;
   <input type="radio" id="ptch1" name="ptch" value="cG"> <label for="ptch1">Vibrant</label>&nbsp;&nbsp;
