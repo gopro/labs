@@ -21,7 +21,7 @@ Note: it is best to set your camera’s date and time before using this QR Code 
 
 <b>Type:</b>&nbsp;&nbsp;
   <input type="radio" id="nltlv1" name="nltlv" value="mT" checked> <label for="nltlv1">TimeLapse Video</label>&nbsp;&nbsp;
-  <input type="radio" id="nltlv2" name="nltlv" value="mNL"> <label for="nltlv2">NightLapse Video</label>&nbsp;&nbsp;
+  <input type="radio" id="nltlv2" name="nltlv" value="mNL"> <label for="nltlv2">NightLapse Video (not M1(P))</label>&nbsp;&nbsp;
   <input type="radio" id="nltlv3" name="nltlv" value=""> <label for="nltlv3">not set</label>
  
 <b>Lens:</b>&nbsp;&nbsp;
@@ -69,9 +69,9 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 A/C powering the camera via USB is the best. With continuous power supplied, remove the internal battery (charging can reset the wake timer), and the camera should run for a very long time (only SD card storage limitations.) You might be tempted to use a Lithium Ion USB powerbank, however they typically do not work well. They are designed to quickly recharge a smartphone, and when they think power is no longer needed, they shut-off. A select few USB battery sources include an "always on feature" designed for time-lapse projects. Example:[voltaicsystems.com/v50](https://voltaicsystems.com/v50/) This one can even solar recharge the battery at the same time. The second option is add a USB keep alive device that prevents your USB power bank from shutting down. Examples: from [sotabeams.co.uk](https://www.sotabeams.co.uk/usb-battery-pack-keep-alive-load/) and from [tindie.com](https://www.tindie.com/products/overz/smart-power-bank-keep-alive/)
 
-**Compatibility:** Labs enabled HERO8-13 and BONES 
+**Compatibility:** Labs enabled HERO8-13, BONES and MISSION Series 
 
-updated: Sept 10, 2024
+updated: May 22, 2026
 
 [More features](..) for Labs enabled cameras
 
