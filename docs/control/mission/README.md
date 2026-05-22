@@ -1043,7 +1043,7 @@ function startTime() {
 		
 	if(document.getElementById("pt") !== null)
 	{
-		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
+		if(document.getElementById("pt").checked === true)
 		{
 			dset("ptDEPTH", true);
 			if(document.getElementById('ptd2').checked === true)
@@ -1295,14 +1295,6 @@ function startTime() {
 			}
 		}
 	}
-
-	if(document.getElementById("pt").checked === true)
-	{
-		if(document.getElementById("ptr").checked === true)
-		{
-			cmd = cmd + "t0"; //protune reset
-		}
-	}
 	
 	cmd = dcmd(cmd,"hind"); //hindsight
 	cmd = dcmd(cmd,"dur"); //duration
@@ -1343,7 +1335,7 @@ function startTime() {
 		
 	if(document.getElementById("pt") !== null)
 	{
-		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
+		if(document.getElementById("pt").checked === true)
 		{
  			cmd = dcmd(cmd,"ptd"); //depth
 			cmd = dcmd(cmd,"hlg"); //color hlg
