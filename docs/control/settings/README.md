@@ -27,14 +27,15 @@ Mode commands:
  * **mNL** - mode Night-Lapse Video (\*\*)
  * **mNP** - mode Night-Lapse Photo (\*\*)
  * **mL** - mode Live-Burst Photo (HERO10 only)
- * **mST** - mode Star Trails (HERO11/12 only)
- * **mLP** - mode Light Painting (HERO11/12 only)
- * **mLT** - mode Vehicle Lights (HERO11/12 only)
- 
+ * **mST** - mode Star Trails (HERO11/12/13/MISSION only)
+ * **mLP** - mode Light Painting (HERO11/12/13/MISSION only)
+ * **mLT** - mode Vehicle Lights (HERO11/12/13/MISSION only)
+ * **mVN** - mode Video Night, new Low Light mode (MISSION only)
+
 <b>\* Video Looping:</b> You need to create this preset on camera, before this command will select it.<br>
 <b>\*\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work.
  
-Defaults modes (on power up): 
+Defaults modes on power up (MISSION uses last used only): 
  * **dL** - last used mode
  * **dV** - last used Video mode
  * **dP** - last used Photo mode
@@ -52,6 +53,8 @@ Resolutions:
  * **r5** - 5k for HERO5 and 5K 360° for GoPro MAX
  * **r5T** - 5k Tall, the 4x3 mode
  * **r5X** - 5k Extreme, the 8x7 mode (H11/12)
+ * **r8** - 8k for MAX2 and MISSION
+ * **r8T** - 8k Tall, the 8K 4x3 mode
  
 Frame rates: 
  * **p24** - 24 fps
@@ -76,7 +79,7 @@ NightLapse frame rates:
  * **p.120** through **p.1800** (2 minutes to 60 minute interval)
 
 Lens - FOV: 
- * **fN** - Narrow
+ * **fN** - Narrow (some cameras)
  * **fM** - Medium
  * **fW** - Wide
  * **fX** - SuperMax Wide (Max Lens Mod)
@@ -91,15 +94,29 @@ Audio (Raw controls):
 Bitrate: 
  * **b0** - Standard Bitrate
  * **b1** - High Bitrate
+ * **b2** - Max bitrate (MISSION only - if the mode supports)
+ * **bS** - bitrate Standard/Low (MISSION only)
+ * **bH** - bitrate High (MISSION only)
+ * **bM** - bitrate Max1 (MISSION only)
 
 Color: 
- * **cF** - Color Flat
  * **cG** - Color Vibrant
- * **cN** - Color Natural (H10/11/12)
+ * **cN** - Color Natural (H10/11/12/13/MISSION)
+ * **cF** - Color Flat
+ * **cC** - color Cinematic (MISSION only)
+ * **cL** - color GPLog2 (MISSION only)
 
-Depth (H11/12 only): 
+Depth (H11/12/13/MAX2/MISSION): 
  * **d0** or **d8** - 8-bit color
  * **d1** or **d10** - 10-bit color
+
+Denoise
+ * **oN2** denoise Low (HERO13 or MISSION)
+ * **oN1** denoise Medium (HERO13 or MISSION)
+ * **oN** denoise High (HERO13 or MISSION)
+ * **dL** - denoise Low (MISSION only)
+ * **dM** - denoise Medium (MISSION only)
+ * **dH** - denoise High (MISSION only)
 
 EIS (Hypersmooth control): 
  * **e0** - Off     
@@ -119,6 +136,10 @@ Hindsight (Video modes H9-12):
  * **hS2** - On 30s window
  * **hS5** - Experimental Labs H11/12 - 5s window
 
+HLG (MISSION only)
+ * **hH0** - HLG off
+ * **hH or hH1** - HLG on
+ 
 White Balance: 
  * **wA** - Auto White Balance
  * **w23** - 2300K White balance
@@ -126,7 +147,7 @@ White Balance:
  * **w50**, **w55**, **w60**, **w65**  - 5000K, 5500K, 6000K, 6500K
  * **wN** - Native White Balance (sensor raw)
 
-ISO Minimum and Maximum (set to together with format i(max)M(min)): 
+ISO Minimum and Maximum (set to together with format i(max)M(min)) (not MISSION): 
  * **i1M1** - 100 ISO Max & Min
  * **i2M1** - 200 ISO Max with 100 ISO Min
  * **i16M8** - 1600 ISO Max with 800 ISO Min
@@ -142,6 +163,39 @@ ISO Maximum and Shutter Lock (set to together format i(max)S(angle)):
  * **i1S0** - 100 ISO Max with an **Automatic** shutter angle
  * Angles between 22 and 1 degrees do have limited support. Experiment for higher shutter speeds.  You will need a good amount of light and/or a higher ISO.
 
+ISO Range (MISSION only)
+ * **i1** - Range up to 100
+ * **i2** - Range up to 200
+ * **i4** - Range up to 400
+ * **i8** - Range up to 800
+ * **i16** - Range up to 1600
+ * **i32** - Range up to 3200
+ * **i64** - Range up to 6400
+
+ISO Fixed (MISSION only)
+ * **i1M1** - Fixed at 100
+ * **i2M2** - Fixed at 200
+ * **i4M4** - Fixed at 400
+ * **i8M8** - Fixed at 800
+ * **i16M16** - Fixed at 1600
+ * **i32M32** - Fixed at 3200
+ * **i64M64** - Fixed at 6400
+ 
+Shutter Controls  (MISSION only)
+ * **s0** - Auto shutter
+ * **s360** - fixed 360 degrees
+ * **s180** - fixed 180 degrees
+ * **s90** - fixed 90 degrees
+ * **s45** - fixed 45 degrees
+ * **s22** - fixed 22 degrees
+ * **s11** - fixed 11 degrees
+ * **s360M** - Minimum shutter angle up to 360 degrees (in available)
+ * **s180M** - Minimum shutter angle up to 180 degrees (in available)
+ * **s90M** - Minimum shutter angle up to 90 degrees (in available)
+ * **s45M** - Minimum shutter angle up to 45 degrees (in available)
+ * **s22M** - Minimum shutter angle up to 22 degrees (in available)
+ * **s11M** - Minimum shutter angle up to 11 degrees (in available)
+ 
 EV Compensation: 
  * **x0** - EV 0 default
  * **x-.5** - EV -0.5
@@ -176,7 +230,23 @@ GoPro MAX Shooting Modes
  * **m3R** - mode 360° rear on LCD
  * **mF** - mode monitor Front lens
  * **mR** - mode monitor Rear lens
-
+ 
+Tuning Modes (MISSION only)
+ * **tW** - Underwater tuning
+ * **tU** - Underwater tuning
+ * **tD** - Underwater tuning
+ * **tF** - Face tuning
+ * **tS** - Sport tuning
+ * **tB** - Balanced tuning
+ 
+Motion Blur Controls (MISSION only)
+ * **bA** - motion blur Adaptive
+ * **bR** - motion blur Reduced
+ * **bX** - motion blur Cinematic Low
+ * **bY** - motion blur Cinematic Medium
+ * **bC** - motion blur Cinematic High
+ * **bP** - motion blur Photo
+ 
 Feature with off and on commands:
 - EIS (Hypersmooth stabilization): **e0** - off, **e** or **e1** - on, **e2** - High, **e3** Boost, **e4** Auto (H11/12)
 - (Deprecated) GPS Active: **g0** - off, **g** or **g1** - on 
@@ -204,6 +274,7 @@ Option (‘o’) commands:
 - Volume Control - **oVC0** - off, **oVC1** - on
 - WiFi Connection - **oW0** - off, **oW1** - on
 - Max Lens Mod -  **oX0** - disabled, **oX1** - MLM original enabled, **oX2** - MLM 2.0 enanled
+- Capture Info - **oI0** - off, **oI** - on
 
 GoPro HERO9-12 Front Screen option commands
  * **oF0 or oFO** - turn the front LCD off
@@ -247,7 +318,7 @@ HERO11/12 UX modes:
 Custom Mode: <input type="text" id="tryit" value=""><br>
 
 
-updated: Dec 5, 2023
+updated: May 22, 2026
 
 [Learn more](..) on QR Control
 
