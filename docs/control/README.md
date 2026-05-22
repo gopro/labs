@@ -68,8 +68,8 @@ and as a mobile app:<br>
 * **All Labs cameras** - Dozens of camera enhancements: [**extensions**](./extensions) via QR Code
 
 ###  Bracketing Scripts
-* **MAX2** Create 360 HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
-* **MAX2/HERO12-13**Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
+* **MAX2** - Create 360 HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
+* **MAX2/HERO12-13** - Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
 
 ## Metadata Extraction
 * **ALL cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
