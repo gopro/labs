@@ -282,9 +282,6 @@ Install from: [![google play](https://gopro.github.io/labs/control/google-play-8
 <div id="settingsPT">
 <input type="checkbox" id="pt" value=""> <label for="pt">Protune Controls</label><br>
 </div>
-<div id="settingsPTR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Protune Reset:</b>&nbsp;&nbsp;
-<input type="checkbox" id="ptr" value="t0"> <label for="ptr"> </label><br>
-</div>
 <div id="ptTUNE">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Tuning:</b>&nbsp;&nbsp;
   <input type="radio" id="tune1" name="tune" value="tB"> <label for="tune1">Balanced </label>&nbsp;&nbsp;
   <input type="radio" id="tune2" name="tune" value="tF"> <label for="tune2">Face </label>&nbsp;&nbsp;
@@ -830,7 +827,6 @@ function startTime() {
 	dset("settingsDuration", false);
 	dset("settingsPhotoRAW", false);
 	dset("settingsPT", false);
-	dset("settingsPTR", false);
 	dset("namedPresets", false);
 	dset("spotMeter", false);
 	dset("settingsBurst", false);
@@ -1047,9 +1043,6 @@ function startTime() {
 		
 	if(document.getElementById("pt") !== null)
 	{
-		if(document.getElementById("pt").checked === true)
-			dset("settingsPTR", true);
-		
 		if(document.getElementById("pt").checked === true && document.getElementById("ptr").checked === false)
 		{
 			dset("ptDEPTH", true);
