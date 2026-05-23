@@ -956,6 +956,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: May 22, 2026
+updated: May 23, 2026
 
 [Learn more](..) on QR Control
