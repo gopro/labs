@@ -47,7 +47,7 @@ used between commands. The only places for using spaces is within quotes, like f
 <b>\* Video Looping:</b> You need to create this preset on camera, before this command will select it.<br>
 <b>\*\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work. Not all modes are available on every camera. 
  
-### Defaults modes (on power up): 
+### Defaults modes on power up (MISSION uses last used only): 
  * `dL` - last used mode, the camera will boot up to last mode used before shutdown
  * `dV` - last used Video mode, the camera will boot into video mode
  * `dP` - last used Photo mode, the camera will boot into photo mode
@@ -65,10 +65,12 @@ Resolutions are also in the format rX(Y) - where X is the first character of the
  * `r4T` - 4k Tall, the 4:3 mode
  * `r4X` - 4k eXtreme, the 8:7 mode (H11-13)
  * `r4S` - 4k Square, the 1:1 mode using Ultra Wide (H13)
- * `r4V` - 2160x3840 4K Vertical Video (H13)
+ * `r4V` - 2160x3840 4K Vertical Video (H13/MISSION)
  * `r5` - 5.3k for HERO and 5.6K 360° for GoPro MAX
  * `r5T` - 5k Tall, the 4:3 mode (H10)
  * `r5X` - 5k eXtreme, the 8:7 mode (H11-13)
+ * **r8** - 8k for MAX2 and MISSION
+ * **r8T** - 8k Tall, the 8K 4x3 mode (MISSION)
 
 ### Raw (.GPR) Photos
 
@@ -117,6 +119,34 @@ The use of 'r' command also enables or disable Raw in photo modes
  * `aM` - Medium Processing
  * `aH` - High Processing
 
+
+Bitrate: 
+ * `b0` - Standard Bitrate
+ * `b1` - High Bitrate
+ * `b2` - Max bitrate (MISSION only - if the mode supports)
+ * `bS` - bitrate Standard/Low (MISSION only)
+ * `bH` - bitrate High (MISSION only)
+ * `bM` - bitrate Max1 (MISSION only)
+
+Color: 
+ * `cG` - Color Vibrant
+ * `cN` - Color Natural (H10/11/12/13/MISSION)
+ * `cF` - Color Flat
+ * `cC` - color Cinematic (MISSION only)
+ * `cL` - color GPLog2 (MISSION only)
+
+Depth (H11/12/13/MAX2/MISSION): 
+ * `d0` or `d8` - 8-bit color
+ * `d1` or `d10` - 10-bit color
+
+Denoise
+ * `oN2` denoise Low (HERO13 or MISSION)
+ * `oN1` denoise Medium (HERO13 or MISSION)
+ * `oN` denoise High (HERO13 or MISSION)
+ * `dL` - denoise Low (MISSION only)
+ * `dM` - denoise Medium (MISSION only)
+ * `dH` - denoise High (MISSION only)
+
 ### Bitrate: 
  * `b0` - Standard Bitrate
  * `b1` - High Bitrate
@@ -161,7 +191,7 @@ The use of 'r' command also enables or disable Raw in photo modes
  * `w65` - 6500K 
  * `wN` - Native White Balance
 
-### ISO Minimum and Maximum (set to together with format i(max)M(min)):
+### ISO Minimum and Maximum (set to together with format i(max)M(min)) (not MISSION):
 (All cameras and Older Labs):<br>
  * `i1M1` - 100 ISO Max & Min
  * `i2M1` - 200 ISO Max with 100 ISO Min
@@ -177,6 +207,39 @@ The use of 'r' command also enables or disable Raw in photo modes
  * `i1S0` - 100 ISO Max with an **Automatic** shutter angle<br>
 Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutter speeds. You will need a good amount of light and/or a higher ISO.  Only ISOs of 100, 200, 400, 800, 1600, 3200 and 6400 are support (although not all modes support the full range.)
 
+ISO Range (MISSION only)
+ * `i1` - Range up to 100
+ * `i2` - Range up to 200
+ * `i4` - Range up to 400
+ * `i8` - Range up to 800
+ * `i16` - Range up to 1600
+ * `i32` - Range up to 3200
+ * `i64` - Range up to 6400
+
+ISO Fixed (MISSION only)
+ * `i1M1` - Fixed at 100
+ * `i2M2` - Fixed at 200
+ * `i4M4` - Fixed at 400
+ * `i8M8` - Fixed at 800
+ * `i16M16` - Fixed at 1600
+ * `i32M32` - Fixed at 3200
+ * `i64M64` - Fixed at 6400
+ 
+Shutter Controls  (MISSION only)
+ * `s0` - Auto shutter
+ * `s360` - fixed 360 degrees
+ * `s180` - fixed 180 degrees
+ * `s90` - fixed 90 degrees
+ * `s45` - fixed 45 degrees
+ * `s22` - fixed 22 degrees
+ * `s11` - fixed 11 degrees
+ * `s360M` - Minimum shutter angle up to 360 degrees (in available)
+ * `s180M` - Minimum shutter angle up to 180 degrees (in available)
+ * `s90M` - Minimum shutter angle up to 90 degrees (in available)
+ * `s45M` - Minimum shutter angle up to 45 degrees (in available)
+ * `s22M` - Minimum shutter angle up to 22 degrees (in available)
+ * `s11M` - Minimum shutter angle up to 11 degrees (in available)
+ 
 ### EV Compensation: 
  * `x0` - EV 0 default
  * `x-.5` - EV -0.5
@@ -215,6 +278,22 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
  * `mF` - mode monitor Front lens
  * `mR` - mode monitor Rear lens
  
+Tuning Modes (MISSION only)
+ * `tW` - Underwater tuning
+ * `tU` - Underwater tuning
+ * `tD` - Underwater tuning
+ * `tF` - Face tuning
+ * `tS` - Sport tuning
+ * `tB` - Balanced tuning
+ 
+Motion Blur Controls (MISSION only)
+ * `bA` - motion blur Adaptive
+ * `bR` - motion blur Reduced
+ * `bX` - motion blur Cinematic Low
+ * `bY` - motion blur Cinematic Medium
+ * `bC` - motion blur Cinematic High
+ * `bP` - motion blur Photo
+ 
 ### GPS Active:
  - `g0` or `gO`: GPS off
  - `g1` or `g`: GPS on
@@ -250,6 +329,9 @@ Note: Angles between 22 and 1 degrees are supported. Experiment for higher shutt
  - `oD0`: all LEDs off
  - `oD2`: some LEDs on
  - `oD4`: all LEDs on
+#### Capture Info (MISSION only)
+ - `oI0` : capture info off
+ - `oI` : capture info on
 #### Protune Noise Reduction control (HERO13 only):
  - `oN0`: High
  - `oN1`: Medium 
@@ -873,6 +955,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: December 18, 2025
+updated: May 22, 2026
 
 [Learn more](..) on QR Control

@@ -154,7 +154,7 @@ ISO Minimum and Maximum (set to together with format i(max)M(min)) (not MISSION)
  * **i32M1**  - 3200 ISO Mac with 100 ISO Min
  * **i64M16**  - 6400 ISO Mac with 1600 ISO Min
 
-ISO Maximum and Shutter Lock (set to together format i(max)S(angle)): 
+ISO Maximum and Shutter Lock (set to together format i(max)S(angle)) (not MISSION): : 
  * **i1S180** - 100 ISO Max with a 180 degree shutter angle
  * **i8S90** - 800 ISO Max with a 90 degree shutter angle
  * **i4S45** - 400 ISO Max with a 45 degree shutter angle
@@ -274,7 +274,7 @@ Option (‘o’) commands:
 - Volume Control - **oVC0** - off, **oVC1** - on
 - WiFi Connection - **oW0** - off, **oW1** - on
 - Max Lens Mod -  **oX0** - disabled, **oX1** - MLM original enabled, **oX2** - MLM 2.0 enanled
-- Capture Info - **oI0** - off, **oI** - on
+- Capture Info - **oI0** - off, **oI** - on (MISSION only)
 
 GoPro HERO9-12 Front Screen option commands
  * **oF0 or oFO** - turn the front LCD off
