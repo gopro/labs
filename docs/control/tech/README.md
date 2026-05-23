@@ -70,8 +70,8 @@ Resolutions are also in the format rX(Y) - where X is the first character of the
  * `r5` - 5.3k for HERO and 5.6K 360° for GoPro MAX
  * `r5T` - 5k Tall, the 4:3 mode (H10)
  * `r5X` - 5k eXtreme, the 8:7 mode (H11-13)
- * **r8** - 8k for MAX2 and MISSION
- * **r8T** - 8k Tall, the 8K 4x3 mode (MISSION)
+ * `r8` - 8k for MAX2 and MISSION
+ * `r8T` - 8k Tall, the 8K 4x3 mode (MISSION)
 
 ### Raw (.GPR) Photos
 
@@ -956,6 +956,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: May 23, 2026
+updated: May 22, 2026
 
 [Learn more](..) on QR Control
