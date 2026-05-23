@@ -67,11 +67,10 @@ This maps:
 
 ### The Inverse Transform (Decoding in a LUT)
 
-To recover linear light from a GP-Log2 code value *v*:
+To recover linear light from a GP-Log2 code value *v* (normalized 0 to 1):
 
 ```
 L = (600ᵛ − 1) / (600 − 1)
-  = (600ᵛ − 1) / 599
 ```
 
 This is the first operation performed by the LUT generator when building a .cube file.
