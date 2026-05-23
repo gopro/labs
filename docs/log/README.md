@@ -51,7 +51,7 @@ GP-Log2 uses a **logarithm of base 600** to encode scene luminance. The base num
 
 ### The Forward Transform (Capture)
 
-Given a linear scene value *L* (where 0 = black, 1 = 18% grey at the camera's nominal exposure), GP-Log2 encodes it as:
+Given a linear scene value *L* (where 0 = black, 1 = clipped white), GP-Log2 encodes it as:
 
 ```
 GP-Log2(L) = log₆₀₀(L × (600 − 1) + 1)
@@ -59,9 +59,11 @@ GP-Log2(L) = log₆₀₀(L × (600 − 1) + 1)
 ```
 
 This maps:
-- L = 0.000 (pure black) → 0.000
-- L = 0.180 (18% grey) → approximately 0.446
-- L = 1.000 (clipped white) → 1.000
+- L = 0.0000 (pure black) → 0.000
+- L = 0.0517 (18% grey) → ~0.542
+- L = 0.2500 (2 stops from clipping) → ~0.784
+- L = 0.5000 (1 stop from clipping) → ~0.892
+- L = 1.0000 (clipped white) → 1.000
 
 ### The Inverse Transform (Decoding in a LUT)
 
