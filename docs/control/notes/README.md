@@ -4,7 +4,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MISSION 1 & MISSION 1 PRO
 
-### 1.10.71 - Coming soon
+### 1.10.71 - May 28, 2026
 
 First Labs version, bring maybe of the classic Labs feature to this new product line. Many Labs feature from older camera are now in the stock firmware: DIVE, EXPT, EXPS and LOWL are some big examples. 
 
