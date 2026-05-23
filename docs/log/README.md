@@ -123,7 +123,7 @@ If you set the camera to -1EV, or manual setting to similar effect, to protect a
 
 #### Strategy 1: Expose for Middle Grey (Balanced)
 
-Place 18% grey at the GP-Log2 midpoint, approximately code value 554 out of 1023 (roughly 54%). This gives the maximum balanced latitude — an equal number of stops are available above and below the mid-tone.
+Place 18% grey at the GP-Log2 midpoint, approximately code value 554 out of 1023 (roughly 54%). This gives the maximum balanced latitude.
 
 **Best for:** Scenes with balanced dynamic range, controlled lighting, and predictable content.
 
