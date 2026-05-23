@@ -40,9 +40,10 @@ used between commands. The only places for using spaces is within quotes, like f
  * `mNL` - mode Night-Lapse Video (\*\*)
  * `mNP` - mode Night-Lapse Photo (\*\*)
  * `mL` - mode Live-Burst Photo (HERO10 only)
- * `mST` - mode Star Trails (HERO11-13 only)
- * `mLP` - mode Light Painting (HERO11-13 only)
- * `mLT` - mode Vehicle Lights (HERO11-13 only)
+ * `mST` - mode Star Trails (HERO11/12/13/MISSION only)
+ * `mLP` - mode Light Painting (HERO11/12/13/MISSION only)
+ * `mLT` - mode Vehicle Lights (HERO11/12/13/MISSION only)
+ * `mVN` - mode Video Night, new Low Light mode (MISSION only)
  
 <b>\* Video Looping:</b> You need to create this preset on camera, before this command will select it.<br>
 <b>\*\* Time/Night-Lapse modes:</b> The camera defaults to having presets for only one time-lapse mode and one night-lapse mode, yet both modes have two configurations (video or photo.) For all QR Code mode commands to work, a preset is needed for every mode you wish to use. e.g. If you only have a preset for night-lapse video (NLV), the QR command for NLV will work, but will not for night-lapse photo (NLP). To solve this, create a new preset for NLP, and both video and photo night-lapse commands will work. Not all modes are available on every camera. 
