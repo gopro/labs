@@ -80,7 +80,7 @@ There is a lot in Labs, this is the best page to start [Labs Camera Control](htt
 | [Low Light mode](https://gopro.github.io/labs/control/extensions)                           | ✅ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [LRV Disable](https://gopro.github.io/labs/control/extensions)                              | ❌️ | ❌️ | ❌ | ❌ | ✔️ | ⅓ | ❌ | ❌ | ❌ | ❌ |
 | [LTC Time support](https://gopro.github.io/labs/control/ltc) (via MediaMod/Pro Mic Adapter) | ❌️ | ❌️ | ✔️ | ✔️ | ✔️ | ✔️/❌  | ✔️ | ❌ | ❌ | ❌ |
-| [Max Shutter Angle](https://gopro.github.io/labs/control/maxshut) exposure control          | 📍 | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Max Shutter Angle](https://gopro.github.io/labs/control/maxshut) exposure control          | ✅ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Metadata Injections](https://gopro.github.io/labs/control/extensions)                      | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Noise Reduction](https://gopro.github.io/labs/control/extensions) control                  | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Overlay - Burn-ins](https://gopro.github.io/labs/control/overlays) e.g. Time/Date          | ❌️ | ❌️ | ⅓ | ⅓ | ⅓ | ⅓ | ✔️ | ✔️ | ❌ | ❌ |
