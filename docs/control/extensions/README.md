@@ -53,7 +53,7 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
     - e.g.   h1mVh2mPB ← set camera 1 to mode Video and camera 2 to Photo Burst.
 - **HIST=x** - Displays a histogram with contrast from 1 to 11. e.g. try setting HIST to 5. HIST=0 will disable it.  
 - **HSTO=x** - minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
-- **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram. 
+- **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram.  A negative position will place the histogram on the front LCD.
 - **IFRM=1** - for I-frame only encoding. Recommend to run at least 240Mb/s using BITR. Still very experimental.
 - **LEVL=size** - Add a spirit level to the rear LCD, where the size can be 1-9. e.g. $LEVL=6. 
 - **LLTZ=latt,long,timezone** for those want to use Sunset/Sunrise timelapse without using GPS, or for when you are shooting a sunset timelapse from indoors. The metadata is used to store your GPS Location and timezone e.g. !MLLTZ=33.126,-117.327,-8.0  In this case you must used the !M command, permanent storage, as solar event timers will shutdown the camera.
@@ -152,7 +152,7 @@ the number relates to how often the record time or shooting mode is displayed (v
 - **EXPQ=x** - exposure Quick shutter, same as $EXPX=x$EXPN=x, setting min and max shutter to the same value
 - **FEAT=x** - Display the permanent Labs feature active for x seconds. It is easy to miss the start-up message, this QR command redisplays that message.
 - **GRAB=x** - Screen grab 'x'-frames, grab next 'x' Labs overlays - frame grab the UI. Useful for education and bug reporting.
-- **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram. 
+- **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram.
 A negative x-value will place the histograme on the front screen. e.g. oMHSTP=1,83,67 or oMHSTP=-3,55,87.
 <br>![HSTPfront.jpg](HSTPfront.jpg)
 - **LEVL=size** - Add a spirit level to the rear LCD, where the size can be 1-9. e.g. oMLEVL=6. Color for the spirit level line was added for HERO11 and HERO12. LEVL has three colors with no controls. White - nothing is level. Yellow - the horizon is level. Green - the horizon and pitch is level

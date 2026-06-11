@@ -3,9 +3,10 @@
 ## Setting Commands
 
 All QR Codes are simple text strings, alphanumeric characters to describe settings and actions for your GoPro camera. It is fairly easy to learn, 
-so you can create you own custom commands. Here is an example command to set video at 4K 60fps with some Protune customization: `mVr4p60x-.5cFw55`. 
-Breaking-down how that command works, firstly all GoPro QR settings commands are separated with lowercase characters, so this command is interpreted 
-in these groups mV, r4, p60, x-.5, cF and then w55. No space or other delimiters are used. This is what each command group means:
+so you can create you own custom commands. All valid Labs commands with either start with a lowercase character, or a speciality character (e.g. $\*\"=<>). Nothing will start with a uppercase letter. 
+Here is an example command to set video at 4K 60fps with some other customization: `mVr4p60x-.5cFw55$BITR=150$BITR=150$LEVL=6`. 
+Breaking-down how that command works, firstly all GoPro QR settings commands are separated with lowercase or speciality characters, so this command is interpreted 
+in these groups 'mV', 'r4', 'p60', 'x-.5', 'cF', 'w55', '$BITR=150' and then '$LEVL=6'. No space or other delimiters are used. This is what each command group means:
 
 * `mV` - is shorthand for mode Video - this is the same a swiping the camera to use video mode.
 * `r4` - set resolution to 4K (16:9), r4T (for 4K 4:3) and r4X (for HERO11-13s 8:7) 
@@ -13,6 +14,8 @@ in these groups mV, r4, p60, x-.5, cF and then w55. No space or other delimiters
 * `x-.5` - exposure compensation is set to -0.5
 * `cF` - color Flat
 * `w55` - white balance to 5500K
+* `$BITR=150` - set bitrate to 150mb/s
+* `$LEVL=6` - enable a spirit level with size 6
   
 Any of these can be used on their own, or in a different order, however the order can have meaning. If the camera was currently in a photo mode, 
 and you set the Protunes settings first, then switched to video, any Protune changes would be to the photo preset, the video will have whatever Protune 
@@ -956,6 +959,6 @@ Example GOOD:
 You can try to ask the [Labs ChatBot](https://bit.ly/chat_gp_labs) help with commands. A when really stuck ask ask a human within the [Labs discussion forum](https://github.com/gopro/labs/discussions)
 
 
-updated: May 22, 2026
+updated: June 11, 2026
 
 [Learn more](..) on QR Control
