@@ -4,7 +4,7 @@
 
 All QR Codes are simple text strings, alphanumeric characters to describe settings and actions for your GoPro camera. It is fairly easy to learn, 
 so you can create you own custom commands. All valid Labs commands with either start with a lowercase character, or a speciality character (e.g. $\*\"=<>). Nothing will start with a uppercase letter. 
-Here is an example command to set video at 4K 60fps with some other customization: `mVr4p60x-.5cFw55$BITR=150$BITR=150$LEVL=6`. 
+Here is an example command to set video at 4K 60fps with some other customization: `mVr4p60x-.5cFw55$BITR=150$LEVL=6`. 
 Breaking-down how that command works, firstly all GoPro QR settings commands are separated with lowercase or speciality characters, so this command is interpreted 
 in these groups 'mV', 'r4', 'p60', 'x-.5', 'cF', 'w55', '$BITR=150' and then '$LEVL=6'. No space or other delimiters are used. This is what each command group means:
 
