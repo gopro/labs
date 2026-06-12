@@ -472,91 +472,6 @@ function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   return [r, g, b];
 }
 
-// ── Linear-domain delta smooth ────────────────────────────────
-// Computes the rolloff delta in LINEAR space (before OETF), where the HSV
-// Value compression guarantees deltaR/refR = deltaG/refG = deltaB/refB,
-// so smoothing per-channel preserves chrominance exactly. After smoothing,
-// the OETF is re-applied to the reconstructed linear values. No division,
-// no colour shift, no blowup for out-of-gamut or near-zero values.
-// Binomial [0.25, 0.50, 0.25], 4 passes → effective sigma ≈ 1.41 nodes.
-function smoothLUT(lut, size, ev, cs) {
-  const n    = size * size * size;
-  const w    = 0.25, c1 = 0.50;
-  const gain = Math.pow(2, ev);
-
-  // Compute linear (pre-OETF) reference and rolloff values per node
-  const linRef  = new Float32Array(n * 3);
-  const linRoll = new Float32Array(n * 3);
-
-  for (let b = 0; b < size; b++)
-    for (let g = 0; g < size; g++)
-      for (let r = 0; r < size; r++) {
-        const i = b*size*size + g*size + r;
-        // Linear reference: decode → matrix → EV gain (no rolloff, no OETF)
-        let rr = invLog(r/(size-1)), gr = invLog(g/(size-1)), br = invLog(b/(size-1));
-        if (cs === 'rec709') [rr,gr,br] = applyMatrix(rr,gr,br, M2020_709);
-        rr *= gain; gr *= gain; br *= gain;
-        linRef[i*3] = rr; linRef[i*3+1] = gr; linRef[i*3+2] = br;
-        // Linear rolloff: same linear values with rolloff applied
-        let ro = rr, go = gr, bo = br;
-        [ro,go,bo] = rolloff(ro,go,bo);
-        linRoll[i*3] = ro; linRoll[i*3+1] = go; linRoll[i*3+2] = bo;
-      }
-
-  // Per-channel delta in linear space — proportional to ref so ratios are preserved
-  const delta = new Float32Array(n * 3);
-  for (let i = 0; i < n * 3; i++) delta[i] = linRoll[i] - linRef[i];
-
-  // Separable 3D smooth of linear deltas
-  const tmp = new Float32Array(n * 3);
-  for (let pass = 0; pass < 4; pass++) {
-    // R axis
-    for (let b = 0; b < size; b++)
-      for (let g = 0; g < size; g++)
-        for (let r = 0; r < size; r++) {
-          const i  = b*size*size + g*size + r;
-          const iP = r < size-1 ? b*size*size + g*size + r+1 : i;
-          const iM = r > 0      ? b*size*size + g*size + r-1 : i;
-          tmp[i*3]   = w*delta[iM*3]   + c1*delta[i*3]   + w*delta[iP*3];
-          tmp[i*3+1] = w*delta[iM*3+1] + c1*delta[i*3+1] + w*delta[iP*3+1];
-          tmp[i*3+2] = w*delta[iM*3+2] + c1*delta[i*3+2] + w*delta[iP*3+2];
-        }
-    delta.set(tmp);
-    // G axis
-    for (let b = 0; b < size; b++)
-      for (let g = 0; g < size; g++)
-        for (let r = 0; r < size; r++) {
-          const i  = b*size*size + g*size + r;
-          const iP = g < size-1 ? b*size*size + (g+1)*size + r : i;
-          const iM = g > 0      ? b*size*size + (g-1)*size + r : i;
-          tmp[i*3]   = w*delta[iM*3]   + c1*delta[i*3]   + w*delta[iP*3];
-          tmp[i*3+1] = w*delta[iM*3+1] + c1*delta[i*3+1] + w*delta[iP*3+1];
-          tmp[i*3+2] = w*delta[iM*3+2] + c1*delta[i*3+2] + w*delta[iP*3+2];
-        }
-    delta.set(tmp);
-    // B axis
-    for (let b = 0; b < size; b++)
-      for (let g = 0; g < size; g++)
-        for (let r = 0; r < size; r++) {
-          const i  = b*size*size + g*size + r;
-          const iP = b < size-1 ? (b+1)*size*size + g*size + r : i;
-          const iM = b > 0      ? (b-1)*size*size + g*size + r : i;
-          tmp[i*3]   = w*delta[iM*3]   + c1*delta[i*3]   + w*delta[iP*3];
-          tmp[i*3+1] = w*delta[iM*3+1] + c1*delta[i*3+1] + w*delta[iP*3+1];
-          tmp[i*3+2] = w*delta[iM*3+2] + c1*delta[i*3+2] + w*delta[iP*3+2];
-        }
-    delta.set(tmp);
-  }
-
-  // Reconstruct: linear_ref + smoothed_linear_delta, then re-apply OETF
-  // rec709() handles negatives via mirroring — clamping happens later in makeCube
-  for (let i = 0; i < n; i++) {
-    lut[i*3]   = rec709(linRef[i*3]   + delta[i*3]);
-    lut[i*3+1] = rec709(linRef[i*3+1] + delta[i*3+1]);
-    lut[i*3+2] = rec709(linRef[i*3+2] + delta[i*3+2]);
-  }
-  return lut;
-}
 
 // ═══════════════════════════════════════════════
 // LUT GENERATION  (generates .cube text)
@@ -585,9 +500,6 @@ function makeCube(size, ev, cs, useRolloff, useClamp) {
         const i = (b*size*size + g*size + r)*3;
         lut[i] = ro; lut[i+1] = go; lut[i+2] = bo;
       }
-
-  // Smooth the rolloff delta
-  if (useRolloff) smoothLUT(lut, size, ev, cs);
 
   // Clamp applied last — upper limit only, negatives preserved
   if (useClamp) {
