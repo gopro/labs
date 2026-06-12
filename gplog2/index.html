@@ -297,6 +297,8 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
     <div class="ii"><label>Clamp</label><span id="iClamp">Off</span></div>
   </div>
 
+  <div style="margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:.04em;">Updated June 11, 2026</div>
+
 </aside>
 
 <section class="preview">
@@ -470,6 +472,82 @@ function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   return [r, g, b];
 }
 
+// ── Delta-based luminance smooth ──────────────────────────────
+// Smooths the DIFFERENCE in luminance between the rolloff LUT and the
+// reference (no-rolloff) LUT. Nodes outside the rolloff zone have delta≈0
+// so they are completely unchanged — no dimming, no colour shift.
+// Binomial [0.25, 0.50, 0.25], 4 passes → effective sigma ≈ 1.41 nodes.
+function smoothLUT(lut, size, ev, cs) {
+  const n = size * size * size;
+  const w = 0.25, c1 = 0.50;
+
+  // Compute per-node: reference luminance (no rolloff) and rolloff luminance
+  const refLuma  = new Float32Array(n);
+  const rollLuma = new Float32Array(n);
+  for (let b = 0; b < size; b++)
+    for (let g = 0; g < size; g++)
+      for (let r = 0; r < size; r++) {
+        const i = b*size*size + g*size + r;
+        const p = i * 3;
+        const [rr,gr,br] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, false, false);
+        refLuma[i]  = 0.2126*rr    + 0.7152*gr    + 0.0722*br;
+        rollLuma[i] = 0.2126*lut[p] + 0.7152*lut[p+1] + 0.0722*lut[p+2];
+      }
+
+  // Delta = rolloff luminance − reference luminance
+  const delta = new Float32Array(n);
+  for (let i = 0; i < n; i++) delta[i] = rollLuma[i] - refLuma[i];
+
+  // Smooth the delta in 3D — only the rolloff contribution is blurred
+  const tmp = new Float32Array(n);
+  for (let pass = 0; pass < 4; pass++) {
+    // R axis
+    for (let b = 0; b < size; b++)
+      for (let g = 0; g < size; g++)
+        for (let r = 0; r < size; r++) {
+          const i  = b*size*size + g*size + r;
+          const iP = r < size-1 ? b*size*size + g*size + r+1 : i;
+          const iM = r > 0      ? b*size*size + g*size + r-1 : i;
+          tmp[i] = w*delta[iM] + c1*delta[i] + w*delta[iP];
+        }
+    delta.set(tmp);
+    // G axis
+    for (let b = 0; b < size; b++)
+      for (let g = 0; g < size; g++)
+        for (let r = 0; r < size; r++) {
+          const i  = b*size*size + g*size + r;
+          const iP = g < size-1 ? b*size*size + (g+1)*size + r : i;
+          const iM = g > 0      ? b*size*size + (g-1)*size + r : i;
+          tmp[i] = w*delta[iM] + c1*delta[i] + w*delta[iP];
+        }
+    delta.set(tmp);
+    // B axis
+    for (let b = 0; b < size; b++)
+      for (let g = 0; g < size; g++)
+        for (let r = 0; r < size; r++) {
+          const i  = b*size*size + g*size + r;
+          const iP = b < size-1 ? (b+1)*size*size + g*size + r : i;
+          const iM = b > 0      ? (b-1)*size*size + g*size + r : i;
+          tmp[i] = w*delta[iM] + c1*delta[i] + w*delta[iP];
+        }
+    delta.set(tmp);
+  }
+
+  // Apply: target luminance = refLuma + smoothedDelta
+  // Scale each node's RGB to reach target — chrominance preserved exactly
+  for (let i = 0; i < n; i++) {
+    const p = i * 3;
+    const targetLuma = refLuma[i] + delta[i];
+    if (rollLuma[i] > 1e-6) {
+      const scale = targetLuma / rollLuma[i];
+      lut[p]   *= scale;
+      lut[p+1] *= scale;
+      lut[p+2] *= scale;
+    }
+  }
+  return lut;
+}
+
 // ═══════════════════════════════════════════════
 // LUT GENERATION  (generates .cube text)
 // ═══════════════════════════════════════════════
@@ -482,23 +560,37 @@ function makeCube(size, ev, cs, useRolloff, useClamp) {
     `# Output:   ${csName} SDR`,
     `# EV comp:  ${evStr}`,
     `# Rolloff:  ${useRolloff ? 'enabled' : 'disabled'}`,
-    `# Clamp:    ${useClamp ? 'enabled (0.0–1.0)' : 'disabled'}`,
+    `# Clamp:    ${useClamp  ? 'enabled (max 1.0)' : 'disabled'}`,
     ``,
     `LUT_3D_SIZE ${size}`,
     ``
   ];
-  for (let b = 0; b < size; b++) {
-    for (let g = 0; g < size; g++) {
+
+  // Build into Float32Array — no clamping at this stage
+  const lut = new Float32Array(size * size * size * 3);
+  for (let b = 0; b < size; b++)
+    for (let g = 0; g < size; g++)
       for (let r = 0; r < size; r++) {
-        let [ro,go,bo] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, useRolloff);
-        // Clamp to reasonable range (NLEs handle out-of-range)
-        ro = Math.max(0, Math.min(1, ro));
-        go = Math.max(0, Math.min(1, go));
-        bo = Math.max(0, Math.min(1, bo));
-        lines.push(`${ro.toFixed(6)} ${go.toFixed(6)} ${bo.toFixed(6)}`);
+        const [ro,go,bo] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, useRolloff, false);
+        const i = (b*size*size + g*size + r)*3;
+        lut[i] = ro; lut[i+1] = go; lut[i+2] = bo;
       }
-    }
+
+  // Smooth the rolloff delta
+  if (useRolloff) smoothLUT(lut, size, ev, cs);
+
+  // Clamp applied last — upper limit only, negatives preserved
+  if (useClamp) {
+    for (let i = 0; i < lut.length; i++) lut[i] = Math.min(1.0, lut[i]);
   }
+
+  for (let b = 0; b < size; b++)
+    for (let g = 0; g < size; g++)
+      for (let r = 0; r < size; r++) {
+        const i = (b*size*size + g*size + r)*3;
+        lines.push(`${lut[i].toFixed(6)} ${lut[i+1].toFixed(6)} ${lut[i+2].toFixed(6)}`);
+      }
+
   return lines.join('\n') + '\n';
 }
 
