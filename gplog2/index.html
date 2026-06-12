@@ -472,34 +472,43 @@ function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   return [r, g, b];
 }
 
-// ── Delta-based luminance smooth ──────────────────────────────
-// Smooths the DIFFERENCE in luminance between the rolloff LUT and the
-// reference (no-rolloff) LUT. Nodes outside the rolloff zone have delta≈0
-// so they are completely unchanged — no dimming, no colour shift.
+// ── Linear-domain delta smooth ────────────────────────────────
+// Computes the rolloff delta in LINEAR space (before OETF), where the HSV
+// Value compression guarantees deltaR/refR = deltaG/refG = deltaB/refB,
+// so smoothing per-channel preserves chrominance exactly. After smoothing,
+// the OETF is re-applied to the reconstructed linear values. No division,
+// no colour shift, no blowup for out-of-gamut or near-zero values.
 // Binomial [0.25, 0.50, 0.25], 4 passes → effective sigma ≈ 1.41 nodes.
 function smoothLUT(lut, size, ev, cs) {
-  const n = size * size * size;
-  const w = 0.25, c1 = 0.50;
+  const n    = size * size * size;
+  const w    = 0.25, c1 = 0.50;
+  const gain = Math.pow(2, ev);
 
-  // Compute per-node: reference luminance (no rolloff) and rolloff luminance
-  const refLuma  = new Float32Array(n);
-  const rollLuma = new Float32Array(n);
+  // Compute linear (pre-OETF) reference and rolloff values per node
+  const linRef  = new Float32Array(n * 3);
+  const linRoll = new Float32Array(n * 3);
+
   for (let b = 0; b < size; b++)
     for (let g = 0; g < size; g++)
       for (let r = 0; r < size; r++) {
         const i = b*size*size + g*size + r;
-        const p = i * 3;
-        const [rr,gr,br] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, false, false);
-        refLuma[i]  = 0.2126*rr    + 0.7152*gr    + 0.0722*br;
-        rollLuma[i] = 0.2126*lut[p] + 0.7152*lut[p+1] + 0.0722*lut[p+2];
+        // Linear reference: decode → matrix → EV gain (no rolloff, no OETF)
+        let rr = invLog(r/(size-1)), gr = invLog(g/(size-1)), br = invLog(b/(size-1));
+        if (cs === 'rec709') [rr,gr,br] = applyMatrix(rr,gr,br, M2020_709);
+        rr *= gain; gr *= gain; br *= gain;
+        linRef[i*3] = rr; linRef[i*3+1] = gr; linRef[i*3+2] = br;
+        // Linear rolloff: same linear values with rolloff applied
+        let ro = rr, go = gr, bo = br;
+        [ro,go,bo] = rolloff(ro,go,bo);
+        linRoll[i*3] = ro; linRoll[i*3+1] = go; linRoll[i*3+2] = bo;
       }
 
-  // Delta = rolloff luminance − reference luminance
-  const delta = new Float32Array(n);
-  for (let i = 0; i < n; i++) delta[i] = rollLuma[i] - refLuma[i];
+  // Per-channel delta in linear space — proportional to ref so ratios are preserved
+  const delta = new Float32Array(n * 3);
+  for (let i = 0; i < n * 3; i++) delta[i] = linRoll[i] - linRef[i];
 
-  // Smooth the delta in 3D — only the rolloff contribution is blurred
-  const tmp = new Float32Array(n);
+  // Separable 3D smooth of linear deltas
+  const tmp = new Float32Array(n * 3);
   for (let pass = 0; pass < 4; pass++) {
     // R axis
     for (let b = 0; b < size; b++)
@@ -508,7 +517,9 @@ function smoothLUT(lut, size, ev, cs) {
           const i  = b*size*size + g*size + r;
           const iP = r < size-1 ? b*size*size + g*size + r+1 : i;
           const iM = r > 0      ? b*size*size + g*size + r-1 : i;
-          tmp[i] = w*delta[iM] + c1*delta[i] + w*delta[iP];
+          tmp[i*3]   = w*delta[iM*3]   + c1*delta[i*3]   + w*delta[iP*3];
+          tmp[i*3+1] = w*delta[iM*3+1] + c1*delta[i*3+1] + w*delta[iP*3+1];
+          tmp[i*3+2] = w*delta[iM*3+2] + c1*delta[i*3+2] + w*delta[iP*3+2];
         }
     delta.set(tmp);
     // G axis
@@ -518,7 +529,9 @@ function smoothLUT(lut, size, ev, cs) {
           const i  = b*size*size + g*size + r;
           const iP = g < size-1 ? b*size*size + (g+1)*size + r : i;
           const iM = g > 0      ? b*size*size + (g-1)*size + r : i;
-          tmp[i] = w*delta[iM] + c1*delta[i] + w*delta[iP];
+          tmp[i*3]   = w*delta[iM*3]   + c1*delta[i*3]   + w*delta[iP*3];
+          tmp[i*3+1] = w*delta[iM*3+1] + c1*delta[i*3+1] + w*delta[iP*3+1];
+          tmp[i*3+2] = w*delta[iM*3+2] + c1*delta[i*3+2] + w*delta[iP*3+2];
         }
     delta.set(tmp);
     // B axis
@@ -528,26 +541,19 @@ function smoothLUT(lut, size, ev, cs) {
           const i  = b*size*size + g*size + r;
           const iP = b < size-1 ? (b+1)*size*size + g*size + r : i;
           const iM = b > 0      ? (b-1)*size*size + g*size + r : i;
-          tmp[i] = w*delta[iM] + c1*delta[i] + w*delta[iP];
+          tmp[i*3]   = w*delta[iM*3]   + c1*delta[i*3]   + w*delta[iP*3];
+          tmp[i*3+1] = w*delta[iM*3+1] + c1*delta[i*3+1] + w*delta[iP*3+1];
+          tmp[i*3+2] = w*delta[iM*3+2] + c1*delta[i*3+2] + w*delta[iP*3+2];
         }
     delta.set(tmp);
   }
 
-  // Apply: target luminance = refLuma + smoothedDelta
-  // Scale each node's RGB to reach target — chrominance preserved exactly.
-  // Only applied where rollLuma is safely above zero: the rolloff activates
-  // at ≥60% HSV value which maps to rollLuma >> 0.05 after OETF, so any
-  // node below this threshold is genuinely unaffected by rolloff and needs
-  // no correction. Scale is also clamped to [0.5, 2.0] as a safety net
-  // against any residual numerical edge cases.
+  // Reconstruct: linear_ref + smoothed_linear_delta, then re-apply OETF
+  // rec709() handles negatives via mirroring — clamping happens later in makeCube
   for (let i = 0; i < n; i++) {
-    if (rollLuma[i] < 0.05) continue;  // near-black: safe skip, rolloff never reaches here
-    const p = i * 3;
-    const targetLuma = refLuma[i] + delta[i];
-    const scale = Math.max(0.5, Math.min(2.0, targetLuma / rollLuma[i]));
-    lut[p]   *= scale;
-    lut[p+1] *= scale;
-    lut[p+2] *= scale;
+    lut[i*3]   = rec709(linRef[i*3]   + delta[i*3]);
+    lut[i*3+1] = rec709(linRef[i*3+1] + delta[i*3+1]);
+    lut[i*3+2] = rec709(linRef[i*3+2] + delta[i*3+2]);
   }
   return lut;
 }
