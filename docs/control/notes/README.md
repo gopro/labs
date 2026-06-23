@@ -4,6 +4,15 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MISSION 1 & MISSION 1 PRO
 
+### 1.22.70 - June 22, 2026
+
+- Fixed dH which was incorrectly setting denoise to Low rather than High.
+- Fixed $24HZ and $ALLI timing was weren't working correctly 24.0 etc
+- Fixed a capture failure with 960fps with ALLI enabled.
+- Improved HIST rendering to the Front LCD with HSTP.
+- Improved $NR01=1 so it now also turns off temporal denoise reduction, if enabled
+
+
 ### 1.10.71 - May 28, 2026
 
 First Labs version, bring maybe of the classic Labs feature to this new product line. Many Labs feature from older camera are now in the stock firmware: DIVE, EXPT, EXPS and LOWL are some big examples. 
@@ -829,6 +838,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: May 21, 2026
+updated: June 23, 2026
 
 [Learn more](..) on QR Control
