@@ -13,7 +13,7 @@ Download the GoPro Labs firmware for current shipping cameras:
 - [MISSION 1 PRO](https://bit.ly/LABS_M1PRO_01_10_71) - v1.10.71, May 28, 2026
 - [MISSION 1](https://bit.ly/LABS_M1_01_10_71) - v1.10.71, May 28, 2026
 - [HERO13 Black](https://bit.ly/LABS_H13_2_10_70) - v2.10.70, October 17, 2025
-- [MAX2](https://bit.ly/LABS_MAX2_01_30_70) - v1.30.70, March 17, 2025
+- [MAX2](https://bit.ly/LABS_MAX2_01_30_70) - v1.30.70, March 17, 2026
 
 Download and install for older cameras:
 - [HERO12 Black](https://bit.ly/LABS_H12_2_40_70) - v2.40.70, November 4, 2025
