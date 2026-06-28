@@ -47,8 +47,8 @@ There is a lot in Labs, this is the best page to start [Labs Camera Control](htt
 ### Overview of Labs functionality and device compatibility: 
 
 | Feature                                                                                     | M1P | Mx2 | H13 | H12 | H11 | H10 | H9 | H8 | H7 | Max |
-|                                                                                             | M1  | 360 |     |     | M11 | Bns |    |    |    | 360 |
 |---------------------------------------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|-----|
+|                                                                                             | M1  | 360 |     |     | M11 | Bns |    |    |    | 360 |
 | [24.0Hz capture vs 23.976](https://gopro.github.io/labs/control/extensions)                 | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ |
 | [All Integer frame rates 30.0 vs 29.97](https://gopro.github.io/labs/control/extensions)    | ✔️ | ✔️ | ✔️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [NLE proxies](https://gopro.github.io/labs/control/proxies)                                 | ✔️ | 2D️ | ✔️ | ✔️ | ✔️ | ⅓/❌ | ❌ | ❌ | ❌ | ❌ |
