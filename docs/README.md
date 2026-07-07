@@ -8,8 +8,8 @@ or in advanced setups, such as multiple cameras time synchronization or delayed 
 your GoPro, this update simply adds more features.  Safe to install, safe to use, only the extended feature are experimental and they are all off by default. 
 
 Download the GoPro Labs firmware for current shipping cameras:
-- [MISSION 1 PRO](https://bit.ly/LABS_M1PRO_01_22_70) - v1.22.70, Jun 23, 2026
-- [MISSION 1](https://bit.ly/LABS_M1_01_22_70) - v1.22.70, Jun 23, 2026
+- [MISSION 1 PRO](https://bit.ly/LABS_M1PRO_01_30_70) - v1.30.70, July 7, 2026
+- [MISSION 1](https://bit.ly/LABS_M1_01_30_70) - v1.30.70, July 7, 2026
 - [MAX2](https://bit.ly/LABS_MAX2_01_30_70) - v1.30.70, March 17, 2026
 - [HERO13 Black](https://bit.ly/LABS_H13_2_10_70) - v2.10.70, October 17, 2025
 

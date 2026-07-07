@@ -4,6 +4,12 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MISSION 1 & MISSION 1 PRO
 
+### 1.30.70 - July 7, 2026
+
+- Added STBY length control. Mission default to 600s in stable before a full shutdown. *STBY=50 for 50s standby length
+- Added LMTI for a ISO Limiter $LMTI=min_iso,m_iso, for range of ISO control. e.g. $LMTI=100,400 Experimental.
+
+
 ### 1.22.70 - June 22, 2026
 
 - Fixed dH which was incorrectly setting denoise to Low rather than High.
@@ -838,6 +844,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: June 23, 2026
+updated: July 7, 2026
 
 [Learn more](..) on QR Control
