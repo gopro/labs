@@ -44,7 +44,7 @@ There is a lot in Labs, this is the best page to start [Labs Camera Control](htt
 - Technical information on the [Labs command language](https://gopro.github.io/labs/control/tech)
 - [Visual Script Tool](https://gopro.github.io/labs/build/) M1P/M1/MAX2/H13/H12/H11/H11Mini/H10/Max
 
-### Overview of Labs functionality and device compatibility: 
+### Overview of Labs functionality and device compatibility:
 
 | Feature                                                                                     | M1P | Mx2 | H13 | H12 | H11 | H10 | H9 | H8 | H7 | Max |
 |---------------------------------------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|-----|
