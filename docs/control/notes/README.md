@@ -4,6 +4,29 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MISSION 1 & MISSION 1 PRO
 
+### 2.00.70 - July 23, 2026
+
+- Added EXPL - Exposure lock on capture
+- Added HS30=1 default Hindsight shortcut to 30s
+- Added EXPX Max Shutter speed e.g. $EXPX=200 for 1/200 
+- Added EXPN Min Shutter speed e.g. $EXPX=1000 for 1/1000 
+- Added EXPQ Manual Shutter speed e.g. $EXPQ=50 for 1/50
+- Added Overlay BURN support (limited to 4K 24,25,30 16:9 8-bit)
+- Enhanced BURN now support variables  '$VALC%1.6f' or  '$M%1.2f'mph 
+- Added PMXY for processing message screen position
+- Added AUDS and audio triggers to Mission.
+- Added DTMF for a DTMF detector, running Macro stored in DTMA-D,0-9,S-Start(*), H-Hash(*)  DTMF=1 External USB audio, =2 Internal mics
+- Preset with macros can have now have lowcase freeform text follwing e.g. "SWIM mode" 
+- Fixed Labs Photo FOV, EV and WB controls
+- Added system vars (useful with BURN overlays)
+ c:X  = GPS lat
+ c:Y  = GPS lon
+ c:Z  = GPS alt
+ c:S  = GPS km/h
+ c:T  = GPS days in this year
+ c:W  = GPS DOP
+
+
 ### 1.30.70 - July 7, 2026
 
 - Added STBY length control. Mission default to 600s in stable before a full shutdown. *STBY=50 for 50s standby length
@@ -844,6 +867,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: July 7, 2026
+updated: July 23, 2026
 
 [Learn more](..) on QR Control
