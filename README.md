@@ -126,4 +126,4 @@ Key:
 
 Labs is expanding, experiment software for GoPro users [GoPro Labs software](software).
 
-updated: June 23, 2026<br>
+updated: July 23, 2026<br>
