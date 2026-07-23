@@ -40,7 +40,7 @@ and as a mobile app:<br>
 * Use the image sensor for [**Motion Detection**](./motion), capturing only scenes with motion
 * Capture using [**IMU Motion Triggers**](./imutrigger) for detecting camera movement
 * **HERO7-13/MAX1-2** - Use the [**USB Power Trigger**](./usb) to start and stop the camera (pseudo dash-cam mode)
-* **HERO9-13/Bones** - Start capture using [**Sound Pressure Level Trigger**](./spltrigger)
+* **HERO9-13/Bones/M1** - Start capture using [**Sound Pressure Level Trigger**](./spltrigger)
 * **GPS Enabled Cameras** - Start capture only when traveling fast with [**GPS Speed Triggers**](./speedtrigger) 
 
 ### Extended Time-lapse Features 
@@ -93,7 +93,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO10 or newer** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 * New [ChatBot for GoPro Labs commands](https://bit.ly/chat_gp_labs)
 
-updated: May 22, 2025
+updated: July 23, 2026
 
 
 <script>

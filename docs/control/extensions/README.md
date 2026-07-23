@@ -32,13 +32,19 @@ Here is a list of additional metadata driven camera extensions:
 - **64BT=1** - Enables 64GB chapters. 
 - **ALLI=1** - for optionally ALL Integer frame rates: 24.0, 25.0, 30.0, 50.0, 60.0, 90.0, 100.0, 120.0, 200.0, 240.0, 400.0, 480.0, 800.0, 960.0
 - **BERS=1** - Bypass ERS compensation with stablization disabled. Not commonly used.
+- **BURN** - overlay support (limited to 4K 24,25,30 16:9 8-bit)
 - **BOOT=!Lscript** - A command to run automatically at boot. For safety, this should only be a load script command, so that the command is dependent on the SD card presence. e.g. \*BOOT="!Lboot"  Then you can place whatever command you need in the boot script with !SAVEboot="your command here".
 - **BYPS=1** - Bypass common pop-ups. Remember to set time and date if you remove the battery.
 - **COOL=x** - COOL maybe useful with DIVE, so you can decrease the blue respond for deeper dives. x range -50 to 100. Reducing or increasing blue signal only.
 - **DAUD=1** - Disable audio, all video created video files will have no audio. Application: high bit-rate drones video.
 - **DBGL=1** - enabled more debug logging. Labs saves it logs to the SD card under MISC/qrlog.txt. Using this extension increases the details and logged events.
+- **DTMF=x** - DTMF detector, code auto running Macro stored in DTMA-D,0-9,S-Start(*), H-Hash(*)  DTMF=1 External USB audio, =2 Internal mics
 - **DSPC=value**, this sets that contrast for which messages are displayed.  Contrast is from 0 - transparent text background, to 6 - opaque black background
 - **DSPL=time**, this will control the amount of time messages are displayed. For users who want there own information displayed longer. The default is 1 second.  DSPL=1 thru 9 is in seconds.  DSPL = 10 thru 9999 is in milliseconds.  So for much faster messages set DSPL to 100. Set this before setting the owner information, as metadata commands are processed in the order they are stored. 
+- **EXPL=1** - Exposure lock on capture
+- **EXPX=x** - Max Shutter speed e.g. $EXPX=200 for 1/200 
+- **EXPN=x** -  Min Shutter speed e.g. $EXPX=1000 for 1/1000 
+- **EXPQ=x** -  Manual Shutter speed e.g. $EXPQ=50 for 1/50
 - **FAST=1** For fewer Labs notifications on boot. Useful for any script that repeats after a shutdown, and the script will run sooner, and reducting battery consumption.
 - **FEAT=x** - Display the permanent Labs feature active for x seconds. It is easy to miss the start-up message, this QR command redisplays that message.
 - **FONT=1** Select the old fonts (if you only want the dot matrix font)
@@ -52,6 +58,7 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 	- e.g.   h6mP!S  ← this command will only run on cameras with IDs 2 and 3.
     - e.g.   h1mVh2mPB ← set camera 1 to mode Video and camera 2 to Photo Burst.
 - **HIST=x** - Displays a histogram with contrast from 1 to 11. e.g. try setting HIST to 5. HIST=0 will disable it.  
+- **HS30=1** - default Hindsight shortcut to 30s
 - **HSTO=x** - minutes - controlling the length of the Hindsight timeout, changing from the default for 15 minutes. e.g. !MHSTO=60 for a 60 minute Hindsight timeout.
 - **HSTP=x,z,size** - Used with HIST=1, this sets the size (40-100) and position (x,y as 1-100) of the histogram.  A negative position will place the histogram on the front LCD.
 - **IFRM=1** - for I-frame only encoding. Recommend to run at least 240Mb/s using BITR. Still very experimental.
@@ -61,6 +68,7 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 - **NR01=x** - Noise Reduction control. e.g. $NR01=50 range 1-100, 100 being 100% active (default), so 1 is the noisest. Mainly if you want noise reduction complete off, or lower than Low.
 - **PRES=x,name** - Added creating, naming and sharing presets where x 0-32 for icon selection (-1 for delete), and 'name' is your named preset. e.g, QR Command **$PRES="14,Scuba"**
 - **PRXY=x** - Normally a camera will encode a LRV (Low Res Video) for every MP4, this extension stores LRVs as Proxy files. 1 - moves LRVs as Adobe Premiere Pro™ style, 2 - moves THMs, 3 moves both into the proxies folder, 4 - uses DaVinci Resolve™ style proxies folder. 
+- **PMXY=x,y** - processing message screen position
 - **preset** - friendly B001 to B999 for bitrate control e.g. B180 in a preset name will be 180mbs
 - **preset** - friendly NR01 to NR99 for noise reduction percentage e.g. NR25 in a preset name will be 25% noise reduction
 - **QRDR=1** - detect QR Codes while recording, or even Quik Preview. This also enables Labs BOOT commands to work with QuikCapture in recent models. Normally this feature is disabled to ensure the lowest computing load impact, so not enabling this is the safest. However, it is needed for some cool ideas, like changing a video burnin message in the middle of a live-stream, or changing its exposure with BIAS (see below.) This also allows you to end a capture via a QR Code (command: !E). oMQRDR=0 will disable it.
@@ -71,7 +79,6 @@ MISC/GPS-yy-mm-dd.gpmf file. GPSL=1 logs everything, GPSL=x will only log moveme
 - **WAKE=1** - This will make the camera wake on any power addition.
 - **WARM=x** - WARM maybe useful with DIVE, so you can improve the red respond for deeper dives. x range -50 to 100. Reducing or increasing red signal only.
 - **WBLK=1** - This is an auto lock for white balance, it auto WB until the capture starts. The feature was added for scuba users, as fixed white balance are computed for above water, and while the auto works great in dive scenarios, some prefer a fixed white balance per clip.
-
 
 ### **MAX2 cameras**
 
@@ -296,7 +303,7 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 <br> 
 
-updated: July 19, 2026<br>
+updated: July 23, 2026<br>
 
 [Learn more](..) on QR Control
 
