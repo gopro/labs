@@ -25,6 +25,7 @@ Only the more recent releases are documented below. This a general list of Labs 
  c:S  = GPS km/h
  c:T  = GPS days in this year
  c:W  = GPS DOP
+- Added DIOP=x - Experimental diopter correction. Adding a diopter lens will modify the distortion, and impact stabilization, this attempts to compensate.  e.g. $DIOP=4 for +4 diopter lens.
 
 
 ### 1.30.70 - July 7, 2026

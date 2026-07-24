@@ -38,6 +38,7 @@ Here is a list of additional metadata driven camera extensions:
 - **COOL=x** - COOL maybe useful with DIVE, so you can decrease the blue respond for deeper dives. x range -50 to 100. Reducing or increasing blue signal only.
 - **DAUD=1** - Disable audio, all video created video files will have no audio. Application: high bit-rate drones video.
 - **DBGL=1** - enabled more debug logging. Labs saves it logs to the SD card under MISC/qrlog.txt. Using this extension increases the details and logged events.
+- **DIOP=x** - Experimental diopter correction. Adding a diopter lens will modify the distortion, and impact stabilization, this attempts to compensate.  e.g. $DIOP=4 for +4 diopter lens.
 - **DTMF=x** - DTMF detector, code auto running Macro stored in DTMA-D,0-9,S-Start(*), H-Hash(*)  DTMF=1 External USB audio, =2 Internal mics
 - **DSPC=value**, this sets that contrast for which messages are displayed.  Contrast is from 0 - transparent text background, to 6 - opaque black background
 - **DSPL=time**, this will control the amount of time messages are displayed. For users who want there own information displayed longer. The default is 1 second.  DSPL=1 thru 9 is in seconds.  DSPL = 10 thru 9999 is in milliseconds.  So for much faster messages set DSPL to 100. Set this before setting the owner information, as metadata commands are processed in the order they are stored. 
