@@ -4,6 +4,12 @@ Only the more recent releases are documented below. This a general list of Labs 
 
 ## MISSION 1 & MISSION 1 PRO
 
+### 2.02.70 - August 10, 2026
+
+- Added WAKE=4 wake on USB power only (not battery)
+- Fixed DAUD=1, audio disable is now work correctly
+- Fixed Protune settings and Metadata in the same command string could fail
+
 ### 2.00.70 - July 23, 2026
 
 - Added EXPL - Exposure lock on capture
