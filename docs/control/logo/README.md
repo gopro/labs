@@ -47,9 +47,9 @@ Make the logo permanently active: **Are you sure? (Risky)**  <input type="checkb
 QR Command: <b id="qrtext">time</b><br>
 
 		
-**Compatibility:** Labs enabled HERO8, HERO9, HERO10*-13* and Bones*  (* limitation: only works 4Kp30 or lower res/fps.)
+**Compatibility:** Labs enabled HERO8, HERO9, HERO10*-13*, Bones* and Mission 1*  (* limitation: only works 4Kp30 or lower res/fps, 8-bit, no autoboost.)
 
-updated: Sept 10, 2024
+updated: August 11, 2026
 
 [Learn more](..) on QR Control
 

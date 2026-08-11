@@ -86,8 +86,6 @@ Share this QR Code as a URL: <small id="urltext"></small><br>
 
 Make the overlay permanently active: **Are you sure? (Risky)**  <input type="checkbox" id="permanent" name="permanent"> <label for="permanent">Permanent Overlay</label> <input type="checkbox" id="erase" name="erase"> <label for="erase">Erase</label><br>
 
-QR Command: <b id="qrtext">time</b><br>
-
 Cool Tips:
 - Metadata overlays work great with live-streaming.  This was its original intended function. 
 - Overlays can be changed mid capture, it is one of the few modes that QR Code reading is defaulted to active while recording. Example use: When live streaming an endurance auto-race, you can change the driver name on the overlay during driver change pit-stops. 
@@ -95,11 +93,12 @@ Cool Tips:
 
 Known Issues:
 - HERO10-13 support is limited to video modes 4K 16:9 up to 30, 2.7K up to 60 and 1080p up to 120fps, in 8-bit only. 
+- MISSION support is limited to video modes 4K 16:9 up to 30, in 8-bit only, HS On or Off, not Autoboost. 
 - Metadata can take a second before it updates after capture start.
 
-**Compatibility:** Labs enabled HERO8-13 and MAX 
+**Compatibility:** Labs enabled HERO8-13, MAX and MISSION 1 
         
-updated: November 25, 2025
+updated: August 11, 2026
 
 [Learn more](..) on QR Control
 
