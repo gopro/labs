@@ -44,7 +44,7 @@ Once scanned, power off the camera. Now the camera will start with USB power, en
 Share this QR Code as a URL: <small id="urltext"></small><br>
 <button id="copyBtn">Copy URL to Clipboard</button>
         
-**Compatibility:** Labs enabled HERO7 (limited), HERO8-13 and MAX         
+**Compatibility:** Labs enabled HERO7 (limited), HERO8-13, MAX/2 and MISSION
 
 ## BACKGROUND
 
@@ -56,7 +56,7 @@ If you save the above PNG image (of the script), and load that into [**Visual Sc
 
 ![importImage.png](importImage.png)
 
-updated: September 10, 2024
+updated: August 14, 2026
 
 [More features](..) for Labs enabled cameras
 
