@@ -20,7 +20,7 @@ End capture after <input type="range" style="width: 200px;" id="tlendsec" name="
 **Note:** A battery is required, as the camera needs close captured video when power is removed. Unfortunately this means your battery will eventually discharge, so it is best to have a spare battery if you intended to used this feature as a dedicated dash-cam.  
 
 <input type="checkbox" id="enablenew" name="enablenew" checked> 
-<label for="enablenew">Enable for newer Cameras: MAX, HERO10, 11, 11Mini, 12 & 13</label><br>
+<label for="enablenew">Enable for GP2 and GP3 powered cameras: HERO10 or newer</label><br>
 
 <div id="newer">
 Once scanned, power off the camera. Now the camera will start with USB power, end capture and shutdown with USB power off. You can temporarily cancel any capture with the shutter button, power on with USB power, full manual camera control is restored.<br>
