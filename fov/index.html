@@ -29,8 +29,6 @@
     border-radius: 12px;
     padding: 18px;
     width: 100%;
-    max-width: 640px;
-    transition: max-width 0.15s ease;
   }
   .columns {
     display: flex;
@@ -43,7 +41,7 @@
 
   /* Wider-than-tall viewport: put subject preview beside the calculator */
   @media (min-aspect-ratio: 1/1) {
-    .card { max-width: 1100px; padding: 24px; }
+    .card { padding: 24px; }
     .columns {
       flex-direction: row;
       gap: 24px;
