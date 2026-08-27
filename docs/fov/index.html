@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GoPro Mission 1 PRO ILS Lens FOV Calculator</title>
+<link rel="icon" href="https://gopro.github.io/labs/fov/favicon.png">
+<style>
+  :root {
+    --bg: #111418;
+    --panel: #1a1e24;
+    --border: #2a2f37;
+    --accent: #00b5e2;
+    --text: #e8eaed;
+    --text-dim: #9aa4af;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    width: 100%;
+    max-width: 520px;
+    transition: max-width 0.15s ease;
+  }
+  .columns {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .left-col, .right-col {
+    min-width: 0;
+  }
+
+  /* Wider-than-tall viewport: put subject preview beside the calculator */
+  @media (min-aspect-ratio: 1/1) {
+    .card { max-width: 900px; }
+    .columns {
+      flex-direction: row;
+      gap: 24px;
+    }
+    .left-col, .right-col { flex: 1; }
+    .right-col fieldset { margin-bottom: 0; }
+  }
+  h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin: 0 0 28px;
+  }
+  fieldset {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0 0 20px;
+  }
+  legend {
+    padding: 0 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: var(--text-dim);
+  }
+  .row {
+    display: flex;
+    gap: 12px;
+  }
+  .row > div { flex: 1; }
+  input[type="number"] {
+    width: 100%;
+    background: #0d0f12;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 8px 10px;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .slider-wrap {
+    margin-bottom: 8px;
+  }
+  .slider-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .slider-label-row label { margin: 0; }
+  .focal-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+  .reset-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .reset-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+  .results {
+    display: flex;
+    gap: 12px;
+  }
+  .result-box {
+    flex: 1;
+    background: #0d0f12;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .result-box .label {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  .result-box .value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .result-box .value span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-dim);
+  }
+  .anamorphic-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .anamorphic-toggle input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 15px;
+    height: 15px;
+  }
+  .anamorphic-wrap {
+    margin-top: 14px;
+  }
+  .anamorphic-wrap.hidden {
+    display: none;
+  }
+  .hidden {
+    display: none !important;
+  }
+
+  .preview-frame {
+    position: relative;
+    overflow: hidden;
+    background: repeating-linear-gradient(
+      0deg, #14171c, #14171c 1px, #0d0f12 1px, #0d0f12 100%
+    ), #0d0f12;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .preview-frame .crosshair {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .preview-frame .crosshair::before,
+  .preview-frame .crosshair::after {
+    content: '';
+    position: absolute;
+    background: rgba(255,255,255,0.08);
+  }
+  .preview-frame .crosshair::before {
+    left: 0; right: 0; top: 50%; height: 1px;
+  }
+  .preview-frame .crosshair::after {
+    top: 0; bottom: 0; left: 50%; width: 1px;
+  }
+  .human-figure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* -9% vertical shift keeps the head (centered at 9% down the figure)
+       pinned to the middle of the frame as the figure scales.
+       scaleX applies the anamorphic squeeze to the recorded image. */
+    transform: translate(-50%, -9%) scaleX(var(--squeeze, 1));
+    aspect-ratio: 34 / 100;
+    width: auto;
+    transition: height 0.05s linear;
+  }
+  .preview-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 10px;
+  }
+  .preview-meta strong { color: var(--text); }
+  .fill-warning { color: #ff9f4a; }
+
+  .pano-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .pano-controls .file-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .pano-controls .file-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+  .pano-controls input[type="file"] {
+    display: none;
+  }
+  .pano-hint {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .pano-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+    touch-action: none;
+  }
+  .pano-canvas.dragging {
+    cursor: grabbing;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>GoPro Mission 1 PRO ILS Lens FOV Calculator</h1>
+  <p class="subtitle">Horizontal &amp; vertical field of view from focal length and sensor size</p>
+
+  <div class="columns">
+    <div class="left-col">
+      <fieldset>
+        <legend>Sensor size (mm)</legend>
+        <div class="row">
+          <div>
+            <label for="sensorW">Width</label>
+            <input type="number" id="sensorW" value="13.1" step="0.1" min="0.1">
+          </div>
+          <div>
+            <label for="sensorH">Height</label>
+            <input type="number" id="sensorH" value="9.8" step="0.1" min="0.1">
+          </div>
+        </div>
+        <button class="reset-btn" id="resetSensor" type="button">Reset to default (13.1 × 9.8 mm)</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Focal length</legend>
+        <div class="slider-wrap">
+          <div class="slider-label-row">
+            <label for="focal">Focal length</label>
+            <span class="focal-value"><span id="focalValue">8</span> mm</span>
+          </div>
+          <input type="range" id="focal" min="0" max="0" step="1" value="0">
+        </div>
+
+        <label class="anamorphic-toggle">
+          <input type="checkbox" id="anamorphicToggle">
+          Anamorphic lens
+        </label>
+
+        <div class="anamorphic-wrap hidden" id="anamorphicWrap">
+          <div class="slider-label-row">
+            <label for="anamorphic">Squeeze factor</label>
+            <span class="focal-value"><span id="anamorphicValue">1.5</span>×</span>
+          </div>
+          <input type="range" id="anamorphic" min="0" max="3" step="1" value="2">
+        </div>
+      </fieldset>
+
+      <div class="results">
+        <div class="result-box">
+          <div class="label">Horizontal FOV</div>
+          <div class="value"><span id="hfov">--</span><span>°</span></div>
+        </div>
+        <div class="result-box">
+          <div class="label">Vertical FOV</div>
+          <div class="value"><span id="vfov">--</span><span>°</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <fieldset>
+        <legend>Subject preview</legend>
+
+        <div class="pano-controls">
+          <button class="file-btn" id="loadPanoBtn" type="button">Load 360° image</button>
+          <input type="file" id="panoInput" accept="image/*">
+          <button class="file-btn hidden" id="clearPanoBtn" type="button">Remove image</button>
+          <button class="file-btn hidden" id="resetViewBtn" type="button">Reset view</button>
+        </div>
+        <p class="pano-hint hidden" id="panoHint">Drag inside the frame to look around the 360° photo.</p>
+
+        <div class="slider-wrap" id="distanceControl">
+          <div class="slider-label-row">
+            <label for="distance">Distance to subject (180cm human)</label>
+            <span class="focal-value"><span id="distanceValue">5.0</span> m</span>
+          </div>
+          <input type="range" id="distance" min="0.5" max="30" step="0.1" value="5">
+        </div>
+
+        <label class="anamorphic-toggle desqueeze-toggle hidden" id="desqueezeWrap">
+          <input type="checkbox" id="desqueezeToggle" checked>
+          Desqueeze preview
+        </label>
+
+        <div class="preview-frame" id="previewFrame">
+          <div class="crosshair"></div>
+          <svg class="human-figure" id="humanFigure" viewBox="0 0 34 100" preserveAspectRatio="xMidYMax meet">
+            <circle cx="17" cy="9" r="9" fill="#e8eaed"/>
+            <!-- face -->
+            <circle cx="13.2" cy="8" r="1.1" fill="#1a1e24"/>
+            <circle cx="20.8" cy="8" r="1.1" fill="#1a1e24"/>
+            <path d="M 17 9 L 16 12.5 L 17.6 12.5" fill="none" stroke="#1a1e24" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 13.5 14 Q 17 16.2 20.5 14" fill="none" stroke="#1a1e24" stroke-width="0.9" stroke-linecap="round"/>
+            <path d="M 17 18
+                     C 8 18, 5 24, 5 33
+                     L 5 55
+                     C 5 58, 8 58, 8.5 55
+                     L 10.5 34
+                     L 10.5 60
+                     L 7 100
+                     L 14 100
+                     L 17 62
+                     L 20 100
+                     L 27 100
+                     L 23.5 60
+                     L 23.5 34
+                     L 25.5 55
+                     C 26 58, 29 58, 29 55
+                     L 29 33
+                     C 29 24, 26 18, 17 18
+                     Z" fill="#e8eaed"/>
+          </svg>
+          <canvas class="pano-canvas hidden" id="panoCanvas"></canvas>
+        </div>
+
+        <div class="preview-meta" id="previewMeta">
+          <span>Frame at this distance: <strong id="frameDims">--</strong></span>
+          <span>Subject fills: <strong id="fillPct">--</strong></span>
+        </div>
+        <div class="preview-meta hidden" id="panoMeta">
+          <span>Yaw: <strong id="yawVal">0°</strong></span>
+          <span>Pitch: <strong id="pitchVal">0°</strong></span>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<script>
+  const sensorW = document.getElementById('sensorW');
+  const sensorH = document.getElementById('sensorH');
+  const focal = document.getElementById('focal');
+  const focalValue = document.getElementById('focalValue');
+  const hfovEl = document.getElementById('hfov');
+  const vfovEl = document.getElementById('vfov');
+  const resetSensor = document.getElementById('resetSensor');
+  const distance = document.getElementById('distance');
+  const distanceValue = document.getElementById('distanceValue');
+  const previewFrame = document.getElementById('previewFrame');
+  const humanFigure = document.getElementById('humanFigure');
+  const frameDimsEl = document.getElementById('frameDims');
+  const fillPctEl = document.getElementById('fillPct');
+  const anamorphicToggle = document.getElementById('anamorphicToggle');
+  const anamorphicWrap = document.getElementById('anamorphicWrap');
+  const anamorphic = document.getElementById('anamorphic');
+  const anamorphicValue = document.getElementById('anamorphicValue');
+  const desqueezeWrap = document.getElementById('desqueezeWrap');
+  const desqueezeToggle = document.getElementById('desqueezeToggle');
+  const loadPanoBtn = document.getElementById('loadPanoBtn');
+  const panoInput = document.getElementById('panoInput');
+  const clearPanoBtn = document.getElementById('clearPanoBtn');
+  const resetViewBtn = document.getElementById('resetViewBtn');
+  const panoHint = document.getElementById('panoHint');
+  const distanceControl = document.getElementById('distanceControl');
+  const previewMeta = document.getElementById('previewMeta');
+  const panoMeta = document.getElementById('panoMeta');
+  const yawValEl = document.getElementById('yawVal');
+  const pitchValEl = document.getElementById('pitchVal');
+  const panoCanvas = document.getElementById('panoCanvas');
+  const panoCtx = panoCanvas.getContext('2d');
+
+  const DEFAULT_W = 13.1;
+  const DEFAULT_H = 9.8;
+  const DEFAULT_FOCAL = 25;
+  const HUMAN_HEIGHT_M = 1.8;
+  const ANAMORPHIC_STEPS = [1.0, 1.33, 1.5, 2.0];
+  const ANAMORPHIC_LABELS = ['1.0', '1.33', '1.5', '2.0'];
+
+  // --- 360 panorama preview state ---
+  let panoSrc = null;      // { data: Uint8ClampedArray, width, height }
+  let panoLoaded = false;
+  let panoObjectUrl = null;
+  let yaw = 0;              // degrees
+  let pitch = 0;            // degrees
+  let lastHFovDeg = 60, lastVFovDeg = 40; // updated by calculate()
+  let renderScheduled = false;
+  let dragging = false;
+  let dragStartX = 0, dragStartY = 0, dragStartYaw = 0, dragStartPitch = 0;
+
+  const PANO_OUT_W = 480; // intrinsic canvas render resolution (perf budget)
+
+  function setPanoMode(active) {
+    humanFigure.classList.toggle('hidden', active);
+    panoCanvas.classList.toggle('hidden', !active);
+    distanceControl.classList.toggle('hidden', active);
+    previewMeta.classList.toggle('hidden', active);
+    panoMeta.classList.toggle('hidden', !active);
+    panoHint.classList.toggle('hidden', !active);
+    clearPanoBtn.classList.toggle('hidden', !active);
+    resetViewBtn.classList.toggle('hidden', !active);
+    loadPanoBtn.textContent = active ? 'Load different image' : 'Load 360° image';
+  }
+
+  function loadPanoImage(file) {
+    if (!file) return;
+    if (panoObjectUrl) URL.revokeObjectURL(panoObjectUrl);
+    panoObjectUrl = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      // Cap intrinsic source resolution for memory/perf sanity
+      const MAX_DIM = 4096;
+      let sw = img.naturalWidth, sh = img.naturalHeight;
+      const scale = Math.min(1, MAX_DIM / Math.max(sw, sh));
+      sw = Math.round(sw * scale);
+      sh = Math.round(sh * scale);
+
+      const off = document.createElement('canvas');
+      off.width = sw;
+      off.height = sh;
+      const offCtx = off.getContext('2d');
+      offCtx.drawImage(img, 0, 0, sw, sh);
+      const imgData = offCtx.getImageData(0, 0, sw, sh);
+
+      panoSrc = { data: imgData.data, width: sw, height: sh };
+      panoLoaded = true;
+      yaw = 0;
+      pitch = 0;
+      updateYawPitchReadout();
+      setPanoMode(true);
+      renderPano();
+    };
+    img.src = panoObjectUrl;
+  }
+
+  function clearPano() {
+    panoLoaded = false;
+    panoSrc = null;
+    if (panoObjectUrl) { URL.revokeObjectURL(panoObjectUrl); panoObjectUrl = null; }
+    panoInput.value = '';
+    setPanoMode(false);
+  }
+
+  function updateYawPitchReadout() {
+    yawValEl.textContent = Math.round(yaw) + '°';
+    pitchValEl.textContent = Math.round(pitch) + '°';
+  }
+
+  function scheduleRenderPano() {
+    if (renderScheduled) return;
+    renderScheduled = true;
+    requestAnimationFrame(() => {
+      renderScheduled = false;
+      renderPano();
+    });
+  }
+
+  function renderPano() {
+    if (!panoLoaded || !panoSrc) return;
+
+    const outW = PANO_OUT_W;
+    const outH = Math.max(1, Math.round(PANO_OUT_W * (previewFrame.clientHeight / previewFrame.clientWidth || 0.75)));
+    if (panoCanvas.width !== outW) panoCanvas.width = outW;
+    if (panoCanvas.height !== outH) panoCanvas.height = outH;
+
+    const hFovRad = lastHFovDeg * Math.PI / 180;
+    const vFovRad = lastVFovDeg * Math.PI / 180;
+    const tanHalfH = Math.tan(Math.min(hFovRad, Math.PI * 0.999) / 2);
+    const tanHalfV = Math.tan(Math.min(vFovRad, Math.PI * 0.999) / 2);
+
+    const yawRad = yaw * Math.PI / 180;
+    const pitchRad = pitch * Math.PI / 180;
+    const cosYaw = Math.cos(yawRad), sinYaw = Math.sin(yawRad);
+    const cosPitch = Math.cos(pitchRad), sinPitch = Math.sin(pitchRad);
+
+    const srcW = panoSrc.width, srcH = panoSrc.height;
+    const srcData = panoSrc.data;
+
+    const outData = panoCtx.createImageData(outW, outH);
+    const out = outData.data;
+
+    let oi = 0;
+    for (let py = 0; py < outH; py++) {
+      const ndcY = 1 - (py + 0.5) / outH * 2;
+      const dy0 = ndcY * tanHalfV;
+      for (let px = 0; px < outW; px++) {
+        const ndcX = (px + 0.5) / outW * 2 - 1;
+        const dx0 = ndcX * tanHalfH;
+        const dz0 = 1;
+
+        // pitch (rotate around X axis)
+        const y1 = dy0 * cosPitch - dz0 * sinPitch;
+        const z1 = dy0 * sinPitch + dz0 * cosPitch;
+        const x1 = dx0;
+
+        // yaw (rotate around Y axis)
+        const x2 = x1 * cosYaw + z1 * sinYaw;
+        const z2 = -x1 * sinYaw + z1 * cosYaw;
+        const y2 = y1;
+
+        const theta = Math.atan2(x2, z2);
+        const phi = Math.atan2(y2, Math.sqrt(x2 * x2 + z2 * z2));
+
+        let u = (theta / (2 * Math.PI) + 0.5) * srcW;
+        let v = (0.5 - phi / Math.PI) * srcH;
+
+        u = ((u % srcW) + srcW) % srcW;
+        v = Math.max(0, Math.min(srcH - 1, v));
+
+        const sx = u | 0;
+        const sy = v | 0;
+        const si = (sy * srcW + sx) * 4;
+
+        out[oi] = srcData[si];
+        out[oi + 1] = srcData[si + 1];
+        out[oi + 2] = srcData[si + 2];
+        out[oi + 3] = 255;
+        oi += 4;
+      }
+    }
+
+    panoCtx.putImageData(outData, 0, 0);
+  }
+
+  function onPointerDown(e) {
+    if (!panoLoaded) return;
+    dragging = true;
+    dragStartX = e.clientX;
+    dragStartY = e.clientY;
+    dragStartYaw = yaw;
+    dragStartPitch = pitch;
+    panoCanvas.classList.add('dragging');
+    panoCanvas.setPointerCapture(e.pointerId);
+  }
+
+  function onPointerMove(e) {
+    if (!dragging) return;
+    const rect = panoCanvas.getBoundingClientRect();
+    const dxPix = e.clientX - dragStartX;
+    const dyPix = e.clientY - dragStartY;
+
+    yaw = dragStartYaw - (dxPix / rect.width) * lastHFovDeg;
+    pitch = Math.max(-89, Math.min(89, dragStartPitch - (dyPix / rect.height) * lastVFovDeg));
+
+    // normalize yaw into -180..180 for a cleaner readout
+    yaw = ((yaw + 180) % 360 + 360) % 360 - 180;
+
+    updateYawPitchReadout();
+    scheduleRenderPano();
+  }
+
+  function onPointerUp(e) {
+    if (!dragging) return;
+    dragging = false;
+    panoCanvas.classList.remove('dragging');
+    try { panoCanvas.releasePointerCapture(e.pointerId); } catch (err) {}
+  }
+
+  // Build variable-step focal length table: 4-20mm @0.5, 20-100mm @1, 100-600mm @5
+  function buildFocalSteps() {
+    const vals = [];
+    for (let v = 4; v < 20; v += 0.5) vals.push(Math.round(v * 10) / 10);
+    for (let v = 20; v < 100; v += 1) vals.push(v);
+    for (let v = 100; v <= 600; v += 5) vals.push(v);
+    return vals;
+  }
+  const FOCAL_STEPS = buildFocalSteps();
+
+  focal.min = 0;
+  focal.max = FOCAL_STEPS.length - 1;
+  focal.step = 1;
+
+  function closestIndex(target) {
+    let best = 0, bestDiff = Infinity;
+    FOCAL_STEPS.forEach((v, i) => {
+      const diff = Math.abs(v - target);
+      if (diff < bestDiff) { bestDiff = diff; best = i; }
+    });
+    return best;
+  }
+  focal.value = closestIndex(DEFAULT_FOCAL);
+
+  function fovDeg(sensorDim, focalLength) {
+    return 2 * Math.atan(sensorDim / (2 * focalLength)) * (180 / Math.PI);
+  }
+
+  function calculate() {
+    const w = parseFloat(sensorW.value);
+    const h = parseFloat(sensorH.value);
+    const f = FOCAL_STEPS[parseInt(focal.value, 10)];
+
+    focalValue.textContent = (f % 1 === 0) ? f : f.toFixed(1);
+
+    const anamorphicEnabled = anamorphicToggle.checked;
+    const squeezeIdx = parseInt(anamorphic.value, 10);
+    const squeeze = anamorphicEnabled ? ANAMORPHIC_STEPS[squeezeIdx] : 1.0;
+    anamorphicValue.textContent = anamorphicEnabled ? ANAMORPHIC_LABELS[squeezeIdx] : '1.0';
+
+    if (!w || !h || !f || w <= 0 || h <= 0 || f <= 0) {
+      hfovEl.textContent = '--';
+      vfovEl.textContent = '--';
+      return;
+    }
+
+    // Anamorphic lenses capture a wider horizontal field for a given focal
+    // length, then optically squeeze it onto the sensor. Model that by
+    // computing the horizontal FOV using an effective focal length of FL/squeeze.
+    const fH = f / squeeze;
+
+    const hFovDeg = fovDeg(w, fH);
+    const vFovDeg = fovDeg(h, f);
+
+    hfovEl.textContent = hFovDeg.toFixed(1);
+    vfovEl.textContent = vFovDeg.toFixed(1);
+
+    lastHFovDeg = hFovDeg;
+    lastVFovDeg = vFovDeg;
+
+    const desqueezeEnabled = anamorphicEnabled && desqueezeToggle.checked;
+
+    updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled);
+
+    if (panoLoaded) renderPano();
+  }
+
+  function updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled) {
+    const dist = parseFloat(distance.value);
+    distanceValue.textContent = dist.toFixed(1);
+
+    // Physical sensor aspect ratio (the raw, squeezed shot).
+    // Desqueezing stretches the image horizontally by the squeeze factor to
+    // restore natural proportions, so the previewed frame widens to match.
+    const displayW = desqueezeEnabled ? w * squeeze : w;
+    previewFrame.style.aspectRatio = (w && h) ? `${displayW} / ${h}` : '4 / 3';
+
+    if (!dist || dist <= 0 || isNaN(vFovDeg)) {
+      frameDimsEl.textContent = '--';
+      fillPctEl.textContent = '--';
+      return;
+    }
+
+    const vFovRad = vFovDeg * Math.PI / 180;
+    const hFovRad = hFovDeg * Math.PI / 180;
+
+    const frameHeightM = 2 * dist * Math.tan(vFovRad / 2);
+    const frameWidthM = 2 * dist * Math.tan(hFovRad / 2);
+
+    frameDimsEl.textContent = `${frameWidthM.toFixed(2)}m × ${frameHeightM.toFixed(2)}m`;
+
+    const fraction = HUMAN_HEIGHT_M / frameHeightM;
+    const pct = fraction * 100;
+
+    // No practical cap needed: overflow:hidden on the frame crops anything
+    // past 100%, so growth keeps "zooming in" correctly at long focal lengths
+    // / close distances instead of freezing at an arbitrary ceiling.
+    humanFigure.style.height = pct + '%';
+
+    // Anamorphic squeeze: the wider horizontal FOV is optically compressed onto
+    // the sensor, so the raw (un-desqueezed) image looks squeezed horizontally.
+    // Once desqueezed, the subject's proportions are restored (scale = 1).
+    const squeezeScale = desqueezeEnabled ? 1 : 1 / squeeze;
+    previewFrame.style.setProperty('--squeeze', squeezeScale);
+
+    fillPctEl.textContent = pct.toFixed(0) + '%';
+    fillPctEl.classList.toggle('fill-warning', pct > 100);
+  }
+
+  resetSensor.addEventListener('click', () => {
+    sensorW.value = DEFAULT_W;
+    sensorH.value = DEFAULT_H;
+    calculate();
+  });
+
+  anamorphicToggle.addEventListener('change', () => {
+    const enabled = anamorphicToggle.checked;
+    anamorphicWrap.classList.toggle('hidden', !enabled);
+    desqueezeWrap.classList.toggle('hidden', !enabled);
+    calculate();
+  });
+
+  desqueezeToggle.addEventListener('change', calculate);
+
+  loadPanoBtn.addEventListener('click', () => panoInput.click());
+  panoInput.addEventListener('change', (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) loadPanoImage(file);
+  });
+  clearPanoBtn.addEventListener('click', clearPano);
+  resetViewBtn.addEventListener('click', () => {
+    yaw = 0;
+    pitch = 0;
+    updateYawPitchReadout();
+    scheduleRenderPano();
+  });
+
+  panoCanvas.addEventListener('pointerdown', onPointerDown);
+  panoCanvas.addEventListener('pointermove', onPointerMove);
+  panoCanvas.addEventListener('pointerup', onPointerUp);
+  panoCanvas.addEventListener('pointercancel', onPointerUp);
+
+  window.addEventListener('resize', () => { if (panoLoaded) scheduleRenderPano(); });
+
+  [sensorW, sensorH, focal, distance, anamorphic].forEach(el => el.addEventListener('input', calculate));
+
+  calculate();
+</script>
+
+</body>
+</html>
