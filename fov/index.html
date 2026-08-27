@@ -120,6 +120,11 @@
     width: 100%;
     accent-color: var(--accent);
   }
+  .reset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
   .reset-btn {
     background: none;
     border: 1px solid var(--border);
@@ -318,7 +323,10 @@
             <input type="number" id="sensorH" value="9.8" step="0.1" min="0.1">
           </div>
         </div>
-        <button class="reset-btn" id="resetSensor" type="button">Reset to default (13.1 × 9.8 mm)</button>
+        <div class="reset-buttons">
+          <button class="reset-btn" id="resetSensor" type="button">Reset to Open Gate</button>
+          <button class="reset-btn" id="reset169" type="button">Reset to 16:9 Region</button>
+        </div>
       </fieldset>
 
       <fieldset>
@@ -470,6 +478,7 @@
   const hfovEl = document.getElementById('hfov');
   const vfovEl = document.getElementById('vfov');
   const resetSensor = document.getElementById('resetSensor');
+  const reset169 = document.getElementById('reset169');
   const distance = document.getElementById('distance');
   const distanceValue = document.getElementById('distanceValue');
   const previewFrame = document.getElementById('previewFrame');
@@ -497,6 +506,8 @@
 
   const DEFAULT_W = 13.1;
   const DEFAULT_H = 9.8;
+  const SIXTEEN_NINE_W = 13.1;
+  const SIXTEEN_NINE_H = 7.4;
   const DEFAULT_FOCAL = 25;
   const HUMAN_HEIGHT_M = 1.8;
   const ANAMORPHIC_STEPS = [1.0, 1.33, 1.5, 2.0];
@@ -803,6 +814,12 @@
   resetSensor.addEventListener('click', () => {
     sensorW.value = DEFAULT_W;
     sensorH.value = DEFAULT_H;
+    calculate();
+  });
+
+  reset169.addEventListener('click', () => {
+    sensorW.value = SIXTEEN_NINE_W;
+    sensorH.value = SIXTEEN_NINE_H;
     calculate();
   });
 
