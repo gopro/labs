@@ -2,7 +2,7 @@
 
 ## Firmware
 
-See this as a styled page https://gopro.github.io/labs/
+See this as a styled page [gopro.github.io/labs/](https://gopro.github.io/labs/)
 
 Labs offers experimental firmware program that uses QR codes to control your camera and extend your camera's functionality beyond stocks features. 
 It is especially useful in situations where settings can't be communicated via voice, where WiFi is not available, where app pairing is not established, 
