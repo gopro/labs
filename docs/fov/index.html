@@ -21,15 +21,15 @@
     color: var(--text);
     display: flex;
     justify-content: center;
-    padding: 40px 16px;
+    padding: 10px;
   }
   .card {
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 32px;
+    padding: 18px;
     width: 100%;
-    max-width: 520px;
+    max-width: 640px;
     transition: max-width 0.15s ease;
   }
   .columns {
@@ -43,7 +43,7 @@
 
   /* Wider-than-tall viewport: put subject preview beside the calculator */
   @media (min-aspect-ratio: 1/1) {
-    .card { max-width: 900px; }
+    .card { max-width: 1100px; padding: 24px; }
     .columns {
       flex-direction: row;
       gap: 24px;
@@ -362,6 +362,43 @@
             <!-- face -->
             <circle cx="13.2" cy="8" r="1.1" fill="#1a1e24"/>
             <circle cx="20.8" cy="8" r="1.1" fill="#1a1e24"/>
+            <!-- freckles: only revealed at very tight/zoomed framing. Drawn
+                 before the nose/mouth strokes so those render on top and
+                 cleanly mask any that would otherwise sit too close. -->
+            <g id="freckles" style="opacity:0; transition: opacity 0.15s linear;" fill="#b08a6a">
+              <circle cx="11.6" cy="10.4" r="0.28"/>
+              <circle cx="12.6" cy="9.6" r="0.24"/>
+              <circle cx="13.4" cy="10.8" r="0.3"/>
+              <circle cx="11.9" cy="11.6" r="0.22"/>
+              <circle cx="13.9" cy="9.4" r="0.22"/>
+              <circle cx="22.4" cy="10.4" r="0.28"/>
+              <circle cx="21.4" cy="9.6" r="0.24"/>
+              <circle cx="20.6" cy="10.8" r="0.3"/>
+              <circle cx="22.1" cy="11.6" r="0.22"/>
+              <circle cx="20.1" cy="9.4" r="0.22"/>
+              <!-- flanking the nose, clear of its outline, irregular placement -->
+              <circle cx="16.05" cy="9.75" r="0.22"/>
+              <circle cx="15.55" cy="10.55" r="0.18"/>
+              <circle cx="15.75" cy="11.35" r="0.24"/>
+              <circle cx="15.35" cy="12.15" r="0.19"/>
+              <circle cx="15.85" cy="12.7" r="0.21"/>
+              <circle cx="18.05" cy="9.9" r="0.2"/>
+              <circle cx="18.35" cy="10.75" r="0.23"/>
+              <circle cx="18.05" cy="11.5" r="0.17"/>
+              <circle cx="18.45" cy="12.3" r="0.22"/>
+              <circle cx="18.0" cy="12.85" r="0.19"/>
+              <circle cx="16.55" cy="13.55" r="0.17"/>
+              <circle cx="17.65" cy="13.35" r="0.2"/>
+              <circle cx="17.15" cy="13.75" r="0.16"/>
+              <!-- between the eyes, above the nose bridge -->
+              <circle cx="15.05" cy="7.55" r="0.19"/>
+              <circle cx="15.85" cy="8.35" r="0.22"/>
+              <circle cx="16.55" cy="7.35" r="0.18"/>
+              <circle cx="17.45" cy="7.75" r="0.2"/>
+              <circle cx="18.15" cy="8.25" r="0.19"/>
+              <circle cx="18.85" cy="7.45" r="0.21"/>
+              <circle cx="16.95" cy="8.35" r="0.17"/>
+            </g>
             <path d="M 17 9 L 16 12.5 L 17.6 12.5" fill="none" stroke="#1a1e24" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M 13.5 14 Q 17 16.2 20.5 14" fill="none" stroke="#1a1e24" stroke-width="0.9" stroke-linecap="round"/>
             <path d="M 17 18
@@ -411,6 +448,7 @@
   const distanceValue = document.getElementById('distanceValue');
   const previewFrame = document.getElementById('previewFrame');
   const humanFigure = document.getElementById('humanFigure');
+  const freckles = document.getElementById('freckles');
   const frameDimsEl = document.getElementById('frameDims');
   const fillPctEl = document.getElementById('fillPct');
   const anamorphicToggle = document.getElementById('anamorphicToggle');
@@ -716,6 +754,12 @@
     // past 100%, so growth keeps "zooming in" correctly at long focal lengths
     // / close distances instead of freezing at an arbitrary ceiling.
     humanFigure.style.height = pct + '%';
+
+    // Freckles only become visible once the framing is tight enough to be a
+    // close-up on the face (i.e. a long focal length / short distance).
+    // Fade them in between 150% and 320% frame fill.
+    const frecklesOpacity = Math.max(0, Math.min(1, (pct - 150) / (320 - 150)));
+    freckles.style.opacity = frecklesOpacity;
 
     // Anamorphic squeeze: the wider horizontal FOV is optically compressed onto
     // the sensor, so the raw (un-desqueezed) image looks squeezed horizontally.
