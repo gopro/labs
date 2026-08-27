@@ -220,7 +220,9 @@
   }
   .preview-meta {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 4px 12px;
     font-size: 12px;
     color: var(--text-dim);
     margin-top: 10px;
@@ -266,6 +268,25 @@
   }
   .pano-canvas.dragging {
     cursor: grabbing;
+  }
+
+  /* Phone-sized screens: bump up all the text for readability */
+  @media (max-width: 480px) {
+    body { font-size: 17px; }
+    h1 { font-size: 24px; }
+    .subtitle { font-size: 15px; }
+    legend { font-size: 13px; }
+    label, .slider-label-row label { font-size: 16px; }
+    .focal-value { font-size: 21px; }
+    .reset-btn, .file-btn { font-size: 14px; padding: 8px 14px; }
+    input[type="number"] { font-size: 17px; padding: 10px 12px; }
+    .result-box .label { font-size: 14px; }
+    .result-box .value { font-size: 28px; }
+    .result-box .value span { font-size: 16px; }
+    .preview-meta { font-size: 14px; }
+    .pano-hint { font-size: 13px; }
+    .anamorphic-toggle { font-size: 15px; }
+    .anamorphic-toggle input[type="checkbox"] { width: 19px; height: 19px; }
   }
 </style>
 </head>
@@ -343,7 +364,7 @@
         <div class="slider-wrap" id="distanceControl">
           <div class="slider-label-row">
             <label for="distance">Distance to subject (180cm human)</label>
-            <span class="focal-value"><span id="distanceValue">5.0</span> m</span>
+            <span class="focal-value"><span id="distanceValue">5.0m / 16.4ft</span></span>
           </div>
           <input type="range" id="distance" min="0.5" max="30" step="0.1" value="5">
         </div>
@@ -654,10 +675,10 @@
     try { panoCanvas.releasePointerCapture(e.pointerId); } catch (err) {}
   }
 
-  // Build variable-step focal length table: 4-20mm @0.5, 20-100mm @1, 100-600mm @5
+  // Build variable-step focal length table: 6-20mm @0.5, 20-100mm @1, 100-600mm @5
   function buildFocalSteps() {
     const vals = [];
-    for (let v = 4; v < 20; v += 0.5) vals.push(Math.round(v * 10) / 10);
+    for (let v = 6; v < 20; v += 0.5) vals.push(Math.round(v * 10) / 10);
     for (let v = 20; v < 100; v += 1) vals.push(v);
     for (let v = 100; v <= 600; v += 5) vals.push(v);
     return vals;
@@ -680,6 +701,14 @@
 
   function fovDeg(sensorDim, focalLength) {
     return 2 * Math.atan(sensorDim / (2 * focalLength)) * (180 / Math.PI);
+  }
+
+  const METERS_TO_FEET = 3.28084;
+  function metersToFeet(m) {
+    return m * METERS_TO_FEET;
+  }
+  function formatMetersFeet(m, decimals) {
+    return `${m.toFixed(decimals)}m / ${metersToFeet(m).toFixed(1)}ft`;
   }
 
   function calculate() {
@@ -723,7 +752,7 @@
 
   function updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled) {
     const dist = parseFloat(distance.value);
-    distanceValue.textContent = dist.toFixed(1);
+    distanceValue.textContent = formatMetersFeet(dist, 1);
 
     // Physical sensor aspect ratio (the raw, squeezed shot).
     // Desqueezing stretches the image horizontally by the squeeze factor to
@@ -743,7 +772,7 @@
     const frameHeightM = 2 * dist * Math.tan(vFovRad / 2);
     const frameWidthM = 2 * dist * Math.tan(hFovRad / 2);
 
-    frameDimsEl.textContent = `${frameWidthM.toFixed(2)}m × ${frameHeightM.toFixed(2)}m`;
+    frameDimsEl.textContent = `${formatMetersFeet(frameWidthM, 2)} × ${formatMetersFeet(frameHeightM, 2)}`;
 
     const fraction = HUMAN_HEIGHT_M / frameHeightM;
     const pct = fraction * 100;
