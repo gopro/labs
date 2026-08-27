@@ -38,7 +38,7 @@
   .columns {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 20px;
   }
   .left-col, .right-col {
     min-width: 0;
@@ -139,24 +139,28 @@
   }
   .result-box {
     flex: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
     background: #0d0f12;
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 16px;
-    text-align: center;
+    padding: 8px 12px;
   }
   .result-box .label {
     font-size: 12px;
     color: var(--text-dim);
-    margin-bottom: 6px;
+    margin-bottom: 0;
   }
   .result-box .value {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--accent);
+    white-space: nowrap;
   }
   .result-box .value span {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     color: var(--text-dim);
   }
@@ -233,7 +237,6 @@
     margin-top: 10px;
   }
   .preview-meta strong { color: var(--text); }
-  .fill-warning { color: #ff9f4a; }
 
   .pano-controls {
     display: flex;
@@ -286,8 +289,8 @@
     .reset-btn, .file-btn { font-size: 14px; padding: 8px 14px; }
     input[type="number"] { font-size: 17px; padding: 10px 12px; }
     .result-box .label { font-size: 14px; }
-    .result-box .value { font-size: 28px; }
-    .result-box .value span { font-size: 16px; }
+    .result-box .value { font-size: 20px; }
+    .result-box .value span { font-size: 14px; }
     .preview-meta { font-size: 14px; }
     .pano-hint { font-size: 13px; }
     .anamorphic-toggle { font-size: 15px; }
@@ -449,7 +452,6 @@
 
         <div class="preview-meta" id="previewMeta">
           <span>Frame at this distance: <strong id="frameDims">--</strong></span>
-          <span>Subject fills: <strong id="fillPct">--</strong></span>
         </div>
         <div class="preview-meta hidden" id="panoMeta">
           <span>Yaw: <strong id="yawVal">0°</strong></span>
@@ -474,7 +476,6 @@
   const humanFigure = document.getElementById('humanFigure');
   const freckles = document.getElementById('freckles');
   const frameDimsEl = document.getElementById('frameDims');
-  const fillPctEl = document.getElementById('fillPct');
   const anamorphicToggle = document.getElementById('anamorphicToggle');
   const anamorphicWrap = document.getElementById('anamorphicWrap');
   const anamorphic = document.getElementById('anamorphic');
@@ -767,7 +768,6 @@
 
     if (!dist || dist <= 0 || isNaN(vFovDeg)) {
       frameDimsEl.textContent = '--';
-      fillPctEl.textContent = '--';
       return;
     }
 
@@ -798,9 +798,6 @@
     // Once desqueezed, the subject's proportions are restored (scale = 1).
     const squeezeScale = desqueezeEnabled ? 1 : 1 / squeeze;
     previewFrame.style.setProperty('--squeeze', squeezeScale);
-
-    fillPctEl.textContent = pct.toFixed(0) + '%';
-    fillPctEl.classList.toggle('fill-warning', pct > 100);
   }
 
   resetSensor.addEventListener('click', () => {
