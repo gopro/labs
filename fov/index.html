@@ -521,10 +521,12 @@
   let pitch = 0;            // degrees
   let lastHFovDeg = 60, lastVFovDeg = 40; // updated by calculate()
   let renderScheduled = false;
+  let pendingFast = false;
   let dragging = false;
   let dragStartX = 0, dragStartY = 0, dragStartYaw = 0, dragStartPitch = 0;
 
-  const PANO_OUT_W = 480; // intrinsic canvas render resolution (perf budget)
+  const PANO_MIN_OUT_W = 480;  // floor, so it's never worse than before
+  const PANO_MAX_OUT_W = 1400; // ceiling, keeps the per-pixel projection loop fast enough while dragging
 
   function setPanoMode(active) {
     humanFigure.classList.toggle('hidden', active);
@@ -582,20 +584,36 @@
     pitchValEl.textContent = Math.round(pitch) + '°';
   }
 
-  function scheduleRenderPano() {
+  function scheduleRenderPano(fast) {
+    // If a render is already queued for this frame, only let a full-quality
+    // ("not fast") request upgrade it — never let a later fast request
+    // downgrade a full-quality render that's already pending.
+    pendingFast = renderScheduled ? (pendingFast && fast) : !!fast;
     if (renderScheduled) return;
     renderScheduled = true;
     requestAnimationFrame(() => {
       renderScheduled = false;
-      renderPano();
+      const f = pendingFast;
+      pendingFast = false;
+      renderPano(f);
     });
   }
 
-  function renderPano() {
+  function renderPano(fast) {
     if (!panoLoaded || !panoSrc) return;
 
-    const outW = PANO_OUT_W;
-    const outH = Math.max(1, Math.round(PANO_OUT_W * (previewFrame.clientHeight / previewFrame.clientWidth || 0.75)));
+    // Render at the frame's actual on-screen size (accounting for pixel
+    // density) instead of a fixed low resolution, so the crop stays sharp
+    // on wide/high-DPI displays. Clamped for the per-pixel projection loop's
+    // performance budget. While actively dragging ("fast" mode) we drop back
+    // to the lower floor resolution to keep the pan responsive, then render
+    // one full-quality frame once the drag ends.
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const displayWidthPx = previewFrame.clientWidth || 480;
+    const outW = fast
+      ? PANO_MIN_OUT_W
+      : Math.round(Math.max(PANO_MIN_OUT_W, Math.min(PANO_MAX_OUT_W, displayWidthPx * dpr)));
+    const outH = Math.max(1, Math.round(outW * (previewFrame.clientHeight / previewFrame.clientWidth || 0.75)));
     if (panoCanvas.width !== outW) panoCanvas.width = outW;
     if (panoCanvas.height !== outH) panoCanvas.height = outH;
 
@@ -682,7 +700,7 @@
     yaw = ((yaw + 180) % 360 + 360) % 360 - 180;
 
     updateYawPitchReadout();
-    scheduleRenderPano();
+    scheduleRenderPano(true); // fast/low-res while actively dragging
   }
 
   function onPointerUp(e) {
@@ -690,6 +708,7 @@
     dragging = false;
     panoCanvas.classList.remove('dragging');
     try { panoCanvas.releasePointerCapture(e.pointerId); } catch (err) {}
+    scheduleRenderPano(false); // one full-quality render once the drag settles
   }
 
   // Build variable-step focal length table: 6-20mm @0.5, 20-100mm @1, 100-600mm @5
@@ -728,7 +747,7 @@
     return `${m.toFixed(decimals)}m / ${metersToFeet(m).toFixed(1)}ft`;
   }
 
-  function calculate() {
+  function calculate(fast) {
     const w = parseFloat(sensorW.value);
     const h = parseFloat(sensorH.value);
     const f = FOCAL_STEPS[parseInt(focal.value, 10)];
@@ -764,7 +783,9 @@
 
     updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled);
 
-    if (panoLoaded) renderPano();
+    // Use a lower-res render while a slider is actively being dragged
+    // (fires on every 'input' event), then a full-quality one once it settles.
+    if (panoLoaded) scheduleRenderPano(fast);
   }
 
   function updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled) {
@@ -852,7 +873,10 @@
 
   window.addEventListener('resize', () => { if (panoLoaded) scheduleRenderPano(); });
 
-  [sensorW, sensorH, focal, distance, anamorphic].forEach(el => el.addEventListener('input', calculate));
+  [sensorW, sensorH, focal, distance, anamorphic].forEach(el => {
+    el.addEventListener('input', () => calculate(true));
+    el.addEventListener('change', () => calculate(false));
+  });
 
   calculate();
 </script>
