@@ -547,7 +547,7 @@
     const img = new Image();
     img.onload = () => {
       // Cap intrinsic source resolution for memory/perf sanity
-      const MAX_DIM = 4096;
+      const MAX_DIM = 8192;
       let sw = img.naturalWidth, sh = img.naturalHeight;
       const scale = Math.min(1, MAX_DIM / Math.max(sw, sh));
       sw = Math.round(sw * scale);
@@ -633,6 +633,11 @@
     const outData = panoCtx.createImageData(outW, outH);
     const out = outData.data;
 
+    // Bilinear sampling for the full-quality render (much smoother when
+    // magnifying at long focal lengths/tight FOVs) - nearest-neighbor while
+    // actively dragging, since it's cheaper and only shown briefly.
+    const bilinear = !fast;
+
     let oi = 0;
     for (let py = 0; py < outH; py++) {
       const ndcY = 1 - (py + 0.5) / outH * 2;
@@ -661,14 +666,35 @@
         u = ((u % srcW) + srcW) % srcW;
         v = Math.max(0, Math.min(srcH - 1, v));
 
-        const sx = u | 0;
-        const sy = v | 0;
-        const si = (sy * srcW + sx) * 4;
+        if (bilinear) {
+          const x0 = u | 0;
+          const y0 = v | 0;
+          const x1i = (x0 + 1) % srcW;
+          const y1i = y0 + 1 < srcH ? y0 + 1 : y0;
+          const fx = u - x0;
+          const fy = v - y0;
 
-        out[oi] = srcData[si];
-        out[oi + 1] = srcData[si + 1];
-        out[oi + 2] = srcData[si + 2];
-        out[oi + 3] = 255;
+          const i00 = (y0 * srcW + x0) * 4;
+          const i10 = (y0 * srcW + x1i) * 4;
+          const i01 = (y1i * srcW + x0) * 4;
+          const i11 = (y1i * srcW + x1i) * 4;
+
+          for (let c = 0; c < 3; c++) {
+            const top = srcData[i00 + c] + (srcData[i10 + c] - srcData[i00 + c]) * fx;
+            const bottom = srcData[i01 + c] + (srcData[i11 + c] - srcData[i01 + c]) * fx;
+            out[oi + c] = top + (bottom - top) * fy;
+          }
+          out[oi + 3] = 255;
+        } else {
+          const sx = u | 0;
+          const sy = v | 0;
+          const si = (sy * srcW + sx) * 4;
+
+          out[oi] = srcData[si];
+          out[oi + 1] = srcData[si + 1];
+          out[oi + 2] = srcData[si + 2];
+          out[oi + 3] = 255;
+        }
         oi += 4;
       }
     }
