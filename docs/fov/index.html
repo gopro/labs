@@ -270,6 +270,15 @@
     font-size: 11px;
     color: var(--text-dim);
   }
+  .ils-hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin: 8px 0 0;
+    line-height: 1.4;
+  }
+  .ils-hint strong {
+    color: var(--accent);
+  }
   .pano-canvas {
     position: absolute;
     inset: 0;
@@ -298,6 +307,7 @@
     .result-box .value span { font-size: 14px; }
     .preview-meta { font-size: 14px; }
     .pano-hint { font-size: 13px; }
+    .ils-hint { font-size: 13px; }
     .anamorphic-toggle { font-size: 15px; }
     .anamorphic-toggle input[type="checkbox"] { width: 19px; height: 19px; }
   }
@@ -350,6 +360,7 @@
             <span class="focal-value"><span id="anamorphicValue">1.5</span>×</span>
           </div>
           <input type="range" id="anamorphic" min="0" max="3" step="1" value="2">
+          <p class="ils-hint" id="ilsHint">When using GoPro Mission 1 Pro ILS, set the Lens to <strong id="ilsLensMm">--</strong>mm, for best stabilization with this anamorphic lens</p>
         </div>
       </fieldset>
 
@@ -489,6 +500,7 @@
   const anamorphicWrap = document.getElementById('anamorphicWrap');
   const anamorphic = document.getElementById('anamorphic');
   const anamorphicValue = document.getElementById('anamorphicValue');
+  const ilsLensMm = document.getElementById('ilsLensMm');
   const desqueezeWrap = document.getElementById('desqueezeWrap');
   const desqueezeToggle = document.getElementById('desqueezeToggle');
   const loadPanoBtn = document.getElementById('loadPanoBtn');
@@ -795,6 +807,11 @@
     // length, then optically squeeze it onto the sensor. Model that by
     // computing the horizontal FOV using an effective focal length of FL/squeeze.
     const fH = f / squeeze;
+
+    // GoPro Mission 1 Pro ILS lens-setting recommendation: the effective
+    // (desqueezed) focal length, rounded to the nearest 0.5mm.
+    const ilsLensValue = Math.round(fH * 2) / 2;
+    ilsLensMm.textContent = ilsLensValue.toFixed(1).replace(/\.0$/, '');
 
     const hFovDeg = fovDeg(w, fH);
     const vFovDeg = fovDeg(h, f);
