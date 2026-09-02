@@ -169,6 +169,66 @@
     font-weight: 400;
     color: var(--text-dim);
   }
+
+  .focus-range {
+    margin-top: 14px;
+  }
+  .focus-range-track {
+    position: relative;
+    height: 8px;
+    margin: 0 2px;
+    background: #0d0f12;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .focus-range-infocus {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: var(--accent);
+    opacity: 0.85;
+  }
+  .focus-range-infocus-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 14%;
+    background: linear-gradient(to right, var(--accent), rgba(0, 181, 226, 0));
+    opacity: 0.85;
+    display: none;
+  }
+  .focus-range-tick {
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    width: 2px;
+    border-radius: 1px;
+    background: var(--text);
+  }
+  .focus-range-tick--camera {
+    left: 0;
+  }
+  .focus-range-tick--subject {
+    background: #fff;
+  }
+  .focus-range-labels {
+    position: relative;
+    height: 14px;
+    margin: 6px 2px 0;
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+  .focus-range-label {
+    position: absolute;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  .focus-range-label--camera {
+    left: 0;
+    transform: none;
+  }
   .anamorphic-toggle {
     display: flex;
     align-items: center;
@@ -250,6 +310,9 @@
     margin-bottom: 8px;
     flex-wrap: wrap;
   }
+  .pano-controls .metric-toggle {
+    margin-top: 0;
+  }
   .pano-controls .file-btn {
     background: none;
     border: 1px solid var(--border);
@@ -305,6 +368,7 @@
     .result-box .label { font-size: 14px; }
     .result-box .value { font-size: 20px; }
     .result-box .value span { font-size: 14px; }
+    .focus-range-labels { font-size: 12px; height: 16px; }
     .preview-meta { font-size: 14px; }
     .pano-hint { font-size: 13px; }
     .ils-hint { font-size: 13px; }
@@ -383,6 +447,10 @@
         <div class="pano-controls">
           <button class="file-btn" id="loadPanoBtn" type="button">Load 360° image</button>
           <input type="file" id="panoInput" accept="image/*">
+          <label class="anamorphic-toggle metric-toggle">
+            <input type="checkbox" id="metricToggle" checked>
+            Metric
+          </label>
           <button class="file-btn hidden" id="clearPanoBtn" type="button">Remove image</button>
           <button class="file-btn hidden" id="resetViewBtn" type="button">Reset view</button>
         </div>
@@ -393,7 +461,15 @@
             <label for="distance">Distance to subject (180cm human)</label>
             <span class="focal-value"><span id="distanceValue">5.0m / 16.4ft</span></span>
           </div>
-          <input type="range" id="distance" min="0.5" max="30" step="0.1" value="5">
+          <input type="range" id="distance" min="0.1" max="30" step="0.1" value="5">
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider-label-row">
+            <label for="fstop">Aperture (f-stop)</label>
+            <span class="focal-value">f/<span id="fstopValue">2.8</span></span>
+          </div>
+          <input type="range" id="fstop" min="0" max="0" step="1" value="0">
         </div>
 
         <label class="anamorphic-toggle desqueeze-toggle hidden" id="desqueezeWrap">
@@ -476,6 +552,20 @@
           <span>Yaw: <strong id="yawVal">0°</strong></span>
           <span>Pitch: <strong id="pitchVal">0°</strong></span>
         </div>
+
+        <div class="focus-range" id="focusRange">
+          <div class="focus-range-track">
+            <div class="focus-range-infocus" id="focusInfocus"></div>
+            <div class="focus-range-infocus-fade" id="focusInfocusFade"></div>
+            <div class="focus-range-tick focus-range-tick--camera"></div>
+            <div class="focus-range-tick focus-range-tick--subject" id="focusSubjectTick"></div>
+          </div>
+          <div class="focus-range-labels" id="focusRangeLabels">
+            <span class="focus-range-label focus-range-label--camera" id="focusCameraLabel">Camera</span>
+            <span class="focus-range-label focus-range-label--near" id="focusNearLabel">Near</span>
+            <span class="focus-range-label focus-range-label--far" id="focusFarLabel">Far</span>
+          </div>
+        </div>
       </fieldset>
     </div>
   </div>
@@ -486,8 +576,17 @@
   const sensorH = document.getElementById('sensorH');
   const focal = document.getElementById('focal');
   const focalValue = document.getElementById('focalValue');
+  const fstop = document.getElementById('fstop');
+  const fstopValue = document.getElementById('fstopValue');
   const hfovEl = document.getElementById('hfov');
   const vfovEl = document.getElementById('vfov');
+  const focusInfocus = document.getElementById('focusInfocus');
+  const focusInfocusFade = document.getElementById('focusInfocusFade');
+  const focusSubjectTick = document.getElementById('focusSubjectTick');
+  const focusRangeLabels = document.getElementById('focusRangeLabels');
+  const focusCameraLabel = document.getElementById('focusCameraLabel');
+  const focusNearLabel = document.getElementById('focusNearLabel');
+  const focusFarLabel = document.getElementById('focusFarLabel');
   const resetSensor = document.getElementById('resetSensor');
   const reset169 = document.getElementById('reset169');
   const distance = document.getElementById('distance');
@@ -504,6 +603,7 @@
   const desqueezeWrap = document.getElementById('desqueezeWrap');
   const desqueezeToggle = document.getElementById('desqueezeToggle');
   const loadPanoBtn = document.getElementById('loadPanoBtn');
+  const metricToggle = document.getElementById('metricToggle');
   const panoInput = document.getElementById('panoInput');
   const clearPanoBtn = document.getElementById('clearPanoBtn');
   const resetViewBtn = document.getElementById('resetViewBtn');
@@ -524,6 +624,9 @@
   const HUMAN_HEIGHT_M = 1.8;
   const ANAMORPHIC_STEPS = [1.0, 1.33, 1.5, 2.0];
   const ANAMORPHIC_LABELS = ['1.0', '1.33', '1.5', '2.0'];
+  const FSTOP_STEPS = [0.95, 1.2, 1.4, 1.8, 2, 2.8, 4, 5.6, 8, 11, 16, 22];
+  const DEFAULT_FSTOP = 2.8;
+  const FOUR_K_HORIZONTAL_PX = 3840; // "4K" UHD horizontal pixel count, used for the CoC assumption
 
   // --- 360 panorama preview state ---
   let panoSrc = null;      // { data: Uint8ClampedArray, width, height }
@@ -763,14 +866,20 @@
   focal.max = FOCAL_STEPS.length - 1;
   focal.step = 1;
 
-  function closestIndex(target) {
+  function closestIndex(target, steps) {
+    const arr = steps || FOCAL_STEPS;
     let best = 0, bestDiff = Infinity;
-    FOCAL_STEPS.forEach((v, i) => {
+    arr.forEach((v, i) => {
       const diff = Math.abs(v - target);
       if (diff < bestDiff) { bestDiff = diff; best = i; }
     });
     return best;
   }
+
+  fstop.min = 0;
+  fstop.max = FSTOP_STEPS.length - 1;
+  fstop.step = 1;
+  fstop.value = closestIndex(DEFAULT_FSTOP, FSTOP_STEPS);
   focal.value = closestIndex(DEFAULT_FOCAL);
 
   function fovDeg(sensorDim, focalLength) {
@@ -781,16 +890,159 @@
   function metersToFeet(m) {
     return m * METERS_TO_FEET;
   }
-  function formatMetersFeet(m, decimals) {
-    return `${m.toFixed(decimals)}m / ${metersToFeet(m).toFixed(1)}ft`;
+  function isMetric() {
+    return metricToggle.checked;
+  }
+  // Distance to subject, frame dimensions, and the focus-range graph all
+  // switch between metric and imperial together, driven by the Metric checkbox.
+  function formatDistance(m, decimals) {
+    return isMetric()
+      ? `${m.toFixed(decimals)}m`
+      : `${metersToFeet(m).toFixed(decimals)}ft`;
+  }
+
+  // Standard thin-lens depth of field formulas. Circle of confusion (CoC) is
+  // assumed to be one pixel width at 4K (sensor width / 3840px) - a tighter,
+  // more conservative CoC than traditional print-based assumptions, since
+  // footage will be viewed/scrutinized at 4K resolution.
+  function computeDoF(focalLengthMm, fNumber, distanceM, sensorWidthMm) {
+    if (!distanceM || distanceM <= 0 || !focalLengthMm || !fNumber || !sensorWidthMm) return null;
+
+    const c = sensorWidthMm / FOUR_K_HORIZONTAL_PX; // circle of confusion, mm
+    const f = focalLengthMm;
+    const s = distanceM * 1000; // subject distance, mm
+
+    const hyperfocalMm = (f * f) / (fNumber * c) + f;
+
+    const nearDenom = hyperfocalMm + s - 2 * f;
+    const nearMm = nearDenom > 0 ? (s * (hyperfocalMm - f)) / nearDenom : 0;
+
+    const isInfinite = s >= hyperfocalMm;
+    const farMm = isInfinite ? Infinity : (s * (hyperfocalMm - f)) / (hyperfocalMm - s);
+
+    return {
+      nearM: Math.max(0, nearMm / 1000),
+      farM: isInfinite ? Infinity : farMm / 1000,
+      hyperfocalM: hyperfocalMm / 1000,
+      isInfinite,
+    };
+  }
+
+  function formatMShort(m) {
+    const v = isMetric() ? m : metersToFeet(m);
+    const unit = isMetric() ? 'm' : 'ft';
+    return (v < 10 ? v.toFixed(1) : Math.round(v)) + unit;
+  }
+
+  // Draws a thin horizontal strip from the camera (0) out past the subject,
+  // with the in-focus (depth of field) span highlighted, so it's easy to see
+  // at a glance how much of the scene in front of/behind the subject is sharp.
+  function updateFocusRangeBar(dof, distanceM) {
+    if (!dof || !distanceM || distanceM <= 0) {
+      focusInfocus.style.width = '0%';
+      focusInfocusFade.style.display = 'none';
+      focusSubjectTick.style.left = '0%';
+      focusNearLabel.style.left = '0%';
+      focusNearLabel.textContent = '--';
+      focusFarLabel.style.left = '100%';
+      focusFarLabel.textContent = '--';
+      return;
+    }
+
+    // Subject marker is always pinned at a fixed 70% along the bar (camera
+    // at 0%), so the scale is derived from that rather than from near/far -
+    // meaning the far limit (or infinity) can run past the right edge, in
+    // which case we clamp it there and fade it out to show it continues.
+    const SUBJECT_ANCHOR_PCT = 70;
+    const scaleMax = distanceM / (SUBJECT_ANCHOR_PCT / 100);
+
+    const toPct = (m) => (m / scaleMax) * 100;
+
+    const nearPct = Math.max(0, Math.min(100, toPct(dof.nearM)));
+    const farPctRaw = dof.isInfinite ? Infinity : toPct(dof.farM);
+    const farOverflows = farPctRaw > 100;
+    const farPct = Math.min(100, farPctRaw);
+    const subjectPct = SUBJECT_ANCHOR_PCT;
+
+    focusInfocus.style.left = nearPct + '%';
+    focusInfocus.style.width = Math.max(0.6, farPct - nearPct) + '%';
+    focusInfocusFade.style.display = (dof.isInfinite || farOverflows) ? 'block' : 'none';
+
+    focusSubjectTick.style.left = subjectPct + '%';
+
+    // Set text content first so we can measure actual rendered widths below.
+    focusNearLabel.textContent = `Near ${formatMShort(dof.nearM)}`;
+    focusFarLabel.textContent = dof.isInfinite ? 'Far ∞' : `Far ${formatMShort(dof.farM)}`;
+
+    const nearLabelPctRaw = nearPct;
+    const farLabelPctRaw = dof.isInfinite || farOverflows ? 97 : farPct;
+
+    const { nearPct: nearLabelPct, farPct: farLabelPct } = resolveLabelCollisions(nearLabelPctRaw, farLabelPctRaw);
+
+    focusNearLabel.style.left = nearLabelPct + '%';
+    focusFarLabel.style.left = farLabelPct + '%';
+  }
+
+  // Pixel-accurate collision avoidance for the Camera / Near / Far labels.
+  // Percentage-based heuristics don't account for actual text width (which
+  // depends on font size and the numbers being displayed), so this measures
+  // real rendered widths and nudges labels apart - left to right - just
+  // enough to clear each other, without moving the highlighted DoF band.
+  function resolveLabelCollisions(nearPctIn, farPctIn) {
+    const GAP_PX = 6;
+    const containerWidth = focusRangeLabels.getBoundingClientRect().width;
+
+    if (!containerWidth) {
+      // Not laid out yet (e.g. hidden) - fall back to the raw percentages.
+      return { nearPct: nearPctIn, farPct: farPctIn };
+    }
+
+    const cameraWidth = focusCameraLabel.offsetWidth;
+    const nearWidth = focusNearLabel.offsetWidth;
+    const farWidth = focusFarLabel.offsetWidth;
+
+    const cameraRightEdge = cameraWidth; // camera label is left-anchored at 0, no transform
+
+    let nearCenter = (nearPctIn / 100) * containerWidth;
+    let farCenter = (farPctIn / 100) * containerWidth;
+
+    // Near label is centered (translateX(-50%)) - push right if it overlaps "Camera".
+    const nearHalf = nearWidth / 2;
+    const nearLeftEdge = nearCenter - nearHalf;
+    if (nearLeftEdge < cameraRightEdge + GAP_PX) {
+      nearCenter += (cameraRightEdge + GAP_PX) - nearLeftEdge;
+    }
+
+    // Far label - push right if it overlaps the (possibly just-shifted) Near label.
+    const farHalf = farWidth / 2;
+    const nearRightEdge = nearCenter + nearHalf;
+    let farLeftEdge = farCenter - farHalf;
+    if (farLeftEdge < nearRightEdge + GAP_PX) {
+      farCenter += (nearRightEdge + GAP_PX) - farLeftEdge;
+    }
+
+    // Keep the far label from running off the right edge of the container;
+    // if pulling it back would re-collide with Near, that's an acceptable
+    // rare edge case at extremely narrow widths.
+    const farRightEdge = farCenter + farHalf;
+    if (farRightEdge > containerWidth) {
+      farCenter -= (farRightEdge - containerWidth);
+    }
+
+    return {
+      nearPct: (nearCenter / containerWidth) * 100,
+      farPct: (farCenter / containerWidth) * 100,
+    };
   }
 
   function calculate(fast) {
     const w = parseFloat(sensorW.value);
     const h = parseFloat(sensorH.value);
     const f = FOCAL_STEPS[parseInt(focal.value, 10)];
+    const N = FSTOP_STEPS[parseInt(fstop.value, 10)];
 
     focalValue.textContent = (f % 1 === 0) ? f : f.toFixed(1);
+    fstopValue.textContent = N;
 
     const anamorphicEnabled = anamorphicToggle.checked;
     const squeezeIdx = parseInt(anamorphic.value, 10);
@@ -822,6 +1074,13 @@
     lastHFovDeg = hFovDeg;
     lastVFovDeg = vFovDeg;
 
+    // Depth of field is based on the real physical focal length and aperture
+    // (anamorphic squeeze affects framing, not the lens's actual optics/DoF),
+    // focused at the subject distance set in the preview panel below.
+    const dofDistanceM = parseFloat(distance.value);
+    const dof = computeDoF(f, N, dofDistanceM, w);
+    updateFocusRangeBar(dof, dofDistanceM);
+
     const desqueezeEnabled = anamorphicEnabled && desqueezeToggle.checked;
 
     updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled);
@@ -833,7 +1092,7 @@
 
   function updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled) {
     const dist = parseFloat(distance.value);
-    distanceValue.textContent = formatMetersFeet(dist, 1);
+    distanceValue.textContent = formatDistance(dist, 1);
 
     // Physical sensor aspect ratio (the raw, squeezed shot).
     // Desqueezing stretches the image horizontally by the squeeze factor to
@@ -852,7 +1111,7 @@
     const frameHeightM = 2 * dist * Math.tan(vFovRad / 2);
     const frameWidthM = 2 * dist * Math.tan(hFovRad / 2);
 
-    frameDimsEl.textContent = `${formatMetersFeet(frameWidthM, 2)} × ${formatMetersFeet(frameHeightM, 2)}`;
+    frameDimsEl.textContent = `${formatDistance(frameWidthM, 2)} × ${formatDistance(frameHeightM, 2)}`;
 
     const fraction = HUMAN_HEIGHT_M / frameHeightM;
     const pct = fraction * 100;
@@ -896,6 +1155,8 @@
 
   desqueezeToggle.addEventListener('change', calculate);
 
+  metricToggle.addEventListener('change', () => calculate(false));
+
   loadPanoBtn.addEventListener('click', () => panoInput.click());
   panoInput.addEventListener('change', (e) => {
     const file = e.target.files && e.target.files[0];
@@ -916,7 +1177,7 @@
 
   window.addEventListener('resize', () => { if (panoLoaded) scheduleRenderPano(); });
 
-  [sensorW, sensorH, focal, distance, anamorphic].forEach(el => {
+  [sensorW, sensorH, focal, fstop, distance, anamorphic].forEach(el => {
     el.addEventListener('input', () => calculate(true));
     el.addEventListener('change', () => calculate(false));
   });
