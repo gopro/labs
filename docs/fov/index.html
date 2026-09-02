@@ -170,8 +170,21 @@
     color: var(--text-dim);
   }
 
-  .focus-range {
+  .focus-range-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-top: 14px;
+  }
+  .focus-range-row-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .focus-range {
+    flex: 1;
+    min-width: 0;
   }
   .focus-range-track {
     position: relative;
@@ -369,6 +382,7 @@
     .result-box .value { font-size: 20px; }
     .result-box .value span { font-size: 14px; }
     .focus-range-labels { font-size: 12px; height: 16px; }
+    .focus-range-row-label { font-size: 14px; }
     .preview-meta { font-size: 14px; }
     .pano-hint { font-size: 13px; }
     .ils-hint { font-size: 13px; }
@@ -553,17 +567,20 @@
           <span>Pitch: <strong id="pitchVal">0°</strong></span>
         </div>
 
-        <div class="focus-range" id="focusRange">
-          <div class="focus-range-track">
-            <div class="focus-range-infocus" id="focusInfocus"></div>
-            <div class="focus-range-infocus-fade" id="focusInfocusFade"></div>
-            <div class="focus-range-tick focus-range-tick--camera"></div>
-            <div class="focus-range-tick focus-range-tick--subject" id="focusSubjectTick"></div>
-          </div>
-          <div class="focus-range-labels" id="focusRangeLabels">
-            <span class="focus-range-label focus-range-label--camera" id="focusCameraLabel">Camera</span>
-            <span class="focus-range-label focus-range-label--near" id="focusNearLabel">Near</span>
-            <span class="focus-range-label focus-range-label--far" id="focusFarLabel">Far</span>
+        <div class="focus-range-row">
+          <span class="focus-range-row-label">Focus:</span>
+          <div class="focus-range" id="focusRange">
+            <div class="focus-range-track">
+              <div class="focus-range-infocus" id="focusInfocus"></div>
+              <div class="focus-range-infocus-fade" id="focusInfocusFade"></div>
+              <div class="focus-range-tick focus-range-tick--camera"></div>
+              <div class="focus-range-tick focus-range-tick--subject" id="focusSubjectTick"></div>
+            </div>
+            <div class="focus-range-labels" id="focusRangeLabels">
+              <span class="focus-range-label focus-range-label--camera" id="focusCameraLabel">Camera</span>
+              <span class="focus-range-label focus-range-label--near" id="focusNearLabel">Near</span>
+              <span class="focus-range-label focus-range-label--far" id="focusFarLabel">Far</span>
+            </div>
           </div>
         </div>
       </fieldset>
@@ -908,7 +925,7 @@
   function computeDoF(focalLengthMm, fNumber, distanceM, sensorWidthMm) {
     if (!distanceM || distanceM <= 0 || !focalLengthMm || !fNumber || !sensorWidthMm) return null;
 
-    const c = sensorWidthMm / FOUR_K_HORIZONTAL_PX; // circle of confusion, mm
+    const c = 2.0 * sensorWidthMm / FOUR_K_HORIZONTAL_PX; // circle of confusion, mm
     const f = focalLengthMm;
     const s = distanceM * 1000; // subject distance, mm
 
