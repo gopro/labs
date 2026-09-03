@@ -2,6 +2,20 @@
 
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
+
+ 
+## MISSION 1 PRO & ILS
+
+### 3.00.70 - Sept 2, 2026
+
+- Added WAKE=4 wake on USB only
+- Added WAKE=8 wake on Battery only (WAKE=1,2 or 3 wake on battery or USB power)
+- Added REQB=1 require battery, if battery is removed or power is 0%, even with USB power, shutdown
+- Added GPST=x tuning GPS 0-Portable, 2-Stationary, 3-Pedestrian, 4-Automotive,5-Sea, 6-Airborne with <1g, 7-Airborne with <2g, 8-Airborne with <4g
+- Added TINT=<value>  green bias control for white balance.
+- Improved BITR  (MAX runs better)
+- Removed EXPQ, EXPN, EXPX while they are broken
+ 
 ## MISSION 1 & MISSION 1 PRO
 
 ### 2.02.70 - August 10, 2026
@@ -874,6 +888,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: July 23, 2026
+updated: Sept 2, 2026
 
 [Learn more](..) on QR Control
