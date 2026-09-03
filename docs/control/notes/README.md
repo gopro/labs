@@ -16,7 +16,6 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Improved BITR  (MAX runs better)
 - Removed EXPQ, EXPN, EXPX while they are broken
  
- 
 ## MISSION 1 & MISSION 1 PRO
 
 ### 2.02.70 - August 10, 2026
@@ -47,6 +46,7 @@ Only the more recent releases are documented below. This a general list of Labs 
  c:T  = GPS days in this year
  c:W  = GPS DOP
 - Added DIOP=x - Experimental diopter correction. Adding a diopter lens will modify the distortion, and impact stabilization, this attempts to compensate.  e.g. $DIOP=4 for +4 diopter lens.
+- Restored EVBS=x for EV Comp Bias, global for all modes, and can be changed during capture if QRDR=1 is set.
 
 
 ### 1.30.70 - July 7, 2026
@@ -420,7 +420,6 @@ e.g. $BITR or $A or $p:T to read variables.
 - Improved the font rendering (higher res fonts)
 - Improved support for Max Lens Mod 2.0
 - Improved upload reliability with an optional maximum transfer time (timeout). e.g. !U3 <- upload now, for up to 3 minutes.
-- Restored EVBS=x for EV Comp Bias, global for all modes, and can be changed during capture if QRDR=1 is set.
 - minor Labs bug fixes
 
 
