@@ -475,7 +475,7 @@
             <label for="distance">Distance to subject (180cm human)</label>
             <span class="focal-value"><span id="distanceValue">5.0m / 16.4ft</span></span>
           </div>
-          <input type="range" id="distance" min="0.1" max="30" step="0.1" value="5">
+          <input type="range" id="distance" min="0" max="0" step="1" value="0">
         </div>
 
         <div class="slider-wrap">
@@ -641,8 +641,9 @@
   const HUMAN_HEIGHT_M = 1.8;
   const ANAMORPHIC_STEPS = [1.0, 1.33, 1.5, 2.0];
   const ANAMORPHIC_LABELS = ['1.0', '1.33', '1.5', '2.0'];
-  const FSTOP_STEPS = [0.95, 1.2, 1.4, 1.8, 2, 2.8, 4, 5.6, 8, 11, 16, 22];
+  const FSTOP_STEPS = [0.8, 0.95, 1.2, 1.4, 1.8, 2, 2.8, 4, 5.6, 8, 11, 16, 22];
   const DEFAULT_FSTOP = 2.8;
+  const DEFAULT_DISTANCE = 5;
   const FOUR_K_HORIZONTAL_PX = 3840; // "4K" UHD horizontal pixel count, used for the CoC assumption
 
   // --- 360 panorama preview state ---
@@ -883,6 +884,19 @@
   focal.max = FOCAL_STEPS.length - 1;
   focal.step = 1;
 
+  // Build variable-step distance table: 0.1-30m @0.1, 30-100m @0.5
+  function buildDistanceSteps() {
+    const vals = [];
+    for (let v = 0.1; v < 30; v += 0.1) vals.push(Math.round(v * 10) / 10);
+    for (let v = 30; v <= 100; v += 0.5) vals.push(Math.round(v * 10) / 10);
+    return vals;
+  }
+  const DISTANCE_STEPS = buildDistanceSteps();
+
+  distance.min = 0;
+  distance.max = DISTANCE_STEPS.length - 1;
+  distance.step = 1;
+
   function closestIndex(target, steps) {
     const arr = steps || FOCAL_STEPS;
     let best = 0, bestDiff = Infinity;
@@ -898,6 +912,7 @@
   fstop.step = 1;
   fstop.value = closestIndex(DEFAULT_FSTOP, FSTOP_STEPS);
   focal.value = closestIndex(DEFAULT_FOCAL);
+  distance.value = closestIndex(DEFAULT_DISTANCE, DISTANCE_STEPS);
 
   function fovDeg(sensorDim, focalLength) {
     return 2 * Math.atan(sensorDim / (2 * focalLength)) * (180 / Math.PI);
@@ -1094,7 +1109,7 @@
     // Depth of field is based on the real physical focal length and aperture
     // (anamorphic squeeze affects framing, not the lens's actual optics/DoF),
     // focused at the subject distance set in the preview panel below.
-    const dofDistanceM = parseFloat(distance.value);
+    const dofDistanceM = DISTANCE_STEPS[parseInt(distance.value, 10)];
     const dof = computeDoF(f, N, dofDistanceM, w);
     updateFocusRangeBar(dof, dofDistanceM);
 
@@ -1108,7 +1123,7 @@
   }
 
   function updatePreview(w, h, hFovDeg, vFovDeg, squeeze, desqueezeEnabled) {
-    const dist = parseFloat(distance.value);
+    const dist = DISTANCE_STEPS[parseInt(distance.value, 10)];
     distanceValue.textContent = formatDistance(dist, 1);
 
     // Physical sensor aspect ratio (the raw, squeezed shot).
