@@ -948,7 +948,7 @@
   function formatMShort(m) {
     const v = isMetric() ? m : metersToFeet(m);
     const unit = isMetric() ? 'm' : 'ft';
-    return (v < 10 ? v.toFixed(1) : Math.round(v)) + unit;
+    return (v < 100 ? (v < 10 ? v.toFixed(2) : v.toFixed(1)) : Math.round(v)) + unit;
   }
 
   // Draws a thin horizontal strip from the camera (0) out past the subject,
