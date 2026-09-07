@@ -71,6 +71,9 @@ and as a mobile app:<br>
 * **MAX2** - Create 360 HDRIs (High Dynamic Range Image): [**HDRI Preset and generation**](./hdri)
 * **MAX2/HERO12-13** - Use bracketing within a custom photo preset [**Add a Bracketing Preset**](./bracket)
 
+## ILS Lens Selection Tool
+* [**ILS Lens FOV tool**](https://gopro.github.io/labs/fov/) calculate the optimal lens (or lenses) for your needs.
+
 ## Metadata Extraction
 * **ALL cameras** - [**Read metadata**](./metadata) stored within headers of most GoPro media files.
 
@@ -93,7 +96,7 @@ An incomplete set of [**Release Notes**](./notes)
 * **HERO10 or newer** Labs scripting via [**Visual Script Tool**](https://gopro.github.io/labs/build/)
 * New [ChatBot for GoPro Labs commands](https://bit.ly/chat_gp_labs)
 
-updated: August 14, 2026
+updated: Sept 7, 2026
 
 
 <script>
