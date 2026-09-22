@@ -473,7 +473,7 @@ function rolloffOld(r, g, b) {
 function brightnessRolloffMonotoneSlope(
     x,
     maxIn = 4.0,
-    start = 0.6,
+    start = 0.25,  // Rolloff Start
     maxOut = 1.0,
     endSlope = 0.01
 ) {
@@ -555,7 +555,7 @@ function makeCube(size, ev, cs, useRolloff, useClamp) {
     `# Input:    GP-Log2 (Log base 600, Rec.2020 primaries)`,
     `# Output:   ${csName} SDR`,
     `# EV comp:  ${evStr}`,
-    `# Rolloff:  ${useRolloff ? 'enabled' : 'disabled'}`,
+    `# Rolloff:  ${useRolloff ? 'enabled (from 0.25)' : 'disabled'}`,
     `# Clamp:    ${useClamp  ? 'enabled (max 1.0)' : 'disabled'}`,
     ``,
     `LUT_3D_SIZE ${size}`,
