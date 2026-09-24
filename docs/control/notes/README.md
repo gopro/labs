@@ -6,6 +6,23 @@ Only the more recent releases are documented below. This a general list of Labs 
  
 ## MISSION 1 PRO ILS
 
+### 3.00.72 - Sept 24, 2026
+- Initial anamorphic support for Hypersmooth, and metadata for automatic correction in desktop playback and editing tools (tested in Premiere Pro and DaVinci Resolve.) This is not the final HS quality (more to come), and there is currently no desqueeze preview on camera yet.
+- Added ANAM=squeeze ratio for a global anamorphic lenses, supporting 1.33, 1.5, 1.6, 1.8 and 2.0
+- Added AN13, AN15, AN16, AN18 and AN20 preset names for common anamorphic support
+![anamorphic.png](anamorphic.png)
+
+This is the best workflow for fast switching between anamorphic and spherical lens. Use an anamorphic preset for when using an anamorphic lens. Remember you will still need to set your focal length.
+
+- Added LENS=x,[y] for support HS stabilization for longer lenses. Stock firmware HS works up to 50mm, this is for those that want to experiement e.g. $LENS=85 will support HS on a 85mm lens. $LENS=200,20 will attempt to support 200, with a 20% crop for stabilization margin. There are diminishing returns for longer lens. Warning the LENS extension will override the system Lens selection. For Present names up to 99mm, use 05MM thru 99MM. 
+- Improved the bit-rate extension BITR
+- Fixed QR Command support via Mission Monitor
+- Fixed the DAUD extension to correctly disable the Audio.
+- A reminder of other classic Labs features, ideal for ILS
+  - *24HZ=1 For 24.0 Frame rate, rather than 23.976
+  - *ALLI=1 For 24.0, 30.0, 60.0, 120.0, 240.0, 480.0 rather than their 1000/1001 equilavents.
+  - *NR01=1 For Denoise off, rather than just Denoise Low.
+ 
 ### 3.00.70 - Sept 2, 2026
 
 - Added WAKE=4 wake on USB only
