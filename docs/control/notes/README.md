@@ -9,7 +9,7 @@ Only the more recent releases are documented below. This a general list of Labs 
 ### 3.00.72 - Sept 24, 2026
 - Initial anamorphic support for Hypersmooth, and metadata for automatic correction in desktop playback and editing tools (tested in Premiere Pro and DaVinci Resolve.) This is not the final HS quality (more to come), and there is currently no desqueeze preview on camera yet.
 - Added ANAM=squeeze ratio for a global anamorphic lenses, supporting 1.33, 1.5, 1.6, 1.8 and 2.0
-- Added AN13, AN15, AN16, AN18 and AN20 preset names for common anamorphic support
+- Added AN13, AN15, AN16, AN18 and AN20 preset names for common anamorphic ratio support
 ![anamorphic.png](anamorphic.png)
 
 This is the best workflow for fast switching between anamorphic and spherical lens. Use an anamorphic preset for when using an anamorphic lens. Remember you will still need to set your focal length.
