@@ -16,7 +16,7 @@ This is the best workflow for fast switching between anamorphic and spherical le
 
 - Added LENS=x,[y] for support HS stabilization for longer lenses. Stock firmware HS works up to 50mm, this is for those that want to experiement e.g. $LENS=85 will support HS on a 85mm lens. $LENS=200,20 will attempt to support 200, with a 20% crop for stabilization margin. There are diminishing returns for longer lens. Warning the LENS extension will override the system Lens selection. For Present names up to 99mm, use 05MM thru 99MM. 
 - Improved the bit-rate extension BITR
-- Fixed QR Command support via Mission Monitor
+- Fixed QR Command support via Mission Monitor (send Labs command directly from the app.)
 - Fixed the DAUD extension to correctly disable the Audio.
 - A reminder of other classic Labs features, ideal for ILS
   - *24HZ=1 For 24.0 Frame rate, rather than 23.976
