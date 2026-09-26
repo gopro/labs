@@ -395,7 +395,7 @@
 
 <div class="card">
   <h1>GoPro Mission 1 PRO ILS Lens FOV Calculator</h1>
-  <p class="subtitle">Horizontal &amp; vertical field of view from focal length and sensor size</p>
+  <p class="subtitle">Field of view and depth of field calculator (updated Sept 26, 2026)</p>
 
   <div class="columns">
     <div class="left-col">
@@ -438,7 +438,6 @@
             <span class="focal-value"><span id="anamorphicValue">1.5</span>×</span>
           </div>
           <input type="range" id="anamorphic" min="0" max="3" step="1" value="2">
-          <p class="ils-hint" id="ilsHint">When using GoPro Mission 1 Pro ILS, set the Lens to <strong id="ilsLensMm">--</strong>mm, for best stabilization with this anamorphic lens</p>
         </div>
       </fieldset>
 
@@ -616,7 +615,6 @@
   const anamorphicWrap = document.getElementById('anamorphicWrap');
   const anamorphic = document.getElementById('anamorphic');
   const anamorphicValue = document.getElementById('anamorphicValue');
-  const ilsLensMm = document.getElementById('ilsLensMm');
   const desqueezeWrap = document.getElementById('desqueezeWrap');
   const desqueezeToggle = document.getElementById('desqueezeToggle');
   const loadPanoBtn = document.getElementById('loadPanoBtn');
@@ -1091,11 +1089,6 @@
     // length, then optically squeeze it onto the sensor. Model that by
     // computing the horizontal FOV using an effective focal length of FL/squeeze.
     const fH = f / squeeze;
-
-    // GoPro Mission 1 Pro ILS lens-setting recommendation: the effective
-    // (desqueezed) focal length, rounded to the nearest 0.5mm.
-    const ilsLensValue = Math.round(fH * 2) / 2;
-    ilsLensMm.textContent = ilsLensValue.toFixed(1).replace(/\.0$/, '');
 
     const hFovDeg = fovDeg(w, fH);
     const vFovDeg = fovDeg(h, f);
