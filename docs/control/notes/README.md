@@ -18,6 +18,7 @@ This is the best workflow for fast switching between anamorphic and spherical le
 - Improved the bit-rate extension BITR
 - Fixed QR Command support via Mission Monitor (send Labs command directly from the app.)
 - Fixed the DAUD extension to correctly disable the Audio.
+- Fixed a random white balance shift some users were seeing.
 - A reminder of other classic Labs features, ideal for ILS
   - *24HZ=1 For 24.0 Frame rate, rather than 23.976
   - *ALLI=1 For 24.0, 30.0, 60.0, 120.0, 240.0, 480.0 rather than their 1000/1001 equilavents.
