@@ -13,15 +13,15 @@
         }
 </style>
 
-Corrects Hypersmooth stabilization so that is it optimized for underwater, improving footage stability and quality. 
+Corrects Hypersmooth stabilization so that it is optimized for underwater, improving footage stability and quality. 
 
 ## Dive Mode controls
  
 <input type="checkbox" id="divemd" name="divemd" checked><label for="divemd">Enable dive mode</label><br>
 <input type="checkbox" id="wblock" name="wblock" checked><label for="wblock">White Balance lock upon capture start</label><br>
-<input type="checkbox" id="wgamut" name="wgamut" checked><label for="wgamut">Wide gamut colorspace (same a GPLog) for all video modes</label><br>
-<input type="checkbox" id="preset" name="preset" checked><label for="preset">Make this as a new preset</label><br>
-<input type="checkbox" id="permanent" name="permanent"><label for="permanent">If not a present, make this permanent setting</label><br>
+<input type="checkbox" id="wgamut" name="wgamut" checked><label for="wgamut">Wide gamut colorspace (same as GPLog) for all video modes</label><br>
+<input type="checkbox" id="preset" name="preset" checked><label for="preset">Make this a new preset</label><br>
+<input type="checkbox" id="permanent" name="permanent"><label for="permanent">If not a preset, make this permanent setting</label><br>
 
 <div id="qrcode_txt" style="width: 360px">
  <center>
@@ -42,11 +42,11 @@ Dive mode optimizes the Hypersmooth stabilization for underwater. It might be no
 underwater there is typically less camera shake, and HS is still 70% effective at removing shake. This hack adapts HS to use the refractive index (RI) of water 
 (defaults to 1.335, good for fresh and command salt water), to remove closer to 100% of unwanted shake.<br>
 
-The option for the wider color gamut offers Native like color space (way more colors supported), while support enabling auto whitebalance, or user controlled whitebalance (Kelvin settings, not recommend for diving as there are above water settings.) 
+The option for the wider color gamut offers Native like color space (way more colors supported), while supporting enabling auto whitebalance, or user controlled whitebalance (Kelvin settings, not recommended for diving as there are above water settings.) 
 With WIDE off (0 - the default), the camera saturates color to the Rec709 gamut (basically sRGB), so some extreme real-world color saturations are clipped by the limits of the color gamut. With WIDE=1, the gamut 
 is sensor native, wider than Rec709, wider than Rec2020, just what the sensor sees.<br>
 
-The option for white balance lock, it auto white balances until the capture starts. This is useful as white balance can change greating when diving, this make post correction more straight forward.<br>
+The option for white balance lock, it auto white balances until the capture starts. This is useful as white balance can change greatly when diving, this makes post correction more straight forward.<br>
 
 **Compatibility:** Labs enabled HERO12-13
         

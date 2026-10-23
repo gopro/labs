@@ -16,10 +16,10 @@
 The Labs' firmware allows for much longer time-lapses, on the internal battery alone, by powering off the camera between photos (sorry no video mode time-lapse.) It also supports intervals beyond 60 seconds. A fully charged HERO8 can take around 400 photos, which you can spread over several hours or several days for long form time-lapse.
 
 
-As the camera is off between frames, it is also possible to periodically change the battery for extremely long time-laspes without interrupting the time-lapse in progress. Simply replace the battery, power on the camera, the time-lapse will automatically continue.
+As the camera is off between frames, it is also possible to periodically change the battery for extremely long time-lapses without interrupting the time-lapse in progress. Simply replace the battery, power on the camera, the time-lapse will automatically continue.
 
-MISSION Series Users: Due to improved effeciency and Enduro2 battery, the capture limits have yet to be tested (please report.)
-HERO12-13 Users: Due to improved reliability, effeciency and Enduro1 battery, HERO12-13 can achieve ~40% greater capture times (than older HERO Black.) A test using 3.6 minute interval, a HERO12 captured 627 images over nearly 38 hours.
+MISSION Series Users: Due to improved efficiency and Enduro2 battery, the capture limits have yet to be tested (please report.)
+HERO12-13 Users: Due to improved reliability, efficiency and Enduro1 battery, HERO12-13 can achieve ~40% greater capture times (than older HERO Black.) A test using 3.6 minute interval, a HERO12 captured 627 images over nearly 38 hours.
 Older cameras example Time-lapses tested:
 * 400+ photos over a 24 hour time-lapse. 
 * 340+ photos over a 10-day time-lapse. 

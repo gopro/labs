@@ -18,7 +18,7 @@ Our smartphones have pretty good security, the media and data is typically encry
 
 The encryption feature operates like a password protected zip file. Every MP4, JPG, LRV and THM file will be encrypted with the password you provide for activation. The camera will not be able to show your media, and files will not be playable on your PC via the SD card. The media must be decrypted on camera, or with an external tool, using the same password. This is not intended to have the highest level of security, but it is a good level of privacy when using a sufficiently long and complex password. **If the password is forgotten, there is no recovery of the data.** The encryption is using 128-bit AES, and you provide the password via a QR Code. As the QR Code itself is not encrypted, do not print or save the QR code image if you intend to be as secure as possible. Also your password is a weak point, security will depend greatly on its length (up to 16 characters are supported.)  
 
-Encrypted media has the first character of the GoPro style filename changed from ‘G’ to ‘S’. 'S' for secure. e.g. A 4K60 MP4 will encrypted with a name like SX014423.MP4.
+Encrypted media has the first character of the GoPro style filename changed from ‘G’ to ‘S’. 'S' for secure. e.g. A 4K60 MP4 will be encrypted with a name like SX014423.MP4.
 
 Set the password to nothing to disable the encryption.
 
@@ -35,7 +35,7 @@ Source [code](https://github.com/gopro/labs/tree/master/docs/control/encrypt/src
 
 ## What is not encrypted.  
 
-The MP4 file structure itself is not encrypted, it remains an indexable, trimmable file. So you can learn about the shooting length, frame rate, and resolution, etc. The metadata is not encrypted, so GPS and IMU data is still exactable. WAV files are not encrypted, so Protune audio is disabled when using the encryption feature. And not every byte is encypted within the H264/HEVC/AAC data, in some streams only about 3% of the data is encrypted. This is the trick that makes it all work, i.e. real-time on camera, the data is only obfuscated enough to break decoding. So there is challenge for security experts here, can you make a decodable image, without cracking the password?  
+The MP4 file structure itself is not encrypted, it remains an indexable, trimmable file. So you can learn about the shooting length, frame rate, and resolution, etc. The metadata is not encrypted, so GPS and IMU data is still extractable. WAV files are not encrypted, so Protune audio is disabled when using the encryption feature. And not every byte is encrypted within the H264/HEVC/AAC data, in some streams only about 3% of the data is encrypted. This is the trick that makes it all work, i.e. real-time on camera, the data is only obfuscated enough to break decoding. So there is a challenge for security experts here, can you make a decodable image, without cracking the password?  
 
 ## QR Code
 <center>

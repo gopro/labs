@@ -22,8 +22,8 @@ A Stop Motion extension where only a single frames is stored per shutter press. 
 ## Stop Motion controls
  
 <input type="checkbox" id="stopmt" name="stopmt" checked><label for="stopmt">Enable Stop Motion</label><br>
-<input type="checkbox" id="preset" name="preset" checked><label for="preset">Make this as a new preset (best)</label><br>
-<input type="checkbox" id="permanent" name="permanent"><label for="permanent">If not a present, make this permanent setting (risky)</label><br>
+<input type="checkbox" id="preset" name="preset" checked><label for="preset">Make this a new preset (best)</label><br>
+<input type="checkbox" id="permanent" name="permanent"><label for="permanent">If not a preset, make this permanent setting (risky)</label><br>
 <input type="checkbox" id="tall" name="tall"><label for="tall">Use 8:7 (not 16:9)</label><br>
 <input type="checkbox" id="use5K" name="use5K"><label for="use5K">Use 5.3K (not 4K)</label><br>
 <input type="checkbox" id="linear" name="linear"><label for="linear">Use Linear (not Wide)</label><br>
