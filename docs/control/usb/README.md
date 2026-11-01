@@ -17,7 +17,7 @@ The camera can use the switching on of USB power to boot the camera, and auto ca
 
 End capture after <input type="range" style="width: 200px;" id="tlendsec" name="tlendsec" min="0" max="60" value="2"><label for="tlendsec"></label>&nbsp;&nbsp;<b id="secsendtext"></b> seconds after USB power is off.
 
-**Note:** A battery is required, as the camera needs close captured video when power is removed. Unfortunately this means your battery will eventually discharge, so it is best to have a spare battery if you intended to used this feature as a dedicated dash-cam.  
+**Note:** A battery is required, as the camera needs to close captured video when power is removed. Unfortunately this means your battery will eventually discharge, so it is best to have a spare battery if you intended to use this feature as a dedicated dash-cam.  
 
 <input type="checkbox" id="enablenew" name="enablenew" checked> 
 <label for="enablenew">Enable for GP2 and GP3 powered cameras: HERO10 or newer</label><br>

@@ -15,13 +15,13 @@
 
 Your GoPro will typically name your files something like GOPR3606.JPG and GH013607.MP4. This is intended for high volume multiple camera production, where simply naming the source media differently will ease post production. 
 
-**WARNING:** On camera playback, USB transfer, the GoPro Quik app and GoPro cloud services will not support these renamed files. This is for direct SD card tranfers only. In addition, the camera's automatic file repair will not know to repair these files (see Manual File Recovery below), so only use this feature if you aren't putting cameras in extreme danger (where power could be randomly disconnected.) 
+**WARNING:** On camera playback, USB transfer, the GoPro Quik app and GoPro cloud services will not support these renamed files. This is for direct SD card transfers only. In addition, the camera's automatic file repair will not know to repair these files (see Manual File Recovery below), so only use this feature if you aren't putting cameras in extreme danger (where power could be randomly disconnected.) 
 
 Your base filename here: <input type="text" id="addname" value=""> (only a-z, A-Z, 0-9, and +-_(),.)<br> 
 
-**HERO10-13/MISSION:** You can added date and time to the filename (Note: make sure your clock is set correctly).  The date and time shortcuts must be within the **[ ]** characters, these are the wildcards:
+**HERO10-13/MISSION:** You can add date and time to the filename (Note: make sure your clock is set correctly).  The date and time shortcuts must be within the **[ ]** characters, these are the wildcards:
  - **yyyy** - Year in format: 2021
- - **yy** - Year in to digit format: 21
+ - **yy** - Year in two digit format: 21
  - **mm** - Month
  - **dd** - Day of Month
  - **HH** - Hour
