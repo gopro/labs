@@ -107,6 +107,8 @@ input[type=range]:hover::-webkit-slider-thumb { box-shadow:0 0 16px var(--accent
 /* Checkbox */
 label.cb-row { display:flex; align-items:flex-start; gap:9px; cursor:pointer; padding:2px 0; }
 label.cb-row input { display:none; }
+label.cb-row.hidden { display:none; }
+label.cb-row.disabled { opacity:.4; pointer-events:none; }
 .cb-box {
   width:15px; height:15px; min-width:15px; margin-top:1px;
   border:1px solid var(--border2); background:var(--panel2);
@@ -220,7 +222,7 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
 
 <header>
   <div class="h-title"><em>GP-Log2</em> LUT Generator</div>
-  <div class="h-sub">Log₆₀₀ · Rec.2020 primaries → Rec.709 / Rec.2020 SDR · .cube export</div>
+  <div class="h-sub">Log₆₀₀ · Rec.2020 primaries → Rec.709 / Rec.2020 SDR / Rec.2020 HLG · .cube export</div>
 </header>
 
 <main>
@@ -245,6 +247,14 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
       <button class="cs on" data-c="rec709">Rec.709</button>
       <button class="cs" data-c="rec2020">Rec.2020</button>
     </div>
+    <label class="cb-row hidden" id="hlgRow" style="margin-top:8px">
+      <input type="checkbox" id="hlgOut">
+      <div class="cb-box"><div class="cb-check"></div></div>
+      <div>
+        <div class="cb-txt">HLG (BT.2100)</div>
+        <div class="cb-desc">Hybrid Log-Gamma output transfer, Log₆₀₀ 1.0 → HLG 1.0 at +1.8 EV</div>
+      </div>
+    </label>
   </div>
 
   <div>
@@ -265,7 +275,7 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
 
   <div>
     <div class="lbl">Options</div>
-    <label class="cb-row">
+    <label class="cb-row" id="rolloffRow">
       <input type="checkbox" id="rolloff" checked>
       <div class="cb-box"><div class="cb-check"></div></div>
       <div>
@@ -297,7 +307,7 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
     <div class="ii"><label>Clamp</label><span id="iClamp">Off</span></div>
   </div>
 
-  <div style="margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:.04em;">Updated September 22, 2026</div>
+  <div style="margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:.04em;">Updated November 3, 2026</div>
 
 </aside>
 
@@ -329,7 +339,7 @@ body.drag-over .pb { outline:2px dashed var(--accent); outline-offset:-6px; bord
   </div>
 
   <div class="sb">
-    <span>GP-Log2 → Log base 600 · Rec.2020 primaries · Output: Rec.709 OETF (BT.709 transfer)</span>
+    <span>GP-Log2 → Log base 600 · Rec.2020 primaries · Output: <span id="sbOetf">Rec.709 OETF (BT.709 transfer)</span></span>
     <span id="sbRes">No image loaded</span>
   </div>
 </section>
@@ -367,6 +377,31 @@ function srgbDec(v) {
 function rec709(v) {
   if (v < 0.018) return v * 4.5;
   return 1.099 * Math.pow(v, 0.45) - 0.099;
+}
+
+// HLG OETF  (ITU-R BT.2100) — scene linear E [0,1] → signal [0,1]
+// Extended as an odd function for negatives (no NaNs in unclamped LUTs)
+const HLG_A = 0.17883277;
+const HLG_B = 1 - 4 * HLG_A;                 // 0.28466892
+const HLG_C = 0.5 - HLG_A * Math.log(4 * HLG_A); // 0.55991073
+function hlgOETF(e) {
+  if (e < 0) return -hlgOETF(-e);
+  if (e <= 1 / 12) return Math.sqrt(3 * e);
+  return HLG_A * Math.log(12 * e - HLG_B) + HLG_C;
+}
+// Inverse OETF (signal → scene linear), used to derive the reference-white scale
+function hlgInvOETF(v) {
+  if (v <= 0.5) return v * v / 3;
+  return (Math.exp((v - HLG_C) / HLG_A) + HLG_B) / 12;
+}
+// Scale so Log600 1.0 at the default +1.8 EV (linear ×2^1.8) lands at HLG peak E = 1.0.
+// Diffuse white (linear 1.0) then sits at ~76.6% HLG signal (near BT.2408's 75%).
+const HLG_PEAK_EV = 1.8;
+const HLG_SCALE = Math.pow(2, -HLG_PEAK_EV);
+
+// Output transfer selector
+function oetf(v, useHLG) {
+  return useHLG ? hlgOETF(v * HLG_SCALE) : rec709(v);
 }
 
 // ── Colour matrices ──────────────────────────
@@ -520,7 +555,10 @@ function rolloff(r, g, b, max_input) {
 }
 
 // ── Full per-pixel transform ─────────────────
-function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
+function transform(r0, g0, b0, ev, cs, useRolloff, useClamp, useHLG) {
+  // HLG is only valid with Rec.2020 output; rolloff is disabled under HLG
+  useHLG = useHLG && cs === 'rec2020';
+  if (useHLG) useRolloff = false;
   // 1. GP-Log2 → linear Rec.2020
   let r = invLog(r0), g = invLog(g0), b = invLog(b0);
   // 2. Colour matrix
@@ -530,12 +568,12 @@ function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   r *= gain; g *= gain; b *= gain;
   // 4. Highlight rolloff
   if (useRolloff) [r,g,b] = rolloff(r,g,b, gain);
-  // 5. Rec.709 OETF — floor negatives only when not clamping (rec709 handles near-zero linearly)
+  // 5. Output OETF (Rec.709 or HLG) — floor negatives only when clamping
   if (!useClamp) {
-    r = rec709(r); g = rec709(g); b = rec709(b);
+    r = oetf(r, useHLG); g = oetf(g, useHLG); b = oetf(b, useHLG);
   } else {
     r = Math.max(0,r); g = Math.max(0,g); b = Math.max(0,b);
-    r = rec709(r); g = rec709(g); b = rec709(b);
+    r = oetf(r, useHLG); g = oetf(g, useHLG); b = oetf(b, useHLG);
     // 6. Clamp output to [0, 1]
     r = Math.max(0, Math.min(1, r));
     g = Math.max(0, Math.min(1, g));
@@ -544,18 +582,25 @@ function transform(r0, g0, b0, ev, cs, useRolloff, useClamp) {
   return [r, g, b];
 }
 
+function outName(cs, useHLG) {
+  if (cs === 'rec709') return 'Rec.709';
+  return useHLG ? 'Rec.2020 HLG' : 'Rec.2020';
+}
+
 // ═══════════════════════════════════════════════
 // LUT GENERATION  (generates .cube text)
 // ═══════════════════════════════════════════════
-function makeCube(size, ev, cs, useRolloff, useClamp) {
-  const csName = cs === 'rec709' ? 'Rec.709' : 'Rec.2020';
+function makeCube(size, ev, cs, useRolloff, useClamp, useHLG) {
+  useHLG = useHLG && cs === 'rec2020';
+  if (useHLG) useRolloff = false;
+  const csName = outName(cs, useHLG);
   const evStr  = `+${ev.toFixed(1)}`;
   const lines  = [
     `# Generated by GP-Log2 LUT Generator`,
     `# Input:    GP-Log2 (Log base 600, Rec.2020 primaries)`,
-    `# Output:   ${csName} SDR`,
+    `# Output:   ${useHLG ? csName + ' (BT.2100, Log600 1.0 = HLG 1.0 at +1.8 EV)' : csName + ' SDR'}`,
     `# EV comp:  ${evStr}`,
-    `# Rolloff:  ${useRolloff ? 'enabled (from 0.25)' : 'disabled'}`,
+    `# Rolloff:  ${useRolloff ? 'enabled (from 0.25)' : (useHLG ? 'disabled (HLG)' : 'disabled')}`,
     `# Clamp:    ${useClamp  ? 'enabled (max 1.0)' : 'disabled'}`,
     ``,
     `LUT_3D_SIZE ${size}`,
@@ -567,7 +612,7 @@ function makeCube(size, ev, cs, useRolloff, useClamp) {
   for (let b = 0; b < size; b++)
     for (let g = 0; g < size; g++)
       for (let r = 0; r < size; r++) {
-        const [ro,go,bo] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, useRolloff, false);
+        const [ro,go,bo] = transform(r/(size-1), g/(size-1), b/(size-1), ev, cs, useRolloff, false, useHLG);
         const i = (b*size*size + g*size + r)*3;
         lut[i] = ro; lut[i+1] = go; lut[i+2] = bo;
       }
@@ -587,10 +632,11 @@ function makeCube(size, ev, cs, useRolloff, useClamp) {
   return lines.join('\n') + '\n';
 }
 
-function cubeFilename(size, ev, cs, useRolloff, useClamp) {
+function cubeFilename(size, ev, cs, useRolloff, useClamp, useHLG) {
+  useHLG = useHLG && cs === 'rec2020';
   const evTag    = `EV+${ev.toFixed(1)}`;
-  const csTag    = cs === 'rec709' ? 'Rec709' : 'Rec2020';
-  const rollTag  = useRolloff ? '_rolloff' : '';
+  const csTag    = cs === 'rec709' ? 'Rec709' : (useHLG ? 'Rec2020_HLG' : 'Rec2020');
+  const rollTag  = (useRolloff && !useHLG) ? '_rolloff' : '';
   const clampTag = useClamp   ? '_clamp'   : '';
   return `GP-Log2_${evTag}_${csTag}${rollTag}${clampTag}_${size}.cube`;
 }
@@ -790,7 +836,7 @@ const dstCvs  = document.getElementById('dstCvs');
 const zebraCvs = document.getElementById('zebraCvs');
 const display = document.getElementById('display');
 
-function processToCanvas(imgData, ev, cs, useRolloff, useClamp) {
+function processToCanvas(imgData, ev, cs, useRolloff, useClamp, useHLG) {
   const w = imgData.width, h = imgData.height;
   const out   = new ImageData(w, h);
   const zmask = new ImageData(w, h);  // zebra overlay — transparent except at clips
@@ -799,7 +845,7 @@ function processToCanvas(imgData, ev, cs, useRolloff, useClamp) {
 
   for (let i = 0; i < w * h; i++) {
     const p = i * 4;
-    const [r, g, b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff, useClamp);
+    const [r, g, b] = transform(s[p]/255, s[p+1]/255, s[p+2]/255, ev, cs, useRolloff, useClamp, useHLG);
 
     const r8 = Math.round(Math.max(0, Math.min(1, r)) * 255);
     const g8 = Math.round(Math.max(0, Math.min(1, g)) * 255);
@@ -894,8 +940,9 @@ function doUpdate() {
     const cs = currentCS;
     const ro = document.getElementById('rolloff').checked;
     const cl = document.getElementById('clampOut').checked;
+    const hl = hlgActive();
 
-    const processed = processToCanvas(srcData, ev, cs, ro, cl);
+    const processed = processToCanvas(srcData, ev, cs, ro, cl, hl);
 
     dstCvs.width  = srcCvs.width;
     dstCvs.height = srcCvs.height;
@@ -930,15 +977,23 @@ function loadImg(img) {
 let currentSize = 33;
 let currentCS   = 'rec709';
 
+function hlgActive() {
+  return currentCS === 'rec2020' && document.getElementById('hlgOut').checked;
+}
+
 function updateInfo() {
   const n = currentSize;
+  const hl = hlgActive();
+  document.getElementById('hlgRow').classList.toggle('hidden', currentCS !== 'rec2020');
+  document.getElementById('rolloffRow').classList.toggle('disabled', hl);
   document.getElementById('iSize').textContent  = `${n}³`;
   document.getElementById('iCount').textContent = (n*n*n).toLocaleString();
-  document.getElementById('iOut').textContent   = currentCS === 'rec709' ? 'Rec.709' : 'Rec.2020';
-  document.getElementById('csBadge').textContent= currentCS === 'rec709' ? 'Rec.709' : 'Rec.2020';
+  document.getElementById('iOut').textContent   = outName(currentCS, hl);
+  document.getElementById('csBadge').textContent= outName(currentCS, hl);
+  document.getElementById('sbOetf').textContent = hl ? 'HLG OETF (BT.2100)' : 'Rec.709 OETF (BT.709 transfer)';
   const ev = parseFloat(document.getElementById('evSlider').value);
   document.getElementById('iGain').textContent  = `×${Math.pow(2,ev).toFixed(2)}`;
-  document.getElementById('iRoll').textContent  = document.getElementById('rolloff').checked ? 'On' : 'Off';
+  document.getElementById('iRoll').textContent  = hl ? 'Off (HLG)' : (document.getElementById('rolloff').checked ? 'On' : 'Off');
   document.getElementById('iClamp').textContent = document.getElementById('clampOut').checked ? 'On' : 'Off';
 }
 
@@ -989,6 +1044,11 @@ document.getElementById('clampOut').addEventListener('change', () => {
   updateInfo(); scheduleUpdate();
 });
 
+// HLG (Rec.2020 only)
+document.getElementById('hlgOut').addEventListener('change', () => {
+  updateInfo(); scheduleUpdate();
+});
+
 // ─── Save LUT ────────────────────────────────
 document.getElementById('saveBtn').addEventListener('click', async () => {
   const btn = document.getElementById('saveBtn');
@@ -997,8 +1057,9 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
   const ev = parseFloat(slEl.value);
   const ro = document.getElementById('rolloff').checked;
   const cl = document.getElementById('clampOut').checked;
-  const content  = makeCube(currentSize, ev, currentCS, ro, cl);
-  const filename = cubeFilename(currentSize, ev, currentCS, ro, cl);
+  const hl = hlgActive();
+  const content  = makeCube(currentSize, ev, currentCS, ro, cl, hl);
+  const filename = cubeFilename(currentSize, ev, currentCS, ro, cl, hl);
   const blob = new Blob([content], {type:'text/plain'});
   const url  = URL.createObjectURL(blob);
   const a    = Object.assign(document.createElement('a'), {href:url, download:filename});
