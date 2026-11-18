@@ -3,11 +3,19 @@
 Only the more recent releases are documented below. This a general list of Labs enhancements on top on the mainline firmware updates. Changes to mainline firmware are not listed.
 
 
- 
-## MISSION 1 PRO ILS
+## MISSION 1 & MISSION 1 PRO & MISSION 1 PRO ILS
+
+### 4.10.70 - Nov 18, 2026
+- Added USB connection controls: u0 - Allow, u1 - Ask, u2 - Never
+- Fixed NR01 to turn off more noise reduction from boot
+- Fixed QR Code scanning in the new photo mode
+- Fixed Histogram in the new photo mode
+- latest mainline features on Labs.
 
 ### 4.01.70 - Oct 13, 2026
 - just latest mainline features on Labs.
+
+## MISSION 1 PRO ILS
 
 ### 3.00.72 - Sept 24, 2026
 - Initial anamorphic support for Hypersmooth, and metadata for automatic correction in desktop playback and editing tools (tested in Premiere Pro and DaVinci Resolve.) This is not the final HS quality (more to come), and there is currently no desqueeze preview on camera yet.
@@ -39,9 +47,6 @@ This is the best workflow for fast switching between anamorphic and spherical le
  
 ## MISSION 1 & MISSION 1 PRO
 
-### 4.01.70 - Oct 13, 2026
-- just latest mainline features on Labs.
-
 ### 2.02.70 - August 10, 2026
 
 - Added WAKE=4 wake on USB power only (not battery)
@@ -72,12 +77,10 @@ This is the best workflow for fast switching between anamorphic and spherical le
 - Added DIOP=x - Experimental diopter correction. Adding a diopter lens will modify the distortion, and impact stabilization, this attempts to compensate.  e.g. $DIOP=4 for +4 diopter lens.
 - Restored EVBS=x for EV Comp Bias, global for all modes, and can be changed during capture if QRDR=1 is set.
 
-
 ### 1.30.70 - July 7, 2026
 
 - Added STBY length control. Mission default to 600s in stable before a full shutdown. *STBY=50 for 50s standby length
 - Added LMTI for a ISO Limiter $LMTI=min_iso,m_iso, for range of ISO control. e.g. $LMTI=100,400 Experimental.
-
 
 ### 1.22.70 - June 22, 2026
 
@@ -86,7 +89,6 @@ This is the best workflow for fast switching between anamorphic and spherical le
 - Fixed a capture failure with 960fps with ALLI enabled.
 - Improved HIST rendering to the Front LCD with HSTP.
 - Improved $NR01=1 so it now also turns off temporal denoise reduction, if enabled
-
 
 ### 1.10.71 - May 28, 2026
 
@@ -913,6 +915,6 @@ Display the current mode with with this command:  ```"mode $v"!R``` or fast/clea
 
 
 
-updated: Oct 13, 2026
+updated: Nov 18, 2026
 
 [Learn more](..) on QR Control
