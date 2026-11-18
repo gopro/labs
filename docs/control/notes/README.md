@@ -10,7 +10,9 @@ Only the more recent releases are documented below. This a general list of Labs 
 - Fixed NR01 to turn off more noise reduction from boot
 - Fixed QR Code scanning in the new photo mode
 - Fixed Histogram in the new photo mode
+- Fixed color issues with BITR captures. 
 - latest mainline features on Labs.
+- ILS only, improved Anamorphic Lens stabilization.
 
 ### 4.01.70 - Oct 13, 2026
 - just latest mainline features on Labs.
