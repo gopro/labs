@@ -130,6 +130,10 @@ New commands for MISSION 1 Series cameras:
 
 ## MAX2
 
+
+### 1.34.70 - Nov 19, 2026
+- just latest mainline features on Labs.
+
 ### 1.30.70 - March 17, 2026
 
 - Added DIxx or DI01 to DI99 for 1 to 99m Distancement preset names
@@ -172,6 +176,9 @@ Much of MAX2 Labs feature are similar to HERO13, with a few exceptions. Here is 
 
 
 ## HERO13 Black 
+
+### 2.14.70 - Nov 19, 2026
+- just latest mainline features on Labs.
 
 ### 2.10.70 - October 17, 2025
 - Added IFRM for I-frame only encoding (very expperimental)
@@ -345,6 +352,9 @@ For advanced Labs users, preset names can call macros. Warning: don't put perman
 - Fixed attempted file I/O with SD Card removed.
 
 ## HERO12 Black 
+
+### 2.44.70 - Nov 19, 2026
+- just latest mainline features on Labs.
 
 ### 2.40.70 - November 4, 2025
  - Current Labs libary, with support and bug fixes very similar to the current MAX2 and HERO13 releases. Most HERO13 Labs features are now supported HERO12.
